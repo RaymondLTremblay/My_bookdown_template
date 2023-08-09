@@ -1,0 +1,246 @@
+# Flujo de trabajo
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/workflow-projects.html>
+ 
+Español:
+ <https://r4ds-en-espaniol.netlify.app/flujo-de-trabajo-conocimientos-básicos.html>
+
+
+***
+
+
+## Temas:
+
+  - Reduciendo Errores
+  - getwd()
+  - setwd()
+  - Su Proyecto
+  
+  
+*** 
+  
+## Creación de un proyecto:
+
+  - crear un proyecto para cada curso
+  - crear un proyecto para cada investigación
+  - No se te olvida de añadir tu archivos de datos en el proyecto
+  - Describe claramente todos tus análisis y donde conseguiste la información
+  - Describe tu interpretación de los análisis o gráficos
+  - Correr los "scripts" uno a la vez para asegurar que funcione
+  - knit el archivo .rmd para asegurar que no falte nada.
+  - no mezclar proyectos de investigación en un mismo proyecto
+  
+  
+***
+  
+```{r}
+#install.packages("tidyverse")
+library(tidyverse)
+
+# install.packages("datos")
+library(datos)
+```
+
+
+```{r}
+millas
+
+```
+
+```{r}
+ggplot(data = millas) +
+  geom_point(mapping = aes(x = cilindrada, y = autopista))
+```
+
+```{r}
+ggplot(data=millas)
+
+head(millas)
+?millas
+
+dim(millas)
+```
+
+```{r}
+ggplot(data = millas) +
+  geom_point(mapping = aes(x = cilindrada, y = autopista, alpha = fabricante, colour=fabricante))
+```
+
+```{r}
+ggplot(data = millas) +
+ geom_point(mapping = aes(x = cilindrada, y = autopista), shape=11, color = "#c093cc", fill="yellow")
+```
+
+```{r}
+ ggplot(data = millas) +
+   geom_point(mapping = aes(x = cilindrada, y = autopista), color = "blue")
+
+ggsave("cilindro_milla.jpg") #. png, .tiff
+
+```
+
+
+
+```{r}
+millas
+```
+
+
+
+Ejercicio para someter:
+
+1. baja el paquete "ggversa"
+2. activar el paquete "ggversa"
+3. mirar las variables del archivo en este paquete que se llama "Anolis"
+4. haga un gráfico que incluye lo siguiente
+   a. en el eje de x = el SVL. que es el tamaño del lagarto del hocico a la cloaca y en la variable de "TAIL" en el eje de y.
+  b. selecciona la variable "SEX_AGE" para color
+  c. selecciona la función correcta para que cada "SEX_AGE" tenga su proprio gráfico
+ d. salva el gráfico en .png o .jpg
+ e. subir el gráfico aquí
+
+
+```{r}
+
+library(ggversa)
+head(Anolis)
+```
+
+```{r}
+ggplot(data = Anolis) +
+  geom_point(mapping = aes(x = SVL, y = TAIL, color=SEX_AGE))+
+  facet_wrap(~SEX_AGE, ncol=1)
+```
+
+
+
+```{r}
+# izquierda
+ggplot(data = millas) +
+  geom_point(mapping = aes(x = cilindrada, y = autopista))
+
+# derecha   LOESS  
+ggplot(data = millas) +
+  geom_smooth(method=lm,mapping = aes(x = cilindrada, y = autopista))+  # y = mx+b
+  geom_point( mapping = aes(x = cilindrada, y = autopista))
+```
+
+
+```{r}
+names(millas)
+
+ggplot(data = millas) +
+  geom_smooth(mapping = aes(x = cilindrada, y = autopista, linetype = clase, colour=clase))
+```
+
+```{r}
+ggplot(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
+  geom_point(mapping = aes(color = clase)) +
+  geom_smooth(data = filter(millas, clase == "suv"), se =TRUE)
+```
+
+
+
+```{r}
+ggplot(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
+  geom_point() +
+  geom_smooth()
+
+ggplot() +
+  geom_point(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
+  geom_smooth(data = millas, mapping = aes(x = cilindrada, y = autopista))
+```
+
+
+```{r}
+ggplot(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
+  geom_point(mapping = aes(color = clase)) +
+  geom_smooth()
+```
+
+## Transformación estadística
+
+```{r}
+head(diamantes)
+nrow(diamantes)
+ncol(diamantes)
+dim(diamantes)
+
+max(diamantes$precio)
+min(diamantes$precio)
+
+unique(diamantes$corte)
+#diamantes$corte
+#diamantes$precio
+
+```
+
+
+```{r}
+ggplot(data = diamantes) +
+  geom_bar(mapping = aes(x = corte))
+```
+
+```{r}
+ggplot(data = diamantes) +
+  stat_summary(
+    mapping = aes(x = corte, y = profundidad),
+    fun.min = min,
+    fun.max = max,
+    fun = median
+  )
+```
+
+
+```{r}
+x=c(1:100, NA)
+x
+mean(x, na.rm=TRUE)
+```
+
+
+```{r}
+ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
+  geom_boxplot()
+
+ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
+  geom_boxplot() +
+  coord_flip()
+```
+
+```{r eval=FALSE, include=FALSE}
+
+
+usa <- map_data("cd")
+
+ggplot(usa, aes(long, lat, group = group)) +
+  geom_polygon(fill = "white", colour = "black")
+
+ggplot(usa, aes(long, lat, group = group)) +
+  geom_polygon(fill = "white", colour = "black") +
+  coord_quickmap()
+```
+
+```{r}
+bar <- ggplot(data = diamantes) +
+  geom_bar(
+    mapping = aes(x = corte, fill = corte),
+    show.legend = FALSE,
+    width = 1
+  ) +
+  theme(aspect.ratio = 1) +
+  labs(x = NULL, y = NULL)
+bar
+bar + coord_flip()
+bar + coord_polar()
+```
+```{r}
+library(readr)
+Vuelos_SJU_2018_Ene <- read_csv("Datos/Vuelos_SJU_2018_Ene.csv")
+
+head(Vuelos_SJU_2018_Ene)
+```
+
