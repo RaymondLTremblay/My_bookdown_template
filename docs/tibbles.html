@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | 4_Transformacion_dplyr</title>
+  <title>Chapter 9 Tibbles | 4_Transformacion_dplyr</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Dinamica Poblacional con ejemplos de la familai Orquidaceae" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | 4_Transformacion_dplyr" />
+  <meta property="og:title" content="Chapter 9 Tibbles | 4_Transformacion_dplyr" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Dinamica Poblacional con ejemplos de la familai Orquidaceae" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | 4_Transformacion_dplyr" />
+  <meta name="twitter:title" content="Chapter 9 Tibbles | 4_Transformacion_dplyr" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Dinamica Poblacional con ejemplos de la familai Orquidaceae" />
   
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
+<link rel="prev" href="pipes.html"/>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -253,18 +253,183 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="tibbles" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Tibbles<a href="tibbles.html#tibbles" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Fecha de la ultima revisión</p>
+<pre><code>## [1] &quot;2023-08-09&quot;</code></pre>
+<hr />
+<p>El tema proviene de los siguientes sitios.</p>
+<p>English:
+<a href="https://r4ds.had.co.nz/tibbles.html" class="uri">https://r4ds.had.co.nz/tibbles.html</a></p>
+<p>Español:
+<a href="https://es.r4ds.hadley.nz/tibbles.html" class="uri">https://es.r4ds.hadley.nz/tibbles.html</a></p>
+<hr />
+<div id="temas-el-paquete-tibble" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Temas: El paquete Tibble<a href="tibbles.html#temas-el-paquete-tibble" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>as_tibble()</li>
+</ul>
+<hr />
+</div>
+<div id="crear-un-tibble" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Crear un tibble<a href="tibbles.html#crear-un-tibble" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>tibble()</li>
+</ul>
+<p>Crear un tibble con la siguiente información. Una columna que tiene los valores del 1 al 8 que se llama “secuencia”, una segunda columna que tiene los siguientes valores 23,26, 24,26,27, 11,20,21 que se llama edad y una tercera columna con la siguiente información, Jose, Maria, Carol, Moncho, Liz, Maria, Jorge, Miguel, que ser llama Nombre</p>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="tibbles.html#cb436-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb436-2"><a href="tibbles.html#cb436-2" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
+<span id="cb436-3"><a href="tibbles.html#cb436-3" tabindex="-1"></a></span>
+<span id="cb436-4"><a href="tibbles.html#cb436-4" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb436-5"><a href="tibbles.html#cb436-5" tabindex="-1"></a>  <span class="at">secuencia =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>),</span>
+<span id="cb436-6"><a href="tibbles.html#cb436-6" tabindex="-1"></a>  <span class="at">edad =</span> <span class="fu">c</span>(<span class="dv">23</span>,<span class="dv">26</span>, <span class="dv">24</span>,<span class="dv">26</span>,<span class="dv">27</span>, <span class="dv">11</span>,<span class="dv">20</span>,<span class="dv">21</span>),</span>
+<span id="cb436-7"><a href="tibbles.html#cb436-7" tabindex="-1"></a>  <span class="at">nombre =</span> <span class="fu">c</span>(<span class="st">&quot;Jose&quot;</span>, <span class="st">&quot;Maria&quot;</span>, <span class="st">&quot;Carol&quot;</span>, <span class="st">&quot;Moncho&quot;</span>, <span class="st">&quot;Liz&quot;</span>, <span class="st">&quot;Maria&quot;</span>, <span class="st">&quot;Jorge&quot;</span>, <span class="st">&quot;Miguel&quot;</span>)</span>
+<span id="cb436-8"><a href="tibbles.html#cb436-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## # A tibble: 8 × 3
+##   secuencia  edad nombre
+##       &lt;int&gt; &lt;dbl&gt; &lt;chr&gt; 
+## 1         1    23 Jose  
+## 2         2    26 Maria 
+## 3         3    24 Carol 
+## 4         4    26 Moncho
+## 5         5    27 Liz   
+## 6         6    11 Maria 
+## 7         7    20 Jorge 
+## 8         8    21 Miguel</code></pre>
+<hr />
+</div>
+<div id="crear-un-tribble" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Crear un tribble<a href="tibbles.html#crear-un-tribble" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>tribble()</li>
+</ul>
+<p>Haga un tribble con las primera 3 lineas del tibble anterior</p>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="tibbles.html#cb438-1" tabindex="-1"></a><span class="fu">tribble</span>(</span>
+<span id="cb438-2"><a href="tibbles.html#cb438-2" tabindex="-1"></a>  <span class="sc">~</span>secuencia, <span class="sc">~</span>edad, <span class="sc">~</span>nombre,</span>
+<span id="cb438-3"><a href="tibbles.html#cb438-3" tabindex="-1"></a>  <span class="dv">1</span>, <span class="dv">23</span>, <span class="st">&quot;Jose&quot;</span>,</span>
+<span id="cb438-4"><a href="tibbles.html#cb438-4" tabindex="-1"></a>  <span class="dv">2</span>, <span class="dv">26</span>, <span class="st">&quot;Maria&quot;</span>,</span>
+<span id="cb438-5"><a href="tibbles.html#cb438-5" tabindex="-1"></a>  <span class="dv">3</span>, <span class="dv">23</span>, <span class="st">&quot;Carol&quot;</span></span>
+<span id="cb438-6"><a href="tibbles.html#cb438-6" tabindex="-1"></a>  </span>
+<span id="cb438-7"><a href="tibbles.html#cb438-7" tabindex="-1"></a>  </span>
+<span id="cb438-8"><a href="tibbles.html#cb438-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 3
+##   secuencia  edad nombre
+##       &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; 
+## 1         1    23 Jose  
+## 2         2    26 Maria 
+## 3         3    23 Carol</code></pre>
+<hr />
+</div>
+<div id="tibble-vs.-data.frame" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> tibble vs. data.frame<a href="tibbles.html#tibble-vs.-data.frame" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="tibbles.html#cb440-1" tabindex="-1"></a>tb <span class="ot">=</span> <span class="fu">tibble</span>(</span>
+<span id="cb440-2"><a href="tibbles.html#cb440-2" tabindex="-1"></a>  <span class="at">a =</span> lubridate<span class="sc">::</span><span class="fu">now</span>() <span class="sc">+</span> <span class="fu">runif</span>(<span class="fl">1e2</span>) <span class="sc">*</span> <span class="dv">86400</span>,</span>
+<span id="cb440-3"><a href="tibbles.html#cb440-3" tabindex="-1"></a>  <span class="at">b =</span> lubridate<span class="sc">::</span><span class="fu">today</span>() <span class="sc">+</span> <span class="fu">runif</span>(<span class="fl">1e2</span>) <span class="sc">*</span> <span class="dv">30</span>,</span>
+<span id="cb440-4"><a href="tibbles.html#cb440-4" tabindex="-1"></a>  <span class="at">c =</span> <span class="dv">1</span><span class="sc">:</span><span class="fl">1e2</span>,</span>
+<span id="cb440-5"><a href="tibbles.html#cb440-5" tabindex="-1"></a>  <span class="at">d =</span> <span class="fu">runif</span>(<span class="fl">1e2</span>),</span>
+<span id="cb440-6"><a href="tibbles.html#cb440-6" tabindex="-1"></a>  <span class="at">e =</span> <span class="fu">sample</span>(letters, <span class="fl">1e2</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb440-7"><a href="tibbles.html#cb440-7" tabindex="-1"></a>)</span>
+<span id="cb440-8"><a href="tibbles.html#cb440-8" tabindex="-1"></a>tb</span></code></pre></div>
+<pre><code>## # A tibble: 100 × 5
+##    a                   b              c      d e    
+##    &lt;dttm&gt;              &lt;date&gt;     &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;
+##  1 2023-08-10 05:08:58 2023-08-10     1 0.913  t    
+##  2 2023-08-10 11:43:42 2023-08-29     2 0.217  t    
+##  3 2023-08-10 03:05:59 2023-09-06     3 0.425  y    
+##  4 2023-08-10 15:03:00 2023-09-06     4 0.161  t    
+##  5 2023-08-09 22:23:10 2023-08-21     5 0.678  n    
+##  6 2023-08-10 10:28:39 2023-08-24     6 0.810  h    
+##  7 2023-08-10 13:01:38 2023-09-04     7 0.497  t    
+##  8 2023-08-10 00:26:46 2023-08-21     8 0.516  i    
+##  9 2023-08-09 22:53:00 2023-09-07     9 0.996  v    
+## 10 2023-08-10 11:38:56 2023-08-12    10 0.0142 c    
+## # ℹ 90 more rows</code></pre>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="tibbles.html#cb442-1" tabindex="-1"></a>tb <span class="sc">%&gt;%</span></span>
+<span id="cb442-2"><a href="tibbles.html#cb442-2" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">4</span>, <span class="at">width =</span> <span class="cn">Inf</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 100 × 5
+##   a                   b              c     d e    
+##   &lt;dttm&gt;              &lt;date&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;
+## 1 2023-08-10 05:08:58 2023-08-10     1 0.913 t    
+## 2 2023-08-10 11:43:42 2023-08-29     2 0.217 t    
+## 3 2023-08-10 03:05:59 2023-09-06     3 0.425 y    
+## 4 2023-08-10 15:03:00 2023-09-06     4 0.161 t    
+## # ℹ 96 more rows</code></pre>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="tibbles.html#cb444-1" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">now</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;2023-08-09 15:41:27 AST&quot;</code></pre>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="tibbles.html#cb446-1" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">today</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;2023-08-09&quot;</code></pre>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="tibbles.html#cb448-1" tabindex="-1"></a><span class="fu">runif</span>(<span class="fl">1e2</span>)</span></code></pre></div>
+<pre><code>##   [1] 0.06720144 0.36344893 0.42365036 0.61475506 0.13936548 0.93696836
+##   [7] 0.03185225 0.28970737 0.25422726 0.48572644 0.23999583 0.10968567
+##  [13] 0.80816026 0.72804554 0.99721566 0.85109837 0.60583722 0.39452732
+##  [19] 0.84653024 0.06181209 0.04182914 0.22874975 0.20963190 0.66751263
+##  [25] 0.75720453 0.37027180 0.55732594 0.11904509 0.75488829 0.44716694
+##  [31] 0.77440325 0.75736731 0.46816886 0.65682886 0.40436202 0.45010758
+##  [37] 0.95037750 0.43859341 0.20537516 0.60805685 0.76690959 0.60179131
+##  [43] 0.82813666 0.21015923 0.90528768 0.53337325 0.10662122 0.23461466
+##  [49] 0.82823060 0.44399896 0.54078700 0.66394601 0.18726848 0.95124657
+##  [55] 0.01071190 0.77913667 0.13255339 0.62893715 0.33552675 0.34363333
+##  [61] 0.76936895 0.40415450 0.28062533 0.45209948 0.98241634 0.45981291
+##  [67] 0.07658892 0.39805852 0.75732176 0.05105335 0.58293976 0.53860386
+##  [73] 0.66004960 0.14786535 0.68011689 0.67685515 0.92514718 0.60086828
+##  [79] 0.58092331 0.34538629 0.69711091 0.27840322 0.62858271 0.27873059
+##  [85] 0.38065433 0.44702004 0.04749599 0.33417592 0.42050413 0.53688459
+##  [91] 0.33881823 0.50414441 0.10050108 0.85142337 0.18656326 0.57900727
+##  [97] 0.07105309 0.40590987 0.25904949 0.94449087</code></pre>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="tibbles.html#cb450-1" tabindex="-1"></a><span class="fu">head</span>(vuelos)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 19
+##    anio   mes   dia horario_salida salida_programada atraso_salida
+##   &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+## 1  2013     1     1            517               515             2
+## 2  2013     1     1            533               529             4
+## 3  2013     1     1            542               540             2
+## 4  2013     1     1            544               545            -1
+## 5  2013     1     1            554               600            -6
+## 6  2013     1     1            554               558            -4
+## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="tibbles.html#cb452-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span></span>
+<span id="cb452-2"><a href="tibbles.html#cb452-2" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">4</span>, <span class="at">width =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## # A
+## #   tibble:
+## #   336,776
+## #   ×
+## #   19
+## # ℹ 336,772 more rows
+## # ℹ 19 more variables: anio &lt;int&gt;, mes &lt;int&gt;, dia &lt;int&gt;, horario_salida &lt;int&gt;, salida_programada &lt;int&gt;, atraso_salida &lt;dbl&gt;, horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;, atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;, origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;, hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="tibbles.html#cb454-1" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">as.data.frame</span>(tb))</span></code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+</div>
+<div id="seleccion-de-subconjuntos" class="section level2 hasAnchor" number="9.5">
+<h2><span class="header-section-number">9.5</span> Seleccion de subconjuntos<a href="tibbles.html#seleccion-de-subconjuntos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="tibbles.html#cb456-1" tabindex="-1"></a><span class="fu">head</span>(vuelos<span class="sc">$</span>mes, <span class="at">n=</span><span class="dv">5</span>) </span></code></pre></div>
+<pre><code>## [1] 1 1 1 1 1</code></pre>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="tibbles.html#cb458-1" tabindex="-1"></a>vuelos[[<span class="st">&quot;mes&quot;</span>]] <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">40</span>)</span></code></pre></div>
+<pre><code>##  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [39] 1 1</code></pre>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="tibbles.html#cb460-1" tabindex="-1"></a><span class="co">#Usar esta función dentro de pipe</span></span>
+<span id="cb460-2"><a href="tibbles.html#cb460-2" tabindex="-1"></a></span>
+<span id="cb460-3"><a href="tibbles.html#cb460-3" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> .<span class="sc">$</span>mes <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">40</span>)</span></code></pre></div>
+<pre><code>##  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [39] 1 1</code></pre>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="tibbles.html#cb462-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> .[[<span class="st">&quot;mes&quot;</span>]] <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">40</span>)</span></code></pre></div>
+<pre><code>##  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [39] 1 1</code></pre>
+<ol style="list-style-type: decimal">
+<li><strong>Ejercicios</strong>:</li>
+</ol>
+<p>Hacer los ejercicios en la sección 10.5 del libro en español</p>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
+<a href="pipes.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
@@ -296,7 +461,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/%s",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/09-Tibbles.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -304,7 +469,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/%s",
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/09-Tibbles.Rmd",
 "text": null
 },
 "download": null,

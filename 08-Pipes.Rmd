@@ -1,0 +1,85 @@
+# Pipes
+
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+
+Sys.Date()
+```
+
+***
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/pipes.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/pipes.html>
+ 
+ 
+***
+
+
+## Temas: El paquete "magrittr"
+
+ - %>% pipes
+ 
+ 
+***
+
+
+## Alternativas a los pipes
+ - Pasos intermedios
+ - Sobre escribir el original
+ 
+## Composición de funciones
+
+***
+## Uso de pipe
+
+***
+## Cuándo no usar el pipe
+
+***
+## Otras herramientas de magrittr
+
+ - %T>%
+ - %$%
+ 
+```{r}
+library(magrittr)
+
+iris %>%
+  subset(Sepal.Length > mean(Sepal.Length)) %$%
+  cor(Sepal.Length, Sepal.Width)
+```
+ 
+  - %<>%
+ 
+```{r}
+
+# Example 1
+head(iris)
+
+head(iris$Sepal.Length %<>% sqrt)
+
+
+
+# Example 2
+x <- rnorm(100)
+head(x, n=10)
+x %<>% 
+  abs %>% 
+  sort
+
+head(x, 20)
+```
+ 
+ 
+ ***
+
+ - %in% 
+ 
+ 
+ 

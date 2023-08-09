@@ -1,0 +1,131 @@
+# Analisis Exploratorio
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+
+Sys.Date()
+```
+
+***
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/exploratory-data-analysis.html>
+ 
+Español:
+ <https://r4ds-en-espaniol.netlify.app/análisis-exploratorio-de-datos-eda.html>
+ 
+ 
+***
+
+## Temas
+
+ - Variación
+ - Valores faltantes
+ - Covariación
+ - Patrones y modelos
+ - Argumentos en ggplot2
+ 
+***
+
+
+## Terminos importantes
+  
+  - variable
+  - valor
+  - observación
+  - datos tabulados
+  
+  
+***
+  
+### Variación
+
+ - visualización de las distribuciones
+ - count()
+ - cut_width()
+ - valores típicos
+ - valores inusuales o atípicos
+
+ 
+***
+
+1.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 7.3.4 del libro en español
+
+***
+ 
+ 
+### Valores faltantes
+
+ - between()
+ - ifelse()
+ 
+
+***
+
+2.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 7.4.1 del libro en español
+
+***
+
+### Covariación
+
+
+ - geom_boxplot
+ - IQR()
+ 
+***
+ 
+2.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 7.5.1.1 del libro en español
+
+ 
+
+
+***
+
+### Dos variables categóricas
+
+ - geom_count()
+ - geom_tile()
+ 
+
+*** 
+ 
+2.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 7.5.2.1 del libro en español
+
+***
+
+### Dos variables continuas
+
+
+ - geom_point()
+ - geom_hex()
+ - geopm_boxplot()
+ 
+*** 
+ 
+3.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 7.5.3.1 del libro en español
+
+***
+ 
+### Patrones y modelos
+
+ - construir un modelo estádistico
+
+
+
