@@ -1,0 +1,2407 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Transformacion | 4_Transformacion_dplyr</title>
+  <meta name="description" content="Este libro digital es una introdución al estudio de Dinamica Poblacional con ejemplos de la familai Orquidaceae" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Transformacion | 4_Transformacion_dplyr" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Este libro digital es una introdución al estudio de Dinamica Poblacional con ejemplos de la familai Orquidaceae" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Transformacion | 4_Transformacion_dplyr" />
+  
+  <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Dinamica Poblacional con ejemplos de la familai Orquidaceae" />
+  
+
+<meta name="author" content="Raymond L. Tremblay" />
+
+
+<meta name="date" content="2023-08-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="calculadora-sofisticada.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Ciencia_Datos_R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Ciencia de Datos con R</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="index.html"><a href="index.html#horario-de-clase"><i class="fa fa-check"></i><b>1.0.1</b> Horario de clase</a></li>
+<li class="chapter" data-level="1.0.2" data-path="index.html"><a href="index.html#libros-sugeridos"><i class="fa fa-check"></i><b>1.0.2</b> Libros sugeridos</a></li>
+<li class="chapter" data-level="1.0.3" data-path="index.html"><a href="index.html#programados"><i class="fa fa-check"></i><b>1.0.3</b> Programados</a></li>
+<li class="chapter" data-level="1.0.4" data-path="index.html"><a href="index.html#prerequisitos"><i class="fa fa-check"></i><b>1.0.4</b> Prerequisitos</a></li>
+<li class="chapter" data-level="1.0.5" data-path="index.html"><a href="index.html#descripción-del-curso"><i class="fa fa-check"></i><b>1.0.5</b> Descripción del curso</a></li>
+<li class="chapter" data-level="1.0.6" data-path="index.html"><a href="index.html#objetivos-del-curso"><i class="fa fa-check"></i><b>1.0.6</b> Objetivos del curso</a></li>
+<li class="chapter" data-level="1.0.7" data-path="index.html"><a href="index.html#puntuación"><i class="fa fa-check"></i><b>1.0.7</b> Puntuación:</a></li>
+<li class="chapter" data-level="1.0.8" data-path="index.html"><a href="index.html#examenes"><i class="fa fa-check"></i><b>1.0.8</b> Examenes:</a></li>
+<li class="chapter" data-level="1.0.9" data-path="index.html"><a href="index.html#es-obligatorio-tener-la-camera-prendida-durante-todo-el-exámen.-no-es-permitido-usar-el-celular-ud.-tendrá-que-demostrar-que-el-celular-este-detrás-de-uds-antes-de-comenzar-el-examen"><i class="fa fa-check"></i><b>1.0.9</b> Es obligatorio tener la camera prendida durante <strong>todo el exámen</strong>. No es permitido usar el celular, Ud. tendrá que demostrar que el celular este detrás de uds antes de comenzar el examen</a></li>
+<li class="chapter" data-level="1.0.10" data-path="index.html"><a href="index.html#conferencias"><i class="fa fa-check"></i><b>1.0.10</b> Conferencias</a></li>
+<li class="chapter" data-level="1.0.11" data-path="index.html"><a href="index.html#ejercicios"><i class="fa fa-check"></i><b>1.0.11</b> Ejercicios</a></li>
+<li class="chapter" data-level="1.0.12" data-path="index.html"><a href="index.html#faltar-a-clase-y-examen"><i class="fa fa-check"></i><b>1.0.12</b> Faltar a clase y examen:</a></li>
+<li class="chapter" data-level="1.0.13" data-path="index.html"><a href="index.html#derechos-de-estudiantes-con-impedimentos"><i class="fa fa-check"></i><b>1.0.13</b> Derechos de Estudiantes con Impedimentos</a></li>
+<li class="chapter" data-level="1.0.14" data-path="index.html"><a href="index.html#integridad-académica"><i class="fa fa-check"></i><b>1.0.14</b> Integridad académica</a></li>
+<li class="chapter" data-level="1.0.15" data-path="index.html"><a href="index.html#comentario-sobre-grabar-videos-yo-audio-de-las-clases"><i class="fa fa-check"></i><b>1.0.15</b> Comentario sobre grabar videos y/o audio de las clases</a></li>
+<li class="chapter" data-level="1.0.16" data-path="index.html"><a href="index.html#espacio-libre-de-acoso-sexual"><i class="fa fa-check"></i><b>1.0.16</b> Espacio libre de acoso sexual</a></li>
+<li class="chapter" data-level="1.0.17" data-path="index.html"><a href="index.html#protocolo-de-la-clase"><i class="fa fa-check"></i><b>1.0.17</b> Protocolo de la Clase</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html"><i class="fa fa-check"></i><b>2</b> Flujo de trabajo</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#temas"><i class="fa fa-check"></i><b>2.1</b> Temas:</a></li>
+<li class="chapter" data-level="2.2" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#creación-de-un-proyecto"><i class="fa fa-check"></i><b>2.2</b> Creación de un proyecto:</a></li>
+<li class="chapter" data-level="2.3" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#transformación-estadística"><i class="fa fa-check"></i><b>2.3</b> Transformación estadística</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html"><i class="fa fa-check"></i><b>3</b> Visualización de datos</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html#temas-1"><i class="fa fa-check"></i><b>3.1</b> Temas:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html"><i class="fa fa-check"></i><b>4</b> Calculadora sofisticada</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#temas-2"><i class="fa fa-check"></i><b>4.1</b> Temas:</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="transformacion.html"><a href="transformacion.html"><i class="fa fa-check"></i><b>5</b> Transformacion</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="transformacion.html"><a href="transformacion.html#temas-reconocer-y-aplicar-las-diferentes-funciones"><i class="fa fa-check"></i><b>5.1</b> Temas: Reconocer y aplicar las diferentes funciones</a></li>
+<li class="chapter" data-level="5.2" data-path="transformacion.html"><a href="transformacion.html#starts_with-ends_with"><i class="fa fa-check"></i><b>5.2</b> starts_with(), ends_with()</a></li>
+<li class="chapter" data-level="5.3" data-path="transformacion.html"><a href="transformacion.html#rename"><i class="fa fa-check"></i><b>5.3</b> rename()</a></li>
+<li class="chapter" data-level="5.4" data-path="transformacion.html"><a href="transformacion.html#reoganizar-el-oden-de-las-columnas"><i class="fa fa-check"></i><b>5.4</b> Reoganizar el oden de las columnas</a></li>
+<li class="chapter" data-level="5.5" data-path="transformacion.html"><a href="transformacion.html#matches.1-lo-veremos-en-la-leccion-de-string"><i class="fa fa-check"></i><b>5.5</b> matches(“(.)\1”) Lo veremos en la leccion de “STRING”</a></li>
+<li class="chapter" data-level="5.6" data-path="transformacion.html"><a href="transformacion.html#hagan-lo-con-el-data-set-en-espanol"><i class="fa fa-check"></i><b>5.6</b> Hagan lo con el data set en espanol</a></li>
+<li class="chapter" data-level="5.7" data-path="transformacion.html"><a href="transformacion.html#transmute"><i class="fa fa-check"></i><b>5.7</b> transmute()</a></li>
+<li class="chapter" data-level="5.8" data-path="transformacion.html"><a href="transformacion.html#lag"><i class="fa fa-check"></i><b>5.8</b> lag()</a></li>
+<li class="chapter" data-level="5.9" data-path="transformacion.html"><a href="transformacion.html#usa-lag-con-inccasossaludnuevo-en-covid-19-pr"><i class="fa fa-check"></i><b>5.9</b> Usa “Lag” con “IncCasosSaludNuevo” en COVID-19 PR</a></li>
+<li class="chapter" data-level="5.10" data-path="transformacion.html"><a href="transformacion.html#lead"><i class="fa fa-check"></i><b>5.10</b> lead(),</a></li>
+<li class="chapter" data-level="5.11" data-path="transformacion.html"><a href="transformacion.html#cumsum"><i class="fa fa-check"></i><b>5.11</b> cumsum</a></li>
+<li class="chapter" data-level="5.12" data-path="transformacion.html"><a href="transformacion.html#cummean-and-cumvar"><i class="fa fa-check"></i><b>5.12</b> cummean() and cumvar()</a></li>
+<li class="chapter" data-level="5.13" data-path="transformacion.html"><a href="transformacion.html#min_rank-y-min_rankdesc"><i class="fa fa-check"></i><b>5.13</b> min_rank() y # min_rank(desc())</a></li>
+<li class="chapter" data-level="5.14" data-path="transformacion.html"><a href="transformacion.html#row_number"><i class="fa fa-check"></i><b>5.14</b> row_number()</a></li>
+<li class="chapter" data-level="5.15" data-path="transformacion.html"><a href="transformacion.html#dense_rank"><i class="fa fa-check"></i><b>5.15</b> dense_rank()</a></li>
+<li class="chapter" data-level="5.16" data-path="transformacion.html"><a href="transformacion.html#percent_rank"><i class="fa fa-check"></i><b>5.16</b> percent_rank()</a></li>
+<li class="chapter" data-level="5.17" data-path="transformacion.html"><a href="transformacion.html#cume_dist"><i class="fa fa-check"></i><b>5.17</b> cume_dist()</a></li>
+<li class="chapter" data-level="5.18" data-path="transformacion.html"><a href="transformacion.html#resúmenes-con-summarise-by-group-using-group_by"><i class="fa fa-check"></i><b>5.18</b> Resúmenes con summarise() by group using group_by()</a></li>
+<li class="chapter" data-level="5.19" data-path="transformacion.html"><a href="transformacion.html#the-worst-airline-in-departure-delays"><i class="fa fa-check"></i><b>5.19</b> The worst airline in departure delays</a></li>
+<li class="chapter" data-level="5.20" data-path="transformacion.html"><a href="transformacion.html#el-pipe"><i class="fa fa-check"></i><b>5.20</b> El Pipe</a></li>
+<li class="chapter" data-level="5.21" data-path="transformacion.html"><a href="transformacion.html#otras-funciones-na"><i class="fa fa-check"></i><b>5.21</b> Otras funciones: NA</a></li>
+<li class="chapter" data-level="5.22" data-path="transformacion.html"><a href="transformacion.html#otras-funciones"><i class="fa fa-check"></i><b>5.22</b> Otras funciones:</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">4_Transformacion_dplyr</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="transformacion" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Transformacion<a href="transformacion.html#transformacion" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Fecha de la ultima revisión</p>
+<pre><code>## [1] &quot;2023-08-09&quot;</code></pre>
+<hr />
+<p>El tema proviene de los siguientes sitios.</p>
+<p>English:
+<a href="https://r4ds.had.co.nz/transform.html" class="uri">https://r4ds.had.co.nz/transform.html</a></p>
+<p>Español:
+<a href="https://r4ds-en-espaniol.netlify.app/transform.html" class="uri">https://r4ds-en-espaniol.netlify.app/transform.html</a></p>
+<hr />
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="transformacion.html#cb120-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb120-2"><a href="transformacion.html#cb120-2" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
+<span id="cb120-3"><a href="transformacion.html#cb120-3" tabindex="-1"></a><span class="fu">head</span>(vuelos)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 19
+##    anio   mes   dia horario_salida salida_programada atraso_salida
+##   &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+## 1  2013     1     1            517               515             2
+## 2  2013     1     1            533               529             4
+## 3  2013     1     1            542               540             2
+## 4  2013     1     1            544               545            -1
+## 5  2013     1     1            554               600            -6
+## 6  2013     1     1            554               558            -4
+## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="transformacion.html#cb122-1" tabindex="-1"></a><span class="fu">unique</span>(vuelos<span class="sc">$</span>destino)</span></code></pre></div>
+<pre><code>##   [1] &quot;IAH&quot; &quot;MIA&quot; &quot;BQN&quot; &quot;ATL&quot; &quot;ORD&quot; &quot;FLL&quot; &quot;IAD&quot; &quot;MCO&quot; &quot;PBI&quot; &quot;TPA&quot; &quot;LAX&quot; &quot;SFO&quot;
+##  [13] &quot;DFW&quot; &quot;BOS&quot; &quot;LAS&quot; &quot;MSP&quot; &quot;DTW&quot; &quot;RSW&quot; &quot;SJU&quot; &quot;PHX&quot; &quot;BWI&quot; &quot;CLT&quot; &quot;BUF&quot; &quot;DEN&quot;
+##  [25] &quot;SNA&quot; &quot;MSY&quot; &quot;SLC&quot; &quot;XNA&quot; &quot;MKE&quot; &quot;SEA&quot; &quot;ROC&quot; &quot;SYR&quot; &quot;SRQ&quot; &quot;RDU&quot; &quot;CMH&quot; &quot;JAX&quot;
+##  [37] &quot;CHS&quot; &quot;MEM&quot; &quot;PIT&quot; &quot;SAN&quot; &quot;DCA&quot; &quot;CLE&quot; &quot;STL&quot; &quot;MYR&quot; &quot;JAC&quot; &quot;MDW&quot; &quot;HNL&quot; &quot;BNA&quot;
+##  [49] &quot;AUS&quot; &quot;BTV&quot; &quot;PHL&quot; &quot;STT&quot; &quot;EGE&quot; &quot;AVL&quot; &quot;PWM&quot; &quot;IND&quot; &quot;SAV&quot; &quot;CAK&quot; &quot;HOU&quot; &quot;LGB&quot;
+##  [61] &quot;DAY&quot; &quot;ALB&quot; &quot;BDL&quot; &quot;MHT&quot; &quot;MSN&quot; &quot;GSO&quot; &quot;CVG&quot; &quot;BUR&quot; &quot;RIC&quot; &quot;GSP&quot; &quot;GRR&quot; &quot;MCI&quot;
+##  [73] &quot;ORF&quot; &quot;SAT&quot; &quot;SDF&quot; &quot;PDX&quot; &quot;SJC&quot; &quot;OMA&quot; &quot;CRW&quot; &quot;OAK&quot; &quot;SMF&quot; &quot;TUL&quot; &quot;TYS&quot; &quot;OKC&quot;
+##  [85] &quot;PVD&quot; &quot;DSM&quot; &quot;PSE&quot; &quot;BHM&quot; &quot;CAE&quot; &quot;HDN&quot; &quot;BZN&quot; &quot;MTJ&quot; &quot;EYW&quot; &quot;PSP&quot; &quot;ACK&quot; &quot;BGR&quot;
+##  [97] &quot;ABQ&quot; &quot;ILM&quot; &quot;MVY&quot; &quot;SBN&quot; &quot;LEX&quot; &quot;CHO&quot; &quot;TVC&quot; &quot;ANC&quot; &quot;LGA&quot;</code></pre>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="transformacion.html#cb124-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb124-2"><a href="transformacion.html#cb124-2" tabindex="-1"></a>  <span class="fu">filter</span>(destino<span class="sc">==</span><span class="st">&quot;SJU&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb124-3"><a href="transformacion.html#cb124-3" tabindex="-1"></a>  <span class="fu">filter</span>(mes<span class="sc">==</span><span class="dv">12</span>, dia<span class="sc">==</span><span class="dv">25</span>) <span class="co"># pipe Command shift M</span></span></code></pre></div>
+<pre><code>## # A tibble: 21 × 19
+##     anio   mes   dia horario_salida salida_programada atraso_salida
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+##  1  2013    12    25            604               611            -7
+##  2  2013    12    25            654               656            -2
+##  3  2013    12    25            712               705             7
+##  4  2013    12    25            730               730             0
+##  5  2013    12    25            736               739            -3
+##  6  2013    12    25            759               805            -6
+##  7  2013    12    25            947               947             0
+##  8  2013    12    25           1202              1206            -4
+##  9  2013    12    25           1254               900           234
+## 10  2013    12    25           1354              1330            24
+## # ℹ 11 more rows
+## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="transformacion.html#cb126-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb126-2"><a href="transformacion.html#cb126-2" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb126-3"><a href="transformacion.html#cb126-3" tabindex="-1"></a>  <span class="fu">filter</span>(destino<span class="sc">==</span><span class="st">&quot;SJU&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 5,819 × 19
+##     anio   mes   dia horario_salida salida_programada atraso_salida
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+##  1  2013     1     1            615               615             0
+##  2  2013     1     1            628               630            -2
+##  3  2013     1     1            701               700             1
+##  4  2013     1     1            711               715            -4
+##  5  2013     1     1            820               820             0
+##  6  2013     1     1            820               820             0
+##  7  2013     1     1            840               845            -5
+##  8  2013     1     1            926               929            -3
+##  9  2013     1     1           1202              1159             3
+## 10  2013     1     1           1245              1249            -4
+## # ℹ 5,809 more rows
+## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="transformacion.html#cb128-1" tabindex="-1"></a>df_dia_cumpl<span class="ot">=</span>vuelos <span class="sc">%&gt;%</span>  </span>
+<span id="cb128-2"><a href="transformacion.html#cb128-2" tabindex="-1"></a><span class="fu">filter</span>(destino <span class="sc">==</span><span class="st">&quot;SJU&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb128-3"><a href="transformacion.html#cb128-3" tabindex="-1"></a>  <span class="fu">filter</span>(mes<span class="sc">==</span> <span class="dv">8</span>, dia<span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb128-4"><a href="transformacion.html#cb128-4" tabindex="-1"></a></span>
+<span id="cb128-5"><a href="transformacion.html#cb128-5" tabindex="-1"></a>df_dia_cumpl</span></code></pre></div>
+<pre><code>## # A tibble: 19 × 19
+##     anio   mes   dia horario_salida salida_programada atraso_salida
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+##  1  2013     8     1             32              2359            33
+##  2  2013     8     1             33              2231           122
+##  3  2013     8     1            609               611            -2
+##  4  2013     8     1            638               640            -2
+##  5  2013     8     1            655               655             0
+##  6  2013     8     1            704               705            -1
+##  7  2013     8     1            845               850            -5
+##  8  2013     8     1            854               900            -6
+##  9  2013     8     1            910               915            -5
+## 10  2013     8     1            918               730           108
+## 11  2013     8     1           1101              1055             6
+## 12  2013     8     1           1306              1255            11
+## 13  2013     8     1           1457              1455             2
+## 14  2013     8     1           1508              1429            39
+## 15  2013     8     1           1551              1545             6
+## 16  2013     8     1           1732              1706            26
+## 17  2013     8     1           2036              2007            29
+## 18  2013     8     1           2141              2101            40
+## 19  2013     8     1           2257              2115           102
+## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="transformacion.html#cb130-1" tabindex="-1"></a><span class="fu">names</span>(vuelos)</span></code></pre></div>
+<pre><code>##  [1] &quot;anio&quot;               &quot;mes&quot;                &quot;dia&quot;               
+##  [4] &quot;horario_salida&quot;     &quot;salida_programada&quot;  &quot;atraso_salida&quot;     
+##  [7] &quot;horario_llegada&quot;    &quot;llegada_programada&quot; &quot;atraso_llegada&quot;    
+## [10] &quot;aerolinea&quot;          &quot;vuelo&quot;              &quot;codigo_cola&quot;       
+## [13] &quot;origen&quot;             &quot;destino&quot;            &quot;tiempo_vuelo&quot;      
+## [16] &quot;distancia&quot;          &quot;hora&quot;               &quot;minuto&quot;            
+## [19] &quot;fecha_hora&quot;</code></pre>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="transformacion.html#cb132-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb132-2"><a href="transformacion.html#cb132-2" tabindex="-1"></a>  <span class="fu">select</span>(mes, dia, atraso_salida, atraso_llegada) <span class="sc">%&gt;%</span> </span>
+<span id="cb132-3"><a href="transformacion.html#cb132-3" tabindex="-1"></a>  <span class="fu">filter</span>(mes<span class="sc">==</span><span class="dv">11</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb132-4"><a href="transformacion.html#cb132-4" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(atraso_salida))</span></code></pre></div>
+<pre><code>## # A tibble: 27,268 × 4
+##      mes   dia atraso_salida atraso_llegada
+##    &lt;int&gt; &lt;int&gt;         &lt;dbl&gt;          &lt;dbl&gt;
+##  1    11     3           798            796
+##  2    11    24           636            614
+##  3    11     4           413            434
+##  4    11    27           408            396
+##  5    11    20           398            389
+##  6    11    11           367            344
+##  7    11    21           351            346
+##  8    11    24           347            304
+##  9    11    24           341            290
+## 10    11    22           339            329
+## # ℹ 27,258 more rows</code></pre>
+<div id="temas-reconocer-y-aplicar-las-diferentes-funciones" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Temas: Reconocer y aplicar las diferentes funciones<a href="transformacion.html#temas-reconocer-y-aplicar-las-diferentes-funciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Tipos de variables:</p>
+<ul>
+<li>int</li>
+<li>dbl</li>
+<li>chr</li>
+<li>dttm</li>
+<li>lgl</li>
+<li>fctr</li>
+<li>date</li>
+</ul></li>
+</ul>
+<hr />
+<ul>
+<li><p>Funciones de dplyr:</p>
+<ul>
+<li>filter()</li>
+<li>arrange()</li>
+<li>select()</li>
+<li>summarize()</li>
+<li>group_by()</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="transformacion.html#cb134-1" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
+<span id="cb134-2"><a href="transformacion.html#cb134-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb134-3"><a href="transformacion.html#cb134-3" tabindex="-1"></a>por_dia <span class="ot">&lt;-</span> <span class="fu">group_by</span>(vuelos, dia)<span class="sc">%&gt;%</span> </span>
+<span id="cb134-4"><a href="transformacion.html#cb134-4" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">atraso_promedio =</span> <span class="fu">mean</span>(atraso_salida, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb134-5"><a href="transformacion.html#cb134-5" tabindex="-1"></a>por_dia</span></code></pre></div>
+<pre><code>## # A tibble: 31 × 2
+##      dia atraso_promedio
+##    &lt;int&gt;           &lt;dbl&gt;
+##  1     1           14.2 
+##  2     2           14.1 
+##  3     3           10.8 
+##  4     4            5.79
+##  5     5            7.82
+##  6     6            6.99
+##  7     7           14.3 
+##  8     8           21.8 
+##  9     9           14.6 
+## 10    10           18.3 
+## # ℹ 21 more rows</code></pre>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="transformacion.html#cb136-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb136-2"><a href="transformacion.html#cb136-2" tabindex="-1"></a>  <span class="fu">select</span>(anio, mes, dia, atraso_salida) <span class="sc">%&gt;%</span> </span>
+<span id="cb136-3"><a href="transformacion.html#cb136-3" tabindex="-1"></a>  <span class="fu">group_by</span>(mes) <span class="sc">%&gt;%</span> </span>
+<span id="cb136-4"><a href="transformacion.html#cb136-4" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">atraso =</span> <span class="fu">mean</span>(atraso_salida, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 12 × 2
+##      mes atraso
+##    &lt;int&gt;  &lt;dbl&gt;
+##  1     1  10.0 
+##  2     2  10.8 
+##  3     3  13.2 
+##  4     4  13.9 
+##  5     5  13.0 
+##  6     6  20.8 
+##  7     7  21.7 
+##  8     8  12.6 
+##  9     9   6.72
+## 10    10   6.24
+## 11    11   5.44
+## 12    12  16.6</code></pre>
+<hr />
+<ul>
+<li><p>Operaciones lógicas boolean:</p>
+<ul>
+<li>&amp; “ampersand”</li>
+<li>“|” or= “o”</li>
+<li>!, no incluye, excluir….</li>
+<li>%in%, filtrar para multiples valores</li>
+<li>==, es igual a… “exactamente”</li>
+<li>“&lt;”</li>
+<li>“&gt;”</li>
+</ul></li>
+</ul>
+<p>Bollean, que incluye multimple opciones %in%</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="transformacion.html#cb138-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb138-2"><a href="transformacion.html#cb138-2" tabindex="-1"></a>  <span class="fu">select</span>(anio, mes, dia, atraso_salida) <span class="sc">%&gt;%</span> </span>
+<span id="cb138-3"><a href="transformacion.html#cb138-3" tabindex="-1"></a>  <span class="fu">group_by</span>(mes) <span class="sc">%&gt;%</span> </span>
+<span id="cb138-4"><a href="transformacion.html#cb138-4" tabindex="-1"></a>  <span class="fu">filter</span>(mes <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb138-5"><a href="transformacion.html#cb138-5" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">atraso =</span> <span class="fu">mean</span>(atraso_salida, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##     mes atraso
+##   &lt;int&gt;  &lt;dbl&gt;
+## 1     1   10.0
+## 2     2   10.8
+## 3     3   13.2
+## 4     4   13.9
+## 5     5   13.0
+## 6     6   20.8</code></pre>
+<p>Otra alternativa</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="transformacion.html#cb140-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb140-2"><a href="transformacion.html#cb140-2" tabindex="-1"></a>  <span class="fu">select</span>(anio, mes, dia, atraso_salida) <span class="sc">%&gt;%</span> </span>
+<span id="cb140-3"><a href="transformacion.html#cb140-3" tabindex="-1"></a>  <span class="fu">filter</span>(mes <span class="sc">==</span> <span class="dv">11</span> <span class="sc">|</span> mes <span class="sc">==</span> <span class="dv">12</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 55,403 × 4
+##     anio   mes   dia atraso_salida
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;         &lt;dbl&gt;
+##  1  2013    11     1             6
+##  2  2013    11     1           105
+##  3  2013    11     1            -5
+##  4  2013    11     1            -6
+##  5  2013    11     1            -3
+##  6  2013    11     1           -11
+##  7  2013    11     1           -10
+##  8  2013    11     1            -6
+##  9  2013    11     1            -6
+## 10  2013    11     1            -6
+## # ℹ 55,393 more rows</code></pre>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="transformacion.html#cb142-1" tabindex="-1"></a><span class="co">#%&gt;% </span></span>
+<span id="cb142-2"><a href="transformacion.html#cb142-2" tabindex="-1"></a> <span class="co"># summarise(atraso = mean(atraso_salida, na.rm = TRUE))</span></span></code></pre></div>
+<p>&amp; el “y”</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="transformacion.html#cb143-1" tabindex="-1"></a><span class="fu">names</span>(vuelos)</span></code></pre></div>
+<pre><code>##  [1] &quot;anio&quot;               &quot;mes&quot;                &quot;dia&quot;               
+##  [4] &quot;horario_salida&quot;     &quot;salida_programada&quot;  &quot;atraso_salida&quot;     
+##  [7] &quot;horario_llegada&quot;    &quot;llegada_programada&quot; &quot;atraso_llegada&quot;    
+## [10] &quot;aerolinea&quot;          &quot;vuelo&quot;              &quot;codigo_cola&quot;       
+## [13] &quot;origen&quot;             &quot;destino&quot;            &quot;tiempo_vuelo&quot;      
+## [16] &quot;distancia&quot;          &quot;hora&quot;               &quot;minuto&quot;            
+## [19] &quot;fecha_hora&quot;</code></pre>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="transformacion.html#cb145-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb145-2"><a href="transformacion.html#cb145-2" tabindex="-1"></a>  <span class="fu">select</span>(anio, mes, dia, atraso_salida, aerolinea) <span class="sc">%&gt;%</span> </span>
+<span id="cb145-3"><a href="transformacion.html#cb145-3" tabindex="-1"></a>  <span class="fu">filter</span>(mes <span class="sc">==</span> <span class="dv">12</span> <span class="sc">&amp;</span> dia <span class="sc">==</span> <span class="dv">25</span> <span class="sc">&amp;</span> aerolinea<span class="sc">==</span><span class="st">&quot;AA&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 78 × 5
+##     anio   mes   dia atraso_salida aerolinea
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt;    
+##  1  2013    12    25             2 AA       
+##  2  2013    12    25            -4 AA       
+##  3  2013    12    25             1 AA       
+##  4  2013    12    25             0 AA       
+##  5  2013    12    25            -3 AA       
+##  6  2013    12    25            -2 AA       
+##  7  2013    12    25            26 AA       
+##  8  2013    12    25            -7 AA       
+##  9  2013    12    25            -6 AA       
+## 10  2013    12    25            21 AA       
+## # ℹ 68 more rows</code></pre>
+<p>!, el “no”, excluye</p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="transformacion.html#cb147-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb147-2"><a href="transformacion.html#cb147-2" tabindex="-1"></a>  <span class="fu">select</span>(anio, mes, dia, atraso_salida) <span class="sc">%&gt;%</span></span>
+<span id="cb147-3"><a href="transformacion.html#cb147-3" tabindex="-1"></a>  <span class="fu">filter</span>(mes <span class="sc">==</span> <span class="dv">11</span> <span class="sc">&amp;</span> <span class="sc">!</span>dia <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb147-4"><a href="transformacion.html#cb147-4" tabindex="-1"></a>  <span class="fu">group_by</span>(dia) <span class="sc">%&gt;%</span> </span>
+<span id="cb147-5"><a href="transformacion.html#cb147-5" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">atraso =</span> <span class="fu">mean</span>(atraso_salida, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 20 × 2
+##      dia atraso
+##    &lt;int&gt;  &lt;dbl&gt;
+##  1    11  3.34 
+##  2    12  8.55 
+##  3    13  2.60 
+##  4    14  2.16 
+##  5    15  0.587
+##  6    16  1.70 
+##  7    17 21.9  
+##  8    18  5.59 
+##  9    19  0.439
+## 10    20  1.78 
+## 11    21  3.11 
+## 12    22 11.0  
+## 13    23  3.49 
+## 14    24 14.7  
+## 15    25  3.32 
+## 16    26  7.97 
+## 17    27 16.7  
+## 18    28  6.06 
+## 19    29  0.145
+## 20    30  2.79</code></pre>
+<hr />
+<ol style="list-style-type: decimal">
+<li><strong>Ejercicios</strong>:</li>
+</ol>
+<p>Hacer los ejercicios en la sección 5.2.4 del libro en español</p>
+<p>5.2.4 Ejercicios
+- Encuentra todos los vuelos que:</p>
+<ul>
+<li>Tuvieron un retraso de llegada de dos o más horas</li>
+</ul>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="transformacion.html#cb149-1" tabindex="-1"></a><span class="co">#names(vuelos)</span></span>
+<span id="cb149-2"><a href="transformacion.html#cb149-2" tabindex="-1"></a></span>
+<span id="cb149-3"><a href="transformacion.html#cb149-3" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb149-4"><a href="transformacion.html#cb149-4" tabindex="-1"></a>  <span class="fu">filter</span>(atraso_llegada <span class="sc">&gt;=</span><span class="dv">120</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10,200 × 19
+##     anio   mes   dia horario_salida salida_programada atraso_salida
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+##  1  2013     1     1            811               630           101
+##  2  2013     1     1            848              1835           853
+##  3  2013     1     1            957               733           144
+##  4  2013     1     1           1114               900           134
+##  5  2013     1     1           1505              1310           115
+##  6  2013     1     1           1525              1340           105
+##  7  2013     1     1           1549              1445            64
+##  8  2013     1     1           1558              1359           119
+##  9  2013     1     1           1732              1630            62
+## 10  2013     1     1           1803              1620           103
+## # ℹ 10,190 more rows
+## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+<ul>
+<li>Volaron a Houston (IAH o HOU)</li>
+</ul>
+<p>Cual son estos aeropuertos, Hou == Houston, IAH == George Bush, Texas</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="transformacion.html#cb151-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb151-2"><a href="transformacion.html#cb151-2" tabindex="-1"></a>  <span class="fu">filter</span>(destino <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;IAH&quot;</span>, <span class="st">&quot;HOU&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 9,313 × 19
+##     anio   mes   dia horario_salida salida_programada atraso_salida
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+##  1  2013     1     1            517               515             2
+##  2  2013     1     1            533               529             4
+##  3  2013     1     1            623               627            -4
+##  4  2013     1     1            728               732            -4
+##  5  2013     1     1            739               739             0
+##  6  2013     1     1            908               908             0
+##  7  2013     1     1           1028              1026             2
+##  8  2013     1     1           1044              1045            -1
+##  9  2013     1     1           1114               900           134
+## 10  2013     1     1           1205              1200             5
+## # ℹ 9,303 more rows
+## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="transformacion.html#cb153-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span></span>
+<span id="cb153-2"><a href="transformacion.html#cb153-2" tabindex="-1"></a><span class="fu">select</span>(anio, mes, dia, destino, aerolinea, atraso_llegada) <span class="sc">%&gt;%</span></span>
+<span id="cb153-3"><a href="transformacion.html#cb153-3" tabindex="-1"></a><span class="fu">filter</span>(destino <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;IAH&quot;</span>, <span class="st">&quot;HOU&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 9,313 × 6
+##     anio   mes   dia destino aerolinea atraso_llegada
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;
+##  1  2013     1     1 IAH     UA                    11
+##  2  2013     1     1 IAH     UA                    20
+##  3  2013     1     1 IAH     UA                     1
+##  4  2013     1     1 IAH     UA                     3
+##  5  2013     1     1 IAH     UA                    26
+##  6  2013     1     1 IAH     UA                     9
+##  7  2013     1     1 IAH     UA                    11
+##  8  2013     1     1 IAH     UA                     1
+##  9  2013     1     1 IAH     UA                   145
+## 10  2013     1     1 IAH     UA                    -2
+## # ℹ 9,303 more rows</code></pre>
+<ul>
+<li>Fueron operados por United, American o Delta</li>
+</ul>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="transformacion.html#cb155-1" tabindex="-1"></a><span class="fu">unique</span>(vuelos<span class="sc">$</span>aerolinea)</span></code></pre></div>
+<pre><code>##  [1] &quot;UA&quot; &quot;AA&quot; &quot;B6&quot; &quot;DL&quot; &quot;EV&quot; &quot;MQ&quot; &quot;US&quot; &quot;WN&quot; &quot;VX&quot; &quot;FL&quot; &quot;AS&quot; &quot;9E&quot; &quot;F9&quot; &quot;HA&quot; &quot;YV&quot;
+## [16] &quot;OO&quot;</code></pre>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="transformacion.html#cb157-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb157-2"><a href="transformacion.html#cb157-2" tabindex="-1"></a>  <span class="fu">filter</span>(aerolinea <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;UA&quot;</span>, <span class="st">&quot;AA&quot;</span>,<span class="st">&quot;DL&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 139,504 × 19
+##     anio   mes   dia horario_salida salida_programada atraso_salida
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+##  1  2013     1     1            517               515             2
+##  2  2013     1     1            533               529             4
+##  3  2013     1     1            542               540             2
+##  4  2013     1     1            554               600            -6
+##  5  2013     1     1            554               558            -4
+##  6  2013     1     1            558               600            -2
+##  7  2013     1     1            558               600            -2
+##  8  2013     1     1            558               600            -2
+##  9  2013     1     1            559               600            -1
+## 10  2013     1     1            559               600            -1
+## # ℹ 139,494 more rows
+## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+<ul>
+<li>Partieron en invierno del hemisferio sur (julio, agosto y septiembre)</li>
+</ul>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="transformacion.html#cb159-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb159-2"><a href="transformacion.html#cb159-2" tabindex="-1"></a>  <span class="fu">filter</span>(mes <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6</span><span class="sc">:</span><span class="dv">8</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 86,995 × 19
+##     anio   mes   dia horario_salida salida_programada atraso_salida
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+##  1  2013     6     1              2              2359             3
+##  2  2013     6     1            451               500            -9
+##  3  2013     6     1            506               515            -9
+##  4  2013     6     1            534               545           -11
+##  5  2013     6     1            538               545            -7
+##  6  2013     6     1            539               540            -1
+##  7  2013     6     1            546               600           -14
+##  8  2013     6     1            551               600            -9
+##  9  2013     6     1            552               600            -8
+## 10  2013     6     1            553               600            -7
+## # ℹ 86,985 more rows
+## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="transformacion.html#cb161-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span></span>
+<span id="cb161-2"><a href="transformacion.html#cb161-2" tabindex="-1"></a><span class="fu">filter</span>(mes <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 86,326 × 19
+##     anio   mes   dia horario_salida salida_programada atraso_salida
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+##  1  2013     7     1              1              2029           212
+##  2  2013     7     1              2              2359             3
+##  3  2013     7     1             29              2245           104
+##  4  2013     7     1             43              2130           193
+##  5  2013     7     1             44              2150           174
+##  6  2013     7     1             46              2051           235
+##  7  2013     7     1             48              2001           287
+##  8  2013     7     1             58              2155           183
+##  9  2013     7     1            100              2146           194
+## 10  2013     7     1            100              2245           135
+## # ℹ 86,316 more rows
+## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+<ul>
+<li>Llegaron más de dos horas tarde, pero no salieron tarde</li>
+</ul>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="transformacion.html#cb163-1" tabindex="-1"></a><span class="fu">names</span>(vuelos)</span></code></pre></div>
+<pre><code>##  [1] &quot;anio&quot;               &quot;mes&quot;                &quot;dia&quot;               
+##  [4] &quot;horario_salida&quot;     &quot;salida_programada&quot;  &quot;atraso_salida&quot;     
+##  [7] &quot;horario_llegada&quot;    &quot;llegada_programada&quot; &quot;atraso_llegada&quot;    
+## [10] &quot;aerolinea&quot;          &quot;vuelo&quot;              &quot;codigo_cola&quot;       
+## [13] &quot;origen&quot;             &quot;destino&quot;            &quot;tiempo_vuelo&quot;      
+## [16] &quot;distancia&quot;          &quot;hora&quot;               &quot;minuto&quot;            
+## [19] &quot;fecha_hora&quot;</code></pre>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="transformacion.html#cb165-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb165-2"><a href="transformacion.html#cb165-2" tabindex="-1"></a>  <span class="fu">filter</span>(atraso_llegada<span class="sc">&gt;</span><span class="dv">120</span> <span class="sc">|</span>atraso_salida <span class="sc">&lt;</span><span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 193,583 × 19
+##     anio   mes   dia horario_salida salida_programada atraso_salida
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+##  1  2013     1     1            544               545            -1
+##  2  2013     1     1            554               600            -6
+##  3  2013     1     1            554               558            -4
+##  4  2013     1     1            555               600            -5
+##  5  2013     1     1            557               600            -3
+##  6  2013     1     1            557               600            -3
+##  7  2013     1     1            558               600            -2
+##  8  2013     1     1            558               600            -2
+##  9  2013     1     1            558               600            -2
+## 10  2013     1     1            558               600            -2
+## # ℹ 193,573 more rows
+## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="transformacion.html#cb167-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span></span>
+<span id="cb167-2"><a href="transformacion.html#cb167-2" tabindex="-1"></a><span class="fu">select</span>(atraso_llegada, atraso_salida) <span class="sc">%&gt;%</span></span>
+<span id="cb167-3"><a href="transformacion.html#cb167-3" tabindex="-1"></a><span class="fu">filter</span>(atraso_llegada <span class="sc">&gt;=</span> <span class="dv">120</span> <span class="sc">&amp;</span> atraso_salida <span class="sc">&lt;=</span> <span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 29 × 2
+##    atraso_llegada atraso_salida
+##             &lt;dbl&gt;         &lt;dbl&gt;
+##  1            124            -1
+##  2            130             0
+##  3            124            -2
+##  4            122            -3
+##  5            194            -2
+##  6            140            -3
+##  7            124            -5
+##  8            179            -2
+##  9            143            -5
+## 10            127            -3
+## # ℹ 19 more rows</code></pre>
+<ul>
+<li>Se retrasaron por lo menos una hora, pero repusieron más de 30 minutos en vuelo</li>
+</ul>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="transformacion.html#cb169-1" tabindex="-1"></a>vuelos</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 19
+##     anio   mes   dia horario_salida salida_programada atraso_salida
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+##  1  2013     1     1            517               515             2
+##  2  2013     1     1            533               529             4
+##  3  2013     1     1            542               540             2
+##  4  2013     1     1            544               545            -1
+##  5  2013     1     1            554               600            -6
+##  6  2013     1     1            554               558            -4
+##  7  2013     1     1            555               600            -5
+##  8  2013     1     1            557               600            -3
+##  9  2013     1     1            557               600            -3
+## 10  2013     1     1            558               600            -2
+## # ℹ 336,766 more rows
+## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="transformacion.html#cb171-1" tabindex="-1"></a>?vuelos </span>
+<span id="cb171-2"><a href="transformacion.html#cb171-2" tabindex="-1"></a><span class="co">#select(atraso_salida, atraso_llegada ) %&gt;%</span></span>
+<span id="cb171-3"><a href="transformacion.html#cb171-3" tabindex="-1"></a><span class="co">#filter(atraso_salida &gt;= 60 &amp; atraso_llegada &lt;= 30)</span></span></code></pre></div>
+<ul>
+<li>Partieron entre la medianoche y las 6a.m. (incluyente)</li>
+</ul>
+<p># 360 minutos</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="transformacion.html#cb172-1" tabindex="-1"></a><span class="fu">names</span>(vuelos)</span></code></pre></div>
+<pre><code>##  [1] &quot;anio&quot;               &quot;mes&quot;                &quot;dia&quot;               
+##  [4] &quot;horario_salida&quot;     &quot;salida_programada&quot;  &quot;atraso_salida&quot;     
+##  [7] &quot;horario_llegada&quot;    &quot;llegada_programada&quot; &quot;atraso_llegada&quot;    
+## [10] &quot;aerolinea&quot;          &quot;vuelo&quot;              &quot;codigo_cola&quot;       
+## [13] &quot;origen&quot;             &quot;destino&quot;            &quot;tiempo_vuelo&quot;      
+## [16] &quot;distancia&quot;          &quot;hora&quot;               &quot;minuto&quot;            
+## [19] &quot;fecha_hora&quot;</code></pre>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="transformacion.html#cb174-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span></span>
+<span id="cb174-2"><a href="transformacion.html#cb174-2" tabindex="-1"></a><span class="fu">select</span>(horario_salida) <span class="sc">%&gt;%</span></span>
+<span id="cb174-3"><a href="transformacion.html#cb174-3" tabindex="-1"></a><span class="fu">filter</span>(horario_salida <span class="sc">&lt;=</span><span class="dv">600</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 9,344 × 1
+##    horario_salida
+##             &lt;int&gt;
+##  1            517
+##  2            533
+##  3            542
+##  4            544
+##  5            554
+##  6            554
+##  7            555
+##  8            557
+##  9            557
+## 10            558
+## # ℹ 9,334 more rows</code></pre>
+<ul>
+<li>Otra función de dplyr que es útil para usar filtros es between(). ¿Qué hace? ¿Puedes usarla para simplificar el código necesario para responder a los desafíos anteriores?</li>
+</ul>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="transformacion.html#cb176-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span></span>
+<span id="cb176-2"><a href="transformacion.html#cb176-2" tabindex="-1"></a><span class="fu">select</span>(horario_salida) <span class="sc">%&gt;%</span></span>
+<span id="cb176-3"><a href="transformacion.html#cb176-3" tabindex="-1"></a><span class="fu">filter</span>(<span class="fu">between</span>(horario_salida,<span class="dv">00</span>, <span class="dv">360</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1,179 × 1
+##    horario_salida
+##             &lt;int&gt;
+##  1             42
+##  2            126
+##  3             32
+##  4             50
+##  5            235
+##  6             25
+##  7            106
+##  8             14
+##  9             37
+## 10             16
+## # ℹ 1,169 more rows</code></pre>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="transformacion.html#cb178-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span></span>
+<span id="cb178-2"><a href="transformacion.html#cb178-2" tabindex="-1"></a><span class="fu">select</span>(horario_salida) <span class="sc">%&gt;%</span></span>
+<span id="cb178-3"><a href="transformacion.html#cb178-3" tabindex="-1"></a><span class="fu">filter</span>(<span class="fu">between</span>(horario_salida, <span class="dv">00</span>, <span class="dv">360</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1,179 × 1
+##    horario_salida
+##             &lt;int&gt;
+##  1             42
+##  2            126
+##  3             32
+##  4             50
+##  5            235
+##  6             25
+##  7            106
+##  8             14
+##  9             37
+## 10             16
+## # ℹ 1,169 more rows</code></pre>
+<ul>
+<li>¿Cuántos vuelos tienen datos faltantes en horario_salida?</li>
+<li>¿Qué otras variables tienen valores faltantes?</li>
+<li>¿Qué representan estas filas?</li>
+</ul>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="transformacion.html#cb180-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span></span>
+<span id="cb180-2"><a href="transformacion.html#cb180-2" tabindex="-1"></a><span class="fu">select</span>(horario_salida) <span class="sc">%&gt;%</span></span>
+<span id="cb180-3"><a href="transformacion.html#cb180-3" tabindex="-1"></a><span class="fu">is.na</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb180-4"><a href="transformacion.html#cb180-4" tabindex="-1"></a>  <span class="fu">table</span>()</span></code></pre></div>
+<pre><code>## .
+##  FALSE   TRUE 
+## 328521   8255</code></pre>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="transformacion.html#cb182-1" tabindex="-1"></a><span class="co">#vuelos %&gt;%</span></span>
+<span id="cb182-2"><a href="transformacion.html#cb182-2" tabindex="-1"></a><span class="co">#select(horario_salida) %&gt;%</span></span>
+<span id="cb182-3"><a href="transformacion.html#cb182-3" tabindex="-1"></a><span class="co">#  table()</span></span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="transformacion.html#cb183-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb183-2"><a href="transformacion.html#cb183-2" tabindex="-1"></a><span class="dv">2</span><span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="transformacion.html#cb185-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="transformacion.html#cb187-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">^</span><span class="dv">0</span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="transformacion.html#cb189-1" tabindex="-1"></a><span class="cn">NA</span><span class="sc">^</span><span class="dv">0</span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="transformacion.html#cb191-1" tabindex="-1"></a><span class="co">#NA==1</span></span>
+<span id="cb191-2"><a href="transformacion.html#cb191-2" tabindex="-1"></a><span class="cn">NA</span><span class="sc">|</span><span class="cn">TRUE</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="transformacion.html#cb193-1" tabindex="-1"></a><span class="cn">FALSE</span> <span class="sc">&amp;</span> <span class="cn">NA</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="transformacion.html#cb195-1" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">*</span> <span class="dv">0</span>  </span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="transformacion.html#cb197-1" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">*</span> <span class="dv">1</span></span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="transformacion.html#cb199-1" tabindex="-1"></a><span class="dv">12</span> <span class="sc">*</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] 36</code></pre>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="transformacion.html#cb201-1" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">-</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<hr />
+<p>Use data from a link on the web</p>
+<p>*** filter for Puerto Rico only</p>
+<p>COVID_PR</p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="transformacion.html#cb203-1" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;data.table&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:lubridate&#39;:
+## 
+##     hour, isoweek, mday, minute, month, quarter, second, wday, week,
+##     yday, year</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     between, first, last</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     transpose</code></pre>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="transformacion.html#cb208-1" tabindex="-1"></a><span class="co">#url_COVID_PR=fread(&quot;https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv&quot;)</span></span>
+<span id="cb208-2"><a href="transformacion.html#cb208-2" tabindex="-1"></a></span>
+<span id="cb208-3"><a href="transformacion.html#cb208-3" tabindex="-1"></a><span class="co">#write_csv(url_COVID_PR, &quot;url_COVID_PR.csv&quot;)</span></span>
+<span id="cb208-4"><a href="transformacion.html#cb208-4" tabindex="-1"></a></span>
+<span id="cb208-5"><a href="transformacion.html#cb208-5" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb208-6"><a href="transformacion.html#cb208-6" tabindex="-1"></a>url_COVID_PR <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Datos/url_COVID_PR.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## New names:
+## • `` -&gt; `...1`</code></pre>
+<pre><code>## Rows: 587 Columns: 18
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (1): Fecha
+## dbl (17): ...1, Muertes, IncrementoMuertes, CasosPCR_Salud, IncCasosPCR_Salu...
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="transformacion.html#cb211-1" tabindex="-1"></a>url_COVID<span class="ot">=</span>url_COVID_PR</span>
+<span id="cb211-2"><a href="transformacion.html#cb211-2" tabindex="-1"></a></span>
+<span id="cb211-3"><a href="transformacion.html#cb211-3" tabindex="-1"></a><span class="fu">names</span>(url_COVID)</span></code></pre></div>
+<pre><code>##  [1] &quot;...1&quot;               &quot;Fecha&quot;              &quot;Muertes&quot;           
+##  [4] &quot;IncrementoMuertes&quot;  &quot;CasosPCR_Salud&quot;     &quot;IncCasosPCR_Salud&quot; 
+##  [7] &quot;CasosSaludNuevo&quot;    &quot;IncCasosSaludNuevo&quot; &quot;HospitCOV19&quot;       
+## [10] &quot;CamasICU&quot;           &quot;CamasICU_disp&quot;      &quot;Ventiladores&quot;      
+## [13] &quot;MuertesSalud&quot;       &quot;IncMueSalud&quot;        &quot;VacDoses&quot;          
+## [16] &quot;VacAdm&quot;             &quot;N1MoreDoses&quot;        &quot;N2Doses&quot;</code></pre>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="transformacion.html#cb213-1" tabindex="-1"></a><span class="fu">head</span>(url_COVID)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 18
+##    ...1 Fecha   Muertes IncrementoMuertes CasosPCR_Salud IncCasosPCR_Salud
+##   &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;             &lt;dbl&gt;          &lt;dbl&gt;             &lt;dbl&gt;
+## 1     1 3/12/20       0                 0             NA                NA
+## 2     2 3/13/20       0                 0             NA                NA
+## 3     3 3/14/20       0                 0             NA                NA
+## 4     4 3/15/20       0                 0             NA                NA
+## 5     5 3/16/20       0                 0             NA                NA
+## 6     6 3/17/20       0                 0             NA                NA
+## # ℹ 12 more variables: CasosSaludNuevo &lt;dbl&gt;, IncCasosSaludNuevo &lt;dbl&gt;,
+## #   HospitCOV19 &lt;dbl&gt;, CamasICU &lt;dbl&gt;, CamasICU_disp &lt;dbl&gt;, Ventiladores &lt;dbl&gt;,
+## #   MuertesSalud &lt;dbl&gt;, IncMueSalud &lt;dbl&gt;, VacDoses &lt;dbl&gt;, VacAdm &lt;dbl&gt;,
+## #   N1MoreDoses &lt;dbl&gt;, N2Doses &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="transformacion.html#cb215-1" tabindex="-1"></a><span class="fu">tail</span>(url_COVID)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 18
+##    ...1 Fecha    Muertes IncrementoMuertes CasosPCR_Salud IncCasosPCR_Salud
+##   &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;             &lt;dbl&gt;          &lt;dbl&gt;             &lt;dbl&gt;
+## 1   582 10/14/21    3205                 4         150812               181
+## 2   583 10/15/21    3207                 2         150892                80
+## 3   584 10/16/21    3207                 0         150969                77
+## 4   585 10/17/21    3207                 0         151027                58
+## 5   586 10/18/21    3209                 2         151033                 6
+## 6   587 10/19/21    3213                 4         151089                56
+## # ℹ 12 more variables: CasosSaludNuevo &lt;dbl&gt;, IncCasosSaludNuevo &lt;dbl&gt;,
+## #   HospitCOV19 &lt;dbl&gt;, CamasICU &lt;dbl&gt;, CamasICU_disp &lt;dbl&gt;, Ventiladores &lt;dbl&gt;,
+## #   MuertesSalud &lt;dbl&gt;, IncMueSalud &lt;dbl&gt;, VacDoses &lt;dbl&gt;, VacAdm &lt;dbl&gt;,
+## #   N1MoreDoses &lt;dbl&gt;, N2Doses &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="transformacion.html#cb217-1" tabindex="-1"></a> url_COVID <span class="sc">%&gt;%</span> </span>
+<span id="cb217-2"><a href="transformacion.html#cb217-2" tabindex="-1"></a>  <span class="fu">select</span>(IncrementoMuertes) <span class="sc">%&gt;%</span> </span>
+<span id="cb217-3"><a href="transformacion.html#cb217-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Prom_muerte_dia =</span> <span class="fu">mean</span>(IncrementoMuertes, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb217-4"><a href="transformacion.html#cb217-4" tabindex="-1"></a>            <span class="at">maximo_muerte_dia =</span> <span class="fu">max</span>(IncrementoMuertes, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 2
+##   Prom_muerte_dia maximo_muerte_dia
+##             &lt;dbl&gt;             &lt;dbl&gt;
+## 1            5.47                29</code></pre>
+<hr />
+<p>arrange()</p>
+<hr />
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="transformacion.html#cb219-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb219-2"><a href="transformacion.html#cb219-2" tabindex="-1"></a>  <span class="fu">select</span>(horario_salida) <span class="sc">%&gt;%</span> </span>
+<span id="cb219-3"><a href="transformacion.html#cb219-3" tabindex="-1"></a>  <span class="fu">arrange</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 1
+##    horario_salida
+##             &lt;int&gt;
+##  1            517
+##  2            533
+##  3            542
+##  4            544
+##  5            554
+##  6            554
+##  7            555
+##  8            557
+##  9            557
+## 10            558
+## # ℹ 336,766 more rows</code></pre>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="transformacion.html#cb221-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb221-2"><a href="transformacion.html#cb221-2" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(horario_salida))</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 19
+##     anio   mes   dia horario_salida salida_programada atraso_salida
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+##  1  2013    10    30           2400              2359             1
+##  2  2013    11    27           2400              2359             1
+##  3  2013    12     5           2400              2359             1
+##  4  2013    12     9           2400              2359             1
+##  5  2013    12     9           2400              2250            70
+##  6  2013    12    13           2400              2359             1
+##  7  2013    12    19           2400              2359             1
+##  8  2013    12    29           2400              1700           420
+##  9  2013     2     7           2400              2359             1
+## 10  2013     2     7           2400              2359             1
+## # ℹ 336,766 more rows
+## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+<p>5.3.1 Ejercicios</p>
+<p>Ordena vuelos para encontrar los vuelos más retrasados en salida.</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="transformacion.html#cb223-1" tabindex="-1"></a>?vuelos</span>
+<span id="cb223-2"><a href="transformacion.html#cb223-2" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb223-3"><a href="transformacion.html#cb223-3" tabindex="-1"></a>  <span class="fu">select</span>(atraso_llegada, horario_salida) <span class="sc">%&gt;%</span> </span>
+<span id="cb223-4"><a href="transformacion.html#cb223-4" tabindex="-1"></a>  <span class="fu">arrange</span>(atraso_llegada, <span class="fu">desc</span>(horario_salida))</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 2
+##    atraso_llegada horario_salida
+##             &lt;dbl&gt;          &lt;int&gt;
+##  1            -86           1715
+##  2            -79            719
+##  3            -75           1947
+##  4            -75           1826
+##  5            -74           1816
+##  6            -73           1926
+##  7            -71           2054
+##  8            -71           1753
+##  9            -71            657
+## 10            -70           1801
+## # ℹ 336,766 more rows</code></pre>
+<p>Encuentra los vuelos que salieron más temprano.</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="transformacion.html#cb225-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> <span class="fu">select</span>(horario_salida) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(horario_salida <span class="sc">&gt;=</span> <span class="dv">600</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(horario_salida <span class="sc">&gt;</span> <span class="dv">2400</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 0 × 1
+## # ℹ 1 variable: horario_salida &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="transformacion.html#cb227-1" tabindex="-1"></a><span class="fu">names</span>(vuelos)</span></code></pre></div>
+<pre><code>##  [1] &quot;anio&quot;               &quot;mes&quot;                &quot;dia&quot;               
+##  [4] &quot;horario_salida&quot;     &quot;salida_programada&quot;  &quot;atraso_salida&quot;     
+##  [7] &quot;horario_llegada&quot;    &quot;llegada_programada&quot; &quot;atraso_llegada&quot;    
+## [10] &quot;aerolinea&quot;          &quot;vuelo&quot;              &quot;codigo_cola&quot;       
+## [13] &quot;origen&quot;             &quot;destino&quot;            &quot;tiempo_vuelo&quot;      
+## [16] &quot;distancia&quot;          &quot;hora&quot;               &quot;minuto&quot;            
+## [19] &quot;fecha_hora&quot;</code></pre>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="transformacion.html#cb229-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb229-2"><a href="transformacion.html#cb229-2" tabindex="-1"></a>  <span class="fu">select</span>(atraso_salida) <span class="sc">%&gt;%</span> </span>
+<span id="cb229-3"><a href="transformacion.html#cb229-3" tabindex="-1"></a>  <span class="fu">arrange</span>(atraso_salida)</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 1
+##    atraso_salida
+##            &lt;dbl&gt;
+##  1           -43
+##  2           -33
+##  3           -32
+##  4           -30
+##  5           -27
+##  6           -26
+##  7           -25
+##  8           -25
+##  9           -24
+## 10           -24
+## # ℹ 336,766 more rows</code></pre>
+<p>Ordena vuelos para encontrar los vuelos más rápidos (que viajaron a mayor velocidad).</p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="transformacion.html#cb231-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb231-2"><a href="transformacion.html#cb231-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">velocidad=</span>distancia<span class="sc">/</span>tiempo_vuelo) <span class="sc">%&gt;%</span> </span>
+<span id="cb231-3"><a href="transformacion.html#cb231-3" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(velocidad))</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 20
+##     anio   mes   dia horario_salida salida_programada atraso_salida
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+##  1  2013     5    25           1709              1700             9
+##  2  2013     7     2           1558              1513            45
+##  3  2013     5    13           2040              2025            15
+##  4  2013     3    23           1914              1910             4
+##  5  2013     1    12           1559              1600            -1
+##  6  2013    11    17            650               655            -5
+##  7  2013     2    21           2355              2358            -3
+##  8  2013    11    17            759               800            -1
+##  9  2013    11    16           2003              1925            38
+## 10  2013    11    16           2349              2359           -10
+## # ℹ 336,766 more rows
+## # ℹ 14 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;, velocidad &lt;dbl&gt;</code></pre>
+<p>¿Cuáles vuelos viajaron más lejos?</p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="transformacion.html#cb233-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb233-2"><a href="transformacion.html#cb233-2" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(distancia))</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 19
+##     anio   mes   dia horario_salida salida_programada atraso_salida
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+##  1  2013     1     1            857               900            -3
+##  2  2013     1     2            909               900             9
+##  3  2013     1     3            914               900            14
+##  4  2013     1     4            900               900             0
+##  5  2013     1     5            858               900            -2
+##  6  2013     1     6           1019               900            79
+##  7  2013     1     7           1042               900           102
+##  8  2013     1     8            901               900             1
+##  9  2013     1     9            641               900          1301
+## 10  2013     1    10            859               900            -1
+## # ℹ 336,766 more rows
+## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+<p>¿Cuál viajó más cerca?</p>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="transformacion.html#cb235-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb235-2"><a href="transformacion.html#cb235-2" tabindex="-1"></a>  <span class="fu">arrange</span>(distancia)</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 19
+##     anio   mes   dia horario_salida salida_programada atraso_salida
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+##  1  2013     7    27             NA               106            NA
+##  2  2013     1     3           2127              2129            -2
+##  3  2013     1     4           1240              1200            40
+##  4  2013     1     4           1829              1615           134
+##  5  2013     1     4           2128              2129            -1
+##  6  2013     1     5           1155              1200            -5
+##  7  2013     1     6           2125              2129            -4
+##  8  2013     1     7           2124              2129            -5
+##  9  2013     1     8           2127              2130            -3
+## 10  2013     1     9           2126              2129            -3
+## # ℹ 336,766 more rows
+## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+<ul>
+<li><p>Otra función</p>
+<ul>
+<li>desc()</li>
+</ul></li>
+</ul>
+<hr />
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Ejercicios</strong>:</li>
+</ol>
+<p>Hacer los ejercicios en la sección 5.3.1 del libro en español</p>
+<hr />
+<ul>
+<li><p>Otras funciones:</p>
+<ul>
+<li>starts_with()</li>
+<li>ends_with()</li>
+<li>contains()</li>
+<li>matches(“(.)\1”) # paquete STRING</li>
+<li>rename()</li>
+<li>everything()</li>
+</ul></li>
+</ul>
+</div>
+<div id="starts_with-ends_with" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> starts_with(), ends_with()<a href="transformacion.html#starts_with-ends_with" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Es una función para seleccionar basado</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="transformacion.html#cb237-1" tabindex="-1"></a><span class="fu">names</span>(vuelos)</span></code></pre></div>
+<pre><code>##  [1] &quot;anio&quot;               &quot;mes&quot;                &quot;dia&quot;               
+##  [4] &quot;horario_salida&quot;     &quot;salida_programada&quot;  &quot;atraso_salida&quot;     
+##  [7] &quot;horario_llegada&quot;    &quot;llegada_programada&quot; &quot;atraso_llegada&quot;    
+## [10] &quot;aerolinea&quot;          &quot;vuelo&quot;              &quot;codigo_cola&quot;       
+## [13] &quot;origen&quot;             &quot;destino&quot;            &quot;tiempo_vuelo&quot;      
+## [16] &quot;distancia&quot;          &quot;hora&quot;               &quot;minuto&quot;            
+## [19] &quot;fecha_hora&quot;</code></pre>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="transformacion.html#cb239-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb239-2"><a href="transformacion.html#cb239-2" tabindex="-1"></a>  <span class="fu">select</span>(horario_salida)</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 1
+##    horario_salida
+##             &lt;int&gt;
+##  1            517
+##  2            533
+##  3            542
+##  4            544
+##  5            554
+##  6            554
+##  7            555
+##  8            557
+##  9            557
+## 10            558
+## # ℹ 336,766 more rows</code></pre>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="transformacion.html#cb241-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb241-2"><a href="transformacion.html#cb241-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;horario&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 2
+##    horario_salida horario_llegada
+##             &lt;int&gt;           &lt;int&gt;
+##  1            517             830
+##  2            533             850
+##  3            542             923
+##  4            544            1004
+##  5            554             812
+##  6            554             740
+##  7            555             913
+##  8            557             709
+##  9            557             838
+## 10            558             753
+## # ℹ 336,766 more rows</code></pre>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="transformacion.html#cb243-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb243-2"><a href="transformacion.html#cb243-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&quot;salida&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 2
+##    horario_salida atraso_salida
+##             &lt;int&gt;         &lt;dbl&gt;
+##  1            517             2
+##  2            533             4
+##  3            542             2
+##  4            544            -1
+##  5            554            -6
+##  6            554            -4
+##  7            555            -5
+##  8            557            -3
+##  9            557            -3
+## 10            558            -2
+## # ℹ 336,766 more rows</code></pre>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="transformacion.html#cb245-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb245-2"><a href="transformacion.html#cb245-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">&quot;hora&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 4
+##    horario_salida horario_llegada  hora fecha_hora         
+##             &lt;int&gt;           &lt;int&gt; &lt;dbl&gt; &lt;dttm&gt;             
+##  1            517             830     5 2013-01-01 05:00:00
+##  2            533             850     5 2013-01-01 05:00:00
+##  3            542             923     5 2013-01-01 05:00:00
+##  4            544            1004     5 2013-01-01 05:00:00
+##  5            554             812     6 2013-01-01 06:00:00
+##  6            554             740     5 2013-01-01 05:00:00
+##  7            555             913     6 2013-01-01 06:00:00
+##  8            557             709     6 2013-01-01 06:00:00
+##  9            557             838     6 2013-01-01 06:00:00
+## 10            558             753     6 2013-01-01 06:00:00
+## # ℹ 336,766 more rows</code></pre>
+</div>
+<div id="rename" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> rename()<a href="transformacion.html#rename" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Cambiar el nombre de la columna</p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="transformacion.html#cb247-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb247-2"><a href="transformacion.html#cb247-2" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">aeropuerto_origen=</span>origen) <span class="sc">%&gt;%</span> </span>
+<span id="cb247-3"><a href="transformacion.html#cb247-3" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">areop_distino=</span>destino)<span class="co"># nombre nuevo= nombre original</span></span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 19
+##     anio   mes   dia horario_salida salida_programada atraso_salida
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+##  1  2013     1     1            517               515             2
+##  2  2013     1     1            533               529             4
+##  3  2013     1     1            542               540             2
+##  4  2013     1     1            544               545            -1
+##  5  2013     1     1            554               600            -6
+##  6  2013     1     1            554               558            -4
+##  7  2013     1     1            555               600            -5
+##  8  2013     1     1            557               600            -3
+##  9  2013     1     1            557               600            -3
+## 10  2013     1     1            558               600            -2
+## # ℹ 336,766 more rows
+## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   aeropuerto_origen &lt;chr&gt;, areop_distino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;,
+## #   distancia &lt;dbl&gt;, hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+</div>
+<div id="reoganizar-el-oden-de-las-columnas" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Reoganizar el oden de las columnas<a href="transformacion.html#reoganizar-el-oden-de-las-columnas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="transformacion.html#cb249-1" tabindex="-1"></a><span class="fu">head</span>(vuelos)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 19
+##    anio   mes   dia horario_salida salida_programada atraso_salida
+##   &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+## 1  2013     1     1            517               515             2
+## 2  2013     1     1            533               529             4
+## 3  2013     1     1            542               540             2
+## 4  2013     1     1            544               545            -1
+## 5  2013     1     1            554               600            -6
+## 6  2013     1     1            554               558            -4
+## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="transformacion.html#cb251-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb251-2"><a href="transformacion.html#cb251-2" tabindex="-1"></a><span class="fu">select</span>(distancia, aerolinea, <span class="fu">everything</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 19
+##    distancia aerolinea  anio   mes   dia horario_salida salida_programada
+##        &lt;dbl&gt; &lt;chr&gt;     &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;
+##  1      1400 UA         2013     1     1            517               515
+##  2      1416 UA         2013     1     1            533               529
+##  3      1089 AA         2013     1     1            542               540
+##  4      1576 B6         2013     1     1            544               545
+##  5       762 DL         2013     1     1            554               600
+##  6       719 UA         2013     1     1            554               558
+##  7      1065 B6         2013     1     1            555               600
+##  8       229 EV         2013     1     1            557               600
+##  9       944 B6         2013     1     1            557               600
+## 10       733 AA         2013     1     1            558               600
+## # ℹ 336,766 more rows
+## # ℹ 12 more variables: atraso_salida &lt;dbl&gt;, horario_llegada &lt;int&gt;,
+## #   llegada_programada &lt;int&gt;, atraso_llegada &lt;dbl&gt;, vuelo &lt;int&gt;,
+## #   codigo_cola &lt;chr&gt;, origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+</div>
+<div id="matches.1-lo-veremos-en-la-leccion-de-string" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> matches(“(.)\1”) Lo veremos en la leccion de “STRING”<a href="transformacion.html#matches.1-lo-veremos-en-la-leccion-de-string" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<hr />
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Ejercicios</strong>:</li>
+</ol>
+<p>Hacer los ejercicios en la sección 5.4.1 del libro en español</p>
+<hr />
+<ul>
+<li><p>Otras funciones:</p>
+<ul>
+<li>mutate()</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="transformacion.html#cb253-1" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb253-2"><a href="transformacion.html#cb253-2" tabindex="-1"></a><span class="fu">head</span>(flights)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 19
+##    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+##   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
+## 1  2013     1     1      517            515         2      830            819
+## 2  2013     1     1      533            529         4      850            830
+## 3  2013     1     1      542            540         2      923            850
+## 4  2013     1     1      544            545        -1     1004           1022
+## 5  2013     1     1      554            600        -6      812            837
+## 6  2013     1     1      554            558        -4      740            728
+## # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
+## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
+## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="transformacion.html#cb255-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb255-2"><a href="transformacion.html#cb255-2" tabindex="-1"></a>  flights_sml <span class="ot">&lt;-</span> <span class="fu">select</span>(flights, </span>
+<span id="cb255-3"><a href="transformacion.html#cb255-3" tabindex="-1"></a>  year<span class="sc">:</span>day, </span>
+<span id="cb255-4"><a href="transformacion.html#cb255-4" tabindex="-1"></a>  <span class="fu">ends_with</span>(<span class="st">&quot;delay&quot;</span>), </span>
+<span id="cb255-5"><a href="transformacion.html#cb255-5" tabindex="-1"></a>  distance, </span>
+<span id="cb255-6"><a href="transformacion.html#cb255-6" tabindex="-1"></a>  air_time</span>
+<span id="cb255-7"><a href="transformacion.html#cb255-7" tabindex="-1"></a>)</span>
+<span id="cb255-8"><a href="transformacion.html#cb255-8" tabindex="-1"></a><span class="fu">head</span>(flights_sml)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 7
+##    year month   day dep_delay arr_delay distance air_time
+##   &lt;int&gt; &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+## 1  2013     1     1         2        11     1400      227
+## 2  2013     1     1         4        20     1416      227
+## 3  2013     1     1         2        33     1089      160
+## 4  2013     1     1        -1       -18     1576      183
+## 5  2013     1     1        -6       -25      762      116
+## 6  2013     1     1        -4        12      719      150</code></pre>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="transformacion.html#cb257-1" tabindex="-1"></a><span class="fu">mutate</span>(flights_sml,</span>
+<span id="cb257-2"><a href="transformacion.html#cb257-2" tabindex="-1"></a>  <span class="at">gain =</span> dep_delay <span class="sc">-</span> arr_delay,</span>
+<span id="cb257-3"><a href="transformacion.html#cb257-3" tabindex="-1"></a>  <span class="at">speed =</span> distance <span class="sc">/</span> air_time <span class="sc">*</span> <span class="dv">60</span></span>
+<span id="cb257-4"><a href="transformacion.html#cb257-4" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 9
+##     year month   day dep_delay arr_delay distance air_time  gain speed
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  2013     1     1         2        11     1400      227    -9  370.
+##  2  2013     1     1         4        20     1416      227   -16  374.
+##  3  2013     1     1         2        33     1089      160   -31  408.
+##  4  2013     1     1        -1       -18     1576      183    17  517.
+##  5  2013     1     1        -6       -25      762      116    19  394.
+##  6  2013     1     1        -4        12      719      150   -16  288.
+##  7  2013     1     1        -5        19     1065      158   -24  404.
+##  8  2013     1     1        -3       -14      229       53    11  259.
+##  9  2013     1     1        -3        -8      944      140     5  405.
+## 10  2013     1     1        -2         8      733      138   -10  319.
+## # ℹ 336,766 more rows</code></pre>
+</div>
+<div id="hagan-lo-con-el-data-set-en-espanol" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Hagan lo con el data set en espanol<a href="transformacion.html#hagan-lo-con-el-data-set-en-espanol" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="transformacion.html#cb259-1" tabindex="-1"></a><span class="fu">names</span>(vuelos)</span></code></pre></div>
+<pre><code>##  [1] &quot;anio&quot;               &quot;mes&quot;                &quot;dia&quot;               
+##  [4] &quot;horario_salida&quot;     &quot;salida_programada&quot;  &quot;atraso_salida&quot;     
+##  [7] &quot;horario_llegada&quot;    &quot;llegada_programada&quot; &quot;atraso_llegada&quot;    
+## [10] &quot;aerolinea&quot;          &quot;vuelo&quot;              &quot;codigo_cola&quot;       
+## [13] &quot;origen&quot;             &quot;destino&quot;            &quot;tiempo_vuelo&quot;      
+## [16] &quot;distancia&quot;          &quot;hora&quot;               &quot;minuto&quot;            
+## [19] &quot;fecha_hora&quot;</code></pre>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="transformacion.html#cb261-1" tabindex="-1"></a>  vuelos_sml <span class="ot">&lt;-</span> <span class="fu">select</span>(vuelos, </span>
+<span id="cb261-2"><a href="transformacion.html#cb261-2" tabindex="-1"></a>  anio<span class="sc">:</span>dia, </span>
+<span id="cb261-3"><a href="transformacion.html#cb261-3" tabindex="-1"></a>  <span class="fu">starts_with</span>(<span class="st">&quot;atraso&quot;</span>), </span>
+<span id="cb261-4"><a href="transformacion.html#cb261-4" tabindex="-1"></a>  distancia, </span>
+<span id="cb261-5"><a href="transformacion.html#cb261-5" tabindex="-1"></a>  tiempo_vuelo</span>
+<span id="cb261-6"><a href="transformacion.html#cb261-6" tabindex="-1"></a>)</span>
+<span id="cb261-7"><a href="transformacion.html#cb261-7" tabindex="-1"></a><span class="fu">head</span>(vuelos_sml)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 7
+##    anio   mes   dia atraso_salida atraso_llegada distancia tiempo_vuelo
+##   &lt;int&gt; &lt;int&gt; &lt;int&gt;         &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;
+## 1  2013     1     1             2             11      1400          227
+## 2  2013     1     1             4             20      1416          227
+## 3  2013     1     1             2             33      1089          160
+## 4  2013     1     1            -1            -18      1576          183
+## 5  2013     1     1            -6            -25       762          116
+## 6  2013     1     1            -4             12       719          150</code></pre>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="transformacion.html#cb263-1" tabindex="-1"></a><span class="fu">mutate</span>(vuelos_sml,</span>
+<span id="cb263-2"><a href="transformacion.html#cb263-2" tabindex="-1"></a>  <span class="at">ganado =</span> atraso_salida <span class="sc">-</span> atraso_llegada,</span>
+<span id="cb263-3"><a href="transformacion.html#cb263-3" tabindex="-1"></a>  <span class="at">velocidad =</span> distancia <span class="sc">/</span> tiempo_vuelo <span class="sc">*</span> <span class="dv">60</span></span>
+<span id="cb263-4"><a href="transformacion.html#cb263-4" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 9
+##     anio   mes   dia atraso_salida atraso_llegada distancia tiempo_vuelo ganado
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;         &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+##  1  2013     1     1             2             11      1400          227     -9
+##  2  2013     1     1             4             20      1416          227    -16
+##  3  2013     1     1             2             33      1089          160    -31
+##  4  2013     1     1            -1            -18      1576          183     17
+##  5  2013     1     1            -6            -25       762          116     19
+##  6  2013     1     1            -4             12       719          150    -16
+##  7  2013     1     1            -5             19      1065          158    -24
+##  8  2013     1     1            -3            -14       229           53     11
+##  9  2013     1     1            -3             -8       944          140      5
+## 10  2013     1     1            -2              8       733          138    -10
+## # ℹ 336,766 more rows
+## # ℹ 1 more variable: velocidad &lt;dbl&gt;</code></pre>
+</div>
+<div id="transmute" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> transmute()<a href="transformacion.html#transmute" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para guardar solamente la nueva variable usa transmutate</p>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="transformacion.html#cb265-1" tabindex="-1"></a><span class="fu">transmute</span>(flights,</span>
+<span id="cb265-2"><a href="transformacion.html#cb265-2" tabindex="-1"></a>  <span class="at">gain =</span> dep_delay <span class="sc">-</span> arr_delay,</span>
+<span id="cb265-3"><a href="transformacion.html#cb265-3" tabindex="-1"></a>  <span class="at">hours =</span> air_time <span class="sc">/</span> <span class="dv">60</span>,</span>
+<span id="cb265-4"><a href="transformacion.html#cb265-4" tabindex="-1"></a>  <span class="at">gain_per_hour =</span> gain <span class="sc">/</span> hours</span>
+<span id="cb265-5"><a href="transformacion.html#cb265-5" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 3
+##     gain hours gain_per_hour
+##    &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;
+##  1    -9 3.78          -2.38
+##  2   -16 3.78          -4.23
+##  3   -31 2.67         -11.6 
+##  4    17 3.05           5.57
+##  5    19 1.93           9.83
+##  6   -16 2.5           -6.4 
+##  7   -24 2.63          -9.11
+##  8    11 0.883         12.5 
+##  9     5 2.33           2.14
+## 10   -10 2.3           -4.35
+## # ℹ 336,766 more rows</code></pre>
+<p>Hagan lo con “vuelos”</p>
+</div>
+<div id="lag" class="section level2 hasAnchor" number="5.8">
+<h2><span class="header-section-number">5.8</span> lag()<a href="transformacion.html#lag" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para calcular diferencias entre variables en la misma columna</p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="transformacion.html#cb267-1" tabindex="-1"></a><span class="co">#set.seed(12345) # que los datos sean al azar, siempre sean los mismo, se usa el &quot;set.seed()&quot; para enseñanza.</span></span>
+<span id="cb267-2"><a href="transformacion.html#cb267-2" tabindex="-1"></a><span class="co">#rnorm()  DATOS CON DISTRIBUCION NORMAL</span></span>
+<span id="cb267-3"><a href="transformacion.html#cb267-3" tabindex="-1"></a><span class="fu">rpois</span>(<span class="dv">7</span>, <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 2 2 2 1 1 0 4</code></pre>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="transformacion.html#cb269-1" tabindex="-1"></a>data<span class="ot">=</span><span class="fu">rpois</span>(<span class="dv">14</span>, <span class="dv">10</span>)</span>
+<span id="cb269-2"><a href="transformacion.html#cb269-2" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">as.tibble</span>(data)</span></code></pre></div>
+<pre><code>## Warning: `as.tibble()` was deprecated in tibble 2.0.0.
+## ℹ Please use `as_tibble()` instead.
+## ℹ The signature and semantics have changed, see `?as_tibble`.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="transformacion.html#cb271-1" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>## # A tibble: 14 × 1
+##    value
+##    &lt;int&gt;
+##  1     8
+##  2     8
+##  3    16
+##  4    11
+##  5     7
+##  6    12
+##  7    10
+##  8     5
+##  9     9
+## 10    10
+## 11     9
+## 12    14
+## 13    10
+## 14     9</code></pre>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="transformacion.html#cb273-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb273-2"><a href="transformacion.html#cb273-2" tabindex="-1"></a>  <span class="fu">select</span>(value) <span class="sc">%&gt;%</span> </span>
+<span id="cb273-3"><a href="transformacion.html#cb273-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lag1=</span><span class="fu">lag</span>(value)) <span class="sc">%&gt;%</span> </span>
+<span id="cb273-4"><a href="transformacion.html#cb273-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lag3=</span><span class="fu">lag</span>(value, <span class="dv">3</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb273-5"><a href="transformacion.html#cb273-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lag7=</span><span class="fu">lag</span>(value,<span class="dv">7</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 14 × 4
+##    value  lag1  lag3  lag7
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1     8    NA    NA    NA
+##  2     8     8    NA    NA
+##  3    16     8    NA    NA
+##  4    11    16     8    NA
+##  5     7    11     8    NA
+##  6    12     7    16    NA
+##  7    10    12    11    NA
+##  8     5    10     7     8
+##  9     9     5    12     8
+## 10    10     9    10    16
+## 11     9    10     5    11
+## 12    14     9     9     7
+## 13    10    14    10    12
+## 14     9    10     9    10</code></pre>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="transformacion.html#cb275-1" tabindex="-1"></a>df<span class="sc">%&gt;%</span> </span>
+<span id="cb275-2"><a href="transformacion.html#cb275-2" tabindex="-1"></a>  <span class="fu">select</span>(value) <span class="sc">%&gt;%</span> </span>
+<span id="cb275-3"><a href="transformacion.html#cb275-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Change_df=</span>value<span class="sc">-</span><span class="fu">lag</span>(value, <span class="dv">7</span>)) <span class="co"># El cambio en los valores entre celdas</span></span></code></pre></div>
+<pre><code>## # A tibble: 14 × 2
+##    value Change_df
+##    &lt;int&gt;     &lt;int&gt;
+##  1     8        NA
+##  2     8        NA
+##  3    16        NA
+##  4    11        NA
+##  5     7        NA
+##  6    12        NA
+##  7    10        NA
+##  8     5        -3
+##  9     9         1
+## 10    10        -6
+## 11     9        -2
+## 12    14         7
+## 13    10        -2
+## 14     9        -1</code></pre>
+</div>
+<div id="usa-lag-con-inccasossaludnuevo-en-covid-19-pr" class="section level2 hasAnchor" number="5.9">
+<h2><span class="header-section-number">5.9</span> Usa “Lag” con “IncCasosSaludNuevo” en COVID-19 PR<a href="transformacion.html#usa-lag-con-inccasossaludnuevo-en-covid-19-pr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Evalua la diferencia en números de casos entre 7 días de las semana en números de casos nuevos de COVID, “IncCasosSaludNuevo”</p>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="transformacion.html#cb277-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb277-2"><a href="transformacion.html#cb277-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb277-3"><a href="transformacion.html#cb277-3" tabindex="-1"></a><span class="co">#names(url_COVID_PR)</span></span>
+<span id="cb277-4"><a href="transformacion.html#cb277-4" tabindex="-1"></a>url_COVID_PR <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Datos/url_COVID_PR.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## New names:
+## Rows: 587 Columns: 18
+## ── Column specification
+## ──────────────────────────────────────────────────────── Delimiter: &quot;,&quot; chr
+## (1): Fecha dbl (17): ...1, Muertes, IncrementoMuertes, CasosPCR_Salud,
+## IncCasosPCR_Salu...
+## ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
+## Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## • `` -&gt; `...1`</code></pre>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="transformacion.html#cb279-1" tabindex="-1"></a><span class="co">#head(url_COVID_PR)</span></span>
+<span id="cb279-2"><a href="transformacion.html#cb279-2" tabindex="-1"></a><span class="co">#names(url_COVID_PR)</span></span>
+<span id="cb279-3"><a href="transformacion.html#cb279-3" tabindex="-1"></a>df2<span class="ot">=</span>url_COVID_PR <span class="sc">%&gt;%</span> </span>
+<span id="cb279-4"><a href="transformacion.html#cb279-4" tabindex="-1"></a>  <span class="fu">select</span>(IncCasosSaludNuevo) <span class="sc">%&gt;%</span> </span>
+<span id="cb279-5"><a href="transformacion.html#cb279-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Cambios_Casos=</span>IncCasosSaludNuevo<span class="sc">-</span><span class="fu">lag</span>(IncCasosSaludNuevo,<span class="dv">7</span>)) </span>
+<span id="cb279-6"><a href="transformacion.html#cb279-6" tabindex="-1"></a></span>
+<span id="cb279-7"><a href="transformacion.html#cb279-7" tabindex="-1"></a></span>
+<span id="cb279-8"><a href="transformacion.html#cb279-8" tabindex="-1"></a>df2</span></code></pre></div>
+<pre><code>## # A tibble: 587 × 2
+##    IncCasosSaludNuevo Cambios_Casos
+##                 &lt;dbl&gt;         &lt;dbl&gt;
+##  1                  2            NA
+##  2                  3            NA
+##  3                  3            NA
+##  4                  0            NA
+##  5                  9            NA
+##  6                  7            NA
+##  7                  6            NA
+##  8                  5             3
+##  9                 14            11
+## 10                 12             9
+## # ℹ 577 more rows</code></pre>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="transformacion.html#cb281-1" tabindex="-1"></a>df2 <span class="sc">%&gt;%</span> </span>
+<span id="cb281-2"><a href="transformacion.html#cb281-2" tabindex="-1"></a>  <span class="fu">select</span>(IncCasosSaludNuevo, Cambios_Casos) <span class="sc">%&gt;%</span> </span>
+<span id="cb281-3"><a href="transformacion.html#cb281-3" tabindex="-1"></a>  <span class="fu">colMeans</span>(<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## IncCasosSaludNuevo      Cambios_Casos 
+##        257.8310580          0.4507772</code></pre>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="transformacion.html#cb283-1" tabindex="-1"></a><span class="co">#df2 %&gt;% </span></span>
+<span id="cb283-2"><a href="transformacion.html#cb283-2" tabindex="-1"></a><span class="co">#  select()</span></span>
+<span id="cb283-3"><a href="transformacion.html#cb283-3" tabindex="-1"></a><span class="co">#  slice(na.rm=TRUE) # lets you index rows by their (integer) locations. It allows you to select, remove, and duplicate rows. It is accompanied by a number of helpers for common use cases</span></span></code></pre></div>
+</div>
+<div id="lead" class="section level2 hasAnchor" number="5.10">
+<h2><span class="header-section-number">5.10</span> lead(),<a href="transformacion.html#lead" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>is the “next” (lead()) values in a vector/column</p>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="transformacion.html#cb284-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb284-2"><a href="transformacion.html#cb284-2" tabindex="-1"></a>data<span class="ot">=</span><span class="fu">rpois</span>(<span class="dv">15</span>, <span class="dv">10</span>)</span>
+<span id="cb284-3"><a href="transformacion.html#cb284-3" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">as.tibble</span>(data)</span>
+<span id="cb284-4"><a href="transformacion.html#cb284-4" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>## # A tibble: 15 × 1
+##    value
+##    &lt;int&gt;
+##  1    11
+##  2    12
+##  3     9
+##  4     8
+##  5    11
+##  6     4
+##  7    11
+##  8     7
+##  9     8
+## 10    11
+## 11     9
+## 12    10
+## 13     9
+## 14    11
+## 15    13</code></pre>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="transformacion.html#cb286-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb286-2"><a href="transformacion.html#cb286-2" tabindex="-1"></a>  <span class="fu">select</span>(value) <span class="sc">%&gt;%</span> </span>
+<span id="cb286-3"><a href="transformacion.html#cb286-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lead1=</span><span class="fu">lead</span>(value)) <span class="sc">%&gt;%</span> </span>
+<span id="cb286-4"><a href="transformacion.html#cb286-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lead3=</span><span class="fu">lead</span>(value, <span class="dv">3</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 15 × 3
+##    value lead1 lead3
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1    11    12     8
+##  2    12     9    11
+##  3     9     8     4
+##  4     8    11    11
+##  5    11     4     7
+##  6     4    11     8
+##  7    11     7    11
+##  8     7     8     9
+##  9     8    11    10
+## 10    11     9     9
+## 11     9    10    11
+## 12    10     9    13
+## 13     9    11    NA
+## 14    11    13    NA
+## 15    13    NA    NA</code></pre>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="transformacion.html#cb288-1" tabindex="-1"></a><span class="co"># Calculate the change in value from one (1) time period and four (4) time periods</span></span>
+<span id="cb288-2"><a href="transformacion.html#cb288-2" tabindex="-1"></a>df<span class="sc">%&gt;%</span> </span>
+<span id="cb288-3"><a href="transformacion.html#cb288-3" tabindex="-1"></a>  <span class="fu">select</span>(value) <span class="sc">%&gt;%</span> </span>
+<span id="cb288-4"><a href="transformacion.html#cb288-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lead1=</span>value<span class="sc">-</span><span class="fu">lead</span>(value)) <span class="sc">%&gt;%</span> </span>
+<span id="cb288-5"><a href="transformacion.html#cb288-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lead7=</span>value<span class="sc">-</span><span class="fu">lead</span>(value, <span class="dv">7</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 15 × 3
+##    value lead1 lead7
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1    11    -1     4
+##  2    12     3     4
+##  3     9     1    -2
+##  4     8    -3    -1
+##  5    11     7     1
+##  6     4    -7    -5
+##  7    11     4     0
+##  8     7    -1    -6
+##  9     8    -3    NA
+## 10    11     2    NA
+## 11     9    -1    NA
+## 12    10     1    NA
+## 13     9    -2    NA
+## 14    11    -2    NA
+## 15    13    NA    NA</code></pre>
+</div>
+<div id="cumsum" class="section level2 hasAnchor" number="5.11">
+<h2><span class="header-section-number">5.11</span> cumsum<a href="transformacion.html#cumsum" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Cumulative Sum: the values are sum along the vector or column</p>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="transformacion.html#cb290-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="dv">10</span>, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
+<span id="cb290-2"><a href="transformacion.html#cb290-2" tabindex="-1"></a></span>
+<span id="cb290-3"><a href="transformacion.html#cb290-3" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1] 14  2  4 11 12  9  9  4  8 11</code></pre>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="transformacion.html#cb292-1" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">as.tibble</span>(x)</span>
+<span id="cb292-2"><a href="transformacion.html#cb292-2" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 1
+##    value
+##    &lt;int&gt;
+##  1    14
+##  2     2
+##  3     4
+##  4    11
+##  5    12
+##  6     9
+##  7     9
+##  8     4
+##  9     8
+## 10    11</code></pre>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="transformacion.html#cb294-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb294-2"><a href="transformacion.html#cb294-2" tabindex="-1"></a>  <span class="fu">select</span>(value) <span class="sc">%&gt;%</span> </span>
+<span id="cb294-3"><a href="transformacion.html#cb294-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">suma=</span><span class="fu">cumsum</span>(value))</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 2
+##    value  suma
+##    &lt;int&gt; &lt;int&gt;
+##  1    14    14
+##  2     2    16
+##  3     4    20
+##  4    11    31
+##  5    12    43
+##  6     9    52
+##  7     9    61
+##  8     4    65
+##  9     8    73
+## 10    11    84</code></pre>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="transformacion.html#cb296-1" tabindex="-1"></a>url_COVID_PR <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Datos/url_COVID_PR.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## New names:
+## Rows: 587 Columns: 18
+## ── Column specification
+## ──────────────────────────────────────────────────────── Delimiter: &quot;,&quot; chr
+## (1): Fecha dbl (17): ...1, Muertes, IncrementoMuertes, CasosPCR_Salud,
+## IncCasosPCR_Salu...
+## ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
+## Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## • `` -&gt; `...1`</code></pre>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="transformacion.html#cb298-1" tabindex="-1"></a><span class="fu">head</span>(url_COVID_PR)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 18
+##    ...1 Fecha   Muertes IncrementoMuertes CasosPCR_Salud IncCasosPCR_Salud
+##   &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;             &lt;dbl&gt;          &lt;dbl&gt;             &lt;dbl&gt;
+## 1     1 3/12/20       0                 0             NA                NA
+## 2     2 3/13/20       0                 0             NA                NA
+## 3     3 3/14/20       0                 0             NA                NA
+## 4     4 3/15/20       0                 0             NA                NA
+## 5     5 3/16/20       0                 0             NA                NA
+## 6     6 3/17/20       0                 0             NA                NA
+## # ℹ 12 more variables: CasosSaludNuevo &lt;dbl&gt;, IncCasosSaludNuevo &lt;dbl&gt;,
+## #   HospitCOV19 &lt;dbl&gt;, CamasICU &lt;dbl&gt;, CamasICU_disp &lt;dbl&gt;, Ventiladores &lt;dbl&gt;,
+## #   MuertesSalud &lt;dbl&gt;, IncMueSalud &lt;dbl&gt;, VacDoses &lt;dbl&gt;, VacAdm &lt;dbl&gt;,
+## #   N1MoreDoses &lt;dbl&gt;, N2Doses &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="transformacion.html#cb300-1" tabindex="-1"></a>url_COVID_PR <span class="sc">%&gt;%</span></span>
+<span id="cb300-2"><a href="transformacion.html#cb300-2" tabindex="-1"></a><span class="fu">select</span>(IncCasosSaludNuevo, CasosSaludNuevo) <span class="sc">%&gt;%</span></span>
+<span id="cb300-3"><a href="transformacion.html#cb300-3" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">suma=</span><span class="fu">cumsum</span>(IncCasosSaludNuevo))</span></code></pre></div>
+<pre><code>## # A tibble: 587 × 3
+##    IncCasosSaludNuevo CasosSaludNuevo  suma
+##                 &lt;dbl&gt;           &lt;dbl&gt; &lt;dbl&gt;
+##  1                  2               2     2
+##  2                  3               5     5
+##  3                  3               8     8
+##  4                  0               8     8
+##  5                  9              17    17
+##  6                  7              24    24
+##  7                  6              30    30
+##  8                  5              35    35
+##  9                 14              49    49
+## 10                 12              61    61
+## # ℹ 577 more rows</code></pre>
+</div>
+<div id="cummean-and-cumvar" class="section level2 hasAnchor" number="5.12">
+<h2><span class="header-section-number">5.12</span> cummean() and cumvar()<a href="transformacion.html#cummean-and-cumvar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The mean of the values are calculated</p>
+<p>Cummulative mean</p>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="transformacion.html#cb302-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">678</span>)</span>
+<span id="cb302-2"><a href="transformacion.html#cb302-2" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">15</span>)</span>
+<span id="cb302-3"><a href="transformacion.html#cb302-3" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1]  6  9 14 16  4 12 13  8 10  1 19 11 17  3  7</code></pre>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="transformacion.html#cb304-1" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">as.tibble</span>(x)</span>
+<span id="cb304-2"><a href="transformacion.html#cb304-2" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>## # A tibble: 15 × 1
+##    value
+##    &lt;int&gt;
+##  1     6
+##  2     9
+##  3    14
+##  4    16
+##  5     4
+##  6    12
+##  7    13
+##  8     8
+##  9    10
+## 10     1
+## 11    19
+## 12    11
+## 13    17
+## 14     3
+## 15     7</code></pre>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="transformacion.html#cb306-1" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>value)</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="transformacion.html#cb308-1" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;MASS&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     select</code></pre>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="transformacion.html#cb311-1" tabindex="-1"></a>df3<span class="ot">=</span>df <span class="sc">%&gt;%</span> </span>
+<span id="cb311-2"><a href="transformacion.html#cb311-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(value) <span class="sc">%&gt;%</span> </span>
+<span id="cb311-3"><a href="transformacion.html#cb311-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Prom_cum=</span><span class="fu">cummean</span>(value)) <span class="sc">%&gt;%</span> </span>
+<span id="cb311-4"><a href="transformacion.html#cb311-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Var_cum=</span>cumstats<span class="sc">::</span><span class="fu">cumvar</span>(value)) <span class="co"># activar el paquete cumstats</span></span>
+<span id="cb311-5"><a href="transformacion.html#cb311-5" tabindex="-1"></a></span>
+<span id="cb311-6"><a href="transformacion.html#cb311-6" tabindex="-1"></a></span>
+<span id="cb311-7"><a href="transformacion.html#cb311-7" tabindex="-1"></a><span class="fu">library</span>(cumstats)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;cumstats&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     cummean</code></pre>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="transformacion.html#cb314-1" tabindex="-1"></a> df3<span class="ot">=</span>df <span class="sc">%&gt;%</span> </span>
+<span id="cb314-2"><a href="transformacion.html#cb314-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(value) <span class="sc">%&gt;%</span> </span>
+<span id="cb314-3"><a href="transformacion.html#cb314-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Prom_cum=</span><span class="fu">cummean</span>(value)) <span class="sc">%&gt;%</span> </span>
+<span id="cb314-4"><a href="transformacion.html#cb314-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Var_cum=</span><span class="fu">cumvar</span>(value))</span>
+<span id="cb314-5"><a href="transformacion.html#cb314-5" tabindex="-1"></a></span>
+<span id="cb314-6"><a href="transformacion.html#cb314-6" tabindex="-1"></a> df3</span></code></pre></div>
+<pre><code>## # A tibble: 15 × 3
+##    value Prom_cum Var_cum
+##    &lt;int&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+##  1     6     6       NA  
+##  2     9     7.5      4.5
+##  3    14     9.67    16.3
+##  4    16    11.2     20.9
+##  5     4     9.8     26.2
+##  6    12    10.2     21.8
+##  7    13    10.6     19.3
+##  8     8    10.2     17.4
+##  9    10    10.2     15.2
+## 10     1     9.3     22.0
+## 11    19    10.2     28.4
+## 12    11    10.2     25.8
+## 13    17    10.8     27.2
+## 14     3    10.2     29.4
+## 15     7    10       28</code></pre>
+<hr />
+<p>NO parametricas pruebas (no son basado en distribucion normal)</p>
+</div>
+<div id="min_rank-y-min_rankdesc" class="section level2 hasAnchor" number="5.13">
+<h2><span class="header-section-number">5.13</span> min_rank() y # min_rank(desc())<a href="transformacion.html#min_rank-y-min_rankdesc" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Asignar valores de rangos a los valores originales o de más grande a meas pequeño o vise versa.</p>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="transformacion.html#cb316-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">45678</span>)</span>
+<span id="cb316-2"><a href="transformacion.html#cb316-2" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>, <span class="dv">10</span>)</span>
+<span id="cb316-3"><a href="transformacion.html#cb316-3" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1] 22  1 36 46  7 39 34 10 24 30</code></pre>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="transformacion.html#cb318-1" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">as.tibble</span>(x)</span>
+<span id="cb318-2"><a href="transformacion.html#cb318-2" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 1
+##    value
+##    &lt;int&gt;
+##  1    22
+##  2     1
+##  3    36
+##  4    46
+##  5     7
+##  6    39
+##  7    34
+##  8    10
+##  9    24
+## 10    30</code></pre>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="transformacion.html#cb320-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb320-2"><a href="transformacion.html#cb320-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(value) <span class="sc">%&gt;%</span> </span>
+<span id="cb320-3"><a href="transformacion.html#cb320-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rango_minimo=</span><span class="fu">min_rank</span>(value)) <span class="sc">%&gt;%</span>  </span>
+<span id="cb320-4"><a href="transformacion.html#cb320-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rango_min_desc=</span><span class="fu">min_rank</span>(<span class="fu">desc</span>(value)) )</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 3
+##    value rango_minimo rango_min_desc
+##    &lt;int&gt;        &lt;int&gt;          &lt;int&gt;
+##  1    22            4              7
+##  2     1            1             10
+##  3    36            8              3
+##  4    46           10              1
+##  5     7            2              9
+##  6    39            9              2
+##  7    34            7              4
+##  8    10            3              8
+##  9    24            5              6
+## 10    30            6              5</code></pre>
+</div>
+<div id="row_number" class="section level2 hasAnchor" number="5.14">
+<h2><span class="header-section-number">5.14</span> row_number()<a href="transformacion.html#row_number" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Qué hace esta función?</p>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="transformacion.html#cb322-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">45678</span>)</span>
+<span id="cb322-2"><a href="transformacion.html#cb322-2" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">21</span>,<span class="dv">22</span>,<span class="cn">NA</span>,<span class="dv">5</span>,<span class="dv">4</span>)</span>
+<span id="cb322-3"><a href="transformacion.html#cb322-3" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] 10 21 22 NA  5  4</code></pre>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="transformacion.html#cb324-1" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">as.tibble</span>(x)</span>
+<span id="cb324-2"><a href="transformacion.html#cb324-2" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 1
+##   value
+##   &lt;dbl&gt;
+## 1    10
+## 2    21
+## 3    22
+## 4    NA
+## 5     5
+## 6     4</code></pre>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="transformacion.html#cb326-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb326-2"><a href="transformacion.html#cb326-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(value) <span class="sc">%&gt;%</span> </span>
+<span id="cb326-3"><a href="transformacion.html#cb326-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">row=</span><span class="fu">row_number</span>(value)) <span class="co"># equivalente a rank, </span></span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##   value   row
+##   &lt;dbl&gt; &lt;int&gt;
+## 1    10     3
+## 2    21     4
+## 3    22     5
+## 4    NA    NA
+## 5     5     2
+## 6     4     1</code></pre>
+</div>
+<div id="dense_rank" class="section level2 hasAnchor" number="5.15">
+<h2><span class="header-section-number">5.15</span> dense_rank()<a href="transformacion.html#dense_rank" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="transformacion.html#cb328-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">45678</span>)</span>
+<span id="cb328-2"><a href="transformacion.html#cb328-2" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">12</span>,<span class="cn">NA</span>,<span class="dv">51</span>,<span class="dv">4</span>)</span>
+<span id="cb328-3"><a href="transformacion.html#cb328-3" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] 10 12 12 NA 51  4</code></pre>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="transformacion.html#cb330-1" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">as.tibble</span>(x)</span>
+<span id="cb330-2"><a href="transformacion.html#cb330-2" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 1
+##   value
+##   &lt;dbl&gt;
+## 1    10
+## 2    12
+## 3    12
+## 4    NA
+## 5    51
+## 6     4</code></pre>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="transformacion.html#cb332-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb332-2"><a href="transformacion.html#cb332-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(value) <span class="sc">%&gt;%</span> </span>
+<span id="cb332-3"><a href="transformacion.html#cb332-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dense=</span><span class="fu">dense_rank</span>(value)) <span class="co"># equivalente a rank, NOTA que los NA son asignado un valor</span></span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##   value dense
+##   &lt;dbl&gt; &lt;int&gt;
+## 1    10     2
+## 2    12     3
+## 3    12     3
+## 4    NA    NA
+## 5    51     4
+## 6     4     1</code></pre>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="transformacion.html#cb334-1" tabindex="-1"></a>Num_frutos1<span class="ot">=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">1000000</span>)</span>
+<span id="cb334-2"><a href="transformacion.html#cb334-2" tabindex="-1"></a>NF1<span class="ot">=</span><span class="fu">as.tibble</span>(Num_frutos1)</span>
+<span id="cb334-3"><a href="transformacion.html#cb334-3" tabindex="-1"></a>NF1</span></code></pre></div>
+<pre><code>## # A tibble: 12 × 1
+##      value
+##      &lt;dbl&gt;
+##  1       0
+##  2       0
+##  3       0
+##  4       0
+##  5       0
+##  6       1
+##  7       1
+##  8       2
+##  9       4
+## 10       5
+## 11       6
+## 12 1000000</code></pre>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="transformacion.html#cb336-1" tabindex="-1"></a>Num_frutos2<span class="ot">=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">10</span>)</span>
+<span id="cb336-2"><a href="transformacion.html#cb336-2" tabindex="-1"></a><span class="fu">mean</span>(Num_frutos1)</span></code></pre></div>
+<pre><code>## [1] 83334.92</code></pre>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="transformacion.html#cb338-1" tabindex="-1"></a><span class="fu">mean</span>(Num_frutos2)</span></code></pre></div>
+<pre><code>## [1] 2.416667</code></pre>
+<hr />
+<p>Start here….</p>
+</div>
+<div id="percent_rank" class="section level2 hasAnchor" number="5.16">
+<h2><span class="header-section-number">5.16</span> percent_rank()<a href="transformacion.html#percent_rank" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="transformacion.html#cb340-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">45678</span>)</span>
+<span id="cb340-2"><a href="transformacion.html#cb340-2" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="cn">NA</span>,<span class="dv">5</span>,<span class="dv">4</span>)</span>
+<span id="cb340-3"><a href="transformacion.html#cb340-3" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1]  1  2  2 NA  5  4</code></pre>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="transformacion.html#cb342-1" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">as.tibble</span>(x)</span>
+<span id="cb342-2"><a href="transformacion.html#cb342-2" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 1
+##   value
+##   &lt;dbl&gt;
+## 1     1
+## 2     2
+## 3     2
+## 4    NA
+## 5     5
+## 6     4</code></pre>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="transformacion.html#cb344-1" tabindex="-1"></a>NF1 <span class="sc">%&gt;%</span> </span>
+<span id="cb344-2"><a href="transformacion.html#cb344-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(value) <span class="sc">%&gt;%</span> </span>
+<span id="cb344-3"><a href="transformacion.html#cb344-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">porcentaje_rank=</span><span class="fu">percent_rank</span>(value)) <span class="co"># equivalente a rank, Un número entre a  0 y 1 calculado haciendo una re-escala de los valores usando min_rank to [0, 1]. NOTA que el valor más pequeño es reasignado un valor de 0 y el más grande un valor de 1.  </span></span></code></pre></div>
+<pre><code>## # A tibble: 12 × 2
+##      value porcentaje_rank
+##      &lt;dbl&gt;           &lt;dbl&gt;
+##  1       0           0    
+##  2       0           0    
+##  3       0           0    
+##  4       0           0    
+##  5       0           0    
+##  6       1           0.455
+##  7       1           0.455
+##  8       2           0.636
+##  9       4           0.727
+## 10       5           0.818
+## 11       6           0.909
+## 12 1000000           1</code></pre>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="transformacion.html#cb346-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">45678</span>)</span>
+<span id="cb346-2"><a href="transformacion.html#cb346-2" tabindex="-1"></a>  x2 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>, <span class="dv">7</span>)</span>
+<span id="cb346-3"><a href="transformacion.html#cb346-3" tabindex="-1"></a>x2</span></code></pre></div>
+<pre><code>## [1] 22  1 36 46  7 39 34</code></pre>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="transformacion.html#cb348-1" tabindex="-1"></a>df2<span class="ot">=</span><span class="fu">as.tibble</span>(x2)</span>
+<span id="cb348-2"><a href="transformacion.html#cb348-2" tabindex="-1"></a>df2</span></code></pre></div>
+<pre><code>## # A tibble: 7 × 1
+##   value
+##   &lt;int&gt;
+## 1    22
+## 2     1
+## 3    36
+## 4    46
+## 5     7
+## 6    39
+## 7    34</code></pre>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="transformacion.html#cb350-1" tabindex="-1"></a>df2 <span class="sc">%&gt;%</span> </span>
+<span id="cb350-2"><a href="transformacion.html#cb350-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(value) <span class="sc">%&gt;%</span> </span>
+<span id="cb350-3"><a href="transformacion.html#cb350-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">porc2=</span><span class="fu">percent_rank</span>(value))</span></code></pre></div>
+<pre><code>## # A tibble: 7 × 2
+##   value porc2
+##   &lt;int&gt; &lt;dbl&gt;
+## 1    22 0.333
+## 2     1 0    
+## 3    36 0.667
+## 4    46 1    
+## 5     7 0.167
+## 6    39 0.833
+## 7    34 0.5</code></pre>
+</div>
+<div id="cume_dist" class="section level2 hasAnchor" number="5.17">
+<h2><span class="header-section-number">5.17</span> cume_dist()<a href="transformacion.html#cume_dist" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Es la suma cumulativa de los rangos</p>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="transformacion.html#cb352-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">45678</span>)</span>
+<span id="cb352-2"><a href="transformacion.html#cb352-2" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="cn">NA</span>,<span class="dv">5</span>,<span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">8</span>)</span>
+<span id="cb352-3"><a href="transformacion.html#cb352-3" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1]  1  2  3 NA  5  4 10  8</code></pre>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="transformacion.html#cb354-1" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">as.tibble</span>(x)</span>
+<span id="cb354-2"><a href="transformacion.html#cb354-2" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>## # A tibble: 8 × 1
+##   value
+##   &lt;dbl&gt;
+## 1     1
+## 2     2
+## 3     3
+## 4    NA
+## 5     5
+## 6     4
+## 7    10
+## 8     8</code></pre>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="transformacion.html#cb356-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb356-2"><a href="transformacion.html#cb356-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(value) <span class="sc">%&gt;%</span> </span>
+<span id="cb356-3"><a href="transformacion.html#cb356-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rangos_cumulativo=</span><span class="fu">cume_dist</span>(value)) </span></code></pre></div>
+<pre><code>## # A tibble: 8 × 2
+##   value rangos_cumulativo
+##   &lt;dbl&gt;             &lt;dbl&gt;
+## 1     1             0.143
+## 2     2             0.286
+## 3     3             0.429
+## 4    NA            NA    
+## 5     5             0.714
+## 6     4             0.571
+## 7    10             1    
+## 8     8             0.857</code></pre>
+<hr />
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Ejercicios</strong>:</li>
+</ol>
+<p>Hacer los ejercicios en la sección 5.5.2 del libro en español</p>
+<p>Encuentra los 10 vuelos más retrasados utilizando una función de ordenamiento. ¿Cómo quieres manejar los empates? Lee atentamente la documentación de min_rank().</p>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="transformacion.html#cb358-1" tabindex="-1"></a><span class="fu">names</span>(vuelos)</span></code></pre></div>
+<pre><code>##  [1] &quot;anio&quot;               &quot;mes&quot;                &quot;dia&quot;               
+##  [4] &quot;horario_salida&quot;     &quot;salida_programada&quot;  &quot;atraso_salida&quot;     
+##  [7] &quot;horario_llegada&quot;    &quot;llegada_programada&quot; &quot;atraso_llegada&quot;    
+## [10] &quot;aerolinea&quot;          &quot;vuelo&quot;              &quot;codigo_cola&quot;       
+## [13] &quot;origen&quot;             &quot;destino&quot;            &quot;tiempo_vuelo&quot;      
+## [16] &quot;distancia&quot;          &quot;hora&quot;               &quot;minuto&quot;            
+## [19] &quot;fecha_hora&quot;</code></pre>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="transformacion.html#cb360-1" tabindex="-1"></a>vuelos<span class="sc">%&gt;%</span></span>
+<span id="cb360-2"><a href="transformacion.html#cb360-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(atraso_salida)<span class="sc">%&gt;%</span></span>
+<span id="cb360-3"><a href="transformacion.html#cb360-3" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(atraso_salida))<span class="sc">%&gt;%</span> </span>
+<span id="cb360-4"><a href="transformacion.html#cb360-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mas_atrados=</span><span class="fu">min_rank</span>(<span class="fu">desc</span>(atraso_salida))) <span class="sc">%&gt;%</span> </span>
+<span id="cb360-5"><a href="transformacion.html#cb360-5" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 2
+##    atraso_salida mas_atrados
+##            &lt;dbl&gt;       &lt;int&gt;
+##  1          1301           1
+##  2          1137           2
+##  3          1126           3
+##  4          1014           4
+##  5          1005           5
+##  6           960           6
+##  7           911           7
+##  8           899           8
+##  9           898           9
+## 10           896          10</code></pre>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="transformacion.html#cb362-1" tabindex="-1"></a><span class="fu">names</span>(vuelos)</span></code></pre></div>
+<pre><code>##  [1] &quot;anio&quot;               &quot;mes&quot;                &quot;dia&quot;               
+##  [4] &quot;horario_salida&quot;     &quot;salida_programada&quot;  &quot;atraso_salida&quot;     
+##  [7] &quot;horario_llegada&quot;    &quot;llegada_programada&quot; &quot;atraso_llegada&quot;    
+## [10] &quot;aerolinea&quot;          &quot;vuelo&quot;              &quot;codigo_cola&quot;       
+## [13] &quot;origen&quot;             &quot;destino&quot;            &quot;tiempo_vuelo&quot;      
+## [16] &quot;distancia&quot;          &quot;hora&quot;               &quot;minuto&quot;            
+## [19] &quot;fecha_hora&quot;</code></pre>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="transformacion.html#cb364-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb364-2"><a href="transformacion.html#cb364-2" tabindex="-1"></a>  <span class="fu">arrange</span>(atraso_salida) <span class="sc">%&gt;%</span> </span>
+<span id="cb364-3"><a href="transformacion.html#cb364-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rango_minimo=</span><span class="fu">min_rank</span>(atraso_salida)) <span class="sc">%&gt;%</span> </span>
+<span id="cb364-4"><a href="transformacion.html#cb364-4" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 20
+##     anio   mes   dia horario_salida salida_programada atraso_salida
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+##  1  2013    12     7           2040              2123           -43
+##  2  2013     2     3           2022              2055           -33
+##  3  2013    11    10           1408              1440           -32
+##  4  2013     1    11           1900              1930           -30
+##  5  2013     1    29           1703              1730           -27
+##  6  2013     8     9            729               755           -26
+##  7  2013    10    23           1907              1932           -25
+##  8  2013     3    30           2030              2055           -25
+##  9  2013     3     2           1431              1455           -24
+## 10  2013     5     5            934               958           -24
+## # ℹ 14 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;, rango_minimo &lt;int&gt;</code></pre>
+<hr />
+</div>
+<div id="resúmenes-con-summarise-by-group-using-group_by" class="section level2 hasAnchor" number="5.18">
+<h2><span class="header-section-number">5.18</span> Resúmenes con summarise() by group using group_by()<a href="transformacion.html#resúmenes-con-summarise-by-group-using-group_by" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="transformacion.html#cb366-1" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
+<span id="cb366-2"><a href="transformacion.html#cb366-2" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb366-3"><a href="transformacion.html#cb366-3" tabindex="-1"></a><span class="fu">summarise</span>(flights, <span class="at">delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 1
+##   delay
+##   &lt;dbl&gt;
+## 1  12.6</code></pre>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="transformacion.html#cb368-1" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> </span>
+<span id="cb368-2"><a href="transformacion.html#cb368-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 1
+##   delay
+##   &lt;dbl&gt;
+## 1  12.6</code></pre>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="transformacion.html#cb370-1" tabindex="-1"></a>by_day <span class="ot">&lt;-</span> <span class="fu">group_by</span>(flights, year, month, day)</span>
+<span id="cb370-2"><a href="transformacion.html#cb370-2" tabindex="-1"></a></span>
+<span id="cb370-3"><a href="transformacion.html#cb370-3" tabindex="-1"></a><span class="fu">summarise</span>(by_day, <span class="at">delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override using the
+## `.groups` argument.</code></pre>
+<pre><code>## # A tibble: 365 × 4
+## # Groups:   year, month [12]
+##     year month   day delay
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+##  1  2013     1     1 11.5 
+##  2  2013     1     2 13.9 
+##  3  2013     1     3 11.0 
+##  4  2013     1     4  8.95
+##  5  2013     1     5  5.73
+##  6  2013     1     6  7.15
+##  7  2013     1     7  5.42
+##  8  2013     1     8  2.55
+##  9  2013     1     9  2.28
+## 10  2013     1    10  2.84
+## # ℹ 355 more rows</code></pre>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="transformacion.html#cb373-1" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> </span>
+<span id="cb373-2"><a href="transformacion.html#cb373-2" tabindex="-1"></a>  <span class="fu">group_by</span>(year, month, day) <span class="sc">%&gt;%</span> </span>
+<span id="cb373-3"><a href="transformacion.html#cb373-3" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override using the
+## `.groups` argument.</code></pre>
+<pre><code>## # A tibble: 365 × 4
+## # Groups:   year, month [12]
+##     year month   day delay
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+##  1  2013     1     1 11.5 
+##  2  2013     1     2 13.9 
+##  3  2013     1     3 11.0 
+##  4  2013     1     4  8.95
+##  5  2013     1     5  5.73
+##  6  2013     1     6  7.15
+##  7  2013     1     7  5.42
+##  8  2013     1     8  2.55
+##  9  2013     1     9  2.28
+## 10  2013     1    10  2.84
+## # ℹ 355 more rows</code></pre>
+</div>
+<div id="the-worst-airline-in-departure-delays" class="section level2 hasAnchor" number="5.19">
+<h2><span class="header-section-number">5.19</span> The worst airline in departure delays<a href="transformacion.html#the-worst-airline-in-departure-delays" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="transformacion.html#cb376-1" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
+<span id="cb376-2"><a href="transformacion.html#cb376-2" tabindex="-1"></a><span class="fu">group_by</span>(carrier) <span class="sc">%&gt;%</span></span>
+<span id="cb376-3"><a href="transformacion.html#cb376-3" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb376-4"><a href="transformacion.html#cb376-4" tabindex="-1"></a><span class="fu">arrange</span>(<span class="fu">desc</span>(delay))</span></code></pre></div>
+<pre><code>## # A tibble: 16 × 2
+##    carrier delay
+##    &lt;chr&gt;   &lt;dbl&gt;
+##  1 F9      20.2 
+##  2 EV      20.0 
+##  3 YV      19.0 
+##  4 FL      18.7 
+##  5 WN      17.7 
+##  6 9E      16.7 
+##  7 B6      13.0 
+##  8 VX      12.9 
+##  9 OO      12.6 
+## 10 UA      12.1 
+## 11 MQ      10.6 
+## 12 DL       9.26
+## 13 AA       8.59
+## 14 AS       5.80
+## 15 HA       4.90
+## 16 US       3.78</code></pre>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="transformacion.html#cb378-1" tabindex="-1"></a>by_dest <span class="ot">&lt;-</span> <span class="fu">group_by</span>(flights, dest)</span>
+<span id="cb378-2"><a href="transformacion.html#cb378-2" tabindex="-1"></a>by_dest</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 19
+## # Groups:   dest [105]
+##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
+##  1  2013     1     1      517            515         2      830            819
+##  2  2013     1     1      533            529         4      850            830
+##  3  2013     1     1      542            540         2      923            850
+##  4  2013     1     1      544            545        -1     1004           1022
+##  5  2013     1     1      554            600        -6      812            837
+##  6  2013     1     1      554            558        -4      740            728
+##  7  2013     1     1      555            600        -5      913            854
+##  8  2013     1     1      557            600        -3      709            723
+##  9  2013     1     1      557            600        -3      838            846
+## 10  2013     1     1      558            600        -2      753            745
+## # ℹ 336,766 more rows
+## # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
+## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
+## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="transformacion.html#cb380-1" tabindex="-1"></a>delay <span class="ot">&lt;-</span> <span class="fu">summarise</span>(by_dest,</span>
+<span id="cb380-2"><a href="transformacion.html#cb380-2" tabindex="-1"></a>  <span class="at">count =</span> <span class="fu">n</span>(),</span>
+<span id="cb380-3"><a href="transformacion.html#cb380-3" tabindex="-1"></a>  <span class="at">dist =</span> <span class="fu">mean</span>(distance, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb380-4"><a href="transformacion.html#cb380-4" tabindex="-1"></a>  <span class="at">delay =</span> <span class="fu">mean</span>(arr_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb380-5"><a href="transformacion.html#cb380-5" tabindex="-1"></a></span>
+<span id="cb380-6"><a href="transformacion.html#cb380-6" tabindex="-1"></a></span>
+<span id="cb380-7"><a href="transformacion.html#cb380-7" tabindex="-1"></a>delay</span></code></pre></div>
+<pre><code>## # A tibble: 105 × 4
+##    dest  count  dist delay
+##    &lt;chr&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 ABQ     254 1826   4.38
+##  2 ACK     265  199   4.85
+##  3 ALB     439  143  14.4 
+##  4 ANC       8 3370  -2.5 
+##  5 ATL   17215  757. 11.3 
+##  6 AUS    2439 1514.  6.02
+##  7 AVL     275  584.  8.00
+##  8 BDL     443  116   7.05
+##  9 BGR     375  378   8.03
+## 10 BHM     297  866. 16.9 
+## # ℹ 95 more rows</code></pre>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="transformacion.html#cb382-1" tabindex="-1"></a><span class="co">#&gt; `summarise()` ungrouping output (override with `.groups` argument)</span></span>
+<span id="cb382-2"><a href="transformacion.html#cb382-2" tabindex="-1"></a>delay <span class="ot">&lt;-</span> <span class="fu">filter</span>(delay, count <span class="sc">&gt;</span> <span class="dv">20</span>, dest <span class="sc">!=</span> <span class="st">&quot;HNL&quot;</span>)</span>
+<span id="cb382-3"><a href="transformacion.html#cb382-3" tabindex="-1"></a></span>
+<span id="cb382-4"><a href="transformacion.html#cb382-4" tabindex="-1"></a><span class="co"># It looks like delays increase with distance up to ~750 miles </span></span>
+<span id="cb382-5"><a href="transformacion.html#cb382-5" tabindex="-1"></a><span class="co"># and then decrease. Maybe as flights get longer there&#39;s more </span></span>
+<span id="cb382-6"><a href="transformacion.html#cb382-6" tabindex="-1"></a><span class="co"># ability to make up delays in the air?</span></span>
+<span id="cb382-7"><a href="transformacion.html#cb382-7" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> delay, <span class="fu">aes</span>(<span class="at">x =</span> dist, <span class="at">y =</span> delay)) <span class="sc">+</span></span>
+<span id="cb382-8"><a href="transformacion.html#cb382-8" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> count), <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb382-9"><a href="transformacion.html#cb382-9" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="transformacion.html#cb384-1" tabindex="-1"></a><span class="co">#&gt; `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</span></span></code></pre></div>
+<p>Start here</p>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="transformacion.html#cb385-1" tabindex="-1"></a><span class="fu">names</span>(delay)</span></code></pre></div>
+<pre><code>## [1] &quot;dest&quot;  &quot;count&quot; &quot;dist&quot;  &quot;delay&quot;</code></pre>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="transformacion.html#cb387-1" tabindex="-1"></a><span class="fu">head</span>(delay)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+##   dest  count  dist delay
+##   &lt;chr&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 ABQ     254 1826   4.38
+## 2 ACK     265  199   4.85
+## 3 ALB     439  143  14.4 
+## 4 ATL   17215  757. 11.3 
+## 5 AUS    2439 1514.  6.02
+## 6 AVL     275  584.  8.00</code></pre>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="transformacion.html#cb389-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> delay, <span class="fu">aes</span>(<span class="at">x =</span> dist, <span class="at">y =</span> delay, <span class="at">label=</span>dest)) <span class="sc">+</span></span>
+<span id="cb389-2"><a href="transformacion.html#cb389-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb389-3"><a href="transformacion.html#cb389-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb389-4"><a href="transformacion.html#cb389-4" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">size=</span><span class="dv">2</span>,<span class="fu">aes</span>(<span class="at">label=</span>dest), <span class="at">hjust=</span><span class="dv">1</span>, <span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
+<pre><code>## Warning: The following aesthetics were dropped during statistical transformation: label
+## ℹ This can happen when ggplot fails to infer the correct grouping structure in
+##   the data.
+## ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
+##   variable into a factor?</code></pre>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
+<hr />
+<ol start="5" style="list-style-type: decimal">
+<li><strong>Ejercicios</strong>:</li>
+</ol>
+<p>Hacer los ejercicios en la sección 5.6.7 del libro en español</p>
+<hr />
+</div>
+<div id="el-pipe" class="section level2 hasAnchor" number="5.20">
+<h2><span class="header-section-number">5.20</span> El Pipe<a href="transformacion.html#el-pipe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>%&gt;% “El pipe”</li>
+</ul>
+<hr />
+</div>
+<div id="otras-funciones-na" class="section level2 hasAnchor" number="5.21">
+<h2><span class="header-section-number">5.21</span> Otras funciones: NA<a href="transformacion.html#otras-funciones-na" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>na.rm=TRUE</li>
+<li>!is.na() = is not NA, pq al frente tiene “!”</li>
+</ul>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="transformacion.html#cb392-1" tabindex="-1"></a>no_cancelados <span class="ot">&lt;-</span> vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb392-2"><a href="transformacion.html#cb392-2" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(atraso_salida), <span class="sc">!</span><span class="fu">is.na</span>(atraso_llegada))</span>
+<span id="cb392-3"><a href="transformacion.html#cb392-3" tabindex="-1"></a>no_cancelados</span></code></pre></div>
+<pre><code>## # A tibble: 327,346 × 19
+##     anio   mes   dia horario_salida salida_programada atraso_salida
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+##  1  2013     1     1            517               515             2
+##  2  2013     1     1            533               529             4
+##  3  2013     1     1            542               540             2
+##  4  2013     1     1            544               545            -1
+##  5  2013     1     1            554               600            -6
+##  6  2013     1     1            554               558            -4
+##  7  2013     1     1            555               600            -5
+##  8  2013     1     1            557               600            -3
+##  9  2013     1     1            557               600            -3
+## 10  2013     1     1            558               600            -2
+## # ℹ 327,336 more rows
+## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="transformacion.html#cb394-1" tabindex="-1"></a>no_cancelados <span class="sc">%&gt;%</span> </span>
+<span id="cb394-2"><a href="transformacion.html#cb394-2" tabindex="-1"></a>  <span class="fu">group_by</span>(anio, mes, dia) <span class="sc">%&gt;%</span> </span>
+<span id="cb394-3"><a href="transformacion.html#cb394-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(atraso_salida))</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;anio&#39;, &#39;mes&#39;. You can override using the
+## `.groups` argument.</code></pre>
+<pre><code>## # A tibble: 365 × 4
+## # Groups:   anio, mes [12]
+##     anio   mes   dia  mean
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+##  1  2013     1     1 11.4 
+##  2  2013     1     2 13.7 
+##  3  2013     1     3 10.9 
+##  4  2013     1     4  8.97
+##  5  2013     1     5  5.73
+##  6  2013     1     6  7.15
+##  7  2013     1     7  5.42
+##  8  2013     1     8  2.56
+##  9  2013     1     9  2.30
+## 10  2013     1    10  2.84
+## # ℹ 355 more rows</code></pre>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="transformacion.html#cb397-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb397-2"><a href="transformacion.html#cb397-2" tabindex="-1"></a>  <span class="fu">group_by</span>(anio, mes, dia) <span class="sc">%&gt;%</span> </span>
+<span id="cb397-3"><a href="transformacion.html#cb397-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(atraso_salida, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;anio&#39;, &#39;mes&#39;. You can override using the
+## `.groups` argument.</code></pre>
+<pre><code>## # A tibble: 365 × 4
+## # Groups:   anio, mes [12]
+##     anio   mes   dia  mean
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+##  1  2013     1     1 11.5 
+##  2  2013     1     2 13.9 
+##  3  2013     1     3 11.0 
+##  4  2013     1     4  8.95
+##  5  2013     1     5  5.73
+##  6  2013     1     6  7.15
+##  7  2013     1     7  5.42
+##  8  2013     1     8  2.55
+##  9  2013     1     9  2.28
+## 10  2013     1    10  2.84
+## # ℹ 355 more rows</code></pre>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="transformacion.html#cb400-1" tabindex="-1"></a><span class="co">#,</span></span>
+<span id="cb400-2"><a href="transformacion.html#cb400-2" tabindex="-1"></a><span class="co">#            max=max(atraso_salida,na.rm = TRUE),</span></span>
+<span id="cb400-3"><a href="transformacion.html#cb400-3" tabindex="-1"></a><span class="co">#            n=n())</span></span></code></pre></div>
+<hr />
+</div>
+<div id="otras-funciones" class="section level2 hasAnchor" number="5.22">
+<h2><span class="header-section-number">5.22</span> Otras funciones:<a href="transformacion.html#otras-funciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Tarea de grupo.</p>
+<p>Preparar un .rmd con la explicaciones de como utilizar la función mencionado abajo. Debe incluir</p>
+<ol style="list-style-type: decimal">
+<li>La definición de la función en palabra y matemática.</li>
+<li>un script sencillo (con pocos datos) (uno o más ejemplos) para explicar la función</li>
+<li>un script con los datos de “vuelos” o de “Covid-19 de PR”.</li>
+<li>a las 2:20pm cada grupo presentará su trabajo.</li>
+<li>Despues de la clase cada grupo, mejorará su .rmd con los comentarios recibidos.<br />
+</li>
+<li>Domingo se subirá el .rmd y el .html en Edmodo (cada estudiante lo subira: tendra el nombre de cada estudiante en el trabajo)</li>
+<li>El profesor revisará los trabajos y subsiguiente se distribuira los .rmd y html a los estudiantes.</li>
+</ol>
+<ul>
+<li><p>IQR() ## G1</p></li>
+<li><p>mad() ## G2</p></li>
+<li><p>first() ## G3</p></li>
+<li><p>last() ## G3</p></li>
+<li><p>quantile() ## G4</p></li>
+<li><p>signif() ## G5</p>
+<ul>
+<li>min()</li>
+</ul></li>
+<li><p>max()</p></li>
+<li><p>mean()</p></li>
+<li><p>sd()
+***</p></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><strong>Ejercicios</strong>:</li>
+</ol>
+<p>Hacer los ejercicios en la sección 5.7.1 del libro en español</p>
+<hr />
+<p>Rolling average:</p>
+<p><a href="https://stackoverflow.com/questions/743812/calculating-moving-average" class="uri">https://stackoverflow.com/questions/743812/calculating-moving-average</a></p>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="transformacion.html#cb401-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb401-2"><a href="transformacion.html#cb401-2" tabindex="-1"></a><span class="fu">library</span>(zoo)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;zoo&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="transformacion.html#cb404-1" tabindex="-1"></a>some_data <span class="ot">=</span> <span class="fu">tibble</span>(<span class="at">day =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb404-2"><a href="transformacion.html#cb404-2" tabindex="-1"></a>some_data</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 1
+##      day
+##    &lt;int&gt;
+##  1     1
+##  2     2
+##  3     3
+##  4     4
+##  5     5
+##  6     6
+##  7     7
+##  8     8
+##  9     9
+## 10    10</code></pre>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="transformacion.html#cb406-1" tabindex="-1"></a><span class="co"># cma = centered moving average</span></span>
+<span id="cb406-2"><a href="transformacion.html#cb406-2" tabindex="-1"></a><span class="co"># tma = trailing moving average</span></span>
+<span id="cb406-3"><a href="transformacion.html#cb406-3" tabindex="-1"></a>some_data <span class="sc">%&gt;%</span></span>
+<span id="cb406-4"><a href="transformacion.html#cb406-4" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">cma =</span> <span class="fu">rollmean</span>(day, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">fill =</span> <span class="cn">NA</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb406-5"><a href="transformacion.html#cb406-5" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">tma =</span> <span class="fu">rollmean</span>(day, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">align =</span> <span class="st">&quot;right&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb406-6"><a href="transformacion.html#cb406-6" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">lma =</span> <span class="fu">rollmean</span>(day, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">align =</span> <span class="st">&quot;left&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb406-7"><a href="transformacion.html#cb406-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cmax=</span><span class="fu">rollmax</span>(day, <span class="at">k=</span><span class="dv">30</span>, <span class="at">fill=</span><span class="cn">NA</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 5
+##      day   cma   tma   lma cmax 
+##    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;
+##  1     1    NA    NA     2 NA   
+##  2     2     2    NA     3 NA   
+##  3     3     3     2     4 NA   
+##  4     4     4     3     5 NA   
+##  5     5     5     4     6 NA   
+##  6     6     6     5     7 NA   
+##  7     7     7     6     8 NA   
+##  8     8     8     7     9 NA   
+##  9     9     9     8    NA NA   
+## 10    10    NA     9    NA NA</code></pre>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="transformacion.html#cb408-1" tabindex="-1"></a>some_data</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 1
+##      day
+##    &lt;int&gt;
+##  1     1
+##  2     2
+##  3     3
+##  4     4
+##  5     5
+##  6     6
+##  7     7
+##  8     8
+##  9     9
+## 10    10</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="calculadora-sofisticada.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/05-Transformacion.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/05-Transformacion.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

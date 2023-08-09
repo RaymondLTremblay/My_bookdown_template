@@ -1,0 +1,88 @@
+# Calculadora sofisticada
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+
+Sys.Date()
+getwd()
+```
+
+***
+
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/workflow-basics.html>
+ 
+Español:
+ <https://r4ds-en-espaniol.netlify.app/flujo-de-trabajo-conocimientos-básicos.html>
+ 
+ 
+***
+
+
+
+## Temas:
+
+  - Conocimiento básicos de programación
+  - La importancia de los nombres
+  - Usando funciones
+  
+  
+  
+```{r}
+2+2
+(23+3+3)^2+2
+sin(pi/3)
+
+log(100)
+log2(100)
+
+x<- 4
+x
+y=3
+y
+
+x/y
+
+edad_nd=base::seq(101, 110)
+edad_nd
+edad_uprh=c(11:20)
+edad_uprh
+
+edad=data.frame(edad_nd, edad_uprh)
+edad
+
+
+library(tidyverse)
+library(datos)
+
+ggplot(data=millas) + 
+  geom_point(mapping = aes(x = cilindrada, y = autopista))
+
+#filter(millas, cilindros = 8)
+#filter(diamante, quilate > 3)
+
+
+
+length(edad_uprh)
+```
+  
+1.  **Ejercicios**:
+  
+Hacer los ejercicios en la sección 4.4 del libro en español
+
+
+Cual son los errores
+
+
+```{r eval=FALSE, include=FALSE}
+library(tidyverse)
+
+ggplot(dota = millas) + 
+  geom_point(mapping = aes(x = cilindrada, y = autopista))
+
+fliter(millas, cilindros = 8)
+filter(diamante, quilate > 3)
+```
