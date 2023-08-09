@@ -1,0 +1,288 @@
+# Strings
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+
+Sys.Date()
+```
+
+***
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/strings.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/cadenas-de-caracteres.html>
+ 
+ 
+***
+
+## Temas: Cadenas de Caracteres
+
+ - library(stringr)
+ 
+## Largo de cadena
+
+  - str_length()
+
+
+## Combinar cadenas
+
+  - str_c()
+  - str_replace_na()
+  
+## Dividir cadenas
+
+  - str_sub()
+  - str_to_lower()
+  
+## Locales
+
+  - ¿Qué es un locale?
+  - str_to_lower()
+  - str_to_upper()
+  - str_order()
+  - str_sort()
+  
+  
+1.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.2.5 del libro en español
+
+***  
+  
+## Buscar patrones
+
+## Coincidencia básica
+
+ - str_view()
+ - str_view( , .x.)
+
+```{r}
+
+library(stringr)
+x <- c("manzana", "banana", "pera")
+str_view(x, "an")
+```
+
+ - los puntos y caracter especiales
+ 
+ 
+ 
+2.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.2.7.1 del libro en español
+
+***  
+
+
+## Anclas
+
+ - ^ al principio
+ - $ al final
+ 
+
+3.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.2.8.1 del libro en español
+
+***  
+
+## Clases de caracteres y alternativas
+
+ - \d
+ - \s
+ - [abc]
+ - [^abc]
+ 
+ - $ . | ? * + ( ) [ {
+ 
+
+```{r}
+str_view(c("cómo", "como", "Raymond"), "c(ó|o)mo")
+
+
+```
+ 
+4.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.2.9.1 del libro en español
+
+***
+ 
+ 
+
+
+## Repetición
+
+ - ?, 0 o 1, precencia o auscencia
+ - +, 1 o más
+ - *, 0 o más
+ - str_view()
+ - {n} : exactamente n
+ - {n, }: n o más
+ - { , m}: no más de m
+ - {n, m}: entre n y m
+ - {n, m}?: la cadena más larga
+ - {n, m}+?: la cadena más corta
+ 
+ 
+5.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.2.10.1 del libro en español
+
+***
+
+ 
+## Agrupamiento y referencias previas
+
+ - str_view(frutas, "(..)\\1", match=TRUE)
+ 
+
+6.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.2.11.1 del libro en español
+
+***
+ 
+
+
+## Herramientas: Objetivos
+
+ - Determinar qué cadenas coinciden con un patrón.
+ - Encontrar la posición de una coincidencia.
+ - Extraer el contenido de las coincidencias.
+ - Remplazar coincidencias con nuevos valores.
+ - Dividir una cadena de acuerdo a una coincidencia.
+ 
+ 
+### Detectar coincidencias
+
+ - str_detect(x, "e")
+
+ 
+```{r}
+library(datos) 
+#fruit
+head(palabras)
+```
+ 
+ 
+ 
+```{r}
+# Encuentra todas las palabras que contengan al menos una vocal, y luego niégalo
+sin_vocales_1 <- !str_detect(palabras, "[aáeéiíoóuúúü]")
+
+#sin_vocales_1
+# Encuentra todas las palabras consistentes solo en consonantes (no vocales)
+sin_vocales_2 <- str_detect(palabras, "^[^aáeéiíoóuúúü]+$")
+#sin_vocales_1
+identical(sin_vocales_1, sin_vocales_2)
+#> [1] TRUE
+```
+ 
+ - str_subset()
+ - seq_along()
+ - str_count()
+ 
+ 
+ 
+7.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.3.2 del libro en español
+
+***
+
+
+## Extraer coincidencias
+
+ - str_extract()
+ - str_extract_all()
+ 
+
+
+8.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.3.3.1 del libro en español
+
+***
+ 
+## Coincidencias agrupadas:
+
+ - str_match*
+```{r}
+sustantivo <- "(el|la|los|las|lo|un|una|unos|unas) ([^ ]+)"
+
+tiene_sustantivo <- oraciones %>%
+  str_subset(sustantivo) %>%
+  head(10)
+
+#tiene_sustantivo
+tiene_sustantivo %>% 
+  str_extract(sustantivo)
+#>  [1] "los de"      "el camión"   "la mejor"    "la cuenta"   "las ruinas."
+#>  [6] "la hoja"     "la cocina."  "la taza"     "el tanque."  "el calor"
+```
+
+
+8.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.3.4.1 del libro en español
+
+***
+
+## Remplazar coincidencias
+
+
+ - str_replace()
+ - str_replace_all()
+ 
+ 
+9.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.3.5.1 del libro en español
+
+***
+
+
+## Divisiones
+
+
+  - str_split()
+  - str_split(" ", simplify=TRUE)
+  - str_split(x, boundery("word"))[[1]]
+  
+
+10.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.3.6.1 del libro en español
+
+***  
+  
+  
+## Otro tipos de patrones
+
+ - regex("x", ignore_case=TRUE)
+ - seperar números telefonicos
+ 
+## stringi: 
+
+10.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.3.6.1 del libro en español
+Buscar 3 funciones en stringi y aplica y explica las funciones con un set de datos.
+
+
+
+
+
+*** 
+ 
+
+ 
+  
+  
+
+ 

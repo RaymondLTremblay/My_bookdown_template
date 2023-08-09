@@ -1,0 +1,269 @@
+# Importar datos
+
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+
+Sys.Date()
+```
+
+***
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/data-import.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/importaci%C3%B3n-de-datos.html>
+ 
+ 
+***
+
+## Temas: Funciones para importar datos con el paquete readr
+
+ - read_csv() # comma seperated variable,
+ - read_csv2()
+ - read_tsv()
+ - read_delim()
+ - read_fwf()
+ - read_width()
+ - read_positions()
+ - read_table()
+
+col1, col2, col3,
+3, 4, 6,
+5,3,NA
+
+; /
+ ***
+ 
+ 
+```{r}
+library(tidyverse)
+library(readr)
+Newborn_Karn_Penrose <- read_csv("Datos/Newborn_Karn_Penrose.csv")
+
+
+#library(readxl)
+#Newborn_Karn_Penrose1 <- read_excel("~/Google Drive/GitHub_Google_Drive/GitHub/Vintage_DATA/DATA/Human_Birth_Weight/Newborn_Karn_Penrose.xlsx", sheet = 3)
+
+head(Newborn_Karn_Penrose)
+
+
+```
+ 
+Hacer una columna de la proporción de los niños que no sobrevivieron.
+
+Newborn_Karn_Penrose %>%
+select(Count_Non_survivors, Count_Total_Birth) %>%
+arrange(Count_Total_Birth, Count_Non_survivors) %>%
+mutate(Perc_sobrevivieron = Count_Non_survivors/Count_Total_Birth)
+
+
+
+
+```{r}
+
+Newborn_Karn_Penrose %>% 
+  mutate(Percent_Decease = Count_Non_survivors/Count_Total_Birth)
+
+```
+
+
+Newborn_Karn_Penrose %>%
+select(Count_Non_survivors, Count_Total_Birth, Birth_weight) %>%
+arrange(Count_Total_Birth, Count_Non_survivors) %>%
+mutate(porc_sobrevivieron = Count_Non_survivors / Count_Total_Birth)%>%
+ggplot(aes(x= Birth_weight, y=porc_sobrevivieron))+
+geom_point()+
+geom_smooth()
+
+
+```{r}
+Newborn_Karn_Penrose %>% 
+  mutate(Percent_Decease = Count_Non_survivors/Count_Total_Birth) %>% 
+  ggplot(aes(Birth_weight, Percent_Decease)) + 
+  geom_point() +
+  geom_smooth()
+  
+```
+
+
+
+```{r}
+Newborn_Karn_Penrose %>% 
+  mutate(Percent_Decease = Count_Non_survivors/Count_Total_Birth) %>% 
+  ggplot(aes(Birth_weight, Percent_Decease)) + 
+  geom_point() +
+  geom_smooth()+
+  facet_wrap(~Mother_age)
+```  
+
+```{r}
+
+Newborn_Karn_Penrose %>% 
+  mutate(Percent_Decease = Count_Non_survivors/Count_Total_Birth) %>% 
+  ggplot(aes(Birth_weight, Percent_Decease, color=Mother_age)) + 
+  geom_point(aes(color=factor(Mother_age))) +
+  geom_smooth(aes(color=factor(Mother_age)))
+```
+
+
+## Comparar con base R
+ 
+ ***
+ 
+ 1.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 11.2.2 del libro en español
+
+***
+
+## Segmentar un vector
+
+ - str(parse_logical())
+ 
+ 
+```{r}
+
+x= c("TRUE", "FALSE", "NA")
+x   
+str(parse_logical(x)) 
+
+y= c("Carlos", "Kelvin")
+     
+y
+str(parse_logical(y)) 
+
+
+str(parse_logical(c("TRUE", "FALSE", "NA")))
+
+
+z=c("1", "2", "3")
+z
+mean(z)
+z1=str(parse_integer(z))
+
+
+
+str(parse_integer(c("1", "2", "3")))
+
+str(parse_date(c("2010-01-01", "1979-10-14")))
+
+```
+
+```{r}
+m=c("$4000", "$500" )
+parse_number(m)
+
+
+parse_number("$100")
+#> [1] 100
+parse_number("20%")
+#> [1] 20
+parse_number("It cost $123.45")
+#> [1] 123.45
+```
+ 
+ - str(parse_integer())
+ - str(parse_date())
+ 
+ 
+***
+
+## Números
+
+ - parse_double()
+ - parse_number()
+ - parse_number(locale=locale(grouping_mark = "."))
+ 
+
+
+***
+
+## Caderna de texto
+
+  - parse_character()
+  
+  - charToRaw()
+  
+  
+```{r}
+charToRaw("Ramn")
+
+```
+  
+  
+
+```{r} 
+x1 <- "El Ni\xf1o was particularly bad this year"
+x2 <- "\x82\xb1\x82\xf1\x82\xc9\x82\xbf\x82\xcd"
+x3 <- "The boy was particularly bad this year"
+
+library(readr)
+  parse_character(x1, locale = locale(encoding = "Latin1"))
+#> [1] "El Niño was particularly bad this year"
+parse_character(x2, locale = locale(encoding = "Shift-JIS"))
+
+
+parse_character(x, locale = locale(encoding = "Shift-JIS"))
+#> [1] "こんにちは"
+```  
+ 
+ 
+  - guess_encoding(charToRaw())
+  
+  
+```{r}
+guess_encoding(charToRaw(x3))
+```
+  
+## Factores
+
+ - parse_factor()
+ 
+ 
+## Fechas, fechas-horas, horas
+
+ - parse_datetime()
+ 
+ - library(hms)
+  - parse_time()
+  
+  
+  
+ 2.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 11.3.5 del libro en español 
+
+
+## Segmentar un archivo
+
+ - guess_parser
+ 
+## Escribir un Archivo
+
+  - write_csv()
+  - write_tsv()
+  
+## Otro tipos de datos
+
+  - library(haven) # SPSS, Stata y SAS
+  - readxl() lee archivo Excel en formato .xls, xlsx
+  - BDI lee archivo RMySQL y otros
+  
+  
+```{r}
+parse_date("01/02/15", "%m/%d/%y")
+
+parse_date("01/02/15", "%m/%d/%y")
+
+parse_date("01/1982/15 11:15:30", "%m/%Y/%d  /%H/%M/%S")
+
+```
+  
+  
+
+
+

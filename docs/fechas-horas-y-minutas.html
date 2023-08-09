@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 17 Fechas, horas y minutas | 4_Transformacion_dplyr</title>
+  <meta name="description" content="Este libro digital es una introdución al estudio de Dinamica Poblacional con ejemplos de la familai Orquidaceae" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 17 Fechas, horas y minutas | 4_Transformacion_dplyr" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Este libro digital es una introdución al estudio de Dinamica Poblacional con ejemplos de la familai Orquidaceae" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 17 Fechas, horas y minutas | 4_Transformacion_dplyr" />
+  
+  <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Dinamica Poblacional con ejemplos de la familai Orquidaceae" />
+  
+
+<meta name="author" content="Raymond L. Tremblay" />
+
+
+<meta name="date" content="2023-08-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Ciencia_Datos_R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Ciencia de Datos con R</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="index.html"><a href="index.html#horario-de-clase"><i class="fa fa-check"></i><b>1.0.1</b> Horario de clase</a></li>
+<li class="chapter" data-level="1.0.2" data-path="index.html"><a href="index.html#libros-sugeridos"><i class="fa fa-check"></i><b>1.0.2</b> Libros sugeridos</a></li>
+<li class="chapter" data-level="1.0.3" data-path="index.html"><a href="index.html#programados"><i class="fa fa-check"></i><b>1.0.3</b> Programados</a></li>
+<li class="chapter" data-level="1.0.4" data-path="index.html"><a href="index.html#prerequisitos"><i class="fa fa-check"></i><b>1.0.4</b> Prerequisitos</a></li>
+<li class="chapter" data-level="1.0.5" data-path="index.html"><a href="index.html#descripción-del-curso"><i class="fa fa-check"></i><b>1.0.5</b> Descripción del curso</a></li>
+<li class="chapter" data-level="1.0.6" data-path="index.html"><a href="index.html#objetivos-del-curso"><i class="fa fa-check"></i><b>1.0.6</b> Objetivos del curso</a></li>
+<li class="chapter" data-level="1.0.7" data-path="index.html"><a href="index.html#puntuación"><i class="fa fa-check"></i><b>1.0.7</b> Puntuación:</a></li>
+<li class="chapter" data-level="1.0.8" data-path="index.html"><a href="index.html#examenes"><i class="fa fa-check"></i><b>1.0.8</b> Examenes:</a></li>
+<li class="chapter" data-level="1.0.9" data-path="index.html"><a href="index.html#es-obligatorio-tener-la-camera-prendida-durante-todo-el-exámen.-no-es-permitido-usar-el-celular-ud.-tendrá-que-demostrar-que-el-celular-este-detrás-de-uds-antes-de-comenzar-el-examen"><i class="fa fa-check"></i><b>1.0.9</b> Es obligatorio tener la camera prendida durante <strong>todo el exámen</strong>. No es permitido usar el celular, Ud. tendrá que demostrar que el celular este detrás de uds antes de comenzar el examen</a></li>
+<li class="chapter" data-level="1.0.10" data-path="index.html"><a href="index.html#conferencias"><i class="fa fa-check"></i><b>1.0.10</b> Conferencias</a></li>
+<li class="chapter" data-level="1.0.11" data-path="index.html"><a href="index.html#ejercicios"><i class="fa fa-check"></i><b>1.0.11</b> Ejercicios</a></li>
+<li class="chapter" data-level="1.0.12" data-path="index.html"><a href="index.html#faltar-a-clase-y-examen"><i class="fa fa-check"></i><b>1.0.12</b> Faltar a clase y examen:</a></li>
+<li class="chapter" data-level="1.0.13" data-path="index.html"><a href="index.html#derechos-de-estudiantes-con-impedimentos"><i class="fa fa-check"></i><b>1.0.13</b> Derechos de Estudiantes con Impedimentos</a></li>
+<li class="chapter" data-level="1.0.14" data-path="index.html"><a href="index.html#integridad-académica"><i class="fa fa-check"></i><b>1.0.14</b> Integridad académica</a></li>
+<li class="chapter" data-level="1.0.15" data-path="index.html"><a href="index.html#comentario-sobre-grabar-videos-yo-audio-de-las-clases"><i class="fa fa-check"></i><b>1.0.15</b> Comentario sobre grabar videos y/o audio de las clases</a></li>
+<li class="chapter" data-level="1.0.16" data-path="index.html"><a href="index.html#espacio-libre-de-acoso-sexual"><i class="fa fa-check"></i><b>1.0.16</b> Espacio libre de acoso sexual</a></li>
+<li class="chapter" data-level="1.0.17" data-path="index.html"><a href="index.html#protocolo-de-la-clase"><i class="fa fa-check"></i><b>1.0.17</b> Protocolo de la Clase</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html"><i class="fa fa-check"></i><b>2</b> Flujo de trabajo</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#temas"><i class="fa fa-check"></i><b>2.1</b> Temas:</a></li>
+<li class="chapter" data-level="2.2" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#creación-de-un-proyecto"><i class="fa fa-check"></i><b>2.2</b> Creación de un proyecto:</a></li>
+<li class="chapter" data-level="2.3" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#transformación-estadística"><i class="fa fa-check"></i><b>2.3</b> Transformación estadística</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html"><i class="fa fa-check"></i><b>3</b> Visualización de datos</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html#temas-1"><i class="fa fa-check"></i><b>3.1</b> Temas:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html"><i class="fa fa-check"></i><b>4</b> Calculadora sofisticada</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#temas-2"><i class="fa fa-check"></i><b>4.1</b> Temas:</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="transformacion.html"><a href="transformacion.html"><i class="fa fa-check"></i><b>5</b> Transformacion</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="transformacion.html"><a href="transformacion.html#temas-reconocer-y-aplicar-las-diferentes-funciones"><i class="fa fa-check"></i><b>5.1</b> Temas: Reconocer y aplicar las diferentes funciones</a></li>
+<li class="chapter" data-level="5.2" data-path="transformacion.html"><a href="transformacion.html#starts_with-ends_with"><i class="fa fa-check"></i><b>5.2</b> starts_with(), ends_with()</a></li>
+<li class="chapter" data-level="5.3" data-path="transformacion.html"><a href="transformacion.html#rename"><i class="fa fa-check"></i><b>5.3</b> rename()</a></li>
+<li class="chapter" data-level="5.4" data-path="transformacion.html"><a href="transformacion.html#reoganizar-el-oden-de-las-columnas"><i class="fa fa-check"></i><b>5.4</b> Reoganizar el oden de las columnas</a></li>
+<li class="chapter" data-level="5.5" data-path="transformacion.html"><a href="transformacion.html#matches.1-lo-veremos-en-la-leccion-de-string"><i class="fa fa-check"></i><b>5.5</b> matches(“(.)\1”) Lo veremos en la leccion de “STRING”</a></li>
+<li class="chapter" data-level="5.6" data-path="transformacion.html"><a href="transformacion.html#hagan-lo-con-el-data-set-en-espanol"><i class="fa fa-check"></i><b>5.6</b> Hagan lo con el data set en espanol</a></li>
+<li class="chapter" data-level="5.7" data-path="transformacion.html"><a href="transformacion.html#transmute"><i class="fa fa-check"></i><b>5.7</b> transmute()</a></li>
+<li class="chapter" data-level="5.8" data-path="transformacion.html"><a href="transformacion.html#lag"><i class="fa fa-check"></i><b>5.8</b> lag()</a></li>
+<li class="chapter" data-level="5.9" data-path="transformacion.html"><a href="transformacion.html#usa-lag-con-inccasossaludnuevo-en-covid-19-pr"><i class="fa fa-check"></i><b>5.9</b> Usa “Lag” con “IncCasosSaludNuevo” en COVID-19 PR</a></li>
+<li class="chapter" data-level="5.10" data-path="transformacion.html"><a href="transformacion.html#lead"><i class="fa fa-check"></i><b>5.10</b> lead(),</a></li>
+<li class="chapter" data-level="5.11" data-path="transformacion.html"><a href="transformacion.html#cumsum"><i class="fa fa-check"></i><b>5.11</b> cumsum</a></li>
+<li class="chapter" data-level="5.12" data-path="transformacion.html"><a href="transformacion.html#cummean-and-cumvar"><i class="fa fa-check"></i><b>5.12</b> cummean() and cumvar()</a></li>
+<li class="chapter" data-level="5.13" data-path="transformacion.html"><a href="transformacion.html#min_rank-y-min_rankdesc"><i class="fa fa-check"></i><b>5.13</b> min_rank() y # min_rank(desc())</a></li>
+<li class="chapter" data-level="5.14" data-path="transformacion.html"><a href="transformacion.html#row_number"><i class="fa fa-check"></i><b>5.14</b> row_number()</a></li>
+<li class="chapter" data-level="5.15" data-path="transformacion.html"><a href="transformacion.html#dense_rank"><i class="fa fa-check"></i><b>5.15</b> dense_rank()</a></li>
+<li class="chapter" data-level="5.16" data-path="transformacion.html"><a href="transformacion.html#percent_rank"><i class="fa fa-check"></i><b>5.16</b> percent_rank()</a></li>
+<li class="chapter" data-level="5.17" data-path="transformacion.html"><a href="transformacion.html#cume_dist"><i class="fa fa-check"></i><b>5.17</b> cume_dist()</a></li>
+<li class="chapter" data-level="5.18" data-path="transformacion.html"><a href="transformacion.html#resúmenes-con-summarise-by-group-using-group_by"><i class="fa fa-check"></i><b>5.18</b> Resúmenes con summarise() by group using group_by()</a></li>
+<li class="chapter" data-level="5.19" data-path="transformacion.html"><a href="transformacion.html#the-worst-airline-in-departure-delays"><i class="fa fa-check"></i><b>5.19</b> The worst airline in departure delays</a></li>
+<li class="chapter" data-level="5.20" data-path="transformacion.html"><a href="transformacion.html#el-pipe"><i class="fa fa-check"></i><b>5.20</b> El Pipe</a></li>
+<li class="chapter" data-level="5.21" data-path="transformacion.html"><a href="transformacion.html#otras-funciones-na"><i class="fa fa-check"></i><b>5.21</b> Otras funciones: NA</a></li>
+<li class="chapter" data-level="5.22" data-path="transformacion.html"><a href="transformacion.html#otras-funciones"><i class="fa fa-check"></i><b>5.22</b> Otras funciones:</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>6</b> Script</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="script.html"><a href="script.html#scripts"><i class="fa fa-check"></i><b>6.1</b> Scripts:</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html"><i class="fa fa-check"></i><b>7</b> Analisis Exploratorio</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#temas-3"><i class="fa fa-check"></i><b>7.1</b> Temas</a></li>
+<li class="chapter" data-level="7.2" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#terminos-importantes"><i class="fa fa-check"></i><b>7.2</b> Terminos importantes</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#variación"><i class="fa fa-check"></i><b>7.2.1</b> Variación</a></li>
+<li class="chapter" data-level="7.2.2" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#valores-faltantes"><i class="fa fa-check"></i><b>7.2.2</b> Valores faltantes</a></li>
+<li class="chapter" data-level="7.2.3" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#covariación"><i class="fa fa-check"></i><b>7.2.3</b> Covariación</a></li>
+<li class="chapter" data-level="7.2.4" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#dos-variables-categóricas"><i class="fa fa-check"></i><b>7.2.4</b> Dos variables categóricas</a></li>
+<li class="chapter" data-level="7.2.5" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#dos-variables-continuas"><i class="fa fa-check"></i><b>7.2.5</b> Dos variables continuas</a></li>
+<li class="chapter" data-level="7.2.6" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#patrones-y-modelos"><i class="fa fa-check"></i><b>7.2.6</b> Patrones y modelos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="pipes.html"><a href="pipes.html"><i class="fa fa-check"></i><b>8</b> Pipes</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="pipes.html"><a href="pipes.html#temas-el-paquete-magrittr"><i class="fa fa-check"></i><b>8.1</b> Temas: El paquete “magrittr”</a></li>
+<li class="chapter" data-level="8.2" data-path="pipes.html"><a href="pipes.html#alternativas-a-los-pipes"><i class="fa fa-check"></i><b>8.2</b> Alternativas a los pipes</a></li>
+<li class="chapter" data-level="8.3" data-path="pipes.html"><a href="pipes.html#composición-de-funciones"><i class="fa fa-check"></i><b>8.3</b> Composición de funciones</a></li>
+<li class="chapter" data-level="8.4" data-path="pipes.html"><a href="pipes.html#uso-de-pipe"><i class="fa fa-check"></i><b>8.4</b> Uso de pipe</a></li>
+<li class="chapter" data-level="8.5" data-path="pipes.html"><a href="pipes.html#cuándo-no-usar-el-pipe"><i class="fa fa-check"></i><b>8.5</b> Cuándo no usar el pipe</a></li>
+<li class="chapter" data-level="8.6" data-path="pipes.html"><a href="pipes.html#otras-herramientas-de-magrittr"><i class="fa fa-check"></i><b>8.6</b> Otras herramientas de magrittr</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="tibbles.html"><a href="tibbles.html"><i class="fa fa-check"></i><b>9</b> Tibbles</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="tibbles.html"><a href="tibbles.html#temas-el-paquete-tibble"><i class="fa fa-check"></i><b>9.1</b> Temas: El paquete Tibble</a></li>
+<li class="chapter" data-level="9.2" data-path="tibbles.html"><a href="tibbles.html#crear-un-tibble"><i class="fa fa-check"></i><b>9.2</b> Crear un tibble</a></li>
+<li class="chapter" data-level="9.3" data-path="tibbles.html"><a href="tibbles.html#crear-un-tribble"><i class="fa fa-check"></i><b>9.3</b> Crear un tribble</a></li>
+<li class="chapter" data-level="9.4" data-path="tibbles.html"><a href="tibbles.html#tibble-vs.-data.frame"><i class="fa fa-check"></i><b>9.4</b> tibble vs. data.frame</a></li>
+<li class="chapter" data-level="9.5" data-path="tibbles.html"><a href="tibbles.html#seleccion-de-subconjuntos"><i class="fa fa-check"></i><b>9.5</b> Seleccion de subconjuntos</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="importar-datos.html"><a href="importar-datos.html"><i class="fa fa-check"></i><b>10</b> Importar datos</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="importar-datos.html"><a href="importar-datos.html#temas-funciones-para-importar-datos-con-el-paquete-readr"><i class="fa fa-check"></i><b>10.1</b> Temas: Funciones para importar datos con el paquete readr</a></li>
+<li class="chapter" data-level="10.2" data-path="importar-datos.html"><a href="importar-datos.html#comparar-con-base-r"><i class="fa fa-check"></i><b>10.2</b> Comparar con base R</a></li>
+<li class="chapter" data-level="10.3" data-path="importar-datos.html"><a href="importar-datos.html#segmentar-un-vector"><i class="fa fa-check"></i><b>10.3</b> Segmentar un vector</a></li>
+<li class="chapter" data-level="10.4" data-path="importar-datos.html"><a href="importar-datos.html#números"><i class="fa fa-check"></i><b>10.4</b> Números</a></li>
+<li class="chapter" data-level="10.5" data-path="importar-datos.html"><a href="importar-datos.html#caderna-de-texto"><i class="fa fa-check"></i><b>10.5</b> Caderna de texto</a></li>
+<li class="chapter" data-level="10.6" data-path="importar-datos.html"><a href="importar-datos.html#factores"><i class="fa fa-check"></i><b>10.6</b> Factores</a></li>
+<li class="chapter" data-level="10.7" data-path="importar-datos.html"><a href="importar-datos.html#fechas-fechas-horas-horas"><i class="fa fa-check"></i><b>10.7</b> Fechas, fechas-horas, horas</a></li>
+<li class="chapter" data-level="10.8" data-path="importar-datos.html"><a href="importar-datos.html#segmentar-un-archivo"><i class="fa fa-check"></i><b>10.8</b> Segmentar un archivo</a></li>
+<li class="chapter" data-level="10.9" data-path="importar-datos.html"><a href="importar-datos.html#escribir-un-archivo"><i class="fa fa-check"></i><b>10.9</b> Escribir un Archivo</a></li>
+<li class="chapter" data-level="10.10" data-path="importar-datos.html"><a href="importar-datos.html#otro-tipos-de-datos"><i class="fa fa-check"></i><b>10.10</b> Otro tipos de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="datos-ordenados.html"><a href="datos-ordenados.html"><i class="fa fa-check"></i><b>11</b> Datos Ordenados</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="datos-ordenados.html"><a href="datos-ordenados.html#temas-datos-ordenados"><i class="fa fa-check"></i><b>11.1</b> Temas: Datos Ordenados</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="datos-ordenados.html"><a href="datos-ordenados.html#el-paquete-tidyr"><i class="fa fa-check"></i><b>11.1.1</b> El paquete tidyr</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="datos-relacionados.html"><a href="datos-relacionados.html"><i class="fa fa-check"></i><b>12</b> Datos Relacionados</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="datos-relacionados.html"><a href="datos-relacionados.html#temas-datos-relacionados"><i class="fa fa-check"></i><b>12.1</b> Temas: Datos Relacionados</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="datos-relacionados.html"><a href="datos-relacionados.html#los-datos-de-vuelos"><i class="fa fa-check"></i><b>12.1.1</b> Los datos de vuelos</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="datos-relacionados.html"><a href="datos-relacionados.html#claves"><i class="fa fa-check"></i><b>12.2</b> Claves</a></li>
+<li class="chapter" data-level="12.3" data-path="datos-relacionados.html"><a href="datos-relacionados.html#uniones-de-transformaciones"><i class="fa fa-check"></i><b>12.3</b> Uniones de transformaciones</a></li>
+<li class="chapter" data-level="12.4" data-path="datos-relacionados.html"><a href="datos-relacionados.html#entendiendo-las-uniones"><i class="fa fa-check"></i><b>12.4</b> Entendiendo las uniones</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="datos-relacionados.html"><a href="datos-relacionados.html#unión-interiores"><i class="fa fa-check"></i><b>12.4.1</b> Unión interiores</a></li>
+<li class="chapter" data-level="12.4.2" data-path="datos-relacionados.html"><a href="datos-relacionados.html#unión-exteriores"><i class="fa fa-check"></i><b>12.4.2</b> Unión exteriores</a></li>
+<li class="chapter" data-level="12.4.3" data-path="datos-relacionados.html"><a href="datos-relacionados.html#claves-duplicadas"><i class="fa fa-check"></i><b>12.4.3</b> Claves duplicadas</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="datos-relacionados.html"><a href="datos-relacionados.html#definiendo-las-columnas-clave"><i class="fa fa-check"></i><b>12.5</b> Definiendo las columnas clave</a></li>
+<li class="chapter" data-level="12.6" data-path="datos-relacionados.html"><a href="datos-relacionados.html#otras-implementaciones"><i class="fa fa-check"></i><b>12.6</b> Otras implementaciones</a></li>
+<li class="chapter" data-level="12.7" data-path="datos-relacionados.html"><a href="datos-relacionados.html#uniones-de-filtro"><i class="fa fa-check"></i><b>12.7</b> Uniones de filtro</a></li>
+<li class="chapter" data-level="12.8" data-path="datos-relacionados.html"><a href="datos-relacionados.html#problemas-con-las-uniones"><i class="fa fa-check"></i><b>12.8</b> Problemas con las uniones</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>13</b> Strings</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="strings.html"><a href="strings.html#temas-cadenas-de-caracteres"><i class="fa fa-check"></i><b>13.1</b> Temas: Cadenas de Caracteres</a></li>
+<li class="chapter" data-level="13.2" data-path="strings.html"><a href="strings.html#largo-de-cadena"><i class="fa fa-check"></i><b>13.2</b> Largo de cadena</a></li>
+<li class="chapter" data-level="13.3" data-path="strings.html"><a href="strings.html#combinar-cadenas"><i class="fa fa-check"></i><b>13.3</b> Combinar cadenas</a></li>
+<li class="chapter" data-level="13.4" data-path="strings.html"><a href="strings.html#dividir-cadenas"><i class="fa fa-check"></i><b>13.4</b> Dividir cadenas</a></li>
+<li class="chapter" data-level="13.5" data-path="strings.html"><a href="strings.html#locales"><i class="fa fa-check"></i><b>13.5</b> Locales</a></li>
+<li class="chapter" data-level="13.6" data-path="strings.html"><a href="strings.html#buscar-patrones"><i class="fa fa-check"></i><b>13.6</b> Buscar patrones</a></li>
+<li class="chapter" data-level="13.7" data-path="strings.html"><a href="strings.html#coincidencia-básica"><i class="fa fa-check"></i><b>13.7</b> Coincidencia básica</a></li>
+<li class="chapter" data-level="13.8" data-path="strings.html"><a href="strings.html#anclas"><i class="fa fa-check"></i><b>13.8</b> Anclas</a></li>
+<li class="chapter" data-level="13.9" data-path="strings.html"><a href="strings.html#clases-de-caracteres-y-alternativas"><i class="fa fa-check"></i><b>13.9</b> Clases de caracteres y alternativas</a></li>
+<li class="chapter" data-level="13.10" data-path="strings.html"><a href="strings.html#repetición"><i class="fa fa-check"></i><b>13.10</b> Repetición</a></li>
+<li class="chapter" data-level="13.11" data-path="strings.html"><a href="strings.html#agrupamiento-y-referencias-previas"><i class="fa fa-check"></i><b>13.11</b> Agrupamiento y referencias previas</a></li>
+<li class="chapter" data-level="13.12" data-path="strings.html"><a href="strings.html#herramientas-objetivos"><i class="fa fa-check"></i><b>13.12</b> Herramientas: Objetivos</a>
+<ul>
+<li class="chapter" data-level="13.12.1" data-path="strings.html"><a href="strings.html#detectar-coincidencias"><i class="fa fa-check"></i><b>13.12.1</b> Detectar coincidencias</a></li>
+</ul></li>
+<li class="chapter" data-level="13.13" data-path="strings.html"><a href="strings.html#extraer-coincidencias"><i class="fa fa-check"></i><b>13.13</b> Extraer coincidencias</a></li>
+<li class="chapter" data-level="13.14" data-path="strings.html"><a href="strings.html#coincidencias-agrupadas"><i class="fa fa-check"></i><b>13.14</b> Coincidencias agrupadas:</a></li>
+<li class="chapter" data-level="13.15" data-path="strings.html"><a href="strings.html#remplazar-coincidencias"><i class="fa fa-check"></i><b>13.15</b> Remplazar coincidencias</a></li>
+<li class="chapter" data-level="13.16" data-path="strings.html"><a href="strings.html#divisiones"><i class="fa fa-check"></i><b>13.16</b> Divisiones</a></li>
+<li class="chapter" data-level="13.17" data-path="strings.html"><a href="strings.html#otro-tipos-de-patrones"><i class="fa fa-check"></i><b>13.17</b> Otro tipos de patrones</a></li>
+<li class="chapter" data-level="13.18" data-path="strings.html"><a href="strings.html#stringi"><i class="fa fa-check"></i><b>13.18</b> stringi:</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="factores-1.html"><a href="factores-1.html"><i class="fa fa-check"></i><b>14</b> Factores</a></li>
+<li class="chapter" data-level="15" data-path="titulo-grande.html"><a href="titulo-grande.html"><i class="fa fa-check"></i><b>15</b> Titulo Grande</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="titulo-grande.html"><a href="titulo-grande.html#titulo-mediano"><i class="fa fa-check"></i><b>15.1</b> Titulo mediano</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="titulo-grande.html"><a href="titulo-grande.html#titulo-pequeño"><i class="fa fa-check"></i><b>15.1.1</b> Titulo pequeño</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="titulo-grande.html"><a href="titulo-grande.html#temas-4"><i class="fa fa-check"></i><b>15.2</b> Temas:</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="titulo-grande.html"><a href="titulo-grande.html#datos-encuesta-social-general"><i class="fa fa-check"></i><b>15.2.1</b> Datos : Encuesta Social General</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="titulo-grande.html"><a href="titulo-grande.html#a-smaller-figure-to-the-right-with-floating-text"><i class="fa fa-check"></i><b>15.3</b> A smaller figure to the right, with floating text</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html"><i class="fa fa-check"></i><b>16</b> Haga un re-order por la cantidad de personas por religion</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#modificar-el-orden-de-los-factores"><i class="fa fa-check"></i><b>16.1</b> Modificar el orden de los factores</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html"><i class="fa fa-check"></i><b>17</b> Fechas, horas y minutas</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#temas-5"><i class="fa fa-check"></i><b>17.1</b> Temas:</a></li>
+<li class="chapter" data-level="17.2" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#creando-fechashoras"><i class="fa fa-check"></i><b>17.2</b> Creando fechas/horas</a></li>
+<li class="chapter" data-level="17.3" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#el-paquete-lubridate"><i class="fa fa-check"></i><b>17.3</b> El paquete <code>lubridate</code></a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#un-error-tipico"><i class="fa fa-check"></i><b>17.3.1</b> Un error tipico</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#intervalos-y-duraciones"><i class="fa fa-check"></i><b>17.4</b> Intervalos y duraciones</a></li>
+<li class="chapter" data-level="17.5" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#ejercicio"><i class="fa fa-check"></i><b>17.5</b> Ejercicio</a></li>
+<li class="chapter" data-level="17.6" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#as.duration"><i class="fa fa-check"></i><b>17.6</b> as.duration</a>
+<ul>
+<li class="chapter" data-level="17.6.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#funciones"><i class="fa fa-check"></i><b>17.6.1</b> Funciones</a></li>
+<li class="chapter" data-level="17.6.2" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas-con-cednas-de-caracteres"><i class="fa fa-check"></i><b>17.6.2</b> Fechas con cednas de caracteres</a></li>
+<li class="chapter" data-level="17.6.3" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas-con-horas"><i class="fa fa-check"></i><b>17.6.3</b> Fechas con horas</a></li>
+<li class="chapter" data-level="17.6.4" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas"><i class="fa fa-check"></i><b>17.6.4</b> Fechas</a></li>
+</ul></li>
+<li class="chapter" data-level="17.7" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#crear-una-fecha-desde-columnas-individuales"><i class="fa fa-check"></i><b>17.7</b> Crear una fecha desde columnas individuales</a></li>
+<li class="chapter" data-level="17.8" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#extrayendo-parte-de-las-fecha-hora"><i class="fa fa-check"></i><b>17.8</b> Extrayendo parte de las fecha-hora</a></li>
+<li class="chapter" data-level="17.9" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#lapso-de-tiempo"><i class="fa fa-check"></i><b>17.9</b> Lapso de tiempo</a></li>
+<li class="chapter" data-level="17.10" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#duraciones"><i class="fa fa-check"></i><b>17.10</b> duraciones</a></li>
+<li class="chapter" data-level="17.11" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#períodos"><i class="fa fa-check"></i><b>17.11</b> períodos</a>
+<ul>
+<li class="chapter" data-level="17.11.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#multiplicaciones-y-sumas-de-fechas"><i class="fa fa-check"></i><b>17.11.1</b> Multiplicaciones y sumas de fechas</a></li>
+</ul></li>
+<li class="chapter" data-level="17.12" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#períodos-1"><i class="fa fa-check"></i><b>17.12</b> Períodos</a>
+<ul>
+<li class="chapter" data-level="17.12.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#multiplicaciones-y-sumas-de-periodos"><i class="fa fa-check"></i><b>17.12.1</b> Multiplicaciones y sumas de periodos</a></li>
+</ul></li>
+<li class="chapter" data-level="17.13" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#intervalos"><i class="fa fa-check"></i><b>17.13</b> Intervalos</a></li>
+<li class="chapter" data-level="17.14" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#resumen"><i class="fa fa-check"></i><b>17.14</b> Resumen</a></li>
+<li class="chapter" data-level="17.15" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#time-zones"><i class="fa fa-check"></i><b>17.15</b> Time zones</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">4_Transformacion_dplyr</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="fechas-horas-y-minutas" class="section level1 hasAnchor" number="17">
+<h1><span class="header-section-number">Chapter 17</span> Fechas, horas y minutas<a href="fechas-horas-y-minutas.html#fechas-horas-y-minutas" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Fecha de la ultima revisión</p>
+<pre><code>## [1] &quot;2023-08-09&quot;</code></pre>
+<hr />
+<p>El tema proviene de los siguientes sitios.</p>
+<p>English:
+<a href="https://r4ds.had.co.nz/dates-and-times.html" class="uri">https://r4ds.had.co.nz/dates-and-times.html</a></p>
+<p>Español:
+<a href="https://es.r4ds.hadley.nz/fechas-y-horas.html" class="uri">https://es.r4ds.hadley.nz/fechas-y-horas.html</a></p>
+<hr />
+<div id="temas-5" class="section level2 hasAnchor" number="17.1">
+<h2><span class="header-section-number">17.1</span> Temas:<a href="fechas-horas-y-minutas.html#temas-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>library(lubridate)</li>
+<li>library(datos)</li>
+<li>library(tidyverse)</li>
+</ul>
+</div>
+<div id="creando-fechashoras" class="section level2 hasAnchor" number="17.2">
+<h2><span class="header-section-number">17.2</span> Creando fechas/horas<a href="fechas-horas-y-minutas.html#creando-fechashoras" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>date, <date></li>
+<li>time, <time></li>
+<li>date-time, <dttm></li>
+</ul>
+<p><a href="https://github.com/edgararuiz/guias-rapidas/blob/master/fechas.pdf" class="uri">https://github.com/edgararuiz/guias-rapidas/blob/master/fechas.pdf</a></p>
+<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="fechas-horas-y-minutas.html#cb746-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb746-2"><a href="fechas-horas-y-minutas.html#cb746-2" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code></pre></div>
+</div>
+<div id="el-paquete-lubridate" class="section level2 hasAnchor" number="17.3">
+<h2><span class="header-section-number">17.3</span> El paquete <code>lubridate</code><a href="fechas-horas-y-minutas.html#el-paquete-lubridate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La función <code>today()</code> regresa la fecha de hoy, similar a <code>Sys.date()</code></p>
+<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb747-1"><a href="fechas-horas-y-minutas.html#cb747-1" tabindex="-1"></a><span class="fu">today</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;2023-08-09&quot;</code></pre>
+<p>Usames <code>tibble()</code>, del paquete <code>tibble</code>, para crear una tabla manualmente</p>
+<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="fechas-horas-y-minutas.html#cb749-1" tabindex="-1"></a>fechas <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb749-2"><a href="fechas-horas-y-minutas.html#cb749-2" tabindex="-1"></a>  <span class="sc">~</span> codigo, <span class="sc">~</span> fecha,</span>
+<span id="cb749-3"><a href="fechas-horas-y-minutas.html#cb749-3" tabindex="-1"></a>    <span class="st">&quot;001&quot;</span>,    <span class="st">&quot;01/01/2019 00:00:00&quot;</span>,</span>
+<span id="cb749-4"><a href="fechas-horas-y-minutas.html#cb749-4" tabindex="-1"></a>    <span class="st">&quot;002&quot;</span>,    <span class="st">&quot;31/03/2019 01:05:00&quot;</span>,</span>
+<span id="cb749-5"><a href="fechas-horas-y-minutas.html#cb749-5" tabindex="-1"></a>    <span class="st">&quot;003&quot;</span>,    <span class="st">&quot;14/06/2019 20:00:00&quot;</span>,</span>
+<span id="cb749-6"><a href="fechas-horas-y-minutas.html#cb749-6" tabindex="-1"></a>    <span class="st">&quot;004&quot;</span>,    <span class="st">&quot;01/03/1859 11:32:13&quot;</span></span>
+<span id="cb749-7"><a href="fechas-horas-y-minutas.html#cb749-7" tabindex="-1"></a>)</span>
+<span id="cb749-8"><a href="fechas-horas-y-minutas.html#cb749-8" tabindex="-1"></a>fechas</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 2
+##   codigo fecha              
+##   &lt;chr&gt;  &lt;chr&gt;              
+## 1 001    01/01/2019 00:00:00
+## 2 002    31/03/2019 01:05:00
+## 3 003    14/06/2019 20:00:00
+## 4 004    01/03/1859 11:32:13</code></pre>
+<p>Hay varias opciones para convertir texto a fechas, el más usado es <code>mdy_hms()</code>, pero en este caso el formato utilizado no funciona bien.</p>
+<div id="un-error-tipico" class="section level3 hasAnchor" number="17.3.1">
+<h3><span class="header-section-number">17.3.1</span> Un error tipico<a href="fechas-horas-y-minutas.html#un-error-tipico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="fechas-horas-y-minutas.html#cb751-1" tabindex="-1"></a>fechas <span class="sc">%&gt;%</span></span>
+<span id="cb751-2"><a href="fechas-horas-y-minutas.html#cb751-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fecha =</span> <span class="fu">mdy_hms</span>(fecha))</span></code></pre></div>
+<pre><code>## Warning: There was 1 warning in `mutate()`.
+## ℹ In argument: `fecha = mdy_hms(fecha)`.
+## Caused by warning:
+## !  2 failed to parse.</code></pre>
+<pre><code>## # A tibble: 4 × 2
+##   codigo fecha              
+##   &lt;chr&gt;  &lt;dttm&gt;             
+## 1 001    2019-01-01 00:00:00
+## 2 002    NA                 
+## 3 003    NA                 
+## 4 004    1859-01-03 11:32:13</code></pre>
+<p>Ya que el día es el primero, y no el mes, usamos <code>dmy_hms()</code></p>
+<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb754-1"><a href="fechas-horas-y-minutas.html#cb754-1" tabindex="-1"></a>nueva_fechas <span class="ot">&lt;-</span> fechas <span class="sc">%&gt;%</span></span>
+<span id="cb754-2"><a href="fechas-horas-y-minutas.html#cb754-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fecha =</span> <span class="fu">dmy_hms</span>(fecha))</span>
+<span id="cb754-3"><a href="fechas-horas-y-minutas.html#cb754-3" tabindex="-1"></a></span>
+<span id="cb754-4"><a href="fechas-horas-y-minutas.html#cb754-4" tabindex="-1"></a>nueva_fechas</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 2
+##   codigo fecha              
+##   &lt;chr&gt;  &lt;dttm&gt;             
+## 1 001    2019-01-01 00:00:00
+## 2 002    2019-03-31 01:05:00
+## 3 003    2019-06-14 20:00:00
+## 4 004    1859-03-01 11:32:13</code></pre>
+<p><code>lubridate</code> tiene varias funciones para extraer partes de la fecha, por ejemplo: año, mes, día, hora, minuto, y quatrimestre.</p>
+<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb756-1"><a href="fechas-horas-y-minutas.html#cb756-1" tabindex="-1"></a>nueva_fechas <span class="sc">%&gt;%</span></span>
+<span id="cb756-2"><a href="fechas-horas-y-minutas.html#cb756-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">a =</span> <span class="fu">year</span>(fecha),</span>
+<span id="cb756-3"><a href="fechas-horas-y-minutas.html#cb756-3" tabindex="-1"></a>         <span class="at">m =</span> <span class="fu">month</span>(fecha),</span>
+<span id="cb756-4"><a href="fechas-horas-y-minutas.html#cb756-4" tabindex="-1"></a>         <span class="at">d =</span> <span class="fu">day</span>(fecha),</span>
+<span id="cb756-5"><a href="fechas-horas-y-minutas.html#cb756-5" tabindex="-1"></a>         <span class="at">h =</span> <span class="fu">hour</span>(fecha),</span>
+<span id="cb756-6"><a href="fechas-horas-y-minutas.html#cb756-6" tabindex="-1"></a>         <span class="at">mn =</span> <span class="fu">minute</span>(fecha),</span>
+<span id="cb756-7"><a href="fechas-horas-y-minutas.html#cb756-7" tabindex="-1"></a>         <span class="at">q =</span> <span class="fu">quarter</span>(fecha)</span>
+<span id="cb756-8"><a href="fechas-horas-y-minutas.html#cb756-8" tabindex="-1"></a>         )</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 8
+##   codigo fecha                   a     m     d     h    mn     q
+##   &lt;chr&gt;  &lt;dttm&gt;              &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+## 1 001    2019-01-01 00:00:00  2019     1     1     0     0     1
+## 2 002    2019-03-31 01:05:00  2019     3    31     1     5     1
+## 3 003    2019-06-14 20:00:00  2019     6    14    20     0     2
+## 4 004    1859-03-01 11:32:13  1859     3     1    11    32     1</code></pre>
+<p>Las funciones <code>round_date()</code>, <code>ceiling_date()</code> y <code>floor_date()</code> permiten redondear la fecha al número más cercano de la unidad especificada</p>
+<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb758-1"><a href="fechas-horas-y-minutas.html#cb758-1" tabindex="-1"></a>nueva_fechas <span class="sc">%&gt;%</span></span>
+<span id="cb758-2"><a href="fechas-horas-y-minutas.html#cb758-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb758-3"><a href="fechas-horas-y-minutas.html#cb758-3" tabindex="-1"></a>    <span class="at">redondear =</span> <span class="fu">round_date</span>(fecha, <span class="at">unit =</span> <span class="st">&quot; month&quot;</span>),</span>
+<span id="cb758-4"><a href="fechas-horas-y-minutas.html#cb758-4" tabindex="-1"></a>    <span class="at">techo =</span> <span class="fu">ceiling_date</span>(fecha, <span class="at">unit =</span> <span class="st">&quot;day&quot;</span>),</span>
+<span id="cb758-5"><a href="fechas-horas-y-minutas.html#cb758-5" tabindex="-1"></a>    <span class="at">suelo =</span> <span class="fu">floor_date</span>(fecha, <span class="at">unit =</span> <span class="st">&quot;month&quot;</span>)</span>
+<span id="cb758-6"><a href="fechas-horas-y-minutas.html#cb758-6" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 5
+##   codigo fecha               redondear           techo              
+##   &lt;chr&gt;  &lt;dttm&gt;              &lt;dttm&gt;              &lt;dttm&gt;             
+## 1 001    2019-01-01 00:00:00 2019-01-01 00:00:00 2019-01-01 00:00:00
+## 2 002    2019-03-31 01:05:00 2019-04-01 00:00:00 2019-04-01 00:00:00
+## 3 003    2019-06-14 20:00:00 2019-06-01 00:00:00 2019-06-15 00:00:00
+## 4 004    1859-03-01 11:32:13 1859-03-01 00:00:00 1859-03-02 00:00:00
+## # ℹ 1 more variable: suelo &lt;dttm&gt;</code></pre>
+</div>
+</div>
+<div id="intervalos-y-duraciones" class="section level2 hasAnchor" number="17.4">
+<h2><span class="header-section-number">17.4</span> Intervalos y duraciones<a href="fechas-horas-y-minutas.html#intervalos-y-duraciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La función <code>interval()</code> crea un objeto R de intervalo de tiempo. En este caso, el intervalo entro la fecha en la tabla, y el día de hoy. Nota que esto puede ser muy util si quiere calcular la cantidad de tiempo entre dos fechas.</p>
+<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb760-1"><a href="fechas-horas-y-minutas.html#cb760-1" tabindex="-1"></a>nueva_fechas <span class="sc">%&gt;%</span></span>
+<span id="cb760-2"><a href="fechas-horas-y-minutas.html#cb760-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">intervalo =</span> <span class="fu">interval</span>(fecha, <span class="fu">today</span>()))</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 3
+##   codigo fecha               intervalo                              
+##   &lt;chr&gt;  &lt;dttm&gt;              &lt;Interval&gt;                             
+## 1 001    2019-01-01 00:00:00 2019-01-01 00:00:00 UTC--2023-08-09 UTC
+## 2 002    2019-03-31 01:05:00 2019-03-31 01:05:00 UTC--2023-08-09 UTC
+## 3 003    2019-06-14 20:00:00 2019-06-14 20:00:00 UTC--2023-08-09 UTC
+## 4 004    1859-03-01 11:32:13 1859-03-01 11:32:13 UTC--2023-08-09 UTC</code></pre>
+<p><code>int_length()</code> regresa el número de segundos dentro del intervalo</p>
+<div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb762-1"><a href="fechas-horas-y-minutas.html#cb762-1" tabindex="-1"></a>nueva_fechas <span class="sc">%&gt;%</span></span>
+<span id="cb762-2"><a href="fechas-horas-y-minutas.html#cb762-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb762-3"><a href="fechas-horas-y-minutas.html#cb762-3" tabindex="-1"></a>    <span class="at">intervalo =</span> <span class="fu">interval</span>(fecha, <span class="fu">today</span>()),</span>
+<span id="cb762-4"><a href="fechas-horas-y-minutas.html#cb762-4" tabindex="-1"></a>    <span class="at">segundos =</span> <span class="fu">int_length</span>(intervalo)</span>
+<span id="cb762-5"><a href="fechas-horas-y-minutas.html#cb762-5" tabindex="-1"></a>    )</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 4
+##   codigo fecha               intervalo                                 segundos
+##   &lt;chr&gt;  &lt;dttm&gt;              &lt;Interval&gt;                                   &lt;dbl&gt;
+## 1 001    2019-01-01 00:00:00 2019-01-01 00:00:00 UTC--2023-08-09 UTC  145238400
+## 2 002    2019-03-31 01:05:00 2019-03-31 01:05:00 UTC--2023-08-09 UTC  137544900
+## 3 003    2019-06-14 20:00:00 2019-06-14 20:00:00 UTC--2023-08-09 UTC  130996800
+## 4 004    1859-03-01 11:32:13 1859-03-01 11:32:13 UTC--2023-08-09 UTC 5189228867</code></pre>
+<p>El operador <code>%--%</code> simplifica el cálculo del intervalo</p>
+<div class="sourceCode" id="cb764"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb764-1"><a href="fechas-horas-y-minutas.html#cb764-1" tabindex="-1"></a>nueva_fechas <span class="sc">%&gt;%</span></span>
+<span id="cb764-2"><a href="fechas-horas-y-minutas.html#cb764-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">intervalo =</span> fecha <span class="sc">%--%</span> <span class="fu">today</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 3
+##   codigo fecha               intervalo                              
+##   &lt;chr&gt;  &lt;dttm&gt;              &lt;Interval&gt;                             
+## 1 001    2019-01-01 00:00:00 2019-01-01 00:00:00 UTC--2023-08-09 UTC
+## 2 002    2019-03-31 01:05:00 2019-03-31 01:05:00 UTC--2023-08-09 UTC
+## 3 003    2019-06-14 20:00:00 2019-06-14 20:00:00 UTC--2023-08-09 UTC
+## 4 004    1859-03-01 11:32:13 1859-03-01 11:32:13 UTC--2023-08-09 UTC</code></pre>
+<p>Para saber el número del días, divida el intervalo por la función que corresponde a días, <code>days()</code></p>
+<div class="sourceCode" id="cb766"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb766-1"><a href="fechas-horas-y-minutas.html#cb766-1" tabindex="-1"></a>nueva_fechas <span class="sc">%&gt;%</span></span>
+<span id="cb766-2"><a href="fechas-horas-y-minutas.html#cb766-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dias =</span> fecha <span class="sc">%--%</span> <span class="fu">today</span>() <span class="sc">/</span> <span class="fu">days</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 3
+##   codigo fecha                 dias
+##   &lt;chr&gt;  &lt;dttm&gt;               &lt;dbl&gt;
+## 1 001    2019-01-01 00:00:00  1681 
+## 2 002    2019-03-31 01:05:00  1592.
+## 3 003    2019-06-14 20:00:00  1516.
+## 4 004    1859-03-01 11:32:13 60061.</code></pre>
+<p>Intervalo entre una lista de fecha y otra fecha y hora</p>
+<div class="sourceCode" id="cb768"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb768-1"><a href="fechas-horas-y-minutas.html#cb768-1" tabindex="-1"></a>nueva_fechas <span class="sc">%&gt;%</span></span>
+<span id="cb768-2"><a href="fechas-horas-y-minutas.html#cb768-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dias =</span> fecha <span class="sc">%--%</span> <span class="st">&quot;2020-01-01 00:00:00&quot;</span> <span class="sc">/</span> <span class="fu">days</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 3
+##   codigo fecha                 dias
+##   &lt;chr&gt;  &lt;dttm&gt;               &lt;dbl&gt;
+## 1 001    2019-01-01 00:00:00   365 
+## 2 002    2019-03-31 01:05:00   276.
+## 3 003    2019-06-14 20:00:00   200.
+## 4 004    1859-03-01 11:32:13 58745.</code></pre>
+</div>
+<div id="ejercicio" class="section level2 hasAnchor" number="17.5">
+<h2><span class="header-section-number">17.5</span> Ejercicio<a href="fechas-horas-y-minutas.html#ejercicio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Usa esta funtión y calcula el numero de dia que ha transcurido entre el dia de su nacimiento y el dia de hoy</p>
+<div class="sourceCode" id="cb770"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb770-1"><a href="fechas-horas-y-minutas.html#cb770-1" tabindex="-1"></a> dias <span class="ot">=</span> <span class="st">&quot;2018-08-14 00:00:00&quot;</span> <span class="sc">%--%</span> <span class="fu">today</span>() <span class="sc">/</span>  <span class="fu">milliseconds</span>()</span>
+<span id="cb770-2"><a href="fechas-horas-y-minutas.html#cb770-2" tabindex="-1"></a></span>
+<span id="cb770-3"><a href="fechas-horas-y-minutas.html#cb770-3" tabindex="-1"></a>dias</span></code></pre></div>
+<pre><code>## [1] 157334400000</code></pre>
+<p>Los resultados se pueden visualizar usando <code>ggplot2</code></p>
+<div class="sourceCode" id="cb772"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb772-1"><a href="fechas-horas-y-minutas.html#cb772-1" tabindex="-1"></a>nueva_fechas <span class="sc">%&gt;%</span></span>
+<span id="cb772-2"><a href="fechas-horas-y-minutas.html#cb772-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dias =</span> fecha <span class="sc">%--%</span> <span class="fu">today</span>() <span class="sc">/</span> <span class="fu">days</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb772-3"><a href="fechas-horas-y-minutas.html#cb772-3" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb772-4"><a href="fechas-horas-y-minutas.html#cb772-4" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(codigo, dias)) <span class="sc">+</span></span>
+<span id="cb772-5"><a href="fechas-horas-y-minutas.html#cb772-5" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-198-1.png" width="672" /></p>
+</div>
+<div id="as.duration" class="section level2 hasAnchor" number="17.6">
+<h2><span class="header-section-number">17.6</span> as.duration<a href="fechas-horas-y-minutas.html#as.duration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>as.duration()</code> crea un objecto en R que contiene la duración del intervalo de tiempo.</p>
+<div class="sourceCode" id="cb773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb773-1"><a href="fechas-horas-y-minutas.html#cb773-1" tabindex="-1"></a>nueva_fechas <span class="sc">%&gt;%</span></span>
+<span id="cb773-2"><a href="fechas-horas-y-minutas.html#cb773-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">desde_hoy =</span> <span class="fu">as.duration</span>(fecha <span class="sc">%--%</span> <span class="fu">today</span>()))</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 3
+##   codigo fecha               desde_hoy                  
+##   &lt;chr&gt;  &lt;dttm&gt;              &lt;Duration&gt;                 
+## 1 001    2019-01-01 00:00:00 145238400s (~4.6 years)    
+## 2 002    2019-03-31 01:05:00 137544900s (~4.36 years)   
+## 3 003    2019-06-14 20:00:00 130996800s (~4.15 years)   
+## 4 004    1859-03-01 11:32:13 5189228867s (~164.44 years)</code></pre>
+<p>El objeto de duración de tiempo se puede filtrar fácilmente basado en una variedad de tipo de tiempos. En este caso, semanas. <code>dweeks()</code> crea un objeto de duración de la largura especificada</p>
+<div class="sourceCode" id="cb775"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb775-1"><a href="fechas-horas-y-minutas.html#cb775-1" tabindex="-1"></a>nueva_fechas <span class="sc">%&gt;%</span></span>
+<span id="cb775-2"><a href="fechas-horas-y-minutas.html#cb775-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">desde_hoy =</span> <span class="fu">as.duration</span>(fecha <span class="sc">%--%</span> <span class="fu">today</span>())) <span class="sc">%&gt;%</span></span>
+<span id="cb775-3"><a href="fechas-horas-y-minutas.html#cb775-3" tabindex="-1"></a>  <span class="fu">filter</span>(desde_hoy <span class="sc">&gt;</span> <span class="fu">dyears</span>(<span class="dv">100</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 3
+##   codigo fecha               desde_hoy                  
+##   &lt;chr&gt;  &lt;dttm&gt;              &lt;Duration&gt;                 
+## 1 004    1859-03-01 11:32:13 5189228867s (~164.44 years)</code></pre>
+<p>Otra opción es <code>ddays()</code>.</p>
+<div class="sourceCode" id="cb777"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb777-1"><a href="fechas-horas-y-minutas.html#cb777-1" tabindex="-1"></a>nueva_fechas <span class="sc">%&gt;%</span></span>
+<span id="cb777-2"><a href="fechas-horas-y-minutas.html#cb777-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">desde_hoy =</span> <span class="fu">as.duration</span>(fecha <span class="sc">%--%</span> <span class="fu">today</span>())) <span class="sc">%&gt;%</span></span>
+<span id="cb777-3"><a href="fechas-horas-y-minutas.html#cb777-3" tabindex="-1"></a>  <span class="fu">filter</span>(desde_hoy <span class="sc">&lt;</span> <span class="fu">ddays</span>(<span class="dv">700</span>))  <span class="co"># Note that you filter for the number of days that have acculmulated</span></span></code></pre></div>
+<pre><code>## # A tibble: 0 × 3
+## # ℹ 3 variables: codigo &lt;chr&gt;, fecha &lt;dttm&gt;, desde_hoy &lt;Duration&gt;</code></pre>
+<div id="funciones" class="section level3 hasAnchor" number="17.6.1">
+<h3><span class="header-section-number">17.6.1</span> Funciones<a href="fechas-horas-y-minutas.html#funciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>today()</li>
+<li>now()</li>
+</ul>
+<div class="sourceCode" id="cb779"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb779-1"><a href="fechas-horas-y-minutas.html#cb779-1" tabindex="-1"></a><span class="fu">today</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;2023-08-09&quot;</code></pre>
+<div class="sourceCode" id="cb781"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb781-1"><a href="fechas-horas-y-minutas.html#cb781-1" tabindex="-1"></a><span class="fu">now</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;2023-08-09 16:15:11 AST&quot;</code></pre>
+</div>
+<div id="fechas-con-cednas-de-caracteres" class="section level3 hasAnchor" number="17.6.2">
+<h3><span class="header-section-number">17.6.2</span> Fechas con cednas de caracteres<a href="fechas-horas-y-minutas.html#fechas-con-cednas-de-caracteres" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>ymd()</li>
+<li>ydm()</li>
+<li>mdy()</li>
+<li>myd()</li>
+<li>dmy()</li>
+<li>dym()</li>
+</ul>
+</div>
+<div id="fechas-con-horas" class="section level3 hasAnchor" number="17.6.3">
+<h3><span class="header-section-number">17.6.3</span> Fechas con horas<a href="fechas-horas-y-minutas.html#fechas-con-horas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>ymd_hms()</p></li>
+<li><p>ymd_hm()</p></li>
+<li><p>ymd_h()</p></li>
+<li><p>ydm_hms()</p></li>
+<li><p>ydm_hm()</p></li>
+<li><p>etc</p></li>
+</ul>
+</div>
+<div id="fechas" class="section level3 hasAnchor" number="17.6.4">
+<h3><span class="header-section-number">17.6.4</span> Fechas<a href="fechas-horas-y-minutas.html#fechas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>yq() Year quarter (quaters are 1, 2, 3, 4, Jan-March, April-Jun, Jul-Sept, Oct-Dec)</li>
+</ul>
+<div class="sourceCode" id="cb783"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb783-1"><a href="fechas-horas-y-minutas.html#cb783-1" tabindex="-1"></a>x <span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;2012.1&quot;</span>, <span class="st">&quot;1970.4&quot;</span>)</span>
+<span id="cb783-2"><a href="fechas-horas-y-minutas.html#cb783-2" tabindex="-1"></a><span class="fu">yq</span>(x)</span></code></pre></div>
+<pre><code>## [1] &quot;2012-01-01&quot; &quot;1970-10-01&quot;</code></pre>
+<div class="sourceCode" id="cb785"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb785-1"><a href="fechas-horas-y-minutas.html#cb785-1" tabindex="-1"></a><span class="fu">yq</span>(<span class="st">&quot;2012.1&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2012-01-01&quot;</code></pre>
+<p>Cuidado con el paquete hms que tiene funciones igual como lubridate (hms, hm, y ms)</p>
+<hr />
+</div>
+</div>
+<div id="crear-una-fecha-desde-columnas-individuales" class="section level2 hasAnchor" number="17.7">
+<h2><span class="header-section-number">17.7</span> Crear una fecha desde columnas individuales<a href="fechas-horas-y-minutas.html#crear-una-fecha-desde-columnas-individuales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>make_date()</li>
+<li>make_datetime()</li>
+</ul>
+<div class="sourceCode" id="cb787"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb787-1"><a href="fechas-horas-y-minutas.html#cb787-1" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
+<span id="cb787-2"><a href="fechas-horas-y-minutas.html#cb787-2" tabindex="-1"></a><span class="fu">head</span>(vuelos)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 19
+##    anio   mes   dia horario_salida salida_programada atraso_salida
+##   &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
+## 1  2013     1     1            517               515             2
+## 2  2013     1     1            533               529             4
+## 3  2013     1     1            542               540             2
+## 4  2013     1     1            544               545            -1
+## 5  2013     1     1            554               600            -6
+## 6  2013     1     1            554               558            -4
+## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
+## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
+## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
+## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
+<div class="sourceCode" id="cb789"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb789-1"><a href="fechas-horas-y-minutas.html#cb789-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span></span>
+<span id="cb789-2"><a href="fechas-horas-y-minutas.html#cb789-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(anio, mes, dia, hora, minuto) <span class="sc">%&gt;%</span></span>
+<span id="cb789-3"><a href="fechas-horas-y-minutas.html#cb789-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">salida =</span> <span class="fu">make_datetime</span>(anio, mes, dia, hora, minuto))</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 6
+##     anio   mes   dia  hora minuto salida             
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dttm&gt;             
+##  1  2013     1     1     5     15 2013-01-01 05:15:00
+##  2  2013     1     1     5     29 2013-01-01 05:29:00
+##  3  2013     1     1     5     40 2013-01-01 05:40:00
+##  4  2013     1     1     5     45 2013-01-01 05:45:00
+##  5  2013     1     1     6      0 2013-01-01 06:00:00
+##  6  2013     1     1     5     58 2013-01-01 05:58:00
+##  7  2013     1     1     6      0 2013-01-01 06:00:00
+##  8  2013     1     1     6      0 2013-01-01 06:00:00
+##  9  2013     1     1     6      0 2013-01-01 06:00:00
+## 10  2013     1     1     6      0 2013-01-01 06:00:00
+## # ℹ 336,766 more rows</code></pre>
+<div class="sourceCode" id="cb791"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb791-1"><a href="fechas-horas-y-minutas.html#cb791-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span></span>
+<span id="cb791-2"><a href="fechas-horas-y-minutas.html#cb791-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(anio, mes, dia, hora, minuto) <span class="sc">%&gt;%</span></span>
+<span id="cb791-3"><a href="fechas-horas-y-minutas.html#cb791-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">salida2 =</span> <span class="fu">make_date</span>(anio, mes, dia))</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 6
+##     anio   mes   dia  hora minuto salida2   
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;date&gt;    
+##  1  2013     1     1     5     15 2013-01-01
+##  2  2013     1     1     5     29 2013-01-01
+##  3  2013     1     1     5     40 2013-01-01
+##  4  2013     1     1     5     45 2013-01-01
+##  5  2013     1     1     6      0 2013-01-01
+##  6  2013     1     1     5     58 2013-01-01
+##  7  2013     1     1     6      0 2013-01-01
+##  8  2013     1     1     6      0 2013-01-01
+##  9  2013     1     1     6      0 2013-01-01
+## 10  2013     1     1     6      0 2013-01-01
+## # ℹ 336,766 more rows</code></pre>
+<div class="sourceCode" id="cb793"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb793-1"><a href="fechas-horas-y-minutas.html#cb793-1" tabindex="-1"></a><span class="fu">names</span>(vuelos)</span></code></pre></div>
+<pre><code>##  [1] &quot;anio&quot;               &quot;mes&quot;                &quot;dia&quot;               
+##  [4] &quot;horario_salida&quot;     &quot;salida_programada&quot;  &quot;atraso_salida&quot;     
+##  [7] &quot;horario_llegada&quot;    &quot;llegada_programada&quot; &quot;atraso_llegada&quot;    
+## [10] &quot;aerolinea&quot;          &quot;vuelo&quot;              &quot;codigo_cola&quot;       
+## [13] &quot;origen&quot;             &quot;destino&quot;            &quot;tiempo_vuelo&quot;      
+## [16] &quot;distancia&quot;          &quot;hora&quot;               &quot;minuto&quot;            
+## [19] &quot;fecha_hora&quot;</code></pre>
+<div class="sourceCode" id="cb795"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb795-1"><a href="fechas-horas-y-minutas.html#cb795-1" tabindex="-1"></a>hacer_fechahora_100 <span class="ot">&lt;-</span> <span class="cf">function</span>(anio, mes, dia, tiempo) {</span>
+<span id="cb795-2"><a href="fechas-horas-y-minutas.html#cb795-2" tabindex="-1"></a>  <span class="fu">make_datetime</span>(anio, mes, dia, tiempo <span class="sc">%/%</span> <span class="dv">100</span>, tiempo <span class="sc">%%</span> <span class="dv">100</span>)</span>
+<span id="cb795-3"><a href="fechas-horas-y-minutas.html#cb795-3" tabindex="-1"></a>}</span>
+<span id="cb795-4"><a href="fechas-horas-y-minutas.html#cb795-4" tabindex="-1"></a></span>
+<span id="cb795-5"><a href="fechas-horas-y-minutas.html#cb795-5" tabindex="-1"></a>vuelos_dt <span class="ot">&lt;-</span> vuelos <span class="sc">%&gt;%</span></span>
+<span id="cb795-6"><a href="fechas-horas-y-minutas.html#cb795-6" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(horario_salida), <span class="sc">!</span><span class="fu">is.na</span>(horario_llegada)) <span class="sc">%&gt;%</span></span>
+<span id="cb795-7"><a href="fechas-horas-y-minutas.html#cb795-7" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb795-8"><a href="fechas-horas-y-minutas.html#cb795-8" tabindex="-1"></a>    <span class="at">horario_salida =</span> <span class="fu">hacer_fechahora_100</span>(anio, mes, dia, horario_salida),</span>
+<span id="cb795-9"><a href="fechas-horas-y-minutas.html#cb795-9" tabindex="-1"></a>    <span class="at">horario_llegada =</span> <span class="fu">hacer_fechahora_100</span>(anio, mes, dia, horario_llegada),</span>
+<span id="cb795-10"><a href="fechas-horas-y-minutas.html#cb795-10" tabindex="-1"></a>    <span class="at">salida_programada =</span> <span class="fu">hacer_fechahora_100</span>(anio, mes, dia, salida_programada),</span>
+<span id="cb795-11"><a href="fechas-horas-y-minutas.html#cb795-11" tabindex="-1"></a>    <span class="at">llegada_programada =</span> <span class="fu">hacer_fechahora_100</span>(anio, mes, dia, llegada_programada)</span>
+<span id="cb795-12"><a href="fechas-horas-y-minutas.html#cb795-12" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb795-13"><a href="fechas-horas-y-minutas.html#cb795-13" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(origen, destino, <span class="fu">starts_with</span>(<span class="st">&quot;atraso&quot;</span>), <span class="fu">starts_with</span>(<span class="st">&quot;horario&quot;</span>), <span class="fu">ends_with</span>(<span class="st">&quot;programada&quot;</span>), tiempo_vuelo)</span>
+<span id="cb795-14"><a href="fechas-horas-y-minutas.html#cb795-14" tabindex="-1"></a></span>
+<span id="cb795-15"><a href="fechas-horas-y-minutas.html#cb795-15" tabindex="-1"></a><span class="fu">head</span>(vuelos_dt)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 9
+##   origen destino atraso_salida atraso_llegada horario_salida     
+##   &lt;chr&gt;  &lt;chr&gt;           &lt;dbl&gt;          &lt;dbl&gt; &lt;dttm&gt;             
+## 1 EWR    IAH                 2             11 2013-01-01 05:17:00
+## 2 LGA    IAH                 4             20 2013-01-01 05:33:00
+## 3 JFK    MIA                 2             33 2013-01-01 05:42:00
+## 4 JFK    BQN                -1            -18 2013-01-01 05:44:00
+## 5 LGA    ATL                -6            -25 2013-01-01 05:54:00
+## 6 EWR    ORD                -4             12 2013-01-01 05:54:00
+## # ℹ 4 more variables: horario_llegada &lt;dttm&gt;, salida_programada &lt;dttm&gt;,
+## #   llegada_programada &lt;dttm&gt;, tiempo_vuelo &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb797"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb797-1"><a href="fechas-horas-y-minutas.html#cb797-1" tabindex="-1"></a>vuelos_dt <span class="sc">%&gt;%</span></span>
+<span id="cb797-2"><a href="fechas-horas-y-minutas.html#cb797-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(horario_salida)) <span class="sc">+</span></span>
+<span id="cb797-3"><a href="fechas-horas-y-minutas.html#cb797-3" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="dv">86400</span>) <span class="co"># 86400 segundos = 1 día</span></span></code></pre></div>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-206-1.png" width="672" /></p>
+<div class="sourceCode" id="cb798"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb798-1"><a href="fechas-horas-y-minutas.html#cb798-1" tabindex="-1"></a>vuelos_dt <span class="sc">%&gt;%</span></span>
+<span id="cb798-2"><a href="fechas-horas-y-minutas.html#cb798-2" tabindex="-1"></a>  <span class="fu">filter</span>(horario_salida <span class="sc">&lt;</span> <span class="fu">ymd</span>(<span class="dv">20130102</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb798-3"><a href="fechas-horas-y-minutas.html#cb798-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(horario_salida)) <span class="sc">+</span></span>
+<span id="cb798-4"><a href="fechas-horas-y-minutas.html#cb798-4" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="dv">600</span>) <span class="co"># 600 segundos = 10 minutos</span></span></code></pre></div>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-207-1.png" width="672" /></p>
+<div class="sourceCode" id="cb799"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb799-1"><a href="fechas-horas-y-minutas.html#cb799-1" tabindex="-1"></a>  <span class="fu">ymd</span>(<span class="fu">c</span>(<span class="st">&quot;2010-10-10&quot;</span>, <span class="st">&quot;bananas&quot;</span>))</span></code></pre></div>
+<pre><code>## Warning: 1 failed to parse.</code></pre>
+<pre><code>## [1] &quot;2010-10-10&quot; NA</code></pre>
+<div class="sourceCode" id="cb802"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb802-1"><a href="fechas-horas-y-minutas.html#cb802-1" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> <span class="st">&quot;Jan 1, 2010&quot;</span></span>
+<span id="cb802-2"><a href="fechas-horas-y-minutas.html#cb802-2" tabindex="-1"></a><span class="fu">mdy</span>(d1)</span></code></pre></div>
+<pre><code>## [1] &quot;2010-01-01&quot;</code></pre>
+<div class="sourceCode" id="cb804"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb804-1"><a href="fechas-horas-y-minutas.html#cb804-1" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> <span class="st">&quot;2015-Mar-07&quot;</span></span>
+<span id="cb804-2"><a href="fechas-horas-y-minutas.html#cb804-2" tabindex="-1"></a><span class="fu">ymd</span>(d2)</span></code></pre></div>
+<pre><code>## [1] &quot;2015-03-07&quot;</code></pre>
+<div class="sourceCode" id="cb806"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb806-1"><a href="fechas-horas-y-minutas.html#cb806-1" tabindex="-1"></a>d3 <span class="ot">&lt;-</span> <span class="st">&quot;06-Jun-2017&quot;</span></span>
+<span id="cb806-2"><a href="fechas-horas-y-minutas.html#cb806-2" tabindex="-1"></a><span class="fu">dmy</span>(d3)</span></code></pre></div>
+<pre><code>## [1] &quot;2017-06-06&quot;</code></pre>
+<div class="sourceCode" id="cb808"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb808-1"><a href="fechas-horas-y-minutas.html#cb808-1" tabindex="-1"></a>d4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Aug 19 (2015)&quot;</span>, <span class="st">&quot;Jul 1 (2015)&quot;</span>)</span>
+<span id="cb808-2"><a href="fechas-horas-y-minutas.html#cb808-2" tabindex="-1"></a><span class="fu">mdy</span>(d4)</span></code></pre></div>
+<pre><code>## [1] &quot;2015-08-19&quot; &quot;2015-07-01&quot;</code></pre>
+<div class="sourceCode" id="cb810"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb810-1"><a href="fechas-horas-y-minutas.html#cb810-1" tabindex="-1"></a>d5 <span class="ot">&lt;-</span> <span class="st">&quot;12/30/14&quot;</span> <span class="co"># Diciembre 30, 2014</span></span>
+<span id="cb810-2"><a href="fechas-horas-y-minutas.html#cb810-2" tabindex="-1"></a><span class="fu">mdy</span>(d5)</span></code></pre></div>
+<pre><code>## [1] &quot;2014-12-30&quot;</code></pre>
+<div class="sourceCode" id="cb812"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb812-1"><a href="fechas-horas-y-minutas.html#cb812-1" tabindex="-1"></a>d6 <span class="ot">&lt;-</span> <span class="st">&quot;ene 1, 2010&quot;</span></span>
+<span id="cb812-2"><a href="fechas-horas-y-minutas.html#cb812-2" tabindex="-1"></a><span class="fu">mdy</span>(d6)</span></code></pre></div>
+<pre><code>## Warning: All formats failed to parse. No formats found.</code></pre>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb815"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb815-1"><a href="fechas-horas-y-minutas.html#cb815-1" tabindex="-1"></a>d7 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Agosto 19 (2015)&quot;</span>, <span class="st">&quot;Julio 1 (2015)&quot;</span>)</span>
+<span id="cb815-2"><a href="fechas-horas-y-minutas.html#cb815-2" tabindex="-1"></a><span class="fu">mdy</span>(d7)</span></code></pre></div>
+<pre><code>## Warning: All formats failed to parse. No formats found.</code></pre>
+<pre><code>## [1] NA NA</code></pre>
+<div class="sourceCode" id="cb818"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb818-1"><a href="fechas-horas-y-minutas.html#cb818-1" tabindex="-1"></a>d1</span></code></pre></div>
+<pre><code>## [1] &quot;Jan 1, 2010&quot;</code></pre>
+<div class="sourceCode" id="cb820"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb820-1"><a href="fechas-horas-y-minutas.html#cb820-1" tabindex="-1"></a>d2</span></code></pre></div>
+<pre><code>## [1] &quot;2015-Mar-07&quot;</code></pre>
+<div class="sourceCode" id="cb822"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb822-1"><a href="fechas-horas-y-minutas.html#cb822-1" tabindex="-1"></a>d3</span></code></pre></div>
+<pre><code>## [1] &quot;06-Jun-2017&quot;</code></pre>
+<div class="sourceCode" id="cb824"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb824-1"><a href="fechas-horas-y-minutas.html#cb824-1" tabindex="-1"></a>d4</span></code></pre></div>
+<pre><code>## [1] &quot;Aug 19 (2015)&quot; &quot;Jul 1 (2015)&quot;</code></pre>
+<div class="sourceCode" id="cb826"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb826-1"><a href="fechas-horas-y-minutas.html#cb826-1" tabindex="-1"></a>d5</span></code></pre></div>
+<pre><code>## [1] &quot;12/30/14&quot;</code></pre>
+<div class="sourceCode" id="cb828"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb828-1"><a href="fechas-horas-y-minutas.html#cb828-1" tabindex="-1"></a>d6</span></code></pre></div>
+<pre><code>## [1] &quot;ene 1, 2010&quot;</code></pre>
+<div class="sourceCode" id="cb830"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb830-1"><a href="fechas-horas-y-minutas.html#cb830-1" tabindex="-1"></a>d7</span></code></pre></div>
+<pre><code>## [1] &quot;Agosto 19 (2015)&quot; &quot;Julio 1 (2015)&quot;</code></pre>
+<div class="sourceCode" id="cb832"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb832-1"><a href="fechas-horas-y-minutas.html#cb832-1" tabindex="-1"></a><span class="fu">mdy</span>(d1)</span></code></pre></div>
+<pre><code>## [1] &quot;2010-01-01&quot;</code></pre>
+<div class="sourceCode" id="cb834"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb834-1"><a href="fechas-horas-y-minutas.html#cb834-1" tabindex="-1"></a><span class="fu">ymd</span>(d2)</span></code></pre></div>
+<pre><code>## [1] &quot;2015-03-07&quot;</code></pre>
+<div class="sourceCode" id="cb836"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb836-1"><a href="fechas-horas-y-minutas.html#cb836-1" tabindex="-1"></a><span class="fu">dmy</span>(d3)</span></code></pre></div>
+<pre><code>## [1] &quot;2017-06-06&quot;</code></pre>
+<div class="sourceCode" id="cb838"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb838-1"><a href="fechas-horas-y-minutas.html#cb838-1" tabindex="-1"></a><span class="fu">mdy</span>(d4)</span></code></pre></div>
+<pre><code>## [1] &quot;2015-08-19&quot; &quot;2015-07-01&quot;</code></pre>
+<div class="sourceCode" id="cb840"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb840-1"><a href="fechas-horas-y-minutas.html#cb840-1" tabindex="-1"></a><span class="fu">mdy</span>(d5)</span></code></pre></div>
+<pre><code>## [1] &quot;2014-12-30&quot;</code></pre>
+<div class="sourceCode" id="cb842"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb842-1"><a href="fechas-horas-y-minutas.html#cb842-1" tabindex="-1"></a><span class="fu">mdy</span>(d6)</span></code></pre></div>
+<pre><code>## Warning: All formats failed to parse. No formats found.</code></pre>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb845"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb845-1"><a href="fechas-horas-y-minutas.html#cb845-1" tabindex="-1"></a><span class="fu">mdy</span>(d7)</span></code></pre></div>
+<pre><code>## Warning: All formats failed to parse. No formats found.</code></pre>
+<pre><code>## [1] NA NA</code></pre>
+<ol style="list-style-type: decimal">
+<li><strong>Ejercicios</strong>:</li>
+</ol>
+<p>Hacer los ejercicios en la sección 16.2.4 del libro en español</p>
+<hr />
+</div>
+<div id="extrayendo-parte-de-las-fecha-hora" class="section level2 hasAnchor" number="17.8">
+<h2><span class="header-section-number">17.8</span> Extrayendo parte de las fecha-hora<a href="fechas-horas-y-minutas.html#extrayendo-parte-de-las-fecha-hora" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>year()</p></li>
+<li><p>month()</p></li>
+<li><p>mday()</p></li>
+<li><p>yday()</p></li>
+<li><p>wday()</p></li>
+<li><p>ceiling_date()</p></li>
+<li><p>floor_date()</p></li>
+<li><p>round_date()</p></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Ejercicios</strong>:</li>
+</ol>
+<p>Hacer los ejercicios en la sección 16.3.4 del libro en español</p>
+<hr />
+</div>
+<div id="lapso-de-tiempo" class="section level2 hasAnchor" number="17.9">
+<h2><span class="header-section-number">17.9</span> Lapso de tiempo<a href="fechas-horas-y-minutas.html#lapso-de-tiempo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="duraciones" class="section level2 hasAnchor" number="17.10">
+<h2><span class="header-section-number">17.10</span> duraciones<a href="fechas-horas-y-minutas.html#duraciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb848"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb848-1"><a href="fechas-horas-y-minutas.html#cb848-1" tabindex="-1"></a><span class="co"># ¿Qué edad tiene Charles Darwin?  February 12, 1809</span></span>
+<span id="cb848-2"><a href="fechas-horas-y-minutas.html#cb848-2" tabindex="-1"></a>edad_h <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> <span class="fu">ymd</span>(<span class="st">&quot;1809-02-12&quot;</span>)</span>
+<span id="cb848-3"><a href="fechas-horas-y-minutas.html#cb848-3" tabindex="-1"></a>edad_h <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> <span class="fu">ymd</span>(<span class="dv">18090212</span>)</span>
+<span id="cb848-4"><a href="fechas-horas-y-minutas.html#cb848-4" tabindex="-1"></a>edad_h</span></code></pre></div>
+<pre><code>## Time difference of 78340 days</code></pre>
+<div class="sourceCode" id="cb850"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb850-1"><a href="fechas-horas-y-minutas.html#cb850-1" tabindex="-1"></a><span class="fu">as.duration</span>(edad_h)</span></code></pre></div>
+<pre><code>## [1] &quot;6768576000s (~214.48 years)&quot;</code></pre>
+<div class="sourceCode" id="cb852"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb852-1"><a href="fechas-horas-y-minutas.html#cb852-1" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">as.duration</span>(edad_h)</span></code></pre></div>
+<p>Otras funciones de duración</p>
+<div class="sourceCode" id="cb853"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb853-1"><a href="fechas-horas-y-minutas.html#cb853-1" tabindex="-1"></a><span class="fu">dseconds</span>(<span class="dv">15</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;15s&quot;</code></pre>
+<div class="sourceCode" id="cb855"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb855-1"><a href="fechas-horas-y-minutas.html#cb855-1" tabindex="-1"></a><span class="fu">dminutes</span>(<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;600s (~10 minutes)&quot;</code></pre>
+<div class="sourceCode" id="cb857"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb857-1"><a href="fechas-horas-y-minutas.html#cb857-1" tabindex="-1"></a><span class="fu">dhours</span>(<span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">24</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;43200s (~12 hours)&quot; &quot;86400s (~1 days)&quot;</code></pre>
+<div class="sourceCode" id="cb859"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb859-1"><a href="fechas-horas-y-minutas.html#cb859-1" tabindex="-1"></a><span class="fu">ddays</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;0s&quot;                &quot;86400s (~1 days)&quot;  &quot;172800s (~2 days)&quot;
+## [4] &quot;259200s (~3 days)&quot; &quot;345600s (~4 days)&quot; &quot;432000s (~5 days)&quot;</code></pre>
+<div class="sourceCode" id="cb861"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb861-1"><a href="fechas-horas-y-minutas.html#cb861-1" tabindex="-1"></a><span class="fu">dweeks</span>(<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;1814400s (~3 weeks)&quot;</code></pre>
+<div class="sourceCode" id="cb863"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb863-1"><a href="fechas-horas-y-minutas.html#cb863-1" tabindex="-1"></a><span class="fu">dyears</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;31557600s (~1 years)&quot;</code></pre>
+<p># Puede agragar periodos de tiempo</p>
+<div class="sourceCode" id="cb865"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb865-1"><a href="fechas-horas-y-minutas.html#cb865-1" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">dyears</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;63115200s (~2 years)&quot;</code></pre>
+<div class="sourceCode" id="cb867"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb867-1"><a href="fechas-horas-y-minutas.html#cb867-1" tabindex="-1"></a><span class="fu">dyears</span>(<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">dweeks</span>(<span class="dv">12</span>) <span class="sc">+</span> <span class="fu">dhours</span>(<span class="dv">15</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;38869200s (~1.23 years)&quot;</code></pre>
+<div class="sourceCode" id="cb869"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb869-1"><a href="fechas-horas-y-minutas.html#cb869-1" tabindex="-1"></a>ayer <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> <span class="fu">ddays</span>(<span class="dv">1</span>)</span>
+<span id="cb869-2"><a href="fechas-horas-y-minutas.html#cb869-2" tabindex="-1"></a>anio_pasado <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> <span class="fu">dyears</span>(<span class="dv">1</span>)</span>
+<span id="cb869-3"><a href="fechas-horas-y-minutas.html#cb869-3" tabindex="-1"></a></span>
+<span id="cb869-4"><a href="fechas-horas-y-minutas.html#cb869-4" tabindex="-1"></a>ayer</span></code></pre></div>
+<pre><code>## [1] &quot;2023-08-08&quot;</code></pre>
+<div class="sourceCode" id="cb871"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb871-1"><a href="fechas-horas-y-minutas.html#cb871-1" tabindex="-1"></a>anio_pasado</span></code></pre></div>
+<pre><code>## [1] &quot;2022-08-08 18:00:00 UTC&quot;</code></pre>
+</div>
+<div id="períodos" class="section level2 hasAnchor" number="17.11">
+<h2><span class="header-section-number">17.11</span> períodos<a href="fechas-horas-y-minutas.html#períodos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb873"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb873-1"><a href="fechas-horas-y-minutas.html#cb873-1" tabindex="-1"></a>una_pm <span class="ot">&lt;-</span> <span class="fu">ymd_hms</span>(<span class="st">&quot;2016-03-12 13:00:00&quot;</span>, <span class="at">tz =</span> <span class="st">&quot;America/New_York&quot;</span>)</span>
+<span id="cb873-2"><a href="fechas-horas-y-minutas.html#cb873-2" tabindex="-1"></a></span>
+<span id="cb873-3"><a href="fechas-horas-y-minutas.html#cb873-3" tabindex="-1"></a>una_pm</span></code></pre></div>
+<pre><code>## [1] &quot;2016-03-12 13:00:00 EST&quot;</code></pre>
+<div class="sourceCode" id="cb875"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb875-1"><a href="fechas-horas-y-minutas.html#cb875-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2016-03-12 13:00:00 EST&quot;</span></span>
+<span id="cb875-2"><a href="fechas-horas-y-minutas.html#cb875-2" tabindex="-1"></a>una_pm <span class="sc">+</span> <span class="fu">ddays</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2016-03-13 14:00:00 EDT&quot;</code></pre>
+<div class="sourceCode" id="cb877"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb877-1"><a href="fechas-horas-y-minutas.html#cb877-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2016-03-13 14:00:00 EDT&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb878"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb878-1"><a href="fechas-horas-y-minutas.html#cb878-1" tabindex="-1"></a><span class="fu">seconds</span>(<span class="dv">15</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;15S&quot;</code></pre>
+<div class="sourceCode" id="cb880"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb880-1"><a href="fechas-horas-y-minutas.html#cb880-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;15S&quot;</span></span>
+<span id="cb880-2"><a href="fechas-horas-y-minutas.html#cb880-2" tabindex="-1"></a><span class="fu">minutes</span>(<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;10M 0S&quot;</code></pre>
+<div class="sourceCode" id="cb882"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb882-1"><a href="fechas-horas-y-minutas.html#cb882-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;10M 0S&quot;</span></span>
+<span id="cb882-2"><a href="fechas-horas-y-minutas.html#cb882-2" tabindex="-1"></a><span class="fu">hours</span>(<span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">24</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;12H 0M 0S&quot; &quot;24H 0M 0S&quot;</code></pre>
+<div class="sourceCode" id="cb884"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb884-1"><a href="fechas-horas-y-minutas.html#cb884-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;12H 0M 0S&quot; &quot;24H 0M 0S&quot;</span></span>
+<span id="cb884-2"><a href="fechas-horas-y-minutas.html#cb884-2" tabindex="-1"></a><span class="fu">days</span>(<span class="dv">7</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;7d 0H 0M 0S&quot;</code></pre>
+<div class="sourceCode" id="cb886"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb886-1"><a href="fechas-horas-y-minutas.html#cb886-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;7d 0H 0M 0S&quot;</span></span>
+<span id="cb886-2"><a href="fechas-horas-y-minutas.html#cb886-2" tabindex="-1"></a><span class="fu">months</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;1m 0d 0H 0M 0S&quot; &quot;2m 0d 0H 0M 0S&quot; &quot;3m 0d 0H 0M 0S&quot; &quot;4m 0d 0H 0M 0S&quot;
+## [5] &quot;5m 0d 0H 0M 0S&quot; &quot;6m 0d 0H 0M 0S&quot;</code></pre>
+<div class="sourceCode" id="cb888"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb888-1"><a href="fechas-horas-y-minutas.html#cb888-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;1m 0d 0H 0M 0S&quot; &quot;2m 0d 0H 0M 0S&quot; &quot;3m 0d 0H 0M 0S&quot; &quot;4m 0d 0H 0M 0S&quot;</span></span>
+<span id="cb888-2"><a href="fechas-horas-y-minutas.html#cb888-2" tabindex="-1"></a><span class="co">#&gt; [5] &quot;5m 0d 0H 0M 0S&quot; &quot;6m 0d 0H 0M 0S&quot;</span></span>
+<span id="cb888-3"><a href="fechas-horas-y-minutas.html#cb888-3" tabindex="-1"></a><span class="fu">weeks</span>(<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;21d 0H 0M 0S&quot;</code></pre>
+<div class="sourceCode" id="cb890"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb890-1"><a href="fechas-horas-y-minutas.html#cb890-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;21d 0H 0M 0S&quot;</span></span>
+<span id="cb890-2"><a href="fechas-horas-y-minutas.html#cb890-2" tabindex="-1"></a><span class="fu">years</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;1y 0m 0d 0H 0M 0S&quot;</code></pre>
+<div class="sourceCode" id="cb892"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb892-1"><a href="fechas-horas-y-minutas.html#cb892-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;1y 0m 0d 0H 0M 0S&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb893"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb893-1"><a href="fechas-horas-y-minutas.html#cb893-1" tabindex="-1"></a><span class="dv">10</span> <span class="sc">*</span> (<span class="fu">months</span>(<span class="dv">6</span>) <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">1</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;60m 10d 0H 0M 0S&quot;</code></pre>
+<div class="sourceCode" id="cb895"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb895-1"><a href="fechas-horas-y-minutas.html#cb895-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;60m 10d 0H 0M 0S&quot;</span></span>
+<span id="cb895-2"><a href="fechas-horas-y-minutas.html#cb895-2" tabindex="-1"></a><span class="fu">days</span>(<span class="dv">50</span>) <span class="sc">+</span> <span class="fu">hours</span>(<span class="dv">25</span>) <span class="sc">+</span> <span class="fu">minutes</span>(<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;50d 25H 2M 0S&quot;</code></pre>
+<div class="sourceCode" id="cb897"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb897-1"><a href="fechas-horas-y-minutas.html#cb897-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;50d 25H 2M 0S&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb898"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb898-1"><a href="fechas-horas-y-minutas.html#cb898-1" tabindex="-1"></a><span class="co"># Un año bisiesto</span></span>
+<span id="cb898-2"><a href="fechas-horas-y-minutas.html#cb898-2" tabindex="-1"></a><span class="fu">ymd</span>(<span class="st">&quot;2016-01-01&quot;</span>) <span class="sc">+</span> <span class="fu">dyears</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2016-12-31 06:00:00 UTC&quot;</code></pre>
+<div class="sourceCode" id="cb900"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb900-1"><a href="fechas-horas-y-minutas.html#cb900-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2016-12-31 06:00:00 UTC&quot;</span></span>
+<span id="cb900-2"><a href="fechas-horas-y-minutas.html#cb900-2" tabindex="-1"></a><span class="fu">ymd</span>(<span class="st">&quot;2016-01-01&quot;</span>) <span class="sc">+</span> <span class="fu">years</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2017-01-01&quot;</code></pre>
+<div class="sourceCode" id="cb902"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb902-1"><a href="fechas-horas-y-minutas.html#cb902-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2017-01-01&quot;</span></span>
+<span id="cb902-2"><a href="fechas-horas-y-minutas.html#cb902-2" tabindex="-1"></a></span>
+<span id="cb902-3"><a href="fechas-horas-y-minutas.html#cb902-3" tabindex="-1"></a><span class="co"># Horarios de verano</span></span>
+<span id="cb902-4"><a href="fechas-horas-y-minutas.html#cb902-4" tabindex="-1"></a>una_pm <span class="sc">+</span> <span class="fu">ddays</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2016-03-13 14:00:00 EDT&quot;</code></pre>
+<div class="sourceCode" id="cb904"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb904-1"><a href="fechas-horas-y-minutas.html#cb904-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2016-03-13 14:00:00 EDT&quot;</span></span>
+<span id="cb904-2"><a href="fechas-horas-y-minutas.html#cb904-2" tabindex="-1"></a>una_pm <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2016-03-13 13:00:00 EDT&quot;</code></pre>
+<div class="sourceCode" id="cb906"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb906-1"><a href="fechas-horas-y-minutas.html#cb906-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2016-03-13 13:00:00 EDT&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb907"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb907-1"><a href="fechas-horas-y-minutas.html#cb907-1" tabindex="-1"></a><span class="dv">10</span> <span class="sc">*</span> (<span class="fu">months</span>(<span class="dv">6</span>) <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">1</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;60m 10d 0H 0M 0S&quot;</code></pre>
+<div class="sourceCode" id="cb909"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb909-1"><a href="fechas-horas-y-minutas.html#cb909-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;60m 10d 0H 0M 0S&quot;</span></span>
+<span id="cb909-2"><a href="fechas-horas-y-minutas.html#cb909-2" tabindex="-1"></a><span class="fu">days</span>(<span class="dv">50</span>) <span class="sc">+</span> <span class="fu">hours</span>(<span class="dv">25</span>) <span class="sc">+</span> <span class="fu">minutes</span>(<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;50d 25H 2M 0S&quot;</code></pre>
+<div class="sourceCode" id="cb911"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb911-1"><a href="fechas-horas-y-minutas.html#cb911-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;50d 25H 2M 0S&quot;</span></span></code></pre></div>
+<ul>
+<li>intervalos</li>
+</ul>
+<div id="multiplicaciones-y-sumas-de-fechas" class="section level3 hasAnchor" number="17.11.1">
+<h3><span class="header-section-number">17.11.1</span> Multiplicaciones y sumas de fechas<a href="fechas-horas-y-minutas.html#multiplicaciones-y-sumas-de-fechas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="períodos-1" class="section level2 hasAnchor" number="17.12">
+<h2><span class="header-section-number">17.12</span> Períodos<a href="fechas-horas-y-minutas.html#períodos-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>seconds()</li>
+<li>minutes()</li>
+<li>hours()</li>
+<li>days()</li>
+<li>months()</li>
+<li>weeks()</li>
+<li>years()</li>
+</ul>
+<div id="multiplicaciones-y-sumas-de-periodos" class="section level3 hasAnchor" number="17.12.1">
+<h3><span class="header-section-number">17.12.1</span> Multiplicaciones y sumas de periodos<a href="fechas-horas-y-minutas.html#multiplicaciones-y-sumas-de-periodos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="intervalos" class="section level2 hasAnchor" number="17.13">
+<h2><span class="header-section-number">17.13</span> Intervalos<a href="fechas-horas-y-minutas.html#intervalos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>%–% start end</li>
+</ul>
+</div>
+<div id="resumen" class="section level2 hasAnchor" number="17.14">
+<h2><span class="header-section-number">17.14</span> Resumen<a href="fechas-horas-y-minutas.html#resumen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Ejercicios</strong>:</li>
+</ol>
+<p>Hacer los ejercicios en la sección 16.4.5 del libro en español</p>
+<hr />
+</div>
+<div id="time-zones" class="section level2 hasAnchor" number="17.15">
+<h2><span class="header-section-number">17.15</span> Time zones<a href="fechas-horas-y-minutas.html#time-zones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Sys.timezone()</li>
+<li>head(OlsonNames())</li>
+<li>tz= “”</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Ejercicios</strong>:</li>
+</ol>
+<p>Seleccionar 3 archivos de los vuelos que salen o llegan a PR, (el codigo del aeropuerto es “SJU”) de la base de datos de <a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236" class="uri">https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236</a>
+Pueden ser el mismo mes en 3 diferente años o 3 diferentes mese en el mismo año.</p>
+<ul>
+<li><p>Repite la mayoría de los análisis enseñado arriba (como practica).</p></li>
+<li><p>Evaluar el tiempo de retrazo de los vuelos que salen de SJU en cada periodo seleccionado, y haz <em>una</em> gráfica para visualizar el patrón</p></li>
+<li><p>Cual es el diá preferible para no tener retraso</p></li>
+<li><p>Cual es la mejor hora de salida para no tener retraso</p></li>
+<li><p>Compara por lo menos 3 diferentes lineas saliendo de SJU y el periodo de retrazo.</p></li>
+</ul>
+<hr />
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/15-Fechas_Horas.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/15-Fechas_Horas.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

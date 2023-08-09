@@ -1,0 +1,292 @@
+# Factores
+
+
+Fecha de la ultima revisión
+```{r echo=FALSE, size="Large"}
+
+Sys.Date()
+```
+
+***
+
+# Titulo Grande
+
+nbgf/lkshvdhgv'o
+
+## Titulo mediano
+ 
+ mhgcjl,fgfgj
+ 
+### Titulo pequeño
+
+gfgjhk
+
+#### Titulo mini
+
+fgdhfjgk
+
+##### titulo ??
+
+fgcghgjhk
+
+ggcjhglkjg
+
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/factors.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/factores.html>
+ 
+ 
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(datos)
+library(forcats)
+```
+ 
+ 
+ 
+***
+```{r, background='#2dc0cc'}
+x1 <- c("Dic", "Abr", "Ene", "Mar")
+```
+
+
+```{r}
+x2 <- c("Dic", "Abr", "Eme", "Mar")
+```
+
+```{r}
+sort(x1)
+```
+
+
+```{r}
+niveles_meses <- c(
+  "Ene", "Feb", "Mar", "Abr", "May", "Jun",
+  "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"
+)
+
+sort(niveles_meses)
+```
+
+```{r}
+y1 <- factor(x1, levels = niveles_meses)
+y1
+
+sort(y1)
+```
+
+
+```{r}
+y2 <- factor(x2, levels = niveles_meses)
+y2
+```
+
+```{r}
+y2 <- parse_factor(x2, levels = niveles_meses)
+y2
+```
+
+
+```{r}
+factor(x1)
+```
+
+
+
+```{r}
+y2 <- parse_factor(x2, levels = niveles_meses)
+```
+
+
+```{r}
+f1 <- factor(x1, levels = unique(x1))
+f1
+```
+
+```{r}
+f2 <- x1 %>% factor() %>% fct_inorder()
+f2
+
+```
+
+```{r}
+levels(f2)
+```
+
+
+## Temas:
+ - library(forcats)
+ 
+ - sort()
+ - factor()
+ - parse_factor()
+ - unique()
+ - fact_inorder()
+ - levels()
+ 
+### Datos : Encuesta Social General
+ 
+ - count()
+ 
+1.  **Ejercicios**:
+
+
+
+```{r}
+encuesta
+```
+
+
+
+
+```{r}
+df=encuesta %>% 
+   count(estado_civil)
+df
+```
+knitr
+
+
+```{r fig.width=5}
+
+#encuesta$niveles_est_civil <- fct_reorder(
+#  "Sin respuesta", "Nunca se ha casado", "Casado", "Separado", "Divorciado", "Viudo")
+
+df$niveles_est_civil <- fct_reorder(df$estado_civil, df$n )
+
+
+ggplot(df, 
+       aes(estado_civil,n )) +
+       geom_col()
+```
+
+
+## A smaller figure to the right, with floating text
+
+```{r, echo=FALSE, out.width= "50%", out.extra='style="float:right; padding:10px"'}
+
+df %>%
+  mutate(estado_civil = fct_reorder(estado_civil, n)) %>%
+  ggplot(aes(x = estado_civil, y = n)) + 
+  geom_col()
+
+
+```
+
+
+
+
+
+
+ 
+LOTS of text here to wrap around the figure.  dfghjlkjhgdgxchvbvcxcvbnnbvvbvbbvcvxcv. fgffhgcvbcvbhbvvbvcvbnv bcbnbbnmmbnmnb vbcbnbvvnbbb vbb v b b cgjhkggbcv
+
+
+
+<br>
+
+
+
+# Haga un re-order por la cantidad de personas por religion
+```{r, fig.ncol = 2}
+df2=encuesta %>% 
+   count(religion)
+
+df2 %>%
+  mutate(religion = fct_reorder(religion, n)) %>%
+  ggplot(aes(x = religion, y = n)) + 
+  geom_col()+
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=1))
+
+df2 %>%
+  mutate(religion = fct_reorder(religion, n)) %>%
+  ggplot(aes(x = religion, y = n)) + 
+  geom_col()+
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=1))
+
+```
+
+
+Hacer los ejercicios en la sección 15.3.1 del libro en español
+
+***  
+
+## Modificar el orden de los factores
+
+   - fct_reorder()
+   - !is.na( ) remover los "NA"
+   - fct_infreq()
+   - fct_rev()
+   - fct_recode()
+   - fct_collapse()
+   - fct_lump()
+
+
+```{r}
+
+
+#model=lm(y~x, df)
+#summary(model)
+
+
+resumen_religion <- encuesta %>%
+  group_by(religion) %>%
+  summarise(
+    edad = mean(edad, na.rm = TRUE),
+    horas_tv = mean(horas_tv, na.rm = TRUE),
+    sd_edad =  min(horas_tv, na.rm = TRUE),
+    n = n()
+  )
+resumen_religion
+ggplot(resumen_religion, aes(horas_tv, religion)) + 
+   geom_point()
+
+min(encuesta$horas_tv, na.rm = TRUE)
+```
+
+
+```{r}
+ggplot(resumen_religion, aes(horas_tv, fct_reorder(religion, -horas_tv))) +
+  geom_point()
+```
+
+```{r}
+resumen_religion %>%
+  mutate(religion = fct_reorder(religion, horas_tv)) %>%
+  ggplot(aes(horas_tv, religion)) +
+  geom_point()
+```
+
+
+```{r}
+resumen_ingreso <- encuesta %>%
+  group_by(ingreso) %>%
+  summarise(
+    edad = mean(edad, na.rm = TRUE),
+    horas_tv = mean(horas_tv, na.rm = TRUE),
+    n = n()
+  )
+
+resumen_ingreso
+
+ggplot(resumen_ingreso, aes(horas_tv, fct_reorder(ingreso, horas_tv))) +
+  geom_point()
+
+```
+```{r}
+ggplot(resumen_ingreso, aes(edad, fct_relevel(ingreso, "No aplica"))) +
+  geom_point()
+```
+
+
+2.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 15.5.1 del libro en español
+
+*** 
+
