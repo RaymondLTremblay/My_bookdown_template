@@ -3,7 +3,7 @@ permalink: /index.html
 ---
 
 
-# Este es ka paginas para clase de Ciencia de datos con R.  
+# Este es la pagina para clase de Ciencia de datos con R.  
 
 
  
