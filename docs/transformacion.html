@@ -4,23 +4,23 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Transformacion | 4_Transformacion_dplyr</title>
-  <meta name="description" content="Este libro digital es una introdución al estudio de Dinamica Poblacional con ejemplos de la familai Orquidaceae" />
+  <title>Chapter 5 Transformacion | Ciencia de Datos con R</title>
+  <meta name="description" content="Este libro digital es una introdución a la ciencia de datos usando R" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Transformacion | 4_Transformacion_dplyr" />
+  <meta property="og:title" content="Chapter 5 Transformacion | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Este libro digital es una introdución al estudio de Dinamica Poblacional con ejemplos de la familai Orquidaceae" />
+  <meta property="og:description" content="Este libro digital es una introdución a la ciencia de datos usando R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Transformacion | 4_Transformacion_dplyr" />
+  <meta name="twitter:title" content="Chapter 5 Transformacion | Ciencia de Datos con R" />
   
-  <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Dinamica Poblacional con ejemplos de la familai Orquidaceae" />
+  <meta name="twitter:description" content="Este libro digital es una introdución a la ciencia de datos usando R" />
   
 
-<meta name="author" content="Raymond L. Tremblay" />
+<meta name="author" content="" />
 
 
 <meta name="date" content="2023-08-10" />
@@ -358,7 +358,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">4_Transformacion_dplyr</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ciencia de Datos con R</a>
           </h1>
         </div>
 
@@ -1519,7 +1519,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="transformacion.html#cb267-1" tabindex="-1"></a><span class="co">#set.seed(12345) # que los datos sean al azar, siempre sean los mismo, se usa el &quot;set.seed()&quot; para enseñanza.</span></span>
 <span id="cb267-2"><a href="transformacion.html#cb267-2" tabindex="-1"></a><span class="co">#rnorm()  DATOS CON DISTRIBUCION NORMAL</span></span>
 <span id="cb267-3"><a href="transformacion.html#cb267-3" tabindex="-1"></a><span class="fu">rpois</span>(<span class="dv">7</span>, <span class="dv">2</span>)</span></code></pre></div>
-<pre><code>## [1] 0 2 4 1 2 1 2</code></pre>
+<pre><code>## [1] 3 2 1 3 0 1 7</code></pre>
 <div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="transformacion.html#cb269-1" tabindex="-1"></a>data<span class="ot">=</span><span class="fu">rpois</span>(<span class="dv">14</span>, <span class="dv">10</span>)</span>
 <span id="cb269-2"><a href="transformacion.html#cb269-2" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">as.tibble</span>(data)</span></code></pre></div>
 <pre><code>## Warning: `as.tibble()` was deprecated in tibble 2.0.0.
@@ -1532,20 +1532,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 14 × 1
 ##    value
 ##    &lt;int&gt;
-##  1    10
-##  2    15
-##  3     8
-##  4     8
-##  5    11
+##  1    11
+##  2    19
+##  3     7
+##  4    10
+##  5    20
 ##  6    13
-##  7    18
-##  8    15
+##  7    19
+##  8     6
 ##  9    11
-## 10    13
-## 11     5
-## 12    13
-## 13    13
-## 14    14</code></pre>
+## 10     7
+## 11     7
+## 12    14
+## 13    10
+## 14     5</code></pre>
 <div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="transformacion.html#cb273-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
 <span id="cb273-2"><a href="transformacion.html#cb273-2" tabindex="-1"></a>  <span class="fu">select</span>(value) <span class="sc">%&gt;%</span> </span>
 <span id="cb273-3"><a href="transformacion.html#cb273-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lag1=</span><span class="fu">lag</span>(value)) <span class="sc">%&gt;%</span> </span>
@@ -1554,40 +1554,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 14 × 4
 ##    value  lag1  lag3  lag7
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-##  1    10    NA    NA    NA
-##  2    15    10    NA    NA
-##  3     8    15    NA    NA
-##  4     8     8    10    NA
-##  5    11     8    15    NA
-##  6    13    11     8    NA
-##  7    18    13     8    NA
-##  8    15    18    11    10
-##  9    11    15    13    15
-## 10    13    11    18     8
-## 11     5    13    15     8
-## 12    13     5    11    11
-## 13    13    13    13    13
-## 14    14    13     5    18</code></pre>
+##  1    11    NA    NA    NA
+##  2    19    11    NA    NA
+##  3     7    19    NA    NA
+##  4    10     7    11    NA
+##  5    20    10    19    NA
+##  6    13    20     7    NA
+##  7    19    13    10    NA
+##  8     6    19    20    11
+##  9    11     6    13    19
+## 10     7    11    19     7
+## 11     7     7     6    10
+## 12    14     7    11    20
+## 13    10    14     7    13
+## 14     5    10     7    19</code></pre>
 <div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="transformacion.html#cb275-1" tabindex="-1"></a>df<span class="sc">%&gt;%</span> </span>
 <span id="cb275-2"><a href="transformacion.html#cb275-2" tabindex="-1"></a>  <span class="fu">select</span>(value) <span class="sc">%&gt;%</span> </span>
 <span id="cb275-3"><a href="transformacion.html#cb275-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Change_df=</span>value<span class="sc">-</span><span class="fu">lag</span>(value, <span class="dv">7</span>)) <span class="co"># El cambio en los valores entre celdas</span></span></code></pre></div>
 <pre><code>## # A tibble: 14 × 2
 ##    value Change_df
 ##    &lt;int&gt;     &lt;int&gt;
-##  1    10        NA
-##  2    15        NA
-##  3     8        NA
-##  4     8        NA
-##  5    11        NA
+##  1    11        NA
+##  2    19        NA
+##  3     7        NA
+##  4    10        NA
+##  5    20        NA
 ##  6    13        NA
-##  7    18        NA
-##  8    15         5
-##  9    11        -4
-## 10    13         5
-## 11     5        -3
-## 12    13         2
-## 13    13         0
-## 14    14        -4</code></pre>
+##  7    19        NA
+##  8     6        -5
+##  9    11        -8
+## 10     7         0
+## 11     7        -3
+## 12    14        -6
+## 13    10        -3
+## 14     5       -14</code></pre>
 </div>
 <div id="usa-lag-con-inccasossaludnuevo-en-covid-19-pr" class="section level2 hasAnchor" number="5.9">
 <h2><span class="header-section-number">5.9</span> Usa “Lag” con “IncCasosSaludNuevo” en COVID-19 PR<a href="transformacion.html#usa-lag-con-inccasossaludnuevo-en-covid-19-pr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
