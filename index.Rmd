@@ -1,5 +1,5 @@
 ---
-title: "Dinamica_Poblacional"
+title: "Ciencia de Datos con R"
 output: 
   html_document: 
     theme: spacelab
@@ -14,7 +14,7 @@ bibliography: [book.bib, packages.bib]
 # url: your book url like https://bookdown.org/yihui/bookdown
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
-  Este libro digital es una introdución al estudio de Dinamica Poblacional con ejemplos de la familai Orquidaceae
+  Este libro digital es una introdución a la ciencia de datos usando R
 link-citations: yes
 #github-repo: rstudio/bookdown-demo
 editor_options: 
