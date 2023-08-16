@@ -14,7 +14,7 @@ English:
  <https://r4ds.had.co.nz/dates-and-times.html>
  
 Español:
- <https://es.r4ds.hadley.nz/fechas-y-horas.html>
+ <https://es.r4ds.hadley.nz/16-datetimes.html>
  
  
 ***

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 13 Strings | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución a la ciencia de datos usando R" />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 13 Strings | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-08-10" />
+<meta name="date" content="2023-08-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -164,7 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.1" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#temas"><i class="fa fa-check"></i><b>2.1</b> Temas:</a></li>
 <li class="chapter" data-level="2.2" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#creación-de-un-proyecto"><i class="fa fa-check"></i><b>2.2</b> Creación de un proyecto:</a></li>
-<li class="chapter" data-level="2.3" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#transformación-estadística"><i class="fa fa-check"></i><b>2.3</b> Transformación estadística</a></li>
+<li class="chapter" data-level="2.3" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#extracción-de-valores-de-un-conjunto-de-datos"><i class="fa fa-check"></i><b>2.3</b> Extracción de valores de un conjunto de datos</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html"><i class="fa fa-check"></i><b>3</b> Visualización de datos</a>
 <ul>
@@ -369,13 +369,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="strings" class="section level1 hasAnchor" number="13">
 <h1><span class="header-section-number">Chapter 13</span> Strings<a href="strings.html#strings" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Fecha de la ultima revisión</p>
-<pre><code>## [1] &quot;2023-08-10&quot;</code></pre>
+<pre><code>## [1] &quot;2023-08-16&quot;</code></pre>
 <hr />
 <p>El tema proviene de los siguientes sitios.</p>
 <p>English:
 <a href="https://r4ds.had.co.nz/strings.html" class="uri">https://r4ds.had.co.nz/strings.html</a></p>
 <p>Español:
-<a href="https://es.r4ds.hadley.nz/cadenas-de-caracteres.html" class="uri">https://es.r4ds.hadley.nz/cadenas-de-caracteres.html</a></p>
+<a href="https://es.r4ds.hadley.nz/" class="uri">https://es.r4ds.hadley.nz/</a></p>
 <hr />
 <div id="temas-cadenas-de-caracteres" class="section level2 hasAnchor" number="13.1">
 <h2><span class="header-section-number">13.1</span> Temas: Cadenas de Caracteres<a href="strings.html#temas-cadenas-de-caracteres" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -427,9 +427,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>str_view()</li>
 <li>str_view( , .x.)</li>
 </ul>
-<div class="sourceCode" id="cb687"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb687-1"><a href="strings.html#cb687-1" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb687-2"><a href="strings.html#cb687-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;manzana&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pera&quot;</span>)</span>
-<span id="cb687-3"><a href="strings.html#cb687-3" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;an&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb656-1"><a href="strings.html#cb656-1" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb656-2"><a href="strings.html#cb656-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;manzana&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pera&quot;</span>)</span>
+<span id="cb656-3"><a href="strings.html#cb656-3" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;an&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] │ m&lt;an&gt;z&lt;an&gt;a
 ## [2] │ b&lt;an&gt;&lt;an&gt;a</code></pre>
 <ul>
@@ -462,7 +462,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>[^abc]</p></li>
 <li><p>$ . | ? * + ( ) [ {</p></li>
 </ul>
-<div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb689-1"><a href="strings.html#cb689-1" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">&quot;cómo&quot;</span>, <span class="st">&quot;como&quot;</span>, <span class="st">&quot;Raymond&quot;</span>), <span class="st">&quot;c(ó|o)mo&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb658"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb658-1"><a href="strings.html#cb658-1" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">&quot;cómo&quot;</span>, <span class="st">&quot;como&quot;</span>, <span class="st">&quot;Raymond&quot;</span>), <span class="st">&quot;c(ó|o)mo&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] │ &lt;cómo&gt;
 ## [2] │ &lt;como&gt;</code></pre>
 <ol start="4" style="list-style-type: decimal">
@@ -516,20 +516,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>str_detect(x, “e”)</li>
 </ul>
-<div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="strings.html#cb691-1" tabindex="-1"></a><span class="fu">library</span>(datos) </span>
-<span id="cb691-2"><a href="strings.html#cb691-2" tabindex="-1"></a><span class="co">#fruit</span></span>
-<span id="cb691-3"><a href="strings.html#cb691-3" tabindex="-1"></a><span class="fu">head</span>(palabras)</span></code></pre></div>
+<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb660-1"><a href="strings.html#cb660-1" tabindex="-1"></a><span class="fu">library</span>(datos) </span>
+<span id="cb660-2"><a href="strings.html#cb660-2" tabindex="-1"></a><span class="co">#fruit</span></span>
+<span id="cb660-3"><a href="strings.html#cb660-3" tabindex="-1"></a><span class="fu">head</span>(palabras)</span></code></pre></div>
 <pre><code>## [1] &quot;a&quot;        &quot;abril&quot;    &quot;acción&quot;   &quot;acciones&quot; &quot;acerca&quot;   &quot;actitud&quot;</code></pre>
-<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="strings.html#cb693-1" tabindex="-1"></a><span class="co"># Encuentra todas las palabras que contengan al menos una vocal, y luego niégalo</span></span>
-<span id="cb693-2"><a href="strings.html#cb693-2" tabindex="-1"></a>sin_vocales_1 <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">str_detect</span>(palabras, <span class="st">&quot;[aáeéiíoóuúúü]&quot;</span>)</span>
-<span id="cb693-3"><a href="strings.html#cb693-3" tabindex="-1"></a></span>
-<span id="cb693-4"><a href="strings.html#cb693-4" tabindex="-1"></a><span class="co">#sin_vocales_1</span></span>
-<span id="cb693-5"><a href="strings.html#cb693-5" tabindex="-1"></a><span class="co"># Encuentra todas las palabras consistentes solo en consonantes (no vocales)</span></span>
-<span id="cb693-6"><a href="strings.html#cb693-6" tabindex="-1"></a>sin_vocales_2 <span class="ot">&lt;-</span> <span class="fu">str_detect</span>(palabras, <span class="st">&quot;^[^aáeéiíoóuúúü]+$&quot;</span>)</span>
-<span id="cb693-7"><a href="strings.html#cb693-7" tabindex="-1"></a><span class="co">#sin_vocales_1</span></span>
-<span id="cb693-8"><a href="strings.html#cb693-8" tabindex="-1"></a><span class="fu">identical</span>(sin_vocales_1, sin_vocales_2)</span></code></pre></div>
+<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb662-1"><a href="strings.html#cb662-1" tabindex="-1"></a><span class="co"># Encuentra todas las palabras que contengan al menos una vocal, y luego niégalo</span></span>
+<span id="cb662-2"><a href="strings.html#cb662-2" tabindex="-1"></a>sin_vocales_1 <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">str_detect</span>(palabras, <span class="st">&quot;[aáeéiíoóuúúü]&quot;</span>)</span>
+<span id="cb662-3"><a href="strings.html#cb662-3" tabindex="-1"></a></span>
+<span id="cb662-4"><a href="strings.html#cb662-4" tabindex="-1"></a><span class="co">#sin_vocales_1</span></span>
+<span id="cb662-5"><a href="strings.html#cb662-5" tabindex="-1"></a><span class="co"># Encuentra todas las palabras consistentes solo en consonantes (no vocales)</span></span>
+<span id="cb662-6"><a href="strings.html#cb662-6" tabindex="-1"></a>sin_vocales_2 <span class="ot">&lt;-</span> <span class="fu">str_detect</span>(palabras, <span class="st">&quot;^[^aáeéiíoóuúúü]+$&quot;</span>)</span>
+<span id="cb662-7"><a href="strings.html#cb662-7" tabindex="-1"></a><span class="co">#sin_vocales_1</span></span>
+<span id="cb662-8"><a href="strings.html#cb662-8" tabindex="-1"></a><span class="fu">identical</span>(sin_vocales_1, sin_vocales_2)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb695-1"><a href="strings.html#cb695-1" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb664-1"><a href="strings.html#cb664-1" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <ul>
 <li>str_subset()</li>
 <li>seq_along()</li>
@@ -559,19 +559,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>str_match*</li>
 </ul>
-<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb696-1"><a href="strings.html#cb696-1" tabindex="-1"></a>sustantivo <span class="ot">&lt;-</span> <span class="st">&quot;(el|la|los|las|lo|un|una|unos|unas) ([^ ]+)&quot;</span></span>
-<span id="cb696-2"><a href="strings.html#cb696-2" tabindex="-1"></a></span>
-<span id="cb696-3"><a href="strings.html#cb696-3" tabindex="-1"></a>tiene_sustantivo <span class="ot">&lt;-</span> oraciones <span class="sc">%&gt;%</span></span>
-<span id="cb696-4"><a href="strings.html#cb696-4" tabindex="-1"></a>  <span class="fu">str_subset</span>(sustantivo) <span class="sc">%&gt;%</span></span>
-<span id="cb696-5"><a href="strings.html#cb696-5" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
-<span id="cb696-6"><a href="strings.html#cb696-6" tabindex="-1"></a></span>
-<span id="cb696-7"><a href="strings.html#cb696-7" tabindex="-1"></a><span class="co">#tiene_sustantivo</span></span>
-<span id="cb696-8"><a href="strings.html#cb696-8" tabindex="-1"></a>tiene_sustantivo <span class="sc">%&gt;%</span> </span>
-<span id="cb696-9"><a href="strings.html#cb696-9" tabindex="-1"></a>  <span class="fu">str_extract</span>(sustantivo)</span></code></pre></div>
+<div class="sourceCode" id="cb665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb665-1"><a href="strings.html#cb665-1" tabindex="-1"></a>sustantivo <span class="ot">&lt;-</span> <span class="st">&quot;(el|la|los|las|lo|un|una|unos|unas) ([^ ]+)&quot;</span></span>
+<span id="cb665-2"><a href="strings.html#cb665-2" tabindex="-1"></a></span>
+<span id="cb665-3"><a href="strings.html#cb665-3" tabindex="-1"></a>tiene_sustantivo <span class="ot">&lt;-</span> oraciones <span class="sc">%&gt;%</span></span>
+<span id="cb665-4"><a href="strings.html#cb665-4" tabindex="-1"></a>  <span class="fu">str_subset</span>(sustantivo) <span class="sc">%&gt;%</span></span>
+<span id="cb665-5"><a href="strings.html#cb665-5" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb665-6"><a href="strings.html#cb665-6" tabindex="-1"></a></span>
+<span id="cb665-7"><a href="strings.html#cb665-7" tabindex="-1"></a><span class="co">#tiene_sustantivo</span></span>
+<span id="cb665-8"><a href="strings.html#cb665-8" tabindex="-1"></a>tiene_sustantivo <span class="sc">%&gt;%</span> </span>
+<span id="cb665-9"><a href="strings.html#cb665-9" tabindex="-1"></a>  <span class="fu">str_extract</span>(sustantivo)</span></code></pre></div>
 <pre><code>##  [1] &quot;los de&quot;      &quot;el camión&quot;   &quot;la mejor&quot;    &quot;la cuenta&quot;   &quot;las ruinas.&quot;
 ##  [6] &quot;la hoja&quot;     &quot;la cocina.&quot;  &quot;la taza&quot;     &quot;el tanque.&quot;  &quot;el calor&quot;</code></pre>
-<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb698-1"><a href="strings.html#cb698-1" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;los de&quot;      &quot;el camión&quot;   &quot;la mejor&quot;    &quot;la cuenta&quot;   &quot;las ruinas.&quot;</span></span>
-<span id="cb698-2"><a href="strings.html#cb698-2" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;la hoja&quot;     &quot;la cocina.&quot;  &quot;la taza&quot;     &quot;el tanque.&quot;  &quot;el calor&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb667-1"><a href="strings.html#cb667-1" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;los de&quot;      &quot;el camión&quot;   &quot;la mejor&quot;    &quot;la cuenta&quot;   &quot;las ruinas.&quot;</span></span>
+<span id="cb667-2"><a href="strings.html#cb667-2" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;la hoja&quot;     &quot;la cocina.&quot;  &quot;la taza&quot;     &quot;el tanque.&quot;  &quot;el calor&quot;</span></span></code></pre></div>
 <ol start="8" style="list-style-type: decimal">
 <li><strong>Ejercicios</strong>:</li>
 </ol>

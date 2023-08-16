@@ -15,7 +15,7 @@ English:
  <https://r4ds.had.co.nz/data-import.html>
  
 Español:
- <https://es.r4ds.hadley.nz/importaci%C3%B3n-de-datos.html>
+ <https://es.r4ds.hadley.nz/11-import.html>
  
  
 ***

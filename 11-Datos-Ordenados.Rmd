@@ -14,7 +14,7 @@ English:
  <https://r4ds.had.co.nz/tidy-data.html>
  
 Español:
- <https://es.r4ds.hadley.nz/datos-ordenados.html>
+ <https://es.r4ds.hadley.nz/12-tidy.html>
  
  
 ***

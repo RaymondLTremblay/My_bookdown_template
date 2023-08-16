@@ -14,7 +14,7 @@ English:
  <https://r4ds.had.co.nz/tibbles.html>
  
 Español:
- <https://es.r4ds.hadley.nz/tibbles.html>
+ <https://es.r4ds.hadley.nz/10-tibble.html>
  
  
 ***

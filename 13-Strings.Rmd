@@ -1,4 +1,4 @@
-# Strings
+# Cadena de Caracteres
 
 Fecha de la ultima revisión
 ```{r echo=FALSE}
@@ -14,7 +14,7 @@ English:
  <https://r4ds.had.co.nz/strings.html>
  
 Español:
- <https://es.r4ds.hadley.nz/cadenas-de-caracteres.html>
+ <https://es.r4ds.hadley.nz/14-strings.html>
  
  
 ***

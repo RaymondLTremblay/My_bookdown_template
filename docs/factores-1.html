@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 14 Factores | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución a la ciencia de datos usando R" />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 14 Factores | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
@@ -23,14 +23,14 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-08-10" />
+<meta name="date" content="2023-08-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="strings.html"/>
+<link rel="prev" href="cadena-de-caracteres.html"/>
 <link rel="next" href="titulo-grande.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -164,7 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.1" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#temas"><i class="fa fa-check"></i><b>2.1</b> Temas:</a></li>
 <li class="chapter" data-level="2.2" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#creación-de-un-proyecto"><i class="fa fa-check"></i><b>2.2</b> Creación de un proyecto:</a></li>
-<li class="chapter" data-level="2.3" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#transformación-estadística"><i class="fa fa-check"></i><b>2.3</b> Transformación estadística</a></li>
+<li class="chapter" data-level="2.3" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#extracción-de-valores-de-un-conjunto-de-datos"><i class="fa fa-check"></i><b>2.3</b> Extracción de valores de un conjunto de datos</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html"><i class="fa fa-check"></i><b>3</b> Visualización de datos</a>
 <ul>
@@ -272,29 +272,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.7" data-path="datos-relacionados.html"><a href="datos-relacionados.html#uniones-de-filtro"><i class="fa fa-check"></i><b>12.7</b> Uniones de filtro</a></li>
 <li class="chapter" data-level="12.8" data-path="datos-relacionados.html"><a href="datos-relacionados.html#problemas-con-las-uniones"><i class="fa fa-check"></i><b>12.8</b> Problemas con las uniones</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>13</b> Strings</a>
+<li class="chapter" data-level="13" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html"><i class="fa fa-check"></i><b>13</b> Cadena de Caracteres</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="strings.html"><a href="strings.html#temas-cadenas-de-caracteres"><i class="fa fa-check"></i><b>13.1</b> Temas: Cadenas de Caracteres</a></li>
-<li class="chapter" data-level="13.2" data-path="strings.html"><a href="strings.html#largo-de-cadena"><i class="fa fa-check"></i><b>13.2</b> Largo de cadena</a></li>
-<li class="chapter" data-level="13.3" data-path="strings.html"><a href="strings.html#combinar-cadenas"><i class="fa fa-check"></i><b>13.3</b> Combinar cadenas</a></li>
-<li class="chapter" data-level="13.4" data-path="strings.html"><a href="strings.html#dividir-cadenas"><i class="fa fa-check"></i><b>13.4</b> Dividir cadenas</a></li>
-<li class="chapter" data-level="13.5" data-path="strings.html"><a href="strings.html#locales"><i class="fa fa-check"></i><b>13.5</b> Locales</a></li>
-<li class="chapter" data-level="13.6" data-path="strings.html"><a href="strings.html#buscar-patrones"><i class="fa fa-check"></i><b>13.6</b> Buscar patrones</a></li>
-<li class="chapter" data-level="13.7" data-path="strings.html"><a href="strings.html#coincidencia-básica"><i class="fa fa-check"></i><b>13.7</b> Coincidencia básica</a></li>
-<li class="chapter" data-level="13.8" data-path="strings.html"><a href="strings.html#anclas"><i class="fa fa-check"></i><b>13.8</b> Anclas</a></li>
-<li class="chapter" data-level="13.9" data-path="strings.html"><a href="strings.html#clases-de-caracteres-y-alternativas"><i class="fa fa-check"></i><b>13.9</b> Clases de caracteres y alternativas</a></li>
-<li class="chapter" data-level="13.10" data-path="strings.html"><a href="strings.html#repetición"><i class="fa fa-check"></i><b>13.10</b> Repetición</a></li>
-<li class="chapter" data-level="13.11" data-path="strings.html"><a href="strings.html#agrupamiento-y-referencias-previas"><i class="fa fa-check"></i><b>13.11</b> Agrupamiento y referencias previas</a></li>
-<li class="chapter" data-level="13.12" data-path="strings.html"><a href="strings.html#herramientas-objetivos"><i class="fa fa-check"></i><b>13.12</b> Herramientas: Objetivos</a>
+<li class="chapter" data-level="13.1" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#temas-cadenas-de-caracteres"><i class="fa fa-check"></i><b>13.1</b> Temas: Cadenas de Caracteres</a></li>
+<li class="chapter" data-level="13.2" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#largo-de-cadena"><i class="fa fa-check"></i><b>13.2</b> Largo de cadena</a></li>
+<li class="chapter" data-level="13.3" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#combinar-cadenas"><i class="fa fa-check"></i><b>13.3</b> Combinar cadenas</a></li>
+<li class="chapter" data-level="13.4" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#dividir-cadenas"><i class="fa fa-check"></i><b>13.4</b> Dividir cadenas</a></li>
+<li class="chapter" data-level="13.5" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#locales"><i class="fa fa-check"></i><b>13.5</b> Locales</a></li>
+<li class="chapter" data-level="13.6" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#buscar-patrones"><i class="fa fa-check"></i><b>13.6</b> Buscar patrones</a></li>
+<li class="chapter" data-level="13.7" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#coincidencia-básica"><i class="fa fa-check"></i><b>13.7</b> Coincidencia básica</a></li>
+<li class="chapter" data-level="13.8" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#anclas"><i class="fa fa-check"></i><b>13.8</b> Anclas</a></li>
+<li class="chapter" data-level="13.9" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#clases-de-caracteres-y-alternativas"><i class="fa fa-check"></i><b>13.9</b> Clases de caracteres y alternativas</a></li>
+<li class="chapter" data-level="13.10" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#repetición"><i class="fa fa-check"></i><b>13.10</b> Repetición</a></li>
+<li class="chapter" data-level="13.11" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#agrupamiento-y-referencias-previas"><i class="fa fa-check"></i><b>13.11</b> Agrupamiento y referencias previas</a></li>
+<li class="chapter" data-level="13.12" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#herramientas-objetivos"><i class="fa fa-check"></i><b>13.12</b> Herramientas: Objetivos</a>
 <ul>
-<li class="chapter" data-level="13.12.1" data-path="strings.html"><a href="strings.html#detectar-coincidencias"><i class="fa fa-check"></i><b>13.12.1</b> Detectar coincidencias</a></li>
+<li class="chapter" data-level="13.12.1" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#detectar-coincidencias"><i class="fa fa-check"></i><b>13.12.1</b> Detectar coincidencias</a></li>
 </ul></li>
-<li class="chapter" data-level="13.13" data-path="strings.html"><a href="strings.html#extraer-coincidencias"><i class="fa fa-check"></i><b>13.13</b> Extraer coincidencias</a></li>
-<li class="chapter" data-level="13.14" data-path="strings.html"><a href="strings.html#coincidencias-agrupadas"><i class="fa fa-check"></i><b>13.14</b> Coincidencias agrupadas:</a></li>
-<li class="chapter" data-level="13.15" data-path="strings.html"><a href="strings.html#remplazar-coincidencias"><i class="fa fa-check"></i><b>13.15</b> Remplazar coincidencias</a></li>
-<li class="chapter" data-level="13.16" data-path="strings.html"><a href="strings.html#divisiones"><i class="fa fa-check"></i><b>13.16</b> Divisiones</a></li>
-<li class="chapter" data-level="13.17" data-path="strings.html"><a href="strings.html#otro-tipos-de-patrones"><i class="fa fa-check"></i><b>13.17</b> Otro tipos de patrones</a></li>
-<li class="chapter" data-level="13.18" data-path="strings.html"><a href="strings.html#stringi"><i class="fa fa-check"></i><b>13.18</b> stringi:</a></li>
+<li class="chapter" data-level="13.13" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#extraer-coincidencias"><i class="fa fa-check"></i><b>13.13</b> Extraer coincidencias</a></li>
+<li class="chapter" data-level="13.14" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#coincidencias-agrupadas"><i class="fa fa-check"></i><b>13.14</b> Coincidencias agrupadas:</a></li>
+<li class="chapter" data-level="13.15" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#remplazar-coincidencias"><i class="fa fa-check"></i><b>13.15</b> Remplazar coincidencias</a></li>
+<li class="chapter" data-level="13.16" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#divisiones"><i class="fa fa-check"></i><b>13.16</b> Divisiones</a></li>
+<li class="chapter" data-level="13.17" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#otro-tipos-de-patrones"><i class="fa fa-check"></i><b>13.17</b> Otro tipos de patrones</a></li>
+<li class="chapter" data-level="13.18" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#stringi"><i class="fa fa-check"></i><b>13.18</b> stringi:</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="factores-1.html"><a href="factores-1.html"><i class="fa fa-check"></i><b>14</b> Factores</a></li>
 <li class="chapter" data-level="15" data-path="titulo-grande.html"><a href="titulo-grande.html"><i class="fa fa-check"></i><b>15</b> Titulo Grande</a>
@@ -369,7 +369,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="factores-1" class="section level1 hasAnchor" number="14">
 <h1><span class="header-section-number">Chapter 14</span> Factores<a href="factores-1.html#factores-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Fecha de la ultima revisión</p>
-<pre><code>## [1] &quot;2023-08-10&quot;</code></pre>
+<pre><code>## [1] &quot;2023-08-16&quot;</code></pre>
 <hr />
 </div>
             </section>
@@ -377,7 +377,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="strings.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cadena-de-caracteres.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="titulo-grande.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

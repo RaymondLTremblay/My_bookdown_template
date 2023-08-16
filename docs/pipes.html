@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Pipes | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución a la ciencia de datos usando R" />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Pipes | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-08-10" />
+<meta name="date" content="2023-08-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -164,7 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.1" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#temas"><i class="fa fa-check"></i><b>2.1</b> Temas:</a></li>
 <li class="chapter" data-level="2.2" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#creación-de-un-proyecto"><i class="fa fa-check"></i><b>2.2</b> Creación de un proyecto:</a></li>
-<li class="chapter" data-level="2.3" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#transformación-estadística"><i class="fa fa-check"></i><b>2.3</b> Transformación estadística</a></li>
+<li class="chapter" data-level="2.3" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#extracción-de-valores-de-un-conjunto-de-datos"><i class="fa fa-check"></i><b>2.3</b> Extracción de valores de un conjunto de datos</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html"><i class="fa fa-check"></i><b>3</b> Visualización de datos</a>
 <ul>
@@ -272,29 +272,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.7" data-path="datos-relacionados.html"><a href="datos-relacionados.html#uniones-de-filtro"><i class="fa fa-check"></i><b>12.7</b> Uniones de filtro</a></li>
 <li class="chapter" data-level="12.8" data-path="datos-relacionados.html"><a href="datos-relacionados.html#problemas-con-las-uniones"><i class="fa fa-check"></i><b>12.8</b> Problemas con las uniones</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>13</b> Strings</a>
+<li class="chapter" data-level="13" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html"><i class="fa fa-check"></i><b>13</b> Cadena de Caracteres</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="strings.html"><a href="strings.html#temas-cadenas-de-caracteres"><i class="fa fa-check"></i><b>13.1</b> Temas: Cadenas de Caracteres</a></li>
-<li class="chapter" data-level="13.2" data-path="strings.html"><a href="strings.html#largo-de-cadena"><i class="fa fa-check"></i><b>13.2</b> Largo de cadena</a></li>
-<li class="chapter" data-level="13.3" data-path="strings.html"><a href="strings.html#combinar-cadenas"><i class="fa fa-check"></i><b>13.3</b> Combinar cadenas</a></li>
-<li class="chapter" data-level="13.4" data-path="strings.html"><a href="strings.html#dividir-cadenas"><i class="fa fa-check"></i><b>13.4</b> Dividir cadenas</a></li>
-<li class="chapter" data-level="13.5" data-path="strings.html"><a href="strings.html#locales"><i class="fa fa-check"></i><b>13.5</b> Locales</a></li>
-<li class="chapter" data-level="13.6" data-path="strings.html"><a href="strings.html#buscar-patrones"><i class="fa fa-check"></i><b>13.6</b> Buscar patrones</a></li>
-<li class="chapter" data-level="13.7" data-path="strings.html"><a href="strings.html#coincidencia-básica"><i class="fa fa-check"></i><b>13.7</b> Coincidencia básica</a></li>
-<li class="chapter" data-level="13.8" data-path="strings.html"><a href="strings.html#anclas"><i class="fa fa-check"></i><b>13.8</b> Anclas</a></li>
-<li class="chapter" data-level="13.9" data-path="strings.html"><a href="strings.html#clases-de-caracteres-y-alternativas"><i class="fa fa-check"></i><b>13.9</b> Clases de caracteres y alternativas</a></li>
-<li class="chapter" data-level="13.10" data-path="strings.html"><a href="strings.html#repetición"><i class="fa fa-check"></i><b>13.10</b> Repetición</a></li>
-<li class="chapter" data-level="13.11" data-path="strings.html"><a href="strings.html#agrupamiento-y-referencias-previas"><i class="fa fa-check"></i><b>13.11</b> Agrupamiento y referencias previas</a></li>
-<li class="chapter" data-level="13.12" data-path="strings.html"><a href="strings.html#herramientas-objetivos"><i class="fa fa-check"></i><b>13.12</b> Herramientas: Objetivos</a>
+<li class="chapter" data-level="13.1" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#temas-cadenas-de-caracteres"><i class="fa fa-check"></i><b>13.1</b> Temas: Cadenas de Caracteres</a></li>
+<li class="chapter" data-level="13.2" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#largo-de-cadena"><i class="fa fa-check"></i><b>13.2</b> Largo de cadena</a></li>
+<li class="chapter" data-level="13.3" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#combinar-cadenas"><i class="fa fa-check"></i><b>13.3</b> Combinar cadenas</a></li>
+<li class="chapter" data-level="13.4" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#dividir-cadenas"><i class="fa fa-check"></i><b>13.4</b> Dividir cadenas</a></li>
+<li class="chapter" data-level="13.5" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#locales"><i class="fa fa-check"></i><b>13.5</b> Locales</a></li>
+<li class="chapter" data-level="13.6" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#buscar-patrones"><i class="fa fa-check"></i><b>13.6</b> Buscar patrones</a></li>
+<li class="chapter" data-level="13.7" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#coincidencia-básica"><i class="fa fa-check"></i><b>13.7</b> Coincidencia básica</a></li>
+<li class="chapter" data-level="13.8" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#anclas"><i class="fa fa-check"></i><b>13.8</b> Anclas</a></li>
+<li class="chapter" data-level="13.9" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#clases-de-caracteres-y-alternativas"><i class="fa fa-check"></i><b>13.9</b> Clases de caracteres y alternativas</a></li>
+<li class="chapter" data-level="13.10" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#repetición"><i class="fa fa-check"></i><b>13.10</b> Repetición</a></li>
+<li class="chapter" data-level="13.11" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#agrupamiento-y-referencias-previas"><i class="fa fa-check"></i><b>13.11</b> Agrupamiento y referencias previas</a></li>
+<li class="chapter" data-level="13.12" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#herramientas-objetivos"><i class="fa fa-check"></i><b>13.12</b> Herramientas: Objetivos</a>
 <ul>
-<li class="chapter" data-level="13.12.1" data-path="strings.html"><a href="strings.html#detectar-coincidencias"><i class="fa fa-check"></i><b>13.12.1</b> Detectar coincidencias</a></li>
+<li class="chapter" data-level="13.12.1" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#detectar-coincidencias"><i class="fa fa-check"></i><b>13.12.1</b> Detectar coincidencias</a></li>
 </ul></li>
-<li class="chapter" data-level="13.13" data-path="strings.html"><a href="strings.html#extraer-coincidencias"><i class="fa fa-check"></i><b>13.13</b> Extraer coincidencias</a></li>
-<li class="chapter" data-level="13.14" data-path="strings.html"><a href="strings.html#coincidencias-agrupadas"><i class="fa fa-check"></i><b>13.14</b> Coincidencias agrupadas:</a></li>
-<li class="chapter" data-level="13.15" data-path="strings.html"><a href="strings.html#remplazar-coincidencias"><i class="fa fa-check"></i><b>13.15</b> Remplazar coincidencias</a></li>
-<li class="chapter" data-level="13.16" data-path="strings.html"><a href="strings.html#divisiones"><i class="fa fa-check"></i><b>13.16</b> Divisiones</a></li>
-<li class="chapter" data-level="13.17" data-path="strings.html"><a href="strings.html#otro-tipos-de-patrones"><i class="fa fa-check"></i><b>13.17</b> Otro tipos de patrones</a></li>
-<li class="chapter" data-level="13.18" data-path="strings.html"><a href="strings.html#stringi"><i class="fa fa-check"></i><b>13.18</b> stringi:</a></li>
+<li class="chapter" data-level="13.13" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#extraer-coincidencias"><i class="fa fa-check"></i><b>13.13</b> Extraer coincidencias</a></li>
+<li class="chapter" data-level="13.14" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#coincidencias-agrupadas"><i class="fa fa-check"></i><b>13.14</b> Coincidencias agrupadas:</a></li>
+<li class="chapter" data-level="13.15" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#remplazar-coincidencias"><i class="fa fa-check"></i><b>13.15</b> Remplazar coincidencias</a></li>
+<li class="chapter" data-level="13.16" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#divisiones"><i class="fa fa-check"></i><b>13.16</b> Divisiones</a></li>
+<li class="chapter" data-level="13.17" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#otro-tipos-de-patrones"><i class="fa fa-check"></i><b>13.17</b> Otro tipos de patrones</a></li>
+<li class="chapter" data-level="13.18" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#stringi"><i class="fa fa-check"></i><b>13.18</b> stringi:</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="factores-1.html"><a href="factores-1.html"><i class="fa fa-check"></i><b>14</b> Factores</a></li>
 <li class="chapter" data-level="15" data-path="titulo-grande.html"><a href="titulo-grande.html"><i class="fa fa-check"></i><b>15</b> Titulo Grande</a>
@@ -369,13 +369,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="pipes" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">Chapter 8</span> Pipes<a href="pipes.html#pipes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Fecha de la ultima revisión</p>
-<pre><code>## [1] &quot;2023-08-10&quot;</code></pre>
+<pre><code>## [1] &quot;2023-08-16&quot;</code></pre>
 <hr />
 <p>El tema proviene de los siguientes sitios.</p>
 <p>English:
 <a href="https://r4ds.had.co.nz/pipes.html" class="uri">https://r4ds.had.co.nz/pipes.html</a></p>
 <p>Español:
-<a href="https://es.r4ds.hadley.nz/pipes.html" class="uri">https://es.r4ds.hadley.nz/pipes.html</a></p>
+<a href="https://es.r4ds.hadley.nz/" class="uri">https://es.r4ds.hadley.nz/</a></p>
 <hr />
 <div id="temas-el-paquete-magrittr" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> Temas: El paquete “magrittr”<a href="pipes.html#temas-el-paquete-magrittr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -409,7 +409,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>%T&gt;%</li>
 <li>%$%</li>
 </ul>
-<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="pipes.html#cb421-1" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="pipes.html#cb390-1" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;magrittr&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:purrr&#39;:
@@ -418,15 +418,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## The following object is masked from &#39;package:tidyr&#39;:
 ## 
 ##     extract</code></pre>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="pipes.html#cb425-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb425-2"><a href="pipes.html#cb425-2" tabindex="-1"></a>  <span class="fu">subset</span>(Sepal.Length <span class="sc">&gt;</span> <span class="fu">mean</span>(Sepal.Length)) <span class="sc">%$%</span></span>
-<span id="cb425-3"><a href="pipes.html#cb425-3" tabindex="-1"></a>  <span class="fu">cor</span>(Sepal.Length, Sepal.Width)</span></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="pipes.html#cb394-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb394-2"><a href="pipes.html#cb394-2" tabindex="-1"></a>  <span class="fu">subset</span>(Sepal.Length <span class="sc">&gt;</span> <span class="fu">mean</span>(Sepal.Length)) <span class="sc">%$%</span></span>
+<span id="cb394-3"><a href="pipes.html#cb394-3" tabindex="-1"></a>  <span class="fu">cor</span>(Sepal.Length, Sepal.Width)</span></code></pre></div>
 <pre><code>## [1] 0.3361992</code></pre>
 <ul>
 <li>%&lt;&gt;%</li>
 </ul>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="pipes.html#cb427-1" tabindex="-1"></a><span class="co"># Example 1</span></span>
-<span id="cb427-2"><a href="pipes.html#cb427-2" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="pipes.html#cb396-1" tabindex="-1"></a><span class="co"># Example 1</span></span>
+<span id="cb396-2"><a href="pipes.html#cb396-2" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
@@ -434,18 +434,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4          4.6         3.1          1.5         0.2  setosa
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
-<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="pipes.html#cb429-1" tabindex="-1"></a><span class="fu">head</span>(iris<span class="sc">$</span>Sepal.Length <span class="sc">%&lt;&gt;%</span> sqrt)</span></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="pipes.html#cb398-1" tabindex="-1"></a><span class="fu">head</span>(iris<span class="sc">$</span>Sepal.Length <span class="sc">%&lt;&gt;%</span> sqrt)</span></code></pre></div>
 <pre><code>## [1] 2.258318 2.213594 2.167948 2.144761 2.236068 2.323790</code></pre>
-<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="pipes.html#cb431-1" tabindex="-1"></a><span class="co"># Example 2</span></span>
-<span id="cb431-2"><a href="pipes.html#cb431-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb431-3"><a href="pipes.html#cb431-3" tabindex="-1"></a><span class="fu">head</span>(x, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="pipes.html#cb400-1" tabindex="-1"></a><span class="co"># Example 2</span></span>
+<span id="cb400-2"><a href="pipes.html#cb400-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb400-3"><a href="pipes.html#cb400-3" tabindex="-1"></a><span class="fu">head</span>(x, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##  [1]  1.4404800 -0.7195761  0.6709784 -0.4219485  0.3782196 -1.6665864
 ##  [7] -0.5082030  0.4433822 -1.7993868 -0.6179521</code></pre>
-<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="pipes.html#cb433-1" tabindex="-1"></a>x <span class="sc">%&lt;&gt;%</span> </span>
-<span id="cb433-2"><a href="pipes.html#cb433-2" tabindex="-1"></a>  abs <span class="sc">%&gt;%</span> </span>
-<span id="cb433-3"><a href="pipes.html#cb433-3" tabindex="-1"></a>  sort</span>
-<span id="cb433-4"><a href="pipes.html#cb433-4" tabindex="-1"></a></span>
-<span id="cb433-5"><a href="pipes.html#cb433-5" tabindex="-1"></a><span class="fu">head</span>(x, <span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="pipes.html#cb402-1" tabindex="-1"></a>x <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb402-2"><a href="pipes.html#cb402-2" tabindex="-1"></a>  abs <span class="sc">%&gt;%</span> </span>
+<span id="cb402-3"><a href="pipes.html#cb402-3" tabindex="-1"></a>  sort</span>
+<span id="cb402-4"><a href="pipes.html#cb402-4" tabindex="-1"></a></span>
+<span id="cb402-5"><a href="pipes.html#cb402-5" tabindex="-1"></a><span class="fu">head</span>(x, <span class="dv">20</span>)</span></code></pre></div>
 <pre><code>##  [1] 0.03262862 0.05212281 0.06958002 0.11127638 0.13375663 0.14755503
 ##  [7] 0.15261108 0.16725385 0.18112962 0.18935937 0.19254623 0.20008289
 ## [13] 0.20439512 0.22376997 0.23962135 0.23978737 0.25172508 0.27016891

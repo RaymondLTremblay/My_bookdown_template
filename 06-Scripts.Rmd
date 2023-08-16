@@ -13,7 +13,7 @@ El tema proviene de los siguientes sitios.
 
 English: <https://r4ds.had.co.nz/workflow-scripts.html>
 
-Español: <https://r4ds-en-espaniol.netlify.app/flujo-de-trabajo-scripts.html>
+Español: <https://es.r4ds.hadley.nz/06-workflow-scripts.html>
 
 ------------------------------------------------------------------------
 

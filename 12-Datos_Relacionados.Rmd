@@ -15,7 +15,7 @@ English:
  <https://r4ds.had.co.nz/relational-data.html>
  
 Español:
- <https://es.r4ds.hadley.nz/datos-relacionales.html>
+ <https://es.r4ds.hadley.nz/13-relational-data.html>
  
  
 ***

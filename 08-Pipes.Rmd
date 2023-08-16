@@ -15,7 +15,7 @@ English:
  <https://r4ds.had.co.nz/pipes.html>
  
 Español:
- <https://es.r4ds.hadley.nz/pipes.html>
+ <https://es.r4ds.hadley.nz/>
  
  
 ***

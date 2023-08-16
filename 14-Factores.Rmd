@@ -38,7 +38,7 @@ English:
  <https://r4ds.had.co.nz/factors.html>
  
 Español:
- <https://es.r4ds.hadley.nz/factores.html>
+ <https://es.r4ds.hadley.nz/15-factors.html>
  
  
 ```{r message=FALSE, warning=FALSE}

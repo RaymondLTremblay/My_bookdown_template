@@ -15,7 +15,7 @@ English:
  <https://r4ds.had.co.nz/data-visualisation.html>
  
 Español:
- <https://r4ds-en-espaniol.netlify.app/visualización-de-datos.html>
+ <https://es.r4ds.hadley.nz/03-visualize.html>
  
  
 ***

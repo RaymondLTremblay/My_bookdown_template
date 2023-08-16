@@ -14,7 +14,7 @@ English:
  <https://r4ds.had.co.nz/exploratory-data-analysis.html>
  
 Español:
- <https://r4ds-en-espaniol.netlify.app/análisis-exploratorio-de-datos-eda.html>
+ <https://es.r4ds.hadley.nz/07-eda.html>
  
  
 ***

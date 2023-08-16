@@ -17,7 +17,7 @@ English:
  <https://r4ds.had.co.nz/transform.html>
  
 Español:
- <https://r4ds-en-espaniol.netlify.app/transform.html>
+ <https://es.r4ds.hadley.nz/05-transform.html>
  
  
 ***
