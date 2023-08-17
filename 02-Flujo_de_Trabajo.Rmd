@@ -44,6 +44,7 @@ library(tidyverse)
 library(datos)
 ```
 
+### Un set de sobre carros en el archivo (paquete) **datos**
 
 ```{r}
 millas
@@ -51,7 +52,7 @@ millas
 ```
 
 
-Mi primer gráfico
+### Mi primer gráfico
 
 ```{r}
 ggplot(data = millas) +
@@ -59,25 +60,29 @@ ggplot(data = millas) +
 ```
 
 
-Las funcion **head** y **tail**
+### Las funciones **head** y **tail**
 ```{r}
 ggplot(data=millas)
 
-head(millas)
+head(millas) # las primeras 6 filas
+tail(millas, n=10) # las ultimas 10 filas
 
 ```
 
-Información sobre el archivo
-Usa el signo de interagación antes del nombre de la función o archivo
+## Información sobre el archivo
+Usa el signo de interogación **?** antes del nombre de la función o archivo
 
 ```{r}
 ?millas
 
+
 ?head
+
+
 ```
 
 
-Las dimensiones del archivo
+### Las dimensiones del archivo
 
 ```{r}
 dim(millas)
@@ -85,7 +90,7 @@ dim(millas)
 
 
 
-Construcción de mi primer gráfico
+### Construcción de mi primer gráfico
 
 - el nombre del archivo es primero
 - nombre de las variables (nombre de las columnas)
@@ -97,6 +102,8 @@ ggplot(data = millas) +
 ```
 
 
+### La función shape para cambiar la forma de los puntos
+
 La función **shape** es para cambiar el estilo de los puntos
 
 ```{r}
@@ -104,6 +111,8 @@ ggplot(data = millas) +
  geom_point(mapping = aes(x = cilindrada, y = autopista), shape=11, color = "#c093cc", fill="yellow")
 ```
 
+
+### Salvar un grafico en otro formato
 
 Como salvar la figura en formato recuperable para subir en otros documentos o compartir
 
@@ -142,12 +151,18 @@ library(ggversa)
 head(Anolis)
 ```
 
+
+
+### Facet_wrap
+
+
 ```{r, echo=FALSE}
 ggplot(data = Anolis) +
   geom_point(mapping = aes(x = SVL, y = TAIL, color=SEX_AGE))+
   facet_wrap(~SEX_AGE, ncol=1)
 ```
 
+### Regresión lineal
 
 
 ```{r, echo=FALSE}
@@ -160,6 +175,14 @@ ggplot(data = millas) +
   geom_smooth(method=lm,mapping = aes(x = cilindrada, y = autopista))+  # y = mx+b
   geom_point( mapping = aes(x = cilindrada, y = autopista))
 ```
+
+
+### Regresión Loess
+
+Vea este enlace para información sobre la regresión LOESS
+
+<<https://en.wikipedia.org/wiki/Local_regression>>
+
 
 
 ```{r, echo=FALSE, warning=FALSE}
@@ -212,12 +235,16 @@ unique(diamantes$corte)
 #diamantes$precio
 
 ```
-
+### geom_bar()
 
 ```{r}
 ggplot(data = diamantes) +
   geom_bar(mapping = aes(x = corte))
 ```
+
+
+### Puntos con intervalo mínimo y máximo
+
 
 ```{r}
 ggplot(data = diamantes) +
@@ -230,7 +257,7 @@ ggplot(data = diamantes) +
 ```
 
 
-
+### geom_boxplot
 
 
 ```{r}
@@ -242,6 +269,8 @@ ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
   coord_flip()
 ```
 
+
+### geom_bar y circular
 
 
 ```{r}
