@@ -5,25 +5,25 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 16 Haga un re-order por la cantidad de personas por religion | Ciencia de Datos con R</title>
-  <meta name="description" content="Este libro digital es una introdución a la ciencia de datos usando R" />
+  <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 16 Haga un re-order por la cantidad de personas por religion | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Este libro digital es una introdución a la ciencia de datos usando R" />
+  <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 16 Haga un re-order por la cantidad de personas por religion | Ciencia de Datos con R" />
   
-  <meta name="twitter:description" content="Este libro digital es una introdución a la ciencia de datos usando R" />
+  <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-08-17" />
+<meta name="date" content="2023-08-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -49,6 +49,7 @@
 
 
 
+<link href="libs/codefolding-lua-1.1/codefolding-lua.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
@@ -84,39 +85,38 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  background-color: #f8f8f8; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #204a87; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <style type="text/css">
@@ -389,6 +389,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="haga-un-re-order-por-la-cantidad-de-personas-por-religion" class="section level1 hasAnchor" number="16">
 <h1><span class="header-section-number">Chapter 16</span> Haga un re-order por la cantidad de personas por religion<a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#haga-un-re-order-por-la-cantidad-de-personas-por-religion" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb703-1" tabindex="-1"></a>df2<span class="ot">=</span>encuesta <span class="sc">%&gt;%</span> </span>
 <span id="cb703-2"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb703-2" tabindex="-1"></a>   <span class="fu">count</span>(religion)</span>
 <span id="cb703-3"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb703-3" tabindex="-1"></a></span>
@@ -397,12 +398,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb703-6"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb703-6" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> religion, <span class="at">y =</span> n)) <span class="sc">+</span> </span>
 <span id="cb703-7"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb703-7" tabindex="-1"></a>  <span class="fu">geom_col</span>()<span class="sc">+</span></span>
 <span id="cb703-8"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb703-8" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+</details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-178-1.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb704-1"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb704-1" tabindex="-1"></a>df2 <span class="sc">%&gt;%</span></span>
 <span id="cb704-2"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb704-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">religion =</span> <span class="fu">fct_reorder</span>(religion, n)) <span class="sc">%&gt;%</span></span>
 <span id="cb704-3"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb704-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> religion, <span class="at">y =</span> n)) <span class="sc">+</span> </span>
 <span id="cb704-4"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb704-4" tabindex="-1"></a>  <span class="fu">geom_col</span>()<span class="sc">+</span></span>
 <span id="cb704-5"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb704-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+</details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-178-2.png" width="672" /></p>
 <p>Hacer los ejercicios en la sección 15.3.1 del libro en español</p>
 <hr />
@@ -417,6 +421,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>fct_collapse()</li>
 <li>fct_lump()</li>
 </ul>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb705-1"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb705-1" tabindex="-1"></a><span class="co">#model=lm(y~x, df)</span></span>
 <span id="cb705-2"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb705-2" tabindex="-1"></a><span class="co">#summary(model)</span></span>
 <span id="cb705-3"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb705-3" tabindex="-1"></a></span>
@@ -430,6 +435,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb705-11"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb705-11" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
 <span id="cb705-12"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb705-12" tabindex="-1"></a>  )</span>
 <span id="cb705-13"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb705-13" tabindex="-1"></a>resumen_religion</span></code></pre></div>
+</details>
 <pre><code>## # A tibble: 15 × 5
 ##    religion                edad horas_tv sd_edad     n
 ##    &lt;fct&gt;                  &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;
@@ -448,19 +454,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 13 Judía                   52.4     2.52    2.52   388
 ## 14 Católica                46.9     2.96    2.96  5124
 ## 15 Protestante             49.9     3.15    3.15 10846</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb707-1"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb707-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_religion, <span class="fu">aes</span>(horas_tv, religion)) <span class="sc">+</span> </span>
 <span id="cb707-2"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb707-2" tabindex="-1"></a>   <span class="fu">geom_point</span>()</span></code></pre></div>
+</details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-179-1.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb708-1"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb708-1" tabindex="-1"></a><span class="fu">min</span>(encuesta<span class="sc">$</span>horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+</details>
 <pre><code>## [1] 0</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb710-1"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb710-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_religion, <span class="fu">aes</span>(horas_tv, <span class="fu">fct_reorder</span>(religion, <span class="sc">-</span>horas_tv))) <span class="sc">+</span></span>
 <span id="cb710-2"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb710-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+</details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-180-1.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb711-1"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb711-1" tabindex="-1"></a>resumen_religion <span class="sc">%&gt;%</span></span>
 <span id="cb711-2"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb711-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">religion =</span> <span class="fu">fct_reorder</span>(religion, horas_tv)) <span class="sc">%&gt;%</span></span>
 <span id="cb711-3"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb711-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(horas_tv, religion)) <span class="sc">+</span></span>
 <span id="cb711-4"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb711-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+</details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-181-1.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb712-1"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb712-1" tabindex="-1"></a>resumen_ingreso <span class="ot">&lt;-</span> encuesta <span class="sc">%&gt;%</span></span>
 <span id="cb712-2"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb712-2" tabindex="-1"></a>  <span class="fu">group_by</span>(ingreso) <span class="sc">%&gt;%</span></span>
 <span id="cb712-3"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb712-3" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -470,6 +485,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb712-7"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb712-7" tabindex="-1"></a>  )</span>
 <span id="cb712-8"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb712-8" tabindex="-1"></a></span>
 <span id="cb712-9"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb712-9" tabindex="-1"></a>resumen_ingreso</span></code></pre></div>
+</details>
 <pre><code>## # A tibble: 16 × 4
 ##    ingreso               edad horas_tv     n
 ##    &lt;fct&gt;                &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt;
@@ -489,11 +505,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 14 1000 - 2999           34.5     3.00   395
 ## 15 Menos de 1000         40.5     3.36   286
 ## 16 No aplica             56.1     3.79  7043</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb714-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_ingreso, <span class="fu">aes</span>(horas_tv, <span class="fu">fct_reorder</span>(ingreso, horas_tv))) <span class="sc">+</span></span>
 <span id="cb714-2"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb714-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+</details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-182-1.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb715"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb715-1"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb715-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_ingreso, <span class="fu">aes</span>(edad, <span class="fu">fct_relevel</span>(ingreso, <span class="st">&quot;No aplica&quot;</span>))) <span class="sc">+</span></span>
 <span id="cb715-2"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#cb715-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+</details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-183-1.png" width="672" /></p>
 <ol start="2" style="list-style-type: decimal">
 <li><strong>Ejercicios</strong>:</li>

@@ -5,25 +5,25 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Flujo de trabajo | Ciencia de Datos con R</title>
-  <meta name="description" content="Este libro digital es una introdución a la ciencia de datos usando R" />
+  <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Flujo de trabajo | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Este libro digital es una introdución a la ciencia de datos usando R" />
+  <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 2 Flujo de trabajo | Ciencia de Datos con R" />
   
-  <meta name="twitter:description" content="Este libro digital es una introdución a la ciencia de datos usando R" />
+  <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-08-17" />
+<meta name="date" content="2023-08-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -49,6 +49,7 @@
 
 
 
+<link href="libs/codefolding-lua-1.1/codefolding-lua.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
@@ -84,39 +85,38 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  background-color: #f8f8f8; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #204a87; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <style type="text/css">
@@ -419,23 +419,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>no mezclar proyectos de investigación en un mismo proyecto.</li>
 </ul>
 <hr />
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="flujo-de-trabajo.html#cb1-1" tabindex="-1"></a><span class="co">#install.packages(&quot;tidyverse&quot;)</span></span>
 <span id="cb1-2"><a href="flujo-de-trabajo.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+</details>
+<pre><code>## ── Attaching core tidyverse packages ───────────────────────────────────────────────────────────────────────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.1.2     ✔ readr     2.1.4
 ## ✔ forcats   1.0.0     ✔ stringr   1.5.0
 ## ✔ ggplot2   3.4.3     ✔ tibble    3.2.1
 ## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
 ## ✔ purrr     1.0.2     
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="flujo-de-trabajo.html#cb3-1" tabindex="-1"></a><span class="co"># install.packages(&quot;datos&quot;)</span></span>
 <span id="cb3-2"><a href="flujo-de-trabajo.html#cb3-2" tabindex="-1"></a><span class="fu">library</span>(datos)</span></code></pre></div>
+</details>
 <div id="un-set-de-sobre-carros-en-el-archivo-paquete-datos" class="section level3 hasAnchor" number="2.2.1">
 <h3><span class="header-section-number">2.2.1</span> Un set de sobre carros en el archivo (paquete) <strong>datos</strong><a href="flujo-de-trabajo.html#un-set-de-sobre-carros-en-el-archivo-paquete-datos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="flujo-de-trabajo.html#cb4-1" tabindex="-1"></a>millas</span></code></pre></div>
+</details>
 <pre><code>## # A tibble: 234 × 11
 ##    fabricante modelo     cilindrada  anio cilindros transmision traccion ciudad
 ##    &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt; &lt;int&gt;     &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;
@@ -454,15 +460,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="mi-primer-gráfico" class="section level3 hasAnchor" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> Mi primer gráfico<a href="flujo-de-trabajo.html#mi-primer-gráfico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="flujo-de-trabajo.html#cb6-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> millas) <span class="sc">+</span></span>
 <span id="cb6-2"><a href="flujo-de-trabajo.html#cb6-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista))</span></code></pre></div>
+</details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <div id="las-funciones-head-y-tail" class="section level3 hasAnchor" number="2.2.3">
 <h3><span class="header-section-number">2.2.3</span> Las funciones <strong>head</strong> y <strong>tail</strong><a href="flujo-de-trabajo.html#las-funciones-head-y-tail" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="flujo-de-trabajo.html#cb7-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>millas)</span></code></pre></div>
+</details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="flujo-de-trabajo.html#cb8-1" tabindex="-1"></a><span class="fu">head</span>(millas) <span class="co"># las primeras 6 filas</span></span></code></pre></div>
+</details>
 <pre><code>## # A tibble: 6 × 11
 ##   fabricante modelo cilindrada  anio cilindros transmision traccion ciudad
 ##   &lt;chr&gt;      &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;     &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;
@@ -473,7 +485,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 audi       a4            2.8  1999         6 auto(l5)    d            16
 ## 6 audi       a4            2.8  1999         6 manual(m5)  d            18
 ## # ℹ 3 more variables: autopista &lt;int&gt;, combustible &lt;chr&gt;, clase &lt;chr&gt;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="flujo-de-trabajo.html#cb10-1" tabindex="-1"></a><span class="fu">tail</span>(millas, <span class="at">n=</span><span class="dv">10</span>) <span class="co"># las ultimas 10 filas</span></span></code></pre></div>
+</details>
 <pre><code>## # A tibble: 10 × 11
 ##    fabricante modelo     cilindrada  anio cilindros transmision traccion ciudad
 ##    &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt; &lt;int&gt;     &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;
@@ -493,13 +507,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="información-sobre-el-archivo" class="section level2 hasAnchor" number="2.3">
 <h2><span class="header-section-number">2.3</span> Información sobre el archivo<a href="flujo-de-trabajo.html#información-sobre-el-archivo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Usa el signo de interogación <strong>?</strong> antes del nombre de la función o archivo</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="flujo-de-trabajo.html#cb12-1" tabindex="-1"></a>?millas</span>
 <span id="cb12-2"><a href="flujo-de-trabajo.html#cb12-2" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="flujo-de-trabajo.html#cb12-3" tabindex="-1"></a></span>
 <span id="cb12-4"><a href="flujo-de-trabajo.html#cb12-4" tabindex="-1"></a>?head</span></code></pre></div>
+</details>
 <div id="las-dimensiones-del-archivo" class="section level3 hasAnchor" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> Las dimensiones del archivo<a href="flujo-de-trabajo.html#las-dimensiones-del-archivo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="flujo-de-trabajo.html#cb13-1" tabindex="-1"></a><span class="fu">dim</span>(millas)</span></code></pre></div>
+</details>
 <pre><code>## [1] 234  11</code></pre>
 </div>
 <div id="construcción-de-mi-primer-gráfico" class="section level3 hasAnchor" number="2.3.2">
@@ -509,26 +527,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>nombre de las variables (nombre de las columnas)</li>
 <li>si quiere tener un color para cada grupo</li>
 </ul>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="flujo-de-trabajo.html#cb15-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> millas) <span class="sc">+</span></span>
 <span id="cb15-2"><a href="flujo-de-trabajo.html#cb15-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista,  <span class="at">colour=</span>fabricante))</span></code></pre></div>
+</details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 <div id="la-función-shape-para-cambiar-la-forma-de-los-puntos" class="section level3 hasAnchor" number="2.3.3">
 <h3><span class="header-section-number">2.3.3</span> La función shape para cambiar la forma de los puntos<a href="flujo-de-trabajo.html#la-función-shape-para-cambiar-la-forma-de-los-puntos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La función <strong>shape</strong> es para cambiar el estilo de los puntos</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="flujo-de-trabajo.html#cb16-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> millas) <span class="sc">+</span></span>
 <span id="cb16-2"><a href="flujo-de-trabajo.html#cb16-2" tabindex="-1"></a> <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista), <span class="at">shape=</span><span class="dv">11</span>, <span class="at">color =</span> <span class="st">&quot;#c093cc&quot;</span>, <span class="at">fill=</span><span class="st">&quot;yellow&quot;</span>)</span></code></pre></div>
+</details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
 <div id="salvar-un-grafico-en-otro-formato" class="section level3 hasAnchor" number="2.3.4">
 <h3><span class="header-section-number">2.3.4</span> Salvar un grafico en otro formato<a href="flujo-de-trabajo.html#salvar-un-grafico-en-otro-formato" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Como salvar la figura en formato recuperable para subir en otros documentos o compartir</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="flujo-de-trabajo.html#cb17-1" tabindex="-1"></a> <span class="fu">ggplot</span>(<span class="at">data =</span> millas) <span class="sc">+</span></span>
 <span id="cb17-2"><a href="flujo-de-trabajo.html#cb17-2" tabindex="-1"></a>   <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista), <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+</details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="flujo-de-trabajo.html#cb18-1" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;cilindro_milla.jpg&quot;</span>) <span class="co">#. png, .tiff</span></span></code></pre></div>
+</details>
 <pre><code>## Saving 7 x 5 in image</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="flujo-de-trabajo.html#cb20-1" tabindex="-1"></a>millas</span></code></pre></div>
+</details>
 <pre><code>## # A tibble: 234 × 11
 ##    fabricante modelo     cilindrada  anio cilindros transmision traccion ciudad
 ##    &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt; &lt;int&gt;     &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;
@@ -558,8 +586,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>subir el gráfico aquí</li>
 </ol></li>
 </ol>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="flujo-de-trabajo.html#cb22-1" tabindex="-1"></a><span class="fu">library</span>(ggversa)</span>
 <span id="cb22-2"><a href="flujo-de-trabajo.html#cb22-2" tabindex="-1"></a><span class="fu">head</span>(Anolis)</span></code></pre></div>
+</details>
 <pre><code>## # A tibble: 6 × 15
 ##   STUDY      Survey_Site      LOCATION TIME  DATE  SEASON SPECIES SEX_AGE HEIGHT
 ##   &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;    &lt;tim&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;
@@ -605,7 +635,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="extracción-de-valores-de-un-conjunto-de-datos" class="section level2 hasAnchor" number="2.4">
 <h2><span class="header-section-number">2.4</span> Extracción de valores de un conjunto de datos<a href="flujo-de-trabajo.html#extracción-de-valores-de-un-conjunto-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Aqui usamos el conjunto de datos de <strong>diamantes</strong> que se encuentra en el paquete <strong>ggplot2</strong></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="flujo-de-trabajo.html#cb32-1" tabindex="-1"></a><span class="fu">head</span>(diamantes)</span></code></pre></div>
+</details>
 <pre><code>## # A tibble: 6 × 10
 ##   precio quilate corte     color claridad profundidad tabla     x     y     z
 ##    &lt;int&gt;   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -615,29 +647,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4    334    0.29 Premium   I     VS2             62.4    58  4.2   4.23  2.63
 ## 5    335    0.31 Bueno     J     SI2             63.3    58  4.34  4.35  2.75
 ## 6    336    0.24 Muy bueno J     VVS2            62.8    57  3.94  3.96  2.48</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="flujo-de-trabajo.html#cb34-1" tabindex="-1"></a><span class="fu">nrow</span>(diamantes)</span></code></pre></div>
+</details>
 <pre><code>## [1] 53940</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="flujo-de-trabajo.html#cb36-1" tabindex="-1"></a><span class="fu">ncol</span>(diamantes)</span></code></pre></div>
+</details>
 <pre><code>## [1] 10</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="flujo-de-trabajo.html#cb38-1" tabindex="-1"></a><span class="fu">dim</span>(diamantes)</span></code></pre></div>
+</details>
 <pre><code>## [1] 53940    10</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="flujo-de-trabajo.html#cb40-1" tabindex="-1"></a><span class="fu">max</span>(diamantes<span class="sc">$</span>precio)</span></code></pre></div>
+</details>
 <pre><code>## [1] 18823</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="flujo-de-trabajo.html#cb42-1" tabindex="-1"></a><span class="fu">min</span>(diamantes<span class="sc">$</span>precio)</span></code></pre></div>
+</details>
 <pre><code>## [1] 326</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="flujo-de-trabajo.html#cb44-1" tabindex="-1"></a><span class="fu">unique</span>(diamantes<span class="sc">$</span>corte)</span></code></pre></div>
+</details>
 <pre><code>## [1] Ideal     Premium   Bueno     Muy bueno Regular  
 ## Levels: Regular &lt; Bueno &lt; Muy bueno &lt; Premium &lt; Ideal</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="flujo-de-trabajo.html#cb46-1" tabindex="-1"></a><span class="co">#diamantes$corte</span></span>
 <span id="cb46-2"><a href="flujo-de-trabajo.html#cb46-2" tabindex="-1"></a><span class="co">#diamantes$precio</span></span></code></pre></div>
+</details>
 <div id="geom_bar" class="section level3 hasAnchor" number="2.4.1">
 <h3><span class="header-section-number">2.4.1</span> geom_bar()<a href="flujo-de-trabajo.html#geom_bar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="flujo-de-trabajo.html#cb47-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamantes) <span class="sc">+</span></span>
 <span id="cb47-2"><a href="flujo-de-trabajo.html#cb47-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> corte))</span></code></pre></div>
+</details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 </div>
 <div id="puntos-con-intervalo-mínimo-y-máximo" class="section level3 hasAnchor" number="2.4.2">
 <h3><span class="header-section-number">2.4.2</span> Puntos con intervalo mínimo y máximo<a href="flujo-de-trabajo.html#puntos-con-intervalo-mínimo-y-máximo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="flujo-de-trabajo.html#cb48-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamantes) <span class="sc">+</span></span>
 <span id="cb48-2"><a href="flujo-de-trabajo.html#cb48-2" tabindex="-1"></a>  <span class="fu">stat_summary</span>(</span>
 <span id="cb48-3"><a href="flujo-de-trabajo.html#cb48-3" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> corte, <span class="at">y =</span> profundidad),</span>
@@ -645,20 +694,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb48-5"><a href="flujo-de-trabajo.html#cb48-5" tabindex="-1"></a>    <span class="at">fun.max =</span> max,</span>
 <span id="cb48-6"><a href="flujo-de-trabajo.html#cb48-6" tabindex="-1"></a>    <span class="at">fun =</span> median</span>
 <span id="cb48-7"><a href="flujo-de-trabajo.html#cb48-7" tabindex="-1"></a>  )</span></code></pre></div>
+</details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 </div>
 <div id="geom_boxplot" class="section level3 hasAnchor" number="2.4.3">
 <h3><span class="header-section-number">2.4.3</span> geom_boxplot<a href="flujo-de-trabajo.html#geom_boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="flujo-de-trabajo.html#cb49-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> millas, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> clase, <span class="at">y =</span> autopista)) <span class="sc">+</span></span>
 <span id="cb49-2"><a href="flujo-de-trabajo.html#cb49-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+</details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="flujo-de-trabajo.html#cb50-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> millas, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> clase, <span class="at">y =</span> autopista)) <span class="sc">+</span></span>
 <span id="cb50-2"><a href="flujo-de-trabajo.html#cb50-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb50-3"><a href="flujo-de-trabajo.html#cb50-3" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+</details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-21-2.png" width="672" /></p>
 </div>
 <div id="geom_bar-y-circular" class="section level3 hasAnchor" number="2.4.4">
 <h3><span class="header-section-number">2.4.4</span> geom_bar y circular<a href="flujo-de-trabajo.html#geom_bar-y-circular" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="flujo-de-trabajo.html#cb51-1" tabindex="-1"></a>bar <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> diamantes) <span class="sc">+</span></span>
 <span id="cb51-2"><a href="flujo-de-trabajo.html#cb51-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(</span>
 <span id="cb51-3"><a href="flujo-de-trabajo.html#cb51-3" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> corte, <span class="at">fill =</span> corte),</span>
@@ -668,22 +723,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb51-7"><a href="flujo-de-trabajo.html#cb51-7" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb51-8"><a href="flujo-de-trabajo.html#cb51-8" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
 <span id="cb51-9"><a href="flujo-de-trabajo.html#cb51-9" tabindex="-1"></a>bar</span></code></pre></div>
+</details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="flujo-de-trabajo.html#cb52-1" tabindex="-1"></a>bar <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code></pre></div>
+</details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-22-2.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="flujo-de-trabajo.html#cb53-1" tabindex="-1"></a>bar <span class="sc">+</span> <span class="fu">coord_polar</span>()</span></code></pre></div>
+</details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-22-3.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="flujo-de-trabajo.html#cb54-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb54-2"><a href="flujo-de-trabajo.html#cb54-2" tabindex="-1"></a>Vuelos_SJU_2018_Ene <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Datos/Vuelos_SJU_2018_Ene.csv&quot;</span>)</span></code></pre></div>
+</details>
 <pre><code>## Rows: 3831 Columns: 14
-## ── Column specification ────────────────────────────────────────────────────────
+## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (8): FL_DATE, OP_UNIQUE_CARRIER, ORIGIN, ORIGIN_CITY_NAME, ORIGIN_STATE_...
 ## dbl (6): DEP_TIME, DEP_DELAY, CRS_ARR_TIME, ARR_TIME, ARR_DELAY, CANCELLED
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="flujo-de-trabajo.html#cb56-1" tabindex="-1"></a><span class="fu">head</span>(Vuelos_SJU_2018_Ene)</span></code></pre></div>
+</details>
 <pre><code>## # A tibble: 6 × 14
 ##   FL_DATE OP_UNIQUE_CARRIER ORIGIN ORIGIN_CITY_NAME ORIGIN_STATE_ABR DEST 
 ##   &lt;chr&gt;   &lt;chr&gt;             &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;
