@@ -27,12 +27,6 @@ las-dimensiones-del-archivo
 construcción-de-mi-primer-gráfico
 la-función-shape-para-cambiar-la-forma-de-los-puntos
 salvar-un-grafico-en-otro-formato
-facet_wrap
-regresión-lineal
-regresión-loess
-regresión-loess-de-un-grupo
-regresión-loess-dos-alternativas
-regresión-lineal-ybmx
 extracción-de-valores-de-un-conjunto-de-datos
 los-primeros-datos-de-un-archivo
 la-cantidad-de-fila
@@ -41,6 +35,15 @@ la-dimensiones-de-un-archivo
 el-valor-máximo-de-una-variable
 el-valor-mínimo-de-una-variable
 los-valores-discretos-de-una-variable
+ejemplos-de-gráficos
+visualización-de-datos
+temas-1
+facet_wrap
+regresión-lineal
+regresión-loess
+regresión-loess-de-un-grupo
+regresión-loess-dos-alternativas
+regresión-lineal-ybmx
 geom_bar
 puntos-con-intervalo-mínimo-y-máximo
 geom_boxplot
@@ -48,9 +51,9 @@ geom_bar-y-circular
 geom_bar-1
 geom_bar-flip-coordinates
 geom_bar-circular-distribution
-read-data-from-a-file
-visualización-de-datos
-temas-1
+leer-datos-de-un-archivo
+ejercicios-1
+vea-el-siguiente-gráfico
 calculadora-sofisticada
 temas-2
 transformacion
@@ -181,5 +184,3 @@ multiplicaciones-y-sumas-de-periodos
 intervalos
 resumen
 time-zones
-ejemplos-de-gráficos
-leer-datos-de-un-archivo

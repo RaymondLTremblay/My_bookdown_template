@@ -157,75 +157,6 @@ head(Anolis)
 
 
 
-### Facet_wrap
-
-
-```{r, echo=FALSE}
-ggplot(data = Anolis) +
-  geom_point(mapping = aes(x = SVL, y = TAIL, color=SEX_AGE))+
-  facet_wrap(~SEX_AGE, ncol=1)
-```
-
-### Regresión lineal
-
-
-```{r, echo=FALSE}
-# izquierda
-ggplot(data = millas) +
-  geom_point(mapping = aes(x = cilindrada, y = autopista))
-
-# derecha   LOESS  
-ggplot(data = millas) +
-  geom_smooth(method=lm,mapping = aes(x = cilindrada, y = autopista))+  # y = mx+b
-  geom_point( mapping = aes(x = cilindrada, y = autopista))
-```
-
-
-### Regresión Loess
-
-Vea este enlace para información sobre la regresión LOESS
-
-<<https://en.wikipedia.org/wiki/Local_regression>>
-
-
-
-```{r, echo=FALSE, warning=FALSE}
-names(millas)
-
-ggplot(data = millas) +
-  geom_smooth(mapping = aes(x = cilindrada, y = autopista, linetype = clase, colour=clase))
-```
-
-### Regresión LOESS de un grupo
-
-```{r, echo=FALSE}
-ggplot(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
-  geom_point(mapping = aes(color = clase)) +
-  geom_smooth(data = filter(millas, clase == "suv"), se =TRUE)
-```
-
-### Regresión LOESS: dos alternativas
-
-```{r, echo=FALSE}
-ggplot(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
-  geom_point() +
-  geom_smooth()
-
-ggplot() +
-  geom_point(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
-  geom_smooth(data = millas, mapping = aes(x = cilindrada, y = autopista))
-```
-
-### Regresión Lineal $$y=b+mx$$
-
-
-
-```{r, echo=FALSE}
-ggplot(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
-  geom_point(mapping = aes(color = clase)) +
-  geom_smooth(method=lm)
-```
-
 ## Extracción de valores de un conjunto de datos
 
 Aqui usamos el conjunto de datos de **diamantes** que se encuentra en el paquete **ggplot2**
@@ -277,77 +208,6 @@ unique(diamantes$corte)
 
 ## Ejemplos de Gráficos
 
-### geom_bar()
-
-```{r}
-ggplot(data = diamantes) +
-  geom_bar(mapping = aes(x = corte))
-```
-
-
-### Puntos con intervalo mínimo y máximo
-
-
-```{r}
-ggplot(data = diamantes) +
-  stat_summary(
-    mapping = aes(x = corte, y = profundidad),
-    fun.min = min,
-    fun.max = max,
-    fun = median
-  )
-```
-
-
-### geom_boxplot
-
-
-```{r}
-ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
-  geom_boxplot()
-
-ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
-  geom_boxplot() +
-  coord_flip()
-```
-
-
-### geom_bar y circular
-
-
-
-
-```{r}
-bar <- ggplot(data = diamantes) +
-  geom_bar(
-    mapping = aes(x = corte, fill = corte),
-    show.legend = FALSE,
-    width = 1
-  ) +
-  theme(aspect.ratio = 1) +
-  labs(x = NULL, y = NULL)
-```
-
-#### geom_bar
-
-```{r}
-bar
-```
-
-#### geom_bar & flip coordinates
-
-```{r}
-bar + coord_flip()
-```
-
-
-#### geom_bar & circular distribution
-```{r}
-bar + coord_polar()
-```
-
-
-##  Leer datos de un archivo
 
 
 ```{r}
@@ -356,4 +216,6 @@ Vuelos_SJU_2018_Ene <- read_csv("Datos/Vuelos_SJU_2018_Ene.csv")
 
 head(Vuelos_SJU_2018_Ene)
 ```
+
+
 
