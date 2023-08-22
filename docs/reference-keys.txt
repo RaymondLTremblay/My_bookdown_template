@@ -38,6 +38,7 @@ los-valores-discretos-de-una-variable
 ejemplos-de-gráficos
 visualización-de-datos
 temas-1
+los-paquetes
 facet_wrap
 regresión-lineal
 regresión-loess

@@ -32,13 +32,20 @@ Español:
 
 ***
 
+### Los paquetes
+
+```{r}
+library(tidyverse)
+library(ggversa)
+library(datos)
+```
 
 
 
 ### Facet_wrap
 
 
-```{r, echo=FALSE}
+```{r}
 ggplot(data = Anolis) +
   geom_point(mapping = aes(x = SVL, y = TAIL, color=SEX_AGE))+
   facet_wrap(~SEX_AGE, ncol=1)
@@ -47,7 +54,7 @@ ggplot(data = Anolis) +
 ### Regresión lineal
 
 
-```{r, echo=FALSE}
+```{r}
 # izquierda
 ggplot(data = millas) +
   geom_point(mapping = aes(x = cilindrada, y = autopista))
@@ -67,7 +74,7 @@ Vea este enlace para información sobre la regresión LOESS
 
 
 
-```{r, echo=FALSE, warning=FALSE}
+```{r, warning=FALSE}
 names(millas)
 
 ggplot(data = millas) +
@@ -76,7 +83,7 @@ ggplot(data = millas) +
 
 ### Regresión LOESS de un grupo
 
-```{r, echo=FALSE}
+```{r}
 ggplot(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
   geom_point(mapping = aes(color = clase)) +
   geom_smooth(data = filter(millas, clase == "suv"), se =TRUE)
@@ -84,7 +91,7 @@ ggplot(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
 
 ### Regresión LOESS: dos alternativas
 
-```{r, echo=FALSE}
+```{r}
 ggplot(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
   geom_point() +
   geom_smooth()
@@ -98,7 +105,7 @@ ggplot() +
 
 
 
-```{r, echo=FALSE}
+```{r}
 ggplot(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
   geom_point(mapping = aes(color = clase)) +
   geom_smooth(method=lm)
