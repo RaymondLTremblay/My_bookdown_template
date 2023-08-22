@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-08-21" />
+<meta name="date" content="2023-08-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -178,14 +178,19 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.5" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#facet_wrap"><i class="fa fa-check"></i><b>2.3.5</b> Facet_wrap</a></li>
 <li class="chapter" data-level="2.3.6" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#regresión-lineal"><i class="fa fa-check"></i><b>2.3.6</b> Regresión lineal</a></li>
 <li class="chapter" data-level="2.3.7" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#regresión-loess"><i class="fa fa-check"></i><b>2.3.7</b> Regresión Loess</a></li>
+<li class="chapter" data-level="2.3.8" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#regresión-loess-de-un-grupo"><i class="fa fa-check"></i><b>2.3.8</b> Regresión LOESS de un grupo</a></li>
+<li class="chapter" data-level="2.3.9" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#regresión-loess-dos-alternativas"><i class="fa fa-check"></i><b>2.3.9</b> Regresión LOESS: dos alternativas</a></li>
+<li class="chapter" data-level="2.3.10" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#regresión-lineal-ybmx"><i class="fa fa-check"></i><b>2.3.10</b> Regresión Lineal <span class="math display">\[y=b+mx\]</span></a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#extracción-de-valores-de-un-conjunto-de-datos"><i class="fa fa-check"></i><b>2.4</b> Extracción de valores de un conjunto de datos</a>
+<li class="chapter" data-level="2.4" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#extracción-de-valores-de-un-conjunto-de-datos"><i class="fa fa-check"></i><b>2.4</b> Extracción de valores de un conjunto de datos</a></li>
+<li class="chapter" data-level="2.5" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#ejemplos-de-gráficos"><i class="fa fa-check"></i><b>2.5</b> Ejemplos de Gráficos</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#geom_bar"><i class="fa fa-check"></i><b>2.4.1</b> geom_bar()</a></li>
-<li class="chapter" data-level="2.4.2" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#puntos-con-intervalo-mínimo-y-máximo"><i class="fa fa-check"></i><b>2.4.2</b> Puntos con intervalo mínimo y máximo</a></li>
-<li class="chapter" data-level="2.4.3" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#geom_boxplot"><i class="fa fa-check"></i><b>2.4.3</b> geom_boxplot</a></li>
-<li class="chapter" data-level="2.4.4" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#geom_bar-y-circular"><i class="fa fa-check"></i><b>2.4.4</b> geom_bar y circular</a></li>
+<li class="chapter" data-level="2.5.1" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#geom_bar"><i class="fa fa-check"></i><b>2.5.1</b> geom_bar()</a></li>
+<li class="chapter" data-level="2.5.2" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#puntos-con-intervalo-mínimo-y-máximo"><i class="fa fa-check"></i><b>2.5.2</b> Puntos con intervalo mínimo y máximo</a></li>
+<li class="chapter" data-level="2.5.3" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#geom_boxplot"><i class="fa fa-check"></i><b>2.5.3</b> geom_boxplot</a></li>
+<li class="chapter" data-level="2.5.4" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#geom_bar-y-circular"><i class="fa fa-check"></i><b>2.5.4</b> geom_bar y circular</a></li>
 </ul></li>
+<li class="chapter" data-level="2.6" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#leer-datos-de-un-archivo"><i class="fa fa-check"></i><b>2.6</b> Leer datos de un archivo</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html"><i class="fa fa-check"></i><b>3</b> Visualización de datos</a>
 <ul>
@@ -317,55 +322,51 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.17" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#otro-tipos-de-patrones"><i class="fa fa-check"></i><b>13.17</b> Otro tipos de patrones</a></li>
 <li class="chapter" data-level="13.18" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#stringi"><i class="fa fa-check"></i><b>13.18</b> stringi:</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="factores-1.html"><a href="factores-1.html"><i class="fa fa-check"></i><b>14</b> Factores</a></li>
-<li class="chapter" data-level="15" data-path="titulo-grande.html"><a href="titulo-grande.html"><i class="fa fa-check"></i><b>15</b> Titulo Grande</a>
+<li class="chapter" data-level="14" data-path="factores-1.html"><a href="factores-1.html"><i class="fa fa-check"></i><b>14</b> Factores</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="titulo-grande.html"><a href="titulo-grande.html#titulo-mediano"><i class="fa fa-check"></i><b>15.1</b> Titulo mediano</a>
+<li class="chapter" data-level="14.1" data-path="factores-1.html"><a href="factores-1.html#titulo-mediano"><i class="fa fa-check"></i><b>14.1</b> Titulo mediano</a>
 <ul>
-<li class="chapter" data-level="15.1.1" data-path="titulo-grande.html"><a href="titulo-grande.html#titulo-pequeño"><i class="fa fa-check"></i><b>15.1.1</b> Titulo pequeño</a></li>
+<li class="chapter" data-level="14.1.1" data-path="factores-1.html"><a href="factores-1.html#titulo-pequeño"><i class="fa fa-check"></i><b>14.1.1</b> Titulo pequeño</a></li>
 </ul></li>
-<li class="chapter" data-level="15.2" data-path="titulo-grande.html"><a href="titulo-grande.html#temas-4"><i class="fa fa-check"></i><b>15.2</b> Temas:</a>
+<li class="chapter" data-level="14.2" data-path="factores-1.html"><a href="factores-1.html#temas-4"><i class="fa fa-check"></i><b>14.2</b> Temas:</a>
 <ul>
-<li class="chapter" data-level="15.2.1" data-path="titulo-grande.html"><a href="titulo-grande.html#datos-encuesta-social-general"><i class="fa fa-check"></i><b>15.2.1</b> Datos : Encuesta Social General</a></li>
+<li class="chapter" data-level="14.2.1" data-path="factores-1.html"><a href="factores-1.html#datos-encuesta-social-general"><i class="fa fa-check"></i><b>14.2.1</b> Datos : Encuesta Social General</a></li>
 </ul></li>
-<li class="chapter" data-level="15.3" data-path="titulo-grande.html"><a href="titulo-grande.html#a-smaller-figure-to-the-right-with-floating-text"><i class="fa fa-check"></i><b>15.3</b> A smaller figure to the right, with floating text</a></li>
+<li class="chapter" data-level="14.3" data-path="factores-1.html"><a href="factores-1.html#a-smaller-figure-to-the-right-with-floating-text"><i class="fa fa-check"></i><b>14.3</b> A smaller figure to the right, with floating text</a></li>
+<li class="chapter" data-level="14.4" data-path="factores-1.html"><a href="factores-1.html#modificar-el-orden-de-los-factores"><i class="fa fa-check"></i><b>14.4</b> Modificar el orden de los factores</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html"><i class="fa fa-check"></i><b>16</b> Haga un re-order por la cantidad de personas por religion</a>
+<li class="chapter" data-level="15" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html"><i class="fa fa-check"></i><b>15</b> Fechas, horas y minutas</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#modificar-el-orden-de-los-factores"><i class="fa fa-check"></i><b>16.1</b> Modificar el orden de los factores</a></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html"><i class="fa fa-check"></i><b>17</b> Fechas, horas y minutas</a>
+<li class="chapter" data-level="15.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#temas-5"><i class="fa fa-check"></i><b>15.1</b> Temas:</a></li>
+<li class="chapter" data-level="15.2" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#creando-fechashoras"><i class="fa fa-check"></i><b>15.2</b> Creando fechas/horas</a></li>
+<li class="chapter" data-level="15.3" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#el-paquete-lubridate"><i class="fa fa-check"></i><b>15.3</b> El paquete <code>lubridate</code></a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#temas-5"><i class="fa fa-check"></i><b>17.1</b> Temas:</a></li>
-<li class="chapter" data-level="17.2" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#creando-fechashoras"><i class="fa fa-check"></i><b>17.2</b> Creando fechas/horas</a></li>
-<li class="chapter" data-level="17.3" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#el-paquete-lubridate"><i class="fa fa-check"></i><b>17.3</b> El paquete <code>lubridate</code></a>
-<ul>
-<li class="chapter" data-level="17.3.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#un-error-tipico"><i class="fa fa-check"></i><b>17.3.1</b> Un error tipico</a></li>
+<li class="chapter" data-level="15.3.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#un-error-tipico"><i class="fa fa-check"></i><b>15.3.1</b> Un error tipico</a></li>
 </ul></li>
-<li class="chapter" data-level="17.4" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#intervalos-y-duraciones"><i class="fa fa-check"></i><b>17.4</b> Intervalos y duraciones</a></li>
-<li class="chapter" data-level="17.5" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#ejercicio"><i class="fa fa-check"></i><b>17.5</b> Ejercicio</a></li>
-<li class="chapter" data-level="17.6" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#as.duration"><i class="fa fa-check"></i><b>17.6</b> as.duration</a>
+<li class="chapter" data-level="15.4" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#intervalos-y-duraciones"><i class="fa fa-check"></i><b>15.4</b> Intervalos y duraciones</a></li>
+<li class="chapter" data-level="15.5" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#ejercicio"><i class="fa fa-check"></i><b>15.5</b> Ejercicio</a></li>
+<li class="chapter" data-level="15.6" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#as.duration"><i class="fa fa-check"></i><b>15.6</b> as.duration</a>
 <ul>
-<li class="chapter" data-level="17.6.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#funciones"><i class="fa fa-check"></i><b>17.6.1</b> Funciones</a></li>
-<li class="chapter" data-level="17.6.2" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas-con-cednas-de-caracteres"><i class="fa fa-check"></i><b>17.6.2</b> Fechas con cednas de caracteres</a></li>
-<li class="chapter" data-level="17.6.3" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas-con-horas"><i class="fa fa-check"></i><b>17.6.3</b> Fechas con horas</a></li>
-<li class="chapter" data-level="17.6.4" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas"><i class="fa fa-check"></i><b>17.6.4</b> Fechas</a></li>
+<li class="chapter" data-level="15.6.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#funciones"><i class="fa fa-check"></i><b>15.6.1</b> Funciones</a></li>
+<li class="chapter" data-level="15.6.2" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas-con-cednas-de-caracteres"><i class="fa fa-check"></i><b>15.6.2</b> Fechas con cednas de caracteres</a></li>
+<li class="chapter" data-level="15.6.3" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas-con-horas"><i class="fa fa-check"></i><b>15.6.3</b> Fechas con horas</a></li>
+<li class="chapter" data-level="15.6.4" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas"><i class="fa fa-check"></i><b>15.6.4</b> Fechas</a></li>
 </ul></li>
-<li class="chapter" data-level="17.7" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#crear-una-fecha-desde-columnas-individuales"><i class="fa fa-check"></i><b>17.7</b> Crear una fecha desde columnas individuales</a></li>
-<li class="chapter" data-level="17.8" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#extrayendo-parte-de-las-fecha-hora"><i class="fa fa-check"></i><b>17.8</b> Extrayendo parte de las fecha-hora</a></li>
-<li class="chapter" data-level="17.9" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#lapso-de-tiempo"><i class="fa fa-check"></i><b>17.9</b> Lapso de tiempo</a></li>
-<li class="chapter" data-level="17.10" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#duraciones"><i class="fa fa-check"></i><b>17.10</b> duraciones</a></li>
-<li class="chapter" data-level="17.11" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#períodos"><i class="fa fa-check"></i><b>17.11</b> períodos</a>
+<li class="chapter" data-level="15.7" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#crear-una-fecha-desde-columnas-individuales"><i class="fa fa-check"></i><b>15.7</b> Crear una fecha desde columnas individuales</a></li>
+<li class="chapter" data-level="15.8" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#extrayendo-parte-de-las-fecha-hora"><i class="fa fa-check"></i><b>15.8</b> Extrayendo parte de las fecha-hora</a></li>
+<li class="chapter" data-level="15.9" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#lapso-de-tiempo"><i class="fa fa-check"></i><b>15.9</b> Lapso de tiempo</a></li>
+<li class="chapter" data-level="15.10" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#duraciones"><i class="fa fa-check"></i><b>15.10</b> duraciones</a></li>
+<li class="chapter" data-level="15.11" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#períodos"><i class="fa fa-check"></i><b>15.11</b> períodos</a>
 <ul>
-<li class="chapter" data-level="17.11.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#multiplicaciones-y-sumas-de-fechas"><i class="fa fa-check"></i><b>17.11.1</b> Multiplicaciones y sumas de fechas</a></li>
+<li class="chapter" data-level="15.11.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#multiplicaciones-y-sumas-de-fechas"><i class="fa fa-check"></i><b>15.11.1</b> Multiplicaciones y sumas de fechas</a></li>
 </ul></li>
-<li class="chapter" data-level="17.12" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#períodos-1"><i class="fa fa-check"></i><b>17.12</b> Períodos</a>
+<li class="chapter" data-level="15.12" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#períodos-1"><i class="fa fa-check"></i><b>15.12</b> Períodos</a>
 <ul>
-<li class="chapter" data-level="17.12.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#multiplicaciones-y-sumas-de-periodos"><i class="fa fa-check"></i><b>17.12.1</b> Multiplicaciones y sumas de periodos</a></li>
+<li class="chapter" data-level="15.12.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#multiplicaciones-y-sumas-de-periodos"><i class="fa fa-check"></i><b>15.12.1</b> Multiplicaciones y sumas de periodos</a></li>
 </ul></li>
-<li class="chapter" data-level="17.13" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#intervalos"><i class="fa fa-check"></i><b>17.13</b> Intervalos</a></li>
-<li class="chapter" data-level="17.14" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#resumen"><i class="fa fa-check"></i><b>17.14</b> Resumen</a></li>
-<li class="chapter" data-level="17.15" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#time-zones"><i class="fa fa-check"></i><b>17.15</b> Time zones</a></li>
+<li class="chapter" data-level="15.13" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#intervalos"><i class="fa fa-check"></i><b>15.13</b> Intervalos</a></li>
+<li class="chapter" data-level="15.14" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#resumen"><i class="fa fa-check"></i><b>15.14</b> Resumen</a></li>
+<li class="chapter" data-level="15.15" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#time-zones"><i class="fa fa-check"></i><b>15.15</b> Time zones</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -423,13 +424,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="flujo-de-trabajo.html#cb1-1" tabindex="-1"></a><span class="co">#install.packages(&quot;tidyverse&quot;)</span></span>
 <span id="cb1-2"><a href="flujo-de-trabajo.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 </details>
-<pre><code>## ── Attaching core tidyverse packages ───────────────────────────────────────────────────────────────────────────── tidyverse 2.0.0 ──
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.1.2     ✔ readr     2.1.4
 ## ✔ forcats   1.0.0     ✔ stringr   1.5.0
 ## ✔ ggplot2   3.4.3     ✔ tibble    3.2.1
 ## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
 ## ✔ purrr     1.0.2     
-## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
@@ -601,6 +602,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 6 Mark/recap North Tower      El Verde 01:00 3/9/… dry    Anolis… Female     0.4
 ## # ℹ 6 more variables: DISTANCE_FROM_CENTERLINE &lt;dbl&gt;, PERCH_SUBSTRATE &lt;chr&gt;,
 ## #   PERCH_DIAMETER &lt;int&gt;, WEIGHT &lt;dbl&gt;, SVL &lt;dbl&gt;, TAIL &lt;dbl&gt;</code></pre>
+<hr />
 </div>
 <div id="facet_wrap" class="section level3 hasAnchor" number="2.3.5">
 <h3><span class="header-section-number">2.3.5</span> Facet_wrap<a href="flujo-de-trabajo.html#facet_wrap" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -622,19 +624,30 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## [11] &quot;clase&quot;</code></pre>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+</div>
+<div id="regresión-loess-de-un-grupo" class="section level3 hasAnchor" number="2.3.8">
+<h3><span class="header-section-number">2.3.8</span> Regresión LOESS de un grupo<a href="flujo-de-trabajo.html#regresión-loess-de-un-grupo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+<div id="regresión-loess-dos-alternativas" class="section level3 hasAnchor" number="2.3.9">
+<h3><span class="header-section-number">2.3.9</span> Regresión LOESS: dos alternativas<a href="flujo-de-trabajo.html#regresión-loess-dos-alternativas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-16-2.png" width="672" /></p>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
+</div>
+<div id="regresión-lineal-ybmx" class="section level3 hasAnchor" number="2.3.10">
+<h3><span class="header-section-number">2.3.10</span> Regresión Lineal <span class="math display">\[y=b+mx\]</span><a href="flujo-de-trabajo.html#regresión-lineal-ybmx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 </div>
 </div>
 <div id="extracción-de-valores-de-un-conjunto-de-datos" class="section level2 hasAnchor" number="2.4">
 <h2><span class="header-section-number">2.4</span> Extracción de valores de un conjunto de datos<a href="flujo-de-trabajo.html#extracción-de-valores-de-un-conjunto-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Aqui usamos el conjunto de datos de <strong>diamantes</strong> que se encuentra en el paquete <strong>ggplot2</strong></p>
+<div id="los-primeros-datos-de-un-archivo" class="section level4 hasAnchor" number="2.4.0.1">
+<h4><span class="header-section-number">2.4.0.1</span> Los primeros datos de un archivo<a href="flujo-de-trabajo.html#los-primeros-datos-de-un-archivo" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="flujo-de-trabajo.html#cb32-1" tabindex="-1"></a><span class="fu">head</span>(diamantes)</span></code></pre></div>
 </details>
@@ -647,98 +660,135 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 4    334    0.29 Premium   I     VS2             62.4    58  4.2   4.23  2.63
 ## 5    335    0.31 Bueno     J     SI2             63.3    58  4.34  4.35  2.75
 ## 6    336    0.24 Muy bueno J     VVS2            62.8    57  3.94  3.96  2.48</code></pre>
+</div>
+<div id="la-cantidad-de-fila" class="section level4 hasAnchor" number="2.4.0.2">
+<h4><span class="header-section-number">2.4.0.2</span> La cantidad de fila<a href="flujo-de-trabajo.html#la-cantidad-de-fila" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="flujo-de-trabajo.html#cb34-1" tabindex="-1"></a><span class="fu">nrow</span>(diamantes)</span></code></pre></div>
 </details>
 <pre><code>## [1] 53940</code></pre>
+</div>
+<div id="la-cantidad-de-columnas-variables" class="section level4 hasAnchor" number="2.4.0.3">
+<h4><span class="header-section-number">2.4.0.3</span> La cantidad de columnas (variables)<a href="flujo-de-trabajo.html#la-cantidad-de-columnas-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="flujo-de-trabajo.html#cb36-1" tabindex="-1"></a><span class="fu">ncol</span>(diamantes)</span></code></pre></div>
 </details>
 <pre><code>## [1] 10</code></pre>
+</div>
+<div id="la-dimensiones-de-un-archivo" class="section level4 hasAnchor" number="2.4.0.4">
+<h4><span class="header-section-number">2.4.0.4</span> La dimensiones de un archivo<a href="flujo-de-trabajo.html#la-dimensiones-de-un-archivo" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="flujo-de-trabajo.html#cb38-1" tabindex="-1"></a><span class="fu">dim</span>(diamantes)</span></code></pre></div>
 </details>
 <pre><code>## [1] 53940    10</code></pre>
+</div>
+<div id="el-valor-máximo-de-una-variable" class="section level4 hasAnchor" number="2.4.0.5">
+<h4><span class="header-section-number">2.4.0.5</span> El valor máximo de una variable<a href="flujo-de-trabajo.html#el-valor-máximo-de-una-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="flujo-de-trabajo.html#cb40-1" tabindex="-1"></a><span class="fu">max</span>(diamantes<span class="sc">$</span>precio)</span></code></pre></div>
 </details>
 <pre><code>## [1] 18823</code></pre>
+</div>
+<div id="el-valor-mínimo-de-una-variable" class="section level4 hasAnchor" number="2.4.0.6">
+<h4><span class="header-section-number">2.4.0.6</span> El valor mínimo de una variable<a href="flujo-de-trabajo.html#el-valor-mínimo-de-una-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="flujo-de-trabajo.html#cb42-1" tabindex="-1"></a><span class="fu">min</span>(diamantes<span class="sc">$</span>precio)</span></code></pre></div>
 </details>
 <pre><code>## [1] 326</code></pre>
+</div>
+<div id="los-valores-discretos-de-una-variable" class="section level4 hasAnchor" number="2.4.0.7">
+<h4><span class="header-section-number">2.4.0.7</span> Los valores discretos de una variable<a href="flujo-de-trabajo.html#los-valores-discretos-de-una-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="flujo-de-trabajo.html#cb44-1" tabindex="-1"></a><span class="fu">unique</span>(diamantes<span class="sc">$</span>corte)</span></code></pre></div>
 </details>
 <pre><code>## [1] Ideal     Premium   Bueno     Muy bueno Regular  
 ## Levels: Regular &lt; Bueno &lt; Muy bueno &lt; Premium &lt; Ideal</code></pre>
+<ul>
+<li><p>diamantes$corte</p></li>
+<li><p>diamantes$precio</p></li>
+</ul>
+</div>
+</div>
+<div id="ejemplos-de-gráficos" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Ejemplos de Gráficos<a href="flujo-de-trabajo.html#ejemplos-de-gráficos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="geom_bar" class="section level3 hasAnchor" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> geom_bar()<a href="flujo-de-trabajo.html#geom_bar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="flujo-de-trabajo.html#cb46-1" tabindex="-1"></a><span class="co">#diamantes$corte</span></span>
-<span id="cb46-2"><a href="flujo-de-trabajo.html#cb46-2" tabindex="-1"></a><span class="co">#diamantes$precio</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="flujo-de-trabajo.html#cb46-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamantes) <span class="sc">+</span></span>
+<span id="cb46-2"><a href="flujo-de-trabajo.html#cb46-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> corte))</span></code></pre></div>
 </details>
-<div id="geom_bar" class="section level3 hasAnchor" number="2.4.1">
-<h3><span class="header-section-number">2.4.1</span> geom_bar()<a href="flujo-de-trabajo.html#geom_bar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+</div>
+<div id="puntos-con-intervalo-mínimo-y-máximo" class="section level3 hasAnchor" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Puntos con intervalo mínimo y máximo<a href="flujo-de-trabajo.html#puntos-con-intervalo-mínimo-y-máximo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="flujo-de-trabajo.html#cb47-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamantes) <span class="sc">+</span></span>
-<span id="cb47-2"><a href="flujo-de-trabajo.html#cb47-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> corte))</span></code></pre></div>
+<span id="cb47-2"><a href="flujo-de-trabajo.html#cb47-2" tabindex="-1"></a>  <span class="fu">stat_summary</span>(</span>
+<span id="cb47-3"><a href="flujo-de-trabajo.html#cb47-3" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> corte, <span class="at">y =</span> profundidad),</span>
+<span id="cb47-4"><a href="flujo-de-trabajo.html#cb47-4" tabindex="-1"></a>    <span class="at">fun.min =</span> min,</span>
+<span id="cb47-5"><a href="flujo-de-trabajo.html#cb47-5" tabindex="-1"></a>    <span class="at">fun.max =</span> max,</span>
+<span id="cb47-6"><a href="flujo-de-trabajo.html#cb47-6" tabindex="-1"></a>    <span class="at">fun =</span> median</span>
+<span id="cb47-7"><a href="flujo-de-trabajo.html#cb47-7" tabindex="-1"></a>  )</span></code></pre></div>
 </details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 </div>
-<div id="puntos-con-intervalo-mínimo-y-máximo" class="section level3 hasAnchor" number="2.4.2">
-<h3><span class="header-section-number">2.4.2</span> Puntos con intervalo mínimo y máximo<a href="flujo-de-trabajo.html#puntos-con-intervalo-mínimo-y-máximo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="geom_boxplot" class="section level3 hasAnchor" number="2.5.3">
+<h3><span class="header-section-number">2.5.3</span> geom_boxplot<a href="flujo-de-trabajo.html#geom_boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="flujo-de-trabajo.html#cb48-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamantes) <span class="sc">+</span></span>
-<span id="cb48-2"><a href="flujo-de-trabajo.html#cb48-2" tabindex="-1"></a>  <span class="fu">stat_summary</span>(</span>
-<span id="cb48-3"><a href="flujo-de-trabajo.html#cb48-3" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> corte, <span class="at">y =</span> profundidad),</span>
-<span id="cb48-4"><a href="flujo-de-trabajo.html#cb48-4" tabindex="-1"></a>    <span class="at">fun.min =</span> min,</span>
-<span id="cb48-5"><a href="flujo-de-trabajo.html#cb48-5" tabindex="-1"></a>    <span class="at">fun.max =</span> max,</span>
-<span id="cb48-6"><a href="flujo-de-trabajo.html#cb48-6" tabindex="-1"></a>    <span class="at">fun =</span> median</span>
-<span id="cb48-7"><a href="flujo-de-trabajo.html#cb48-7" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="flujo-de-trabajo.html#cb48-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> millas, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> clase, <span class="at">y =</span> autopista)) <span class="sc">+</span></span>
+<span id="cb48-2"><a href="flujo-de-trabajo.html#cb48-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 </details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
-</div>
-<div id="geom_boxplot" class="section level3 hasAnchor" number="2.4.3">
-<h3><span class="header-section-number">2.4.3</span> geom_boxplot<a href="flujo-de-trabajo.html#geom_boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="flujo-de-trabajo.html#cb49-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> millas, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> clase, <span class="at">y =</span> autopista)) <span class="sc">+</span></span>
-<span id="cb49-2"><a href="flujo-de-trabajo.html#cb49-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<span id="cb49-2"><a href="flujo-de-trabajo.html#cb49-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb49-3"><a href="flujo-de-trabajo.html#cb49-3" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
 </details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="flujo-de-trabajo.html#cb50-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> millas, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> clase, <span class="at">y =</span> autopista)) <span class="sc">+</span></span>
-<span id="cb50-2"><a href="flujo-de-trabajo.html#cb50-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb50-3"><a href="flujo-de-trabajo.html#cb50-3" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
-</details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-21-2.png" width="672" /></p>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-27-2.png" width="672" /></p>
 </div>
-<div id="geom_bar-y-circular" class="section level3 hasAnchor" number="2.4.4">
-<h3><span class="header-section-number">2.4.4</span> geom_bar y circular<a href="flujo-de-trabajo.html#geom_bar-y-circular" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="geom_bar-y-circular" class="section level3 hasAnchor" number="2.5.4">
+<h3><span class="header-section-number">2.5.4</span> geom_bar y circular<a href="flujo-de-trabajo.html#geom_bar-y-circular" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="flujo-de-trabajo.html#cb51-1" tabindex="-1"></a>bar <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> diamantes) <span class="sc">+</span></span>
-<span id="cb51-2"><a href="flujo-de-trabajo.html#cb51-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(</span>
-<span id="cb51-3"><a href="flujo-de-trabajo.html#cb51-3" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> corte, <span class="at">fill =</span> corte),</span>
-<span id="cb51-4"><a href="flujo-de-trabajo.html#cb51-4" tabindex="-1"></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb51-5"><a href="flujo-de-trabajo.html#cb51-5" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">1</span></span>
-<span id="cb51-6"><a href="flujo-de-trabajo.html#cb51-6" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb51-7"><a href="flujo-de-trabajo.html#cb51-7" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb51-8"><a href="flujo-de-trabajo.html#cb51-8" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
-<span id="cb51-9"><a href="flujo-de-trabajo.html#cb51-9" tabindex="-1"></a>bar</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="flujo-de-trabajo.html#cb50-1" tabindex="-1"></a>bar <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> diamantes) <span class="sc">+</span></span>
+<span id="cb50-2"><a href="flujo-de-trabajo.html#cb50-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(</span>
+<span id="cb50-3"><a href="flujo-de-trabajo.html#cb50-3" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> corte, <span class="at">fill =</span> corte),</span>
+<span id="cb50-4"><a href="flujo-de-trabajo.html#cb50-4" tabindex="-1"></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb50-5"><a href="flujo-de-trabajo.html#cb50-5" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">1</span></span>
+<span id="cb50-6"><a href="flujo-de-trabajo.html#cb50-6" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb50-7"><a href="flujo-de-trabajo.html#cb50-7" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb50-8"><a href="flujo-de-trabajo.html#cb50-8" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span></code></pre></div>
 </details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<div id="geom_bar-1" class="section level4 hasAnchor" number="2.5.4.1">
+<h4><span class="header-section-number">2.5.4.1</span> geom_bar<a href="flujo-de-trabajo.html#geom_bar-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="flujo-de-trabajo.html#cb51-1" tabindex="-1"></a>bar</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+</div>
+<div id="geom_bar-flip-coordinates" class="section level4 hasAnchor" number="2.5.4.2">
+<h4><span class="header-section-number">2.5.4.2</span> geom_bar &amp; flip coordinates<a href="flujo-de-trabajo.html#geom_bar-flip-coordinates" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="flujo-de-trabajo.html#cb52-1" tabindex="-1"></a>bar <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code></pre></div>
 </details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-22-2.png" width="672" /></p>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+</div>
+<div id="geom_bar-circular-distribution" class="section level4 hasAnchor" number="2.5.4.3">
+<h4><span class="header-section-number">2.5.4.3</span> geom_bar &amp; circular distribution<a href="flujo-de-trabajo.html#geom_bar-circular-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="flujo-de-trabajo.html#cb53-1" tabindex="-1"></a>bar <span class="sc">+</span> <span class="fu">coord_polar</span>()</span></code></pre></div>
 </details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-22-3.png" width="672" /></p>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="leer-datos-de-un-archivo" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Leer datos de un archivo<a href="flujo-de-trabajo.html#leer-datos-de-un-archivo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="flujo-de-trabajo.html#cb54-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb54-2"><a href="flujo-de-trabajo.html#cb54-2" tabindex="-1"></a>Vuelos_SJU_2018_Ene <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Datos/Vuelos_SJU_2018_Ene.csv&quot;</span>)</span></code></pre></div>
 </details>
 <pre><code>## Rows: 3831 Columns: 14
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (8): FL_DATE, OP_UNIQUE_CARRIER, ORIGIN, ORIGIN_CITY_NAME, ORIGIN_STATE_...
 ## dbl (6): DEP_TIME, DEP_DELAY, CRS_ARR_TIME, ARR_TIME, ARR_DELAY, CANCELLED
@@ -761,7 +811,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## #   DEP_TIME &lt;dbl&gt;, DEP_DELAY &lt;dbl&gt;, CRS_ARR_TIME &lt;dbl&gt;, ARR_TIME &lt;dbl&gt;,
 ## #   ARR_DELAY &lt;dbl&gt;, CANCELLED &lt;dbl&gt;</code></pre>
 
-</div>
 </div>
 </div>
             </section>
@@ -824,6 +873,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

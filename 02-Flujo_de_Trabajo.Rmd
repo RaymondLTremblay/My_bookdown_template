@@ -153,6 +153,10 @@ head(Anolis)
 
 
 
+***
+
+
+
 ### Facet_wrap
 
 
@@ -192,13 +196,15 @@ ggplot(data = millas) +
   geom_smooth(mapping = aes(x = cilindrada, y = autopista, linetype = clase, colour=clase))
 ```
 
+### Regresión LOESS de un grupo
+
 ```{r, echo=FALSE}
 ggplot(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
   geom_point(mapping = aes(color = clase)) +
   geom_smooth(data = filter(millas, clase == "suv"), se =TRUE)
 ```
 
-
+### Regresión LOESS: dos alternativas
 
 ```{r, echo=FALSE}
 ggplot(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
@@ -210,31 +216,67 @@ ggplot() +
   geom_smooth(data = millas, mapping = aes(x = cilindrada, y = autopista))
 ```
 
+### Regresión Lineal $$y=b+mx$$
+
+
 
 ```{r, echo=FALSE}
 ggplot(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
   geom_point(mapping = aes(color = clase)) +
-  geom_smooth()
+  geom_smooth(method=lm)
 ```
 
 ## Extracción de valores de un conjunto de datos
 
 Aqui usamos el conjunto de datos de **diamantes** que se encuentra en el paquete **ggplot2**
 
+
+#### Los primeros datos de un archivo
 ```{r}
 head(diamantes)
-nrow(diamantes)
-ncol(diamantes)
-dim(diamantes)
-
-max(diamantes$precio)
-min(diamantes$precio)
-
-unique(diamantes$corte)
-#diamantes$corte
-#diamantes$precio
-
 ```
+
+#### La cantidad de fila
+```{r}
+nrow(diamantes)
+```
+
+#### La cantidad de columnas (variables)
+```{r}
+ncol(diamantes)
+```
+
+#### La dimensiones de un archivo
+
+```{r}
+dim(diamantes)
+```
+
+#### El valor máximo de una variable
+
+```{r}
+max(diamantes$precio)
+```
+
+#### El valor mínimo de una variable
+
+```{r}
+min(diamantes$precio)
+```
+
+#### Los valores discretos de una variable
+
+```{r}
+unique(diamantes$corte)
+```
+
+
+ - diamantes$corte
+
+ - diamantes$precio
+
+## Ejemplos de Gráficos
+
 ### geom_bar()
 
 ```{r}
@@ -273,6 +315,8 @@ ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
 ### geom_bar y circular
 
 
+
+
 ```{r}
 bar <- ggplot(data = diamantes) +
   geom_bar(
@@ -282,10 +326,30 @@ bar <- ggplot(data = diamantes) +
   ) +
   theme(aspect.ratio = 1) +
   labs(x = NULL, y = NULL)
+```
+
+#### geom_bar
+
+```{r}
 bar
+```
+
+#### geom_bar & flip coordinates
+
+```{r}
 bar + coord_flip()
+```
+
+
+#### geom_bar & circular distribution
+```{r}
 bar + coord_polar()
 ```
+
+
+##  Leer datos de un archivo
+
+
 ```{r}
 library(readr)
 Vuelos_SJU_2018_Ene <- read_csv("Datos/Vuelos_SJU_2018_Ene.csv")

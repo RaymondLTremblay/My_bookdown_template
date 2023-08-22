@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-08-21" />
+<meta name="date" content="2023-08-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -178,14 +178,19 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.5" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#facet_wrap"><i class="fa fa-check"></i><b>2.3.5</b> Facet_wrap</a></li>
 <li class="chapter" data-level="2.3.6" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#regresión-lineal"><i class="fa fa-check"></i><b>2.3.6</b> Regresión lineal</a></li>
 <li class="chapter" data-level="2.3.7" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#regresión-loess"><i class="fa fa-check"></i><b>2.3.7</b> Regresión Loess</a></li>
+<li class="chapter" data-level="2.3.8" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#regresión-loess-de-un-grupo"><i class="fa fa-check"></i><b>2.3.8</b> Regresión LOESS de un grupo</a></li>
+<li class="chapter" data-level="2.3.9" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#regresión-loess-dos-alternativas"><i class="fa fa-check"></i><b>2.3.9</b> Regresión LOESS: dos alternativas</a></li>
+<li class="chapter" data-level="2.3.10" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#regresión-lineal-ybmx"><i class="fa fa-check"></i><b>2.3.10</b> Regresión Lineal <span class="math display">\[y=b+mx\]</span></a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#extracción-de-valores-de-un-conjunto-de-datos"><i class="fa fa-check"></i><b>2.4</b> Extracción de valores de un conjunto de datos</a>
+<li class="chapter" data-level="2.4" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#extracción-de-valores-de-un-conjunto-de-datos"><i class="fa fa-check"></i><b>2.4</b> Extracción de valores de un conjunto de datos</a></li>
+<li class="chapter" data-level="2.5" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#ejemplos-de-gráficos"><i class="fa fa-check"></i><b>2.5</b> Ejemplos de Gráficos</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#geom_bar"><i class="fa fa-check"></i><b>2.4.1</b> geom_bar()</a></li>
-<li class="chapter" data-level="2.4.2" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#puntos-con-intervalo-mínimo-y-máximo"><i class="fa fa-check"></i><b>2.4.2</b> Puntos con intervalo mínimo y máximo</a></li>
-<li class="chapter" data-level="2.4.3" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#geom_boxplot"><i class="fa fa-check"></i><b>2.4.3</b> geom_boxplot</a></li>
-<li class="chapter" data-level="2.4.4" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#geom_bar-y-circular"><i class="fa fa-check"></i><b>2.4.4</b> geom_bar y circular</a></li>
+<li class="chapter" data-level="2.5.1" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#geom_bar"><i class="fa fa-check"></i><b>2.5.1</b> geom_bar()</a></li>
+<li class="chapter" data-level="2.5.2" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#puntos-con-intervalo-mínimo-y-máximo"><i class="fa fa-check"></i><b>2.5.2</b> Puntos con intervalo mínimo y máximo</a></li>
+<li class="chapter" data-level="2.5.3" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#geom_boxplot"><i class="fa fa-check"></i><b>2.5.3</b> geom_boxplot</a></li>
+<li class="chapter" data-level="2.5.4" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#geom_bar-y-circular"><i class="fa fa-check"></i><b>2.5.4</b> geom_bar y circular</a></li>
 </ul></li>
+<li class="chapter" data-level="2.6" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#leer-datos-de-un-archivo"><i class="fa fa-check"></i><b>2.6</b> Leer datos de un archivo</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html"><i class="fa fa-check"></i><b>3</b> Visualización de datos</a>
 <ul>
@@ -317,55 +322,51 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.17" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#otro-tipos-de-patrones"><i class="fa fa-check"></i><b>13.17</b> Otro tipos de patrones</a></li>
 <li class="chapter" data-level="13.18" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#stringi"><i class="fa fa-check"></i><b>13.18</b> stringi:</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="factores-1.html"><a href="factores-1.html"><i class="fa fa-check"></i><b>14</b> Factores</a></li>
-<li class="chapter" data-level="15" data-path="titulo-grande.html"><a href="titulo-grande.html"><i class="fa fa-check"></i><b>15</b> Titulo Grande</a>
+<li class="chapter" data-level="14" data-path="factores-1.html"><a href="factores-1.html"><i class="fa fa-check"></i><b>14</b> Factores</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="titulo-grande.html"><a href="titulo-grande.html#titulo-mediano"><i class="fa fa-check"></i><b>15.1</b> Titulo mediano</a>
+<li class="chapter" data-level="14.1" data-path="factores-1.html"><a href="factores-1.html#titulo-mediano"><i class="fa fa-check"></i><b>14.1</b> Titulo mediano</a>
 <ul>
-<li class="chapter" data-level="15.1.1" data-path="titulo-grande.html"><a href="titulo-grande.html#titulo-pequeño"><i class="fa fa-check"></i><b>15.1.1</b> Titulo pequeño</a></li>
+<li class="chapter" data-level="14.1.1" data-path="factores-1.html"><a href="factores-1.html#titulo-pequeño"><i class="fa fa-check"></i><b>14.1.1</b> Titulo pequeño</a></li>
 </ul></li>
-<li class="chapter" data-level="15.2" data-path="titulo-grande.html"><a href="titulo-grande.html#temas-4"><i class="fa fa-check"></i><b>15.2</b> Temas:</a>
+<li class="chapter" data-level="14.2" data-path="factores-1.html"><a href="factores-1.html#temas-4"><i class="fa fa-check"></i><b>14.2</b> Temas:</a>
 <ul>
-<li class="chapter" data-level="15.2.1" data-path="titulo-grande.html"><a href="titulo-grande.html#datos-encuesta-social-general"><i class="fa fa-check"></i><b>15.2.1</b> Datos : Encuesta Social General</a></li>
+<li class="chapter" data-level="14.2.1" data-path="factores-1.html"><a href="factores-1.html#datos-encuesta-social-general"><i class="fa fa-check"></i><b>14.2.1</b> Datos : Encuesta Social General</a></li>
 </ul></li>
-<li class="chapter" data-level="15.3" data-path="titulo-grande.html"><a href="titulo-grande.html#a-smaller-figure-to-the-right-with-floating-text"><i class="fa fa-check"></i><b>15.3</b> A smaller figure to the right, with floating text</a></li>
+<li class="chapter" data-level="14.3" data-path="factores-1.html"><a href="factores-1.html#a-smaller-figure-to-the-right-with-floating-text"><i class="fa fa-check"></i><b>14.3</b> A smaller figure to the right, with floating text</a></li>
+<li class="chapter" data-level="14.4" data-path="factores-1.html"><a href="factores-1.html#modificar-el-orden-de-los-factores"><i class="fa fa-check"></i><b>14.4</b> Modificar el orden de los factores</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html"><i class="fa fa-check"></i><b>16</b> Haga un re-order por la cantidad de personas por religion</a>
+<li class="chapter" data-level="15" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html"><i class="fa fa-check"></i><b>15</b> Fechas, horas y minutas</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html"><a href="haga-un-re-order-por-la-cantidad-de-personas-por-religion.html#modificar-el-orden-de-los-factores"><i class="fa fa-check"></i><b>16.1</b> Modificar el orden de los factores</a></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html"><i class="fa fa-check"></i><b>17</b> Fechas, horas y minutas</a>
+<li class="chapter" data-level="15.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#temas-5"><i class="fa fa-check"></i><b>15.1</b> Temas:</a></li>
+<li class="chapter" data-level="15.2" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#creando-fechashoras"><i class="fa fa-check"></i><b>15.2</b> Creando fechas/horas</a></li>
+<li class="chapter" data-level="15.3" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#el-paquete-lubridate"><i class="fa fa-check"></i><b>15.3</b> El paquete <code>lubridate</code></a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#temas-5"><i class="fa fa-check"></i><b>17.1</b> Temas:</a></li>
-<li class="chapter" data-level="17.2" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#creando-fechashoras"><i class="fa fa-check"></i><b>17.2</b> Creando fechas/horas</a></li>
-<li class="chapter" data-level="17.3" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#el-paquete-lubridate"><i class="fa fa-check"></i><b>17.3</b> El paquete <code>lubridate</code></a>
-<ul>
-<li class="chapter" data-level="17.3.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#un-error-tipico"><i class="fa fa-check"></i><b>17.3.1</b> Un error tipico</a></li>
+<li class="chapter" data-level="15.3.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#un-error-tipico"><i class="fa fa-check"></i><b>15.3.1</b> Un error tipico</a></li>
 </ul></li>
-<li class="chapter" data-level="17.4" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#intervalos-y-duraciones"><i class="fa fa-check"></i><b>17.4</b> Intervalos y duraciones</a></li>
-<li class="chapter" data-level="17.5" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#ejercicio"><i class="fa fa-check"></i><b>17.5</b> Ejercicio</a></li>
-<li class="chapter" data-level="17.6" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#as.duration"><i class="fa fa-check"></i><b>17.6</b> as.duration</a>
+<li class="chapter" data-level="15.4" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#intervalos-y-duraciones"><i class="fa fa-check"></i><b>15.4</b> Intervalos y duraciones</a></li>
+<li class="chapter" data-level="15.5" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#ejercicio"><i class="fa fa-check"></i><b>15.5</b> Ejercicio</a></li>
+<li class="chapter" data-level="15.6" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#as.duration"><i class="fa fa-check"></i><b>15.6</b> as.duration</a>
 <ul>
-<li class="chapter" data-level="17.6.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#funciones"><i class="fa fa-check"></i><b>17.6.1</b> Funciones</a></li>
-<li class="chapter" data-level="17.6.2" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas-con-cednas-de-caracteres"><i class="fa fa-check"></i><b>17.6.2</b> Fechas con cednas de caracteres</a></li>
-<li class="chapter" data-level="17.6.3" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas-con-horas"><i class="fa fa-check"></i><b>17.6.3</b> Fechas con horas</a></li>
-<li class="chapter" data-level="17.6.4" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas"><i class="fa fa-check"></i><b>17.6.4</b> Fechas</a></li>
+<li class="chapter" data-level="15.6.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#funciones"><i class="fa fa-check"></i><b>15.6.1</b> Funciones</a></li>
+<li class="chapter" data-level="15.6.2" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas-con-cednas-de-caracteres"><i class="fa fa-check"></i><b>15.6.2</b> Fechas con cednas de caracteres</a></li>
+<li class="chapter" data-level="15.6.3" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas-con-horas"><i class="fa fa-check"></i><b>15.6.3</b> Fechas con horas</a></li>
+<li class="chapter" data-level="15.6.4" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas"><i class="fa fa-check"></i><b>15.6.4</b> Fechas</a></li>
 </ul></li>
-<li class="chapter" data-level="17.7" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#crear-una-fecha-desde-columnas-individuales"><i class="fa fa-check"></i><b>17.7</b> Crear una fecha desde columnas individuales</a></li>
-<li class="chapter" data-level="17.8" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#extrayendo-parte-de-las-fecha-hora"><i class="fa fa-check"></i><b>17.8</b> Extrayendo parte de las fecha-hora</a></li>
-<li class="chapter" data-level="17.9" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#lapso-de-tiempo"><i class="fa fa-check"></i><b>17.9</b> Lapso de tiempo</a></li>
-<li class="chapter" data-level="17.10" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#duraciones"><i class="fa fa-check"></i><b>17.10</b> duraciones</a></li>
-<li class="chapter" data-level="17.11" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#períodos"><i class="fa fa-check"></i><b>17.11</b> períodos</a>
+<li class="chapter" data-level="15.7" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#crear-una-fecha-desde-columnas-individuales"><i class="fa fa-check"></i><b>15.7</b> Crear una fecha desde columnas individuales</a></li>
+<li class="chapter" data-level="15.8" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#extrayendo-parte-de-las-fecha-hora"><i class="fa fa-check"></i><b>15.8</b> Extrayendo parte de las fecha-hora</a></li>
+<li class="chapter" data-level="15.9" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#lapso-de-tiempo"><i class="fa fa-check"></i><b>15.9</b> Lapso de tiempo</a></li>
+<li class="chapter" data-level="15.10" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#duraciones"><i class="fa fa-check"></i><b>15.10</b> duraciones</a></li>
+<li class="chapter" data-level="15.11" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#períodos"><i class="fa fa-check"></i><b>15.11</b> períodos</a>
 <ul>
-<li class="chapter" data-level="17.11.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#multiplicaciones-y-sumas-de-fechas"><i class="fa fa-check"></i><b>17.11.1</b> Multiplicaciones y sumas de fechas</a></li>
+<li class="chapter" data-level="15.11.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#multiplicaciones-y-sumas-de-fechas"><i class="fa fa-check"></i><b>15.11.1</b> Multiplicaciones y sumas de fechas</a></li>
 </ul></li>
-<li class="chapter" data-level="17.12" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#períodos-1"><i class="fa fa-check"></i><b>17.12</b> Períodos</a>
+<li class="chapter" data-level="15.12" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#períodos-1"><i class="fa fa-check"></i><b>15.12</b> Períodos</a>
 <ul>
-<li class="chapter" data-level="17.12.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#multiplicaciones-y-sumas-de-periodos"><i class="fa fa-check"></i><b>17.12.1</b> Multiplicaciones y sumas de periodos</a></li>
+<li class="chapter" data-level="15.12.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#multiplicaciones-y-sumas-de-periodos"><i class="fa fa-check"></i><b>15.12.1</b> Multiplicaciones y sumas de periodos</a></li>
 </ul></li>
-<li class="chapter" data-level="17.13" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#intervalos"><i class="fa fa-check"></i><b>17.13</b> Intervalos</a></li>
-<li class="chapter" data-level="17.14" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#resumen"><i class="fa fa-check"></i><b>17.14</b> Resumen</a></li>
-<li class="chapter" data-level="17.15" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#time-zones"><i class="fa fa-check"></i><b>17.15</b> Time zones</a></li>
+<li class="chapter" data-level="15.13" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#intervalos"><i class="fa fa-check"></i><b>15.13</b> Intervalos</a></li>
+<li class="chapter" data-level="15.14" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#resumen"><i class="fa fa-check"></i><b>15.14</b> Resumen</a></li>
+<li class="chapter" data-level="15.15" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#time-zones"><i class="fa fa-check"></i><b>15.15</b> Time zones</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -453,6 +454,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
