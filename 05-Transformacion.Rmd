@@ -319,7 +319,7 @@ filter(between(horario_salida, 00, 360))
 
  - ¿Cuántos vuelos tienen datos faltantes en horario_salida? 
 -  ¿Qué otras variables tienen valores faltantes? 
-- ¿Qué representan estas filas?
+-  ¿Qué representan estas filas?
  
  
 ```{r}
@@ -328,10 +328,37 @@ select(horario_salida) %>%
 is.na() %>% 
   table()
 
-#vuelos %>%
-#select(horario_salida) %>%
-#  table()
+
 ```
+
+
+
+
+```{r}
+vuelos %>% select(anio, mes, dia, horario_salida, aerolinea) |> 
+filter(is.na(horario_salida))
+
+
+
+```
+
+#### Determinar cual aerolinea tiene más vuelos
+
+
+
+
+```{r}
+vuelos %>% select(anio, mes, dia, horario_salida, horario_llegada, aerolinea) |> 
+filter(is.na(horario_salida)) |>
+  group_by(aerolinea) |> 
+  count()
+
+
+
+```
+
+
+### ¿Qué pasa con los valores y resultados sin sentido?
 
 
 ```{r}
@@ -345,10 +372,9 @@ NA^0
 NA|TRUE
 
 FALSE & NA
-
+FALSE * NA
 NA * 0  
 NA * 1
-
 12 * 3
 NA - 3
 ```
@@ -357,7 +383,10 @@ NA - 3
 ***
 
 
-Use data from a link on the web
+### Usar datos que provienen de una base de datos del web.
+
+Aqui un website que recopila la cantidad de personas vacunadas en los EEUU.
+
 
 ```{r eval=FALSE, include=FALSE}
 library(tidyverse)

@@ -9,6 +9,14 @@ getwd()
 
 ***
 
+Activar los siguientes packetes
+
+```{r}
+library(tidyverse)
+library(datos)
+```
+
+
 
 El tema proviene de los siguientes sitios.
 
@@ -143,16 +151,11 @@ La función de Pipe.    %>% o |>
 library(tidyverse)
 millas
 millas |> dplyr::select(cilindros) |> 
-  filter(cilindros == 8)
+  dplyr::filter(cilindros == 8)
 
 ```
 
 
-ggplot(data=millas) + 
-  geom_point(mapping = aes(x = cilindrada, y = autopista))
-
-#filter(millas, cilindros = 8)
-#filter(diamante, quilate > 3)
 
 
 
@@ -166,19 +169,24 @@ diamantes |> dplyr::select(quilate) |>
 
 #### Selecionar los diamantes con igual o mayor de 4000 precio
 
-```{r, echo=FALSE, eval=FALSE}
+```{r, echo=FALSE}
 #unique(diamantes$precio)
 
-diam_4000=diamantes |> dplyr::select(precio) |> 
+dia_4000 = diamantes |> dplyr::select(precio) |> 
   dplyr::filter(precio >= 4000)
+
+head(dia_4000)
 ```
 
 
 ***
 #### Contabiliza cuantos diamantes tienen un valor de $4000 o más
-```{r}
-nrow(diam_4000) # 1 método 
-length(diam_4000$precio) # 2 método
+
+
+```{r, contar las cantidad lineas}
+
+nrow(dia_4000) 
+
 ```
 
 
