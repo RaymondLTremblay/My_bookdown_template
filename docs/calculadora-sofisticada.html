@@ -4,23 +4,22 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Calculadora sofisticada | Ciencia de Datos con R</title>
+  <title>Chapter 3 Calculadora sofisticada | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Calculadora sofisticada | Ciencia de Datos con R" />
+  <meta property="og:title" content="Chapter 3 Calculadora sofisticada | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Calculadora sofisticada | Ciencia de Datos con R" />
+  <meta name="twitter:title" content="Chapter 3 Calculadora sofisticada | Ciencia de Datos con R" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
-<meta name="author" content="" />
 
 
 <meta name="date" content="2023-08-24" />
@@ -30,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="visualización-de-datos.html"/>
+<link rel="prev" href="flujo-de-trabajo.html"/>
 <link rel="next" href="transformacion.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -91,11 +90,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #204a87; } /* Attribute */
+code span.at { color: #c4a000; } /* Attribute */
 code span.bn { color: #0000cf; } /* BaseN */
 code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #8f5902; } /* Constant */
+code span.cn { color: #000000; } /* Constant */
 code span.co { color: #8f5902; font-style: italic; } /* Comment */
 code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
 code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -104,14 +103,14 @@ code span.dv { color: #0000cf; } /* DecVal */
 code span.er { color: #a40000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #204a87; font-weight: bold; } /* Function */
+code span.fu { color: #000000; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
 code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
 code span.ot { color: #8f5902; } /* Other */
 code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+code span.sc { color: #000000; } /* SpecialChar */
 code span.ss { color: #4e9a06; } /* SpecialString */
 code span.st { color: #4e9a06; } /* String */
 code span.va { color: #000000; } /* Variable */
@@ -178,224 +177,221 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#extracción-de-valores-de-un-conjunto-de-datos"><i class="fa fa-check"></i><b>2.4</b> Extracción de valores de un conjunto de datos</a></li>
 <li class="chapter" data-level="2.5" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#ejemplos-de-gráficos"><i class="fa fa-check"></i><b>2.5</b> Ejemplos de Gráficos</a></li>
+<li class="chapter" data-level="2.6" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#temas-1"><i class="fa fa-check"></i><b>2.6</b> Temas:</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#los-paquetes"><i class="fa fa-check"></i><b>2.6.1</b> Los paquetes</a></li>
+<li class="chapter" data-level="2.6.2" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#facet_wrap"><i class="fa fa-check"></i><b>2.6.2</b> Facet_wrap</a></li>
+<li class="chapter" data-level="2.6.3" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#regresión-lineal"><i class="fa fa-check"></i><b>2.6.3</b> Regresión lineal</a></li>
+<li class="chapter" data-level="2.6.4" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#regresión-loess"><i class="fa fa-check"></i><b>2.6.4</b> Regresión Loess</a></li>
+<li class="chapter" data-level="2.6.5" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#regresión-loess-de-un-grupo"><i class="fa fa-check"></i><b>2.6.5</b> Regresión LOESS de un grupo</a></li>
+<li class="chapter" data-level="2.6.6" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#regresión-loess-dos-alternativas"><i class="fa fa-check"></i><b>2.6.6</b> Regresión LOESS: dos alternativas</a></li>
+<li class="chapter" data-level="2.6.7" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#regresión-lineal-ybmx"><i class="fa fa-check"></i><b>2.6.7</b> Regresión Lineal <span class="math display">\[y=b+mx\]</span></a></li>
+<li class="chapter" data-level="2.6.8" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#geom_bar"><i class="fa fa-check"></i><b>2.6.8</b> geom_bar()</a></li>
+<li class="chapter" data-level="2.6.9" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#puntos-con-intervalo-mínimo-y-máximo"><i class="fa fa-check"></i><b>2.6.9</b> Puntos con intervalo mínimo y máximo</a></li>
+<li class="chapter" data-level="2.6.10" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#geom_boxplot"><i class="fa fa-check"></i><b>2.6.10</b> geom_boxplot</a></li>
+<li class="chapter" data-level="2.6.11" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#geom_bar-y-circular"><i class="fa fa-check"></i><b>2.6.11</b> geom_bar y circular</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html"><i class="fa fa-check"></i><b>3</b> Visualización de datos</a>
+<li class="chapter" data-level="2.7" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#leer-datos-de-un-archivo"><i class="fa fa-check"></i><b>2.7</b> Leer datos de un archivo</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html#temas-1"><i class="fa fa-check"></i><b>3.1</b> Temas:</a>
-<ul>
-<li class="chapter" data-level="3.1.1" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html#los-paquetes"><i class="fa fa-check"></i><b>3.1.1</b> Los paquetes</a></li>
-<li class="chapter" data-level="3.1.2" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html#facet_wrap"><i class="fa fa-check"></i><b>3.1.2</b> Facet_wrap</a></li>
-<li class="chapter" data-level="3.1.3" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html#regresión-lineal"><i class="fa fa-check"></i><b>3.1.3</b> Regresión lineal</a></li>
-<li class="chapter" data-level="3.1.4" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html#regresión-loess"><i class="fa fa-check"></i><b>3.1.4</b> Regresión Loess</a></li>
-<li class="chapter" data-level="3.1.5" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html#regresión-loess-de-un-grupo"><i class="fa fa-check"></i><b>3.1.5</b> Regresión LOESS de un grupo</a></li>
-<li class="chapter" data-level="3.1.6" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html#regresión-loess-dos-alternativas"><i class="fa fa-check"></i><b>3.1.6</b> Regresión LOESS: dos alternativas</a></li>
-<li class="chapter" data-level="3.1.7" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html#regresión-lineal-ybmx"><i class="fa fa-check"></i><b>3.1.7</b> Regresión Lineal <span class="math display">\[y=b+mx\]</span></a></li>
-<li class="chapter" data-level="3.1.8" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html#geom_bar"><i class="fa fa-check"></i><b>3.1.8</b> geom_bar()</a></li>
-<li class="chapter" data-level="3.1.9" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html#puntos-con-intervalo-mínimo-y-máximo"><i class="fa fa-check"></i><b>3.1.9</b> Puntos con intervalo mínimo y máximo</a></li>
-<li class="chapter" data-level="3.1.10" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html#geom_boxplot"><i class="fa fa-check"></i><b>3.1.10</b> geom_boxplot</a></li>
-<li class="chapter" data-level="3.1.11" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html#geom_bar-y-circular"><i class="fa fa-check"></i><b>3.1.11</b> geom_bar y circular</a></li>
+<li class="chapter" data-level="2.7.1" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#ejercicios-1"><i class="fa fa-check"></i><b>2.7.1</b> Ejercicios</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html#leer-datos-de-un-archivo"><i class="fa fa-check"></i><b>3.2</b> Leer datos de un archivo</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html#ejercicios-1"><i class="fa fa-check"></i><b>3.2.1</b> Ejercicios</a></li>
+<li class="chapter" data-level="2.8" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html#vea-el-siguiente-gráfico"><i class="fa fa-check"></i><b>2.8</b> Vea el siguiente gráfico</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="visualización-de-datos.html"><a href="visualización-de-datos.html#vea-el-siguiente-gráfico"><i class="fa fa-check"></i><b>3.3</b> Vea el siguiente gráfico</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html"><i class="fa fa-check"></i><b>4</b> Calculadora sofisticada</a>
+<li class="chapter" data-level="3" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html"><i class="fa fa-check"></i><b>3</b> Calculadora sofisticada</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#temas-2"><i class="fa fa-check"></i><b>4.1</b> Temas:</a>
+<li class="chapter" data-level="3.1" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#temas-2"><i class="fa fa-check"></i><b>3.1</b> Temas:</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#sumar"><i class="fa fa-check"></i><b>4.1.1</b> Sumar</a></li>
-<li class="chapter" data-level="4.1.2" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#exactamente-como-una-calculadora"><i class="fa fa-check"></i><b>4.1.2</b> Exactamente como una calculadora</a></li>
-<li class="chapter" data-level="4.1.3" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#trigonometria"><i class="fa fa-check"></i><b>4.1.3</b> Trigonometria</a></li>
-<li class="chapter" data-level="4.1.4" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#log-natural-y-a-base-10"><i class="fa fa-check"></i><b>4.1.4</b> Log natural y a base 10</a></li>
-<li class="chapter" data-level="4.1.5" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#asignaciones-de-variables"><i class="fa fa-check"></i><b>4.1.5</b> Asignaciones de variables</a></li>
-<li class="chapter" data-level="4.1.6" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#variables"><i class="fa fa-check"></i><b>4.1.6</b> Variables</a></li>
-<li class="chapter" data-level="4.1.7" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#unir-variables-en-un-data-frame"><i class="fa fa-check"></i><b>4.1.7</b> Unir variables en un data frame</a></li>
-<li class="chapter" data-level="4.1.8" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#errores-cuando-a-variables-no-tienen-la-misma-cantidad-de-entradas"><i class="fa fa-check"></i><b>4.1.8</b> Errores cuando a variables no tienen la misma cantidad de entradas</a></li>
-<li class="chapter" data-level="4.1.9" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#unir-variables-en-un-data-frame-1"><i class="fa fa-check"></i><b>4.1.9</b> Unir variables en un data frame</a></li>
-<li class="chapter" data-level="4.1.10" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#cuantos-valores-hay-en-una-variable"><i class="fa fa-check"></i><b>4.1.10</b> Cuantos valores hay en una variable</a></li>
-<li class="chapter" data-level="4.1.11" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#seleccionar-solamente-parte-de-los-datos-de-un-archivo"><i class="fa fa-check"></i><b>4.1.11</b> Seleccionar solamente parte de los datos de un archivo</a></li>
+<li class="chapter" data-level="3.1.1" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#sumar"><i class="fa fa-check"></i><b>3.1.1</b> Sumar</a></li>
+<li class="chapter" data-level="3.1.2" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#exactamente-como-una-calculadora"><i class="fa fa-check"></i><b>3.1.2</b> Exactamente como una calculadora</a></li>
+<li class="chapter" data-level="3.1.3" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#trigonometria"><i class="fa fa-check"></i><b>3.1.3</b> Trigonometria</a></li>
+<li class="chapter" data-level="3.1.4" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#log-natural-y-a-base-10"><i class="fa fa-check"></i><b>3.1.4</b> Log natural y a base 10</a></li>
+<li class="chapter" data-level="3.1.5" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#asignaciones-de-variables"><i class="fa fa-check"></i><b>3.1.5</b> Asignaciones de variables</a></li>
+<li class="chapter" data-level="3.1.6" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#variables"><i class="fa fa-check"></i><b>3.1.6</b> Variables</a></li>
+<li class="chapter" data-level="3.1.7" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#unir-variables-en-un-data-frame"><i class="fa fa-check"></i><b>3.1.7</b> Unir variables en un data frame</a></li>
+<li class="chapter" data-level="3.1.8" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#errores-cuando-a-variables-no-tienen-la-misma-cantidad-de-entradas"><i class="fa fa-check"></i><b>3.1.8</b> Errores cuando a variables no tienen la misma cantidad de entradas</a></li>
+<li class="chapter" data-level="3.1.9" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#unir-variables-en-un-data-frame-1"><i class="fa fa-check"></i><b>3.1.9</b> Unir variables en un data frame</a></li>
+<li class="chapter" data-level="3.1.10" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#cuantos-valores-hay-en-una-variable"><i class="fa fa-check"></i><b>3.1.10</b> Cuantos valores hay en una variable</a></li>
+<li class="chapter" data-level="3.1.11" data-path="calculadora-sofisticada.html"><a href="calculadora-sofisticada.html#seleccionar-solamente-parte-de-los-datos-de-un-archivo"><i class="fa fa-check"></i><b>3.1.11</b> Seleccionar solamente parte de los datos de un archivo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="transformacion.html"><a href="transformacion.html"><i class="fa fa-check"></i><b>5</b> Transformacion</a>
+<li class="chapter" data-level="4" data-path="transformacion.html"><a href="transformacion.html"><i class="fa fa-check"></i><b>4</b> Transformacion</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="transformacion.html"><a href="transformacion.html#evaluar-el-archivo"><i class="fa fa-check"></i><b>5.1</b> Evaluar el archivo</a>
+<li class="chapter" data-level="4.1" data-path="transformacion.html"><a href="transformacion.html#evaluar-el-archivo"><i class="fa fa-check"></i><b>4.1</b> Evaluar el archivo</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="transformacion.html"><a href="transformacion.html#cual-son-todos-los-destinos-de-vuelos"><i class="fa fa-check"></i><b>5.1.1</b> Cual son todos los destinos de vuelos?</a></li>
-<li class="chapter" data-level="5.1.2" data-path="transformacion.html"><a href="transformacion.html#seleciona-los-vuelos-donde-el-destino-es-san-juan"><i class="fa fa-check"></i><b>5.1.2</b> Seleciona los vuelos donde el destino es San Juan</a></li>
-<li class="chapter" data-level="5.1.3" data-path="transformacion.html"><a href="transformacion.html#selecciona-los-vuelos-donde-el-destino-es-san-juan-el-dia-de-navidad"><i class="fa fa-check"></i><b>5.1.3</b> Selecciona los vuelos donde el destino es San Juan el dia de navidad</a></li>
-<li class="chapter" data-level="5.1.4" data-path="transformacion.html"><a href="transformacion.html#selecciona-los-vuelos-que-salen-de-san-juan-en-el-dia-de-ti-cumpleaños-y-contabiliza-cuanto-hubo"><i class="fa fa-check"></i><b>5.1.4</b> Selecciona los vuelos que salen de San Juan en el dia de ti cumpleaños y contabiliza cuanto hubo</a></li>
+<li class="chapter" data-level="4.1.1" data-path="transformacion.html"><a href="transformacion.html#cual-son-todos-los-destinos-de-vuelos"><i class="fa fa-check"></i><b>4.1.1</b> Cual son todos los destinos de vuelos?</a></li>
+<li class="chapter" data-level="4.1.2" data-path="transformacion.html"><a href="transformacion.html#seleciona-los-vuelos-donde-el-destino-es-san-juan"><i class="fa fa-check"></i><b>4.1.2</b> Seleciona los vuelos donde el destino es San Juan</a></li>
+<li class="chapter" data-level="4.1.3" data-path="transformacion.html"><a href="transformacion.html#selecciona-los-vuelos-donde-el-destino-es-san-juan-el-dia-de-navidad"><i class="fa fa-check"></i><b>4.1.3</b> Selecciona los vuelos donde el destino es San Juan el dia de navidad</a></li>
+<li class="chapter" data-level="4.1.4" data-path="transformacion.html"><a href="transformacion.html#selecciona-los-vuelos-que-salen-de-san-juan-en-el-dia-de-ti-cumpleaños-y-contabiliza-cuanto-hubo"><i class="fa fa-check"></i><b>4.1.4</b> Selecciona los vuelos que salen de San Juan en el dia de ti cumpleaños y contabiliza cuanto hubo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="transformacion.html"><a href="transformacion.html#temas-reconocer-y-aplicar-las-diferentes-funciones"><i class="fa fa-check"></i><b>5.2</b> Temas: Reconocer y aplicar las diferentes funciones</a>
+<li class="chapter" data-level="4.2" data-path="transformacion.html"><a href="transformacion.html#temas-reconocer-y-aplicar-las-diferentes-funciones"><i class="fa fa-check"></i><b>4.2</b> Temas: Reconocer y aplicar las diferentes funciones</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="transformacion.html"><a href="transformacion.html#qué-pasa-con-los-valores-y-resultados-sin-sentido"><i class="fa fa-check"></i><b>5.2.1</b> ¿Qué pasa con los valores y resultados sin sentido?</a></li>
-<li class="chapter" data-level="5.2.2" data-path="transformacion.html"><a href="transformacion.html#usar-datos-que-provienen-de-una-base-de-datos-del-web."><i class="fa fa-check"></i><b>5.2.2</b> Usar datos que provienen de una base de datos del web.</a></li>
+<li class="chapter" data-level="4.2.1" data-path="transformacion.html"><a href="transformacion.html#qué-pasa-con-los-valores-y-resultados-sin-sentido"><i class="fa fa-check"></i><b>4.2.1</b> ¿Qué pasa con los valores y resultados sin sentido?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="transformacion.html"><a href="transformacion.html#usar-datos-que-provienen-de-una-base-de-datos-del-web."><i class="fa fa-check"></i><b>4.2.2</b> Usar datos que provienen de una base de datos del web.</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="transformacion.html"><a href="transformacion.html#starts_with-ends_with"><i class="fa fa-check"></i><b>5.3</b> starts_with(), ends_with()</a></li>
-<li class="chapter" data-level="5.4" data-path="transformacion.html"><a href="transformacion.html#rename"><i class="fa fa-check"></i><b>5.4</b> rename()</a></li>
-<li class="chapter" data-level="5.5" data-path="transformacion.html"><a href="transformacion.html#reoganizar-el-oden-de-las-columnas"><i class="fa fa-check"></i><b>5.5</b> Reoganizar el oden de las columnas</a></li>
-<li class="chapter" data-level="5.6" data-path="transformacion.html"><a href="transformacion.html#matches.1-lo-veremos-en-la-leccion-de-string"><i class="fa fa-check"></i><b>5.6</b> matches(“(.)\1”) Lo veremos en la leccion de “STRING”</a></li>
-<li class="chapter" data-level="5.7" data-path="transformacion.html"><a href="transformacion.html#hagan-lo-con-el-data-set-en-espanol"><i class="fa fa-check"></i><b>5.7</b> Hagan lo con el data set en espanol</a></li>
-<li class="chapter" data-level="5.8" data-path="transformacion.html"><a href="transformacion.html#transmute"><i class="fa fa-check"></i><b>5.8</b> transmute()</a></li>
-<li class="chapter" data-level="5.9" data-path="transformacion.html"><a href="transformacion.html#lag"><i class="fa fa-check"></i><b>5.9</b> lag()</a></li>
-<li class="chapter" data-level="5.10" data-path="transformacion.html"><a href="transformacion.html#usa-lag-con-inccasossaludnuevo-en-covid-19-pr"><i class="fa fa-check"></i><b>5.10</b> Usa “Lag” con “IncCasosSaludNuevo” en COVID-19 PR</a></li>
-<li class="chapter" data-level="5.11" data-path="transformacion.html"><a href="transformacion.html#lead"><i class="fa fa-check"></i><b>5.11</b> lead(),</a></li>
-<li class="chapter" data-level="5.12" data-path="transformacion.html"><a href="transformacion.html#cumsum"><i class="fa fa-check"></i><b>5.12</b> cumsum</a></li>
-<li class="chapter" data-level="5.13" data-path="transformacion.html"><a href="transformacion.html#cummean-and-cumvar"><i class="fa fa-check"></i><b>5.13</b> cummean() and cumvar()</a></li>
-<li class="chapter" data-level="5.14" data-path="transformacion.html"><a href="transformacion.html#min_rank-y-min_rankdesc"><i class="fa fa-check"></i><b>5.14</b> min_rank() y # min_rank(desc())</a></li>
-<li class="chapter" data-level="5.15" data-path="transformacion.html"><a href="transformacion.html#row_number"><i class="fa fa-check"></i><b>5.15</b> row_number()</a></li>
-<li class="chapter" data-level="5.16" data-path="transformacion.html"><a href="transformacion.html#dense_rank"><i class="fa fa-check"></i><b>5.16</b> dense_rank()</a></li>
-<li class="chapter" data-level="5.17" data-path="transformacion.html"><a href="transformacion.html#percent_rank"><i class="fa fa-check"></i><b>5.17</b> percent_rank()</a></li>
-<li class="chapter" data-level="5.18" data-path="transformacion.html"><a href="transformacion.html#cume_dist"><i class="fa fa-check"></i><b>5.18</b> cume_dist()</a></li>
-<li class="chapter" data-level="5.19" data-path="transformacion.html"><a href="transformacion.html#resúmenes-con-summarise-by-group-using-group_by"><i class="fa fa-check"></i><b>5.19</b> Resúmenes con summarise() by group using group_by()</a></li>
-<li class="chapter" data-level="5.20" data-path="transformacion.html"><a href="transformacion.html#the-worst-airline-in-departure-delays"><i class="fa fa-check"></i><b>5.20</b> The worst airline in departure delays</a></li>
-<li class="chapter" data-level="5.21" data-path="transformacion.html"><a href="transformacion.html#el-pipe"><i class="fa fa-check"></i><b>5.21</b> El Pipe</a></li>
-<li class="chapter" data-level="5.22" data-path="transformacion.html"><a href="transformacion.html#otras-funciones-na"><i class="fa fa-check"></i><b>5.22</b> Otras funciones: NA</a></li>
-<li class="chapter" data-level="5.23" data-path="transformacion.html"><a href="transformacion.html#otras-funciones"><i class="fa fa-check"></i><b>5.23</b> Otras funciones:</a></li>
+<li class="chapter" data-level="4.3" data-path="transformacion.html"><a href="transformacion.html#starts_with-ends_with"><i class="fa fa-check"></i><b>4.3</b> starts_with(), ends_with()</a></li>
+<li class="chapter" data-level="4.4" data-path="transformacion.html"><a href="transformacion.html#rename"><i class="fa fa-check"></i><b>4.4</b> rename()</a></li>
+<li class="chapter" data-level="4.5" data-path="transformacion.html"><a href="transformacion.html#reoganizar-el-oden-de-las-columnas"><i class="fa fa-check"></i><b>4.5</b> Reoganizar el oden de las columnas</a></li>
+<li class="chapter" data-level="4.6" data-path="transformacion.html"><a href="transformacion.html#matches.1-lo-veremos-en-la-leccion-de-string"><i class="fa fa-check"></i><b>4.6</b> matches(“(.)\1”) Lo veremos en la leccion de “STRING”</a></li>
+<li class="chapter" data-level="4.7" data-path="transformacion.html"><a href="transformacion.html#hagan-lo-con-el-data-set-en-espanol"><i class="fa fa-check"></i><b>4.7</b> Hagan lo con el data set en espanol</a></li>
+<li class="chapter" data-level="4.8" data-path="transformacion.html"><a href="transformacion.html#transmute"><i class="fa fa-check"></i><b>4.8</b> transmute()</a></li>
+<li class="chapter" data-level="4.9" data-path="transformacion.html"><a href="transformacion.html#lag"><i class="fa fa-check"></i><b>4.9</b> lag()</a></li>
+<li class="chapter" data-level="4.10" data-path="transformacion.html"><a href="transformacion.html#usa-lag-con-inccasossaludnuevo-en-covid-19-pr"><i class="fa fa-check"></i><b>4.10</b> Usa “Lag” con “IncCasosSaludNuevo” en COVID-19 PR</a></li>
+<li class="chapter" data-level="4.11" data-path="transformacion.html"><a href="transformacion.html#lead"><i class="fa fa-check"></i><b>4.11</b> lead(),</a></li>
+<li class="chapter" data-level="4.12" data-path="transformacion.html"><a href="transformacion.html#cumsum"><i class="fa fa-check"></i><b>4.12</b> cumsum</a></li>
+<li class="chapter" data-level="4.13" data-path="transformacion.html"><a href="transformacion.html#cummean-and-cumvar"><i class="fa fa-check"></i><b>4.13</b> cummean() and cumvar()</a></li>
+<li class="chapter" data-level="4.14" data-path="transformacion.html"><a href="transformacion.html#min_rank-y-min_rankdesc"><i class="fa fa-check"></i><b>4.14</b> min_rank() y # min_rank(desc())</a></li>
+<li class="chapter" data-level="4.15" data-path="transformacion.html"><a href="transformacion.html#row_number"><i class="fa fa-check"></i><b>4.15</b> row_number()</a></li>
+<li class="chapter" data-level="4.16" data-path="transformacion.html"><a href="transformacion.html#dense_rank"><i class="fa fa-check"></i><b>4.16</b> dense_rank()</a></li>
+<li class="chapter" data-level="4.17" data-path="transformacion.html"><a href="transformacion.html#percent_rank"><i class="fa fa-check"></i><b>4.17</b> percent_rank()</a></li>
+<li class="chapter" data-level="4.18" data-path="transformacion.html"><a href="transformacion.html#cume_dist"><i class="fa fa-check"></i><b>4.18</b> cume_dist()</a></li>
+<li class="chapter" data-level="4.19" data-path="transformacion.html"><a href="transformacion.html#resúmenes-con-summarise-by-group-using-group_by"><i class="fa fa-check"></i><b>4.19</b> Resúmenes con summarise() by group using group_by()</a></li>
+<li class="chapter" data-level="4.20" data-path="transformacion.html"><a href="transformacion.html#the-worst-airline-in-departure-delays"><i class="fa fa-check"></i><b>4.20</b> The worst airline in departure delays</a></li>
+<li class="chapter" data-level="4.21" data-path="transformacion.html"><a href="transformacion.html#el-pipe"><i class="fa fa-check"></i><b>4.21</b> El Pipe</a></li>
+<li class="chapter" data-level="4.22" data-path="transformacion.html"><a href="transformacion.html#otras-funciones-na"><i class="fa fa-check"></i><b>4.22</b> Otras funciones: NA</a></li>
+<li class="chapter" data-level="4.23" data-path="transformacion.html"><a href="transformacion.html#otras-funciones"><i class="fa fa-check"></i><b>4.23</b> Otras funciones:</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>6</b> Script</a>
+<li class="chapter" data-level="5" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>5</b> Script</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="script.html"><a href="script.html#scripts"><i class="fa fa-check"></i><b>6.1</b> Scripts:</a></li>
+<li class="chapter" data-level="5.1" data-path="script.html"><a href="script.html#scripts"><i class="fa fa-check"></i><b>5.1</b> Scripts:</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html"><i class="fa fa-check"></i><b>7</b> Analisis Exploratorio</a>
+<li class="chapter" data-level="6" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html"><i class="fa fa-check"></i><b>6</b> Analisis Exploratorio</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#temas-3"><i class="fa fa-check"></i><b>7.1</b> Temas</a></li>
-<li class="chapter" data-level="7.2" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#terminos-importantes"><i class="fa fa-check"></i><b>7.2</b> Terminos importantes</a>
+<li class="chapter" data-level="6.1" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#temas-3"><i class="fa fa-check"></i><b>6.1</b> Temas</a></li>
+<li class="chapter" data-level="6.2" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#terminos-importantes"><i class="fa fa-check"></i><b>6.2</b> Terminos importantes</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#variación"><i class="fa fa-check"></i><b>7.2.1</b> Variación</a></li>
-<li class="chapter" data-level="7.2.2" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#valores-faltantes"><i class="fa fa-check"></i><b>7.2.2</b> Valores faltantes</a></li>
-<li class="chapter" data-level="7.2.3" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#covariación"><i class="fa fa-check"></i><b>7.2.3</b> Covariación</a></li>
-<li class="chapter" data-level="7.2.4" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#dos-variables-categóricas"><i class="fa fa-check"></i><b>7.2.4</b> Dos variables categóricas</a></li>
-<li class="chapter" data-level="7.2.5" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#dos-variables-continuas"><i class="fa fa-check"></i><b>7.2.5</b> Dos variables continuas</a></li>
-<li class="chapter" data-level="7.2.6" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#patrones-y-modelos"><i class="fa fa-check"></i><b>7.2.6</b> Patrones y modelos</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="pipes.html"><a href="pipes.html"><i class="fa fa-check"></i><b>8</b> Pipes</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="pipes.html"><a href="pipes.html#temas-el-paquete-magrittr"><i class="fa fa-check"></i><b>8.1</b> Temas: El paquete “magrittr”</a></li>
-<li class="chapter" data-level="8.2" data-path="pipes.html"><a href="pipes.html#alternativas-a-los-pipes"><i class="fa fa-check"></i><b>8.2</b> Alternativas a los pipes</a></li>
-<li class="chapter" data-level="8.3" data-path="pipes.html"><a href="pipes.html#composición-de-funciones"><i class="fa fa-check"></i><b>8.3</b> Composición de funciones</a></li>
-<li class="chapter" data-level="8.4" data-path="pipes.html"><a href="pipes.html#uso-de-pipe"><i class="fa fa-check"></i><b>8.4</b> Uso de pipe</a></li>
-<li class="chapter" data-level="8.5" data-path="pipes.html"><a href="pipes.html#cuándo-no-usar-el-pipe"><i class="fa fa-check"></i><b>8.5</b> Cuándo no usar el pipe</a></li>
-<li class="chapter" data-level="8.6" data-path="pipes.html"><a href="pipes.html#otras-herramientas-de-magrittr"><i class="fa fa-check"></i><b>8.6</b> Otras herramientas de magrittr</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="tibbles.html"><a href="tibbles.html"><i class="fa fa-check"></i><b>9</b> Tibbles</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="tibbles.html"><a href="tibbles.html#temas-el-paquete-tibble"><i class="fa fa-check"></i><b>9.1</b> Temas: El paquete Tibble</a></li>
-<li class="chapter" data-level="9.2" data-path="tibbles.html"><a href="tibbles.html#crear-un-tibble"><i class="fa fa-check"></i><b>9.2</b> Crear un tibble</a></li>
-<li class="chapter" data-level="9.3" data-path="tibbles.html"><a href="tibbles.html#crear-un-tribble"><i class="fa fa-check"></i><b>9.3</b> Crear un tribble</a></li>
-<li class="chapter" data-level="9.4" data-path="tibbles.html"><a href="tibbles.html#tibble-vs.-data.frame"><i class="fa fa-check"></i><b>9.4</b> tibble vs. data.frame</a></li>
-<li class="chapter" data-level="9.5" data-path="tibbles.html"><a href="tibbles.html#seleccion-de-subconjuntos"><i class="fa fa-check"></i><b>9.5</b> Seleccion de subconjuntos</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="importar-datos.html"><a href="importar-datos.html"><i class="fa fa-check"></i><b>10</b> Importar datos</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="importar-datos.html"><a href="importar-datos.html#temas-funciones-para-importar-datos-con-el-paquete-readr"><i class="fa fa-check"></i><b>10.1</b> Temas: Funciones para importar datos con el paquete readr</a></li>
-<li class="chapter" data-level="10.2" data-path="importar-datos.html"><a href="importar-datos.html#comparar-con-base-r"><i class="fa fa-check"></i><b>10.2</b> Comparar con base R</a></li>
-<li class="chapter" data-level="10.3" data-path="importar-datos.html"><a href="importar-datos.html#segmentar-un-vector"><i class="fa fa-check"></i><b>10.3</b> Segmentar un vector</a></li>
-<li class="chapter" data-level="10.4" data-path="importar-datos.html"><a href="importar-datos.html#números"><i class="fa fa-check"></i><b>10.4</b> Números</a></li>
-<li class="chapter" data-level="10.5" data-path="importar-datos.html"><a href="importar-datos.html#caderna-de-texto"><i class="fa fa-check"></i><b>10.5</b> Caderna de texto</a></li>
-<li class="chapter" data-level="10.6" data-path="importar-datos.html"><a href="importar-datos.html#factores"><i class="fa fa-check"></i><b>10.6</b> Factores</a></li>
-<li class="chapter" data-level="10.7" data-path="importar-datos.html"><a href="importar-datos.html#fechas-fechas-horas-horas"><i class="fa fa-check"></i><b>10.7</b> Fechas, fechas-horas, horas</a></li>
-<li class="chapter" data-level="10.8" data-path="importar-datos.html"><a href="importar-datos.html#segmentar-un-archivo"><i class="fa fa-check"></i><b>10.8</b> Segmentar un archivo</a></li>
-<li class="chapter" data-level="10.9" data-path="importar-datos.html"><a href="importar-datos.html#escribir-un-archivo"><i class="fa fa-check"></i><b>10.9</b> Escribir un Archivo</a></li>
-<li class="chapter" data-level="10.10" data-path="importar-datos.html"><a href="importar-datos.html#otro-tipos-de-datos"><i class="fa fa-check"></i><b>10.10</b> Otro tipos de datos</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="datos-ordenados.html"><a href="datos-ordenados.html"><i class="fa fa-check"></i><b>11</b> Datos Ordenados</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="datos-ordenados.html"><a href="datos-ordenados.html#temas-datos-ordenados"><i class="fa fa-check"></i><b>11.1</b> Temas: Datos Ordenados</a>
-<ul>
-<li class="chapter" data-level="11.1.1" data-path="datos-ordenados.html"><a href="datos-ordenados.html#el-paquete-tidyr"><i class="fa fa-check"></i><b>11.1.1</b> El paquete tidyr</a></li>
+<li class="chapter" data-level="6.2.1" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#variación"><i class="fa fa-check"></i><b>6.2.1</b> Variación</a></li>
+<li class="chapter" data-level="6.2.2" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#valores-faltantes"><i class="fa fa-check"></i><b>6.2.2</b> Valores faltantes</a></li>
+<li class="chapter" data-level="6.2.3" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#covariación"><i class="fa fa-check"></i><b>6.2.3</b> Covariación</a></li>
+<li class="chapter" data-level="6.2.4" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#dos-variables-categóricas"><i class="fa fa-check"></i><b>6.2.4</b> Dos variables categóricas</a></li>
+<li class="chapter" data-level="6.2.5" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#dos-variables-continuas"><i class="fa fa-check"></i><b>6.2.5</b> Dos variables continuas</a></li>
+<li class="chapter" data-level="6.2.6" data-path="analisis-exploratorio.html"><a href="analisis-exploratorio.html#patrones-y-modelos"><i class="fa fa-check"></i><b>6.2.6</b> Patrones y modelos</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="datos-relacionados.html"><a href="datos-relacionados.html"><i class="fa fa-check"></i><b>12</b> Datos Relacionados</a>
+<li class="chapter" data-level="7" data-path="pipes.html"><a href="pipes.html"><i class="fa fa-check"></i><b>7</b> Pipes</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="datos-relacionados.html"><a href="datos-relacionados.html#temas-datos-relacionados"><i class="fa fa-check"></i><b>12.1</b> Temas: Datos Relacionados</a>
-<ul>
-<li class="chapter" data-level="12.1.1" data-path="datos-relacionados.html"><a href="datos-relacionados.html#los-datos-de-vuelos"><i class="fa fa-check"></i><b>12.1.1</b> Los datos de vuelos</a></li>
+<li class="chapter" data-level="7.1" data-path="pipes.html"><a href="pipes.html#temas-el-paquete-magrittr"><i class="fa fa-check"></i><b>7.1</b> Temas: El paquete “magrittr”</a></li>
+<li class="chapter" data-level="7.2" data-path="pipes.html"><a href="pipes.html#alternativas-a-los-pipes"><i class="fa fa-check"></i><b>7.2</b> Alternativas a los pipes</a></li>
+<li class="chapter" data-level="7.3" data-path="pipes.html"><a href="pipes.html#composición-de-funciones"><i class="fa fa-check"></i><b>7.3</b> Composición de funciones</a></li>
+<li class="chapter" data-level="7.4" data-path="pipes.html"><a href="pipes.html#uso-de-pipe"><i class="fa fa-check"></i><b>7.4</b> Uso de pipe</a></li>
+<li class="chapter" data-level="7.5" data-path="pipes.html"><a href="pipes.html#cuándo-no-usar-el-pipe"><i class="fa fa-check"></i><b>7.5</b> Cuándo no usar el pipe</a></li>
+<li class="chapter" data-level="7.6" data-path="pipes.html"><a href="pipes.html#otras-herramientas-de-magrittr"><i class="fa fa-check"></i><b>7.6</b> Otras herramientas de magrittr</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="datos-relacionados.html"><a href="datos-relacionados.html#claves"><i class="fa fa-check"></i><b>12.2</b> Claves</a></li>
-<li class="chapter" data-level="12.3" data-path="datos-relacionados.html"><a href="datos-relacionados.html#uniones-de-transformaciones"><i class="fa fa-check"></i><b>12.3</b> Uniones de transformaciones</a></li>
-<li class="chapter" data-level="12.4" data-path="datos-relacionados.html"><a href="datos-relacionados.html#entendiendo-las-uniones"><i class="fa fa-check"></i><b>12.4</b> Entendiendo las uniones</a>
+<li class="chapter" data-level="8" data-path="tibbles.html"><a href="tibbles.html"><i class="fa fa-check"></i><b>8</b> Tibbles</a>
 <ul>
-<li class="chapter" data-level="12.4.1" data-path="datos-relacionados.html"><a href="datos-relacionados.html#unión-interiores"><i class="fa fa-check"></i><b>12.4.1</b> Unión interiores</a></li>
-<li class="chapter" data-level="12.4.2" data-path="datos-relacionados.html"><a href="datos-relacionados.html#unión-exteriores"><i class="fa fa-check"></i><b>12.4.2</b> Unión exteriores</a></li>
-<li class="chapter" data-level="12.4.3" data-path="datos-relacionados.html"><a href="datos-relacionados.html#claves-duplicadas"><i class="fa fa-check"></i><b>12.4.3</b> Claves duplicadas</a></li>
+<li class="chapter" data-level="8.1" data-path="tibbles.html"><a href="tibbles.html#temas-el-paquete-tibble"><i class="fa fa-check"></i><b>8.1</b> Temas: El paquete Tibble</a></li>
+<li class="chapter" data-level="8.2" data-path="tibbles.html"><a href="tibbles.html#crear-un-tibble"><i class="fa fa-check"></i><b>8.2</b> Crear un tibble</a></li>
+<li class="chapter" data-level="8.3" data-path="tibbles.html"><a href="tibbles.html#crear-un-tribble"><i class="fa fa-check"></i><b>8.3</b> Crear un tribble</a></li>
+<li class="chapter" data-level="8.4" data-path="tibbles.html"><a href="tibbles.html#tibble-vs.-data.frame"><i class="fa fa-check"></i><b>8.4</b> tibble vs. data.frame</a></li>
+<li class="chapter" data-level="8.5" data-path="tibbles.html"><a href="tibbles.html#seleccion-de-subconjuntos"><i class="fa fa-check"></i><b>8.5</b> Seleccion de subconjuntos</a></li>
 </ul></li>
-<li class="chapter" data-level="12.5" data-path="datos-relacionados.html"><a href="datos-relacionados.html#definiendo-las-columnas-clave"><i class="fa fa-check"></i><b>12.5</b> Definiendo las columnas clave</a></li>
-<li class="chapter" data-level="12.6" data-path="datos-relacionados.html"><a href="datos-relacionados.html#otras-implementaciones"><i class="fa fa-check"></i><b>12.6</b> Otras implementaciones</a></li>
-<li class="chapter" data-level="12.7" data-path="datos-relacionados.html"><a href="datos-relacionados.html#uniones-de-filtro"><i class="fa fa-check"></i><b>12.7</b> Uniones de filtro</a></li>
-<li class="chapter" data-level="12.8" data-path="datos-relacionados.html"><a href="datos-relacionados.html#problemas-con-las-uniones"><i class="fa fa-check"></i><b>12.8</b> Problemas con las uniones</a></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html"><i class="fa fa-check"></i><b>13</b> Cadena de Caracteres</a>
+<li class="chapter" data-level="9" data-path="importar-datos.html"><a href="importar-datos.html"><i class="fa fa-check"></i><b>9</b> Importar datos</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#temas-cadenas-de-caracteres"><i class="fa fa-check"></i><b>13.1</b> Temas: Cadenas de Caracteres</a></li>
-<li class="chapter" data-level="13.2" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#largo-de-cadena"><i class="fa fa-check"></i><b>13.2</b> Largo de cadena</a></li>
-<li class="chapter" data-level="13.3" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#combinar-cadenas"><i class="fa fa-check"></i><b>13.3</b> Combinar cadenas</a></li>
-<li class="chapter" data-level="13.4" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#dividir-cadenas"><i class="fa fa-check"></i><b>13.4</b> Dividir cadenas</a></li>
-<li class="chapter" data-level="13.5" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#locales"><i class="fa fa-check"></i><b>13.5</b> Locales</a></li>
-<li class="chapter" data-level="13.6" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#buscar-patrones"><i class="fa fa-check"></i><b>13.6</b> Buscar patrones</a></li>
-<li class="chapter" data-level="13.7" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#coincidencia-básica"><i class="fa fa-check"></i><b>13.7</b> Coincidencia básica</a></li>
-<li class="chapter" data-level="13.8" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#anclas"><i class="fa fa-check"></i><b>13.8</b> Anclas</a></li>
-<li class="chapter" data-level="13.9" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#clases-de-caracteres-y-alternativas"><i class="fa fa-check"></i><b>13.9</b> Clases de caracteres y alternativas</a></li>
-<li class="chapter" data-level="13.10" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#repetición"><i class="fa fa-check"></i><b>13.10</b> Repetición</a></li>
-<li class="chapter" data-level="13.11" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#agrupamiento-y-referencias-previas"><i class="fa fa-check"></i><b>13.11</b> Agrupamiento y referencias previas</a></li>
-<li class="chapter" data-level="13.12" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#herramientas-objetivos"><i class="fa fa-check"></i><b>13.12</b> Herramientas: Objetivos</a>
-<ul>
-<li class="chapter" data-level="13.12.1" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#detectar-coincidencias"><i class="fa fa-check"></i><b>13.12.1</b> Detectar coincidencias</a></li>
+<li class="chapter" data-level="9.1" data-path="importar-datos.html"><a href="importar-datos.html#temas-funciones-para-importar-datos-con-el-paquete-readr"><i class="fa fa-check"></i><b>9.1</b> Temas: Funciones para importar datos con el paquete readr</a></li>
+<li class="chapter" data-level="9.2" data-path="importar-datos.html"><a href="importar-datos.html#comparar-con-base-r"><i class="fa fa-check"></i><b>9.2</b> Comparar con base R</a></li>
+<li class="chapter" data-level="9.3" data-path="importar-datos.html"><a href="importar-datos.html#segmentar-un-vector"><i class="fa fa-check"></i><b>9.3</b> Segmentar un vector</a></li>
+<li class="chapter" data-level="9.4" data-path="importar-datos.html"><a href="importar-datos.html#números"><i class="fa fa-check"></i><b>9.4</b> Números</a></li>
+<li class="chapter" data-level="9.5" data-path="importar-datos.html"><a href="importar-datos.html#caderna-de-texto"><i class="fa fa-check"></i><b>9.5</b> Caderna de texto</a></li>
+<li class="chapter" data-level="9.6" data-path="importar-datos.html"><a href="importar-datos.html#factores"><i class="fa fa-check"></i><b>9.6</b> Factores</a></li>
+<li class="chapter" data-level="9.7" data-path="importar-datos.html"><a href="importar-datos.html#fechas-fechas-horas-horas"><i class="fa fa-check"></i><b>9.7</b> Fechas, fechas-horas, horas</a></li>
+<li class="chapter" data-level="9.8" data-path="importar-datos.html"><a href="importar-datos.html#segmentar-un-archivo"><i class="fa fa-check"></i><b>9.8</b> Segmentar un archivo</a></li>
+<li class="chapter" data-level="9.9" data-path="importar-datos.html"><a href="importar-datos.html#escribir-un-archivo"><i class="fa fa-check"></i><b>9.9</b> Escribir un Archivo</a></li>
+<li class="chapter" data-level="9.10" data-path="importar-datos.html"><a href="importar-datos.html#otro-tipos-de-datos"><i class="fa fa-check"></i><b>9.10</b> Otro tipos de datos</a></li>
 </ul></li>
-<li class="chapter" data-level="13.13" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#extraer-coincidencias"><i class="fa fa-check"></i><b>13.13</b> Extraer coincidencias</a></li>
-<li class="chapter" data-level="13.14" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#coincidencias-agrupadas"><i class="fa fa-check"></i><b>13.14</b> Coincidencias agrupadas:</a></li>
-<li class="chapter" data-level="13.15" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#remplazar-coincidencias"><i class="fa fa-check"></i><b>13.15</b> Remplazar coincidencias</a></li>
-<li class="chapter" data-level="13.16" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#divisiones"><i class="fa fa-check"></i><b>13.16</b> Divisiones</a></li>
-<li class="chapter" data-level="13.17" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#otro-tipos-de-patrones"><i class="fa fa-check"></i><b>13.17</b> Otro tipos de patrones</a></li>
-<li class="chapter" data-level="13.18" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#stringi"><i class="fa fa-check"></i><b>13.18</b> stringi:</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="factores-1.html"><a href="factores-1.html"><i class="fa fa-check"></i><b>14</b> Factores</a>
+<li class="chapter" data-level="10" data-path="datos-ordenados.html"><a href="datos-ordenados.html"><i class="fa fa-check"></i><b>10</b> Datos Ordenados</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="factores-1.html"><a href="factores-1.html#titulo-mediano"><i class="fa fa-check"></i><b>14.1</b> Titulo mediano</a>
+<li class="chapter" data-level="10.1" data-path="datos-ordenados.html"><a href="datos-ordenados.html#temas-datos-ordenados"><i class="fa fa-check"></i><b>10.1</b> Temas: Datos Ordenados</a>
 <ul>
-<li class="chapter" data-level="14.1.1" data-path="factores-1.html"><a href="factores-1.html#titulo-pequeño"><i class="fa fa-check"></i><b>14.1.1</b> Titulo pequeño</a></li>
+<li class="chapter" data-level="10.1.1" data-path="datos-ordenados.html"><a href="datos-ordenados.html#el-paquete-tidyr"><i class="fa fa-check"></i><b>10.1.1</b> El paquete tidyr</a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="factores-1.html"><a href="factores-1.html#temas-4"><i class="fa fa-check"></i><b>14.2</b> Temas:</a>
+</ul></li>
+<li class="chapter" data-level="11" data-path="datos-relacionados.html"><a href="datos-relacionados.html"><i class="fa fa-check"></i><b>11</b> Datos Relacionados</a>
 <ul>
-<li class="chapter" data-level="14.2.1" data-path="factores-1.html"><a href="factores-1.html#datos-encuesta-social-general"><i class="fa fa-check"></i><b>14.2.1</b> Datos : Encuesta Social General</a></li>
-</ul></li>
-<li class="chapter" data-level="14.3" data-path="factores-1.html"><a href="factores-1.html#a-smaller-figure-to-the-right-with-floating-text"><i class="fa fa-check"></i><b>14.3</b> A smaller figure to the right, with floating text</a></li>
-<li class="chapter" data-level="14.4" data-path="factores-1.html"><a href="factores-1.html#modificar-el-orden-de-los-factores"><i class="fa fa-check"></i><b>14.4</b> Modificar el orden de los factores</a></li>
-</ul></li>
-<li class="chapter" data-level="15" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html"><i class="fa fa-check"></i><b>15</b> Fechas, horas y minutas</a>
+<li class="chapter" data-level="11.1" data-path="datos-relacionados.html"><a href="datos-relacionados.html#temas-datos-relacionados"><i class="fa fa-check"></i><b>11.1</b> Temas: Datos Relacionados</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#temas-5"><i class="fa fa-check"></i><b>15.1</b> Temas:</a></li>
-<li class="chapter" data-level="15.2" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#creando-fechashoras"><i class="fa fa-check"></i><b>15.2</b> Creando fechas/horas</a></li>
-<li class="chapter" data-level="15.3" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#el-paquete-lubridate"><i class="fa fa-check"></i><b>15.3</b> El paquete <code>lubridate</code></a>
-<ul>
-<li class="chapter" data-level="15.3.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#un-error-tipico"><i class="fa fa-check"></i><b>15.3.1</b> Un error tipico</a></li>
+<li class="chapter" data-level="11.1.1" data-path="datos-relacionados.html"><a href="datos-relacionados.html#los-datos-de-vuelos"><i class="fa fa-check"></i><b>11.1.1</b> Los datos de vuelos</a></li>
 </ul></li>
-<li class="chapter" data-level="15.4" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#intervalos-y-duraciones"><i class="fa fa-check"></i><b>15.4</b> Intervalos y duraciones</a></li>
-<li class="chapter" data-level="15.5" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#ejercicio"><i class="fa fa-check"></i><b>15.5</b> Ejercicio</a></li>
-<li class="chapter" data-level="15.6" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#as.duration"><i class="fa fa-check"></i><b>15.6</b> as.duration</a>
+<li class="chapter" data-level="11.2" data-path="datos-relacionados.html"><a href="datos-relacionados.html#claves"><i class="fa fa-check"></i><b>11.2</b> Claves</a></li>
+<li class="chapter" data-level="11.3" data-path="datos-relacionados.html"><a href="datos-relacionados.html#uniones-de-transformaciones"><i class="fa fa-check"></i><b>11.3</b> Uniones de transformaciones</a></li>
+<li class="chapter" data-level="11.4" data-path="datos-relacionados.html"><a href="datos-relacionados.html#entendiendo-las-uniones"><i class="fa fa-check"></i><b>11.4</b> Entendiendo las uniones</a>
 <ul>
-<li class="chapter" data-level="15.6.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#funciones"><i class="fa fa-check"></i><b>15.6.1</b> Funciones</a></li>
-<li class="chapter" data-level="15.6.2" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas-con-cednas-de-caracteres"><i class="fa fa-check"></i><b>15.6.2</b> Fechas con cednas de caracteres</a></li>
-<li class="chapter" data-level="15.6.3" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas-con-horas"><i class="fa fa-check"></i><b>15.6.3</b> Fechas con horas</a></li>
-<li class="chapter" data-level="15.6.4" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas"><i class="fa fa-check"></i><b>15.6.4</b> Fechas</a></li>
+<li class="chapter" data-level="11.4.1" data-path="datos-relacionados.html"><a href="datos-relacionados.html#unión-interiores"><i class="fa fa-check"></i><b>11.4.1</b> Unión interiores</a></li>
+<li class="chapter" data-level="11.4.2" data-path="datos-relacionados.html"><a href="datos-relacionados.html#unión-exteriores"><i class="fa fa-check"></i><b>11.4.2</b> Unión exteriores</a></li>
+<li class="chapter" data-level="11.4.3" data-path="datos-relacionados.html"><a href="datos-relacionados.html#claves-duplicadas"><i class="fa fa-check"></i><b>11.4.3</b> Claves duplicadas</a></li>
 </ul></li>
-<li class="chapter" data-level="15.7" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#crear-una-fecha-desde-columnas-individuales"><i class="fa fa-check"></i><b>15.7</b> Crear una fecha desde columnas individuales</a></li>
-<li class="chapter" data-level="15.8" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#extrayendo-parte-de-las-fecha-hora"><i class="fa fa-check"></i><b>15.8</b> Extrayendo parte de las fecha-hora</a></li>
-<li class="chapter" data-level="15.9" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#lapso-de-tiempo"><i class="fa fa-check"></i><b>15.9</b> Lapso de tiempo</a></li>
-<li class="chapter" data-level="15.10" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#duraciones"><i class="fa fa-check"></i><b>15.10</b> duraciones</a></li>
-<li class="chapter" data-level="15.11" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#períodos"><i class="fa fa-check"></i><b>15.11</b> períodos</a>
+<li class="chapter" data-level="11.5" data-path="datos-relacionados.html"><a href="datos-relacionados.html#definiendo-las-columnas-clave"><i class="fa fa-check"></i><b>11.5</b> Definiendo las columnas clave</a></li>
+<li class="chapter" data-level="11.6" data-path="datos-relacionados.html"><a href="datos-relacionados.html#otras-implementaciones"><i class="fa fa-check"></i><b>11.6</b> Otras implementaciones</a></li>
+<li class="chapter" data-level="11.7" data-path="datos-relacionados.html"><a href="datos-relacionados.html#uniones-de-filtro"><i class="fa fa-check"></i><b>11.7</b> Uniones de filtro</a></li>
+<li class="chapter" data-level="11.8" data-path="datos-relacionados.html"><a href="datos-relacionados.html#problemas-con-las-uniones"><i class="fa fa-check"></i><b>11.8</b> Problemas con las uniones</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html"><i class="fa fa-check"></i><b>12</b> Cadena de Caracteres</a>
 <ul>
-<li class="chapter" data-level="15.11.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#multiplicaciones-y-sumas-de-fechas"><i class="fa fa-check"></i><b>15.11.1</b> Multiplicaciones y sumas de fechas</a></li>
-</ul></li>
-<li class="chapter" data-level="15.12" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#períodos-1"><i class="fa fa-check"></i><b>15.12</b> Períodos</a>
+<li class="chapter" data-level="12.1" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#temas-cadenas-de-caracteres"><i class="fa fa-check"></i><b>12.1</b> Temas: Cadenas de Caracteres</a></li>
+<li class="chapter" data-level="12.2" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#largo-de-cadena"><i class="fa fa-check"></i><b>12.2</b> Largo de cadena</a></li>
+<li class="chapter" data-level="12.3" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#combinar-cadenas"><i class="fa fa-check"></i><b>12.3</b> Combinar cadenas</a></li>
+<li class="chapter" data-level="12.4" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#dividir-cadenas"><i class="fa fa-check"></i><b>12.4</b> Dividir cadenas</a></li>
+<li class="chapter" data-level="12.5" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#locales"><i class="fa fa-check"></i><b>12.5</b> Locales</a></li>
+<li class="chapter" data-level="12.6" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#buscar-patrones"><i class="fa fa-check"></i><b>12.6</b> Buscar patrones</a></li>
+<li class="chapter" data-level="12.7" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#coincidencia-básica"><i class="fa fa-check"></i><b>12.7</b> Coincidencia básica</a></li>
+<li class="chapter" data-level="12.8" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#anclas"><i class="fa fa-check"></i><b>12.8</b> Anclas</a></li>
+<li class="chapter" data-level="12.9" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#clases-de-caracteres-y-alternativas"><i class="fa fa-check"></i><b>12.9</b> Clases de caracteres y alternativas</a></li>
+<li class="chapter" data-level="12.10" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#repetición"><i class="fa fa-check"></i><b>12.10</b> Repetición</a></li>
+<li class="chapter" data-level="12.11" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#agrupamiento-y-referencias-previas"><i class="fa fa-check"></i><b>12.11</b> Agrupamiento y referencias previas</a></li>
+<li class="chapter" data-level="12.12" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#herramientas-objetivos"><i class="fa fa-check"></i><b>12.12</b> Herramientas: Objetivos</a>
 <ul>
-<li class="chapter" data-level="15.12.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#multiplicaciones-y-sumas-de-periodos"><i class="fa fa-check"></i><b>15.12.1</b> Multiplicaciones y sumas de periodos</a></li>
+<li class="chapter" data-level="12.12.1" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#detectar-coincidencias"><i class="fa fa-check"></i><b>12.12.1</b> Detectar coincidencias</a></li>
 </ul></li>
-<li class="chapter" data-level="15.13" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#intervalos"><i class="fa fa-check"></i><b>15.13</b> Intervalos</a></li>
-<li class="chapter" data-level="15.14" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#resumen"><i class="fa fa-check"></i><b>15.14</b> Resumen</a></li>
-<li class="chapter" data-level="15.15" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#time-zones"><i class="fa fa-check"></i><b>15.15</b> Time zones</a></li>
+<li class="chapter" data-level="12.13" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#extraer-coincidencias"><i class="fa fa-check"></i><b>12.13</b> Extraer coincidencias</a></li>
+<li class="chapter" data-level="12.14" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#coincidencias-agrupadas"><i class="fa fa-check"></i><b>12.14</b> Coincidencias agrupadas:</a></li>
+<li class="chapter" data-level="12.15" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#remplazar-coincidencias"><i class="fa fa-check"></i><b>12.15</b> Remplazar coincidencias</a></li>
+<li class="chapter" data-level="12.16" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#divisiones"><i class="fa fa-check"></i><b>12.16</b> Divisiones</a></li>
+<li class="chapter" data-level="12.17" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#otro-tipos-de-patrones"><i class="fa fa-check"></i><b>12.17</b> Otro tipos de patrones</a></li>
+<li class="chapter" data-level="12.18" data-path="cadena-de-caracteres.html"><a href="cadena-de-caracteres.html#stringi"><i class="fa fa-check"></i><b>12.18</b> stringi:</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="factores-1.html"><a href="factores-1.html"><i class="fa fa-check"></i><b>13</b> Factores</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="factores-1.html"><a href="factores-1.html#titulo-mediano"><i class="fa fa-check"></i><b>13.1</b> Titulo mediano</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="factores-1.html"><a href="factores-1.html#titulo-pequeño"><i class="fa fa-check"></i><b>13.1.1</b> Titulo pequeño</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="factores-1.html"><a href="factores-1.html#temas-4"><i class="fa fa-check"></i><b>13.2</b> Temas:</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="factores-1.html"><a href="factores-1.html#datos-encuesta-social-general"><i class="fa fa-check"></i><b>13.2.1</b> Datos : Encuesta Social General</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="factores-1.html"><a href="factores-1.html#a-smaller-figure-to-the-right-with-floating-text"><i class="fa fa-check"></i><b>13.3</b> A smaller figure to the right, with floating text</a></li>
+<li class="chapter" data-level="13.4" data-path="factores-1.html"><a href="factores-1.html#modificar-el-orden-de-los-factores"><i class="fa fa-check"></i><b>13.4</b> Modificar el orden de los factores</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html"><i class="fa fa-check"></i><b>14</b> Fechas, horas y minutas</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#temas-5"><i class="fa fa-check"></i><b>14.1</b> Temas:</a></li>
+<li class="chapter" data-level="14.2" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#creando-fechashoras"><i class="fa fa-check"></i><b>14.2</b> Creando fechas/horas</a></li>
+<li class="chapter" data-level="14.3" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#el-paquete-lubridate"><i class="fa fa-check"></i><b>14.3</b> El paquete <code>lubridate</code></a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#un-error-tipico"><i class="fa fa-check"></i><b>14.3.1</b> Un error tipico</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#intervalos-y-duraciones"><i class="fa fa-check"></i><b>14.4</b> Intervalos y duraciones</a></li>
+<li class="chapter" data-level="14.5" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#ejercicio"><i class="fa fa-check"></i><b>14.5</b> Ejercicio</a></li>
+<li class="chapter" data-level="14.6" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#as.duration"><i class="fa fa-check"></i><b>14.6</b> as.duration</a>
+<ul>
+<li class="chapter" data-level="14.6.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#funciones"><i class="fa fa-check"></i><b>14.6.1</b> Funciones</a></li>
+<li class="chapter" data-level="14.6.2" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas-con-cednas-de-caracteres"><i class="fa fa-check"></i><b>14.6.2</b> Fechas con cednas de caracteres</a></li>
+<li class="chapter" data-level="14.6.3" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas-con-horas"><i class="fa fa-check"></i><b>14.6.3</b> Fechas con horas</a></li>
+<li class="chapter" data-level="14.6.4" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#fechas"><i class="fa fa-check"></i><b>14.6.4</b> Fechas</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#crear-una-fecha-desde-columnas-individuales"><i class="fa fa-check"></i><b>14.7</b> Crear una fecha desde columnas individuales</a></li>
+<li class="chapter" data-level="14.8" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#extrayendo-parte-de-las-fecha-hora"><i class="fa fa-check"></i><b>14.8</b> Extrayendo parte de las fecha-hora</a></li>
+<li class="chapter" data-level="14.9" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#lapso-de-tiempo"><i class="fa fa-check"></i><b>14.9</b> Lapso de tiempo</a></li>
+<li class="chapter" data-level="14.10" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#duraciones"><i class="fa fa-check"></i><b>14.10</b> duraciones</a></li>
+<li class="chapter" data-level="14.11" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#períodos"><i class="fa fa-check"></i><b>14.11</b> períodos</a>
+<ul>
+<li class="chapter" data-level="14.11.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#multiplicaciones-y-sumas-de-fechas"><i class="fa fa-check"></i><b>14.11.1</b> Multiplicaciones y sumas de fechas</a></li>
+</ul></li>
+<li class="chapter" data-level="14.12" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#períodos-1"><i class="fa fa-check"></i><b>14.12</b> Períodos</a>
+<ul>
+<li class="chapter" data-level="14.12.1" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#multiplicaciones-y-sumas-de-periodos"><i class="fa fa-check"></i><b>14.12.1</b> Multiplicaciones y sumas de periodos</a></li>
+</ul></li>
+<li class="chapter" data-level="14.13" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#intervalos"><i class="fa fa-check"></i><b>14.13</b> Intervalos</a></li>
+<li class="chapter" data-level="14.14" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#resumen"><i class="fa fa-check"></i><b>14.14</b> Resumen</a></li>
+<li class="chapter" data-level="14.15" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#time-zones"><i class="fa fa-check"></i><b>14.15</b> Time zones</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -417,15 +413,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="calculadora-sofisticada" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Calculadora sofisticada<a href="calculadora-sofisticada.html#calculadora-sofisticada" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="calculadora-sofisticada" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Calculadora sofisticada<a href="calculadora-sofisticada.html#calculadora-sofisticada" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Fecha de la ultima revisión</p>
 <pre><code>## [1] &quot;2023-08-24&quot;</code></pre>
-<pre><code>## [1] &quot;/Users/raymondtremblay/Dropbox/GitHub_Dropbox_Drive/GitHub/Ciencia_Datos_R&quot;</code></pre>
 <hr />
 <p>Activar los siguientes packetes</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="calculadora-sofisticada.html#cb3-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="calculadora-sofisticada.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 </details>
 <pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.1.2     ✔ readr     2.1.4
@@ -438,7 +433,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="calculadora-sofisticada.html#cb5-1" tabindex="-1"></a><span class="fu">library</span>(datos)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="calculadora-sofisticada.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datos)</span></code></pre></div>
 </details>
 <p>El tema proviene de los siguientes sitios.</p>
 <p>English:
@@ -446,86 +441,86 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Español:
 <a href="https://es.r4ds.hadley.nz/04-workflow-basics.html" class="uri">https://es.r4ds.hadley.nz/04-workflow-basics.html</a></p>
 <hr />
-<div id="temas-2" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Temas:<a href="calculadora-sofisticada.html#temas-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="temas-2" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Temas:<a href="calculadora-sofisticada.html#temas-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Conocimiento básicos de programación</li>
 <li>La importancia de los nombres</li>
 <li>Usando funciones</li>
 </ul>
-<div id="sumar" class="section level3 hasAnchor" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> Sumar<a href="calculadora-sofisticada.html#sumar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="sumar" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Sumar<a href="calculadora-sofisticada.html#sumar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="calculadora-sofisticada.html#cb6-1" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="calculadora-sofisticada.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span></code></pre></div>
 </details>
 <pre><code>## [1] 4</code></pre>
 </div>
-<div id="exactamente-como-una-calculadora" class="section level3 hasAnchor" number="4.1.2">
-<h3><span class="header-section-number">4.1.2</span> Exactamente como una calculadora<a href="calculadora-sofisticada.html#exactamente-como-una-calculadora" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exactamente-como-una-calculadora" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Exactamente como una calculadora<a href="calculadora-sofisticada.html#exactamente-como-una-calculadora" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="calculadora-sofisticada.html#cb8-1" tabindex="-1"></a>(<span class="dv">23</span><span class="sc">+</span><span class="dv">3</span><span class="sc">+</span><span class="dv">3</span>)<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="calculadora-sofisticada.html#cb7-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">23</span><span class="sc">+</span><span class="dv">3</span><span class="sc">+</span><span class="dv">3</span>)<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span></code></pre></div>
 </details>
 <pre><code>## [1] 843</code></pre>
 </div>
-<div id="trigonometria" class="section level3 hasAnchor" number="4.1.3">
-<h3><span class="header-section-number">4.1.3</span> Trigonometria<a href="calculadora-sofisticada.html#trigonometria" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="trigonometria" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Trigonometria<a href="calculadora-sofisticada.html#trigonometria" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="calculadora-sofisticada.html#cb10-1" tabindex="-1"></a><span class="fu">sin</span>(pi<span class="sc">/</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="calculadora-sofisticada.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sin</span>(pi<span class="sc">/</span><span class="dv">3</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] 0.8660254</code></pre>
 </div>
-<div id="log-natural-y-a-base-10" class="section level3 hasAnchor" number="4.1.4">
-<h3><span class="header-section-number">4.1.4</span> Log natural y a base 10<a href="calculadora-sofisticada.html#log-natural-y-a-base-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="log-natural-y-a-base-10" class="section level3 hasAnchor" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Log natural y a base 10<a href="calculadora-sofisticada.html#log-natural-y-a-base-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="calculadora-sofisticada.html#cb12-1" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="calculadora-sofisticada.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">100</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] 4.60517</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="calculadora-sofisticada.html#cb14-1" tabindex="-1"></a><span class="fu">log10</span>(<span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="calculadora-sofisticada.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log10</span>(<span class="dv">100</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] 2</code></pre>
 </div>
-<div id="asignaciones-de-variables" class="section level3 hasAnchor" number="4.1.5">
-<h3><span class="header-section-number">4.1.5</span> Asignaciones de variables<a href="calculadora-sofisticada.html#asignaciones-de-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="asignaciones-de-variables" class="section level3 hasAnchor" number="3.1.5">
+<h3><span class="header-section-number">3.1.5</span> Asignaciones de variables<a href="calculadora-sofisticada.html#asignaciones-de-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="calculadora-sofisticada.html#cb16-1" tabindex="-1"></a>x<span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb16-2"><a href="calculadora-sofisticada.html#cb16-2" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="calculadora-sofisticada.html#cb15-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb15-2"><a href="calculadora-sofisticada.html#cb15-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 </details>
 <pre><code>## [1] 4</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="calculadora-sofisticada.html#cb18-1" tabindex="-1"></a>y<span class="ot">=</span><span class="dv">3</span></span>
-<span id="cb18-2"><a href="calculadora-sofisticada.html#cb18-2" tabindex="-1"></a>y</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="calculadora-sofisticada.html#cb17-1" aria-hidden="true" tabindex="-1"></a>y<span class="ot">=</span><span class="dv">3</span></span>
+<span id="cb17-2"><a href="calculadora-sofisticada.html#cb17-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
 </details>
 <pre><code>## [1] 3</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="calculadora-sofisticada.html#cb20-1" tabindex="-1"></a>x<span class="sc">/</span>y</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="calculadora-sofisticada.html#cb19-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">/</span>y</span></code></pre></div>
 </details>
 <pre><code>## [1] 1.333333</code></pre>
 </div>
-<div id="variables" class="section level3 hasAnchor" number="4.1.6">
-<h3><span class="header-section-number">4.1.6</span> Variables<a href="calculadora-sofisticada.html#variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="variables" class="section level3 hasAnchor" number="3.1.6">
+<h3><span class="header-section-number">3.1.6</span> Variables<a href="calculadora-sofisticada.html#variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>la función “seq” para secuencia</li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="calculadora-sofisticada.html#cb22-1" tabindex="-1"></a>edad_nd<span class="ot">=</span>base<span class="sc">::</span><span class="fu">seq</span>(<span class="dv">101</span>, <span class="dv">110</span>)</span>
-<span id="cb22-2"><a href="calculadora-sofisticada.html#cb22-2" tabindex="-1"></a>edad_nd</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="calculadora-sofisticada.html#cb21-1" aria-hidden="true" tabindex="-1"></a>edad_nd<span class="ot">=</span>base<span class="sc">::</span><span class="fu">seq</span>(<span class="dv">101</span>, <span class="dv">110</span>)</span>
+<span id="cb21-2"><a href="calculadora-sofisticada.html#cb21-2" aria-hidden="true" tabindex="-1"></a>edad_nd</span></code></pre></div>
 </details>
 <pre><code>##  [1] 101 102 103 104 105 106 107 108 109 110</code></pre>
 <ul>
 <li>variables asignada</li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="calculadora-sofisticada.html#cb24-1" tabindex="-1"></a>edad_uprh<span class="ot">=</span><span class="fu">c</span>(<span class="dv">11</span><span class="sc">:</span><span class="dv">20</span>)</span>
-<span id="cb24-2"><a href="calculadora-sofisticada.html#cb24-2" tabindex="-1"></a>edad_uprh</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="calculadora-sofisticada.html#cb23-1" aria-hidden="true" tabindex="-1"></a>edad_uprh<span class="ot">=</span><span class="fu">c</span>(<span class="dv">11</span><span class="sc">:</span><span class="dv">20</span>)</span>
+<span id="cb23-2"><a href="calculadora-sofisticada.html#cb23-2" aria-hidden="true" tabindex="-1"></a>edad_uprh</span></code></pre></div>
 </details>
 <pre><code>##  [1] 11 12 13 14 15 16 17 18 19 20</code></pre>
 </div>
-<div id="unir-variables-en-un-data-frame" class="section level3 hasAnchor" number="4.1.7">
-<h3><span class="header-section-number">4.1.7</span> Unir variables en un data frame<a href="calculadora-sofisticada.html#unir-variables-en-un-data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="unir-variables-en-un-data-frame" class="section level3 hasAnchor" number="3.1.7">
+<h3><span class="header-section-number">3.1.7</span> Unir variables en un data frame<a href="calculadora-sofisticada.html#unir-variables-en-un-data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="calculadora-sofisticada.html#cb26-1" tabindex="-1"></a>edad<span class="ot">=</span><span class="fu">data.frame</span>(edad_nd, edad_uprh)</span>
-<span id="cb26-2"><a href="calculadora-sofisticada.html#cb26-2" tabindex="-1"></a>edad</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="calculadora-sofisticada.html#cb25-1" aria-hidden="true" tabindex="-1"></a>edad<span class="ot">=</span><span class="fu">data.frame</span>(edad_nd, edad_uprh)</span>
+<span id="cb25-2"><a href="calculadora-sofisticada.html#cb25-2" aria-hidden="true" tabindex="-1"></a>edad</span></code></pre></div>
 </details>
 <pre><code>##    edad_nd edad_uprh
 ## 1      101        11
@@ -539,27 +534,27 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 9      109        19
 ## 10     110        20</code></pre>
 </div>
-<div id="errores-cuando-a-variables-no-tienen-la-misma-cantidad-de-entradas" class="section level3 hasAnchor" number="4.1.8">
-<h3><span class="header-section-number">4.1.8</span> Errores cuando a variables no tienen la misma cantidad de entradas<a href="calculadora-sofisticada.html#errores-cuando-a-variables-no-tienen-la-misma-cantidad-de-entradas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="errores-cuando-a-variables-no-tienen-la-misma-cantidad-de-entradas" class="section level3 hasAnchor" number="3.1.8">
+<h3><span class="header-section-number">3.1.8</span> Errores cuando a variables no tienen la misma cantidad de entradas<a href="calculadora-sofisticada.html#errores-cuando-a-variables-no-tienen-la-misma-cantidad-de-entradas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="calculadora-sofisticada.html#cb28-1" tabindex="-1"></a>edad_nd_1<span class="ot">=</span>base<span class="sc">::</span><span class="fu">seq</span>(<span class="dv">101</span>, <span class="dv">110</span>)</span>
-<span id="cb28-2"><a href="calculadora-sofisticada.html#cb28-2" tabindex="-1"></a>edad_nd_1</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="calculadora-sofisticada.html#cb27-1" aria-hidden="true" tabindex="-1"></a>edad_nd_1<span class="ot">=</span>base<span class="sc">::</span><span class="fu">seq</span>(<span class="dv">101</span>, <span class="dv">110</span>)</span>
+<span id="cb27-2"><a href="calculadora-sofisticada.html#cb27-2" aria-hidden="true" tabindex="-1"></a>edad_nd_1</span></code></pre></div>
 </details>
 <pre><code>##  [1] 101 102 103 104 105 106 107 108 109 110</code></pre>
 <ul>
 <li>variables asignada</li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="calculadora-sofisticada.html#cb30-1" tabindex="-1"></a>edad_uprh_1<span class="ot">=</span><span class="fu">c</span>(<span class="dv">11</span><span class="sc">:</span><span class="dv">20</span>)</span>
-<span id="cb30-2"><a href="calculadora-sofisticada.html#cb30-2" tabindex="-1"></a>edad_uprh_1</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="calculadora-sofisticada.html#cb29-1" aria-hidden="true" tabindex="-1"></a>edad_uprh_1<span class="ot">=</span><span class="fu">c</span>(<span class="dv">11</span><span class="sc">:</span><span class="dv">20</span>)</span>
+<span id="cb29-2"><a href="calculadora-sofisticada.html#cb29-2" aria-hidden="true" tabindex="-1"></a>edad_uprh_1</span></code></pre></div>
 </details>
 <pre><code>##  [1] 11 12 13 14 15 16 17 18 19 20</code></pre>
 </div>
-<div id="unir-variables-en-un-data-frame-1" class="section level3 hasAnchor" number="4.1.9">
-<h3><span class="header-section-number">4.1.9</span> Unir variables en un data frame<a href="calculadora-sofisticada.html#unir-variables-en-un-data-frame-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="unir-variables-en-un-data-frame-1" class="section level3 hasAnchor" number="3.1.9">
+<h3><span class="header-section-number">3.1.9</span> Unir variables en un data frame<a href="calculadora-sofisticada.html#unir-variables-en-un-data-frame-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="calculadora-sofisticada.html#cb32-1" tabindex="-1"></a>edad_1<span class="ot">=</span><span class="fu">data.frame</span>(edad_nd_1, edad_uprh_1)</span>
-<span id="cb32-2"><a href="calculadora-sofisticada.html#cb32-2" tabindex="-1"></a>edad_1</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="calculadora-sofisticada.html#cb31-1" aria-hidden="true" tabindex="-1"></a>edad_1<span class="ot">=</span><span class="fu">data.frame</span>(edad_nd_1, edad_uprh_1)</span>
+<span id="cb31-2"><a href="calculadora-sofisticada.html#cb31-2" aria-hidden="true" tabindex="-1"></a>edad_1</span></code></pre></div>
 </details>
 <pre><code>##    edad_nd_1 edad_uprh_1
 ## 1        101          11
@@ -573,21 +568,21 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 9        109          19
 ## 10       110          20</code></pre>
 </div>
-<div id="cuantos-valores-hay-en-una-variable" class="section level3 hasAnchor" number="4.1.10">
-<h3><span class="header-section-number">4.1.10</span> Cuantos valores hay en una variable<a href="calculadora-sofisticada.html#cuantos-valores-hay-en-una-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="cuantos-valores-hay-en-una-variable" class="section level3 hasAnchor" number="3.1.10">
+<h3><span class="header-section-number">3.1.10</span> Cuantos valores hay en una variable<a href="calculadora-sofisticada.html#cuantos-valores-hay-en-una-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="calculadora-sofisticada.html#cb34-1" tabindex="-1"></a><span class="fu">length</span>(edad_uprh)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="calculadora-sofisticada.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(edad_uprh)</span></code></pre></div>
 </details>
 <pre><code>## [1] 10</code></pre>
 </div>
-<div id="seleccionar-solamente-parte-de-los-datos-de-un-archivo" class="section level3 hasAnchor" number="4.1.11">
-<h3><span class="header-section-number">4.1.11</span> Seleccionar solamente parte de los datos de un archivo<a href="calculadora-sofisticada.html#seleccionar-solamente-parte-de-los-datos-de-un-archivo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="seleccionar-solamente-parte-de-los-datos-de-un-archivo" class="section level3 hasAnchor" number="3.1.11">
+<h3><span class="header-section-number">3.1.11</span> Seleccionar solamente parte de los datos de un archivo<a href="calculadora-sofisticada.html#seleccionar-solamente-parte-de-los-datos-de-un-archivo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Primero visualizar los datos</li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="calculadora-sofisticada.html#cb36-1" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
-<span id="cb36-2"><a href="calculadora-sofisticada.html#cb36-2" tabindex="-1"></a>millas</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="calculadora-sofisticada.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
+<span id="cb35-2"><a href="calculadora-sofisticada.html#cb35-2" aria-hidden="true" tabindex="-1"></a>millas</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 234 × 11
 ##    fabricante modelo     cilindrada  anio cilindros transmision traccion ciudad
@@ -604,12 +599,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 10 audi       a4 quattro        2    2008         4 manual(m6)  4            20
 ## # ℹ 224 more rows
 ## # ℹ 3 more variables: autopista &lt;int&gt;, combustible &lt;chr&gt;, clase &lt;chr&gt;</code></pre>
-<div id="seleccionar-los-carros-que-tienen-cilindros-igual-a-8-solamente" class="section level4 hasAnchor" number="4.1.11.1">
-<h4><span class="header-section-number">4.1.11.1</span> Seleccionar los carros que tienen cilindros igual a 8 (solamente)<a href="calculadora-sofisticada.html#seleccionar-los-carros-que-tienen-cilindros-igual-a-8-solamente" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="seleccionar-los-carros-que-tienen-cilindros-igual-a-8-solamente" class="section level4 hasAnchor" number="3.1.11.1">
+<h4><span class="header-section-number">3.1.11.1</span> Seleccionar los carros que tienen cilindros igual a 8 (solamente)<a href="calculadora-sofisticada.html#seleccionar-los-carros-que-tienen-cilindros-igual-a-8-solamente" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>La función de Pipe. %&gt;% o |&gt;</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="calculadora-sofisticada.html#cb38-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb38-2"><a href="calculadora-sofisticada.html#cb38-2" tabindex="-1"></a>millas</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="calculadora-sofisticada.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb37-2"><a href="calculadora-sofisticada.html#cb37-2" aria-hidden="true" tabindex="-1"></a>millas</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 234 × 11
 ##    fabricante modelo     cilindrada  anio cilindros transmision traccion ciudad
@@ -627,8 +622,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## # ℹ 224 more rows
 ## # ℹ 3 more variables: autopista &lt;int&gt;, combustible &lt;chr&gt;, clase &lt;chr&gt;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="calculadora-sofisticada.html#cb40-1" tabindex="-1"></a>millas <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(cilindros) <span class="sc">|&gt;</span> </span>
-<span id="cb40-2"><a href="calculadora-sofisticada.html#cb40-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(cilindros <span class="sc">==</span> <span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="calculadora-sofisticada.html#cb39-1" aria-hidden="true" tabindex="-1"></a>millas <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(cilindros) <span class="sc">|&gt;</span> </span>
+<span id="cb39-2"><a href="calculadora-sofisticada.html#cb39-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(cilindros <span class="sc">==</span> <span class="dv">8</span>)</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 70 × 1
 ##    cilindros
@@ -645,11 +640,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 10         8
 ## # ℹ 60 more rows</code></pre>
 </div>
-<div id="selecionar-los-diamantes-mayor-de-3-quilate" class="section level4 hasAnchor" number="4.1.11.2">
-<h4><span class="header-section-number">4.1.11.2</span> Selecionar los diamantes mayor de 3 quilate<a href="calculadora-sofisticada.html#selecionar-los-diamantes-mayor-de-3-quilate" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="selecionar-los-diamantes-mayor-de-3-quilate" class="section level4 hasAnchor" number="3.1.11.2">
+<h4><span class="header-section-number">3.1.11.2</span> Selecionar los diamantes mayor de 3 quilate<a href="calculadora-sofisticada.html#selecionar-los-diamantes-mayor-de-3-quilate" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="calculadora-sofisticada.html#cb42-1" tabindex="-1"></a>diamantes <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(quilate) <span class="sc">|&gt;</span> </span>
-<span id="cb42-2"><a href="calculadora-sofisticada.html#cb42-2" tabindex="-1"></a>  <span class="fu">filter</span>(quilate <span class="sc">&gt;</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="calculadora-sofisticada.html#cb41-1" aria-hidden="true" tabindex="-1"></a>diamantes <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(quilate) <span class="sc">|&gt;</span> </span>
+<span id="cb41-2"><a href="calculadora-sofisticada.html#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(quilate <span class="sc">&gt;</span> <span class="dv">3</span>)</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 32 × 1
 ##    quilate
@@ -666,8 +661,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 10    3.5 
 ## # ℹ 22 more rows</code></pre>
 </div>
-<div id="selecionar-los-diamantes-con-igual-o-mayor-de-4000-precio" class="section level4 hasAnchor" number="4.1.11.3">
-<h4><span class="header-section-number">4.1.11.3</span> Selecionar los diamantes con igual o mayor de 4000 precio<a href="calculadora-sofisticada.html#selecionar-los-diamantes-con-igual-o-mayor-de-4000-precio" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="selecionar-los-diamantes-con-igual-o-mayor-de-4000-precio" class="section level4 hasAnchor" number="3.1.11.3">
+<h4><span class="header-section-number">3.1.11.3</span> Selecionar los diamantes con igual o mayor de 4000 precio<a href="calculadora-sofisticada.html#selecionar-los-diamantes-con-igual-o-mayor-de-4000-precio" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <pre><code>## # A tibble: 6 × 1
 ##   precio
 ##    &lt;int&gt;
@@ -679,10 +674,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 6   4002</code></pre>
 <hr />
 </div>
-<div id="contabiliza-cuantos-diamantes-tienen-un-valor-de-4000-o-más" class="section level4 hasAnchor" number="4.1.11.4">
-<h4><span class="header-section-number">4.1.11.4</span> Contabiliza cuantos diamantes tienen un valor de $4000 o más<a href="calculadora-sofisticada.html#contabiliza-cuantos-diamantes-tienen-un-valor-de-4000-o-más" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="contabiliza-cuantos-diamantes-tienen-un-valor-de-4000-o-más" class="section level4 hasAnchor" number="3.1.11.4">
+<h4><span class="header-section-number">3.1.11.4</span> Contabiliza cuantos diamantes tienen un valor de $4000 o más<a href="calculadora-sofisticada.html#contabiliza-cuantos-diamantes-tienen-un-valor-de-4000-o-más" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="calculadora-sofisticada.html#cb45-1" tabindex="-1"></a><span class="fu">nrow</span>(dia_4000) </span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="calculadora-sofisticada.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dia_4000) </span></code></pre></div>
 </details>
 <pre><code>## [1] 19380</code></pre>
 
@@ -695,7 +690,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="visualización-de-datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="flujo-de-trabajo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="transformacion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
