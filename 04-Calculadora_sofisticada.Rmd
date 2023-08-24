@@ -29,34 +29,124 @@ Español:
   - La importancia de los nombres
   - Usando funciones
   
-  
+### Sumar  
   
 ```{r}
 2+2
+```
+
+### Exactamente como una calculadora
+
+```{r}
 (23+3+3)^2+2
+```
+
+
+### Trigonometria
+
+```{r}
 sin(pi/3)
+```
 
+
+### Log natural y a base 10
+
+
+```{r}
 log(100)
-log2(100)
+log10(100)
+```
 
+### Asignaciones de variables
+
+```{r}
 x<- 4
 x
 y=3
 y
 
 x/y
+```
 
+
+### Variables 
+
+
+- la función "seq" para secuencia
+
+```{r}
 edad_nd=base::seq(101, 110)
 edad_nd
+```
+
+- variables asignada
+
+```{r}
 edad_uprh=c(11:20)
 edad_uprh
+```
 
+### Unir variables en un data frame
+
+```{r}
 edad=data.frame(edad_nd, edad_uprh)
 edad
+```
 
 
-library(tidyverse)
+### Errores cuando a variables no tienen la misma cantidad de entradas
+
+
+```{r}
+edad_nd_1=base::seq(101, 110)
+edad_nd_1
+```
+
+- variables asignada
+
+```{r}
+edad_uprh_1=c(11:20)
+edad_uprh_1
+```
+
+### Unir variables en un data frame
+
+```{r}
+edad_1=data.frame(edad_nd_1, edad_uprh_1)
+edad_1
+```
+
+
+### Cuantos valores hay en una variable
+
+```{r}
+length(edad_uprh)
+```
+
+
+### Seleccionar solamente parte de los datos de un archivo
+
+- Primero visualizar los datos
+
+```{r}
 library(datos)
+millas
+```
+
+#### Seleccionar los carros que tienen cilindros igual a 8 (solamente)
+
+La función de Pipe.    %>% o |>
+
+
+
+```{r}
+library(tidyverse)
+millas
+millas |> dplyr::select(cilindros) |> 
+  filter(cilindros == 8)
+
+```
+
 
 ggplot(data=millas) + 
   geom_point(mapping = aes(x = cilindrada, y = autopista))
@@ -66,23 +156,31 @@ ggplot(data=millas) +
 
 
 
-length(edad_uprh)
+#### Selecionar los diamantes mayor de 3 quilate
+
+```{r}
+diamantes |> dplyr::select(quilate) |> 
+  filter(quilate > 3)
 ```
-  
-1.  **Ejercicios**:
-  
-Hacer los ejercicios en la sección 4.4 del libro en español
 
 
-Cual son los errores
+#### Selecionar los diamantes con igual o mayor de 4000 precio
 
+```{r, echo=FALSE, eval=FALSE}
+#unique(diamantes$precio)
 
-```{r eval=FALSE, include=FALSE}
-library(tidyverse)
-
-ggplot(dota = millas) + 
-  geom_point(mapping = aes(x = cilindrada, y = autopista))
-
-fliter(millas, cilindros = 8)
-filter(diamante, quilate > 3)
+diam_4000=diamantes |> dplyr::select(precio) |> 
+  dplyr::filter(precio >= 4000)
 ```
+
+
+***
+#### Contabiliza cuantos diamantes tienen un valor de $4000 o más
+```{r}
+nrow(diam_4000) # 1 método 
+length(diam_4000$precio) # 2 método
+```
+
+
+
+

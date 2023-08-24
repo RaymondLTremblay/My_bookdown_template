@@ -29,38 +29,89 @@ head(vuelos)
 ```
 
 
+## Evaluar el archivo
+
+Mirar el archivo y entender la información antes de hacer cualquier analisis/
+
+  - Cual son las variables
+  - Cuales son. los tipos de datos 
+      - **int** valores enteros, 
+      - **dbl** números reales, significa dobles
+      - **chr** caracteres o vectores
+      - **dttm** fecha y tiempo, minutos
+      - **date** fecha
+      - **S3: POSIXct** Fecha y tiempo, minutos
+      - **lgl** valores logicos "cierto" (TRUE) y "falso" (FALSE)
+      - **fctr** factores categoricos. 
+      
+
+Evalua en este archivo los tipos de variables que se encuentra.
+
+
+
+```{r}
+vuelos
+```
+
+### Cual son todos los destinos de vuelos?
+  - cual función usará
+  
+  
+  
+
 
 
 ```{r}
 unique(vuelos$destino)
 
+```
 
-vuelos %>% 
+
+### Seleciona los vuelos donde el destino es San Juan
+
+```{r}
+vuelos %>%
+  filter(destino=="SJU")
+```
+
+
+### Selecciona los vuelos donde el destino es San Juan el dia de navidad
+
+
+```{r}
+vuelos %>%
   filter(destino=="SJU") %>%
   filter(mes==12, dia==25) # pipe Command shift M
+```
 
 
+ 
+### Selecciona los vuelos que salen de San Juan en el dia de ti cumpleaños y contabiliza cuanto hubo 
 
-library(tidyverse)
-vuelos %>% 
-  filter(destino=="SJU")
-
-
+```{r}
 df_dia_cumpl=vuelos %>%  
 filter(destino =="SJU") %>% 
-  filter(mes== 8, dia== 1)
+  filter(mes== 8, dia== 1) |> 
+  nrow()
 
 df_dia_cumpl
 ```
 
 
+#### Organizar los datos en orden de más grande a más pequeño
+ 
+ - Selecciona los mes, dia, destino, atraso_salida, atraso_llegada
+ - Selecciona solamente el mes de noviembre
+ - Selecciona solamente los vuelos a destino de a San Juan
+ - oraganiza los datos en orden de más atraso_salido de mayor a menor
 
 ```{r}
 names(vuelos)
 
 vuelos %>% 
-  select(mes, dia, atraso_salida, atraso_llegada) %>% 
+  select(mes, dia, destino, atraso_salida, atraso_llegada) %>% 
   filter(mes==11) %>% 
+filter(destino =="SJU") %>% 
   arrange(desc(atraso_salida))
 ```
 
@@ -92,8 +143,9 @@ vuelos %>%
 ```{r}
 library(datos)
 library(tidyverse)
-por_dia <- group_by(vuelos, dia)%>% 
-summarise(atraso_promedio = mean(atraso_salida, na.rm = TRUE))
+por_dia <- 
+  group_by(vuelos, dia) %>% 
+  summarise(atraso_promedio = mean(atraso_salida, na.rm = TRUE))
 por_dia
 
 
