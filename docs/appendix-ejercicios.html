@@ -401,6 +401,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="appendix-ejercicios.html"><a href="appendix-ejercicios.html"><i class="fa fa-check"></i>(Appendix) Ejercicios</a>
 <ul>
 <li class="chapter" data-level="" data-path="appendix-ejercicios.html"><a href="appendix-ejercicios.html#capitulo-de-transformación-de-datos"><i class="fa fa-check"></i>Capitulo de Transformación de Datos</a></li>
+<li class="chapter" data-level="" data-path="appendix-ejercicios.html"><a href="appendix-ejercicios.html#ejercicios-con-destrezar-de-aplicar-algunas-funciones-de-transformaciones-de-datos"><i class="fa fa-check"></i>Ejercicios con destrezar de aplicar algunas funciones de transformaciones de datos</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix-ejercicios.html"><a href="appendix-ejercicios.html#para-tener-los-puntos-tiene-que-enseñar-todos-los-scripts-los-resultados-y-explicar-en-palabra-los-que-encontró-dentro-de-un-documento-bien-organizado."><i class="fa fa-check"></i>Para tener los puntos tiene que enseñar TODOS los scripts, los resultados y explicar en palabra los que encontró dentro de un documento bien organizado.</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="appendix-ejercicios.html"><a href="appendix-ejercicios.html#busca-el-bateador-que-tuvo-más-carreras-en-cualquier-año"><i class="fa fa-check"></i>1. Busca el bateador que tuvo más carreras en cualquier año</a></li>
 <li class="chapter" data-level="" data-path="appendix-ejercicios.html"><a href="appendix-ejercicios.html#cual-es-el-nombre-del-bateador-id_jugador-que-estuvo-más-veces-al_bate"><i class="fa fa-check"></i>Cual es el nombre del bateador (id_jugador) que estuvo más veces “al_bate”</a></li>
 <li class="chapter" data-level="" data-path="appendix-ejercicios.html"><a href="appendix-ejercicios.html#cual-son-las-ligas-de-baseball-pelota-que-esta-incluida-en-este-archivo"><i class="fa fa-check"></i>2. ¿Cual son las “ligas” de baseball (pelota) que esta incluida en este archivo?</a></li>
@@ -434,44 +438,563 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <div id="capitulo-de-transformación-de-datos" class="section level2 unnumbered hasAnchor">
 <h2>Capitulo de Transformación de Datos<a href="appendix-ejercicios.html#capitulo-de-transformación-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Este Capitulo es de Ejercicios para someter para el curso de Ciencia de Datos con R</p>
+</div>
+<div id="ejercicios-con-destrezar-de-aplicar-algunas-funciones-de-transformaciones-de-datos" class="section level2 unnumbered hasAnchor">
+<h2>Ejercicios con destrezar de aplicar algunas funciones de transformaciones de datos<a href="appendix-ejercicios.html#ejercicios-con-destrezar-de-aplicar-algunas-funciones-de-transformaciones-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="para-tener-los-puntos-tiene-que-enseñar-todos-los-scripts-los-resultados-y-explicar-en-palabra-los-que-encontró-dentro-de-un-documento-bien-organizado." class="section level3 unnumbered hasAnchor">
+<h3>Para tener los puntos tiene que enseñar TODOS los scripts, los resultados y explicar en palabra los que encontró dentro de un documento bien organizado.<a href="appendix-ejercicios.html#para-tener-los-puntos-tiene-que-enseñar-todos-los-scripts-los-resultados-y-explicar-en-palabra-los-que-encontró-dentro-de-un-documento-bien-organizado." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb922"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb922-1"><a href="appendix-ejercicios.html#cb922-1" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
 <span id="cb922-2"><a href="appendix-ejercicios.html#cb922-2" tabindex="-1"></a><span class="fu">attach</span>(bateadores)</span>
-<span id="cb922-3"><a href="appendix-ejercicios.html#cb922-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<span id="cb922-3"><a href="appendix-ejercicios.html#cb922-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb922-4"><a href="appendix-ejercicios.html#cb922-4" tabindex="-1"></a><span class="fu">library</span>(gt)</span></code></pre></div>
 </details>
+<p>Use el data frame de “bateadores” en el paquete “datos”.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb923"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb923-1"><a href="appendix-ejercicios.html#cb923-1" tabindex="-1"></a><span class="fu">head</span>(bateadores)</span></code></pre></div>
+<div class="sourceCode" id="cb923"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb923-1"><a href="appendix-ejercicios.html#cb923-1" tabindex="-1"></a><span class="fu">gt</span>(<span class="fu">head</span>(bateadores, <span class="at">n=</span><span class="dv">3</span>))</span></code></pre></div>
 </details>
-<pre><code>##   id_jugador id_anio orden_equipos id_equipo id_liga juegos al_bate carreras
-## 1  abercda01    1871             1       TRO      NA      1       4        0
-## 2   addybo01    1871             1       RC1      NA     25     118       30
-## 3  allisar01    1871             1       CL1      NA     29     137       28
-## 4  allisdo01    1871             1       WS3      NA     27     133       28
-## 5  ansonca01    1871             1       RC1      NA     25     120       29
-## 6  armstbo01    1871             1       FW1      NA     12      49        9
-##   golpes dobles triples cuadrangulares carreras_empujadas bases_robadas
-## 1      0      0       0              0                  0             0
-## 2     32      6       0              0                 13             8
-## 3     40      4       5              0                 19             3
-## 4     44     10       2              2                 27             1
-## 5     39     11       3              0                 16             6
-## 6     11      2       1              0                  5             0
-##   atrapado_robando base_bolas ponches base_intencional golpeado
-## 1                0          0       0               NA       NA
-## 2                1          4       0               NA       NA
-## 3                1          2       5               NA       NA
-## 4                1          0       2               NA       NA
-## 5                2          2       1               NA       NA
-## 6                1          0       1               NA       NA
-##   toque_sacrificio elavado_sacrificio doble_matanza
-## 1               NA                 NA             0
-## 2               NA                 NA             0
-## 3               NA                 NA             1
-## 4               NA                 NA             0
-## 5               NA                 NA             0
-## 6               NA                 NA             0</code></pre>
+<div id="hgxtzxtefu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hgxtzxtefu table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#hgxtzxtefu thead, #hgxtzxtefu tbody, #hgxtzxtefu tfoot, #hgxtzxtefu tr, #hgxtzxtefu td, #hgxtzxtefu th {
+  border-style: none;
+}
+
+#hgxtzxtefu p {
+  margin: 0;
+  padding: 0;
+}
+
+#hgxtzxtefu .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#hgxtzxtefu .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#hgxtzxtefu .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#hgxtzxtefu .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#hgxtzxtefu .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hgxtzxtefu .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hgxtzxtefu .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hgxtzxtefu .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#hgxtzxtefu .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#hgxtzxtefu .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#hgxtzxtefu .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#hgxtzxtefu .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#hgxtzxtefu .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#hgxtzxtefu .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#hgxtzxtefu .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#hgxtzxtefu .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#hgxtzxtefu .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#hgxtzxtefu .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#hgxtzxtefu .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hgxtzxtefu .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#hgxtzxtefu .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#hgxtzxtefu .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#hgxtzxtefu .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hgxtzxtefu .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#hgxtzxtefu .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#hgxtzxtefu .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hgxtzxtefu .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hgxtzxtefu .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#hgxtzxtefu .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hgxtzxtefu .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#hgxtzxtefu .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hgxtzxtefu .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hgxtzxtefu .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hgxtzxtefu .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hgxtzxtefu .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hgxtzxtefu .gt_left {
+  text-align: left;
+}
+
+#hgxtzxtefu .gt_center {
+  text-align: center;
+}
+
+#hgxtzxtefu .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#hgxtzxtefu .gt_font_normal {
+  font-weight: normal;
+}
+
+#hgxtzxtefu .gt_font_bold {
+  font-weight: bold;
+}
+
+#hgxtzxtefu .gt_font_italic {
+  font-style: italic;
+}
+
+#hgxtzxtefu .gt_super {
+  font-size: 65%;
+}
+
+#hgxtzxtefu .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#hgxtzxtefu .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#hgxtzxtefu .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#hgxtzxtefu .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#hgxtzxtefu .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#hgxtzxtefu .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#hgxtzxtefu .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="id_jugador">id_jugador</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="id_anio">id_anio</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="orden_equipos">orden_equipos</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="id_equipo">id_equipo</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="id_liga">id_liga</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="juegos">juegos</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="al_bate">al_bate</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="carreras">carreras</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="golpes">golpes</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="dobles">dobles</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="triples">triples</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="cuadrangulares">cuadrangulares</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="carreras_empujadas">carreras_empujadas</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="bases_robadas">bases_robadas</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="atrapado_robando">atrapado_robando</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="base_bolas">base_bolas</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="ponches">ponches</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="base_intencional">base_intencional</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="golpeado">golpeado</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="toque_sacrificio">toque_sacrificio</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="elavado_sacrificio">elavado_sacrificio</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="doble_matanza">doble_matanza</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="id_jugador" class="gt_row gt_left">abercda01</td>
+<td headers="id_anio" class="gt_row gt_right">1871</td>
+<td headers="orden_equipos" class="gt_row gt_right">1</td>
+<td headers="id_equipo" class="gt_row gt_center">TRO</td>
+<td headers="id_liga" class="gt_row gt_center">NA</td>
+<td headers="juegos" class="gt_row gt_right">1</td>
+<td headers="al_bate" class="gt_row gt_right">4</td>
+<td headers="carreras" class="gt_row gt_right">0</td>
+<td headers="golpes" class="gt_row gt_right">0</td>
+<td headers="dobles" class="gt_row gt_right">0</td>
+<td headers="triples" class="gt_row gt_right">0</td>
+<td headers="cuadrangulares" class="gt_row gt_right">0</td>
+<td headers="carreras_empujadas" class="gt_row gt_right">0</td>
+<td headers="bases_robadas" class="gt_row gt_right">0</td>
+<td headers="atrapado_robando" class="gt_row gt_right">0</td>
+<td headers="base_bolas" class="gt_row gt_right">0</td>
+<td headers="ponches" class="gt_row gt_right">0</td>
+<td headers="base_intencional" class="gt_row gt_right">NA</td>
+<td headers="golpeado" class="gt_row gt_right">NA</td>
+<td headers="toque_sacrificio" class="gt_row gt_right">NA</td>
+<td headers="elavado_sacrificio" class="gt_row gt_right">NA</td>
+<td headers="doble_matanza" class="gt_row gt_right">0</td></tr>
+    <tr><td headers="id_jugador" class="gt_row gt_left">addybo01</td>
+<td headers="id_anio" class="gt_row gt_right">1871</td>
+<td headers="orden_equipos" class="gt_row gt_right">1</td>
+<td headers="id_equipo" class="gt_row gt_center">RC1</td>
+<td headers="id_liga" class="gt_row gt_center">NA</td>
+<td headers="juegos" class="gt_row gt_right">25</td>
+<td headers="al_bate" class="gt_row gt_right">118</td>
+<td headers="carreras" class="gt_row gt_right">30</td>
+<td headers="golpes" class="gt_row gt_right">32</td>
+<td headers="dobles" class="gt_row gt_right">6</td>
+<td headers="triples" class="gt_row gt_right">0</td>
+<td headers="cuadrangulares" class="gt_row gt_right">0</td>
+<td headers="carreras_empujadas" class="gt_row gt_right">13</td>
+<td headers="bases_robadas" class="gt_row gt_right">8</td>
+<td headers="atrapado_robando" class="gt_row gt_right">1</td>
+<td headers="base_bolas" class="gt_row gt_right">4</td>
+<td headers="ponches" class="gt_row gt_right">0</td>
+<td headers="base_intencional" class="gt_row gt_right">NA</td>
+<td headers="golpeado" class="gt_row gt_right">NA</td>
+<td headers="toque_sacrificio" class="gt_row gt_right">NA</td>
+<td headers="elavado_sacrificio" class="gt_row gt_right">NA</td>
+<td headers="doble_matanza" class="gt_row gt_right">0</td></tr>
+    <tr><td headers="id_jugador" class="gt_row gt_left">allisar01</td>
+<td headers="id_anio" class="gt_row gt_right">1871</td>
+<td headers="orden_equipos" class="gt_row gt_right">1</td>
+<td headers="id_equipo" class="gt_row gt_center">CL1</td>
+<td headers="id_liga" class="gt_row gt_center">NA</td>
+<td headers="juegos" class="gt_row gt_right">29</td>
+<td headers="al_bate" class="gt_row gt_right">137</td>
+<td headers="carreras" class="gt_row gt_right">28</td>
+<td headers="golpes" class="gt_row gt_right">40</td>
+<td headers="dobles" class="gt_row gt_right">4</td>
+<td headers="triples" class="gt_row gt_right">5</td>
+<td headers="cuadrangulares" class="gt_row gt_right">0</td>
+<td headers="carreras_empujadas" class="gt_row gt_right">19</td>
+<td headers="bases_robadas" class="gt_row gt_right">3</td>
+<td headers="atrapado_robando" class="gt_row gt_right">1</td>
+<td headers="base_bolas" class="gt_row gt_right">2</td>
+<td headers="ponches" class="gt_row gt_right">5</td>
+<td headers="base_intencional" class="gt_row gt_right">NA</td>
+<td headers="golpeado" class="gt_row gt_right">NA</td>
+<td headers="toque_sacrificio" class="gt_row gt_right">NA</td>
+<td headers="elavado_sacrificio" class="gt_row gt_right">NA</td>
+<td headers="doble_matanza" class="gt_row gt_right">1</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
 <hr />
+</div>
 </div>
 <div id="busca-el-bateador-que-tuvo-más-carreras-en-cualquier-año" class="section level2 unnumbered hasAnchor">
 <h2>1. Busca el bateador que tuvo más carreras en cualquier año<a href="appendix-ejercicios.html#busca-el-bateador-que-tuvo-más-carreras-en-cualquier-año" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -511,7 +1034,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ol></li>
 <li><ol start="3" style="list-style-type: lower-alpha">
 <li>Como explica que ese equipo tiene tan poca carreras.<br />
-Piensa en un tipo de “Data wrangling”, que podria explicar esto (BONO)</li>
+Piensa en un tipo de “Data wrangling”, que podria explicar esto (BONO), si lo resuelve tendra un bono</li>
 </ol></li>
 </ul>
 <hr />

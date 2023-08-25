@@ -6,20 +6,23 @@
 ## Capitulo de Transformación de Datos {-}
 
 
+## Ejercicios con destrezar de aplicar algunas funciones de transformaciones de datos {-}
 
-Este Capitulo es de Ejercicios para someter para el curso de Ciencia de Datos con R
+### Para tener los puntos tiene que enseñar TODOS los scripts, los resultados y explicar en palabra los que encontró dentro de un documento bien organizado. {-}
+
 
 
 ```{r}
 library(datos)
 attach(bateadores)
 library(tidyverse)
+library(gt)
 ```
-
+Use el data frame de "bateadores" en el paquete "datos". 
 
 ```{r}
 
-head(bateadores)
+gt(head(bateadores, n=3))
 
 ```
 
@@ -104,7 +107,7 @@ bateadores |> select(id_jugador, id_anio) |>
 - b) Cual es el equipo que tiene menor carreras?
 
 - c) Como explica que ese equipo tiene tan poca carreras.   
-    Piensa en un tipo de "Data wrangling", que podria explicar esto (BONO)
+    Piensa en un tipo de "Data wrangling", que podria explicar esto (BONO), si lo resuelve tendra un bono
 
 
 ```{r, eval=FALSE, echo=FALSE}
