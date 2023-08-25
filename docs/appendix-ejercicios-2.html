@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 12 Cadena de Caracteres | Ciencia de Datos con R</title>
+  <title>(Appendix) Ejercicios 2 | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 12 Cadena de Caracteres | Ciencia de Datos con R" />
+  <meta property="og:title" content="(Appendix) Ejercicios 2 | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 12 Cadena de Caracteres | Ciencia de Datos con R" />
+  <meta name="twitter:title" content="(Appendix) Ejercicios 2 | Ciencia de Datos con R" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="datos-relacionados.html"/>
-<link rel="next" href="factores-1.html"/>
+<link rel="prev" href="appendix-ejercicios.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -429,282 +429,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="cadena-de-caracteres" class="section level1 hasAnchor" number="12">
-<h1><span class="header-section-number">Chapter 12</span> Cadena de Caracteres<a href="cadena-de-caracteres.html#cadena-de-caracteres" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Fecha de la ultima revisión</p>
-<pre><code>## [1] &quot;2023-08-25&quot;</code></pre>
-<hr />
-<p>El tema proviene de los siguientes sitios.</p>
-<p>English:
-<a href="https://r4ds.had.co.nz/strings.html" class="uri">https://r4ds.had.co.nz/strings.html</a></p>
-<p>Español:
-<a href="https://es.r4ds.hadley.nz/14-strings.html" class="uri">https://es.r4ds.hadley.nz/14-strings.html</a></p>
-<hr />
-<div id="temas-cadenas-de-caracteres" class="section level2 hasAnchor" number="12.1">
-<h2><span class="header-section-number">12.1</span> Temas: Cadenas de Caracteres<a href="cadena-de-caracteres.html#temas-cadenas-de-caracteres" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>library(stringr)</li>
-</ul>
-</div>
-<div id="largo-de-cadena" class="section level2 hasAnchor" number="12.2">
-<h2><span class="header-section-number">12.2</span> Largo de cadena<a href="cadena-de-caracteres.html#largo-de-cadena" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>str_length()</li>
-</ul>
-</div>
-<div id="combinar-cadenas" class="section level2 hasAnchor" number="12.3">
-<h2><span class="header-section-number">12.3</span> Combinar cadenas<a href="cadena-de-caracteres.html#combinar-cadenas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>str_c()</li>
-<li>str_replace_na()</li>
-</ul>
-</div>
-<div id="dividir-cadenas" class="section level2 hasAnchor" number="12.4">
-<h2><span class="header-section-number">12.4</span> Dividir cadenas<a href="cadena-de-caracteres.html#dividir-cadenas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>str_sub()</li>
-<li>str_to_lower()</li>
-</ul>
-</div>
-<div id="locales" class="section level2 hasAnchor" number="12.5">
-<h2><span class="header-section-number">12.5</span> Locales<a href="cadena-de-caracteres.html#locales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>¿Qué es un locale?</li>
-<li>str_to_lower()</li>
-<li>str_to_upper()</li>
-<li>str_order()</li>
-<li>str_sort()</li>
-</ul>
-<ol style="list-style-type: decimal">
-<li><strong>Ejercicios</strong>:</li>
-</ol>
-<p>Hacer los ejercicios en la sección 14.2.5 del libro en español</p>
-<hr />
-</div>
-<div id="buscar-patrones" class="section level2 hasAnchor" number="12.6">
-<h2><span class="header-section-number">12.6</span> Buscar patrones<a href="cadena-de-caracteres.html#buscar-patrones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="coincidencia-básica" class="section level2 hasAnchor" number="12.7">
-<h2><span class="header-section-number">12.7</span> Coincidencia básica<a href="cadena-de-caracteres.html#coincidencia-básica" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>str_view()</li>
-<li>str_view( , .x.)</li>
-</ul>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="cadena-de-caracteres.html#cb697-1" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb697-2"><a href="cadena-de-caracteres.html#cb697-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;manzana&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pera&quot;</span>)</span>
-<span id="cb697-3"><a href="cadena-de-caracteres.html#cb697-3" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;an&quot;</span>)</span></code></pre></div>
-</details>
-<pre><code>## [1] │ m&lt;an&gt;z&lt;an&gt;a
-## [2] │ b&lt;an&gt;&lt;an&gt;a</code></pre>
-<ul>
-<li>los puntos y caracter especiales</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li><strong>Ejercicios</strong>:</li>
-</ol>
-<p>Hacer los ejercicios en la sección 14.2.7.1 del libro en español</p>
-<hr />
-</div>
-<div id="anclas" class="section level2 hasAnchor" number="12.8">
-<h2><span class="header-section-number">12.8</span> Anclas<a href="cadena-de-caracteres.html#anclas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>^ al principio</li>
-<li>$ al final</li>
-</ul>
-<ol start="3" style="list-style-type: decimal">
-<li><strong>Ejercicios</strong>:</li>
-</ol>
-<p>Hacer los ejercicios en la sección 14.2.8.1 del libro en español</p>
-<hr />
-</div>
-<div id="clases-de-caracteres-y-alternativas" class="section level2 hasAnchor" number="12.9">
-<h2><span class="header-section-number">12.9</span> Clases de caracteres y alternativas<a href="cadena-de-caracteres.html#clases-de-caracteres-y-alternativas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p></p></li>
-<li></li>
-<li><p>[abc]</p></li>
-<li><p>[^abc]</p></li>
-<li><p>$ . | ? * + ( ) [ {</p></li>
-</ul>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb699-1"><a href="cadena-de-caracteres.html#cb699-1" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">&quot;cómo&quot;</span>, <span class="st">&quot;como&quot;</span>, <span class="st">&quot;Raymond&quot;</span>), <span class="st">&quot;c(ó|o)mo&quot;</span>)</span></code></pre></div>
-</details>
-<pre><code>## [1] │ &lt;cómo&gt;
-## [2] │ &lt;como&gt;</code></pre>
-<ol start="4" style="list-style-type: decimal">
-<li><strong>Ejercicios</strong>:</li>
-</ol>
-<p>Hacer los ejercicios en la sección 14.2.9.1 del libro en español</p>
-<hr />
-</div>
-<div id="repetición" class="section level2 hasAnchor" number="12.10">
-<h2><span class="header-section-number">12.10</span> Repetición<a href="cadena-de-caracteres.html#repetición" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>?, 0 o 1, precencia o auscencia</li>
-<li>+, 1 o más</li>
-<li>*, 0 o más</li>
-<li>str_view()</li>
-<li>{n} : exactamente n</li>
-<li>{n, }: n o más</li>
-<li>{ , m}: no más de m</li>
-<li>{n, m}: entre n y m</li>
-<li>{n, m}?: la cadena más larga</li>
-<li>{n, m}+?: la cadena más corta</li>
-</ul>
-<ol start="5" style="list-style-type: decimal">
-<li><strong>Ejercicios</strong>:</li>
-</ol>
-<p>Hacer los ejercicios en la sección 14.2.10.1 del libro en español</p>
-<hr />
-</div>
-<div id="agrupamiento-y-referencias-previas" class="section level2 hasAnchor" number="12.11">
-<h2><span class="header-section-number">12.11</span> Agrupamiento y referencias previas<a href="cadena-de-caracteres.html#agrupamiento-y-referencias-previas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>str_view(frutas, “(..)\1”, match=TRUE)</li>
-</ul>
-<ol start="6" style="list-style-type: decimal">
-<li><strong>Ejercicios</strong>:</li>
-</ol>
-<p>Hacer los ejercicios en la sección 14.2.11.1 del libro en español</p>
-<hr />
-</div>
-<div id="herramientas-objetivos" class="section level2 hasAnchor" number="12.12">
-<h2><span class="header-section-number">12.12</span> Herramientas: Objetivos<a href="cadena-de-caracteres.html#herramientas-objetivos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>Determinar qué cadenas coinciden con un patrón.</li>
-<li>Encontrar la posición de una coincidencia.</li>
-<li>Extraer el contenido de las coincidencias.</li>
-<li>Remplazar coincidencias con nuevos valores.</li>
-<li>Dividir una cadena de acuerdo a una coincidencia.</li>
-</ul>
-<div id="detectar-coincidencias" class="section level3 hasAnchor" number="12.12.1">
-<h3><span class="header-section-number">12.12.1</span> Detectar coincidencias<a href="cadena-de-caracteres.html#detectar-coincidencias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>str_detect(x, “e”)</li>
-</ul>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb701-1"><a href="cadena-de-caracteres.html#cb701-1" tabindex="-1"></a><span class="fu">library</span>(datos) </span>
-<span id="cb701-2"><a href="cadena-de-caracteres.html#cb701-2" tabindex="-1"></a><span class="co">#fruit</span></span>
-<span id="cb701-3"><a href="cadena-de-caracteres.html#cb701-3" tabindex="-1"></a><span class="fu">head</span>(palabras)</span></code></pre></div>
-</details>
-<pre><code>## [1] &quot;a&quot;        &quot;abril&quot;    &quot;acción&quot;   &quot;acciones&quot; &quot;acerca&quot;   &quot;actitud&quot;</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="cadena-de-caracteres.html#cb703-1" tabindex="-1"></a><span class="co"># Encuentra todas las palabras que contengan al menos una vocal, y luego niégalo</span></span>
-<span id="cb703-2"><a href="cadena-de-caracteres.html#cb703-2" tabindex="-1"></a>sin_vocales_1 <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">str_detect</span>(palabras, <span class="st">&quot;[aáeéiíoóuúúü]&quot;</span>)</span>
-<span id="cb703-3"><a href="cadena-de-caracteres.html#cb703-3" tabindex="-1"></a></span>
-<span id="cb703-4"><a href="cadena-de-caracteres.html#cb703-4" tabindex="-1"></a><span class="co">#sin_vocales_1</span></span>
-<span id="cb703-5"><a href="cadena-de-caracteres.html#cb703-5" tabindex="-1"></a><span class="co"># Encuentra todas las palabras consistentes solo en consonantes (no vocales)</span></span>
-<span id="cb703-6"><a href="cadena-de-caracteres.html#cb703-6" tabindex="-1"></a>sin_vocales_2 <span class="ot">&lt;-</span> <span class="fu">str_detect</span>(palabras, <span class="st">&quot;^[^aáeéiíoóuúúü]+$&quot;</span>)</span>
-<span id="cb703-7"><a href="cadena-de-caracteres.html#cb703-7" tabindex="-1"></a><span class="co">#sin_vocales_1</span></span>
-<span id="cb703-8"><a href="cadena-de-caracteres.html#cb703-8" tabindex="-1"></a><span class="fu">identical</span>(sin_vocales_1, sin_vocales_2)</span></code></pre></div>
-</details>
-<pre><code>## [1] TRUE</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb705-1"><a href="cadena-de-caracteres.html#cb705-1" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
-</details>
-<ul>
-<li>str_subset()</li>
-<li>seq_along()</li>
-<li>str_count()</li>
-</ul>
-<ol start="7" style="list-style-type: decimal">
-<li><strong>Ejercicios</strong>:</li>
-</ol>
-<p>Hacer los ejercicios en la sección 14.3.2 del libro en español</p>
-<hr />
-</div>
-</div>
-<div id="extraer-coincidencias" class="section level2 hasAnchor" number="12.13">
-<h2><span class="header-section-number">12.13</span> Extraer coincidencias<a href="cadena-de-caracteres.html#extraer-coincidencias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>str_extract()</li>
-<li>str_extract_all()</li>
-</ul>
-<ol start="8" style="list-style-type: decimal">
-<li><strong>Ejercicios</strong>:</li>
-</ol>
-<p>Hacer los ejercicios en la sección 14.3.3.1 del libro en español</p>
-<hr />
-</div>
-<div id="coincidencias-agrupadas" class="section level2 hasAnchor" number="12.14">
-<h2><span class="header-section-number">12.14</span> Coincidencias agrupadas:<a href="cadena-de-caracteres.html#coincidencias-agrupadas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>str_match*</li>
-</ul>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb706-1"><a href="cadena-de-caracteres.html#cb706-1" tabindex="-1"></a>sustantivo <span class="ot">&lt;-</span> <span class="st">&quot;(el|la|los|las|lo|un|una|unos|unas) ([^ ]+)&quot;</span></span>
-<span id="cb706-2"><a href="cadena-de-caracteres.html#cb706-2" tabindex="-1"></a></span>
-<span id="cb706-3"><a href="cadena-de-caracteres.html#cb706-3" tabindex="-1"></a>tiene_sustantivo <span class="ot">&lt;-</span> oraciones <span class="sc">%&gt;%</span></span>
-<span id="cb706-4"><a href="cadena-de-caracteres.html#cb706-4" tabindex="-1"></a>  <span class="fu">str_subset</span>(sustantivo) <span class="sc">%&gt;%</span></span>
-<span id="cb706-5"><a href="cadena-de-caracteres.html#cb706-5" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
-<span id="cb706-6"><a href="cadena-de-caracteres.html#cb706-6" tabindex="-1"></a></span>
-<span id="cb706-7"><a href="cadena-de-caracteres.html#cb706-7" tabindex="-1"></a><span class="co">#tiene_sustantivo</span></span>
-<span id="cb706-8"><a href="cadena-de-caracteres.html#cb706-8" tabindex="-1"></a>tiene_sustantivo <span class="sc">%&gt;%</span> </span>
-<span id="cb706-9"><a href="cadena-de-caracteres.html#cb706-9" tabindex="-1"></a>  <span class="fu">str_extract</span>(sustantivo)</span></code></pre></div>
-</details>
-<pre><code>##  [1] &quot;los de&quot;      &quot;el camión&quot;   &quot;la mejor&quot;    &quot;la cuenta&quot;   &quot;las ruinas.&quot;
-##  [6] &quot;la hoja&quot;     &quot;la cocina.&quot;  &quot;la taza&quot;     &quot;el tanque.&quot;  &quot;el calor&quot;</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb708-1"><a href="cadena-de-caracteres.html#cb708-1" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;los de&quot;      &quot;el camión&quot;   &quot;la mejor&quot;    &quot;la cuenta&quot;   &quot;las ruinas.&quot;</span></span>
-<span id="cb708-2"><a href="cadena-de-caracteres.html#cb708-2" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;la hoja&quot;     &quot;la cocina.&quot;  &quot;la taza&quot;     &quot;el tanque.&quot;  &quot;el calor&quot;</span></span></code></pre></div>
-</details>
-<ol start="8" style="list-style-type: decimal">
-<li><strong>Ejercicios</strong>:</li>
-</ol>
-<p>Hacer los ejercicios en la sección 14.3.4.1 del libro en español</p>
-<hr />
-</div>
-<div id="remplazar-coincidencias" class="section level2 hasAnchor" number="12.15">
-<h2><span class="header-section-number">12.15</span> Remplazar coincidencias<a href="cadena-de-caracteres.html#remplazar-coincidencias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>str_replace()</li>
-<li>str_replace_all()</li>
-</ul>
-<ol start="9" style="list-style-type: decimal">
-<li><strong>Ejercicios</strong>:</li>
-</ol>
-<p>Hacer los ejercicios en la sección 14.3.5.1 del libro en español</p>
-<hr />
-</div>
-<div id="divisiones" class="section level2 hasAnchor" number="12.16">
-<h2><span class="header-section-number">12.16</span> Divisiones<a href="cadena-de-caracteres.html#divisiones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>str_split()</li>
-<li>str_split(” “, simplify=TRUE)</li>
-<li>str_split(x, boundery(“word”))[[1]]</li>
-</ul>
-<ol start="10" style="list-style-type: decimal">
-<li><strong>Ejercicios</strong>:</li>
-</ol>
-<p>Hacer los ejercicios en la sección 14.3.6.1 del libro en español</p>
-<hr />
-</div>
-<div id="otro-tipos-de-patrones" class="section level2 hasAnchor" number="12.17">
-<h2><span class="header-section-number">12.17</span> Otro tipos de patrones<a href="cadena-de-caracteres.html#otro-tipos-de-patrones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>regex(“x”, ignore_case=TRUE)</li>
-<li>seperar números telefonicos</li>
-</ul>
-</div>
-<div id="stringi" class="section level2 hasAnchor" number="12.18">
-<h2><span class="header-section-number">12.18</span> stringi:<a href="cadena-de-caracteres.html#stringi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ol start="10" style="list-style-type: decimal">
-<li><strong>Ejercicios</strong>:</li>
-</ol>
-<p>Hacer los ejercicios en la sección 14.3.6.1 del libro en español
-Buscar 3 funciones en stringi y aplica y explica las funciones con un set de datos.</p>
-<hr />
+<div id="appendix-ejercicios-2" class="section level1 unnumbered hasAnchor">
+<h1>(Appendix) Ejercicios 2<a href="appendix-ejercicios-2.html#appendix-ejercicios-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Ejercicios para las funciones de transformaciones 2</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="datos-relacionados.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="factores-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="appendix-ejercicios.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -735,7 +471,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/13-Strings.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/B-Ejercicios_Transformacion_2.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -743,7 +479,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/13-Strings.Rmd",
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/B-Ejercicios_Transformacion_2.Rmd",
 "text": null
 },
 "download": null,

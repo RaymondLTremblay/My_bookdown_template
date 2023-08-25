@@ -1,0 +1,13 @@
+# (Appendix) Ejercicios 2 {-}
+
+
+
+Ejercicios para las funciones de transformaciones 2
+
+
+
+
+```{r}
+
+```
+
