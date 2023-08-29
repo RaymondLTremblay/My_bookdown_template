@@ -83,7 +83,7 @@ x/y
 - la función "seq" para secuencia
 
 ```{r}
-edad_nd=base::seq(101, 110)
+edad_nd=seq(101, 110)
 edad_nd
 ```
 
@@ -102,18 +102,28 @@ edad
 ```
 
 
+```{r}
+edad$diff=edad$edad_nd-edad$edad_uprh
+edad
+
+
+edad$tres=edad$edad_uprh^3
+edad
+```
+
+
 ### Errores cuando a variables no tienen la misma cantidad de entradas
 
 
 ```{r}
-edad_nd_1=base::seq(101, 110)
+edad_nd_1=base::seq(101, 111)
 edad_nd_1
 ```
 
 - variables asignada
 
 ```{r}
-edad_uprh_1=c(11:20)
+edad_uprh_1=c(11:20, NA)
 edad_uprh_1
 ```
 
@@ -129,6 +139,9 @@ edad_1
 
 ```{r}
 length(edad_uprh)
+
+length(edad$tres)
+length(edad)
 ```
 
 
@@ -150,6 +163,8 @@ La función de Pipe.    %>% o |>
 ```{r}
 library(tidyverse)
 millas
+names(millas)
+
 millas |> dplyr::select(cilindros) |> 
   dplyr::filter(cilindros == 8)
 

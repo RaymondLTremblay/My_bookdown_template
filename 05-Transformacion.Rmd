@@ -81,7 +81,8 @@ vuelos %>%
 ```{r}
 vuelos %>%
   filter(destino=="SJU") %>%
-  filter(mes==12, dia==25) # pipe Command shift M
+  filter(mes==12, dia==25) %>% 
+  filter(aerolinea %in% c("AA", "UA"))  #pipe Command shift M
 ```
 
 
@@ -148,9 +149,58 @@ por_dia <-
   summarise(atraso_promedio = mean(atraso_salida, na.rm = TRUE))
 por_dia
 
+```
 
+```{r}
+## The median of the data set by day of the month
+
+
+por_dia_2 <- 
+  group_by(vuelos, dia) %>% 
+  summarise(atraso_promedio = mean(atraso_salida, na.rm = TRUE),
+            atraso_mediana = median(atraso_salida, na.rm=TRUE))
+por_dia_2
 
 ```
+
+
+## Dia 2: 
+
+Funciones
+
+ - summarise
+ - mean, median, Mode
+ - operaciones boolean
+ - 
+
+```{r}
+## The mode of the value
+library(DescTools)
+
+por_dia_3 <- 
+  group_by(vuelos, dia) %>% 
+  summarise(atraso_promedio = mean(atraso_salida, na.rm = TRUE),
+            atraso_mode = Mode(atraso_salida, na.rm=TRUE))
+por_dia_3
+
+```
+
+
+ADD the mean, median and mode to the same data frame
+
+```{r}
+## The mode of the value
+library(DescTools)
+
+por_dia_4 <- 
+  group_by(vuelos, dia) %>% 
+  summarise(atraso_promedio = mean(atraso_salida, na.rm = TRUE),
+            atraso_median = median(atraso_salida, na.rm=TRUE),
+            atraso_mode = Mode(atraso_salida, na.rm=TRUE))
+por_dia_4
+
+```
+
 
 ```{r}
 vuelos %>% 
@@ -161,17 +211,19 @@ vuelos %>%
 ```
    
 ***  
-- Operaciones lógicas boolean:
+## Operaciones lógicas boolean:
   
    - & "ampersand" 
    - "|" or= "o"
    - !, no incluye, excluir....
-   - %in%, filtrar para multiples valores
+   - %in%, filtrar para múltiples valores
    - ==, es igual a... "exactamente"
    - "<"
    - ">"
+   - "<=" es menor o igual
+   - ">=" es mayor o igual
    
-Bollean, que incluye multimple opciones  %in% 
+Bollean, que incluye múltiples opciones %in% 
 
 
 ```{r}
@@ -181,7 +233,11 @@ vuelos %>%
   filter(mes %in% c(1:6)) %>% 
   summarise(atraso = mean(atraso_salida, na.rm = TRUE))
 ```
-Otra alternativa
+
+
+### Otra alternativa para filtrar 
+
+#### "|"
 
 ```{r}
 vuelos %>% 
@@ -191,7 +247,9 @@ vuelos %>%
 #%>% 
  # summarise(atraso = mean(atraso_salida, na.rm = TRUE))
 ```
-& el "y"
+
+
+#### & el "y"
 ```{r}
 names(vuelos)
 vuelos %>% 
@@ -199,10 +257,19 @@ vuelos %>%
   filter(mes == 12 & dia == 25 & aerolinea=="AA")
 ```
 
+***
+
+## Ejercicios
+
+Como se seleccionaría los meses de diciembre pero desde la del 25 o más
+
+***
 
 
-!, el "no", excluye
-```{r}
+!, excluye algo, En este caso estamos excluyendo los dias del 1 al 10
+
+
+```{r, echo=FALSE, eval=FALSE}
 vuelos %>% 
   select(anio, mes, dia, atraso_salida) %>%
   filter(mes == 11 & !dia %in% c(1:10)) %>% 
@@ -218,12 +285,14 @@ vuelos %>%
  Hacer los ejercicios en la sección 5.2.4 del libro en español
 
 5.2.4 Ejercicios
+
+
  - Encuentra todos los vuelos que:
 
  - Tuvieron un retraso de llegada de dos o más horas
 
  
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 #names(vuelos)
 
 vuelos %>% 
@@ -235,7 +304,7 @@ vuelos %>%
  
  Cual son estos aeropuertos, Hou == Houston, IAH == George Bush, Texas
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 vuelos %>% 
   filter(destino %in% c("IAH", "HOU"))
 
@@ -247,7 +316,7 @@ filter(destino %in% c("IAH", "HOU"))
 
  - Fueron operados por United, American o Delta
  
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 unique(vuelos$aerolinea)
 
 vuelos %>% 
@@ -257,7 +326,7 @@ vuelos %>%
 
  - Partieron en invierno del hemisferio sur (julio, agosto y septiembre)
  
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 vuelos %>% 
   filter(mes %in% c(6:8))
 
@@ -268,7 +337,7 @@ filter(mes %in% c(7, 8, 9))
 
  - Llegaron más de dos horas tarde, pero no salieron tarde
  
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 names(vuelos)
 vuelos %>% 
   filter(atraso_llegada>120 |atraso_salida <0)
@@ -281,7 +350,9 @@ filter(atraso_llegada >= 120 & atraso_salida <= 0)
  
 
  - Se retrasaron por lo menos una hora, pero repusieron más de 30 minutos en vuelo
-```{r}
+ 
+ 
+```{r, echo=FALSE, eval=FALSE}
 
 vuelos
 ?vuelos 
@@ -293,7 +364,7 @@ vuelos
  
  # 360 minutos
  
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 names(vuelos)
 
 
@@ -306,7 +377,7 @@ filter(horario_salida <=600)
  - Otra función de dplyr que es útil para usar filtros es between(). ¿Qué hace? ¿Puedes usarla para simplificar el código necesario para responder a los desafíos anteriores?
  
  
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 vuelos %>%
 select(horario_salida) %>%
 filter(between(horario_salida,00, 360))
@@ -322,7 +393,7 @@ filter(between(horario_salida, 00, 360))
 -  ¿Qué representan estas filas?
  
  
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 vuelos %>%
 select(horario_salida) %>%
 is.na() %>% 
@@ -334,7 +405,7 @@ is.na() %>%
 
 
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 vuelos %>% select(anio, mes, dia, horario_salida, aerolinea) |> 
 filter(is.na(horario_salida))
 
@@ -342,12 +413,12 @@ filter(is.na(horario_salida))
 
 ```
 
-#### Determinar cual aerolinea tiene más vuelos
+ -  Determinar cual aerolinea tiene más vuelos
 
 
 
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 vuelos %>% select(anio, mes, dia, horario_salida, horario_llegada, aerolinea) |> 
 filter(is.na(horario_salida)) |>
   group_by(aerolinea) |> 
@@ -358,7 +429,7 @@ filter(is.na(horario_salida)) |>
 ```
 
 
-### ¿Qué pasa con los valores y resultados sin sentido?
+### ¿Qué pasa con los valores faltantes y resultados de analisis sin sentido?
 
 
 ```{r}
@@ -417,7 +488,7 @@ url_COVID %>%
 
 COVID_PR
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 library(data.table)
 #url_COVID_PR=fread("https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv")
 
@@ -436,7 +507,7 @@ tail(url_COVID)
 ```
 
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
  url_COVID %>% 
   select(IncrementoMuertes) %>% 
   summarise(Prom_muerte_dia = mean(IncrementoMuertes, na.rm = TRUE),
@@ -455,7 +526,7 @@ arrange()
 ***
 
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 
 vuelos %>% 
   select(horario_salida) %>% 
@@ -476,7 +547,7 @@ vuelos %>%
 
 Ordena vuelos para encontrar los vuelos más retrasados en salida. 
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 ?vuelos
 vuelos %>% 
   select(atraso_llegada, horario_salida) %>% 
@@ -487,7 +558,7 @@ vuelos %>%
 Encuentra los vuelos que salieron más temprano.
 
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 vuelos %>% select(horario_salida) %>% filter(horario_salida >= 600) %>% filter(horario_salida > 2400)
 
 
@@ -500,7 +571,7 @@ vuelos %>%
 
 Ordena vuelos para encontrar los vuelos más rápidos (que viajaron a mayor velocidad).
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 vuelos %>% 
   mutate(velocidad=distancia/tiempo_vuelo) %>% 
   arrange(desc(velocidad))
@@ -509,14 +580,14 @@ vuelos %>%
 
 ¿Cuáles vuelos viajaron más lejos? 
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 vuelos %>% 
   arrange(desc(distancia))
 ```
 
 ¿Cuál viajó más cerca?
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 vuelos %>% 
   arrange(distancia)
 ```

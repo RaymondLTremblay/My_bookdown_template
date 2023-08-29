@@ -1,16 +1,12 @@
-# (Appendix) Ejercicios {-}
+# (Appendix) Ejercicios {.unnumbered}
 
-***
+------------------------------------------------------------------------
 
+## Capitulo de Transformación de Datos {.unnumbered}
 
-## Capitulo de Transformación de Datos {-}
+## Ejercicios con destrezar de aplicar algunas funciones de transformaciones de datos {.unnumbered}
 
-
-## Ejercicios con destrezar de aplicar algunas funciones de transformaciones de datos {-}
-
-### Para tener los puntos tiene que enseñar TODOS los scripts, los resultados y explicar en palabra los que encontró dentro de un documento bien organizado. {-}
-
-
+### Para tener los puntos tiene que enseñar TODOS los scripts, los resultados y explicar en palabra los que encontró dentro de un documento bien organizado. {.unnumbered}
 
 ```{r}
 library(datos)
@@ -18,7 +14,8 @@ attach(bateadores)
 library(tidyverse)
 library(gt)
 ```
-Use el data frame de "bateadores" en el paquete "datos". 
+
+Use el data frame de "bateadores" en el paquete "datos".
 
 ```{r}
 
@@ -26,10 +23,9 @@ gt(head(bateadores, n=3))
 
 ```
 
-***
+------------------------------------------------------------------------
 
-## 1. Busca el bateador que tuvo más carreras en cualquier año {-}
-
+## 1. Busca el bateador que tuvo más carreras en cualquier año {.unnumbered}
 
 ```{r, eval=FALSE, echo=FALSE}
 
@@ -37,11 +33,9 @@ max(bateadores$carreras)
 
 ```
 
+------------------------------------------------------------------------
 
-***
-
-## Cual es el nombre del bateador (id_jugador) que estuvo más veces "al_bate" {-}
-
+## Cual es el nombre del bateador (id_jugador) que estuvo más veces "al_bate" {.unnumbered}
 
 ```{r, eval=FALSE, echo=FALSE}
 
@@ -50,27 +44,22 @@ bateadores |> select(id_jugador, al_bate) |>
 
 ```
 
+------------------------------------------------------------------------
 
-***
+## 2. ¿Cual son las "ligas" de baseball (pelota) que esta incluida en este archivo? {.unnumbered}
 
-## 2. ¿Cual son las "ligas" de baseball (pelota) que esta incluida en este archivo? {-}
-
- - ¿Cual es son los nombres completo de esas ligas de pelota?
+-   ¿Cual es son los nombres completo de esas ligas de pelota?
 
 ```{r, eval=FALSE, echo=FALSE}
 
 unique(bateadores$id_liga)
 ```
 
+------------------------------------------------------------------------
 
-***
-
-
-## 3. Selecciona los años (1900, 1950, 2000 y 2020) y jonrones y hacer una tabla por año que demuestra el maximo de jonrones para cada año {-}
+## 3. Selecciona los años (1900, 1950, 2000 y 2020) y jonrones y hacer una tabla por año que demuestra el maximo de jonrones para cada año {.unnumbered}
 
 ¿Cual fue el año que hubo más jonrones?
-
-
 
 ```{r, eval=FALSE, echo=FALSE}
 unique(bateadores$id_anio)
@@ -81,16 +70,11 @@ bateadores |> select(id_anio, cuadrangulares) |>
   
 ```
 
+------------------------------------------------------------------------
 
+## 4. Haz una tabla de la los jugadores que juraron más años {.unnumbered}
 
-***
-
-## 4. Haz una tabla de la los jugadores que juraron más años {-}
-
-- ¿Cual es el jugador que ha jugado más años?
-
-
-
+-   ¿Cual es el jugador que ha jugado más años?
 
 ```{r, eval=FALSE, echo=FALSE}
 bateadores |> select(id_jugador, id_anio) |> 
@@ -99,16 +83,22 @@ bateadores |> select(id_jugador, id_anio) |>
   arrange(desc(count_years))
 ```
 
-***
+------------------------------------------------------------------------
 
-## 5. Selecciona solamente la liga "AL", los años desde de 2000 en adelande, y determina cual es la suma de "carreras" anotadas por cada equipo. {-}
+## 5. Selecciona solamente la liga "AL", los años desde de 2000 en adelande, y determina cual es la suma de "carreras" anotadas por cada equipo. {.unnumbered}
 
-- a) Cual es el equipo que tiene mayor carreras?
-- b) Cual es el equipo que tiene menor carreras?
+-   
 
-- c) Como explica que ese equipo tiene tan poca carreras.   
-    Piensa en un tipo de "Data wrangling", que podria explicar esto (BONO), si lo resuelve tendra un bono
+    a)  Cual es el equipo que tiene mayor carreras?
 
+-   
+
+    b)  Cual es el equipo que tiene menor carreras?
+
+-   
+
+    c)  Como explica que ese equipo tiene tan poca carreras.\
+        Piensa en un tipo de "Data wrangling", que podria explicar esto (BONO), si lo resuelve tendra un bono
 
 ```{r, eval=FALSE, echo=FALSE}
 bateadores |> select(id_liga, id_anio, id_equipo, carreras) |> 
@@ -118,8 +108,7 @@ bateadores |> select(id_liga, id_anio, id_equipo, carreras) |>
   summarise(sum=sum(carreras))
 ```
 
-***
-
+------------------------------------------------------------------------
 
 ```{r, eval=FALSE, echo=FALSE}
 bateadores |> select(id_liga, id_anio, id_equipo) |> 
@@ -130,5 +119,3 @@ bateadores |> select(id_liga, id_anio, id_equipo) |>
 
 
 ```
-
-
