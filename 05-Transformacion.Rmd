@@ -490,7 +490,7 @@ COVID_PR
 
 ```{r, echo=FALSE, eval=FALSE}
 library(data.table)
-#url_COVID_PR=fread("https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv")
+url_COVID_PR=fread("https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv")
 
 #write_csv(url_COVID_PR, "url_COVID_PR.csv")
 
