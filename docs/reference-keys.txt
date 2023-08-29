@@ -86,7 +86,10 @@ section
 el-y
 ejercicios-2
 qué-pasa-con-los-valores-faltantes-y-resultados-de-analisis-sin-sentido
+datos-imprtado-de-la-web.
 usar-datos-que-provienen-de-una-base-de-datos-del-web.
+covid-world
+la-función-arrange
 starts_with-ends_with
 rename
 reoganizar-el-oden-de-las-columnas

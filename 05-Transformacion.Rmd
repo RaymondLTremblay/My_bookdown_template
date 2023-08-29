@@ -453,10 +453,11 @@ NA - 3
 
 ***
 
+## Datos imprtado de la web.  
 
 ### Usar datos que provienen de una base de datos del web.
 
-Aqui un website que recopila la cantidad de personas vacunadas en los EEUU.
+Aquí un website que recopila la cantidad de personas vacunadas en los EEUU.
 
 
 ```{r eval=FALSE, include=FALSE}
@@ -466,12 +467,18 @@ url<-fread("https://raw.githubusercontent.com/owid/covid-19-data/master/public/d
 head(url)
 ```
   
-*** filter for  Puerto Rico only
+*** 
+
+Seleccionar solamente los datos de Puerto Rico
 
 ```{r eval=FALSE, include=FALSE}
 url %>% 
   filter(location=="Puerto Rico")
 ```
+
+### COVID world
+
+Otro website de datos de COVID, estos representa los datos de todos los paises del mundo
 
 
 
@@ -507,19 +514,21 @@ tail(url_COVID)
 ```
 
 
+- Calcula la cantidad de muertes por dia en PR, y el maximo de muerto en un día por COVID
+
+
 ```{r, echo=FALSE, eval=FALSE}
- url_COVID %>% 
+ url_COVID_PR %>% 
   select(IncrementoMuertes) %>% 
   summarise(Prom_muerte_dia = mean(IncrementoMuertes, na.rm = TRUE),
             maximo_muerte_dia = max(IncrementoMuertes, na.rm = TRUE))
 
  
-
-
 ```
 
 
 ***
+### La función arrange()
 
 arrange()
 
