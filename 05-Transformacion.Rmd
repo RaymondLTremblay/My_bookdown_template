@@ -110,7 +110,7 @@ df_dia_cumpl
 names(vuelos)
 
 vuelos %>% 
-  select(mes, dia, destino, atraso_salida, atraso_llegada) %>% 
+  dplyr::select(mes, dia, destino, atraso_salida, atraso_llegada) %>% 
   filter(mes==11) %>% 
 filter(destino =="SJU") %>% 
   arrange(desc(atraso_salida))
@@ -144,8 +144,8 @@ filter(destino =="SJU") %>%
 ```{r}
 library(datos)
 library(tidyverse)
-por_dia <- 
-  group_by(vuelos, dia) %>% 
+por_dia <- vuelos %>% 
+  group_by(dia) %>% 
   summarise(atraso_promedio = mean(atraso_salida, na.rm = TRUE))
 por_dia
 
@@ -155,14 +155,15 @@ por_dia
 ## The median of the data set by day of the month
 
 
-por_dia_2 <- 
-  group_by(vuelos, dia) %>% 
+por_dia_2 <- vuelos %>% 
+  group_by( dia) %>% 
   summarise(atraso_promedio = mean(atraso_salida, na.rm = TRUE),
             atraso_mediana = median(atraso_salida, na.rm=TRUE))
 por_dia_2
 
 ```
 
+***
 
 ## Dia 2: 
 
@@ -180,7 +181,8 @@ library(DescTools)
 por_dia_3 <- 
   group_by(vuelos, dia) %>% 
   summarise(atraso_promedio = mean(atraso_salida, na.rm = TRUE),
-            atraso_mode = Mode(atraso_salida, na.rm=TRUE))
+            atraso_mode = Mode(atraso_salida, na.rm=TRUE),
+            atraso_max=max(atraso_salida, na.rm=TRUE))
 por_dia_3
 
 ```
@@ -198,15 +200,17 @@ por_dia_4 <-
             atraso_median = median(atraso_salida, na.rm=TRUE),
             atraso_mode = Mode(atraso_salida, na.rm=TRUE))
 por_dia_4
-
+names(vuelos)
 ```
 
 
 ```{r}
 vuelos %>% 
-  select(anio, mes, dia, atraso_salida) %>% 
-  group_by(mes) %>% 
-  summarise(atraso = mean(atraso_salida, na.rm = TRUE))
+  select(anio, mes, dia, atraso_llegada, destino) %>% 
+  filter(destino =="SJU") %>% 
+  filter(mes == 12 & dia ==25) %>% 
+  group_by(dia, mes) %>% 
+  summarise(atraso = mean(atraso_llegada, na.rm = TRUE))
 
 ```
    
@@ -265,13 +269,14 @@ Como se seleccionaría los meses de diciembre pero desde la del 25 o más
 
 ***
 
+## Día 3:
 
 !, excluye algo, En este caso estamos excluyendo los dias del 1 al 10
 
 
 ```{r, echo=FALSE, eval=FALSE}
 vuelos %>% 
-  select(anio, mes, dia, atraso_salida) %>%
+  dplyr::select(anio, mes, dia, atraso_salida, aerolinea) %>%
   filter(mes == 11 & !dia %in% c(1:10)) %>% 
   group_by(dia) %>% 
   summarise(atraso = mean(atraso_salida, na.rm = TRUE))
@@ -314,7 +319,7 @@ select(anio, mes, dia, destino, aerolinea, atraso_llegada) %>%
 filter(destino %in% c("IAH", "HOU"))
 ```
 
- - Fueron operados por United, American o Delta
+ - Seleciona solamente los vuelos que fueron operados por United, American o Delta
  
 ```{r, echo=FALSE, eval=FALSE}
 unique(vuelos$aerolinea)
@@ -324,7 +329,7 @@ vuelos %>%
 ```
  
 
- - Partieron en invierno del hemisferio sur (julio, agosto y septiembre)
+ - Selecciona solamente los vuelos que partieron en invierno del hemisferio sur (julio, agosto y septiembre)
  
 ```{r, echo=FALSE, eval=FALSE}
 vuelos %>% 
@@ -335,7 +340,7 @@ filter(mes %in% c(7, 8, 9))
 ```
  
 
- - Llegaron más de dos horas tarde, pero no salieron tarde
+ - Selecciona solamente los vuelos que llegaron más de dos horas tarde, pero no salieron tarde
  
 ```{r, echo=FALSE, eval=FALSE}
 names(vuelos)
@@ -349,27 +354,27 @@ filter(atraso_llegada >= 120 & atraso_salida <= 0)
 ```
  
 
- - Se retrasaron por lo menos una hora, pero repusieron más de 30 minutos en vuelo
+ - Selecciona solamente los vuelos que se retrasaron por lo menos una hora, pero repusieron más de 30 minutos en vuelo
  
  
 ```{r, echo=FALSE, eval=FALSE}
 
-vuelos
-?vuelos 
-#select(atraso_salida, atraso_llegada ) %>%
-#filter(atraso_salida >= 60 & atraso_llegada <= 30)
+#vuelos
+vuelos |>  
+dplyr::select(atraso_salida, atraso_llegada) %>%
+filter(atraso_salida >= 60 & atraso_llegada <= 30)
 ```
 
- - Partieron entre la medianoche y las 6a.m. (incluyente)
+ - Selecciona solamente los vuelos que partieron entre la medianoche y las 6a.m. (incluyente)
  
- # 360 minutos
+ 
  
 ```{r, echo=FALSE, eval=FALSE}
-names(vuelos)
+names(vuelos) # 360 minutos
 
 
 vuelos %>%
-select(horario_salida) %>%
+dplyr::select(horario_salida) %>%
 filter(horario_salida <=600)
 ```
  
@@ -379,14 +384,15 @@ filter(horario_salida <=600)
  
 ```{r, echo=FALSE, eval=FALSE}
 vuelos %>%
-select(horario_salida) %>%
+dplyr::select(horario_salida) %>%
 filter(between(horario_salida,00, 360))
 
 vuelos %>%
-select(horario_salida) %>%
+dplyr::select(horario_salida) %>%
 filter(between(horario_salida, 00, 360))
 ```
  
+## Contabilizar los NA
 
  - ¿Cuántos vuelos tienen datos faltantes en horario_salida? 
 -  ¿Qué otras variables tienen valores faltantes? 
@@ -395,7 +401,7 @@ filter(between(horario_salida, 00, 360))
  
 ```{r, echo=FALSE, eval=FALSE}
 vuelos %>%
-select(horario_salida) %>%
+dplyr::select(horario_salida) %>%
 is.na() %>% 
   table()
 
@@ -403,17 +409,18 @@ is.na() %>%
 ```
 
 
-
+## Seleccionar solamente los vuelos donde el "horario de salida" es desconocido
 
 ```{r, echo=FALSE, eval=FALSE}
-vuelos %>% select(anio, mes, dia, horario_salida, aerolinea) |> 
+vuelos %>% 
+  dplyr::select(anio, mes, dia, horario_salida, aerolinea) |> 
 filter(is.na(horario_salida))
 
 
 
 ```
 
- -  Determinar cual aerolinea tiene más vuelos
+ -  Determinar cual "aerolinea" tiene más vuelos
 
 
 
@@ -428,6 +435,9 @@ filter(is.na(horario_salida)) |>
 
 ```
 
+
+
+## Día 4
 
 ### ¿Qué pasa con los valores faltantes y resultados de analisis sin sentido?
 
@@ -453,7 +463,7 @@ NA - 3
 
 ***
 
-## Datos imprtado de la web.  
+## Datos importado de la web.  
 
 ### Usar datos que provienen de una base de datos del web.
 
