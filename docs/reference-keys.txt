@@ -220,3 +220,5 @@ multiplicaciones-y-sumas-de-periodos
 intervalos
 resumen
 time-zones
+reoganizar-el-orden-de-las-columnas-using-select-and-everything
+matches.1-lo-veremos-en-la-lección-de-string

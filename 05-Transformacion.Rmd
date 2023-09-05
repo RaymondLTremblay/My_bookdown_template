@@ -1,26 +1,21 @@
 # Transformacion
 
-
-
 Fecha de la ultima revisión
+
 ```{r echo=FALSE}
 
 Sys.Date()
 ```
 
-***
-
+------------------------------------------------------------------------
 
 El tema proviene de los siguientes sitios.
 
-English:
- <https://r4ds.had.co.nz/transform.html>
- 
-Español:
- <https://es.r4ds.hadley.nz/05-transform.html>
- 
- 
-***
+English: <https://r4ds.had.co.nz/transform.html>
+
+Español: <https://es.r4ds.hadley.nz/05-transform.html>
+
+------------------------------------------------------------------------
 
 ```{r}
 library(tidyverse)
@@ -28,44 +23,35 @@ library(datos)
 head(vuelos)
 ```
 
-
 ## Evaluar el archivo
 
 Mirar el archivo y entender la información antes de hacer cualquier analisis/
 
-  - Cual son las variables
-  - Cuales son. los tipos de datos 
-      - **int** valores enteros, 
-      - **dbl** números reales, significa dobles
-      - **chr** caracteres o vectores
-      - **dttm** fecha y tiempo, minutos
-      - **date** fecha
-      - **S3: POSIXct** Fecha y tiempo, minutos
-      - **lgl** valores logicos "cierto" (TRUE) y "falso" (FALSE)
-      - **fctr** factores categoricos. 
-      
+-   Cual son las variables
+-   Cuales son. los tipos de datos
+    -   **int** valores enteros,
+    -   **dbl** números reales, significa dobles
+    -   **chr** caracteres o vectores
+    -   **dttm** fecha y tiempo, minutos
+    -   **date** fecha
+    -   **S3: POSIXct** Fecha y tiempo, minutos
+    -   **lgl** valores logicos "cierto" (TRUE) y "falso" (FALSE)
+    -   **fctr** factores categoricos.
 
 Evalua en este archivo los tipos de variables que se encuentra.
-
-
 
 ```{r}
 vuelos
 ```
 
 ### Cual son todos los destinos de vuelos?
-  - cual función usará
-  
-  
-  
 
-
+-   cual función usará
 
 ```{r}
 unique(vuelos$destino)
 
 ```
-
 
 ### Seleciona los vuelos donde el destino es San Juan
 
@@ -74,9 +60,7 @@ vuelos %>%
   filter(destino=="SJU")
 ```
 
-
 ### Selecciona los vuelos donde el destino es San Juan el dia de navidad
-
 
 ```{r}
 vuelos %>%
@@ -85,9 +69,7 @@ vuelos %>%
   filter(aerolinea %in% c("AA", "UA"))  #pipe Command shift M
 ```
 
-
- 
-### Selecciona los vuelos que salen de San Juan en el dia de ti cumpleaños y contabiliza cuanto hubo 
+### Selecciona los vuelos que salen de San Juan en el dia de ti cumpleaños y contabiliza cuanto hubo
 
 ```{r}
 df_dia_cumpl=vuelos %>%  
@@ -98,13 +80,12 @@ filter(destino =="SJU") %>%
 df_dia_cumpl
 ```
 
-
 #### Organizar los datos en orden de más grande a más pequeño
- 
- - Selecciona los mes, dia, destino, atraso_salida, atraso_llegada
- - Selecciona solamente el mes de noviembre
- - Selecciona solamente los vuelos a destino de a San Juan
- - oraganiza los datos en orden de más atraso_salido de mayor a menor
+
+-   Selecciona los mes, dia, destino, atraso_salida, atraso_llegada
+-   Selecciona solamente el mes de noviembre
+-   Selecciona solamente los vuelos a destino de a San Juan
+-   oraganiza los datos en orden de más atraso_salido de mayor a menor
 
 ```{r}
 names(vuelos)
@@ -116,31 +97,28 @@ filter(destino =="SJU") %>%
   arrange(desc(atraso_salida))
 ```
 
-
-
 ## Temas: Reconocer y aplicar las diferentes funciones
 
-- Tipos de variables:
-  
-    - int
-    - dbl
-    - chr
-    - dttm
-    - lgl
-    - fctr
-    - date
- 
- *** 
-- Funciones de dplyr:
-  
-   - filter()
-   - arrange()
-   - select()
-   - summarize()
-   - group_by()
- 
- 
- 
+-   Tipos de variables:
+
+    -   int
+    -   dbl
+    -   chr
+    -   dttm
+    -   lgl
+    -   fctr
+    -   date
+
+------------------------------------------------------------------------
+
+-   Funciones de dplyr:
+
+    -   filter()
+    -   arrange()
+    -   select()
+    -   summarize()
+    -   group_by()
+
 ```{r}
 library(datos)
 library(tidyverse)
@@ -163,16 +141,16 @@ por_dia_2
 
 ```
 
-***
+------------------------------------------------------------------------
 
-## Dia 2: 
+## Dia 2:
 
 Funciones
 
- - summarise
- - mean, median, Mode
- - operaciones boolean
- - 
+-   summarise
+-   mean, median, Mode
+-   operaciones boolean
+-   
 
 ```{r}
 ## The mode of the value
@@ -195,7 +173,6 @@ por_dia_3
 
 ```
 
-
 ADD the mean, median and mode to the same data frame
 
 ```{r}
@@ -211,7 +188,6 @@ por_dia_4
 names(vuelos)
 ```
 
-
 ```{r}
 vuelos %>% 
   dplyr::select(anio, mes, dia, atraso_llegada, destino) %>% 
@@ -221,22 +197,22 @@ vuelos %>%
   summarise(atraso = mean(atraso_llegada, na.rm = TRUE))
 
 ```
-   
-***  
-## Operaciones lógicas boolean:
-  
-   - & "ampersand" 
-   - "|" or= "o"
-   - !, no incluye, excluir....
-   - %in%, filtrar para múltiples valores
-   - ==, es igual a... "exactamente"
-   - "<"
-   - ">"
-   - "<=" es menor o igual
-   - ">=" es mayor o igual
-   
-Bollean, que incluye múltiples opciones %in% 
 
+------------------------------------------------------------------------
+
+## Operaciones lógicas boolean:
+
+-   & "ampersand"
+-   "\|" or= "o"
+-   !, no incluye, excluir....
+-   %in%, filtrar para múltiples valores
+-   ==, es igual a... "exactamente"
+-   "\<"
+-   "\>"
+-   "\<=" es menor o igual
+-   "\>=" es mayor o igual
+
+Bollean, que incluye múltiples opciones %in%
 
 ```{r}
 vuelos %>% 
@@ -246,10 +222,9 @@ vuelos %>%
   summarise(atraso = mean(atraso_salida, na.rm = TRUE))
 ```
 
+### Otra alternativa para filtrar
 
-### Otra alternativa para filtrar 
-
-#### "|"
+#### "\|"
 
 ```{r}
 vuelos %>% 
@@ -260,8 +235,8 @@ vuelos %>%
  # summarise(atraso = mean(atraso_salida, na.rm = TRUE))
 ```
 
-
 #### & el "y"
+
 ```{r}
 names(vuelos)
 vuelos %>% 
@@ -269,18 +244,17 @@ vuelos %>%
   filter(mes == 12 & dia == 25 & aerolinea=="AA")
 ```
 
-***
+------------------------------------------------------------------------
 
 ## Ejercicios
 
 Como se seleccionaría los meses de diciembre pero desde la del 25 o más
 
-***
+------------------------------------------------------------------------
 
 ## Día 3:
 
 !, excluye algo, En este caso estamos excluyendo los dias del 1 al 10
-
 
 ```{r, echo=FALSE, eval=FALSE}
 library(datos)
@@ -292,21 +266,18 @@ vuelos %>%
   summarise(atraso = mean(atraso_salida, na.rm = TRUE))
 ```
 
- 
-***
+------------------------------------------------------------------------
 
-1. **Ejercicios**:
+1.  **Ejercicios**:
 
- Hacer los ejercicios en la sección 5.2.4 del libro en español
+Hacer los ejercicios en la sección 5.2.4 del libro en español
 
 5.2.4 Ejercicios
 
+-   Encuentra todos los vuelos que:
 
- - Encuentra todos los vuelos que:
+-   Tuvieron un retraso de llegada de dos o más horas
 
- - Tuvieron un retraso de llegada de dos o más horas
-
- 
 ```{r, echo=FALSE, eval=FALSE}
 #names(vuelos)
 
@@ -314,11 +285,10 @@ vuelos %>%
   filter(atraso_llegada >=120) %>% 
   filter(destino == "HOU" | destino == "IAH")
 ```
- 
 
- - Volaron a Houston (IAH o HOU)
- 
- Cual son estos aeropuertos, Hou == Houston, IAH == George Bush, Texas
+-   Volaron a Houston (IAH o HOU)
+
+Cual son estos aeropuertos, Hou == Houston, IAH == George Bush, Texas
 
 ```{r, echo=FALSE, eval=FALSE}
 vuelos %>% 
@@ -330,18 +300,17 @@ dplyr::select(anio, mes, dia, destino, aerolinea, atraso_llegada) %>%
 filter(destino %in% c("IAH", "HOU"))
 ```
 
- - Seleciona solamente los vuelos que fueron operados por United, American o Delta
- 
+-   Seleciona solamente los vuelos que fueron operados por United, American o Delta
+
 ```{r, echo=FALSE, eval=FALSE}
 unique(vuelos$aerolinea)
 
 vuelos %>% 
   filter(aerolinea %in% c("UA", "AA","DL"))
 ```
- 
 
- - Selecciona solamente los vuelos que partieron en invierno del hemisferio sur (julio, agosto y septiembre)
- 
+-   Selecciona solamente los vuelos que partieron en invierno del hemisferio sur (julio, agosto y septiembre)
+
 ```{r, echo=FALSE, eval=FALSE}
 vuelos %>% 
   filter(mes %in% c(6:8))
@@ -349,10 +318,9 @@ vuelos %>%
 vuelos %>%
 filter(mes %in% c(7, 8, 9))
 ```
- 
 
- - Selecciona solamente los vuelos que llegaron más de dos horas tarde, pero no salieron tarde
- 
+-   Selecciona solamente los vuelos que llegaron más de dos horas tarde, pero no salieron tarde
+
 ```{r, echo=FALSE, eval=FALSE}
 names(vuelos)
 vuelos %>% 
@@ -363,11 +331,9 @@ dplyr::select(atraso_llegada, atraso_salida) %>%
 filter(atraso_llegada > 120 & atraso_salida <= 0)
          
 ```
- 
 
- - Selecciona solamente los vuelos que se retrasaron por lo menos una hora, pero repusieron más de 30 minutos en vuelo
- 
- 
+-   Selecciona solamente los vuelos que se retrasaron por lo menos una hora, pero repusieron más de 30 minutos en vuelo
+
 ```{r, echo=FALSE, eval=FALSE}
 
 #vuelos
@@ -378,10 +344,8 @@ filter(atraso_salida >= 60 & atraso_llegada <= -30)
 filter(atraso_salida >= 60 & atraso_salida - atraso_llegada <= 30 )
 ```
 
- - Selecciona solamente los vuelos que partieron entre la medianoche y las 6a.m. (incluyente)
- 
- 
- 
+-   Selecciona solamente los vuelos que partieron entre la medianoche y las 6a.m. (incluyente)
+
 ```{r, echo=FALSE, eval=FALSE}
 names(vuelos) # 360 minutos
 
@@ -390,11 +354,9 @@ vuelos %>%
 dplyr::select(horario_salida) %>%
 filter(horario_salida <=600)
 ```
- 
 
- - Otra función de dplyr que es útil para usar filtros es between(). ¿Qué hace? ¿Puedes usarla para simplificar el código necesario para responder a los desafíos anteriores?
- 
- 
+-   Otra función de dplyr que es útil para usar filtros es between(). ¿Qué hace? ¿Puedes usarla para simplificar el código necesario para responder a los desafíos anteriores?
+
 ```{r, echo=FALSE, eval=FALSE}
 vuelos %>%
 dplyr::select(horario_salida) %>%
@@ -404,14 +366,13 @@ vuelos %>%
 dplyr::select(horario_salida) %>%
 filter(between(horario_salida, 00, 360))
 ```
- 
+
 ## Contabilizar los NA
 
- - ¿Cuántos vuelos tienen datos faltantes en horario_salida? 
--  ¿Qué otras variables tienen valores faltantes? 
--  ¿Qué representan estas filas?
- 
- 
+-   ¿Cuántos vuelos tienen datos faltantes en horario_salida?
+-   ¿Qué otras variables tienen valores faltantes?
+-   ¿Qué representan estas filas?
+
 ```{r, echo=FALSE, eval=FALSE}
 vuelos %>%
 dplyr::select(horario_salida) %>%
@@ -420,7 +381,6 @@ is.na() %>%
 
 
 ```
-
 
 ## Seleccionar solamente los vuelos donde el "horario de salida" es desconocido
 
@@ -433,10 +393,7 @@ filter(is.na(horario_salida))
 
 ```
 
- -  Determinar cual "aerolinea" tiene más vuelos
-
-
-
+-   Determinar cual "aerolinea" tiene más vuelos
 
 ```{r, echo=FALSE, eval=FALSE}
 vuelos %>% select(anio, mes, dia, horario_salida, horario_llegada, aerolinea) |> 
@@ -448,14 +405,11 @@ filter(is.na(horario_salida)) |>
 
 ```
 
-***
-
-
+------------------------------------------------------------------------
 
 ## Día 4
 
 ### ¿Qué pasa con los valores faltantes y resultados de analisis sin sentido?
-
 
 ```{r}
 library(tidyverse)
@@ -475,16 +429,14 @@ NA * 1
 12 * 3
 NA - 3
 ```
- 
 
-***
+------------------------------------------------------------------------
 
-## Datos importado de la web.  
+## Datos importado de la web.
 
 ### Usar datos que provienen de una base de datos del web.
 
 Aquí un website que recopila la cantidad de personas vacunadas en los EEUU.
-
 
 ```{r eval=FALSE, include=FALSE}
 library(tidyverse)
@@ -492,8 +444,8 @@ library(data.table)
 COVID_DATA<-fread("https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/us_state_vaccinations.csv")
 head(COVID_DATA)
 ```
-  
-*** 
+
+------------------------------------------------------------------------
 
 Seleccionar solamente los datos de Puerto Rico
 
@@ -506,8 +458,6 @@ COVID_DATA %>%
 
 Otro website de datos de COVID, estos representa los datos de todos los paises del mundo
 
-
-
 ```{r eval=FALSE, include=FALSE}
 url_COVID=fread("https://covid.ourworldindata.org/data/owid-covid-data.csv")
 head(url_COVID)
@@ -518,15 +468,9 @@ url_COVID %>%
   filter(location=="United States")
 ```
 
-
-
-
-
 Datos de PR
 
-https://datos.estadisticas.pr/dataset?res_format=CSV
-
-
+<https://datos.estadisticas.pr/dataset?res_format=CSV>
 
 ```{r}
 
@@ -536,13 +480,11 @@ birth=fread("https://datos.estadisticas.pr/dataset/87620d17-bf63-445c-bb71-aca1a
 head(birth)
 ```
 
-
 ```{r}
 names(birth)
 birth$BIRMON
 
 ```
-
 
 ```{r}
 birth |> dplyr::select(BIRMON, CSEX) |> 
@@ -555,7 +497,7 @@ unique(birth$RB)
 #DGESTAT
 ```
 
-***
+------------------------------------------------------------------------
 
 COVID_PR
 
@@ -577,9 +519,7 @@ tail(url_COVID)
 
 ```
 
-
-- Calcula la cantidad de muertes por dia en PR, y el maximo de muerto en un día por COVID
-
+-   Calcula la cantidad de muertes por dia en PR, y el maximo de muerto en un día por COVID
 
 ```{r, echo=FALSE, eval=FALSE}
  url_COVID_PR %>% 
@@ -590,14 +530,13 @@ tail(url_COVID)
  
 ```
 
+------------------------------------------------------------------------
 
-***
 ### La función arrange()
 
 arrange()
 
-***
-
+------------------------------------------------------------------------
 
 ```{r, echo=FALSE, eval=FALSE}
 
@@ -617,8 +556,7 @@ vuelos %>%
 
 5.3.1 Ejercicios
 
-
-Ordena vuelos para encontrar los vuelos más retrasados en salida. 
+Ordena vuelos para encontrar los vuelos más retrasados en salida.
 
 ```{r, echo=FALSE, eval=FALSE}
 ?vuelos
@@ -627,9 +565,7 @@ vuelos %>%
   arrange(atraso_llegada, desc(horario_salida))
 ```
 
-
 Encuentra los vuelos que salieron más temprano.
-
 
 ```{r, echo=FALSE, eval=FALSE}
 vuelos %>% dplyr::select(horario_salida) %>% filter(horario_salida >= 600) %>% filter(horario_salida > 2400)
@@ -641,7 +577,6 @@ vuelos %>%
   arrange(atraso_salida)
 ```
 
-
 Ordena vuelos para encontrar los vuelos más rápidos (que viajaron a mayor velocidad).
 
 ```{r, echo=FALSE, eval=FALSE}
@@ -650,8 +585,7 @@ vuelos %>%
   arrange(desc(velocidad))
 ```
 
-
-¿Cuáles vuelos viajaron más lejos? 
+¿Cuáles vuelos viajaron más lejos?
 
 ```{r, echo=FALSE, eval=FALSE}
 vuelos %>% 
@@ -665,32 +599,36 @@ vuelos %>%
   arrange(distancia)
 ```
 
-- Otra función
+-   Otra función
 
-  - desc()
-   
+    -   desc()
 
-***
+------------------------------------------------------------------------
 
-2. **Ejercicios**:
+2.  **Ejercicios**:
 
 Hacer los ejercicios en la sección 5.3.1 del libro en español
 
-***
+------------------------------------------------------------------------
 
-- Otras funciones:
+-   Otras funciones:
 
-  - starts_with()
-  - ends_with()
-  - contains()
-  - matches("(.)\\1")  # paquete STRING
-  - rename()
-  - everything()
- 
- 
-## starts_with(),  ends_with()
+    -   starts_with()
 
-Es una función para seleccionar basado   
+    -   ends_with()
+
+    -   rename()
+
+    -   contains()
+
+    -   matches("(.)\\1") \# paquete STRING
+
+    -   everything()
+
+## starts_with(), ends_with()
+
+Es una función para seleccionar basado
+
 ```{r}
 names(vuelos)
 
@@ -707,17 +645,18 @@ vuelos %>%
   dplyr::select(contains("hora"))
 
 ```
- 
+
 ## rename()
+
 Cambiar el nombre de la columna
- 
+
 ```{r}
 vuelos %>% 
   rename(aeropuerto_origen=origen) %>% 
-  rename(areop_distino=destino)# nombre nuevo= nombre original
+  rename(areop_distino=destino) # nombre nuevo= nombre original
 ```
- 
-## Reoganizar el oden de las columnas
+
+## Reoganizar el orden de las columnas, using select() and everything()
 
 ```{r}
 head(vuelos)
@@ -725,31 +664,25 @@ vuelos %>%
 dplyr::select(distancia, aerolinea, everything())
 ```
 
-## matches("(.)\\1") Lo veremos en la leccion de "STRING"
+## matches("(.)\\1") Lo veremos en la lección de "STRING"
 
-
-
-
-
-***
+------------------------------------------------------------------------
 
 3.  **Ejercicios**:
 
 Hacer los ejercicios en la sección 5.4.1 del libro en español
 
+------------------------------------------------------------------------
 
+-   Otras funciones:
 
+    -   mutate()
 
-***
-
-- Otras funciones:
- 
-  - mutate()
-  
-```{r} 
+```{r}
+library(tidyverse)
 library(nycflights13)
 head(flights)
-library(tidyverse)
+
   flights_sml <- dplyr::select(flights, 
   year:day, 
   ends_with("delay"), 
@@ -783,9 +716,9 @@ mutate(vuelos_sml,
 ```
 
 ## transmute()
-Para guardar solamente la nueva variable usa transmutate 
-  
-  
+
+Para guardar solamente la nueva variable usa **transmutate**
+
 ```{r}
 transmute(flights,
   gain = dep_delay - arr_delay,
@@ -794,20 +727,10 @@ transmute(flights,
 )
 
 ```
-  
- Hagan lo con "vuelos"
- 
- 
-```{r}
-
-```
- 
 
 ## lag()
-  
+
 Para calcular diferencias entre variables en la misma columna
-
-
 
 ```{r}
 #set.seed(12345) # que los datos sean al azar, siempre sean los mismo, se usa el "set.seed()" para enseñanza.
@@ -825,7 +748,7 @@ df %>%
 
 df%>% 
   dplyr::select(value) %>% 
-  mutate(Change_df=value-lag(value, 7)) # El cambio en los valores entre celdas
+  mutate(Change_df=value-lag(value, 1)) # El cambio en los valores entre celdas
 
 
 ```
@@ -833,7 +756,6 @@ df%>%
 ## Usa "Lag" con "IncCasosSaludNuevo" en COVID-19 PR
 
 Evalua la diferencia en números de casos entre 7 días de las semana en números de casos nuevos de COVID, "IncCasosSaludNuevo"
-
 
 ```{r}
 library(readr)
@@ -863,10 +785,10 @@ df2 %>%
 
 ```
 
+## lead(),
 
-## lead(), 
+is the "next" (lead()) values in a vector/column
 
- is the "next" (lead()) values in a vector/column
 ```{r}
 set.seed(12345)
 data=rpois(15, 10)
@@ -874,7 +796,7 @@ df=as.tibble(data)
 df
 
 df %>% 
-  select(value) %>% 
+  dplyr::select(value) %>% 
   mutate(lead1=lead(value)) %>% 
   mutate(lead3=lead(value, 3))
 
@@ -884,8 +806,8 @@ df%>%
   mutate(lead1=value-lead(value)) %>% 
   mutate(lead7=value-lead(value, 7))
 ```
-  
-## cumsum 
+
+## cumsum
 
 Cumulative Sum: the values are sum along the vector or column
 
@@ -915,14 +837,13 @@ select(IncCasosSaludNuevo, CasosSaludNuevo) %>%
 mutate(suma=cumsum(IncCasosSaludNuevo))
 ```
 
-
 ## cummean() and cumvar()
-  
-  The mean of the values are calculated 
-  
-  Cummulative mean
 
-```{r} 
+The mean of the values are calculated
+
+Cummulative mean
+
+```{r}
 
 set.seed(678)
   x <- sample(1:20, 15)
@@ -949,13 +870,13 @@ library(cumstats)
 
 ```
 
+------------------------------------------------------------------------
 
-***
-  NO parametricas pruebas (no son basado en distribucion normal)
-  
-## min_rank() y # min_rank(desc())
+NO parametricas pruebas (no son basado en distribucion normal)
 
-Asignar valores de rangos a los valores originales o de más grande a meas pequeño o vise versa. 
+## min_rank() y \# min_rank(desc())
+
+Asignar valores de rangos a los valores originales o de más grande a meas pequeño o vise versa.
 
 ```{r}
 set.seed(45678)
@@ -974,7 +895,6 @@ df %>%
 
 Qué hace esta función?
 
-
 ```{r}
 set.seed(45678)
   x <- c(10,21,22,NA,5,4)
@@ -988,13 +908,8 @@ df %>%
   mutate(row=row_number(value)) # equivalente a rank, 
 ```
 
-
-  
-  
-  
 ## dense_rank()
 
-  
 ```{r}
 set.seed(45678)
   x <- c(10,12,12,NA,51,4)
@@ -1015,13 +930,12 @@ mean(Num_frutos1)
 mean(Num_frutos2)
 ```
 
-
-***
+------------------------------------------------------------------------
 
 Start here....
 
-
 ## percent_rank()
+
 ```{r}
 set.seed(45678)
   x <- c(1,2,2,NA,5,4)
@@ -1046,13 +960,9 @@ df2 %>%
 
 ```
 
-
-
-
 ## cume_dist()
 
 Es la suma cumulativa de los rangos
-
 
 ```{r}
 set.seed(45678)
@@ -1066,18 +976,14 @@ df %>%
   dplyr::select(value) %>% 
   mutate(rangos_cumulativo=cume_dist(value)) 
 ```
-  
-  
-***
+
+------------------------------------------------------------------------
 
 4.  **Ejercicios**:
 
 Hacer los ejercicios en la sección 5.5.2 del libro en español
 
-
 Encuentra los 10 vuelos más retrasados utilizando una función de ordenamiento. ¿Cómo quieres manejar los empates? Lee atentamente la documentación de min_rank().
-
-
 
 ```{r}
 names(vuelos)
@@ -1088,13 +994,6 @@ vuelos%>%
   head(n=10)
 ```
 
-
-
-
-
-
-
-
 ```{r}
 names(vuelos)
 vuelos %>% 
@@ -1104,14 +1003,11 @@ vuelos %>%
 
 ```
 
-
-***
-
-
+------------------------------------------------------------------------
 
 ## Resúmenes con summarise() by group using group_by()
- 
-```{r} 
+
+```{r}
 library(datos)
 library(nycflights13)
 summarise(flights, delay = mean(dep_delay, na.rm = TRUE))
@@ -1121,14 +1017,11 @@ flights %>%
   summarise(delay = mean(dep_delay, na.rm = TRUE))
 ```
 
-
-
 ```{r}
 by_day <- group_by(flights, year, month, day)
 
 summarise(by_day, delay = mean(dep_delay, na.rm = TRUE))
 ```
-
 
 ```{r}
 flights %>% 
@@ -1138,16 +1031,12 @@ summarise(delay = mean(dep_delay, na.rm = TRUE))
 
 ## The worst airline in departure delays
 
-
 ```{r}
 flights %>%
 group_by(carrier) %>%
 summarise(delay = mean(dep_delay, na.rm = TRUE)) %>%
 arrange(desc(delay))
 ```
-
-
-
 
 ```{r}
 by_dest <- group_by(flights, dest)
@@ -1170,8 +1059,8 @@ ggplot(data = delay, aes(x = dist, y = delay)) +
   geom_smooth(se = FALSE)
 #> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
-Start here
 
+Start here
 
 ```{r}
 names(delay)
@@ -1183,31 +1072,25 @@ ggplot(data = delay, aes(x = dist, y = delay, label=dest)) +
   
 
 ```
- 
 
-***
+------------------------------------------------------------------------
 
 5.  **Ejercicios**:
 
 Hacer los ejercicios en la sección 5.6.7 del libro en español
 
-
-
-
-***
+------------------------------------------------------------------------
 
 ## El Pipe
 
-  - %>%  "El pipe"
- 
+-   %\>% "El pipe"
 
-***
+------------------------------------------------------------------------
 
 ## Otras funciones: NA
- 
-  - na.rm=TRUE
-  - !is.na() = is not NA, pq al frente tiene "!"
- 
+
+-   na.rm=TRUE
+-   !is.na() = is not NA, pq al frente tiene "!"
 
 ```{r}
 no_cancelados <- vuelos %>% 
@@ -1228,7 +1111,7 @@ vuelos %>%
 #            n=n())
 ```
 
-***
+------------------------------------------------------------------------
 
 ## Otras funciones:
 
@@ -1236,48 +1119,49 @@ Tarea de grupo.
 
 Preparar un .rmd con la explicaciones de como utilizar la función mencionado abajo. Debe incluir
 
-1. La definición de la función en palabra y matemática. 
-2. un script sencillo (con pocos datos) (uno o más ejemplos) para explicar la función
-3. un script con los datos de "vuelos" o de "Covid-19 de PR".
-4. a las 2:20pm cada grupo presentará su trabajo. 
-5. Despues de la clase cada grupo, mejorará su .rmd con los comentarios recibidos.  
-6. Domingo se subirá el .rmd y el .html en Edmodo (cada estudiante lo subira: tendra el nombre de cada estudiante en el trabajo)
-7. El profesor revisará los trabajos y subsiguiente se distribuira los .rmd y html a los estudiantes.  
+1.  La definición de la función en palabra y matemática.
+2.  un script sencillo (con pocos datos) (uno o más ejemplos) para explicar la función
+3.  un script con los datos de "vuelos" o de "Covid-19 de PR".
+4.  a las 2:20pm cada grupo presentará su trabajo.
+5.  Despues de la clase cada grupo, mejorará su .rmd con los comentarios recibidos.\
+6.  Domingo se subirá el .rmd y el .html en Edmodo (cada estudiante lo subira: tendra el nombre de cada estudiante en el trabajo)
+7.  El profesor revisará los trabajos y subsiguiente se distribuira los .rmd y html a los estudiantes.
 
- 
-  - IQR()  ## G1
-  - mad()  ## G2
-  - first() ## G3
-  - last()  ## G3 
-  - quantile() ## G4
-  - signif()  ## G5
-  
-    - min()
-  - max()
-   - mean()
-  - sd()
-***
+-   IQR() \## G1
+
+-   mad() \## G2
+
+-   first() \## G3
+
+-   last() \## G3
+
+-   quantile() \## G4
+
+-   signif() \## G5
+
+    -   min()
+
+-   max()
+
+-   mean()
+
+-   sd() \*\*\*
 
 1.  **Ejercicios**:
 
-
 Hacer los ejercicios en la sección 5.7.1 del libro en español
 
-***
- 
+------------------------------------------------------------------------
+
 ```{r}
 
 ```
- 
- 
- Rolling average:
- 
- https://stackoverflow.com/questions/743812/calculating-moving-average
- 
- 
- 
- 
-```{r} 
+
+Rolling average:
+
+<https://stackoverflow.com/questions/743812/calculating-moving-average>
+
+```{r}
 library(tidyverse)
 library(zoo)
 
@@ -1294,7 +1178,15 @@ some_data
 
 ```
 
+```{r}
+library(tidyverse)
+library(dplyr)
+some_data |> 
+  mutate(day_p = if_else(day %in% c(0:3), "pre",
+         if_else(day %in% c(4:10), "normal",
+         NA_character_)))
 
 
 
-    
+
+```
