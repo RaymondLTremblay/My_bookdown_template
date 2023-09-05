@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-08-31" />
+<meta name="date" content="2023-09-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -451,7 +451,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="script" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">Chapter 5</span> Script<a href="script.html#script" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Fecha de la ultima revisión</p>
-<pre><code>## [1] &quot;2023-08-31&quot;</code></pre>
+<pre><code>## [1] &quot;2023-09-05&quot;</code></pre>
 <hr />
 <p>El tema proviene de los siguientes sitios.</p>
 <p>English: <a href="https://r4ds.had.co.nz/workflow-scripts.html" class="uri">https://r4ds.had.co.nz/workflow-scripts.html</a></p>
@@ -469,11 +469,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>Hacer los ejercicios en la sección 6.3 del libro en español</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="script.html#cb368-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb368-2"><a href="script.html#cb368-2" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
-<span id="cb368-3"><a href="script.html#cb368-3" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
-<span id="cb368-4"><a href="script.html#cb368-4" tabindex="-1"></a></span>
-<span id="cb368-5"><a href="script.html#cb368-5" tabindex="-1"></a><span class="fu">names</span>(vuelos)</span></code></pre></div>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="script.html#cb391-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb391-2"><a href="script.html#cb391-2" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
+<span id="cb391-3"><a href="script.html#cb391-3" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb391-4"><a href="script.html#cb391-4" tabindex="-1"></a></span>
+<span id="cb391-5"><a href="script.html#cb391-5" tabindex="-1"></a><span class="fu">names</span>(vuelos)</span></code></pre></div>
 </details>
 <pre><code>##  [1] &quot;anio&quot;               &quot;mes&quot;                &quot;dia&quot;               
 ##  [4] &quot;horario_salida&quot;     &quot;salida_programada&quot;  &quot;atraso_salida&quot;     
@@ -483,9 +483,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## [16] &quot;distancia&quot;          &quot;hora&quot;               &quot;minuto&quot;            
 ## [19] &quot;fecha_hora&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="script.html#cb370-1" tabindex="-1"></a>no_cancelado <span class="ot">&lt;-</span> vuelos <span class="sc">%&gt;%</span> </span>
-<span id="cb370-2"><a href="script.html#cb370-2" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(atraso_salida), <span class="sc">!</span><span class="fu">is.na</span>(atraso_llegada))</span>
-<span id="cb370-3"><a href="script.html#cb370-3" tabindex="-1"></a><span class="fu">head</span>(no_cancelado)</span></code></pre></div>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="script.html#cb393-1" tabindex="-1"></a>no_cancelado <span class="ot">&lt;-</span> vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb393-2"><a href="script.html#cb393-2" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(atraso_salida), <span class="sc">!</span><span class="fu">is.na</span>(atraso_llegada))</span>
+<span id="cb393-3"><a href="script.html#cb393-3" tabindex="-1"></a><span class="fu">head</span>(no_cancelado)</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 6 × 19
 ##    anio   mes   dia horario_salida salida_programada atraso_salida
@@ -501,13 +501,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
 ## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="script.html#cb372-1" tabindex="-1"></a>no_cancelado <span class="sc">%&gt;%</span> </span>
-<span id="cb372-2"><a href="script.html#cb372-2" tabindex="-1"></a>  <span class="fu">group_by</span>(anio, mes, dia) <span class="sc">%&gt;%</span> </span>
-<span id="cb372-3"><a href="script.html#cb372-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(atraso_salida))</span></code></pre></div>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="script.html#cb395-1" tabindex="-1"></a>no_cancelado <span class="sc">%&gt;%</span> </span>
+<span id="cb395-2"><a href="script.html#cb395-2" tabindex="-1"></a>  <span class="fu">group_by</span>(anio, mes, dia) <span class="sc">%&gt;%</span> </span>
+<span id="cb395-3"><a href="script.html#cb395-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(atraso_salida))</span></code></pre></div>
 </details>
-<pre><code>## `summarise()` has grouped output by
-## &#39;anio&#39;, &#39;mes&#39;. You can override using
-## the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;anio&#39;,
+## &#39;mes&#39;. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 365 × 4
 ## # Groups:   anio, mes [12]
 ##     anio   mes   dia media
@@ -524,7 +524,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 10  2013     1    10  2.84
 ## # ℹ 355 more rows</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="script.html#cb375-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span> </span></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="script.html#cb398-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span> </span></code></pre></div>
 </details>
 
 </div>

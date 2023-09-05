@@ -176,13 +176,21 @@ Funciones
 
 ```{r}
 ## The mode of the value
+# Create the function.
+getmode <- function(v) {
+   uniqv <- unique(v)
+   uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+
 library(DescTools)
 
-por_dia_3 <- 
-  group_by(vuelos, dia) %>% 
+por_dia_3=vuelos |> 
+  dplyr::select(dia, mes, atraso_salida) |> 
+  group_by(dia) %>% 
   summarise(atraso_promedio = mean(atraso_salida, na.rm = TRUE),
-            atraso_mode = Mode(atraso_salida, na.rm=TRUE),
-            atraso_max=max(atraso_salida, na.rm=TRUE))
+            atraso_max=max(atraso_salida, na.rm=TRUE),
+            atraso_mode = getmode(atraso_salida),
+            atraso_Mode = Mode(atraso_salida))
 por_dia_3
 
 ```
@@ -198,7 +206,7 @@ por_dia_4 <-
   group_by(vuelos, dia) %>% 
   summarise(atraso_promedio = mean(atraso_salida, na.rm = TRUE),
             atraso_median = median(atraso_salida, na.rm=TRUE),
-            atraso_mode = Mode(atraso_salida, na.rm=TRUE))
+            atraso_mode = Mode(atraso_salida))
 por_dia_4
 names(vuelos)
 ```
@@ -206,7 +214,7 @@ names(vuelos)
 
 ```{r}
 vuelos %>% 
-  select(anio, mes, dia, atraso_llegada, destino) %>% 
+  dplyr::select(anio, mes, dia, atraso_llegada, destino) %>% 
   filter(destino =="SJU") %>% 
   filter(mes == 12 & dia ==25) %>% 
   group_by(dia, mes) %>% 
@@ -232,7 +240,7 @@ Bollean, que incluye múltiples opciones %in%
 
 ```{r}
 vuelos %>% 
-  select(anio, mes, dia, atraso_salida) %>% 
+  dplyr::select(anio, mes, dia, atraso_salida) %>% 
   group_by(mes) %>% 
   filter(mes %in% c(1:6)) %>% 
   summarise(atraso = mean(atraso_salida, na.rm = TRUE))
@@ -245,7 +253,7 @@ vuelos %>%
 
 ```{r}
 vuelos %>% 
-  select(anio, mes, dia, atraso_salida) %>% 
+  dplyr::select(anio, mes, dia, atraso_salida) %>% 
   filter(mes == 11 | mes == 12)
 
 #%>% 
@@ -257,7 +265,7 @@ vuelos %>%
 ```{r}
 names(vuelos)
 vuelos %>% 
-  select(anio, mes, dia, atraso_salida, aerolinea) %>% 
+  dplyr::select(anio, mes, dia, atraso_salida, aerolinea) %>% 
   filter(mes == 12 & dia == 25 & aerolinea=="AA")
 ```
 
@@ -275,10 +283,12 @@ Como se seleccionaría los meses de diciembre pero desde la del 25 o más
 
 
 ```{r, echo=FALSE, eval=FALSE}
+library(datos)
+library(tidyverse)
 vuelos %>% 
-  dplyr::select(anio, mes, dia, atraso_salida, aerolinea) %>%
-  filter(mes == 11 & !dia %in% c(1:10)) %>% 
-  group_by(dia) %>% 
+  dplyr::dplyr::select(anio, mes, dia, atraso_salida, aerolinea) %>%
+  filter(mes == 11 & !aerolinea %in% c("AA", "DL")) %>% 
+  group_by(aerolinea) %>% 
   summarise(atraso = mean(atraso_salida, na.rm = TRUE))
 ```
 
@@ -301,7 +311,8 @@ vuelos %>%
 #names(vuelos)
 
 vuelos %>% 
-  filter(atraso_llegada >=120)
+  filter(atraso_llegada >=120) %>% 
+  filter(destino == "HOU" | destino == "IAH")
 ```
  
 
@@ -315,7 +326,7 @@ vuelos %>%
 
 
 vuelos %>%
-select(anio, mes, dia, destino, aerolinea, atraso_llegada) %>%
+dplyr::select(anio, mes, dia, destino, aerolinea, atraso_llegada) %>%
 filter(destino %in% c("IAH", "HOU"))
 ```
 
@@ -348,8 +359,8 @@ vuelos %>%
   filter(atraso_llegada>120 |atraso_salida <0)
 
 vuelos %>%
-select(atraso_llegada, atraso_salida) %>%
-filter(atraso_llegada >= 120 & atraso_salida <= 0)
+dplyr::select(atraso_llegada, atraso_salida) %>%
+filter(atraso_llegada > 120 & atraso_salida <= 0)
          
 ```
  
@@ -362,7 +373,9 @@ filter(atraso_llegada >= 120 & atraso_salida <= 0)
 #vuelos
 vuelos |>  
 dplyr::select(atraso_salida, atraso_llegada) %>%
-filter(atraso_salida >= 60 & atraso_llegada <= 30)
+filter(atraso_salida >= 60 & atraso_llegada <= -30)
+
+filter(atraso_salida >= 60 & atraso_salida - atraso_llegada <= 30 )
 ```
 
  - Selecciona solamente los vuelos que partieron entre la medianoche y las 6a.m. (incluyente)
@@ -435,6 +448,8 @@ filter(is.na(horario_salida)) |>
 
 ```
 
+***
+
 
 
 ## Día 4
@@ -454,6 +469,7 @@ NA|TRUE
 
 FALSE & NA
 FALSE * NA
+TRUE * NA
 NA * 0  
 NA * 1
 12 * 3
@@ -473,8 +489,8 @@ Aquí un website que recopila la cantidad de personas vacunadas en los EEUU.
 ```{r eval=FALSE, include=FALSE}
 library(tidyverse)
 library(data.table)
-url<-fread("https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/us_state_vaccinations.csv")
-head(url)
+COVID_DATA<-fread("https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/us_state_vaccinations.csv")
+head(COVID_DATA)
 ```
   
 *** 
@@ -482,7 +498,7 @@ head(url)
 Seleccionar solamente los datos de Puerto Rico
 
 ```{r eval=FALSE, include=FALSE}
-url %>% 
+COVID_DATA %>% 
   filter(location=="Puerto Rico")
 ```
 
@@ -493,7 +509,7 @@ Otro website de datos de COVID, estos representa los datos de todos los paises d
 
 
 ```{r eval=FALSE, include=FALSE}
-#url_COVID=fread("https://covid.ourworldindata.org/data/owid-covid-data.csv")
+url_COVID=fread("https://covid.ourworldindata.org/data/owid-covid-data.csv")
 head(url_COVID)
 
 head(unique(url_COVID$location))
@@ -503,9 +519,47 @@ url_COVID %>%
 ```
 
 
+
+
+
+Datos de PR
+
+https://datos.estadisticas.pr/dataset?res_format=CSV
+
+
+
+```{r}
+
+library(data.table)
+birth=fread("https://datos.estadisticas.pr/dataset/87620d17-bf63-445c-bb71-aca1a41c9077/resource/ea014209-8716-48a1-ace6-07a22a3c1f9d/download/nchs_births_2001.csv")
+
+head(birth)
+```
+
+
+```{r}
+names(birth)
+birth$BIRMON
+
+```
+
+
+```{r}
+birth |> dplyr::select(BIRMON, CSEX) |> 
+  group_by()
+unique(birth$STATENAT)
+unique(birth$NOCCUR)
+unique(birth$RB)
+
+#WEEKDAY
+#DGESTAT
+```
+
+***
+
 COVID_PR
 
-```{r, echo=FALSE, eval=FALSE}
+```{r,DatosMortandad, echo=FALSE, eval=FALSE}
 library(data.table)
 url_COVID_PR=fread("https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv")
 
@@ -548,7 +602,7 @@ arrange()
 ```{r, echo=FALSE, eval=FALSE}
 
 vuelos %>% 
-  select(horario_salida) %>% 
+  dplyr::select(horario_salida) %>% 
   arrange()
 
 
@@ -569,7 +623,7 @@ Ordena vuelos para encontrar los vuelos más retrasados en salida.
 ```{r, echo=FALSE, eval=FALSE}
 ?vuelos
 vuelos %>% 
-  select(atraso_llegada, horario_salida) %>% 
+  dplyr::select(atraso_llegada, horario_salida) %>% 
   arrange(atraso_llegada, desc(horario_salida))
 ```
 
@@ -578,12 +632,12 @@ Encuentra los vuelos que salieron más temprano.
 
 
 ```{r, echo=FALSE, eval=FALSE}
-vuelos %>% select(horario_salida) %>% filter(horario_salida >= 600) %>% filter(horario_salida > 2400)
+vuelos %>% dplyr::select(horario_salida) %>% filter(horario_salida >= 600) %>% filter(horario_salida > 2400)
 
 
 names(vuelos)
 vuelos %>% 
-  select(atraso_salida) %>% 
+  dplyr::select(atraso_salida) %>% 
   arrange(atraso_salida)
 ```
 
@@ -641,16 +695,16 @@ Es una función para seleccionar basado
 names(vuelos)
 
 vuelos %>% 
-  select(horario_salida)
+  dplyr::select(horario_salida)
 
 vuelos %>% 
-  select(starts_with("horario"))
+  dplyr::select(starts_with("horario"))
 
 vuelos %>% 
-  select(ends_with("salida"))
+  dplyr::select(ends_with("salida"))
 
 vuelos %>% 
-  select(contains("hora"))
+  dplyr::select(contains("hora"))
 
 ```
  
@@ -668,7 +722,7 @@ vuelos %>%
 ```{r}
 head(vuelos)
 vuelos %>% 
-select(distancia, aerolinea, everything())
+dplyr::select(distancia, aerolinea, everything())
 ```
 
 ## matches("(.)\\1") Lo veremos en la leccion de "STRING"
@@ -696,7 +750,7 @@ Hacer los ejercicios en la sección 5.4.1 del libro en español
 library(nycflights13)
 head(flights)
 library(tidyverse)
-  flights_sml <- select(flights, 
+  flights_sml <- dplyr::select(flights, 
   year:day, 
   ends_with("delay"), 
   distance, 
@@ -714,7 +768,7 @@ mutate(flights_sml,
 
 ```{r}
 names(vuelos)
-  vuelos_sml <- select(vuelos, 
+  vuelos_sml <- dplyr::select(vuelos, 
   anio:dia, 
   starts_with("atraso"), 
   distancia, 
@@ -764,13 +818,13 @@ df=as.tibble(data)
 df
 
 df %>% 
-  select(value) %>% 
+  dplyr::select(value) %>% 
   mutate(lag1=lag(value)) %>% 
   mutate(lag3=lag(value, 3)) %>% 
   mutate(lag7=lag(value,7))
 
 df%>% 
-  select(value) %>% 
+  dplyr::select(value) %>% 
   mutate(Change_df=value-lag(value, 7)) # El cambio en los valores entre celdas
 
 
@@ -789,13 +843,13 @@ url_COVID_PR <- read_csv("Datos/url_COVID_PR.csv")
 #head(url_COVID_PR)
 #names(url_COVID_PR)
 df2=url_COVID_PR %>% 
-  select(IncCasosSaludNuevo) %>% 
+  dplyr::select(IncCasosSaludNuevo) %>% 
   mutate(Cambios_Casos=IncCasosSaludNuevo-lag(IncCasosSaludNuevo,7)) 
 
 
 df2
 df2 %>% 
-  select(IncCasosSaludNuevo, Cambios_Casos) %>% 
+  dplyr::select(IncCasosSaludNuevo, Cambios_Casos) %>% 
   colMeans(na.rm=TRUE)
 
 

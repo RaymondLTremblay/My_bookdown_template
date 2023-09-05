@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-08-31" />
+<meta name="date" content="2023-09-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -451,7 +451,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="datos-ordenados" class="section level1 hasAnchor" number="10">
 <h1><span class="header-section-number">Chapter 10</span> Datos Ordenados<a href="datos-ordenados.html#datos-ordenados" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Fecha de la ultima revisión</p>
-<pre><code>## [1] &quot;2023-08-31&quot;</code></pre>
+<pre><code>## [1] &quot;2023-09-05&quot;</code></pre>
 <hr />
 <p>El tema proviene de los siguientes sitios.</p>
 <p>English:
@@ -465,11 +465,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">10.1.1</span> El paquete tidyr<a href="datos-ordenados.html#el-paquete-tidyr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ver vignettes</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="datos-ordenados.html#cb510-1" tabindex="-1"></a> <span class="fu">library</span>(tidyverse)</span>
-<span id="cb510-2"><a href="datos-ordenados.html#cb510-2" tabindex="-1"></a><span class="fu">library</span>(datos)</span></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="datos-ordenados.html#cb533-1" tabindex="-1"></a> <span class="fu">library</span>(tidyverse)</span>
+<span id="cb533-2"><a href="datos-ordenados.html#cb533-2" tabindex="-1"></a><span class="fu">library</span>(datos)</span></code></pre></div>
 </details>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="datos-ordenados.html#cb511-1" tabindex="-1"></a>tabla1</span></code></pre></div>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="datos-ordenados.html#cb534-1" tabindex="-1"></a>tabla1</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 6 × 4
 ##   pais        anio  casos  poblacion
@@ -481,7 +481,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 5 China       1999 212258 1272915272
 ## 6 China       2000 213766 1280428583</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="datos-ordenados.html#cb513-1" tabindex="-1"></a>tabla2</span></code></pre></div>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="datos-ordenados.html#cb536-1" tabindex="-1"></a>tabla2</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 12 × 4
 ##    pais        anio tipo          cuenta
@@ -499,7 +499,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 11 China       2000 casos         213766
 ## 12 China       2000 población 1280428583</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="datos-ordenados.html#cb515-1" tabindex="-1"></a>tabla3</span></code></pre></div>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="datos-ordenados.html#cb538-1" tabindex="-1"></a>tabla3</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 6 × 3
 ##   pais        anio tasa             
@@ -511,7 +511,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 5 China       1999 212258/1272915272
 ## 6 China       2000 213766/1280428583</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="datos-ordenados.html#cb517-1" tabindex="-1"></a>tabla4a</span></code></pre></div>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="datos-ordenados.html#cb540-1" tabindex="-1"></a>tabla4a</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 3 × 3
 ##   pais       `1999` `2000`
@@ -520,7 +520,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 2 Brasil      37737  80488
 ## 3 China      212258 213766</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="datos-ordenados.html#cb519-1" tabindex="-1"></a>tabla4b</span></code></pre></div>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="datos-ordenados.html#cb542-1" tabindex="-1"></a>tabla4b</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 3 × 3
 ##   pais           `1999`     `2000`
