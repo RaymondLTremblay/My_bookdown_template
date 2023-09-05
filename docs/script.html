@@ -246,8 +246,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.11" data-path="transformacion.html"><a href="transformacion.html#starts_with-ends_with"><i class="fa fa-check"></i><b>4.11</b> starts_with(), ends_with()</a></li>
 <li class="chapter" data-level="4.12" data-path="transformacion.html"><a href="transformacion.html#rename"><i class="fa fa-check"></i><b>4.12</b> rename()</a></li>
-<li class="chapter" data-level="4.13" data-path="transformacion.html"><a href="transformacion.html#reoganizar-el-oden-de-las-columnas"><i class="fa fa-check"></i><b>4.13</b> Reoganizar el oden de las columnas</a></li>
-<li class="chapter" data-level="4.14" data-path="transformacion.html"><a href="transformacion.html#matches.1-lo-veremos-en-la-leccion-de-string"><i class="fa fa-check"></i><b>4.14</b> matches(“(.)\1”) Lo veremos en la leccion de “STRING”</a></li>
+<li class="chapter" data-level="4.13" data-path="transformacion.html"><a href="transformacion.html#reoganizar-el-orden-de-las-columnas-using-select-and-everything"><i class="fa fa-check"></i><b>4.13</b> Reoganizar el orden de las columnas, using select() and everything()</a></li>
+<li class="chapter" data-level="4.14" data-path="transformacion.html"><a href="transformacion.html#matches.1-lo-veremos-en-la-lección-de-string"><i class="fa fa-check"></i><b>4.14</b> matches(“(.)\1”) Lo veremos en la lección de “STRING”</a></li>
 <li class="chapter" data-level="4.15" data-path="transformacion.html"><a href="transformacion.html#hagan-lo-con-el-data-set-en-espanol"><i class="fa fa-check"></i><b>4.15</b> Hagan lo con el data set en espanol</a></li>
 <li class="chapter" data-level="4.16" data-path="transformacion.html"><a href="transformacion.html#transmute"><i class="fa fa-check"></i><b>4.16</b> transmute()</a></li>
 <li class="chapter" data-level="4.17" data-path="transformacion.html"><a href="transformacion.html#lag"><i class="fa fa-check"></i><b>4.17</b> lag()</a></li>
@@ -469,11 +469,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>Hacer los ejercicios en la sección 6.3 del libro en español</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="script.html#cb391-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb391-2"><a href="script.html#cb391-2" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
-<span id="cb391-3"><a href="script.html#cb391-3" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
-<span id="cb391-4"><a href="script.html#cb391-4" tabindex="-1"></a></span>
-<span id="cb391-5"><a href="script.html#cb391-5" tabindex="-1"></a><span class="fu">names</span>(vuelos)</span></code></pre></div>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="script.html#cb393-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb393-2"><a href="script.html#cb393-2" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
+<span id="cb393-3"><a href="script.html#cb393-3" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb393-4"><a href="script.html#cb393-4" tabindex="-1"></a></span>
+<span id="cb393-5"><a href="script.html#cb393-5" tabindex="-1"></a><span class="fu">names</span>(vuelos)</span></code></pre></div>
 </details>
 <pre><code>##  [1] &quot;anio&quot;               &quot;mes&quot;                &quot;dia&quot;               
 ##  [4] &quot;horario_salida&quot;     &quot;salida_programada&quot;  &quot;atraso_salida&quot;     
@@ -483,9 +483,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## [16] &quot;distancia&quot;          &quot;hora&quot;               &quot;minuto&quot;            
 ## [19] &quot;fecha_hora&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="script.html#cb393-1" tabindex="-1"></a>no_cancelado <span class="ot">&lt;-</span> vuelos <span class="sc">%&gt;%</span> </span>
-<span id="cb393-2"><a href="script.html#cb393-2" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(atraso_salida), <span class="sc">!</span><span class="fu">is.na</span>(atraso_llegada))</span>
-<span id="cb393-3"><a href="script.html#cb393-3" tabindex="-1"></a><span class="fu">head</span>(no_cancelado)</span></code></pre></div>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="script.html#cb395-1" tabindex="-1"></a>no_cancelado <span class="ot">&lt;-</span> vuelos <span class="sc">%&gt;%</span> </span>
+<span id="cb395-2"><a href="script.html#cb395-2" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(atraso_salida), <span class="sc">!</span><span class="fu">is.na</span>(atraso_llegada))</span>
+<span id="cb395-3"><a href="script.html#cb395-3" tabindex="-1"></a><span class="fu">head</span>(no_cancelado)</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 6 × 19
 ##    anio   mes   dia horario_salida salida_programada atraso_salida
@@ -501,9 +501,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
 ## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="script.html#cb395-1" tabindex="-1"></a>no_cancelado <span class="sc">%&gt;%</span> </span>
-<span id="cb395-2"><a href="script.html#cb395-2" tabindex="-1"></a>  <span class="fu">group_by</span>(anio, mes, dia) <span class="sc">%&gt;%</span> </span>
-<span id="cb395-3"><a href="script.html#cb395-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(atraso_salida))</span></code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="script.html#cb397-1" tabindex="-1"></a>no_cancelado <span class="sc">%&gt;%</span> </span>
+<span id="cb397-2"><a href="script.html#cb397-2" tabindex="-1"></a>  <span class="fu">group_by</span>(anio, mes, dia) <span class="sc">%&gt;%</span> </span>
+<span id="cb397-3"><a href="script.html#cb397-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(atraso_salida))</span></code></pre></div>
 </details>
 <pre><code>## `summarise()` has grouped output by &#39;anio&#39;,
 ## &#39;mes&#39;. You can override using the `.groups`
@@ -524,7 +524,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 10  2013     1    10  2.84
 ## # ℹ 355 more rows</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="script.html#cb398-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span> </span></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="script.html#cb400-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span> </span></code></pre></div>
 </details>
 
 </div>

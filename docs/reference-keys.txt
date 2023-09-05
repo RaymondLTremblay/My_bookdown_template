@@ -96,8 +96,8 @@ covid-world
 la-función-arrange
 starts_with-ends_with
 rename
-reoganizar-el-oden-de-las-columnas
-matches.1-lo-veremos-en-la-leccion-de-string
+reoganizar-el-orden-de-las-columnas-using-select-and-everything
+matches.1-lo-veremos-en-la-lección-de-string
 hagan-lo-con-el-data-set-en-espanol
 transmute
 lag
@@ -220,5 +220,3 @@ multiplicaciones-y-sumas-de-periodos
 intervalos
 resumen
 time-zones
-reoganizar-el-orden-de-las-columnas-using-select-and-everything
-matches.1-lo-veremos-en-la-lección-de-string

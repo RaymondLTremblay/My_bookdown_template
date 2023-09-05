@@ -246,8 +246,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.11" data-path="transformacion.html"><a href="transformacion.html#starts_with-ends_with"><i class="fa fa-check"></i><b>4.11</b> starts_with(), ends_with()</a></li>
 <li class="chapter" data-level="4.12" data-path="transformacion.html"><a href="transformacion.html#rename"><i class="fa fa-check"></i><b>4.12</b> rename()</a></li>
-<li class="chapter" data-level="4.13" data-path="transformacion.html"><a href="transformacion.html#reoganizar-el-oden-de-las-columnas"><i class="fa fa-check"></i><b>4.13</b> Reoganizar el oden de las columnas</a></li>
-<li class="chapter" data-level="4.14" data-path="transformacion.html"><a href="transformacion.html#matches.1-lo-veremos-en-la-leccion-de-string"><i class="fa fa-check"></i><b>4.14</b> matches(“(.)\1”) Lo veremos en la leccion de “STRING”</a></li>
+<li class="chapter" data-level="4.13" data-path="transformacion.html"><a href="transformacion.html#reoganizar-el-orden-de-las-columnas-using-select-and-everything"><i class="fa fa-check"></i><b>4.13</b> Reoganizar el orden de las columnas, using select() and everything()</a></li>
+<li class="chapter" data-level="4.14" data-path="transformacion.html"><a href="transformacion.html#matches.1-lo-veremos-en-la-lección-de-string"><i class="fa fa-check"></i><b>4.14</b> matches(“(.)\1”) Lo veremos en la lección de “STRING”</a></li>
 <li class="chapter" data-level="4.15" data-path="transformacion.html"><a href="transformacion.html#hagan-lo-con-el-data-set-en-espanol"><i class="fa fa-check"></i><b>4.15</b> Hagan lo con el data set en espanol</a></li>
 <li class="chapter" data-level="4.16" data-path="transformacion.html"><a href="transformacion.html#transmute"><i class="fa fa-check"></i><b>4.16</b> transmute()</a></li>
 <li class="chapter" data-level="4.17" data-path="transformacion.html"><a href="transformacion.html#lag"><i class="fa fa-check"></i><b>4.17</b> lag()</a></li>
@@ -484,13 +484,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="flujo-de-trabajo.html#cb1-1" tabindex="-1"></a><span class="co">#install.packages(&quot;tidyverse&quot;)</span></span>
 <span id="cb1-2"><a href="flujo-de-trabajo.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 </details>
-<pre><code>## ── Attaching core tidyverse packages ─────────────
+<pre><code>## ── Attaching core tidyverse packages ────────────
 ## ✔ dplyr     1.1.2     ✔ readr     2.1.4
 ## ✔ forcats   1.0.0     ✔ stringr   1.5.0
 ## ✔ ggplot2   3.4.3     ✔ tibble    3.2.1
 ## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
 ## ✔ purrr     1.0.2     
-## ── Conflicts ──────────── tidyverse_conflicts() ──
+## ── Conflicts ─────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
@@ -738,7 +738,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb38-2"><a href="flujo-de-trabajo.html#cb38-2" tabindex="-1"></a>Vuelos_SJU_2018_Ene <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Datos/Vuelos_SJU_2018_Ene.csv&quot;</span>)</span></code></pre></div>
 </details>
 <pre><code>## Rows: 3831 Columns: 14
-## ── Column specification ──────────────────────────
+## ── Column specification ─────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (8): FL_DATE, OP_UNIQUE_CARRIER, ORIGIN, ORIGIN_CITY_NAME, ORIGIN_STATE_...
 ## dbl (6): DEP_TIME, DEP_DELAY, CRS_ARR_TIME, ARR_TIME, ARR_DELAY, CANCELLED

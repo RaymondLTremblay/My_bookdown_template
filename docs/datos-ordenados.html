@@ -246,8 +246,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.11" data-path="transformacion.html"><a href="transformacion.html#starts_with-ends_with"><i class="fa fa-check"></i><b>4.11</b> starts_with(), ends_with()</a></li>
 <li class="chapter" data-level="4.12" data-path="transformacion.html"><a href="transformacion.html#rename"><i class="fa fa-check"></i><b>4.12</b> rename()</a></li>
-<li class="chapter" data-level="4.13" data-path="transformacion.html"><a href="transformacion.html#reoganizar-el-oden-de-las-columnas"><i class="fa fa-check"></i><b>4.13</b> Reoganizar el oden de las columnas</a></li>
-<li class="chapter" data-level="4.14" data-path="transformacion.html"><a href="transformacion.html#matches.1-lo-veremos-en-la-leccion-de-string"><i class="fa fa-check"></i><b>4.14</b> matches(“(.)\1”) Lo veremos en la leccion de “STRING”</a></li>
+<li class="chapter" data-level="4.13" data-path="transformacion.html"><a href="transformacion.html#reoganizar-el-orden-de-las-columnas-using-select-and-everything"><i class="fa fa-check"></i><b>4.13</b> Reoganizar el orden de las columnas, using select() and everything()</a></li>
+<li class="chapter" data-level="4.14" data-path="transformacion.html"><a href="transformacion.html#matches.1-lo-veremos-en-la-lección-de-string"><i class="fa fa-check"></i><b>4.14</b> matches(“(.)\1”) Lo veremos en la lección de “STRING”</a></li>
 <li class="chapter" data-level="4.15" data-path="transformacion.html"><a href="transformacion.html#hagan-lo-con-el-data-set-en-espanol"><i class="fa fa-check"></i><b>4.15</b> Hagan lo con el data set en espanol</a></li>
 <li class="chapter" data-level="4.16" data-path="transformacion.html"><a href="transformacion.html#transmute"><i class="fa fa-check"></i><b>4.16</b> transmute()</a></li>
 <li class="chapter" data-level="4.17" data-path="transformacion.html"><a href="transformacion.html#lag"><i class="fa fa-check"></i><b>4.17</b> lag()</a></li>
@@ -465,11 +465,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">10.1.1</span> El paquete tidyr<a href="datos-ordenados.html#el-paquete-tidyr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ver vignettes</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="datos-ordenados.html#cb533-1" tabindex="-1"></a> <span class="fu">library</span>(tidyverse)</span>
-<span id="cb533-2"><a href="datos-ordenados.html#cb533-2" tabindex="-1"></a><span class="fu">library</span>(datos)</span></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="datos-ordenados.html#cb535-1" tabindex="-1"></a> <span class="fu">library</span>(tidyverse)</span>
+<span id="cb535-2"><a href="datos-ordenados.html#cb535-2" tabindex="-1"></a><span class="fu">library</span>(datos)</span></code></pre></div>
 </details>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="datos-ordenados.html#cb534-1" tabindex="-1"></a>tabla1</span></code></pre></div>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="datos-ordenados.html#cb536-1" tabindex="-1"></a>tabla1</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 6 × 4
 ##   pais        anio  casos  poblacion
@@ -481,7 +481,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 5 China       1999 212258 1272915272
 ## 6 China       2000 213766 1280428583</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="datos-ordenados.html#cb536-1" tabindex="-1"></a>tabla2</span></code></pre></div>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="datos-ordenados.html#cb538-1" tabindex="-1"></a>tabla2</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 12 × 4
 ##    pais        anio tipo          cuenta
@@ -499,7 +499,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 11 China       2000 casos         213766
 ## 12 China       2000 población 1280428583</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="datos-ordenados.html#cb538-1" tabindex="-1"></a>tabla3</span></code></pre></div>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="datos-ordenados.html#cb540-1" tabindex="-1"></a>tabla3</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 6 × 3
 ##   pais        anio tasa             
@@ -511,7 +511,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 5 China       1999 212258/1272915272
 ## 6 China       2000 213766/1280428583</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="datos-ordenados.html#cb540-1" tabindex="-1"></a>tabla4a</span></code></pre></div>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="datos-ordenados.html#cb542-1" tabindex="-1"></a>tabla4a</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 3 × 3
 ##   pais       `1999` `2000`
@@ -520,7 +520,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 2 Brasil      37737  80488
 ## 3 China      212258 213766</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="datos-ordenados.html#cb542-1" tabindex="-1"></a>tabla4b</span></code></pre></div>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="datos-ordenados.html#cb544-1" tabindex="-1"></a>tabla4b</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 3 × 3
 ##   pais           `1999`     `2000`

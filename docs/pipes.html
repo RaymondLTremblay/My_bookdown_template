@@ -246,8 +246,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.11" data-path="transformacion.html"><a href="transformacion.html#starts_with-ends_with"><i class="fa fa-check"></i><b>4.11</b> starts_with(), ends_with()</a></li>
 <li class="chapter" data-level="4.12" data-path="transformacion.html"><a href="transformacion.html#rename"><i class="fa fa-check"></i><b>4.12</b> rename()</a></li>
-<li class="chapter" data-level="4.13" data-path="transformacion.html"><a href="transformacion.html#reoganizar-el-oden-de-las-columnas"><i class="fa fa-check"></i><b>4.13</b> Reoganizar el oden de las columnas</a></li>
-<li class="chapter" data-level="4.14" data-path="transformacion.html"><a href="transformacion.html#matches.1-lo-veremos-en-la-leccion-de-string"><i class="fa fa-check"></i><b>4.14</b> matches(“(.)\1”) Lo veremos en la leccion de “STRING”</a></li>
+<li class="chapter" data-level="4.13" data-path="transformacion.html"><a href="transformacion.html#reoganizar-el-orden-de-las-columnas-using-select-and-everything"><i class="fa fa-check"></i><b>4.13</b> Reoganizar el orden de las columnas, using select() and everything()</a></li>
+<li class="chapter" data-level="4.14" data-path="transformacion.html"><a href="transformacion.html#matches.1-lo-veremos-en-la-lección-de-string"><i class="fa fa-check"></i><b>4.14</b> matches(“(.)\1”) Lo veremos en la lección de “STRING”</a></li>
 <li class="chapter" data-level="4.15" data-path="transformacion.html"><a href="transformacion.html#hagan-lo-con-el-data-set-en-espanol"><i class="fa fa-check"></i><b>4.15</b> Hagan lo con el data set en espanol</a></li>
 <li class="chapter" data-level="4.16" data-path="transformacion.html"><a href="transformacion.html#transmute"><i class="fa fa-check"></i><b>4.16</b> transmute()</a></li>
 <li class="chapter" data-level="4.17" data-path="transformacion.html"><a href="transformacion.html#lag"><i class="fa fa-check"></i><b>4.17</b> lag()</a></li>
@@ -492,7 +492,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>%$%</li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="pipes.html#cb401-1" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="pipes.html#cb403-1" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span></code></pre></div>
 </details>
 <pre><code>## 
 ## Attaching package: &#39;magrittr&#39;</code></pre>
@@ -503,17 +503,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ##     extract</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="pipes.html#cb405-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb405-2"><a href="pipes.html#cb405-2" tabindex="-1"></a>  <span class="fu">subset</span>(Sepal.Length <span class="sc">&gt;</span> <span class="fu">mean</span>(Sepal.Length)) <span class="sc">%$%</span></span>
-<span id="cb405-3"><a href="pipes.html#cb405-3" tabindex="-1"></a>  <span class="fu">cor</span>(Sepal.Length, Sepal.Width)</span></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="pipes.html#cb407-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb407-2"><a href="pipes.html#cb407-2" tabindex="-1"></a>  <span class="fu">subset</span>(Sepal.Length <span class="sc">&gt;</span> <span class="fu">mean</span>(Sepal.Length)) <span class="sc">%$%</span></span>
+<span id="cb407-3"><a href="pipes.html#cb407-3" tabindex="-1"></a>  <span class="fu">cor</span>(Sepal.Length, Sepal.Width)</span></code></pre></div>
 </details>
 <pre><code>## [1] 0.3361992</code></pre>
 <ul>
 <li>%&lt;&gt;%</li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="pipes.html#cb407-1" tabindex="-1"></a><span class="co"># Example 1</span></span>
-<span id="cb407-2"><a href="pipes.html#cb407-2" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="pipes.html#cb409-1" tabindex="-1"></a><span class="co"># Example 1</span></span>
+<span id="cb409-2"><a href="pipes.html#cb409-2" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
 </details>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
@@ -523,22 +523,22 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="pipes.html#cb409-1" tabindex="-1"></a><span class="fu">head</span>(iris<span class="sc">$</span>Sepal.Length <span class="sc">%&lt;&gt;%</span> sqrt)</span></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="pipes.html#cb411-1" tabindex="-1"></a><span class="fu">head</span>(iris<span class="sc">$</span>Sepal.Length <span class="sc">%&lt;&gt;%</span> sqrt)</span></code></pre></div>
 </details>
 <pre><code>## [1] 2.258318 2.213594 2.167948 2.144761 2.236068 2.323790</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="pipes.html#cb411-1" tabindex="-1"></a><span class="co"># Example 2</span></span>
-<span id="cb411-2"><a href="pipes.html#cb411-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb411-3"><a href="pipes.html#cb411-3" tabindex="-1"></a><span class="fu">head</span>(x, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="pipes.html#cb413-1" tabindex="-1"></a><span class="co"># Example 2</span></span>
+<span id="cb413-2"><a href="pipes.html#cb413-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb413-3"><a href="pipes.html#cb413-3" tabindex="-1"></a><span class="fu">head</span>(x, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
 </details>
 <pre><code>##  [1]  1.4404800 -0.7195761  0.6709784 -0.4219485  0.3782196 -1.6665864
 ##  [7] -0.5082030  0.4433822 -1.7993868 -0.6179521</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="pipes.html#cb413-1" tabindex="-1"></a>x <span class="sc">%&lt;&gt;%</span> </span>
-<span id="cb413-2"><a href="pipes.html#cb413-2" tabindex="-1"></a>  abs <span class="sc">%&gt;%</span> </span>
-<span id="cb413-3"><a href="pipes.html#cb413-3" tabindex="-1"></a>  sort</span>
-<span id="cb413-4"><a href="pipes.html#cb413-4" tabindex="-1"></a></span>
-<span id="cb413-5"><a href="pipes.html#cb413-5" tabindex="-1"></a><span class="fu">head</span>(x, <span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="pipes.html#cb415-1" tabindex="-1"></a>x <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb415-2"><a href="pipes.html#cb415-2" tabindex="-1"></a>  abs <span class="sc">%&gt;%</span> </span>
+<span id="cb415-3"><a href="pipes.html#cb415-3" tabindex="-1"></a>  sort</span>
+<span id="cb415-4"><a href="pipes.html#cb415-4" tabindex="-1"></a></span>
+<span id="cb415-5"><a href="pipes.html#cb415-5" tabindex="-1"></a><span class="fu">head</span>(x, <span class="dv">20</span>)</span></code></pre></div>
 </details>
 <pre><code>##  [1] 0.03262862 0.05212281 0.06958002 0.11127638 0.13375663 0.14755503
 ##  [7] 0.15261108 0.16725385 0.18112962 0.18935937 0.19254623 0.20008289
