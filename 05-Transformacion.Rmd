@@ -423,6 +423,7 @@ NA|TRUE
 
 FALSE & NA
 FALSE * NA
+
 TRUE * NA
 NA * 0  
 NA * 1
@@ -442,6 +443,9 @@ Aquí un website que recopila la cantidad de personas vacunadas en los EEUU.
 library(tidyverse)
 library(data.table)
 COVID_DATA<-fread("https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/us_state_vaccinations.csv")
+
+
+
 head(COVID_DATA)
 ```
 
@@ -475,23 +479,32 @@ Datos de PR
 ```{r}
 
 library(data.table)
-birth=fread("https://datos.estadisticas.pr/dataset/87620d17-bf63-445c-bb71-aca1a41c9077/resource/ea014209-8716-48a1-ace6-07a22a3c1f9d/download/nchs_births_2001.csv")
+birth=fread("https://datos.estadisticas.pr/dataset/87620d17-bf63-445c-bb71-aca1a41c9077#/resource/a9aedaf0-9546-4efa-a92c-c453c0269d83/download/nchs_births_2002.csv")
 
-head(birth)
+
+library(readr)
+nchs_births_2001 <- read_csv("nchs_births_2001.csv")
+head(nchs_births_2001)
+
+nchs_births_2001 %>%
+  group_by(WEEKDAY) %>% 
+  filter(BIRMON=="01") %>% 
+  count()
+
 ```
 
 ```{r}
 names(birth)
-birth$BIRMON
+head(nchs_births_2001$BIRMON)
 
 ```
 
 ```{r}
-birth |> dplyr::select(BIRMON, CSEX) |> 
+nchs_births_2001 |> dplyr::select(BIRMON, CSEX) |> 
   group_by()
-unique(birth$STATENAT)
-unique(birth$NOCCUR)
-unique(birth$RB)
+unique(nchs_births_2001$STATENAT)
+unique(nchs_births_2001$NOCCUR)
+unique(nchs_births_2001$RB)
 
 #WEEKDAY
 #DGESTAT
@@ -516,7 +529,7 @@ names(url_COVID)
 head(url_COVID)
 tail(url_COVID)
 
-
+url_COVID
 ```
 
 -   Calcula la cantidad de muertes por dia en PR, y el maximo de muerto en un día por COVID
