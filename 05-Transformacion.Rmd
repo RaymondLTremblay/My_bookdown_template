@@ -479,7 +479,7 @@ Datos de PR
 ```{r}
 
 library(data.table)
-birth=fread("https://datos.estadisticas.pr/dataset/87620d17-bf63-445c-bb71-aca1a41c9077#/resource/a9aedaf0-9546-4efa-a92c-c453c0269d83/download/nchs_births_2002.csv")
+birth=fread("https://datos.estadisticas.pr/dataset/87620d17-bf63-445c-bb71-aca1a41c9077/resource/92728670-42cb-49d4-8fd3-cffdb6e54372/download/natlterr2014.csv")
 
 
 library(readr)
@@ -514,7 +514,7 @@ unique(nchs_births_2001$RB)
 
 COVID_PR
 
-```{r,DatosMortandad, echo=FALSE, eval=FALSE}
+```{r,DatosMortandad2, echo=FALSE, eval=FALSE}
 library(data.table)
 url_COVID_PR=fread("https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv")
 
@@ -536,7 +536,7 @@ url_COVID
 
 ```{r, echo=FALSE, eval=FALSE}
  url_COVID_PR %>% 
-  select(IncrementoMuertes) %>% 
+  dplyr::select(IncrementoMuertes) %>% 
   summarise(Prom_muerte_dia = mean(IncrementoMuertes, na.rm = TRUE),
             maximo_muerte_dia = max(IncrementoMuertes, na.rm = TRUE))
 
@@ -618,6 +618,10 @@ vuelos %>%
 
 ------------------------------------------------------------------------
 
+
+## Día 5
+
+
 2.  **Ejercicios**:
 
 Hacer los ejercicios en la sección 5.3.1 del libro en español
@@ -666,7 +670,7 @@ Cambiar el nombre de la columna
 ```{r}
 vuelos %>% 
   rename(aeropuerto_origen=origen) %>% 
-  rename(areop_distino=destino) # nombre nuevo= nombre original
+  rename(areopuerto_distino=destino) # nombre nuevo= nombre original
 ```
 
 ## Reoganizar el orden de las columnas, using select() and everything()
@@ -674,8 +678,18 @@ vuelos %>%
 ```{r}
 head(vuelos)
 vuelos %>% 
-dplyr::select(distancia, aerolinea, everything())
+    dplyr::select(distancia, aerolinea, everything())
 ```
+
+Seleccionar de un subset de variables en orden que aparece en el data.frame
+
+```{r}
+vuelos |> dplyr::select(anio:horario_salida)
+  
+```
+
+
+
 
 ## matches("(.)\\1") Lo veremos en la lección de "STRING"
 
@@ -690,24 +704,36 @@ Hacer los ejercicios en la sección 5.4.1 del libro en español
 -   Otras funciones:
 
     -   mutate()
+    
+    
+```{r}
+names(vuelos)
+
+vuelos |> dplyr::select(distancia, tiempo_vuelo, atraso_salida,  atraso_llegada) |> 
+  mutate( ganancia = atraso_salida - atraso_llegada,
+          velocidad = distancia / tiempo_vuelo * 60)
+```
+
+    
+    
 
 ```{r}
 library(tidyverse)
 library(nycflights13)
 head(flights)
 
-  flights_sml <- dplyr::select(flights, 
+  flights_sml <- flights |>  dplyr::select( 
   year:day, 
   ends_with("delay"), 
   distance, 
   air_time
-)
+  )
+  
 head(flights_sml)
   
-mutate(flights_sml,
-  gain = dep_delay - arr_delay,
-  speed = distance / air_time * 60
-)
+flights_sml |> mutate(gain = dep_delay - arr_delay,
+                      speed = distance / air_time * 60
+                      )
 ```
 
 ## Hagan lo con el data set en espanol
@@ -733,7 +759,8 @@ mutate(vuelos_sml,
 Para guardar solamente la nueva variable usa **transmutate**
 
 ```{r}
-transmute(flights,
+
+flights |> transmute(
   gain = dep_delay - arr_delay,
   hours = air_time / 60,
   gain_per_hour = gain / hours
@@ -746,22 +773,22 @@ transmute(flights,
 Para calcular diferencias entre variables en la misma columna
 
 ```{r}
-#set.seed(12345) # que los datos sean al azar, siempre sean los mismo, se usa el "set.seed()" para enseñanza.
+set.seed(12345) # que los datos sean al azar, siempre sean los mismo, se usa el "set.seed()" para enseñanza.
 #rnorm()  DATOS CON DISTRIBUCION NORMAL
 rpois(7, 2)
 data=rpois(14, 10)
-df=as.tibble(data)
+df=as_tibble(data)
 df
 
 df %>% 
   dplyr::select(value) %>% 
   mutate(lag1=lag(value)) %>% 
   mutate(lag3=lag(value, 3)) %>% 
-  mutate(lag7=lag(value,7))
+  mutate(lag7=lag(value,5))
 
 df%>% 
   dplyr::select(value) %>% 
-  mutate(Change_df=value-lag(value, 1)) # El cambio en los valores entre celdas
+  mutate(Changes=value-lag(value, 1)) # El cambio en los valores entre celdas
 
 
 ```
@@ -779,7 +806,7 @@ url_COVID_PR <- read_csv("Datos/url_COVID_PR.csv")
 #names(url_COVID_PR)
 df2=url_COVID_PR %>% 
   dplyr::select(IncCasosSaludNuevo) %>% 
-  mutate(Cambios_Casos=IncCasosSaludNuevo-lag(IncCasosSaludNuevo,7)) 
+  mutate(Cambios_Casos=IncCasosSaludNuevo-lag(IncCasosSaludNuevo,5)) 
 
 
 df2
@@ -798,6 +825,7 @@ df2 %>%
 
 ```
 
+
 ## lead(),
 
 is the "next" (lead()) values in a vector/column
@@ -815,7 +843,7 @@ df %>%
 
 # Calculate the change in value from one (1) time period and four (4) time periods
 df%>% 
-  select(value) %>% 
+  dplyr::select(value) %>% 
   mutate(lead1=value-lead(value)) %>% 
   mutate(lead7=value-lead(value, 7))
 ```
@@ -832,7 +860,7 @@ df=as.tibble(x)
 df
 
 df %>% 
-  select(value) %>% 
+  dplyr::select(value) %>% 
   mutate(suma=cumsum(value))
 
 
@@ -846,7 +874,7 @@ url_COVID_PR <- read_csv("Datos/url_COVID_PR.csv")
 head(url_COVID_PR)
 
 url_COVID_PR %>%
-select(IncCasosSaludNuevo, CasosSaludNuevo) %>%
+dplyr::select(IncCasosSaludNuevo, CasosSaludNuevo) %>%
 mutate(suma=cumsum(IncCasosSaludNuevo))
 ```
 
@@ -859,11 +887,13 @@ Cummulative mean
 ```{r}
 
 set.seed(678)
-  x <- sample(1:20, 15)
+x <- rnorm(15, 5, 1)
 x
 df=as.tibble(x)
 df
 mean(df$value)
+
+
 library(MASS)
 
 df3=df %>% 
@@ -882,6 +912,24 @@ library(cumstats)
 
 
 ```
+
+
+## Uso de varianza cumulativa en investigación:
+
+Un metodo para determinar si la cantidad de muestras recolectada es suficiente, es evaluar si la varianza cumulativa sigue cambiando cuando se añade nuevas recolección de datos.   
+
+
+```{r}
+df3$order=c(1:15)
+df3
+
+
+ggplot(df3, aes(order, Var_cum))+
+  geom_point()+
+  geom_smooth()
+```
+
+
 
 ------------------------------------------------------------------------
 
@@ -910,7 +958,7 @@ Qué hace esta función?
 
 ```{r}
 set.seed(45678)
-  x <- c(10,21,22,NA,5,4)
+x <- c(10,21,22,NA,5,4)
 x
 df=as.tibble(x)
 df

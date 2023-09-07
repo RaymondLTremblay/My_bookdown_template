@@ -2,12 +2,66 @@
 
 
 
-Ejercicios para las funciones de transformaciones 2
+## Ejercicios para las funciones de transformaciones 2
+
+
+## Seleccione los siguientes datos sobre COVID en PR
+
+### LEEN bien lo que estoy pidiendo. El nombre de las columnas pueden engañar!!!
+
+```{r,DatosMortandad, echo=TRUE}
+library(tidyverse)
+library(data.table)
+url_COVID_PR=fread("https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv")
+```
 
 
 
 
 ```{r}
 
+Covid=url_COVID_PR
+head(Covid)
 ```
+
+
+
+## 1. Calcular el promedio de Muertes por dia de nuevos muertos desde el comienzo hasta el ultimo dia del archivo
+
+
+```{r}
+Covid |> dplyr::select(IncrementoMuertes) |> 
+  summarize(mean=mean(IncrementoMuertes, na.rm = TRUE))
+```
+
+
+## 2. ¿Cual es la máximo de nuevos casos en un día (en un dia expecifico)
+
+```{r}
+Covid |> dplyr::select(IncCasosSaludNuevo) |> 
+  summarize(mean=mean(IncCasosSaludNuevo, na.rm = TRUE))
+
+```
+
+
+## 3. ¿Calcular la cantidad cumulativa de numero de camas CamasICU
+
+```{r}
+Covid |> dplyr::select(Ventiladores) |> 
+         mutate(suma=cumsum(Ventiladores))
+```
+
+
+#write_csv(url_COVID_PR, "url_COVID_PR.csv")
+
+library(readr)
+url_COVID_PR <- read_csv("Datos/url_COVID_PR.csv")
+
+url_COVID=url_COVID_PR
+
+names(url_COVID)
+head(url_COVID)
+tail(url_COVID)
+
+
 

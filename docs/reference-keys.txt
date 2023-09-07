@@ -94,6 +94,7 @@ datos-importado-de-la-web.
 usar-datos-que-provienen-de-una-base-de-datos-del-web.
 covid-world
 la-función-arrange
+día-5
 starts_with-ends_with
 rename
 reoganizar-el-orden-de-las-columnas-using-select-and-everything
@@ -105,6 +106,7 @@ usa-lag-con-inccasossaludnuevo-en-covid-19-pr
 lead
 cumsum
 cummean-and-cumvar
+uso-de-varianza-cumulativa-en-investigación
 min_rank-y-min_rankdesc
 row_number
 dense_rank
@@ -220,3 +222,9 @@ multiplicaciones-y-sumas-de-periodos
 intervalos
 resumen
 time-zones
+ejercicios-para-las-funciones-de-transformaciones-2
+seleccione-los-siguientes-datos-sobre-covid-en-pr
+leen-bien-lo-que-estoy-pidiendo.-el-nombre-de-las-columnas-pueden-engañar
+calcular-el-promedio-de-muertes-por-dia-de-nuevos-muertos-desde-el-comienzo-hasta-el-ultimo-dia-del-archivo
+cual-es-la-máximo-de-nuevos-casos-en-un-día-en-un-dia-expecifico
+calcular-la-cantidad-cumulativa-de-numero-de-camas-camasicu
