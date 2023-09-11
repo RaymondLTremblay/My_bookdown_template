@@ -878,6 +878,8 @@ dplyr::select(IncCasosSaludNuevo, CasosSaludNuevo) %>%
 mutate(suma=cumsum(IncCasosSaludNuevo))
 ```
 
+## Día 6
+
 ## cummean() and cumvar()
 
 The mean of the values are calculated
@@ -886,11 +888,11 @@ Cummulative mean
 
 ```{r}
 
-set.seed(678)
-x <- rnorm(15, 5, 1)
-x
+#set.seed(678)
+x <- rnorm(1000, 5, .2)
+head(x)
 df=as.tibble(x)
-df
+head(df)
 mean(df$value)
 
 
@@ -899,7 +901,7 @@ library(MASS)
 df3=df %>% 
   dplyr::select(value) %>% 
   mutate(Prom_cum=cummean(value)) %>% 
-  mutate(Var_cum=cumstats::cumvar(value)) # activar el paquete cumstats
+  mutate(Var_cum=cumstats::cumvar(value)) # activa el paquete cumstats
 
 
 library(cumstats)
@@ -920,7 +922,7 @@ Un metodo para determinar si la cantidad de muestras recolectada es suficiente, 
 
 
 ```{r}
-df3$order=c(1:15)
+df3$order=c(1:1000)
 df3
 
 
@@ -931,9 +933,37 @@ ggplot(df3, aes(order, Var_cum))+
 
 
 
-------------------------------------------------------------------------
+## Que pasa con las funciones **cummean**, **cumsum** y **cumvar** si hay NA en el archivo de datos?
 
-NO parametricas pruebas (no son basado en distribucion normal)
+### Replacar los NA con 0, usando la función **replace_na()** con un valor especifico **replace_na("variable", 0)**
+
+
+```{r}
+datos_NA=c(1:10, NA, 11:20)
+datos_NA=as_data_frame(datos_NA)
+
+datos_NA %>% 
+  dplyr::select(value) %>% 
+  mutate(Prom_cum=cummean(value)) %>% 
+  mutate(Var_cum=cumstats::cumvar(value)) 
+
+# Solución
+
+
+datos_NA %>% 
+  dplyr::select(value) %>% 
+  mutate(Prom_cum=cummean(replace_na(value, 0))) %>% 
+  mutate(Var_cum=cumstats::cumvar(replace_na(value, 0)))
+
+```
+
+
+
+------------------------------------------------------------------------
+## Pruebas no paramticas
+
+
+La pruebas no paramétricas no son basado en distribución normal y los indices como promedio, descviación estandard
 
 ## min_rank() y \# min_rank(desc())
 
@@ -942,7 +972,7 @@ Asignar valores de rangos a los valores originales o de más grande a meas peque
 ```{r}
 set.seed(45678)
   x <- sample(1:50, 10)
-x
+head(x)
 df=as.tibble(x)
 df
 
@@ -958,9 +988,9 @@ Qué hace esta función?
 
 ```{r}
 set.seed(45678)
-x <- c(10,21,22,NA,5,4)
-x
-df=as.tibble(x)
+y <- c(10,21,22,NA,5,4)
+head(y)
+df=as.tibble(y)
 df
 
 
@@ -973,45 +1003,38 @@ df %>%
 
 ```{r}
 set.seed(45678)
-  x <- c(10,12,12,NA,51,4)
-x
-df=as.tibble(x)
+z <- c(10,12,12,NA,51,4)
+df=as.tibble(z)
 df
 
 
 df %>% 
   dplyr::select(value) %>% 
-  mutate(dense=dense_rank(value)) # equivalente a rank, NOTA que los NA son asignado un valor
+  mutate(dense=dense_rank(value)) # equivalente a rank, NOTA que los NA no son asignado un valor
 
-Num_frutos1=c(0,0,0,0,0,1,1,2,4,5,6,1000000)
-NF1=as.tibble(Num_frutos1)
-NF1
-Num_frutos2=c(0,0,0,0,0,1,1,2,4,5,6,10)
-mean(Num_frutos1)
-mean(Num_frutos2)
+
 ```
 
 ------------------------------------------------------------------------
 
-Start here....
+
 
 ## percent_rank()
 
 ```{r}
 set.seed(45678)
-  x <- c(1,2,2,NA,5,4)
-x
-df=as.tibble(x)
+w <- c(1,2,2,NA,5,4)
+w
+df=as.tibble(w)
 df
 
 
-NF1 %>% 
+df %>% 
   dplyr::select(value) %>% 
   mutate(porcentaje_rank=percent_rank(value)) # equivalente a rank, Un número entre a  0 y 1 calculado haciendo una re-escala de los valores usando min_rank to [0, 1]. NOTA que el valor más pequeño es reasignado un valor de 0 y el más grande un valor de 1.  
 
 set.seed(45678)
-  x2 <- sample(1:50, 7)
-x2
+x2 <- sample(1:50, 7)
 df2=as.tibble(x2)
 df2
 
@@ -1028,7 +1051,7 @@ Es la suma cumulativa de los rangos
 ```{r}
 set.seed(45678)
   x <- c(1,2,3,NA,5,4, 10, 8)
-x
+  x
 df=as.tibble(x)
 df
 
@@ -1121,7 +1144,7 @@ ggplot(data = delay, aes(x = dist, y = delay)) +
 #> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-Start here
+
 
 ```{r}
 names(delay)
@@ -1157,7 +1180,6 @@ Hacer los ejercicios en la sección 5.6.7 del libro en español
 no_cancelados <- vuelos %>% 
   filter(!is.na(atraso_salida), !is.na(atraso_llegada))
 no_cancelados
-
 
 no_cancelados %>% 
   group_by(anio, mes, dia) %>% 
