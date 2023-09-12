@@ -31,6 +31,10 @@ gt(head(bateadores, n=3))
 
 max(bateadores$carreras)
 
+bateadores |> select(id_jugador, carreras) |> 
+  arrange(desc(carreras)) |> 
+  slice_max(carreras)
+
 ```
 
 ------------------------------------------------------------------------

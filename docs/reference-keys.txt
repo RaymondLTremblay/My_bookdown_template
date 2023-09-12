@@ -110,8 +110,9 @@ cummean-and-cumvar
 uso-de-varianza-cumulativa-en-investigación
 que-pasa-con-las-funciones-cummean-cumsum-y-cumvar-si-hay-na-en-el-archivo-de-datos
 replacar-los-na-con-0-usando-la-función-replace_na-con-un-valor-especifico-replace_navariable-0
-percent_rank
-cume_dist
+la-función-percent_rank
+la-función-percent_rank-sin-na
+la-función-cume_dist
 resúmenes-con-summarise-by-group-using-group_by
 the-worst-airline-in-departure-delays
 el-pipe
@@ -222,3 +223,6 @@ multiplicaciones-y-sumas-de-periodos
 intervalos
 resumen
 time-zones
+importación-de-paquetes-y-datos
+utilizando-leaflet
+trabajando-variables-categóricas-con-leaflet

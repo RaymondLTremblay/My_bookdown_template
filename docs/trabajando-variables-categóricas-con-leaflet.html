@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Ciencia de Datos con R</title>
+  <title>Chapter 19 Trabajando Variables Categóricas con Leaflet: | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Ciencia de Datos con R" />
+  <meta property="og:title" content="Chapter 19 Trabajando Variables Categóricas con Leaflet: | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Ciencia de Datos con R" />
+  <meta name="twitter:title" content="Chapter 19 Trabajando Variables Categóricas con Leaflet: | Ciencia de Datos con R" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="flujo-de-trabajo.html"/>
+<link rel="prev" href="utilizando-leaflet.html"/>
+<link rel="next" href="appendix-ejercicios.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -467,168 +467,66 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Ciencia de Datos con R</h1>
-<p class="author"><em></em></p>
-<p class="date"><em>2023-09-12</em></p>
-</div>
-<div id="ciencia-de-datos-con-r" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Ciencia de Datos con R<a href="index.html#ciencia-de-datos-con-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<hr />
-<p><strong>Instructor:</strong> Raymond L. Tremblay, PhD</p>
-<p><strong>Oficina</strong>: NL 104<br />
-<strong>Teléfono</strong>: (787) 850-0000 (dept de biología)<br />
-<strong>Coreo electrónico</strong>: raymond.tremblay_at_upr_dot_edu</p>
-<hr />
-<div id="horario-de-clase" class="section level3 hasAnchor" number="1.0.1">
-<h3><span class="header-section-number">1.0.1</span> Horario de clase<a href="index.html#horario-de-clase" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Presentación de temas y discusión</strong>: Lunes y miercoles 4:30-5:50pm (80 mins) (NOTE: Necesita traer su laptop!)</p>
-<p><strong>Hora de consulta con Estudiantes</strong>:</p>
+<div id="trabajando-variables-categóricas-con-leaflet" class="section level1 hasAnchor" number="19">
+<h1><span class="header-section-number">Chapter 19</span> Trabajando Variables Categóricas con Leaflet:<a href="trabajando-variables-categóricas-con-leaflet.html#trabajando-variables-categóricas-con-leaflet" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Es posible distinguir entre especies utilizando diferentes colores, pero debe utilizar la función <code>addCircleMarkers()</code> en lugar de <code>addAwesomeMarkers()</code>. Para colorear grupos en Leaflet es necesario generar una paleta de colores para las variables de interés de acuerdo al tipo de variable (<em>i.e.</em>, numérica, factorial). Para esto se utilizan las funciones <code>colorFactor()</code>, <code>colorNumeric()</code>, <code>colorBin()</code>, o <code>colorQuantile()</code>. <code>colorFactor()</code> y <code>colorNumeric()</code> generan paletas de colores para variables factoriales y numericas, respectivamente; mientras que <code>colorBin()</code> y <code>colorQuantile()</code> generan paletas de colores para valores numéricos resumidos en grupos.</p>
+<p>En este caso se está trabajando con una variable factorial que divide las observaciones entre 3 especies de orquídeas. Primero se crea una paleta de colores para una variable factorial con la función <code>colorFactor()</code>. Bajo esta función se especifican los parámetros <code>palette</code> y <code>levels</code>. <code>palette</code>es para especificar la paleta de colores a utilizar y <code>levels</code>especifica los niveles de la variable factorial. La paleta de colores que se utiliza (<code>"Dark2"</code>) proviene del paquete RColorBrewer. Esta paleta de colores para los niveles de la variable factorial <em>scientific_name</em> del data.frame <em>eulophia</em> se guardará en un objeto llamado <em>pal</em>.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb921"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb921-1"><a href="trabajando-variables-categóricas-con-leaflet.html#cb921-1" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">colorFactor</span>(<span class="at">palette =</span> <span class="st">&#39;Dark2&#39;</span>,</span>
+<span id="cb921-2"><a href="trabajando-variables-categóricas-con-leaflet.html#cb921-2" tabindex="-1"></a>            <span class="at">levels =</span> <span class="fu">levels</span>(eulophia<span class="sc">$</span>scientific_name))</span></code></pre></div>
+</details>
+<p>Ahora que se ha especificado los colores para los valores factoriales, es posible utilizar el objeto pal para colorear los marcadores circulares del mapa de Leaflet de acuerdo a la especie observada especificando el parámetro color</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb922"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb922-1"><a href="trabajando-variables-categóricas-con-leaflet.html#cb922-1" tabindex="-1"></a><span class="fu">leaflet</span>(eulophia) <span class="sc">%&gt;%</span> </span>
+<span id="cb922-2"><a href="trabajando-variables-categóricas-con-leaflet.html#cb922-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb922-3"><a href="trabajando-variables-categóricas-con-leaflet.html#cb922-3" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span> longitude, <span class="at">lat =</span> <span class="sc">~</span> latitude,</span>
+<span id="cb922-4"><a href="trabajando-variables-categóricas-con-leaflet.html#cb922-4" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb922-5"><a href="trabajando-variables-categóricas-con-leaflet.html#cb922-5" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb922-6"><a href="trabajando-variables-categóricas-con-leaflet.html#cb922-6" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
+<span id="cb922-7"><a href="trabajando-variables-categóricas-con-leaflet.html#cb922-7" tabindex="-1"></a>                   <span class="at">color =</span> <span class="sc">~</span> <span class="fu">pal</span>(scientific_name)) </span></code></pre></div>
+</details>
+<p>Para ayudar con la visualización de datos pertenecientes a diferentes grupos, en ocasiones es bueno presentar una leyenda que indique los colores que representan cada grupo. Es posible añadir una leyenda al mapa de Leaflet utilizando la función <code>addLegend()</code> y especificando los siguientes parámetros:</p>
 <ul>
-<li>Lunes y miercoles de 1:00 a 4:00pm (NL 104).</li>
+<li><p><code>position</code>: Para determinar la posición de la leyenda, en este caso se colocará en la parte superior derecha, <code>"topright"</code>, del mapa, pero podría colocarla en la parte inferior derecha (<code>"bottomright"</code>), la parte inferior izquierda (<code>"bottomleft"</code>), o la parte superior izquierda (<code>"topleft"</code>).</p></li>
+<li><p>pal: La paleta de colores a utilizar generada a través de la función <code>colorFactor()</code> o sus equivalentes (<em>i.e.</em>, <code>colorNumeric()</code>)</p></li>
+<li><p><code>values</code>: Los valores o la variable u objeto que contiene los valores utilizados.</p></li>
+<li><p><code>title</code>: El título de la leyenda especificado como una línea de caracteres.</p></li>
 </ul>
-<hr />
-</div>
-<div id="libros-sugeridos" class="section level3 hasAnchor" number="1.0.2">
-<h3><span class="header-section-number">1.0.2</span> Libros sugeridos<a href="index.html#libros-sugeridos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><a href="https://r4ds.had.co.nz">Garrett Grolemund, Hadley Wickham. R for Data Science</a> En Ingles.</li>
-<li><a href="https://es.r4ds.hadley.nz">Garrett Grolemund, Hadley Wickham. R para Ciencia de Datos</a> En Español.</li>
-<li><a href="https://www.amazon.com/Gráficas-Versátiles-ggplot2-Análisis-Spanish-ebook/dp/B07P2Q87H2/ref=sr_1_1?dchild=1&amp;keywords=Graficas+versatiles&amp;qid=1591404029&amp;sr=8-1">Tremblay y Hernández-Serrano, 2018</a>.</li>
-</ul>
-<p>• Artículos revisados por pares serán asignados para fomentar el método de utilizar estas herramientas en ciencias.</p>
-<hr />
-</div>
-<div id="programados" class="section level3 hasAnchor" number="1.0.3">
-<h3><span class="header-section-number">1.0.3</span> Programados<a href="index.html#programados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><a href="https://cran.r-project.org/">R- free statistical programming language</a></li>
-<li><a href="https://rstudio.com">RStudio</a></li>
-<li>MSExcel, Numbers o Google Sheet</li>
-</ul>
-<hr />
-</div>
-<div id="prerequisitos" class="section level3 hasAnchor" number="1.0.4">
-<h3><span class="header-section-number">1.0.4</span> Prerequisitos<a href="index.html#prerequisitos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Ninguno</p>
-<hr />
-</div>
-<div id="descripción-del-curso" class="section level3 hasAnchor" number="1.0.5">
-<h3><span class="header-section-number">1.0.5</span> Descripción del curso<a href="index.html#descripción-del-curso" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Estudio de diferentes técnicas estadísticas con aplicación a la Biología. Se enfatizará en la estadística descriptiva, análisis de regresiones y correlaciones, pruebas de hipótesis paramétricas y no paramétricas y análisis de frecuencias y varianza. Se hará énfasis en los supuestos de las pruebas, para seleccionar cual método estadístico es adecuado para el diseño experimental y la distribución de los datos. Además, se utilizarán las computadoras como mecanismos para facilitar y agilizar el cómputo y análisis estadístico.</p>
-<hr />
-</div>
-<div id="objetivos-del-curso" class="section level3 hasAnchor" number="1.0.6">
-<h3><span class="header-section-number">1.0.6</span> Objetivos del curso<a href="index.html#objetivos-del-curso" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Tema general del curso
-- Desarrollar destrezas de organizar y evaluar datos para contestar preguntas cuantitativas con R, RStudio, RMarkdown y Quarto y otros programados</p>
-<hr />
-</div>
-<div id="puntuación" class="section level3 hasAnchor" number="1.0.7">
-<h3><span class="header-section-number">1.0.7</span> Puntuación:<a href="index.html#puntuación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Este curso sera evaluado con los siguiente items:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Item</th>
-<th align="right">Valor</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Ejercicios práctico (10-15 total)</td>
-<td align="right">80%</td>
-</tr>
-<tr class="even">
-<td align="left">Participación en clase</td>
-<td align="right">10%</td>
-</tr>
-<tr class="odd">
-<td align="left">Asistencia a clase</td>
-<td align="right">10%</td>
-</tr>
-</tbody>
-</table>
-<p>NOTE:
-Escala de Notas:</p>
-<ul>
-<li>A (100 to 90)</li>
-<li>B (89 to 80)</li>
-<li>C (79 to 70)</li>
-<li>D (69 to 60)</li>
-<li>F (&lt; 60)</li>
-</ul>
-<hr />
-</div>
-<div id="examenes" class="section level3 hasAnchor" number="1.0.8">
-<h3><span class="header-section-number">1.0.8</span> Examenes:<a href="index.html#examenes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Habrá dos examen parciales y un examen final <em>comprensivo</em>. Estos exámenes serán de selecciones múltiples, pareo, respuesta corta, y análisis de conceptos. El examen final será comprensivo (incluye todos los temas del semestre). En este examen final se hará énfasis en la comprensión y aplicaciones de los supuestos de las pruebas y la capacidad de seleccionar la prueba correcta basado en el diseño experimental y los supuestos.</p>
-</div>
-<div id="es-obligatorio-tener-la-camera-prendida-durante-todo-el-exámen.-no-es-permitido-usar-el-celular-ud.-tendrá-que-demostrar-que-el-celular-este-detrás-de-uds-antes-de-comenzar-el-examen" class="section level3 hasAnchor" number="1.0.9">
-<h3><span class="header-section-number">1.0.9</span> Es obligatorio tener la camera prendida durante <strong>todo el exámen</strong>. No es permitido usar el celular, Ud. tendrá que demostrar que el celular este detrás de uds antes de comenzar el examen<a href="index.html#es-obligatorio-tener-la-camera-prendida-durante-todo-el-exámen.-no-es-permitido-usar-el-celular-ud.-tendrá-que-demostrar-que-el-celular-este-detrás-de-uds-antes-de-comenzar-el-examen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<hr />
-</div>
-<div id="conferencias" class="section level3 hasAnchor" number="1.0.10">
-<h3><span class="header-section-number">1.0.10</span> Conferencias<a href="index.html#conferencias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>En la clase las notas serán basado primeramente en la participación y algunas pruebas cortas. Su participación es esencial para el aprendizaje (y para un ambiente positivo). Aprender <em>NO</em> es un proceso pasivo: los estudiantes deben participar haciendo preguntas y discutir el material con su conocimiento anterior (Su bagaje de conocimiento).</p>
-<hr />
-</div>
-<div id="ejercicios" class="section level3 hasAnchor" number="1.0.11">
-<h3><span class="header-section-number">1.0.11</span> Ejercicios<a href="index.html#ejercicios" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Los ejercicios están enfocado en la aplicación de conceptos y métodos discutido en la clase y solución de problemas. Se hará un esfuerza de usar datos reales para demostrar como trabajar con los análisis, tablas, y gráficos en R, RStudio y RMarkdown. Típicamente, tendrán solamente una semana para hacer los ejercicios y entregarlos en formato <em>.html</em>.</p>
-<hr />
-</div>
-<div id="faltar-a-clase-y-examen" class="section level3 hasAnchor" number="1.0.12">
-<h3><span class="header-section-number">1.0.12</span> Faltar a clase y examen:<a href="index.html#faltar-a-clase-y-examen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><em>Los trabajos cortos y pruebas cortas NO se reponen</em>. Si falta a la clase es su responsabilidad hablar con los otros estudiantes para saber lo que se discutió en la clase. Los examen se reponen solamente por una escusa valida.</p>
-<hr />
-</div>
-<div id="derechos-de-estudiantes-con-impedimentos" class="section level3 hasAnchor" number="1.0.13">
-<h3><span class="header-section-number">1.0.13</span> Derechos de Estudiantes con Impedimentos<a href="index.html#derechos-de-estudiantes-con-impedimentos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La UPR-Humacao cumple con las leyes ADA (Americans with Disabilities Act) y
-51 (Servicios Educativos Integrales para Personas con Impedimentos) para garantizar
-igualdad en el acceso a la educación y servicios. Estudiantes con impedimentos: informe al (la) profesor(a) de cada curso sobre sus necesidades especiales y/o de acomodo razonable para el curso, en la tarjeta de información de la primera semana y visite la Oficina de Servicios para la Población con Impedimentos (SERPI) a la brevedad posible. Se mantendrá la confidencialidad.</p>
-<hr />
-</div>
-<div id="integridad-académica" class="section level3 hasAnchor" number="1.0.14">
-<h3><span class="header-section-number">1.0.14</span> Integridad académica<a href="index.html#integridad-académica" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La Universidad de Puerto Rico promueve los más altos estándares de integridad
-académica y científica. El Artículo 6.2 del Reglamento General de Estudiantes de la
-Universidad de Puerto Rico (Certificación Núm. 13, 2009-2010, de la Junta de Síndicos)
-establece que “la deshonestidad académica incluye, pero no se limita a: acciones
-fraudulentas, la obtención de notas o grados académicos valiéndose de falsas o
-fraudulentas simulaciones, copiar total o parcialmente la labor académica de otra persona,
-plagiar total o parcialmente el trabajo de otra persona, copiar total o parcialmente las
-respuestas de otra persona a las preguntas de un examen, haciendo o consiguiendo que
-otro tome en su nombre cualquier prueba o examen oral o escrito, así como la ayuda o
-facilitación para que otra persona incurra en la referida conducta”. Cualquiera de estas
-acciones estará sujeta a sanciones disciplinarias en conformidad con el procedimiento
-disciplinario establecido en el Reglamento General de Estudiantes de la UPR vigente.</p>
-<hr />
-</div>
-<div id="comentario-sobre-grabar-videos-yo-audio-de-las-clases" class="section level3 hasAnchor" number="1.0.15">
-<h3><span class="header-section-number">1.0.15</span> Comentario sobre grabar videos y/o audio de las clases<a href="index.html#comentario-sobre-grabar-videos-yo-audio-de-las-clases" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Los estudiantes no PUEDEN grabar la clase por forma de video o audio sin el permiso del profesor. Algunos estudiantes con necesidades especiales pueden hablar con el profesor para pedir el permiso. La solicitud y aprobación del permiso tiene que ser por escrito (por ejemplo por email).</p>
-<hr />
-</div>
-<div id="espacio-libre-de-acoso-sexual" class="section level3 hasAnchor" number="1.0.16">
-<h3><span class="header-section-number">1.0.16</span> Espacio libre de acoso sexual<a href="index.html#espacio-libre-de-acoso-sexual" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La Universidad de Puerto Rico prohíbe el descrimen por razón de sexo y género en todas sus modalidades, incluyendo el hostigamiento sexual. Según la Política Institucional contra el hostigamiento sexual, en la Universidad de Puerto Rico, Cert. Núm. 130 (2014-2015) de la Junta de Gobierno, si un(a) estudiante está siendo o fue afectado por conductas relacionadas a hostigamiento sexual, puede acudir ante la Oficina del Procurador Estudiantil, el Decanato de Estudiantes o el Coordinador de Cumplimiento con Título IX para una orientación o presentar una querella.</p>
-<hr />
-</div>
-<div id="protocolo-de-la-clase" class="section level3 hasAnchor" number="1.0.17">
-<h3><span class="header-section-number">1.0.17</span> Protocolo de la Clase<a href="index.html#protocolo-de-la-clase" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Los teléfonos mobiles serán apagado durante la clase. Si necesita una calculadora traerla al salón. El teléfono no debería esta visible durante la clase al menos que pide permiso al instructor. Recuerda que que se usara computadoras portátiles en cada sesión.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb923"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb923-1"><a href="trabajando-variables-categóricas-con-leaflet.html#cb923-1" tabindex="-1"></a><span class="fu">leaflet</span>(eulophia) <span class="sc">%&gt;%</span> </span>
+<span id="cb923-2"><a href="trabajando-variables-categóricas-con-leaflet.html#cb923-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb923-3"><a href="trabajando-variables-categóricas-con-leaflet.html#cb923-3" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span> longitude, <span class="at">lat =</span> <span class="sc">~</span> latitude,</span>
+<span id="cb923-4"><a href="trabajando-variables-categóricas-con-leaflet.html#cb923-4" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb923-5"><a href="trabajando-variables-categóricas-con-leaflet.html#cb923-5" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb923-6"><a href="trabajando-variables-categóricas-con-leaflet.html#cb923-6" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
+<span id="cb923-7"><a href="trabajando-variables-categóricas-con-leaflet.html#cb923-7" tabindex="-1"></a>                   <span class="at">color =</span> <span class="sc">~</span> <span class="fu">pal</span>(scientific_name)) <span class="sc">%&gt;%</span> </span>
+<span id="cb923-8"><a href="trabajando-variables-categóricas-con-leaflet.html#cb923-8" tabindex="-1"></a>  <span class="fu">addLegend</span>(<span class="at">position =</span> <span class="st">&quot;topright&quot;</span>, </span>
+<span id="cb923-9"><a href="trabajando-variables-categóricas-con-leaflet.html#cb923-9" tabindex="-1"></a>            <span class="at">pal =</span> pal, </span>
+<span id="cb923-10"><a href="trabajando-variables-categóricas-con-leaflet.html#cb923-10" tabindex="-1"></a>            <span class="at">values =</span> <span class="sc">~</span> scientific_name,</span>
+<span id="cb923-11"><a href="trabajando-variables-categóricas-con-leaflet.html#cb923-11" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;Species&quot;</span></span>
+<span id="cb923-12"><a href="trabajando-variables-categóricas-con-leaflet.html#cb923-12" tabindex="-1"></a>            )</span></code></pre></div>
+</details>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb924"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb924-1"><a href="trabajando-variables-categóricas-con-leaflet.html#cb924-1" tabindex="-1"></a>iconcolor <span class="ot">&lt;-</span> <span class="cf">function</span>(scienctific_name)</span>
+<span id="cb924-2"><a href="trabajando-variables-categóricas-con-leaflet.html#cb924-2" tabindex="-1"></a></span>
+<span id="cb924-3"><a href="trabajando-variables-categóricas-con-leaflet.html#cb924-3" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb924-4"><a href="trabajando-variables-categóricas-con-leaflet.html#cb924-4" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="st">&quot;Esri.WorldImagery&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb924-5"><a href="trabajando-variables-categóricas-con-leaflet.html#cb924-5" tabindex="-1"></a>  <span class="fu">addAwesomeMarkers</span>(<span class="at">lng =</span> eulophia<span class="sc">$</span>longitude, <span class="at">lat =</span> eulophia<span class="sc">$</span>latitude, </span>
+<span id="cb924-6"><a href="trabajando-variables-categóricas-con-leaflet.html#cb924-6" tabindex="-1"></a>             <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb924-7"><a href="trabajando-variables-categóricas-con-leaflet.html#cb924-7" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb924-8"><a href="trabajando-variables-categóricas-con-leaflet.html#cb924-8" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
+<span id="cb924-9"><a href="trabajando-variables-categóricas-con-leaflet.html#cb924-9" tabindex="-1"></a>            <span class="at">icon =</span> icon1</span>
+<span id="cb924-10"><a href="trabajando-variables-categóricas-con-leaflet.html#cb924-10" tabindex="-1"></a>               )</span></code></pre></div>
+</details>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="flujo-de-trabajo.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="utilizando-leaflet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix-ejercicios.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -659,7 +557,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/16-Terremotos_Fechas_Mapa.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -667,7 +565,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/index.Rmd",
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/16-Terremotos_Fechas_Mapa.Rmd",
 "text": null
 },
 "download": null,

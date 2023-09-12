@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Ciencia de Datos con R</title>
+  <title>Chapter 17 Importación de Paquetes y Datos | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Ciencia de Datos con R" />
+  <meta property="og:title" content="Chapter 17 Importación de Paquetes y Datos | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Ciencia de Datos con R" />
+  <meta name="twitter:title" content="Chapter 17 Importación de Paquetes y Datos | Ciencia de Datos con R" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="flujo-de-trabajo.html"/>
+<link rel="prev" href="fechas-horas-y-minutas.html"/>
+<link rel="next" href="utilizando-leaflet.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -467,168 +467,146 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Ciencia de Datos con R</h1>
-<p class="author"><em></em></p>
-<p class="date"><em>2023-09-12</em></p>
-</div>
-<div id="ciencia-de-datos-con-r" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Ciencia de Datos con R<a href="index.html#ciencia-de-datos-con-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<hr />
-<p><strong>Instructor:</strong> Raymond L. Tremblay, PhD</p>
-<p><strong>Oficina</strong>: NL 104<br />
-<strong>Teléfono</strong>: (787) 850-0000 (dept de biología)<br />
-<strong>Coreo electrónico</strong>: raymond.tremblay_at_upr_dot_edu</p>
-<hr />
-<div id="horario-de-clase" class="section level3 hasAnchor" number="1.0.1">
-<h3><span class="header-section-number">1.0.1</span> Horario de clase<a href="index.html#horario-de-clase" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Presentación de temas y discusión</strong>: Lunes y miercoles 4:30-5:50pm (80 mins) (NOTE: Necesita traer su laptop!)</p>
-<p><strong>Hora de consulta con Estudiantes</strong>:</p>
+<div id="importación-de-paquetes-y-datos" class="section level1 hasAnchor" number="17">
+<h1><span class="header-section-number">Chapter 17</span> Importación de Paquetes y Datos<a href="importación-de-paquetes-y-datos.html#importación-de-paquetes-y-datos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb902"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb902-1"><a href="importación-de-paquetes-y-datos.html#cb902-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb902-2"><a href="importación-de-paquetes-y-datos.html#cb902-2" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb902-3"><a href="importación-de-paquetes-y-datos.html#cb902-3" tabindex="-1"></a><span class="co">#library(rinat)</span></span>
+<span id="cb902-4"><a href="importación-de-paquetes-y-datos.html#cb902-4" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb902-5"><a href="importación-de-paquetes-y-datos.html#cb902-5" tabindex="-1"></a><span class="fu">library</span>(flextable)</span></code></pre></div>
+</details>
+<pre><code>## 
+## Attaching package: &#39;flextable&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     compose</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb905"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb905-1"><a href="importación-de-paquetes-y-datos.html#cb905-1" tabindex="-1"></a>cajapr <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb905-2"><a href="importación-de-paquetes-y-datos.html#cb905-2" tabindex="-1"></a>  <span class="fl">17.75</span>, <span class="co">#Latitud Sur</span></span>
+<span id="cb905-3"><a href="importación-de-paquetes-y-datos.html#cb905-3" tabindex="-1"></a>   <span class="sc">-</span><span class="fl">67.4</span>, <span class="co">#Longitud Oeste</span></span>
+<span id="cb905-4"><a href="importación-de-paquetes-y-datos.html#cb905-4" tabindex="-1"></a>  <span class="fl">18.75</span>, <span class="co">#Latitud Norte</span></span>
+<span id="cb905-5"><a href="importación-de-paquetes-y-datos.html#cb905-5" tabindex="-1"></a>  <span class="sc">-</span><span class="fl">65.15</span> <span class="co">#Longitud Este</span></span>
+<span id="cb905-6"><a href="importación-de-paquetes-y-datos.html#cb905-6" tabindex="-1"></a>  )</span></code></pre></div>
+</details>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb906"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb906-1"><a href="importación-de-paquetes-y-datos.html#cb906-1" tabindex="-1"></a>EQ_100 <span class="ot">=</span> EQ <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>)</span>
+<span id="cb906-2"><a href="importación-de-paquetes-y-datos.html#cb906-2" tabindex="-1"></a>EQ_100</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 300 × 22
+##    time                latitude longitude depth   mag magType   nst   gap
+##    &lt;dttm&gt;                 &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+##  1 2023-09-11 20:29:51     33.9    -117.  -0.52  1.14 ml         16   138
+##  2 2023-09-11 20:25:31     61.6    -146.  40.7   1.3  ml         NA    NA
+##  3 2023-09-11 20:21:35     59.1    -153.  62.8   1.8  ml         NA    NA
+##  4 2023-09-11 20:21:29     38.8    -123.   0.95  0.75 md          8   129
+##  5 2023-09-11 20:17:18     33.7    -117.  16.2   0.77 ml         22    58
+##  6 2023-09-11 20:13:48     62.6    -149.  56.1   1.6  ml         NA    NA
+##  7 2023-09-11 20:07:55     38.8    -123.   1.58  1.06 md         12    81
+##  8 2023-09-11 20:07:23     29.1     -97.9  2.52  3.2  ml         18    85
+##  9 2023-09-11 20:05:27     62.5    -151.  83     1.6  ml         NA    NA
+## 10 2023-09-11 20:04:17     33.3    -117.  18.8   0.71 ml         23    65
+## # ℹ 290 more rows
+## # ℹ 14 more variables: dmin &lt;dbl&gt;, rms &lt;dbl&gt;, net &lt;chr&gt;, id &lt;chr&gt;,
+## #   updated &lt;dttm&gt;, place &lt;chr&gt;, type &lt;chr&gt;, horizontalError &lt;dbl&gt;,
+## #   depthError &lt;dbl&gt;, magError &lt;dbl&gt;, magNst &lt;dbl&gt;, status &lt;chr&gt;,
+## #   locationSource &lt;chr&gt;, magSource &lt;chr&gt;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb908"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb908-1"><a href="importación-de-paquetes-y-datos.html#cb908-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb908-2"><a href="importación-de-paquetes-y-datos.html#cb908-2" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb908-3"><a href="importación-de-paquetes-y-datos.html#cb908-3" tabindex="-1"></a></span>
+<span id="cb908-4"><a href="importación-de-paquetes-y-datos.html#cb908-4" tabindex="-1"></a><span class="fu">mutate</span>(EQ_100, <span class="at">group =</span> <span class="fu">cut</span>(mag, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="cn">Inf</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;orange&quot;</span>))) <span class="ot">-&gt;</span> mydf</span>
+<span id="cb908-5"><a href="importación-de-paquetes-y-datos.html#cb908-5" tabindex="-1"></a></span>
+<span id="cb908-6"><a href="importación-de-paquetes-y-datos.html#cb908-6" tabindex="-1"></a><span class="do">### I edit this png file and created my own marker.</span></span>
+<span id="cb908-7"><a href="importación-de-paquetes-y-datos.html#cb908-7" tabindex="-1"></a><span class="do">### https://raw.githubusercontent.com/lvoogdt/Leaflet.awesome-markers/master/dist/images/markers-soft.png</span></span>
+<span id="cb908-8"><a href="importación-de-paquetes-y-datos.html#cb908-8" tabindex="-1"></a>quakeIcons <span class="ot">&lt;-</span> <span class="fu">iconList</span>(<span class="at">blue =</span> <span class="fu">makeIcon</span>(<span class="st">&quot;/Users/jazzurro/Documents/Stack Overflow/blue.png&quot;</span>, <span class="at">iconWidth =</span> <span class="dv">24</span>, <span class="at">iconHeight =</span><span class="dv">32</span>),</span>
+<span id="cb908-9"><a href="importación-de-paquetes-y-datos.html#cb908-9" tabindex="-1"></a>                       <span class="at">green =</span> <span class="fu">makeIcon</span>(<span class="st">&quot;/Users/jazzurro/Documents/Stack Overflow/green.png&quot;</span>, <span class="at">iconWidth =</span> <span class="dv">24</span>, <span class="at">iconHeight =</span><span class="dv">32</span>),</span>
+<span id="cb908-10"><a href="importación-de-paquetes-y-datos.html#cb908-10" tabindex="-1"></a>                       <span class="at">orange =</span> <span class="fu">makeIcon</span>(<span class="st">&quot;/Users/jazzurro/Documents/Stack Overflow/orange.png&quot;</span>, <span class="at">iconWidth =</span> <span class="dv">24</span>, <span class="at">iconHeight =</span><span class="dv">32</span>))</span>
+<span id="cb908-11"><a href="importación-de-paquetes-y-datos.html#cb908-11" tabindex="-1"></a></span>
+<span id="cb908-12"><a href="importación-de-paquetes-y-datos.html#cb908-12" tabindex="-1"></a></span>
+<span id="cb908-13"><a href="importación-de-paquetes-y-datos.html#cb908-13" tabindex="-1"></a><span class="fu">leaflet</span>(<span class="at">data =</span> mydf[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,]) <span class="sc">%&gt;%</span> </span>
+<span id="cb908-14"><a href="importación-de-paquetes-y-datos.html#cb908-14" tabindex="-1"></a><span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb908-15"><a href="importación-de-paquetes-y-datos.html#cb908-15" tabindex="-1"></a><span class="fu">addMarkers</span>(<span class="at">icon =</span> <span class="sc">~</span>Icons[group])</span></code></pre></div>
+</details>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb909"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb909-1"><a href="importación-de-paquetes-y-datos.html#cb909-1" tabindex="-1"></a><span class="cf">function</span> <span class="fu">getColor</span>(d){</span>
+<span id="cb909-2"><a href="importación-de-paquetes-y-datos.html#cb909-2" tabindex="-1"></a>  return d <span class="sc">&gt;=</span> <span class="dv">1966</span> ? <span class="st">&#39;green&#39;</span> <span class="sc">:</span> <span class="co">#// Means: if (d &gt;= 1966) return &#39;green&#39; else…</span></span>
+<span id="cb909-3"><a href="importación-de-paquetes-y-datos.html#cb909-3" tabindex="-1"></a>    d <span class="sc">&gt;=</span> <span class="dv">1960</span> ? <span class="st">&#39;black&#39;</span> <span class="sc">:</span> <span class="er">//</span> <span class="co">#if (d &gt;= 1960) return &#39;black&#39; else etc…</span></span>
+<span id="cb909-4"><a href="importación-de-paquetes-y-datos.html#cb909-4" tabindex="-1"></a>    d <span class="sc">&gt;=</span> <span class="dv">1952</span> ? <span class="st">&#39;red&#39;</span> <span class="sc">:</span></span>
+<span id="cb909-5"><a href="importación-de-paquetes-y-datos.html#cb909-5" tabindex="-1"></a>    d <span class="sc">&gt;=</span> <span class="dv">1940</span> ? <span class="st">&#39;orange&#39;</span> <span class="sc">:</span> <span class="co">#// Note that numbers must be in descending order</span></span>
+<span id="cb909-6"><a href="importación-de-paquetes-y-datos.html#cb909-6" tabindex="-1"></a>    <span class="st">&#39;grey&#39;</span>;</span>
+<span id="cb909-7"><a href="importación-de-paquetes-y-datos.html#cb909-7" tabindex="-1"></a>}</span></code></pre></div>
+</details>
+<p>L.circleMarker([place.lon, place.lat], {
+color: getColor(place.constructdate), // you can call the getColor function
+fillColor: getColor(place.constructdate),
+fillOpacity: 0.5
+})</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb910"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb910-1"><a href="importación-de-paquetes-y-datos.html#cb910-1" tabindex="-1"></a><span class="fu">names</span>(EQ_100)</span>
+<span id="cb910-2"><a href="importación-de-paquetes-y-datos.html#cb910-2" tabindex="-1"></a><span class="fu">unique</span>(EQ_100<span class="sc">$</span>type)</span>
+<span id="cb910-3"><a href="importación-de-paquetes-y-datos.html#cb910-3" tabindex="-1"></a>pal <span class="ot">=</span> <span class="fu">colorFactor</span>(<span class="at">palette =</span> <span class="st">&quot;viridis&quot;</span>, <span class="at">domain =</span> <span class="cn">NULL</span>)</span>
+<span id="cb910-4"><a href="importación-de-paquetes-y-datos.html#cb910-4" tabindex="-1"></a></span>
+<span id="cb910-5"><a href="importación-de-paquetes-y-datos.html#cb910-5" tabindex="-1"></a></span>
+<span id="cb910-6"><a href="importación-de-paquetes-y-datos.html#cb910-6" tabindex="-1"></a><span class="co">#pal &lt;- colorNumeric(</span></span>
+<span id="cb910-7"><a href="importación-de-paquetes-y-datos.html#cb910-7" tabindex="-1"></a><span class="co">#  palette = &quot;Blues&quot;,</span></span>
+<span id="cb910-8"><a href="importación-de-paquetes-y-datos.html#cb910-8" tabindex="-1"></a><span class="co">#  domain = EQ$type)</span></span>
+<span id="cb910-9"><a href="importación-de-paquetes-y-datos.html#cb910-9" tabindex="-1"></a></span>
+<span id="cb910-10"><a href="importación-de-paquetes-y-datos.html#cb910-10" tabindex="-1"></a><span class="fu">leaflet</span>(EQ_100) <span class="sc">%&gt;%</span> </span>
+<span id="cb910-11"><a href="importación-de-paquetes-y-datos.html#cb910-11" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb910-12"><a href="importación-de-paquetes-y-datos.html#cb910-12" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span>longitude, </span>
+<span id="cb910-13"><a href="importación-de-paquetes-y-datos.html#cb910-13" tabindex="-1"></a>             <span class="at">lat =</span> <span class="sc">~</span>latitude, </span>
+<span id="cb910-14"><a href="importación-de-paquetes-y-datos.html#cb910-14" tabindex="-1"></a>             <span class="at">color=</span> <span class="sc">~</span><span class="fu">pal</span>(type),</span>
+<span id="cb910-15"><a href="importación-de-paquetes-y-datos.html#cb910-15" tabindex="-1"></a>             <span class="at">popup =</span> <span class="sc">~</span>mag)</span></code></pre></div>
+</details>
+<p><strong>Obtener los datos de observaciones de una especie en iNaturalist desde R:</strong></p>
+<p>Los datos a utilizar se obtendrán desde iNaturalist, una aplicación con base en la ciencia ciudadana que mantiene un registro de ocurrencias de especies.</p>
+<p>La función <code>get_inat_obs()</code> permite acceder a los datos disponibles en iNaturalist, especificando los siguientes parámetros:</p>
 <ul>
-<li>Lunes y miercoles de 1:00 a 4:00pm (NL 104).</li>
+<li><p><code>taxon_name</code>: La especies de interés, siempre escrita entre comillas (“). Puede utilizar nombre común o científico.</p></li>
+<li><p><code>quality</code>: Siendo una aplicación basada en ciencia ciudadana, la calidad de algunos datos podría ser baja, debido a que les falta información - como nombre científico o ubicación - o que contienen información errónea - especies mal identificadas-. Colocando <code>'research'</code> en este parámetro se especifica que se desea obtener sólo aquellas observaciones con alta calidad - que tengan información completa y cuya identificación haya sido confirmada por varias personas de la comunidad -.</p></li>
+<li><p><code>geo</code>: Al igual que el parámetro <code>quality</code>, este parámetro cuyo valor es lógico (<code>TRUE</code> o <code>FALSE</code>), es para especificar que se quiere obtener sólo los datos que están georeferenciados (cuando se coloca como <code>TRUE</code>).</p></li>
+<li><p><code>maxresults</code>: A través del API (Interfaz de Programación de Aplicaciones) de iNaturalist se puede acceder a un máximo de 10,000 observaciones en una sola búsqueda. Con este parámetro, cuyo valor debe ser numérico, se especifica cuantas observaciones se desea obtener, y no se debe exceder de 10,000 por búsqueda.</p></li>
+<li><p><code>bounds</code>: Un vector que contiene los límites geográficos de la búsqueda. Se puede insertar un cuadro delimitador ya especificado en un objeto, concatenar los valores del vector, o insertar un objeto de características simples (Simple Feature, sf). El argumento <code>bounds</code> es importante porque si obtenemos datos de iNaturalist, las unicas columnas que obtenemos con información acerca de la región o área donde se hicieron las observaciones son:<br />
+</p></li>
+<li><p><em>place_guess</em>: Contiene el nombre de la región, pero su presición y los nombrs utilizados para cada región varía mucho.</p></li>
+<li><p><em>latitue</em>: Posición en el eje vertical del sistema de coordenadas.</p></li>
+<li><p><em>longitude</em>: Posición en el eje horizontal del sistema de coordenadas.<br />
+Esto crea un problema a la hora del filtrar los datos por el nombre de una región, pues es difícil encontrar un solo valor que encompase a todas las variantes del nombre utilizado para esa región. iNaturalist se encuentra a nivel mundial, y usted puede acceder a todos esos datos. Sin embargo, hoy accederemos solamente a datos de Puerto Rico. Entonces, lo primero antes de acceder a lo datos de iNaturalist, es crear un objeto que contenga los límites geográficos de interés crea. Para esto se crea un objeto que contenga un cuadro delimitador (<em>bounding box</em>):</p></li>
 </ul>
-<hr />
-</div>
-<div id="libros-sugeridos" class="section level3 hasAnchor" number="1.0.2">
-<h3><span class="header-section-number">1.0.2</span> Libros sugeridos<a href="index.html#libros-sugeridos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><a href="https://r4ds.had.co.nz">Garrett Grolemund, Hadley Wickham. R for Data Science</a> En Ingles.</li>
-<li><a href="https://es.r4ds.hadley.nz">Garrett Grolemund, Hadley Wickham. R para Ciencia de Datos</a> En Español.</li>
-<li><a href="https://www.amazon.com/Gráficas-Versátiles-ggplot2-Análisis-Spanish-ebook/dp/B07P2Q87H2/ref=sr_1_1?dchild=1&amp;keywords=Graficas+versatiles&amp;qid=1591404029&amp;sr=8-1">Tremblay y Hernández-Serrano, 2018</a>.</li>
-</ul>
-<p>• Artículos revisados por pares serán asignados para fomentar el método de utilizar estas herramientas en ciencias.</p>
-<hr />
-</div>
-<div id="programados" class="section level3 hasAnchor" number="1.0.3">
-<h3><span class="header-section-number">1.0.3</span> Programados<a href="index.html#programados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><a href="https://cran.r-project.org/">R- free statistical programming language</a></li>
-<li><a href="https://rstudio.com">RStudio</a></li>
-<li>MSExcel, Numbers o Google Sheet</li>
-</ul>
-<hr />
-</div>
-<div id="prerequisitos" class="section level3 hasAnchor" number="1.0.4">
-<h3><span class="header-section-number">1.0.4</span> Prerequisitos<a href="index.html#prerequisitos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Ninguno</p>
-<hr />
-</div>
-<div id="descripción-del-curso" class="section level3 hasAnchor" number="1.0.5">
-<h3><span class="header-section-number">1.0.5</span> Descripción del curso<a href="index.html#descripción-del-curso" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Estudio de diferentes técnicas estadísticas con aplicación a la Biología. Se enfatizará en la estadística descriptiva, análisis de regresiones y correlaciones, pruebas de hipótesis paramétricas y no paramétricas y análisis de frecuencias y varianza. Se hará énfasis en los supuestos de las pruebas, para seleccionar cual método estadístico es adecuado para el diseño experimental y la distribución de los datos. Además, se utilizarán las computadoras como mecanismos para facilitar y agilizar el cómputo y análisis estadístico.</p>
-<hr />
-</div>
-<div id="objetivos-del-curso" class="section level3 hasAnchor" number="1.0.6">
-<h3><span class="header-section-number">1.0.6</span> Objetivos del curso<a href="index.html#objetivos-del-curso" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Tema general del curso
-- Desarrollar destrezas de organizar y evaluar datos para contestar preguntas cuantitativas con R, RStudio, RMarkdown y Quarto y otros programados</p>
-<hr />
-</div>
-<div id="puntuación" class="section level3 hasAnchor" number="1.0.7">
-<h3><span class="header-section-number">1.0.7</span> Puntuación:<a href="index.html#puntuación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Este curso sera evaluado con los siguiente items:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Item</th>
-<th align="right">Valor</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Ejercicios práctico (10-15 total)</td>
-<td align="right">80%</td>
-</tr>
-<tr class="even">
-<td align="left">Participación en clase</td>
-<td align="right">10%</td>
-</tr>
-<tr class="odd">
-<td align="left">Asistencia a clase</td>
-<td align="right">10%</td>
-</tr>
-</tbody>
-</table>
-<p>NOTE:
-Escala de Notas:</p>
-<ul>
-<li>A (100 to 90)</li>
-<li>B (89 to 80)</li>
-<li>C (79 to 70)</li>
-<li>D (69 to 60)</li>
-<li>F (&lt; 60)</li>
-</ul>
-<hr />
-</div>
-<div id="examenes" class="section level3 hasAnchor" number="1.0.8">
-<h3><span class="header-section-number">1.0.8</span> Examenes:<a href="index.html#examenes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Habrá dos examen parciales y un examen final <em>comprensivo</em>. Estos exámenes serán de selecciones múltiples, pareo, respuesta corta, y análisis de conceptos. El examen final será comprensivo (incluye todos los temas del semestre). En este examen final se hará énfasis en la comprensión y aplicaciones de los supuestos de las pruebas y la capacidad de seleccionar la prueba correcta basado en el diseño experimental y los supuestos.</p>
-</div>
-<div id="es-obligatorio-tener-la-camera-prendida-durante-todo-el-exámen.-no-es-permitido-usar-el-celular-ud.-tendrá-que-demostrar-que-el-celular-este-detrás-de-uds-antes-de-comenzar-el-examen" class="section level3 hasAnchor" number="1.0.9">
-<h3><span class="header-section-number">1.0.9</span> Es obligatorio tener la camera prendida durante <strong>todo el exámen</strong>. No es permitido usar el celular, Ud. tendrá que demostrar que el celular este detrás de uds antes de comenzar el examen<a href="index.html#es-obligatorio-tener-la-camera-prendida-durante-todo-el-exámen.-no-es-permitido-usar-el-celular-ud.-tendrá-que-demostrar-que-el-celular-este-detrás-de-uds-antes-de-comenzar-el-examen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<hr />
-</div>
-<div id="conferencias" class="section level3 hasAnchor" number="1.0.10">
-<h3><span class="header-section-number">1.0.10</span> Conferencias<a href="index.html#conferencias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>En la clase las notas serán basado primeramente en la participación y algunas pruebas cortas. Su participación es esencial para el aprendizaje (y para un ambiente positivo). Aprender <em>NO</em> es un proceso pasivo: los estudiantes deben participar haciendo preguntas y discutir el material con su conocimiento anterior (Su bagaje de conocimiento).</p>
-<hr />
-</div>
-<div id="ejercicios" class="section level3 hasAnchor" number="1.0.11">
-<h3><span class="header-section-number">1.0.11</span> Ejercicios<a href="index.html#ejercicios" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Los ejercicios están enfocado en la aplicación de conceptos y métodos discutido en la clase y solución de problemas. Se hará un esfuerza de usar datos reales para demostrar como trabajar con los análisis, tablas, y gráficos en R, RStudio y RMarkdown. Típicamente, tendrán solamente una semana para hacer los ejercicios y entregarlos en formato <em>.html</em>.</p>
-<hr />
-</div>
-<div id="faltar-a-clase-y-examen" class="section level3 hasAnchor" number="1.0.12">
-<h3><span class="header-section-number">1.0.12</span> Faltar a clase y examen:<a href="index.html#faltar-a-clase-y-examen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><em>Los trabajos cortos y pruebas cortas NO se reponen</em>. Si falta a la clase es su responsabilidad hablar con los otros estudiantes para saber lo que se discutió en la clase. Los examen se reponen solamente por una escusa valida.</p>
-<hr />
-</div>
-<div id="derechos-de-estudiantes-con-impedimentos" class="section level3 hasAnchor" number="1.0.13">
-<h3><span class="header-section-number">1.0.13</span> Derechos de Estudiantes con Impedimentos<a href="index.html#derechos-de-estudiantes-con-impedimentos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La UPR-Humacao cumple con las leyes ADA (Americans with Disabilities Act) y
-51 (Servicios Educativos Integrales para Personas con Impedimentos) para garantizar
-igualdad en el acceso a la educación y servicios. Estudiantes con impedimentos: informe al (la) profesor(a) de cada curso sobre sus necesidades especiales y/o de acomodo razonable para el curso, en la tarjeta de información de la primera semana y visite la Oficina de Servicios para la Población con Impedimentos (SERPI) a la brevedad posible. Se mantendrá la confidencialidad.</p>
-<hr />
-</div>
-<div id="integridad-académica" class="section level3 hasAnchor" number="1.0.14">
-<h3><span class="header-section-number">1.0.14</span> Integridad académica<a href="index.html#integridad-académica" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La Universidad de Puerto Rico promueve los más altos estándares de integridad
-académica y científica. El Artículo 6.2 del Reglamento General de Estudiantes de la
-Universidad de Puerto Rico (Certificación Núm. 13, 2009-2010, de la Junta de Síndicos)
-establece que “la deshonestidad académica incluye, pero no se limita a: acciones
-fraudulentas, la obtención de notas o grados académicos valiéndose de falsas o
-fraudulentas simulaciones, copiar total o parcialmente la labor académica de otra persona,
-plagiar total o parcialmente el trabajo de otra persona, copiar total o parcialmente las
-respuestas de otra persona a las preguntas de un examen, haciendo o consiguiendo que
-otro tome en su nombre cualquier prueba o examen oral o escrito, así como la ayuda o
-facilitación para que otra persona incurra en la referida conducta”. Cualquiera de estas
-acciones estará sujeta a sanciones disciplinarias en conformidad con el procedimiento
-disciplinario establecido en el Reglamento General de Estudiantes de la UPR vigente.</p>
-<hr />
-</div>
-<div id="comentario-sobre-grabar-videos-yo-audio-de-las-clases" class="section level3 hasAnchor" number="1.0.15">
-<h3><span class="header-section-number">1.0.15</span> Comentario sobre grabar videos y/o audio de las clases<a href="index.html#comentario-sobre-grabar-videos-yo-audio-de-las-clases" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Los estudiantes no PUEDEN grabar la clase por forma de video o audio sin el permiso del profesor. Algunos estudiantes con necesidades especiales pueden hablar con el profesor para pedir el permiso. La solicitud y aprobación del permiso tiene que ser por escrito (por ejemplo por email).</p>
-<hr />
-</div>
-<div id="espacio-libre-de-acoso-sexual" class="section level3 hasAnchor" number="1.0.16">
-<h3><span class="header-section-number">1.0.16</span> Espacio libre de acoso sexual<a href="index.html#espacio-libre-de-acoso-sexual" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La Universidad de Puerto Rico prohíbe el descrimen por razón de sexo y género en todas sus modalidades, incluyendo el hostigamiento sexual. Según la Política Institucional contra el hostigamiento sexual, en la Universidad de Puerto Rico, Cert. Núm. 130 (2014-2015) de la Junta de Gobierno, si un(a) estudiante está siendo o fue afectado por conductas relacionadas a hostigamiento sexual, puede acudir ante la Oficina del Procurador Estudiantil, el Decanato de Estudiantes o el Coordinador de Cumplimiento con Título IX para una orientación o presentar una querella.</p>
-<hr />
-</div>
-<div id="protocolo-de-la-clase" class="section level3 hasAnchor" number="1.0.17">
-<h3><span class="header-section-number">1.0.17</span> Protocolo de la Clase<a href="index.html#protocolo-de-la-clase" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Los teléfonos mobiles serán apagado durante la clase. Si necesita una calculadora traerla al salón. El teléfono no debería esta visible durante la clase al menos que pide permiso al instructor. Recuerda que que se usara computadoras portátiles en cada sesión.</p>
-
-</div>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb911"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb911-1"><a href="importación-de-paquetes-y-datos.html#cb911-1" tabindex="-1"></a>cajapr <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb911-2"><a href="importación-de-paquetes-y-datos.html#cb911-2" tabindex="-1"></a>  <span class="fl">17.75</span>, <span class="co">#Latitud Sur</span></span>
+<span id="cb911-3"><a href="importación-de-paquetes-y-datos.html#cb911-3" tabindex="-1"></a>   <span class="sc">-</span><span class="fl">67.4</span>, <span class="co">#Longitud Oeste</span></span>
+<span id="cb911-4"><a href="importación-de-paquetes-y-datos.html#cb911-4" tabindex="-1"></a>  <span class="fl">18.75</span>, <span class="co">#Latitud Norte</span></span>
+<span id="cb911-5"><a href="importación-de-paquetes-y-datos.html#cb911-5" tabindex="-1"></a>  <span class="sc">-</span><span class="fl">65.15</span> <span class="co">#Longitud Este</span></span>
+<span id="cb911-6"><a href="importación-de-paquetes-y-datos.html#cb911-6" tabindex="-1"></a>  )</span></code></pre></div>
+</details>
+<p>Ahora podemos acceder a datos de Puerto Rico utilizando el objeto <code>cajapr</code>. Para este ejercicio utilizaremos datos de orquídeas pertenecientes al género <em>Eulophia</em>. En Puerto Rico se han reportado 3 especies de este género <em>Eulophia alta</em>, <em>Eulophia maculata</em> y <em>Eulophia graminea</em>. De estos, sólo <em>E. alta</em> es considerada nativa de la isla. Entonces, utilizando la función <code>get_inat_obs</code> podemos acceder a los datos de <em>Eulophia</em> en Puerto Rico</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb912"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb912-1"><a href="importación-de-paquetes-y-datos.html#cb912-1" tabindex="-1"></a>eulophia <span class="ot">&lt;-</span> <span class="fu">get_inat_obs</span>(<span class="at">taxon_name =</span> <span class="st">&quot;Eulophia&quot;</span>, </span>
+<span id="cb912-2"><a href="importación-de-paquetes-y-datos.html#cb912-2" tabindex="-1"></a>                            <span class="at">quality =</span> <span class="st">&#39;research&#39;</span>, </span>
+<span id="cb912-3"><a href="importación-de-paquetes-y-datos.html#cb912-3" tabindex="-1"></a>                            <span class="at">geo =</span> T, </span>
+<span id="cb912-4"><a href="importación-de-paquetes-y-datos.html#cb912-4" tabindex="-1"></a>                            <span class="at">maxresults =</span> <span class="dv">10000</span>,</span>
+<span id="cb912-5"><a href="importación-de-paquetes-y-datos.html#cb912-5" tabindex="-1"></a>                            <span class="at">bounds =</span> cajapr) </span>
+<span id="cb912-6"><a href="importación-de-paquetes-y-datos.html#cb912-6" tabindex="-1"></a></span>
+<span id="cb912-7"><a href="importación-de-paquetes-y-datos.html#cb912-7" tabindex="-1"></a>eulophia<span class="sc">$</span>scientific_name <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(eulophia<span class="sc">$</span>scientific_name)</span>
+<span id="cb912-8"><a href="importación-de-paquetes-y-datos.html#cb912-8" tabindex="-1"></a></span>
+<span id="cb912-9"><a href="importación-de-paquetes-y-datos.html#cb912-9" tabindex="-1"></a><span class="fu">flextable</span>(<span class="fu">head</span>(eulophia)) <span class="co"># Para ver la sprimeras 6 lineas en una tabla bonita</span></span></code></pre></div>
+</details>
+<p>Con el siguiente código podemos ver de forma rápida cuántas observaciones de cada especie hemos obtenido de iNaturalist:</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb913"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb913-1"><a href="importación-de-paquetes-y-datos.html#cb913-1" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">as.factor</span>(eulophia<span class="sc">$</span>scientific_name))</span></code></pre></div>
+</details>
+<p>Ahora que hemos obtenido los datos, podemos observar su distrubución en el mapa de Puerto Rico utilizando <code>leaflet</code>.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="flujo-de-trabajo.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="fechas-horas-y-minutas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="utilizando-leaflet.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -659,7 +637,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/16-Terremotos_Fechas_Mapa.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -667,7 +645,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/index.Rmd",
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/16-Terremotos_Fechas_Mapa.Rmd",
 "text": null
 },
 "download": null,

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Ciencia de Datos con R</title>
+  <title>Chapter 18 Utilizando Leaflet | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Ciencia de Datos con R" />
+  <meta property="og:title" content="Chapter 18 Utilizando Leaflet | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Ciencia de Datos con R" />
+  <meta name="twitter:title" content="Chapter 18 Utilizando Leaflet | Ciencia de Datos con R" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="flujo-de-trabajo.html"/>
+<link rel="prev" href="importación-de-paquetes-y-datos.html"/>
+<link rel="next" href="trabajando-variables-categóricas-con-leaflet.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -467,168 +467,96 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Ciencia de Datos con R</h1>
-<p class="author"><em></em></p>
-<p class="date"><em>2023-09-12</em></p>
-</div>
-<div id="ciencia-de-datos-con-r" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Ciencia de Datos con R<a href="index.html#ciencia-de-datos-con-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<hr />
-<p><strong>Instructor:</strong> Raymond L. Tremblay, PhD</p>
-<p><strong>Oficina</strong>: NL 104<br />
-<strong>Teléfono</strong>: (787) 850-0000 (dept de biología)<br />
-<strong>Coreo electrónico</strong>: raymond.tremblay_at_upr_dot_edu</p>
-<hr />
-<div id="horario-de-clase" class="section level3 hasAnchor" number="1.0.1">
-<h3><span class="header-section-number">1.0.1</span> Horario de clase<a href="index.html#horario-de-clase" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Presentación de temas y discusión</strong>: Lunes y miercoles 4:30-5:50pm (80 mins) (NOTE: Necesita traer su laptop!)</p>
-<p><strong>Hora de consulta con Estudiantes</strong>:</p>
+<div id="utilizando-leaflet" class="section level1 hasAnchor" number="18">
+<h1><span class="header-section-number">Chapter 18</span> Utilizando Leaflet<a href="utilizando-leaflet.html#utilizando-leaflet" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>La función base del paquete leaflet es <code>leaflet()</code>, con esta se activa un artilugio (<em>widget</em> en inglés) sobre el cuál se construye el mapa. Esta función debe estar unida a otra función como <code>addTiles()</code> que añade el mapa.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb914"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb914-1"><a href="utilizando-leaflet.html#cb914-1" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb914-2"><a href="utilizando-leaflet.html#cb914-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() </span></code></pre></div>
+</details>
+<p>Una vez tenemos el artilugio y el mapa, añadimos una capa que incluye los datos que se desean visualizar con marcadores sobre el mapa con la función <code>addMarkers()</code> dentro del cual se deben especificar los parámetros <code>lng</code> (longitud) y <code>lat</code> (latitud). Note que también se especifica el data.frame que contiene los datos bajo la función <code>leaflet()</code>. Cuando se trabaja en Leaflet, al especificar las variables a utilizar, es necesario colocar una virgulilla (~) antes de la variable. Esto le deja saber a R que lo que se especifica es una variable dentro del data.frame mencionado en la primera capa bajo la función <code>leaflet()</code>.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb915"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb915-1"><a href="utilizando-leaflet.html#cb915-1" tabindex="-1"></a><span class="fu">leaflet</span>(eulophia) <span class="sc">%&gt;%</span> </span>
+<span id="cb915-2"><a href="utilizando-leaflet.html#cb915-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb915-3"><a href="utilizando-leaflet.html#cb915-3" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span>longitude, </span>
+<span id="cb915-4"><a href="utilizando-leaflet.html#cb915-4" tabindex="-1"></a>             <span class="at">lat =</span> <span class="sc">~</span>latitude)</span></code></pre></div>
+</details>
+<p>Una vez los marcadores están establecidos, es posible añadir etiquetas que contengan información acerca de las observaciones con el parámetro <code>popup</code> de la función <code>addMarkers()</code>. Por ejemplo, se pueden colocar etiquetas que contengan información del lugar de la observación especificando que la etiqueta contenga la información de la variable <em>place_guess</em>. Para ver la etiqueta debe hacer clic sobre el marcador de interés.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb916"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb916-1"><a href="utilizando-leaflet.html#cb916-1" tabindex="-1"></a><span class="fu">leaflet</span>(eulophia) <span class="sc">%&gt;%</span> </span>
+<span id="cb916-2"><a href="utilizando-leaflet.html#cb916-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb916-3"><a href="utilizando-leaflet.html#cb916-3" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span> longitude, </span>
+<span id="cb916-4"><a href="utilizando-leaflet.html#cb916-4" tabindex="-1"></a>             <span class="at">lat =</span> <span class="sc">~</span> latitude, </span>
+<span id="cb916-5"><a href="utilizando-leaflet.html#cb916-5" tabindex="-1"></a>             <span class="at">popup =</span> <span class="sc">~</span> place_guess)</span></code></pre></div>
+</details>
+<p>La función <code>paste0</code> es una función base de R que concatena todos los elementos en una línea de caracteres. Los caracteres introducidos serán interpretados como UTF-8 o codificación de caracteres. Estos caracteres pueden ser mezclados con valores de una variable de caracteres en un data.frame. En el siguiente ejemplo se crea una etiqueta que contiene la ubicación y la especie observada. Se utiliza la función <code>paste0()</code> para combinar caracteres y las variables <em>scientific_name</em> y <em>place_guess</em> del data.frame.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb917"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb917-1"><a href="utilizando-leaflet.html#cb917-1" tabindex="-1"></a><span class="fu">leaflet</span>(eulophia) <span class="sc">%&gt;%</span> </span>
+<span id="cb917-2"><a href="utilizando-leaflet.html#cb917-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb917-3"><a href="utilizando-leaflet.html#cb917-3" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span> longitude, </span>
+<span id="cb917-4"><a href="utilizando-leaflet.html#cb917-4" tabindex="-1"></a>             <span class="at">lat =</span> <span class="sc">~</span> latitude, </span>
+<span id="cb917-5"><a href="utilizando-leaflet.html#cb917-5" tabindex="-1"></a>             <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb917-6"><a href="utilizando-leaflet.html#cb917-6" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb917-7"><a href="utilizando-leaflet.html#cb917-7" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess)</span>
+<span id="cb917-8"><a href="utilizando-leaflet.html#cb917-8" tabindex="-1"></a>               )</span></code></pre></div>
+</details>
+<p>La función <code>addAwesomeMarkers()</code> puede ser utilizada en lugar de <code>addMarkers()</code> y permite utilizar marcadores con diferentes diseños que se pueden obtener de <a href="https://fontawesome.com/v5.15/icons?d=gallery&amp;p=1">fontawesome</a>. Es posible cambiar los colores de los marcadores utilizando la codificación de colores RGB en formato (#RRGGBB). La siguiente guía de colores en R creada por Melissa Clarkson (2010) explica como utilizar colores en R: <a href="https://bootstrappers.umassmed.edu/bootstrappers-courses/pastCourses/rCourse_2014-09/resources/helpfulGuides/Rcolorstyle.pdf">A guide to using color in R</a>. Adicional, esta <a href="https://derekogle.com/NCGraphing/resources/colors">guía</a> creada por Derek H. Ogle (2022) es muy útil. En <a href="https://www.schemecolor.com/github-cat-icon-colors.php">schemecolor</a> podemos encontrar las codificaciones de los colores y muchos funcionan para <code>leaflet</code>. Para hacer estos cambios utilizamos la función <code>awesomeIcons()</code> bajo el parámetro <code>icon</code> dentro de <code>addAwesomeMarkers()</code>. Dentro de la función <code>awesomeIcons()</code> podemos especificar varios parámetros como:</p>
 <ul>
-<li>Lunes y miercoles de 1:00 a 4:00pm (NL 104).</li>
+<li><p><code>icon</code>: El icono que desea utilizar para su marcador. Debe poner el nombre que aparece en la página web de iconos que esté utilizando (<em>i.e.</em>, fontawesome).</p></li>
+<li><p><code>library</code>: Cuando se especifica un icono, es necesario especificar la biblioteca de donde se saca el icono. Si es de fontawesome sería <code>'fa'</code>.</p></li>
+<li><p><code>markerColor</code>: Para cambiar el color del marcador (parte que rodea el icono), utilizando la codificación de colores de schemecolor.</p></li>
+<li><p><code>iconColor</code>: Para cambiar el color del icono del marcadora, también con la codificación de schemecolor.</p></li>
 </ul>
-<hr />
-</div>
-<div id="libros-sugeridos" class="section level3 hasAnchor" number="1.0.2">
-<h3><span class="header-section-number">1.0.2</span> Libros sugeridos<a href="index.html#libros-sugeridos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><a href="https://r4ds.had.co.nz">Garrett Grolemund, Hadley Wickham. R for Data Science</a> En Ingles.</li>
-<li><a href="https://es.r4ds.hadley.nz">Garrett Grolemund, Hadley Wickham. R para Ciencia de Datos</a> En Español.</li>
-<li><a href="https://www.amazon.com/Gráficas-Versátiles-ggplot2-Análisis-Spanish-ebook/dp/B07P2Q87H2/ref=sr_1_1?dchild=1&amp;keywords=Graficas+versatiles&amp;qid=1591404029&amp;sr=8-1">Tremblay y Hernández-Serrano, 2018</a>.</li>
-</ul>
-<p>• Artículos revisados por pares serán asignados para fomentar el método de utilizar estas herramientas en ciencias.</p>
-<hr />
-</div>
-<div id="programados" class="section level3 hasAnchor" number="1.0.3">
-<h3><span class="header-section-number">1.0.3</span> Programados<a href="index.html#programados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><a href="https://cran.r-project.org/">R- free statistical programming language</a></li>
-<li><a href="https://rstudio.com">RStudio</a></li>
-<li>MSExcel, Numbers o Google Sheet</li>
-</ul>
-<hr />
-</div>
-<div id="prerequisitos" class="section level3 hasAnchor" number="1.0.4">
-<h3><span class="header-section-number">1.0.4</span> Prerequisitos<a href="index.html#prerequisitos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Ninguno</p>
-<hr />
-</div>
-<div id="descripción-del-curso" class="section level3 hasAnchor" number="1.0.5">
-<h3><span class="header-section-number">1.0.5</span> Descripción del curso<a href="index.html#descripción-del-curso" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Estudio de diferentes técnicas estadísticas con aplicación a la Biología. Se enfatizará en la estadística descriptiva, análisis de regresiones y correlaciones, pruebas de hipótesis paramétricas y no paramétricas y análisis de frecuencias y varianza. Se hará énfasis en los supuestos de las pruebas, para seleccionar cual método estadístico es adecuado para el diseño experimental y la distribución de los datos. Además, se utilizarán las computadoras como mecanismos para facilitar y agilizar el cómputo y análisis estadístico.</p>
-<hr />
-</div>
-<div id="objetivos-del-curso" class="section level3 hasAnchor" number="1.0.6">
-<h3><span class="header-section-number">1.0.6</span> Objetivos del curso<a href="index.html#objetivos-del-curso" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Tema general del curso
-- Desarrollar destrezas de organizar y evaluar datos para contestar preguntas cuantitativas con R, RStudio, RMarkdown y Quarto y otros programados</p>
-<hr />
-</div>
-<div id="puntuación" class="section level3 hasAnchor" number="1.0.7">
-<h3><span class="header-section-number">1.0.7</span> Puntuación:<a href="index.html#puntuación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Este curso sera evaluado con los siguiente items:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Item</th>
-<th align="right">Valor</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Ejercicios práctico (10-15 total)</td>
-<td align="right">80%</td>
-</tr>
-<tr class="even">
-<td align="left">Participación en clase</td>
-<td align="right">10%</td>
-</tr>
-<tr class="odd">
-<td align="left">Asistencia a clase</td>
-<td align="right">10%</td>
-</tr>
-</tbody>
-</table>
-<p>NOTE:
-Escala de Notas:</p>
-<ul>
-<li>A (100 to 90)</li>
-<li>B (89 to 80)</li>
-<li>C (79 to 70)</li>
-<li>D (69 to 60)</li>
-<li>F (&lt; 60)</li>
-</ul>
-<hr />
-</div>
-<div id="examenes" class="section level3 hasAnchor" number="1.0.8">
-<h3><span class="header-section-number">1.0.8</span> Examenes:<a href="index.html#examenes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Habrá dos examen parciales y un examen final <em>comprensivo</em>. Estos exámenes serán de selecciones múltiples, pareo, respuesta corta, y análisis de conceptos. El examen final será comprensivo (incluye todos los temas del semestre). En este examen final se hará énfasis en la comprensión y aplicaciones de los supuestos de las pruebas y la capacidad de seleccionar la prueba correcta basado en el diseño experimental y los supuestos.</p>
-</div>
-<div id="es-obligatorio-tener-la-camera-prendida-durante-todo-el-exámen.-no-es-permitido-usar-el-celular-ud.-tendrá-que-demostrar-que-el-celular-este-detrás-de-uds-antes-de-comenzar-el-examen" class="section level3 hasAnchor" number="1.0.9">
-<h3><span class="header-section-number">1.0.9</span> Es obligatorio tener la camera prendida durante <strong>todo el exámen</strong>. No es permitido usar el celular, Ud. tendrá que demostrar que el celular este detrás de uds antes de comenzar el examen<a href="index.html#es-obligatorio-tener-la-camera-prendida-durante-todo-el-exámen.-no-es-permitido-usar-el-celular-ud.-tendrá-que-demostrar-que-el-celular-este-detrás-de-uds-antes-de-comenzar-el-examen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<hr />
-</div>
-<div id="conferencias" class="section level3 hasAnchor" number="1.0.10">
-<h3><span class="header-section-number">1.0.10</span> Conferencias<a href="index.html#conferencias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>En la clase las notas serán basado primeramente en la participación y algunas pruebas cortas. Su participación es esencial para el aprendizaje (y para un ambiente positivo). Aprender <em>NO</em> es un proceso pasivo: los estudiantes deben participar haciendo preguntas y discutir el material con su conocimiento anterior (Su bagaje de conocimiento).</p>
-<hr />
-</div>
-<div id="ejercicios" class="section level3 hasAnchor" number="1.0.11">
-<h3><span class="header-section-number">1.0.11</span> Ejercicios<a href="index.html#ejercicios" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Los ejercicios están enfocado en la aplicación de conceptos y métodos discutido en la clase y solución de problemas. Se hará un esfuerza de usar datos reales para demostrar como trabajar con los análisis, tablas, y gráficos en R, RStudio y RMarkdown. Típicamente, tendrán solamente una semana para hacer los ejercicios y entregarlos en formato <em>.html</em>.</p>
-<hr />
-</div>
-<div id="faltar-a-clase-y-examen" class="section level3 hasAnchor" number="1.0.12">
-<h3><span class="header-section-number">1.0.12</span> Faltar a clase y examen:<a href="index.html#faltar-a-clase-y-examen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><em>Los trabajos cortos y pruebas cortas NO se reponen</em>. Si falta a la clase es su responsabilidad hablar con los otros estudiantes para saber lo que se discutió en la clase. Los examen se reponen solamente por una escusa valida.</p>
-<hr />
-</div>
-<div id="derechos-de-estudiantes-con-impedimentos" class="section level3 hasAnchor" number="1.0.13">
-<h3><span class="header-section-number">1.0.13</span> Derechos de Estudiantes con Impedimentos<a href="index.html#derechos-de-estudiantes-con-impedimentos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La UPR-Humacao cumple con las leyes ADA (Americans with Disabilities Act) y
-51 (Servicios Educativos Integrales para Personas con Impedimentos) para garantizar
-igualdad en el acceso a la educación y servicios. Estudiantes con impedimentos: informe al (la) profesor(a) de cada curso sobre sus necesidades especiales y/o de acomodo razonable para el curso, en la tarjeta de información de la primera semana y visite la Oficina de Servicios para la Población con Impedimentos (SERPI) a la brevedad posible. Se mantendrá la confidencialidad.</p>
-<hr />
-</div>
-<div id="integridad-académica" class="section level3 hasAnchor" number="1.0.14">
-<h3><span class="header-section-number">1.0.14</span> Integridad académica<a href="index.html#integridad-académica" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La Universidad de Puerto Rico promueve los más altos estándares de integridad
-académica y científica. El Artículo 6.2 del Reglamento General de Estudiantes de la
-Universidad de Puerto Rico (Certificación Núm. 13, 2009-2010, de la Junta de Síndicos)
-establece que “la deshonestidad académica incluye, pero no se limita a: acciones
-fraudulentas, la obtención de notas o grados académicos valiéndose de falsas o
-fraudulentas simulaciones, copiar total o parcialmente la labor académica de otra persona,
-plagiar total o parcialmente el trabajo de otra persona, copiar total o parcialmente las
-respuestas de otra persona a las preguntas de un examen, haciendo o consiguiendo que
-otro tome en su nombre cualquier prueba o examen oral o escrito, así como la ayuda o
-facilitación para que otra persona incurra en la referida conducta”. Cualquiera de estas
-acciones estará sujeta a sanciones disciplinarias en conformidad con el procedimiento
-disciplinario establecido en el Reglamento General de Estudiantes de la UPR vigente.</p>
-<hr />
-</div>
-<div id="comentario-sobre-grabar-videos-yo-audio-de-las-clases" class="section level3 hasAnchor" number="1.0.15">
-<h3><span class="header-section-number">1.0.15</span> Comentario sobre grabar videos y/o audio de las clases<a href="index.html#comentario-sobre-grabar-videos-yo-audio-de-las-clases" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Los estudiantes no PUEDEN grabar la clase por forma de video o audio sin el permiso del profesor. Algunos estudiantes con necesidades especiales pueden hablar con el profesor para pedir el permiso. La solicitud y aprobación del permiso tiene que ser por escrito (por ejemplo por email).</p>
-<hr />
-</div>
-<div id="espacio-libre-de-acoso-sexual" class="section level3 hasAnchor" number="1.0.16">
-<h3><span class="header-section-number">1.0.16</span> Espacio libre de acoso sexual<a href="index.html#espacio-libre-de-acoso-sexual" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La Universidad de Puerto Rico prohíbe el descrimen por razón de sexo y género en todas sus modalidades, incluyendo el hostigamiento sexual. Según la Política Institucional contra el hostigamiento sexual, en la Universidad de Puerto Rico, Cert. Núm. 130 (2014-2015) de la Junta de Gobierno, si un(a) estudiante está siendo o fue afectado por conductas relacionadas a hostigamiento sexual, puede acudir ante la Oficina del Procurador Estudiantil, el Decanato de Estudiantes o el Coordinador de Cumplimiento con Título IX para una orientación o presentar una querella.</p>
-<hr />
-</div>
-<div id="protocolo-de-la-clase" class="section level3 hasAnchor" number="1.0.17">
-<h3><span class="header-section-number">1.0.17</span> Protocolo de la Clase<a href="index.html#protocolo-de-la-clase" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Los teléfonos mobiles serán apagado durante la clase. Si necesita una calculadora traerla al salón. El teléfono no debería esta visible durante la clase al menos que pide permiso al instructor. Recuerda que que se usara computadoras portátiles en cada sesión.</p>
-
-</div>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb918"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb918-1"><a href="utilizando-leaflet.html#cb918-1" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb918-2"><a href="utilizando-leaflet.html#cb918-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb918-3"><a href="utilizando-leaflet.html#cb918-3" tabindex="-1"></a>  <span class="fu">addAwesomeMarkers</span>(<span class="at">lng =</span> eulophia<span class="sc">$</span>longitude, <span class="at">lat =</span> eulophia<span class="sc">$</span>latitude, </span>
+<span id="cb918-4"><a href="utilizando-leaflet.html#cb918-4" tabindex="-1"></a>             <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb918-5"><a href="utilizando-leaflet.html#cb918-5" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb918-6"><a href="utilizando-leaflet.html#cb918-6" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
+<span id="cb918-7"><a href="utilizando-leaflet.html#cb918-7" tabindex="-1"></a>            <span class="at">icon =</span> <span class="fu">awesomeIcons</span>(<span class="at">icon =</span> <span class="st">&quot;leaf&quot;</span>, <span class="at">library =</span> <span class="st">&quot;fa&quot;</span>, </span>
+<span id="cb918-8"><a href="utilizando-leaflet.html#cb918-8" tabindex="-1"></a>                                <span class="at">markerColor =</span> <span class="st">&quot;darkgreen&quot;</span>,</span>
+<span id="cb918-9"><a href="utilizando-leaflet.html#cb918-9" tabindex="-1"></a>                                <span class="at">iconColor =</span>  <span class="st">&quot;#FFFFFF&quot;</span>)</span>
+<span id="cb918-10"><a href="utilizando-leaflet.html#cb918-10" tabindex="-1"></a>               ) </span></code></pre></div>
+</details>
+<p>Cuando se visualiza una gran cantidad de datos, esto puede resultar en el solapamiento de los marcadores, lo cual no es muy agradable a la vista. Es posible crear agregados que ayuden a visualizar mejor y faciliten el movimiento a través del mapa con el parámetro <code>clusterOptions</code> bajo la función <code>addAwesomeMarkers()</code>. El valor de este parámetro debe ser la función <code>markerClusterOptions()</code>.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb919"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb919-1"><a href="utilizando-leaflet.html#cb919-1" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb919-2"><a href="utilizando-leaflet.html#cb919-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb919-3"><a href="utilizando-leaflet.html#cb919-3" tabindex="-1"></a>  <span class="fu">addAwesomeMarkers</span>(<span class="at">lng =</span> eulophia<span class="sc">$</span>longitude, <span class="at">lat =</span> eulophia<span class="sc">$</span>latitude, </span>
+<span id="cb919-4"><a href="utilizando-leaflet.html#cb919-4" tabindex="-1"></a>             <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb919-5"><a href="utilizando-leaflet.html#cb919-5" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb919-6"><a href="utilizando-leaflet.html#cb919-6" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
+<span id="cb919-7"><a href="utilizando-leaflet.html#cb919-7" tabindex="-1"></a>            <span class="at">icon =</span> <span class="fu">awesomeIcons</span>(<span class="at">icon =</span> <span class="st">&quot;leaf&quot;</span>, <span class="at">library =</span> <span class="st">&quot;fa&quot;</span>, </span>
+<span id="cb919-8"><a href="utilizando-leaflet.html#cb919-8" tabindex="-1"></a>                                <span class="at">markerColor =</span> <span class="st">&quot;darkgreen&quot;</span>,</span>
+<span id="cb919-9"><a href="utilizando-leaflet.html#cb919-9" tabindex="-1"></a>                                <span class="at">iconColor =</span>  <span class="st">&quot;#FFFFFF&quot;</span>),</span>
+<span id="cb919-10"><a href="utilizando-leaflet.html#cb919-10" tabindex="-1"></a>            <span class="at">clusterOptions =</span> <span class="fu">markerClusterOptions</span>()</span>
+<span id="cb919-11"><a href="utilizando-leaflet.html#cb919-11" tabindex="-1"></a>               ) </span></code></pre></div>
+</details>
+<p>Y para culminar, es posible cambiar el diseño del mapa utilizando la función <code>addProviderTiles()</code> en lugar de <code>addTiles()</code>. Puede echar un vistazo a los diferentes diseños disponibles para Leaflet la página de <a href="http://leaflet-extras.github.io/leaflet-providers/preview/">proveedores de Leaflet</a> en GitHub. Actualmente Leaflet en R admite diseños de los siguientes proveedores: OpenStreetMap, MapQuestOpen, Stamen, Esri and OpenWeatherMap.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb920"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb920-1"><a href="utilizando-leaflet.html#cb920-1" tabindex="-1"></a>icon1 <span class="ot">&lt;-</span> <span class="fu">awesomeIcons</span>(<span class="at">icon =</span> <span class="st">&quot;smile-o&quot;</span>,</span>
+<span id="cb920-2"><a href="utilizando-leaflet.html#cb920-2" tabindex="-1"></a>                      <span class="at">iconColor =</span> <span class="st">&quot;#FFFFFF&quot;</span>,</span>
+<span id="cb920-3"><a href="utilizando-leaflet.html#cb920-3" tabindex="-1"></a>                      <span class="at">library =</span> <span class="st">&quot;fa&quot;</span>,</span>
+<span id="cb920-4"><a href="utilizando-leaflet.html#cb920-4" tabindex="-1"></a>                      <span class="at">markerColor =</span> <span class="st">&quot;darkgreen&quot;</span>)</span>
+<span id="cb920-5"><a href="utilizando-leaflet.html#cb920-5" tabindex="-1"></a></span>
+<span id="cb920-6"><a href="utilizando-leaflet.html#cb920-6" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb920-7"><a href="utilizando-leaflet.html#cb920-7" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="st">&quot;Esri.WorldImagery&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb920-8"><a href="utilizando-leaflet.html#cb920-8" tabindex="-1"></a>  <span class="fu">addAwesomeMarkers</span>(<span class="at">lng =</span> eulophia<span class="sc">$</span>longitude, <span class="at">lat =</span> eulophia<span class="sc">$</span>latitude, </span>
+<span id="cb920-9"><a href="utilizando-leaflet.html#cb920-9" tabindex="-1"></a>             <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb920-10"><a href="utilizando-leaflet.html#cb920-10" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb920-11"><a href="utilizando-leaflet.html#cb920-11" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
+<span id="cb920-12"><a href="utilizando-leaflet.html#cb920-12" tabindex="-1"></a>            <span class="at">icon =</span> icon1</span>
+<span id="cb920-13"><a href="utilizando-leaflet.html#cb920-13" tabindex="-1"></a>               )</span></code></pre></div>
+</details>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="flujo-de-trabajo.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="importación-de-paquetes-y-datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="trabajando-variables-categóricas-con-leaflet.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -659,7 +587,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/16-Terremotos_Fechas_Mapa.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -667,7 +595,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/index.Rmd",
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/16-Terremotos_Fechas_Mapa.Rmd",
 "text": null
 },
 "download": null,

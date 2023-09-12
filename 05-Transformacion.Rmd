@@ -939,7 +939,7 @@ ggplot(df3, aes(order, Var_cum))+
 
 
 ```{r}
-datos_NA=c(1:10, NA, 11:20)
+datos_NA=c(1:8, NA, 10:20)
 datos_NA=as_data_frame(datos_NA)
 
 datos_NA %>% 
@@ -947,7 +947,7 @@ datos_NA %>%
   mutate(Prom_cum=cummean(value)) %>% 
   mutate(Var_cum=cumstats::cumvar(value)) 
 
-# Solución
+# Solución para resolver los NA.   Cual problema hay con usar NA?
 
 
 datos_NA %>% 
@@ -960,10 +960,10 @@ datos_NA %>%
 
 
 ------------------------------------------------------------------------
-## Pruebas no paramticas
+## Pruebas no paraméticas
 
 
-La pruebas no paramétricas no son basado en distribución normal y los indices como promedio, descviación estandard
+La pruebas no paramétricas no son basado en distribución normal y los indices como promedio, descviación estandard no se usan. 
 
 ## min_rank() y \# min_rank(desc())
 
@@ -984,7 +984,7 @@ df %>%
 
 ## row_number()
 
-Qué hace esta función?
+Qué hace la función **row_number**?
 
 ```{r}
 set.seed(45678)
@@ -1019,7 +1019,7 @@ df %>%
 
 
 
-## percent_rank()
+## la función **percent_rank()**
 
 ```{r}
 set.seed(45678)
@@ -1032,7 +1032,12 @@ df
 df %>% 
   dplyr::select(value) %>% 
   mutate(porcentaje_rank=percent_rank(value)) # equivalente a rank, Un número entre a  0 y 1 calculado haciendo una re-escala de los valores usando min_rank to [0, 1]. NOTA que el valor más pequeño es reasignado un valor de 0 y el más grande un valor de 1.  
+```
 
+
+## la función **percent_rank()** sin **NA**
+
+```{r}
 set.seed(45678)
 x2 <- sample(1:50, 7)
 df2=as.tibble(x2)
@@ -1044,7 +1049,7 @@ df2 %>%
 
 ```
 
-## cume_dist()
+## la función **cume_dist()**
 
 Es la suma cumulativa de los rangos
 
