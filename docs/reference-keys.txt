@@ -1,3 +1,5 @@
+eq:reaction
+eq:promedio
 ciencia-de-datos-con-r
 horario-de-clase
 libros-sugeridos
@@ -229,3 +231,11 @@ time-zones
 importación-de-paquetes-y-datos
 utilizando-leaflet
 trabajando-variables-categóricas-con-leaflet
+math-sci
+ecuaciones-matemática
+matemática-y-física
+quimica-101-simbolos
+tipografica-de-reaciones
+otros-ejemplos-de-reacciones
+física
+biología

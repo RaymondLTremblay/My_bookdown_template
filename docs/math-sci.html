@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>(Appendix) Ejercicios 2 | Ciencia de Datos con R</title>
+  <title>Chapter 20 Ecuaciones Matematicas | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="(Appendix) Ejercicios 2 | Ciencia de Datos con R" />
+  <meta property="og:title" content="Chapter 20 Ecuaciones Matematicas | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="(Appendix) Ejercicios 2 | Ciencia de Datos con R" />
+  <meta name="twitter:title" content="Chapter 20 Ecuaciones Matematicas | Ciencia de Datos con R" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="appendix-ejercicios.html"/>
-
+<link rel="prev" href="trabajando-variables-categóricas-con-leaflet.html"/>
+<link rel="next" href="appendix-ejercicios.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -484,551 +484,117 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="appendix-ejercicios-2" class="section level1 unnumbered hasAnchor">
-<h1>(Appendix) Ejercicios 2<a href="appendix-ejercicios-2.html#appendix-ejercicios-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="ejercicios-para-las-funciones-de-transformaciones-2" class="section level2 unnumbered hasAnchor">
-<h2>Ejercicios para las funciones de transformaciones 2<a href="appendix-ejercicios-2.html#ejercicios-para-las-funciones-de-transformaciones-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="seleccione-los-siguientes-datos-sobre-covid-en-pr" class="section level2 unnumbered hasAnchor">
-<h2>Seleccione los siguientes datos sobre COVID en PR<a href="appendix-ejercicios-2.html#seleccione-los-siguientes-datos-sobre-covid-en-pr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="leen-bien-lo-que-estoy-pidiendo.-el-nombre-de-las-columnas-pueden-engañar" class="section level3 unnumbered hasAnchor">
-<h3>LEEN bien lo que estoy pidiendo. El nombre de las columnas pueden engañar!!!<a href="appendix-ejercicios-2.html#leen-bien-lo-que-estoy-pidiendo.-el-nombre-de-las-columnas-pueden-engañar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb941"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb941-1"><a href="appendix-ejercicios-2.html#cb941-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb941-2"><a href="appendix-ejercicios-2.html#cb941-2" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb941-3"><a href="appendix-ejercicios-2.html#cb941-3" tabindex="-1"></a>url_COVID_PR<span class="ot">=</span><span class="fu">fread</span>(<span class="st">&quot;https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv&quot;</span>)</span></code></pre></div>
-</details>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb942"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb942-1"><a href="appendix-ejercicios-2.html#cb942-1" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb942-2"><a href="appendix-ejercicios-2.html#cb942-2" tabindex="-1"></a>Covid<span class="ot">=</span>url_COVID_PR</span>
-<span id="cb942-3"><a href="appendix-ejercicios-2.html#cb942-3" tabindex="-1"></a><span class="fu">gt</span>(<span class="fu">tail</span>(Covid, <span class="at">n=</span><span class="dv">2</span>))</span></code></pre></div>
-</details>
-<div id="ymgejlfmfg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ymgejlfmfg table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#ymgejlfmfg thead, #ymgejlfmfg tbody, #ymgejlfmfg tfoot, #ymgejlfmfg tr, #ymgejlfmfg td, #ymgejlfmfg th {
-  border-style: none;
-}
-
-#ymgejlfmfg p {
-  margin: 0;
-  padding: 0;
-}
-
-#ymgejlfmfg .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#ymgejlfmfg .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#ymgejlfmfg .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#ymgejlfmfg .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#ymgejlfmfg .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#ymgejlfmfg .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#ymgejlfmfg .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#ymgejlfmfg .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#ymgejlfmfg .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#ymgejlfmfg .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#ymgejlfmfg .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#ymgejlfmfg .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#ymgejlfmfg .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#ymgejlfmfg .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#ymgejlfmfg .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#ymgejlfmfg .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#ymgejlfmfg .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#ymgejlfmfg .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#ymgejlfmfg .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ymgejlfmfg .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#ymgejlfmfg .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#ymgejlfmfg .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#ymgejlfmfg .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ymgejlfmfg .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#ymgejlfmfg .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#ymgejlfmfg .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#ymgejlfmfg .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ymgejlfmfg .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#ymgejlfmfg .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#ymgejlfmfg .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#ymgejlfmfg .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#ymgejlfmfg .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#ymgejlfmfg .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ymgejlfmfg .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#ymgejlfmfg .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ymgejlfmfg .gt_left {
-  text-align: left;
-}
-
-#ymgejlfmfg .gt_center {
-  text-align: center;
-}
-
-#ymgejlfmfg .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#ymgejlfmfg .gt_font_normal {
-  font-weight: normal;
-}
-
-#ymgejlfmfg .gt_font_bold {
-  font-weight: bold;
-}
-
-#ymgejlfmfg .gt_font_italic {
-  font-style: italic;
-}
-
-#ymgejlfmfg .gt_super {
-  font-size: 65%;
-}
-
-#ymgejlfmfg .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#ymgejlfmfg .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#ymgejlfmfg .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#ymgejlfmfg .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#ymgejlfmfg .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#ymgejlfmfg .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#ymgejlfmfg .gt_indent_5 {
-  text-indent: 25px;
-}
-</style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Fecha">Fecha</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Muertes">Muertes</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="IncrementoMuertes">IncrementoMuertes</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="CasosPCR_Salud">CasosPCR_Salud</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="IncCasosPCR_Salud">IncCasosPCR_Salud</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="CasosSaludNuevo">CasosSaludNuevo</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="IncCasosSaludNuevo">IncCasosSaludNuevo</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="HospitCOV19">HospitCOV19</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="CamasICU">CamasICU</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="CamasICU_disp">CamasICU_disp</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Ventiladores">Ventiladores</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="MuertesSalud">MuertesSalud</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="IncMueSalud">IncMueSalud</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="VacDoses">VacDoses</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="VacAdm">VacAdm</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="N1MoreDoses">N1MoreDoses</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="N2Doses">N2Doses</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="Fecha" class="gt_row gt_right">10/18/21</td>
-<td headers="Muertes" class="gt_row gt_right">3209</td>
-<td headers="IncrementoMuertes" class="gt_row gt_right">2</td>
-<td headers="CasosPCR_Salud" class="gt_row gt_right">151033</td>
-<td headers="IncCasosPCR_Salud" class="gt_row gt_right">6</td>
-<td headers="CasosSaludNuevo" class="gt_row gt_right">151089</td>
-<td headers="IncCasosSaludNuevo" class="gt_row gt_right">11</td>
-<td headers="HospitCOV19" class="gt_row gt_right">78</td>
-<td headers="CamasICU" class="gt_row gt_right">28</td>
-<td headers="CamasICU_disp" class="gt_row gt_right">189</td>
-<td headers="Ventiladores" class="gt_row gt_right">17</td>
-<td headers="MuertesSalud" class="gt_row gt_right">3212</td>
-<td headers="IncMueSalud" class="gt_row gt_right">2</td>
-<td headers="VacDoses" class="gt_row gt_right">4972170</td>
-<td headers="VacAdm" class="gt_row gt_right">4848929</td>
-<td headers="N1MoreDoses" class="gt_row gt_right">2578407</td>
-<td headers="N2Doses" class="gt_row gt_right">2306058</td></tr>
-    <tr><td headers="Fecha" class="gt_row gt_right">10/19/21</td>
-<td headers="Muertes" class="gt_row gt_right">3213</td>
-<td headers="IncrementoMuertes" class="gt_row gt_right">4</td>
-<td headers="CasosPCR_Salud" class="gt_row gt_right">151089</td>
-<td headers="IncCasosPCR_Salud" class="gt_row gt_right">56</td>
-<td headers="CasosSaludNuevo" class="gt_row gt_right">NA</td>
-<td headers="IncCasosSaludNuevo" class="gt_row gt_right">NA</td>
-<td headers="HospitCOV19" class="gt_row gt_right">82</td>
-<td headers="CamasICU" class="gt_row gt_right">22</td>
-<td headers="CamasICU_disp" class="gt_row gt_right">193</td>
-<td headers="Ventiladores" class="gt_row gt_right">16</td>
-<td headers="MuertesSalud" class="gt_row gt_right">3213</td>
-<td headers="IncMueSalud" class="gt_row gt_right">1</td>
-<td headers="VacDoses" class="gt_row gt_right">NA</td>
-<td headers="VacAdm" class="gt_row gt_right">NA</td>
-<td headers="N1MoreDoses" class="gt_row gt_right">NA</td>
-<td headers="N2Doses" class="gt_row gt_right">NA</td></tr>
-  </tbody>
-  
-  
-</table>
+<div id="math-sci" class="section level1 hasAnchor" number="20">
+<h1><span class="header-section-number">Chapter 20</span> Ecuaciones Matematicas<a href="math-sci.html#math-sci" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<!-- Required to number equations in HTML files -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<div id="ecuaciones-matemática" class="section level2 hasAnchor" number="20.1">
+<h2><span class="header-section-number">20.1</span> Ecuaciones matemática<a href="math-sci.html#ecuaciones-matemática" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><em>TeX</em> es la mejor manera de escribir funciones matemáticas en R. Donald Knuth diseñó el paquete  cuando se sintió frustrado por el tiempo que les tomaba a los tipógrafos y terminar su libro, que contenía mucha funciones matemática. Una característica interesante de <em>R Markdown</em> es su capacidad para leer código LaTeX directamente.</p>
+<p>Si está haciendo una tesis, artículo cientíco, presentaciones o quiere acalrar en su documento las funciones que estas usando, típicamente esto involucrará muchas ecuaciones matemáticas. Por consecuencia querrá leer la siguiente sección que ha sido comentada.</p>
+<hr />
+<div id="matemática-y-física" class="section level3 hasAnchor" number="20.1.1">
+<h3><span class="header-section-number">20.1.1</span> Matemática y Física<a href="math-sci.html#matemática-y-física" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
+\left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2
+\]</span></p>
+<p>De Informational Dynamics, tenemos lo siguiente (Dave Braden):</p>
+<p>Después de <em>n</em> tales encuentros, la densidad posterior de <span class="math inline">\(\theta\)</span> es</p>
+<p><span class="math display">\[
+\pi(\theta|X_1&lt; y_1,\dots,X_n&lt;y_n) \varpropto \pi(\theta) \prod_{i=1}^n\int_{-\infty}^{y_i}
+   \exp\left(-{(x-\theta)^2\over{2\sigma^2}}\right)\ dx
+\]</span></p>
+<p>Otra Ecuaciones</p>
+<p><span class="math display">\[
+\det\left|\,\begin{matrix}%
+c_0&amp;c_1\hfill&amp;c_2\hfill&amp;\ldots&amp;c_n\hfill\cr
+c_1&amp;c_2\hfill&amp;c_3\hfill&amp;\ldots&amp;c_{n+1}\hfill\cr
+c_2&amp;c_3\hfill&amp;c_4\hfill&amp;\ldots&amp;c_{n+2}\hfill\cr
+\,\vdots\hfill&amp;\,\vdots\hfill&amp;
+  \,\vdots\hfill&amp;&amp;\,\vdots\hfill\cr
+c_n&amp;c_{n+1}\hfill&amp;c_{n+2}\hfill&amp;\ldots&amp;c_{2n}\hfill\cr
+\end{matrix}\right|&gt;0
+\]</span></p>
+<hr />
+<p>Lapidus y Píndaro, Solución numérica de ecuaciones diferenciales parciales en ciencia y Ingeniería. Página 54</p>
+<p><span class="math display">\[
+\int_t\left\{\sum_{j=1}^3 T_j \left({d\phi_j\over dt}+k\phi_j\right)-kT_e\right\}w_i(t)\ dt=0,
+   \qquad\quad i=1,2,3.
+\]</span></p>
+<p>Funciones de ponderación del método L&amp;P Galerkin. Página 55</p>
+<p><span class="math display">\[
+\sum_{j=1}^3 T_j\int_0^1\left\{{d\phi_j\over dt} + k\phi_j\right\} \phi_i\ dt
+   = \int_{0}^1k\,T_e\phi_idt, \qquad i=1,2,3 \]</span></p>
+<p>Otra de L&amp;P (p145)</p>
+<p><span class="math display">\[
+\int_{-1}^1\!\int_{-1}^1\!\int_{-1}^1 f\big(\xi,\eta,\zeta\big)
+   = \sum_{k=1}^n\sum_{j=1}^n\sum_{i=1}^n w_i w_j w_k f\big( \xi,\eta,\zeta\big).
+\]</span></p>
+<p>Otra de L&amp;P (p126)</p>
+<p><span class="math display">\[
+\int_{A_e} (\,\cdot\,) dx dy = \int_{-1}^1\!\int_{-1}^1 (\,\cdot\,) \det[J] d\xi d\eta.
+\]</span>
+–&gt;</p>
 </div>
 </div>
+<div id="quimica-101-simbolos" class="section level2 hasAnchor" number="20.2">
+<h2><span class="header-section-number">20.2</span> Quimica 101: Simbolos<a href="math-sci.html#quimica-101-simbolos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Las fórmulas químicas se verán mejor si no están en cursiva. Evite la cursiva automática del modo matemático en LaTeX usando el argumento <code>$\mathrm{fórmula aquí}$</code>, con su fórmula dentro de las llaves. (Observe el uso de comillas invertidas aquí que encierran texto y que actúa como código para ver el script original).</p>
+<p>Entonces, <span class="math inline">\(\mathrm{Fe_2^{2+}Cr_2O_4}\)</span> es escrito como <code>$\mathrm{Fe_2^{2+}Cr_2O_4}$</code>.</p>
+<!--
+The \noindent command below does what you'd expect:  it forces the current line/paragraph to not indent. This was done here to match the format of the LaTeX thesis PDF.
+-->
+<p>Exponente or Sobrescrito: <span class="math inline">\(\mathrm{O^-}\)</span></p>
+<p>Subíndice: <span class="math inline">\(\mathrm{CH_4}\)</span></p>
+<p>Para apilar números o letras como en <span class="math inline">\(\mathrm{Fe_2^{2+}}\)</span>, primero se define el subíndice y luego el superíndice.</p>
+<p>punto se usa la palabra <strong>bullet</strong>: CuCl <span class="math inline">\(\bullet\)</span> <span class="math inline">\(\mathrm{7H_{2}O}\)</span> <code>CuCl $\bullet$ $\mathrm{7H_{2}O}$</code></p>
+<p>Delta: <span class="math inline">\(\Delta\)</span></p>
+<p>Flecha de Reacción: <span class="math inline">\(\longrightarrow\)</span> or <span class="math inline">\(\xrightarrow{solution}\)</span></p>
+<p>Flecha de Resonancia: <span class="math inline">\(\leftrightarrow\)</span></p>
+<p>Flechas de reacción reversibles: <span class="math inline">\(\rightleftharpoons\)</span></p>
+<div id="tipografica-de-reaciones" class="section level3 hasAnchor" number="20.2.1">
+<h3><span class="header-section-number">20.2.1</span> Tipografica de reaciones<a href="math-sci.html#tipografica-de-reaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Es posible que desees poner tu reacción en un entorno de ecuaciones, lo que significa que LaTeX colocará la reacción donde encaje y numerará las ecuaciones por ti.</p>
+<p><span class="math display" id="eq:reaction">\[\begin{equation}
+  \mathrm{C_6H_{12}O_6  + 6O_2} \longrightarrow \mathrm{6CO_2 + 6H_2O}
+  \tag{20.1}
+\end{equation}\]</span></p>
+<p>Podemos hacer referencia a esta reacción de combustión de glucosa mediante la ecuación <a href="math-sci.html#eq:reaction">(20.1)</a>.</p>
 </div>
-<div id="calcular-el-promedio-de-muertes-por-dia-de-nuevos-muertos-desde-el-comienzo-hasta-el-ultimo-dia-del-archivo" class="section level2 unnumbered hasAnchor">
-<h2>1. Calcular el promedio de Muertes por dia de nuevos muertos desde el comienzo hasta el ultimo dia del archivo<a href="appendix-ejercicios-2.html#calcular-el-promedio-de-muertes-por-dia-de-nuevos-muertos-desde-el-comienzo-hasta-el-ultimo-dia-del-archivo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="otros-ejemplos-de-reacciones" class="section level3 hasAnchor" number="20.2.2">
+<h3><span class="header-section-number">20.2.2</span> Otros ejemplos de reacciones<a href="math-sci.html#otros-ejemplos-de-reacciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\mathrm{NH_4Cl_{(s)}}\)</span> <span class="math inline">\(\rightleftharpoons\)</span> <span class="math inline">\(\mathrm{NH_{3(g)}+HCl_{(g)}}\)</span></p>
+<p><span class="math inline">\(\mathrm{MeCH_2Br + Mg}\)</span> <span class="math inline">\(\xrightarrow[abajo]{ariba}\)</span> <span class="math inline">\(\mathrm{MeCH_2\bullet Mg \bullet Br}\)</span></p>
 </div>
-<div id="cual-es-la-máximo-de-nuevos-casos-en-un-día" class="section level2 unnumbered hasAnchor">
-<h2>2. ¿Cual es la máximo de nuevos casos en un día<a href="appendix-ejercicios-2.html#cual-es-la-máximo-de-nuevos-casos-en-un-día" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="calcular-la-cantidad-cumulativa-de-numero-de-camas-camasicu" class="section level2 unnumbered hasAnchor">
-<h2>3. ¿Calcular la cantidad cumulativa de numero de camas CamasICU<a href="appendix-ejercicios-2.html#calcular-la-cantidad-cumulativa-de-numero-de-camas-camasicu" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>Enseñe solamente las ultimas 4 filas</li>
-</ul>
+<div id="física" class="section level2 hasAnchor" number="20.3">
+<h2><span class="header-section-number">20.3</span> Física<a href="math-sci.html#física" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Muchos de los símbolos que necesitará se pueden encontrar en la página de matemáticas.</p>
+<p><a href="https://web.reed.edu/cis/help/latex/math.html" class="uri">https://web.reed.edu/cis/help/latex/math.html</a> y la guía completa de símbolos LaTeX (<a href="https://mirror.utexas.edu/ctan/info/symbols/comprehensive/symbols-letter.pdf" class="uri">https://mirror.utexas.edu/ctan/info/symbols/comprehensive/symbols-letter.pdf</a>).</p>
 </div>
-<div id="haz-una-grafica-de-la-varianza-y-como-cambia-atravez-del-tiempo." class="section level2 unnumbered hasAnchor">
-<h2>4. Haz una grafica de la varianza y como cambia atravez del tiempo.<a href="appendix-ejercicios-2.html#haz-una-grafica-de-la-varianza-y-como-cambia-atravez-del-tiempo." class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>usa puntos para cada fecha</li>
-<li>añade una regresión LOESS</li>
-<li>cambia los nombres de los ejes para algo más claro</li>
-<li>los colores de los puntos</li>
-<li>cambia el color de la linea</li>
-</ul>
+<div id="biología" class="section level2 hasAnchor" number="20.4">
+<h2><span class="header-section-number">20.4</span> Biología<a href="math-sci.html#biología" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Probablemente encontrará los recursos en <a href="https://www.lecb.ncifcrf.gov/~toms/latex.html" class="uri">https://www.lecb.ncifcrf.gov/~toms/latex.html</a> útil, particularmente los enlaces a bsts de varias revistas. Quizás también le interese TeXShade para composición tipográfica de nucleótidos (<a href="https://homepages.uni-tuebingen.de/beitz/txe.html" class="uri">https://homepages.uni-tuebingen.de/beitz/txe.html</a>). Asegúrese de leer el capítulo anterior sobre gráficos y tablas.</p>
+<p>La formula del promedio</p>
+<p><span class="math inline">\(\mu=\frac{\sum{x}_{i}}{n}\)</span> se escribe asi <code>$\mu=\frac{\sum{x}_{i}}{n}$</code></p>
+<p>NOTE la diferencia en tipo de letra</p>
+<p><span class="math inline">\(\mathrm{\mu=\frac{\sum{x}_{i}}{n}}\)</span></p>
+<p><span class="math display" id="eq:promedio">\[\begin{equation}
+  \mathrm{\mu=\frac{\sum{x}_{i}}{n}}
+  \tag{20.2}
+\end{equation}\]</span></p>
+<p>Sitios en el web para preparar las ecuaciones Latex</p>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://latex.codecogs.com/eqneditor/editor.php" class="uri">https://latex.codecogs.com/eqneditor/editor.php</a></p></li>
+<li><p><a href="https://latexeditor.lagrida.com" class="uri">https://latexeditor.lagrida.com</a></p></li>
+<li><p><a href="https://www.hostmath.com" class="uri">https://www.hostmath.com</a></p></li>
+<li><p><a href="https://www.overleaf.com/learn/latex/Mathematical_expressions" class="uri">https://www.overleaf.com/learn/latex/Mathematical_expressions</a></p></li>
+</ol>
 
 </div>
 </div>
@@ -1037,8 +603,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="appendix-ejercicios.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="trabajando-variables-categóricas-con-leaflet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix-ejercicios.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1069,7 +635,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/B-Ejercicios_Transformacion_2.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/17-Ecuaciones_matematicas.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -1077,7 +643,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/B-Ejercicios_Transformacion_2.Rmd",
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/17-Ecuaciones_matematicas.Rmd",
 "text": null
 },
 "download": null,

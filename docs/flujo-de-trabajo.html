@@ -424,6 +424,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17" data-path="importación-de-paquetes-y-datos.html"><a href="importación-de-paquetes-y-datos.html"><i class="fa fa-check"></i><b>17</b> Importación de Paquetes y Datos</a></li>
 <li class="chapter" data-level="18" data-path="utilizando-leaflet.html"><a href="utilizando-leaflet.html"><i class="fa fa-check"></i><b>18</b> Utilizando Leaflet</a></li>
 <li class="chapter" data-level="19" data-path="trabajando-variables-categóricas-con-leaflet.html"><a href="trabajando-variables-categóricas-con-leaflet.html"><i class="fa fa-check"></i><b>19</b> Trabajando Variables Categóricas con Leaflet:</a></li>
+<li class="chapter" data-level="20" data-path="math-sci.html"><a href="math-sci.html"><i class="fa fa-check"></i><b>20</b> Ecuaciones Matematicas</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="math-sci.html"><a href="math-sci.html#ecuaciones-matemática"><i class="fa fa-check"></i><b>20.1</b> Ecuaciones matemática</a>
+<ul>
+<li class="chapter" data-level="20.1.1" data-path="math-sci.html"><a href="math-sci.html#matemática-y-física"><i class="fa fa-check"></i><b>20.1.1</b> Matemática y Física</a></li>
+</ul></li>
+<li class="chapter" data-level="20.2" data-path="math-sci.html"><a href="math-sci.html#quimica-101-simbolos"><i class="fa fa-check"></i><b>20.2</b> Quimica 101: Simbolos</a>
+<ul>
+<li class="chapter" data-level="20.2.1" data-path="math-sci.html"><a href="math-sci.html#tipografica-de-reaciones"><i class="fa fa-check"></i><b>20.2.1</b> Tipografica de reaciones</a></li>
+<li class="chapter" data-level="20.2.2" data-path="math-sci.html"><a href="math-sci.html#otros-ejemplos-de-reacciones"><i class="fa fa-check"></i><b>20.2.2</b> Otros ejemplos de reacciones</a></li>
+</ul></li>
+<li class="chapter" data-level="20.3" data-path="math-sci.html"><a href="math-sci.html#física"><i class="fa fa-check"></i><b>20.3</b> Física</a></li>
+<li class="chapter" data-level="20.4" data-path="math-sci.html"><a href="math-sci.html#biología"><i class="fa fa-check"></i><b>20.4</b> Biología</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="appendix-ejercicios.html"><a href="appendix-ejercicios.html"><i class="fa fa-check"></i>(Appendix) Ejercicios</a>
 <ul>
 <li class="chapter" data-level="" data-path="appendix-ejercicios.html"><a href="appendix-ejercicios.html#capitulo-de-transformación-de-datos"><i class="fa fa-check"></i>Capitulo de Transformación de Datos</a></li>
@@ -506,13 +520,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="flujo-de-trabajo.html#cb1-1" tabindex="-1"></a><span class="co">#install.packages(&quot;tidyverse&quot;)</span></span>
 <span id="cb1-2"><a href="flujo-de-trabajo.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 </details>
-<pre><code>## ── Attaching core tidyverse packages ─────────
+<pre><code>## ── Attaching core tidyverse packages ──────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.1.3     ✔ readr     2.1.4
 ## ✔ forcats   1.0.0     ✔ stringr   1.5.0
 ## ✔ ggplot2   3.4.3     ✔ tibble    3.2.1
 ## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
 ## ✔ purrr     1.0.2     
-## ── Conflicts ──────── tidyverse_conflicts() ──
+## ── Conflicts ────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
@@ -760,7 +774,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb38-2"><a href="flujo-de-trabajo.html#cb38-2" tabindex="-1"></a>Vuelos_SJU_2018_Ene <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Datos/Vuelos_SJU_2018_Ene.csv&quot;</span>)</span></code></pre></div>
 </details>
 <pre><code>## Rows: 3831 Columns: 14
-## ── Column specification ──────────────────────
+## ── Column specification ────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (8): FL_DATE, OP_UNIQUE_CARRIER, ORIGIN, ORIGIN_CITY_NAME, ORIGIN_STATE_...
 ## dbl (6): DEP_TIME, DEP_DELAY, CRS_ARR_TIME, ARR_TIME, ARR_DELAY, CANCELLED
@@ -819,8 +833,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb44-2"><a href="flujo-de-trabajo.html#cb44-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> SVL, <span class="at">y =</span> TAIL, <span class="at">color=</span>SEX_AGE))<span class="sc">+</span></span>
 <span id="cb44-3"><a href="flujo-de-trabajo.html#cb44-3" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>SEX_AGE, <span class="at">ncol=</span><span class="dv">1</span>)</span></code></pre></div>
 </details>
-<pre><code>## Warning: Removed 418 rows containing missing values
-## (`geom_point()`).</code></pre>
+<pre><code>## Warning: Removed 418 rows containing missing values (`geom_point()`).</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 </div>
 <div id="regresión-lineal" class="section level3 hasAnchor" number="2.6.3">
@@ -854,8 +867,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="flujo-de-trabajo.html#cb51-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> millas) <span class="sc">+</span></span>
 <span id="cb51-2"><a href="flujo-de-trabajo.html#cb51-2" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista, <span class="at">linetype =</span> clase, <span class="at">colour=</span>clase))</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and
-## formula = &#39;y ~ x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 </div>
 <div id="regresión-loess-de-un-grupo" class="section level3 hasAnchor" number="2.6.5">
@@ -865,8 +877,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb53-2"><a href="flujo-de-trabajo.html#cb53-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> clase)) <span class="sc">+</span></span>
 <span id="cb53-3"><a href="flujo-de-trabajo.html#cb53-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> <span class="fu">filter</span>(millas, clase <span class="sc">==</span> <span class="st">&quot;suv&quot;</span>), <span class="at">se =</span><span class="cn">TRUE</span>)</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and
-## formula = &#39;y ~ x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 </div>
 <div id="regresión-loess-dos-alternativas" class="section level3 hasAnchor" number="2.6.6">
@@ -876,16 +887,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb55-2"><a href="flujo-de-trabajo.html#cb55-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb55-3"><a href="flujo-de-trabajo.html#cb55-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and
-## formula = &#39;y ~ x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="flujo-de-trabajo.html#cb57-1" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb57-2"><a href="flujo-de-trabajo.html#cb57-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> millas, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista)) <span class="sc">+</span></span>
 <span id="cb57-3"><a href="flujo-de-trabajo.html#cb57-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> millas, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista))</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and
-## formula = &#39;y ~ x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-26-2.png" width="672" /></p>
 </div>
 <div id="regresión-lineal-ybmx" class="section level3 hasAnchor" number="2.6.7">
