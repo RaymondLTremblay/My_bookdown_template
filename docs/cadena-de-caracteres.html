@@ -306,7 +306,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2" data-path="tibbles.html"><a href="tibbles.html#crear-un-tibble"><i class="fa fa-check"></i><b>8.2</b> Crear un tibble</a></li>
 <li class="chapter" data-level="8.3" data-path="tibbles.html"><a href="tibbles.html#crear-un-tribble"><i class="fa fa-check"></i><b>8.3</b> Crear un tribble</a></li>
 <li class="chapter" data-level="8.4" data-path="tibbles.html"><a href="tibbles.html#tibble-vs.-data.frame"><i class="fa fa-check"></i><b>8.4</b> tibble vs. data.frame</a></li>
-<li class="chapter" data-level="8.5" data-path="tibbles.html"><a href="tibbles.html#seleccion-de-subconjuntos"><i class="fa fa-check"></i><b>8.5</b> Seleccion de subconjuntos</a></li>
+<li class="chapter" data-level="8.5" data-path="tibbles.html"><a href="tibbles.html#seleccion-de-subconjuntos-de-datos"><i class="fa fa-check"></i><b>8.5</b> Seleccion de subconjuntos de datos</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="importar-datos.html"><a href="importar-datos.html"><i class="fa fa-check"></i><b>9</b> Importar datos</a>
 <ul>
@@ -532,9 +532,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>str_view( , .x.)</li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb684-1"><a href="cadena-de-caracteres.html#cb684-1" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb684-2"><a href="cadena-de-caracteres.html#cb684-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;manzana&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pera&quot;</span>)</span>
-<span id="cb684-3"><a href="cadena-de-caracteres.html#cb684-3" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;an&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="cadena-de-caracteres.html#cb682-1" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb682-2"><a href="cadena-de-caracteres.html#cb682-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;manzana&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pera&quot;</span>)</span>
+<span id="cb682-3"><a href="cadena-de-caracteres.html#cb682-3" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;an&quot;</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] │ m&lt;an&gt;z&lt;an&gt;a
 ## [2] │ b&lt;an&gt;&lt;an&gt;a</code></pre>
@@ -569,7 +569,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><p>$ . | ? * + ( ) [ {</p></li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="cadena-de-caracteres.html#cb686-1" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">&quot;cómo&quot;</span>, <span class="st">&quot;como&quot;</span>, <span class="st">&quot;Raymond&quot;</span>), <span class="st">&quot;c(ó|o)mo&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb684-1"><a href="cadena-de-caracteres.html#cb684-1" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">&quot;cómo&quot;</span>, <span class="st">&quot;como&quot;</span>, <span class="st">&quot;Raymond&quot;</span>), <span class="st">&quot;c(ó|o)mo&quot;</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] │ &lt;cómo&gt;
 ## [2] │ &lt;como&gt;</code></pre>
@@ -625,24 +625,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>str_detect(x, “e”)</li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="cadena-de-caracteres.html#cb688-1" tabindex="-1"></a><span class="fu">library</span>(datos) </span>
-<span id="cb688-2"><a href="cadena-de-caracteres.html#cb688-2" tabindex="-1"></a><span class="co">#fruit</span></span>
-<span id="cb688-3"><a href="cadena-de-caracteres.html#cb688-3" tabindex="-1"></a><span class="fu">head</span>(palabras)</span></code></pre></div>
+<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="cadena-de-caracteres.html#cb686-1" tabindex="-1"></a><span class="fu">library</span>(datos) </span>
+<span id="cb686-2"><a href="cadena-de-caracteres.html#cb686-2" tabindex="-1"></a><span class="co">#fruit</span></span>
+<span id="cb686-3"><a href="cadena-de-caracteres.html#cb686-3" tabindex="-1"></a><span class="fu">head</span>(palabras)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;a&quot;        &quot;abril&quot;    &quot;acción&quot;   &quot;acciones&quot; &quot;acerca&quot;   &quot;actitud&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="cadena-de-caracteres.html#cb690-1" tabindex="-1"></a><span class="co"># Encuentra todas las palabras que contengan al menos una vocal, y luego niégalo</span></span>
-<span id="cb690-2"><a href="cadena-de-caracteres.html#cb690-2" tabindex="-1"></a>sin_vocales_1 <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">str_detect</span>(palabras, <span class="st">&quot;[aáeéiíoóuúúü]&quot;</span>)</span>
-<span id="cb690-3"><a href="cadena-de-caracteres.html#cb690-3" tabindex="-1"></a></span>
-<span id="cb690-4"><a href="cadena-de-caracteres.html#cb690-4" tabindex="-1"></a><span class="co">#sin_vocales_1</span></span>
-<span id="cb690-5"><a href="cadena-de-caracteres.html#cb690-5" tabindex="-1"></a><span class="co"># Encuentra todas las palabras consistentes solo en consonantes (no vocales)</span></span>
-<span id="cb690-6"><a href="cadena-de-caracteres.html#cb690-6" tabindex="-1"></a>sin_vocales_2 <span class="ot">&lt;-</span> <span class="fu">str_detect</span>(palabras, <span class="st">&quot;^[^aáeéiíoóuúúü]+$&quot;</span>)</span>
-<span id="cb690-7"><a href="cadena-de-caracteres.html#cb690-7" tabindex="-1"></a><span class="co">#sin_vocales_1</span></span>
-<span id="cb690-8"><a href="cadena-de-caracteres.html#cb690-8" tabindex="-1"></a><span class="fu">identical</span>(sin_vocales_1, sin_vocales_2)</span></code></pre></div>
+<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="cadena-de-caracteres.html#cb688-1" tabindex="-1"></a><span class="co"># Encuentra todas las palabras que contengan al menos una vocal, y luego niégalo</span></span>
+<span id="cb688-2"><a href="cadena-de-caracteres.html#cb688-2" tabindex="-1"></a>sin_vocales_1 <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">str_detect</span>(palabras, <span class="st">&quot;[aáeéiíoóuúúü]&quot;</span>)</span>
+<span id="cb688-3"><a href="cadena-de-caracteres.html#cb688-3" tabindex="-1"></a></span>
+<span id="cb688-4"><a href="cadena-de-caracteres.html#cb688-4" tabindex="-1"></a><span class="co">#sin_vocales_1</span></span>
+<span id="cb688-5"><a href="cadena-de-caracteres.html#cb688-5" tabindex="-1"></a><span class="co"># Encuentra todas las palabras consistentes solo en consonantes (no vocales)</span></span>
+<span id="cb688-6"><a href="cadena-de-caracteres.html#cb688-6" tabindex="-1"></a>sin_vocales_2 <span class="ot">&lt;-</span> <span class="fu">str_detect</span>(palabras, <span class="st">&quot;^[^aáeéiíoóuúúü]+$&quot;</span>)</span>
+<span id="cb688-7"><a href="cadena-de-caracteres.html#cb688-7" tabindex="-1"></a><span class="co">#sin_vocales_1</span></span>
+<span id="cb688-8"><a href="cadena-de-caracteres.html#cb688-8" tabindex="-1"></a><span class="fu">identical</span>(sin_vocales_1, sin_vocales_2)</span></code></pre></div>
 </details>
 <pre><code>## [1] TRUE</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="cadena-de-caracteres.html#cb692-1" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="cadena-de-caracteres.html#cb690-1" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 </details>
 <ul>
 <li>str_subset()</li>
@@ -674,21 +674,21 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>str_match*</li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="cadena-de-caracteres.html#cb693-1" tabindex="-1"></a>sustantivo <span class="ot">&lt;-</span> <span class="st">&quot;(el|la|los|las|lo|un|una|unos|unas) ([^ ]+)&quot;</span></span>
-<span id="cb693-2"><a href="cadena-de-caracteres.html#cb693-2" tabindex="-1"></a></span>
-<span id="cb693-3"><a href="cadena-de-caracteres.html#cb693-3" tabindex="-1"></a>tiene_sustantivo <span class="ot">&lt;-</span> oraciones <span class="sc">%&gt;%</span></span>
-<span id="cb693-4"><a href="cadena-de-caracteres.html#cb693-4" tabindex="-1"></a>  <span class="fu">str_subset</span>(sustantivo) <span class="sc">%&gt;%</span></span>
-<span id="cb693-5"><a href="cadena-de-caracteres.html#cb693-5" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
-<span id="cb693-6"><a href="cadena-de-caracteres.html#cb693-6" tabindex="-1"></a></span>
-<span id="cb693-7"><a href="cadena-de-caracteres.html#cb693-7" tabindex="-1"></a><span class="co">#tiene_sustantivo</span></span>
-<span id="cb693-8"><a href="cadena-de-caracteres.html#cb693-8" tabindex="-1"></a>tiene_sustantivo <span class="sc">%&gt;%</span> </span>
-<span id="cb693-9"><a href="cadena-de-caracteres.html#cb693-9" tabindex="-1"></a>  <span class="fu">str_extract</span>(sustantivo)</span></code></pre></div>
+<div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="cadena-de-caracteres.html#cb691-1" tabindex="-1"></a>sustantivo <span class="ot">&lt;-</span> <span class="st">&quot;(el|la|los|las|lo|un|una|unos|unas) ([^ ]+)&quot;</span></span>
+<span id="cb691-2"><a href="cadena-de-caracteres.html#cb691-2" tabindex="-1"></a></span>
+<span id="cb691-3"><a href="cadena-de-caracteres.html#cb691-3" tabindex="-1"></a>tiene_sustantivo <span class="ot">&lt;-</span> oraciones <span class="sc">%&gt;%</span></span>
+<span id="cb691-4"><a href="cadena-de-caracteres.html#cb691-4" tabindex="-1"></a>  <span class="fu">str_subset</span>(sustantivo) <span class="sc">%&gt;%</span></span>
+<span id="cb691-5"><a href="cadena-de-caracteres.html#cb691-5" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb691-6"><a href="cadena-de-caracteres.html#cb691-6" tabindex="-1"></a></span>
+<span id="cb691-7"><a href="cadena-de-caracteres.html#cb691-7" tabindex="-1"></a><span class="co">#tiene_sustantivo</span></span>
+<span id="cb691-8"><a href="cadena-de-caracteres.html#cb691-8" tabindex="-1"></a>tiene_sustantivo <span class="sc">%&gt;%</span> </span>
+<span id="cb691-9"><a href="cadena-de-caracteres.html#cb691-9" tabindex="-1"></a>  <span class="fu">str_extract</span>(sustantivo)</span></code></pre></div>
 </details>
 <pre><code>##  [1] &quot;los de&quot;      &quot;el camión&quot;   &quot;la mejor&quot;    &quot;la cuenta&quot;   &quot;las ruinas.&quot;
 ##  [6] &quot;la hoja&quot;     &quot;la cocina.&quot;  &quot;la taza&quot;     &quot;el tanque.&quot;  &quot;el calor&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb695-1"><a href="cadena-de-caracteres.html#cb695-1" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;los de&quot;      &quot;el camión&quot;   &quot;la mejor&quot;    &quot;la cuenta&quot;   &quot;las ruinas.&quot;</span></span>
-<span id="cb695-2"><a href="cadena-de-caracteres.html#cb695-2" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;la hoja&quot;     &quot;la cocina.&quot;  &quot;la taza&quot;     &quot;el tanque.&quot;  &quot;el calor&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="cadena-de-caracteres.html#cb693-1" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;los de&quot;      &quot;el camión&quot;   &quot;la mejor&quot;    &quot;la cuenta&quot;   &quot;las ruinas.&quot;</span></span>
+<span id="cb693-2"><a href="cadena-de-caracteres.html#cb693-2" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;la hoja&quot;     &quot;la cocina.&quot;  &quot;la taza&quot;     &quot;el tanque.&quot;  &quot;el calor&quot;</span></span></code></pre></div>
 </details>
 <ol start="8" style="list-style-type: decimal">
 <li><strong>Ejercicios</strong>:</li>

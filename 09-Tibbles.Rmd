@@ -80,9 +80,11 @@ tb = tibble(
 )
 tb
 
+```
 
 
 
+```{r}
 tb %>%
   print(n = 4, width = Inf)
 
@@ -90,7 +92,7 @@ tb %>%
 
 lubridate::now()
 lubridate::today()
-runif(1e2)
+
 ```
 
 
@@ -108,17 +110,17 @@ class(as.data.frame(tb))
 ```
 
 
-## Seleccion de subconjuntos 
+## Seleccion de subconjuntos de datos
 
 ```{r}
-head(vuelos$mes, n=5) 
-vuelos[["mes"]] |> head(n=40)
+head(vuelos$salida_programada, n=20) 
+vuelos[["salida_programada"]] |> head(n=20)
 
 #Usar esta función dentro de pipe
 
-vuelos %>% .$mes |> head(n=40)
+vuelos %>% .$salida_programada |> head(n=20)
 
-vuelos %>% .[["mes"]] |> head(n=40)
+vuelos %>% .[["salida_programada"]] |> head(n=20)
 ```
 
 

@@ -144,7 +144,7 @@ temas-el-paquete-tibble
 crear-un-tibble
 crear-un-tribble
 tibble-vs.-data.frame
-seleccion-de-subconjuntos
+seleccion-de-subconjuntos-de-datos
 importar-datos
 temas-funciones-para-importar-datos-con-el-paquete-readr
 comparar-con-base-r

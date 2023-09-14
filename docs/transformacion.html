@@ -306,7 +306,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2" data-path="tibbles.html"><a href="tibbles.html#crear-un-tibble"><i class="fa fa-check"></i><b>8.2</b> Crear un tibble</a></li>
 <li class="chapter" data-level="8.3" data-path="tibbles.html"><a href="tibbles.html#crear-un-tribble"><i class="fa fa-check"></i><b>8.3</b> Crear un tribble</a></li>
 <li class="chapter" data-level="8.4" data-path="tibbles.html"><a href="tibbles.html#tibble-vs.-data.frame"><i class="fa fa-check"></i><b>8.4</b> tibble vs. data.frame</a></li>
-<li class="chapter" data-level="8.5" data-path="tibbles.html"><a href="tibbles.html#seleccion-de-subconjuntos"><i class="fa fa-check"></i><b>8.5</b> Seleccion de subconjuntos</a></li>
+<li class="chapter" data-level="8.5" data-path="tibbles.html"><a href="tibbles.html#seleccion-de-subconjuntos-de-datos"><i class="fa fa-check"></i><b>8.5</b> Seleccion de subconjuntos de datos</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="importar-datos.html"><a href="importar-datos.html"><i class="fa fa-check"></i><b>9</b> Importar datos</a>
 <ul>
@@ -813,8 +813,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb159-5"><a href="transformacion.html#cb159-5" tabindex="-1"></a>  <span class="fu">group_by</span>(dia, mes) <span class="sc">%&gt;%</span> </span>
 <span id="cb159-6"><a href="transformacion.html#cb159-6" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">atraso =</span> <span class="fu">mean</span>(atraso_llegada, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 </details>
-<pre><code>## `summarise()` has grouped output by &#39;dia&#39;. You can override using the
-## `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;dia&#39;.
+## You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 1 × 3
 ## # Groups:   dia [1]
 ##     dia   mes atraso
@@ -1054,12 +1055,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb201-4"><a href="transformacion.html#cb201-4" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb201-5"><a href="transformacion.html#cb201-5" tabindex="-1"></a>nchs_births_2001 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;nchs_births_2001.csv&quot;</span>)</span></code></pre></div>
 </details>
-<pre><code>## Warning: One or more parsing issues, call `problems()` on your data frame for
-## details, e.g.:
+<pre><code>## Warning: One or more parsing issues, call `problems()`
+## on your data frame for details, e.g.:
 ##   dat &lt;- vroom(...)
 ##   problems(dat)</code></pre>
 <pre><code>## Rows: 55983 Columns: 214</code></pre>
-<pre><code>## ── Column specification ──────────────────────────────────────────────
+<pre><code>## ── Column specification ──────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr  (39): CNTYNAT, CNTOCFIP, CNTYRES, CITYRES, CITRSPOP, METRORES, STRESFIP...
 ## dbl (158): DATAYEAR, RECTYPE, RESTATUS, RECWT, PLDEL, PLDEL3, BIRATTND, REGN...
@@ -1677,12 +1678,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## New names:
 ## Rows: 587 Columns: 18
 ## ── Column specification
-## ────────────────────────────────────────────── Delimiter: &quot;,&quot; chr
-## (1): Fecha dbl (17): ...1, Muertes, IncrementoMuertes,
-## CasosPCR_Salud, IncCasosPCR_Salu...
-## ℹ Use `spec()` to retrieve the full column specification for this
-## data. ℹ Specify the column types or set `show_col_types = FALSE` to
-## quiet this message.
+## ────────────────────── Delimiter: &quot;,&quot; chr
+## (1): Fecha dbl (17): ...1, Muertes,
+## IncrementoMuertes, CasosPCR_Salud,
+## IncCasosPCR_Salu...
+## ℹ Use `spec()` to retrieve the full column
+## specification for this data. ℹ Specify the
+## column types or set `show_col_types = FALSE`
+## to quiet this message.
 ## • `` -&gt; `...1`</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="transformacion.html#cb269-1" tabindex="-1"></a><span class="co">#head(url_COVID_PR)</span></span>
@@ -1731,10 +1734,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </details>
 <pre><code>## Warning: `as.tibble()` was deprecated in tibble 2.0.0.
 ## ℹ Please use `as_tibble()` instead.
-## ℹ The signature and semantics have changed, see `?as_tibble`.
+## ℹ The signature and semantics have changed,
+##   see `?as_tibble`.
 ## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning
-## was generated.</code></pre>
+## Call `lifecycle::last_lifecycle_warnings()`
+## to see where this warning was generated.</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="transformacion.html#cb276-1" tabindex="-1"></a>df</span></code></pre></div>
 </details>
@@ -1856,12 +1860,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## New names:
 ## Rows: 587 Columns: 18
 ## ── Column specification
-## ────────────────────────────────────────────── Delimiter: &quot;,&quot; chr
-## (1): Fecha dbl (17): ...1, Muertes, IncrementoMuertes,
-## CasosPCR_Salud, IncCasosPCR_Salu...
-## ℹ Use `spec()` to retrieve the full column specification for this
-## data. ℹ Specify the column types or set `show_col_types = FALSE` to
-## quiet this message.
+## ────────────────────── Delimiter: &quot;,&quot; chr
+## (1): Fecha dbl (17): ...1, Muertes,
+## IncrementoMuertes, CasosPCR_Salud,
+## IncCasosPCR_Salu...
+## ℹ Use `spec()` to retrieve the full column
+## specification for this data. ℹ Specify the
+## column types or set `show_col_types = FALSE`
+## to quiet this message.
 ## • `` -&gt; `...1`</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="transformacion.html#cb290-1" tabindex="-1"></a><span class="fu">head</span>(url_COVID_PR)</span></code></pre></div>
@@ -2003,10 +2009,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb311-2"><a href="transformacion.html#cb311-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
 <span id="cb311-3"><a href="transformacion.html#cb311-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using method = &#39;gam&#39; and formula = &#39;y ~ s(x, bs =
-## &quot;cs&quot;)&#39;</code></pre>
-<pre><code>## Warning: Removed 1 rows containing non-finite values (`stat_smooth()`).</code></pre>
-<pre><code>## Warning: Removed 1 rows containing missing values (`geom_point()`).</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;gam&#39; and
+## formula = &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
+<pre><code>## Warning: Removed 1 rows containing non-finite values
+## (`stat_smooth()`).</code></pre>
+<pre><code>## Warning: Removed 1 rows containing missing values
+## (`geom_point()`).</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
 </div>
 <div id="que-pasa-con-las-funciones-cummean-cumsum-y-cumvar-si-hay-na-en-el-archivo-de-datos" class="section level2 hasAnchor" number="4.25">
@@ -2017,13 +2025,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="transformacion.html#cb315-1" tabindex="-1"></a>datos_NA<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>, <span class="cn">NA</span>, <span class="dv">10</span><span class="sc">:</span><span class="dv">20</span>)</span>
 <span id="cb315-2"><a href="transformacion.html#cb315-2" tabindex="-1"></a>datos_NA<span class="ot">=</span><span class="fu">as_data_frame</span>(datos_NA)</span></code></pre></div>
 </details>
-<pre><code>## Warning: `as_data_frame()` was deprecated in tibble 2.0.0.
-## ℹ Please use `as_tibble()` (with slightly different semantics) to
-##   convert to a tibble, or `as.data.frame()` to convert to a data
-##   frame.
+<pre><code>## Warning: `as_data_frame()` was deprecated in tibble
+## 2.0.0.
+## ℹ Please use `as_tibble()` (with slightly
+##   different semantics) to convert to a
+##   tibble, or `as.data.frame()` to convert to
+##   a data frame.
 ## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning
-## was generated.</code></pre>
+## Call `lifecycle::last_lifecycle_warnings()`
+## to see where this warning was generated.</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="transformacion.html#cb317-1" tabindex="-1"></a>datos_NA <span class="sc">%&gt;%</span> </span>
 <span id="cb317-2"><a href="transformacion.html#cb317-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(value) <span class="sc">%&gt;%</span> </span>
@@ -2368,8 +2378,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb349-2"><a href="transformacion.html#cb349-2" tabindex="-1"></a></span>
 <span id="cb349-3"><a href="transformacion.html#cb349-3" tabindex="-1"></a><span class="fu">summarise</span>(by_day, <span class="at">delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 </details>
-<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override
-## using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;year&#39;,
+## &#39;month&#39;. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 365 × 4
 ## # Groups:   year, month [12]
 ##     year month   day delay
@@ -2390,8 +2401,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb352-2"><a href="transformacion.html#cb352-2" tabindex="-1"></a>  <span class="fu">group_by</span>(year, month, day) <span class="sc">%&gt;%</span> </span>
 <span id="cb352-3"><a href="transformacion.html#cb352-3" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 </details>
-<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override
-## using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;year&#39;,
+## &#39;month&#39;. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 365 × 4
 ## # Groups:   year, month [12]
 ##     year month   day delay
@@ -2491,7 +2503,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb361-8"><a href="transformacion.html#cb361-8" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> count), <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">+</span></span>
 <span id="cb361-9"><a href="transformacion.html#cb361-9" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and
+## formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-135-1.png" width="672" /></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="transformacion.html#cb363-1" tabindex="-1"></a><span class="co">#&gt; `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</span></span></code></pre></div>
@@ -2518,13 +2531,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb368-3"><a href="transformacion.html#cb368-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
 <span id="cb368-4"><a href="transformacion.html#cb368-4" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">size=</span><span class="dv">2</span>,<span class="fu">aes</span>(<span class="at">label=</span>dest), <span class="at">hjust=</span><span class="dv">1</span>, <span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
-<pre><code>## Warning: The following aesthetics were dropped during statistical
-## transformation: label
-## ℹ This can happen when ggplot fails to infer the correct grouping
-##   structure in the data.
-## ℹ Did you forget to specify a `group` aesthetic or to convert a
-##   numerical variable into a factor?</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and
+## formula = &#39;y ~ x&#39;</code></pre>
+<pre><code>## Warning: The following aesthetics were dropped during
+## statistical transformation: label
+## ℹ This can happen when ggplot fails to infer
+##   the correct grouping structure in the data.
+## ℹ Did you forget to specify a `group`
+##   aesthetic or to convert a numerical
+##   variable into a factor?</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-136-1.png" width="672" /></p>
 <hr />
 <ol start="5" style="list-style-type: decimal">
@@ -2574,8 +2589,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb373-2"><a href="transformacion.html#cb373-2" tabindex="-1"></a>  <span class="fu">group_by</span>(anio, mes, dia) <span class="sc">%&gt;%</span> </span>
 <span id="cb373-3"><a href="transformacion.html#cb373-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(atraso_salida))</span></code></pre></div>
 </details>
-<pre><code>## `summarise()` has grouped output by &#39;anio&#39;, &#39;mes&#39;. You can override
-## using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;anio&#39;,
+## &#39;mes&#39;. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 365 × 4
 ## # Groups:   anio, mes [12]
 ##     anio   mes   dia  mean
@@ -2596,8 +2612,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb376-2"><a href="transformacion.html#cb376-2" tabindex="-1"></a>  <span class="fu">group_by</span>(anio, mes, dia) <span class="sc">%&gt;%</span> </span>
 <span id="cb376-3"><a href="transformacion.html#cb376-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(atraso_salida, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
 </details>
-<pre><code>## `summarise()` has grouped output by &#39;anio&#39;, &#39;mes&#39;. You can override
-## using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;anio&#39;,
+## &#39;mes&#39;. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 365 × 4
 ## # Groups:   anio, mes [12]
 ##     anio   mes   dia  mean
@@ -12753,7 +12770,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb393-3"><a href="transformacion.html#cb393-3" tabindex="-1"></a><span class="fu">ggplot</span>(y, <span class="fu">aes</span>(y))<span class="sc">+</span></span>
 <span id="cb393-4"><a href="transformacion.html#cb393-4" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
 </details>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better
+## value with `binwidth`.</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-141-1.png" width="672" /></p>
 
 </div>
