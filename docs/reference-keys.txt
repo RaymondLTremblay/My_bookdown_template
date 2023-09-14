@@ -234,8 +234,7 @@ trabajando-variables-categóricas-con-leaflet
 math-sci
 ecuaciones-matemática
 matemática-y-física
-quimica-101-simbolos
+química-101-símbolos
 tipografica-de-reaciones
 otros-ejemplos-de-reacciones
-física
 biología

@@ -1,4 +1,4 @@
-# Ecuaciones Matematicas {#math-sci}
+# Ecuaciones Matemáticas {#math-sci}
 
 <!-- Required to number equations in HTML files -->
 <script type="text/x-mathjax-config">
@@ -80,7 +80,7 @@ $$
 $$
 -->
 
-## Quimica 101: Simbolos
+## Química 101: Símbolos
 
 
 Las fórmulas químicas se verán mejor si no están en cursiva. Evite la cursiva automática del modo matemático en LaTeX usando el argumento `$\mathrm{fórmula aquí}$`, con su fórmula dentro de las llaves. (Observe el uso de comillas invertidas aquí que encierran texto y que actúa como código para ver el script original).
@@ -92,22 +92,22 @@ Entonces, $\mathrm{Fe_2^{2+}Cr_2O_4}$ es escrito como `$\mathrm{Fe_2^{2+}Cr_2O_4
 The \noindent command below does what you'd expect:  it forces the current line/paragraph to not indent. This was done here to match the format of the LaTeX thesis PDF.
 -->
 
-\noindent Exponente or Sobrescrito: $\mathrm{O^-}$
+\noindent Exponente or Sobrescrito: $\mathrm{O^-}$ y se escribe como `$\mathrm{O^-}$`
 
-\noindent Subíndice: $\mathrm{CH_4}$
+\noindent Subíndice: $\mathrm{CH_4}$ y se escribe como `$\mathrm{CH_4}$`
 
-Para apilar números o letras como en $\mathrm{Fe_2^{2+}}$, primero se define el subíndice y luego el superíndice.
+Para apilar números o letras como en $\mathrm{Fe_2^{2+}}$, primero se define el subíndice y luego el superíndice y se escribe como `$\mathrm{Fe_2^{2+}}$`. 
 
 \noindent punto se usa la palabra **bullet**: CuCl $\bullet$ $\mathrm{7H_{2}O}$ `CuCl $\bullet$ $\mathrm{7H_{2}O}$`
 
 
-\noindent Delta: $\Delta$
+\noindent Delta: $\Delta$ y se escribe como `$\Delta$`
 
-\noindent Flecha de Reacción: $\longrightarrow$ or  $\xrightarrow{solution}$
+\noindent Flecha de Reacción: $\longrightarrow$ or  $\xrightarrow{solution}$ y se escribe como `$\longrightarrow$` or  `$\xrightarrow{solution}$`
 
-\noindent Flecha de Resonancia: $\leftrightarrow$
+\noindent Flecha de Resonancia: $\leftrightarrow$ y se escribe como `$\leftrightarrow$`
 
-\noindent Flechas de reacción reversibles: $\rightleftharpoons$
+\noindent Flechas de reacción reversibles: $\rightleftharpoons$ y se escribe como `$\rightleftharpoons$`
 
 ### Tipografica de reaciones
 
@@ -118,6 +118,14 @@ Es posible que desees poner tu reacción en un entorno de ecuaciones, lo que sig
   (\#eq:reaction)
 \end{equation}
 
+y se escribe como 
+
+````{verbatum}
+\begin{equation}
+  \mathrm{C_6H_{12}O_6  + 6O_2} \longrightarrow \mathrm{6CO_2 + 6H_2O}
+  (\#eq:reaction)
+\end{equation}
+````
 
 Podemos hacer referencia a esta reacción de combustión de glucosa mediante la ecuación \@ref(eq:reaction).
 
@@ -125,10 +133,15 @@ Podemos hacer referencia a esta reacción de combustión de glucosa mediante la 
 
 $\mathrm{NH_4Cl_{(s)}}$ $\rightleftharpoons$ $\mathrm{NH_{3(g)}+HCl_{(g)}}$
 
+y se esscribe como
+
+`$\mathrm{NH_4Cl_{(s)}}$ $\rightleftharpoons$ $\mathrm{NH_{3(g)}+HCl_{(g)}}$`
 
 \noindent $\mathrm{MeCH_2Br + Mg}$ $\xrightarrow[abajo]{ariba}$ $\mathrm{MeCH_2\bullet Mg \bullet Br}$
 
+y se escribe como 
 
+\noindent `$\mathrm{MeCH_2Br + Mg}$ $\xrightarrow[abajo]{ariba}$ $\mathrm{MeCH_2\bullet Mg \bullet Br}$`
 ## Física
 
 
