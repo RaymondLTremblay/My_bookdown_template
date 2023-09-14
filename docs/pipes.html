@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-09-12" />
+<meta name="date" content="2023-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -291,11 +291,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7" data-path="pipes.html"><a href="pipes.html"><i class="fa fa-check"></i><b>7</b> Pipes</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="pipes.html"><a href="pipes.html#temas-el-paquete-magrittr"><i class="fa fa-check"></i><b>7.1</b> Temas: El paquete “magrittr”</a></li>
-<li class="chapter" data-level="7.2" data-path="pipes.html"><a href="pipes.html#alternativas-a-los-pipes"><i class="fa fa-check"></i><b>7.2</b> Alternativas a los pipes</a></li>
-<li class="chapter" data-level="7.3" data-path="pipes.html"><a href="pipes.html#composición-de-funciones"><i class="fa fa-check"></i><b>7.3</b> Composición de funciones</a></li>
+<li class="chapter" data-level="7.2" data-path="pipes.html"><a href="pipes.html#pipes-1"><i class="fa fa-check"></i><b>7.2</b> %&gt;% pipes</a></li>
+<li class="chapter" data-level="7.3" data-path="pipes.html"><a href="pipes.html#alternativas-a-los-pipes"><i class="fa fa-check"></i><b>7.3</b> Alternativas a los pipes</a></li>
 <li class="chapter" data-level="7.4" data-path="pipes.html"><a href="pipes.html#uso-de-pipe"><i class="fa fa-check"></i><b>7.4</b> Uso de pipe</a></li>
-<li class="chapter" data-level="7.5" data-path="pipes.html"><a href="pipes.html#cuándo-no-usar-el-pipe"><i class="fa fa-check"></i><b>7.5</b> Cuándo no usar el pipe</a></li>
-<li class="chapter" data-level="7.6" data-path="pipes.html"><a href="pipes.html#otras-herramientas-de-magrittr"><i class="fa fa-check"></i><b>7.6</b> Otras herramientas de magrittr</a></li>
+<li class="chapter" data-level="7.5" data-path="pipes.html"><a href="pipes.html#section-1"><i class="fa fa-check"></i><b>7.5</b> %$%</a></li>
+<li class="chapter" data-level="7.6" data-path="pipes.html"><a href="pipes.html#section-2"><i class="fa fa-check"></i><b>7.6</b> %&lt;&gt;%</a></li>
+<li class="chapter" data-level="7.7" data-path="pipes.html"><a href="pipes.html#section-3"><i class="fa fa-check"></i><b>7.7</b> %&lt;&gt;%</a></li>
+<li class="chapter" data-level="7.8" data-path="pipes.html"><a href="pipes.html#in"><i class="fa fa-check"></i><b>7.8</b> %in%</a></li>
+<li class="chapter" data-level="7.9" data-path="pipes.html"><a href="pipes.html#t"><i class="fa fa-check"></i><b>7.9</b> %T&gt;%</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="tibbles.html"><a href="tibbles.html"><i class="fa fa-check"></i><b>8</b> Tibbles</a>
 <ul>
@@ -470,8 +473,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="pipes" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">Chapter 7</span> Pipes<a href="pipes.html#pipes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Fecha de la ultima revisión</p>
-<pre><code>## [1] &quot;2023-09-12&quot;</code></pre>
+<pre><code>## [1] &quot;2023-09-14&quot;</code></pre>
 <hr />
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="pipes.html#cb406-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+</details>
 <p>El tema proviene de los siguientes sitios.</p>
 <p>English:
 <a href="https://r4ds.had.co.nz/pipes.html" class="uri">https://r4ds.had.co.nz/pipes.html</a></p>
@@ -480,38 +486,27 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <div id="temas-el-paquete-magrittr" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> Temas: El paquete “magrittr”<a href="pipes.html#temas-el-paquete-magrittr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>%&gt;% pipes</li>
-</ul>
+</div>
+<div id="pipes-1" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> %&gt;% pipes<a href="pipes.html#pipes-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <hr />
 </div>
-<div id="alternativas-a-los-pipes" class="section level2 hasAnchor" number="7.2">
-<h2><span class="header-section-number">7.2</span> Alternativas a los pipes<a href="pipes.html#alternativas-a-los-pipes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="alternativas-a-los-pipes" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Alternativas a los pipes<a href="pipes.html#alternativas-a-los-pipes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Pasos intermedios</li>
 <li>Sobre escribir el original</li>
 </ul>
-</div>
-<div id="composición-de-funciones" class="section level2 hasAnchor" number="7.3">
-<h2><span class="header-section-number">7.3</span> Composición de funciones<a href="pipes.html#composición-de-funciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <hr />
 </div>
 <div id="uso-de-pipe" class="section level2 hasAnchor" number="7.4">
 <h2><span class="header-section-number">7.4</span> Uso de pipe<a href="pipes.html#uso-de-pipe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <hr />
 </div>
-<div id="cuándo-no-usar-el-pipe" class="section level2 hasAnchor" number="7.5">
-<h2><span class="header-section-number">7.5</span> Cuándo no usar el pipe<a href="pipes.html#cuándo-no-usar-el-pipe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<hr />
-</div>
-<div id="otras-herramientas-de-magrittr" class="section level2 hasAnchor" number="7.6">
-<h2><span class="header-section-number">7.6</span> Otras herramientas de magrittr<a href="pipes.html#otras-herramientas-de-magrittr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>%T&gt;%</li>
-<li>%$%</li>
-</ul>
+<div id="section-1" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> %$%<a href="pipes.html#section-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="pipes.html#cb402-1" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="pipes.html#cb407-1" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span></code></pre></div>
 </details>
 <pre><code>## 
 ## Attaching package: &#39;magrittr&#39;</code></pre>
@@ -522,17 +517,63 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ##     extract</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="pipes.html#cb406-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb406-2"><a href="pipes.html#cb406-2" tabindex="-1"></a>  <span class="fu">subset</span>(Sepal.Length <span class="sc">&gt;</span> <span class="fu">mean</span>(Sepal.Length)) <span class="sc">%$%</span></span>
-<span id="cb406-3"><a href="pipes.html#cb406-3" tabindex="-1"></a>  <span class="fu">cor</span>(Sepal.Length, Sepal.Width)</span></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="pipes.html#cb411-1" tabindex="-1"></a><span class="co">#iris %&gt;%</span></span>
+<span id="cb411-2"><a href="pipes.html#cb411-2" tabindex="-1"></a><span class="co">#  subset(Sepal.Length &gt; mean(Sepal.Length)) |&gt; </span></span>
+<span id="cb411-3"><a href="pipes.html#cb411-3" tabindex="-1"></a><span class="co">#  cor(Sepal.Length, Sepal.Width)</span></span>
+<span id="cb411-4"><a href="pipes.html#cb411-4" tabindex="-1"></a></span>
+<span id="cb411-5"><a href="pipes.html#cb411-5" tabindex="-1"></a></span>
+<span id="cb411-6"><a href="pipes.html#cb411-6" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb411-7"><a href="pipes.html#cb411-7" tabindex="-1"></a>  <span class="fu">subset</span>(Sepal.Length <span class="sc">&gt;</span> <span class="fu">mean</span>(Sepal.Length)) <span class="sc">%$%</span></span>
+<span id="cb411-8"><a href="pipes.html#cb411-8" tabindex="-1"></a> <span class="fu">cor</span>(Sepal.Length, Sepal.Width)</span></code></pre></div>
 </details>
 <pre><code>## [1] 0.3361992</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="pipes.html#cb413-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb413-2"><a href="pipes.html#cb413-2" tabindex="-1"></a>  <span class="fu">subset</span>(Sepal.Length <span class="sc">&gt;</span> <span class="fu">mean</span>(Sepal.Length)) <span class="sc">|&gt;</span> </span>
+<span id="cb413-3"><a href="pipes.html#cb413-3" tabindex="-1"></a><span class="fu">summarize</span>(<span class="at">corr=</span> <span class="fu">cor</span>(Sepal.Length, Sepal.Width))</span></code></pre></div>
+</details>
+<pre><code>##        corr
+## 1 0.3361992</code></pre>
+<p>Otro ejemplo de %$%</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="pipes.html#cb415-1" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">z =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)) <span class="sc">%$%</span> </span>
+<span id="cb415-2"><a href="pipes.html#cb415-2" tabindex="-1"></a>  <span class="fu">ts.plot</span>(z)</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-149-1.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="pipes.html#cb416-1" tabindex="-1"></a><span class="co">#data.frame(z = rnorm(100)) |&gt;  </span></span>
+<span id="cb416-2"><a href="pipes.html#cb416-2" tabindex="-1"></a><span class="co">#  ts.plot(z)</span></span>
+<span id="cb416-3"><a href="pipes.html#cb416-3" tabindex="-1"></a></span>
+<span id="cb416-4"><a href="pipes.html#cb416-4" tabindex="-1"></a><span class="co">#Para hacerlo la misma grafico con Tidyverse</span></span>
+<span id="cb416-5"><a href="pipes.html#cb416-5" tabindex="-1"></a>z1<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">z =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)) </span>
+<span id="cb416-6"><a href="pipes.html#cb416-6" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb416-7"><a href="pipes.html#cb416-7" tabindex="-1"></a>z1<span class="ot">=</span><span class="fu">data.table</span>(z1)</span>
+<span id="cb416-8"><a href="pipes.html#cb416-8" tabindex="-1"></a>z1<span class="sc">$</span>order<span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)</span>
+<span id="cb416-9"><a href="pipes.html#cb416-9" tabindex="-1"></a>z1<span class="sc">|&gt;</span> </span>
+<span id="cb416-10"><a href="pipes.html#cb416-10" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(order, z))<span class="sc">+</span></span>
+<span id="cb416-11"><a href="pipes.html#cb416-11" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-149-2.png" width="672" /></p>
+</div>
+<div id="section-2" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> %&lt;&gt;%<a href="pipes.html#section-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Pipe an object forward into a function or call expression and update the lhs object with the resulting value.</p>
+<p>lhs %&lt;&gt;% rhs</p>
 <ul>
-<li>%&lt;&gt;%</li>
+<li><p>lhs : An object which serves both as the initial value and as target.</p></li>
+<li><p>rhs : a function call using the magrittr semantics.</p></li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="pipes.html#cb408-1" tabindex="-1"></a><span class="co"># Example 1</span></span>
-<span id="cb408-2"><a href="pipes.html#cb408-2" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="pipes.html#cb417-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>)</span>
+<span id="cb417-2"><a href="pipes.html#cb417-2" tabindex="-1"></a></span>
+<span id="cb417-3"><a href="pipes.html#cb417-3" tabindex="-1"></a>x <span class="sc">%&lt;&gt;%</span> abs <span class="sc">%&gt;%</span> sort</span></code></pre></div>
+</details>
+</div>
+<div id="section-3" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> %&lt;&gt;%<a href="pipes.html#section-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="pipes.html#cb418-1" tabindex="-1"></a><span class="co"># Example 1</span></span>
+<span id="cb418-2"><a href="pipes.html#cb418-2" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
 </details>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
@@ -542,31 +583,64 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="pipes.html#cb410-1" tabindex="-1"></a><span class="fu">head</span>(iris<span class="sc">$</span>Sepal.Length <span class="sc">%&lt;&gt;%</span> sqrt)</span></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="pipes.html#cb420-1" tabindex="-1"></a><span class="fu">head</span>(iris<span class="sc">$</span>Sepal.Length <span class="sc">%&lt;&gt;%</span> sqrt)</span></code></pre></div>
 </details>
 <pre><code>## [1] 2.258318 2.213594 2.167948 2.144761 2.236068 2.323790</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="pipes.html#cb412-1" tabindex="-1"></a><span class="co"># Example 2</span></span>
-<span id="cb412-2"><a href="pipes.html#cb412-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb412-3"><a href="pipes.html#cb412-3" tabindex="-1"></a><span class="fu">head</span>(x, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="pipes.html#cb422-1" tabindex="-1"></a><span class="co"># Example 2</span></span>
+<span id="cb422-2"><a href="pipes.html#cb422-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb422-3"><a href="pipes.html#cb422-3" tabindex="-1"></a><span class="fu">head</span>(x, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
 </details>
-<pre><code>##  [1]  1.4404800 -0.7195761  0.6709784 -0.4219485  0.3782196 -1.6665864
-##  [7] -0.5082030  0.4433822 -1.7993868 -0.6179521</code></pre>
+<pre><code>##  [1]  0.4240919  0.3616786  0.5807728 -0.5458046 -1.5748044 -0.6077700
+##  [7]  1.3412775 -1.1753209  0.9223045 -0.5408022</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="pipes.html#cb414-1" tabindex="-1"></a>x <span class="sc">%&lt;&gt;%</span> </span>
-<span id="cb414-2"><a href="pipes.html#cb414-2" tabindex="-1"></a>  abs <span class="sc">%&gt;%</span> </span>
-<span id="cb414-3"><a href="pipes.html#cb414-3" tabindex="-1"></a>  sort</span>
-<span id="cb414-4"><a href="pipes.html#cb414-4" tabindex="-1"></a></span>
-<span id="cb414-5"><a href="pipes.html#cb414-5" tabindex="-1"></a><span class="fu">head</span>(x, <span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="pipes.html#cb424-1" tabindex="-1"></a>x <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb424-2"><a href="pipes.html#cb424-2" tabindex="-1"></a>  abs <span class="sc">%&gt;%</span> </span>
+<span id="cb424-3"><a href="pipes.html#cb424-3" tabindex="-1"></a>  sort</span>
+<span id="cb424-4"><a href="pipes.html#cb424-4" tabindex="-1"></a></span>
+<span id="cb424-5"><a href="pipes.html#cb424-5" tabindex="-1"></a><span class="fu">head</span>(x, <span class="dv">20</span>)</span></code></pre></div>
 </details>
-<pre><code>##  [1] 0.03262862 0.05212281 0.06958002 0.11127638 0.13375663 0.14755503
-##  [7] 0.15261108 0.16725385 0.18112962 0.18935937 0.19254623 0.20008289
-## [13] 0.20439512 0.22376997 0.23962135 0.23978737 0.25172508 0.27016891
-## [19] 0.29397608 0.29871206</code></pre>
+<pre><code>##  [1] 0.01837830 0.02796914 0.06272893 0.06845718 0.07382441 0.07525013
+##  [7] 0.08338114 0.10110528 0.11813463 0.11978787 0.12161264 0.15032197
+## [13] 0.15630041 0.17881177 0.18262040 0.18628753 0.20490935 0.24295029
+## [19] 0.24501862 0.28038512</code></pre>
 <hr />
+</div>
+<div id="in" class="section level2 hasAnchor" number="7.8">
+<h2><span class="header-section-number">7.8</span> %in%<a href="pipes.html#in" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>%in%</li>
+<li>Filter for values specific values within a variable</li>
 </ul>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="pipes.html#cb426-1" tabindex="-1"></a><span class="co"># Example 1</span></span>
+<span id="cb426-2"><a href="pipes.html#cb426-2" tabindex="-1"></a><span class="fu">names</span>(iris)</span></code></pre></div>
+</details>
+<pre><code>## [1] &quot;Sepal.Length&quot; &quot;Sepal.Width&quot;  &quot;Petal.Length&quot; &quot;Petal.Width&quot;  &quot;Species&quot;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="pipes.html#cb428-1" tabindex="-1"></a>iris <span class="sc">|&gt;</span> </span>
+<span id="cb428-2"><a href="pipes.html#cb428-2" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;setosa&quot;</span>, <span class="st">&quot;virginica&quot;</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb428-3"><a href="pipes.html#cb428-3" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+</details>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1     2.258318         3.5          1.4         0.2  setosa
+## 2     2.213594         3.0          1.4         0.2  setosa
+## 3     2.167948         3.2          1.3         0.2  setosa
+## 4     2.144761         3.1          1.5         0.2  setosa
+## 5     2.236068         3.6          1.4         0.2  setosa
+## 6     2.323790         3.9          1.7         0.4  setosa</code></pre>
+</div>
+<div id="t" class="section level2 hasAnchor" number="7.9">
+<h2><span class="header-section-number">7.9</span> %T&gt;%<a href="pipes.html#t" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The tee pipe, %T&gt;%, is useful when a series of operations have a function that does not return any value.</p>
+<p><a href="https://stackoverflow.com/questions/61196304/magrittr-tee-pipe-t-equivalent" class="uri">https://stackoverflow.com/questions/61196304/magrittr-tee-pipe-t-equivalent</a></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="pipes.html#cb430-1" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">200</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb430-2"><a href="pipes.html#cb430-2" tabindex="-1"></a><span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">%T&gt;%</span></span>
+<span id="cb430-3"><a href="pipes.html#cb430-3" tabindex="-1"></a>plot <span class="sc">%&gt;%</span>  <span class="co"># plot usually does not return anything. </span></span>
+<span id="cb430-4"><a href="pipes.html#cb430-4" tabindex="-1"></a>colSums</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-153-1.png" width="672" /></p>
+<pre><code>## [1] -9.241484  1.825432</code></pre>
 
 </div>
 </div>

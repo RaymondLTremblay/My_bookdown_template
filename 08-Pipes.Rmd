@@ -9,6 +9,12 @@ Sys.Date()
 
 ***
 
+```{r}
+library(tidyverse)
+```
+
+
+
 El tema proviene de los siguientes sitios.
 
 English:
@@ -23,7 +29,7 @@ Español:
 
 ## Temas: El paquete "magrittr"
 
- - %>% pipes
+## %>% pipes
  
  
 ***
@@ -33,29 +39,83 @@ Español:
  - Pasos intermedios
  - Sobre escribir el original
  
-## Composición de funciones
+
 
 ***
 ## Uso de pipe
 
-***
-## Cuándo no usar el pipe
 
 ***
-## Otras herramientas de magrittr
-
- - %T>%
- - %$%
+ 
+ 
+ 
+ 
+ 
+ 
+## %$%
  
 ```{r}
 library(magrittr)
 
+#iris %>%
+#  subset(Sepal.Length > mean(Sepal.Length)) |> 
+#  cor(Sepal.Length, Sepal.Width)
+
+
 iris %>%
   subset(Sepal.Length > mean(Sepal.Length)) %$%
-  cor(Sepal.Length, Sepal.Width)
+ cor(Sepal.Length, Sepal.Width)
+
+iris %>%
+  subset(Sepal.Length > mean(Sepal.Length)) |> 
+summarize(corr= cor(Sepal.Length, Sepal.Width))
+
 ```
  
-  - %<>%
+ 
+ Otro ejemplo de %$%
+ 
+```{r}
+data.frame(z = rnorm(100)) %$% 
+  ts.plot(z)
+
+#data.frame(z = rnorm(100)) |>  
+#  ts.plot(z)
+
+#Para hacerlo la misma grafico con Tidyverse
+z1=data.frame(z = rnorm(100)) 
+library(data.table)
+z1=data.table(z1)
+z1$order= c(1:100)
+z1|> 
+  ggplot(aes(order, z))+
+  geom_line()
+
+
+```
+ 
+ 
+## %<>%
+  
+  Pipe an object forward into a function or call expression and update the lhs object with the resulting value.
+  
+  lhs %<>% rhs
+  
+  
+ - lhs : An object which serves both as the initial value and as target.
+
+ - rhs : a function call using the magrittr semantics.
+ 
+ 
+ 
+```{r}
+x <- rnorm(50)
+
+x %<>% abs %>% sort
+```
+ 
+## %<>% 
+ 
  
 ```{r}
 
@@ -79,7 +139,46 @@ head(x, 20)
  
  ***
 
- - %in% 
+## %in% 
+
+ - Filter for values specific values within a variable
+ 
+ 
+```{r}
+
+# Example 1
+names(iris)
+iris |> 
+  filter(Species %in% c("setosa", "virginica")) |> 
+  head()
+
+
+
+
+
+```
+ 
+ 
+
+## %T>%
+
+The tee pipe, %T>%, is useful when a series of operations have a function that does not return any value. 
+
+https://stackoverflow.com/questions/61196304/magrittr-tee-pipe-t-equivalent
+
+
+ 
+```{r}
+rnorm(200) %>%
+matrix(ncol = 2) %T>%
+plot %>%  # plot usually does not return anything. 
+colSums
+```
+ 
+ 
+ 
+ 
+ 
  
  
  

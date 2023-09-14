@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-09-12" />
+<meta name="date" content="2023-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -291,11 +291,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7" data-path="pipes.html"><a href="pipes.html"><i class="fa fa-check"></i><b>7</b> Pipes</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="pipes.html"><a href="pipes.html#temas-el-paquete-magrittr"><i class="fa fa-check"></i><b>7.1</b> Temas: El paquete “magrittr”</a></li>
-<li class="chapter" data-level="7.2" data-path="pipes.html"><a href="pipes.html#alternativas-a-los-pipes"><i class="fa fa-check"></i><b>7.2</b> Alternativas a los pipes</a></li>
-<li class="chapter" data-level="7.3" data-path="pipes.html"><a href="pipes.html#composición-de-funciones"><i class="fa fa-check"></i><b>7.3</b> Composición de funciones</a></li>
+<li class="chapter" data-level="7.2" data-path="pipes.html"><a href="pipes.html#pipes-1"><i class="fa fa-check"></i><b>7.2</b> %&gt;% pipes</a></li>
+<li class="chapter" data-level="7.3" data-path="pipes.html"><a href="pipes.html#alternativas-a-los-pipes"><i class="fa fa-check"></i><b>7.3</b> Alternativas a los pipes</a></li>
 <li class="chapter" data-level="7.4" data-path="pipes.html"><a href="pipes.html#uso-de-pipe"><i class="fa fa-check"></i><b>7.4</b> Uso de pipe</a></li>
-<li class="chapter" data-level="7.5" data-path="pipes.html"><a href="pipes.html#cuándo-no-usar-el-pipe"><i class="fa fa-check"></i><b>7.5</b> Cuándo no usar el pipe</a></li>
-<li class="chapter" data-level="7.6" data-path="pipes.html"><a href="pipes.html#otras-herramientas-de-magrittr"><i class="fa fa-check"></i><b>7.6</b> Otras herramientas de magrittr</a></li>
+<li class="chapter" data-level="7.5" data-path="pipes.html"><a href="pipes.html#section-1"><i class="fa fa-check"></i><b>7.5</b> %$%</a></li>
+<li class="chapter" data-level="7.6" data-path="pipes.html"><a href="pipes.html#section-2"><i class="fa fa-check"></i><b>7.6</b> %&lt;&gt;%</a></li>
+<li class="chapter" data-level="7.7" data-path="pipes.html"><a href="pipes.html#section-3"><i class="fa fa-check"></i><b>7.7</b> %&lt;&gt;%</a></li>
+<li class="chapter" data-level="7.8" data-path="pipes.html"><a href="pipes.html#in"><i class="fa fa-check"></i><b>7.8</b> %in%</a></li>
+<li class="chapter" data-level="7.9" data-path="pipes.html"><a href="pipes.html#t"><i class="fa fa-check"></i><b>7.9</b> %T&gt;%</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="tibbles.html"><a href="tibbles.html"><i class="fa fa-check"></i><b>8</b> Tibbles</a>
 <ul>
@@ -477,32 +480,32 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="leen-bien-lo-que-estoy-pidiendo.-el-nombre-de-las-columnas-pueden-engañar" class="section level3 unnumbered hasAnchor">
 <h3>LEEN bien lo que estoy pidiendo. El nombre de las columnas pueden engañar!!!<a href="appendix-ejercicios-2.html#leen-bien-lo-que-estoy-pidiendo.-el-nombre-de-las-columnas-pueden-engañar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb927"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb927-1"><a href="appendix-ejercicios-2.html#cb927-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb927-2"><a href="appendix-ejercicios-2.html#cb927-2" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb927-3"><a href="appendix-ejercicios-2.html#cb927-3" tabindex="-1"></a>url_COVID_PR<span class="ot">=</span><span class="fu">fread</span>(<span class="st">&quot;https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb943"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb943-1"><a href="appendix-ejercicios-2.html#cb943-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb943-2"><a href="appendix-ejercicios-2.html#cb943-2" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb943-3"><a href="appendix-ejercicios-2.html#cb943-3" tabindex="-1"></a>url_COVID_PR<span class="ot">=</span><span class="fu">fread</span>(<span class="st">&quot;https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv&quot;</span>)</span></code></pre></div>
 </details>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb928"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb928-1"><a href="appendix-ejercicios-2.html#cb928-1" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb928-2"><a href="appendix-ejercicios-2.html#cb928-2" tabindex="-1"></a>Covid<span class="ot">=</span>url_COVID_PR</span>
-<span id="cb928-3"><a href="appendix-ejercicios-2.html#cb928-3" tabindex="-1"></a><span class="fu">gt</span>(<span class="fu">tail</span>(Covid, <span class="at">n=</span><span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb944"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb944-1"><a href="appendix-ejercicios-2.html#cb944-1" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb944-2"><a href="appendix-ejercicios-2.html#cb944-2" tabindex="-1"></a>Covid<span class="ot">=</span>url_COVID_PR</span>
+<span id="cb944-3"><a href="appendix-ejercicios-2.html#cb944-3" tabindex="-1"></a><span class="fu">gt</span>(<span class="fu">tail</span>(Covid, <span class="at">n=</span><span class="dv">2</span>))</span></code></pre></div>
 </details>
-<div id="qlkdacfghx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qlkdacfghx table {
+<div id="yltkhjopob" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#yltkhjopob table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qlkdacfghx thead, #qlkdacfghx tbody, #qlkdacfghx tfoot, #qlkdacfghx tr, #qlkdacfghx td, #qlkdacfghx th {
+#yltkhjopob thead, #yltkhjopob tbody, #yltkhjopob tfoot, #yltkhjopob tr, #yltkhjopob td, #yltkhjopob th {
   border-style: none;
 }
 
-#qlkdacfghx p {
+#yltkhjopob p {
   margin: 0;
   padding: 0;
 }
 
-#qlkdacfghx .gt_table {
+#yltkhjopob .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -528,12 +531,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-left-color: #D3D3D3;
 }
 
-#qlkdacfghx .gt_caption {
+#yltkhjopob .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qlkdacfghx .gt_title {
+#yltkhjopob .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -545,7 +548,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-width: 0;
 }
 
-#qlkdacfghx .gt_subtitle {
+#yltkhjopob .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -557,7 +560,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-top-width: 0;
 }
 
-#qlkdacfghx .gt_heading {
+#yltkhjopob .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -569,13 +572,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#qlkdacfghx .gt_bottom_border {
+#yltkhjopob .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qlkdacfghx .gt_col_headings {
+#yltkhjopob .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -590,7 +593,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#qlkdacfghx .gt_col_heading {
+#yltkhjopob .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -610,7 +613,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#qlkdacfghx .gt_column_spanner_outer {
+#yltkhjopob .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -622,15 +625,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 4px;
 }
 
-#qlkdacfghx .gt_column_spanner_outer:first-child {
+#yltkhjopob .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qlkdacfghx .gt_column_spanner_outer:last-child {
+#yltkhjopob .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qlkdacfghx .gt_column_spanner {
+#yltkhjopob .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -642,11 +645,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   width: 100%;
 }
 
-#qlkdacfghx .gt_spanner_row {
+#yltkhjopob .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qlkdacfghx .gt_group_heading {
+#yltkhjopob .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -672,7 +675,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   text-align: left;
 }
 
-#qlkdacfghx .gt_empty_group_heading {
+#yltkhjopob .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -687,15 +690,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-#qlkdacfghx .gt_from_md > :first-child {
+#yltkhjopob .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qlkdacfghx .gt_from_md > :last-child {
+#yltkhjopob .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qlkdacfghx .gt_row {
+#yltkhjopob .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -714,7 +717,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#qlkdacfghx .gt_stub {
+#yltkhjopob .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -727,7 +730,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#qlkdacfghx .gt_stub_row_group {
+#yltkhjopob .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -741,15 +744,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: top;
 }
 
-#qlkdacfghx .gt_row_group_first td {
+#yltkhjopob .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qlkdacfghx .gt_row_group_first th {
+#yltkhjopob .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qlkdacfghx .gt_summary_row {
+#yltkhjopob .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -759,16 +762,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#qlkdacfghx .gt_first_summary_row {
+#yltkhjopob .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qlkdacfghx .gt_first_summary_row.thick {
+#yltkhjopob .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qlkdacfghx .gt_last_summary_row {
+#yltkhjopob .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -778,7 +781,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-#qlkdacfghx .gt_grand_summary_row {
+#yltkhjopob .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -788,7 +791,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#qlkdacfghx .gt_first_grand_summary_row {
+#yltkhjopob .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -798,7 +801,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-#qlkdacfghx .gt_last_grand_summary_row_top {
+#yltkhjopob .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -808,11 +811,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-#qlkdacfghx .gt_striped {
+#yltkhjopob .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qlkdacfghx .gt_table_body {
+#yltkhjopob .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -821,7 +824,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-#qlkdacfghx .gt_footnotes {
+#yltkhjopob .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -835,7 +838,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#qlkdacfghx .gt_footnote {
+#yltkhjopob .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -844,7 +847,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#qlkdacfghx .gt_sourcenotes {
+#yltkhjopob .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -858,7 +861,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#qlkdacfghx .gt_sourcenote {
+#yltkhjopob .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -866,63 +869,63 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#qlkdacfghx .gt_left {
+#yltkhjopob .gt_left {
   text-align: left;
 }
 
-#qlkdacfghx .gt_center {
+#yltkhjopob .gt_center {
   text-align: center;
 }
 
-#qlkdacfghx .gt_right {
+#yltkhjopob .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qlkdacfghx .gt_font_normal {
+#yltkhjopob .gt_font_normal {
   font-weight: normal;
 }
 
-#qlkdacfghx .gt_font_bold {
+#yltkhjopob .gt_font_bold {
   font-weight: bold;
 }
 
-#qlkdacfghx .gt_font_italic {
+#yltkhjopob .gt_font_italic {
   font-style: italic;
 }
 
-#qlkdacfghx .gt_super {
+#yltkhjopob .gt_super {
   font-size: 65%;
 }
 
-#qlkdacfghx .gt_footnote_marks {
+#yltkhjopob .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qlkdacfghx .gt_asterisk {
+#yltkhjopob .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qlkdacfghx .gt_indent_1 {
+#yltkhjopob .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qlkdacfghx .gt_indent_2 {
+#yltkhjopob .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qlkdacfghx .gt_indent_3 {
+#yltkhjopob .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qlkdacfghx .gt_indent_4 {
+#yltkhjopob .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qlkdacfghx .gt_indent_5 {
+#yltkhjopob .gt_indent_5 {
   text-indent: 25px;
 }
 </style>

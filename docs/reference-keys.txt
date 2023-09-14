@@ -131,11 +131,14 @@ dos-variables-continuas
 patrones-y-modelos
 pipes
 temas-el-paquete-magrittr
+pipes-1
 alternativas-a-los-pipes
-composición-de-funciones
 uso-de-pipe
-cuándo-no-usar-el-pipe
-otras-herramientas-de-magrittr
+section-1
+section-2
+section-3
+in
+t
 tibbles
 temas-el-paquete-tibble
 crear-un-tibble
