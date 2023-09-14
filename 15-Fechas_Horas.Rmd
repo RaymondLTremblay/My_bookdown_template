@@ -405,7 +405,7 @@ dyears(1)
 ```
  
  
- # Puede agragar periodos de tiempo
+## Puede agragar periodos de tiempo
  
  
  

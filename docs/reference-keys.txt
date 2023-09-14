@@ -135,10 +135,10 @@ pipes
 temas-el-paquete-magrittr
 pipes-1
 alternativas-a-los-pipes
-uso-de-pipe
+el-uso-de-lo-tipos-de-pipe
 section-1
+otro-ejemplo-de
 section-2
-section-3
 in
 t
 tibbles
@@ -221,6 +221,7 @@ crear-una-fecha-desde-columnas-individuales
 extrayendo-parte-de-las-fecha-hora
 lapso-de-tiempo
 duraciones
+puede-agragar-periodos-de-tiempo
 períodos
 multiplicaciones-y-sumas-de-fechas
 períodos-1
@@ -235,6 +236,6 @@ math-sci
 ecuaciones-matemática
 matemática-y-física
 química-101-símbolos
-tipografica-de-reaciones
+típografica-de-reaciones
 otros-ejemplos-de-reacciones
 biología

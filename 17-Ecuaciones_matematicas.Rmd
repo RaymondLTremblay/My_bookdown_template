@@ -109,7 +109,7 @@ Para apilar números o letras como en $\mathrm{Fe_2^{2+}}$, primero se define el
 
 \noindent Flechas de reacción reversibles: $\rightleftharpoons$ y se escribe como `$\rightleftharpoons$`
 
-### Tipografica de reaciones
+### Típografica de reaciones
 
 Es posible que desees poner tu reacción en un entorno de ecuaciones, lo que significa que LaTeX colocará la reacción donde encaje y numerará las ecuaciones por ti. 
 

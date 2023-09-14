@@ -9,7 +9,7 @@ Sys.Date()
 
 ***
 
-# Titulo Grande
+## Titulo Grande
 
 nbgf/lkshvdhgv'o
 
@@ -192,7 +192,8 @@ LOTS of text here to wrap around the figure.  dfghjlkjhgdgxchvbvcxcvbnnbvvbvbbvc
 
 
 
-# Haga un re-order por la cantidad de personas por religion
+## Haga un re-order por la cantidad de personas por religion
+
 ```{r, fig.ncol = 2}
 df2=encuesta %>% 
    count(religion)

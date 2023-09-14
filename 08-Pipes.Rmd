@@ -11,6 +11,7 @@ Sys.Date()
 
 ```{r}
 library(tidyverse)
+library(magrittr)
 ```
 
 
@@ -27,10 +28,36 @@ Español:
 ***
 
 
-## Temas: El paquete "magrittr"
+## Temas: El paquete "magrittr" 
+
+
 
 ## %>% pipes
- 
+
+
+Un ejemplo basico del pipe
+
+```{r}
+car_data <- 
+  mtcars %>%
+  subset(hp > 100) %>%
+  aggregate(. ~ cyl, data = ., FUN = . %>% mean %>% round(2)) %>%
+  transform(kpl = mpg %>% multiply_by(0.4251)) %>%
+  print
+```
+
+Un jemplo sin usar el pipe
+
+```{r}
+car_data <- 
+  transform(aggregate(. ~ cyl, 
+                      data = subset(mtcars, hp > 100), 
+                      FUN = function(x) round(mean(x), 2)), 
+                      kpl = mpg*0.4251)
+
+car_data
+```
+
  
 ***
 
@@ -42,16 +69,11 @@ Español:
 
 
 ***
-## Uso de pipe
+## El uso de lo tipos de **Pipe**
 
 
 ***
- 
- 
- 
- 
- 
- 
+
 ## %$%
  
 ```{r}
@@ -73,7 +95,7 @@ summarize(corr= cor(Sepal.Length, Sepal.Width))
 ```
  
  
- Otro ejemplo de %$%
+### Otro ejemplo de %$%
  
 ```{r}
 data.frame(z = rnorm(100)) %$% 
@@ -93,8 +115,9 @@ z1|>
 
 
 ```
- 
- 
+
+*** 
+
 ## %<>%
   
   Pipe an object forward into a function or call expression and update the lhs object with the resulting value.
@@ -106,15 +129,7 @@ z1|>
 
  - rhs : a function call using the magrittr semantics.
  
- 
- 
-```{r}
-x <- rnorm(50)
 
-x %<>% abs %>% sort
-```
- 
-## %<>% 
  
  
 ```{r}
@@ -137,7 +152,7 @@ head(x, 20)
 ```
  
  
- ***
+***
 
 ## %in% 
 
@@ -158,7 +173,7 @@ iris |>
 
 ```
  
- 
+***
 
 ## %T>%
 
