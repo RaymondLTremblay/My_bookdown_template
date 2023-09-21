@@ -1,5 +1,9 @@
 eq:reaction
 eq:promedio
+fig:unnamed-chunk-300
+fig:unnamed-chunk-301
+fig:unnamed-chunk-302
+fig:pressure
 ciencia-de-datos-con-r
 horario-de-clase
 libros-sugeridos
@@ -195,11 +199,6 @@ divisiones
 otro-tipos-de-patrones
 stringi
 factores-1
-titulo-grande
-titulo-mediano
-titulo-pequeño
-titulo-mini
-titulo
 temas-4
 datos-encuesta-social-general
 a-smaller-figure-to-the-right-with-floating-text
@@ -239,3 +238,6 @@ química-101-símbolos
 típografica-de-reaciones
 otros-ejemplos-de-reacciones
 biología
+opciones-de-knitr
+r-markdown-wrapping
+otras-funciones-de-knitr

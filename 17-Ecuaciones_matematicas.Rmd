@@ -98,10 +98,19 @@ The \noindent command below does what you'd expect:  it forces the current line/
 
 Para apilar números o letras como en $\mathrm{Fe_2^{2+}}$, primero se define el subíndice y luego el superíndice y se escribe como `$\mathrm{Fe_2^{2+}}$`. 
 
-\noindent punto se usa la palabra **bullet**: CuCl $\bullet$ $\mathrm{7H_{2}O}$ `CuCl $\bullet$ $\mathrm{7H_{2}O}$`
+\noindent punto se usa la palabra **bullet**: CuCl $\bullet$ $\mathrm{7H_{2}O}$ 
 
 
-\noindent Delta: $\Delta$ y se escribe como `$\Delta$`
+`CuCl $\bullet$ $\mathrm{7H_{2}O}$`
+
+
+\noindent Delta: $\Delta$ y se escribe como `$\Delta
+
+$\Gamma$
+
+$\gamma$
+
+Aqui esta mi super formula de $\phi$ que voy a usar en el exam
 
 \noindent Flecha de Reacción: $\longrightarrow$ or  $\xrightarrow{solution}$ y se escribe como `$\longrightarrow$` or  `$\xrightarrow{solution}$`
 
@@ -113,10 +122,14 @@ Para apilar números o letras como en $\mathrm{Fe_2^{2+}}$, primero se define el
 
 Es posible que desees poner tu reacción en un entorno de ecuaciones, lo que significa que LaTeX colocará la reacción donde encaje y numerará las ecuaciones por ti. 
 
+
 \begin{equation}
   \mathrm{C_6H_{12}O_6  + 6O_2} \longrightarrow \mathrm{6CO_2 + 6H_2O}
   (\#eq:reaction)
 \end{equation}
+
+
+
 
 y se escribe como 
 
@@ -162,7 +175,7 @@ $\mu=\frac{\sum{x}_{i}}{n}$ se escribe asi `$\mu=\frac{\sum{x}_{i}}{n}$`
 NOTE la diferencia en tipo de letra 
 
 
-$\mathrm{\mu=\frac{\sum{x}_{i}}{n}}$
+$\mathrm{\mu=\frac{\sum{x}_{i}}{n}}$ se escribe asi `$\mathrm{\mu=\frac{\sum{x}_{i}}{n}}$`
 
 
 \begin{equation}
@@ -170,6 +183,8 @@ $\mathrm{\mu=\frac{\sum{x}_{i}}{n}}$
   (\#eq:promedio)
 \end{equation}
 
+
+$s^{2}=\frac{\sum (x_{i}-\bar{x})^2}{n-1}$
 
 Sitios en el web para preparar las ecuaciones Latex
 

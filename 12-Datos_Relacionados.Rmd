@@ -336,6 +336,8 @@ vuelos2 %>%
 ```
  
 ```{r}
+library(maps)
+
 aeropuertos %>%
 semi_join(vuelos, c("codigo_aeropuerto" = "destino")) %>%
 ggplot(aes(longitud, latitud)) +

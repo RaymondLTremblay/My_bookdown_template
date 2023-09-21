@@ -1,0 +1,191 @@
+# Opciones de Knitr
+
+
+
+La mayoria de los ejemplos y ideas de esta seccieon proviene de **yihui** en el siguiente website <<https://yihui.org/knitr/>>
+
+el paquete **knitr** fue desiñado para ser transparente para generar reporte de R, añadiendo componente de animación y Latex (Ecuaciones) y otras funciones.
+
+
+
+Hay muchas opciones para determinar lo que have un **chunk**
+
+ - Code evaluation: evaluación de código
+ - Text output: Formateo de texto
+ - Code decoration: Decoración del código
+ - Cache: Cache
+ - Plots: Gráficos
+ - Animation: Animaciones
+ - Code chunk: Código del chunk
+ - Child Document: Documento asociados
+ - Language engines: Asociación de lenguaje
+ - Option Temnplate:
+ - Extracting source code:
+ - Other chunk options:
+ - Package Options:
+ - Global R Options:
+ 
+
+
+```{r new_chunk_option}
+library(knitr)
+hook_chunk = knit_hooks$get('chunk')
+knit_hooks$set(chunk = function(x, options) {
+  if (!is.null(options$echo_opts)) {
+    return(paste0("```` ```{r ", options$params.src, "} ````", x, "```` ``` ````"))
+  } else {
+    return(hook_chunk(x, options)) # pass to default hook
+  }
+  })
+
+opts_knit$set(eval.after = 'fig.cap')
+```
+
+
+
+
+ Los ejemplos aquí serán limitado a las alternativas para los documentos **.Rmd**
+ 
+ Las opciones están escrita de forma de **tag=selección de la alternativa**.
+ 
+ - Comenzando con dandole un nombre al chunk "mi-chunk"
+
+
+```{r algun_nombre, echo_opts=TRUE}
+library(tidyverse)
+```
+
+
+
+
+
+
+
+***
+***
+ Eso es lo que va a ver cuando hace el knit 
+ 
+
+
+
+
+
+***
+***
+
+Nota aqui tengo include=FALSE, por consecuencia cuando se hace un knit, no se ve los que hay en el chunk.  
+  - Ahora cambialo a TRUE
+
+```{r include_false, include=FALSE, echo_opts=TRUE}
+head(cars)
+```
+
+
+```{r include_true, include=TRUE, echo_opts=TRUE}
+head(cars)
+```
+
+
+***
+***
+
+Add a figure and give it a name
+
+```{r cars, echo=TRUE, echo_opts=TRUE}
+plot(cars)
+```
+
+
+
+ 
+***
+***
+
+
+```{r position_caption, fig.cap='A caption.', fig.topcaption=TRUE, echo_opts=TRUE}
+plot(cars)
+```
+
+
+***
+***
+```{r fig.cap= "caption", echo_opts=TRUE}
+library(ggplot2)
+df <- data.frame(letters = letters[1:5], value = 1)
+
+ggplot(df, aes(letters, value, fill = letters)) +
+ geom_bar(stat = "identity")
+
+```
+
+
+***
+***
+
+```{r fig.cap= "caption", fig.width = 3, fig.height = 3, echo_opts=TRUE}
+library(ggplot2)
+df <- data.frame(letters = letters[1:5], value = 1)
+
+ggplot(df, aes(letters, value, fill = letters)) +
+ geom_bar(stat = "identity")
+
+```
+
+***
+***
+
+Figure aligment: default, left, right, and center
+
+fig.align
+
+```{r fig.cap= "caption", fig.width = 3, fig.height = 3, fig.align='right', echo_opts=TRUE}
+library(ggplot2)
+df <- data.frame(letters = letters[1:5], value = 1)
+
+ggplot(df, aes(letters, value, fill = letters)) +
+ geom_bar(stat = "identity")
+
+```
+
+***
+***
+
+Wrap text around figure
+
+Use ese código para que el texto "wraps" alrededor de ls figura (ese código es de otro idioma de computadora de se llama **css**)
+
+<div style= "float:right;position: relative; top: -80px;">
+
+AQUI el CHUNK
+
+</div>
+
+
+##### R Markdown wrapping
+<div style= "float:right;position: relative; top: -80px;">
+```{r pressure, echo=TRUE, fig.cap= "caption", fig.width = 3, fig.height = 3, fig.align='right'}
+df <- data.frame(letters = letters[1:5], value = 1)
+
+ggplot(df, aes(letters, value, fill = letters)) +
+ geom_bar(stat = "identity")
+```
+</div>
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+Note that the `echo = TRUE` parameter was added to the code chunk to have printing of the R code that generated the plot.
+
+***
+***
+
+### OTRAS funciones de knitr
+
+- eval= to evaluate the code FALSE or TRUE
+- echo = TO show the code FALSE or TRUE
+- message = FALSE or TRUE
+- warning = FALSE or TRUE
+- error =FALSE or TRUE
+- results = 'asis' To show text exactly as printed/written
+

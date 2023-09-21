@@ -9,30 +9,10 @@ Sys.Date()
 
 ***
 
-## Titulo Grande
-
-nbgf/lkshvdhgv'o
-
-## Titulo mediano
- 
- mhgcjl,fgfgj
- 
-### Titulo pequeño
-
-gfgjhk
-
-#### Titulo mini
-
-fgdhfjgk
-
-##### titulo ??
-
-fgcghgjhk
-
-ggcjhglkjg
 
 
-El tema proviene de los siguientes sitios.
+
+El tema proviene de los siguientes sitios. Aunque los ejemplos son distinctos
 
 English:
  <https://r4ds.had.co.nz/factors.html>
