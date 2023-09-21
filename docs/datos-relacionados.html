@@ -61790,13 +61790,15 @@ ggplot2::diamonds</p>
 <div class="sourceCode" id="cb665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb665-1"><a href="datos-relacionados.html#cb665-1" tabindex="-1"></a>vuelos2 <span class="sc">%&gt;%</span></span>
 <span id="cb665-2"><a href="datos-relacionados.html#cb665-2" tabindex="-1"></a><span class="fu">left_join</span>(clima)</span></code></pre></div>
 </details>
-<pre><code>## Joining with `by = join_by(anio, dia, hora, origen)`</code></pre>
-<pre><code>## Warning in left_join(., clima): Detected an unexpected many-to-many relationship between `x` and
-## `y`.
+<pre><code>## Joining with `by = join_by(anio, dia, hora,
+## origen)`</code></pre>
+<pre><code>## Warning in left_join(., clima): Detected an unexpected many-to-many relationship
+## between `x` and `y`.
 ## ℹ Row 1 of `x` matches multiple rows in `y`.
 ## ℹ Row 8708 of `y` matches multiple rows in `x`.
-## ℹ If a many-to-many relationship is expected, set `relationship =
-##   &quot;many-to-many&quot;` to silence this warning.</code></pre>
+## ℹ If a many-to-many relationship is expected, set
+##   `relationship = &quot;many-to-many&quot;` to silence this
+##   warning.</code></pre>
 <pre><code>## # A tibble: 3,974,448 × 18
 ##     anio   dia  hora origen destino codigo_cola aerolinea   mes temperatura
 ##    &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;       &lt;dbl&gt;
@@ -61819,12 +61821,13 @@ ggplot2::diamonds</p>
 <span id="cb669-2"><a href="datos-relacionados.html#cb669-2" tabindex="-1"></a>vuelos2 <span class="sc">%&gt;%</span></span>
 <span id="cb669-3"><a href="datos-relacionados.html#cb669-3" tabindex="-1"></a><span class="fu">left_join</span>(clima, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;anio&quot;</span>, <span class="st">&quot;dia&quot;</span>, <span class="st">&quot;hora&quot;</span>, <span class="st">&quot;origen&quot;</span>))</span></code></pre></div>
 </details>
-<pre><code>## Warning in left_join(., clima, by = c(&quot;anio&quot;, &quot;dia&quot;, &quot;hora&quot;, &quot;origen&quot;)): Detected an unexpected many-to-many relationship between `x` and
-## `y`.
+<pre><code>## Warning in left_join(., clima, by = c(&quot;anio&quot;, &quot;dia&quot;, &quot;hora&quot;, &quot;origen&quot;)): Detected an unexpected many-to-many relationship
+## between `x` and `y`.
 ## ℹ Row 1 of `x` matches multiple rows in `y`.
 ## ℹ Row 8708 of `y` matches multiple rows in `x`.
-## ℹ If a many-to-many relationship is expected, set `relationship =
-##   &quot;many-to-many&quot;` to silence this warning.</code></pre>
+## ℹ If a many-to-many relationship is expected, set
+##   `relationship = &quot;many-to-many&quot;` to silence this
+##   warning.</code></pre>
 <pre><code>## # A tibble: 3,974,448 × 18
 ##     anio   dia  hora origen destino codigo_cola aerolinea   mes temperatura
 ##    &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;       &lt;dbl&gt;
