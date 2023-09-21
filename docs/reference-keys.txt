@@ -1,8 +1,8 @@
 eq:reaction
 eq:promedio
 fig:unnamed-chunk-300
+fig:ggplot
 fig:unnamed-chunk-301
-fig:unnamed-chunk-302
 fig:pressure
 ciencia-de-datos-con-r
 horario-de-clase
@@ -241,3 +241,6 @@ biología
 opciones-de-knitr
 r-markdown-wrapping
 otras-funciones-de-knitr
+emoji-or-symbols
+select-under-the-edit-emoji-symbols.
+remember-you-can-emojis-to-your-document

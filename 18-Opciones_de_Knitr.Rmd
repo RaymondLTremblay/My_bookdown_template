@@ -51,11 +51,12 @@ opts_knit$set(eval.after = 'fig.cap')
  - Comenzando con dandole un nombre al chunk "mi-chunk"
 
 
-```{r algun_nombre, echo_opts=TRUE}
+```{r activar_tidyverse, echo=TRUE}
 library(tidyverse)
 ```
 
 
+algun_nombre, echo=TRUE
 
 
 
@@ -109,7 +110,7 @@ plot(cars)
 
 ***
 ***
-```{r fig.cap= "caption", echo_opts=TRUE}
+```{r fig.cap= "An incredible figure", echo_opts=TRUE}
 library(ggplot2)
 df <- data.frame(letters = letters[1:5], value = 1)
 
@@ -122,7 +123,7 @@ ggplot(df, aes(letters, value, fill = letters)) +
 ***
 ***
 
-```{r fig.cap= "caption", fig.width = 3, fig.height = 3, echo_opts=TRUE}
+```{r ggplot, fig.cap= "An incredible figure", fig.width = 3, fig.height = 3, echo_opts=TRUE, echo=FALSE}
 library(ggplot2)
 df <- data.frame(letters = letters[1:5], value = 1)
 
@@ -162,8 +163,9 @@ AQUI el CHUNK
 
 
 ##### R Markdown wrapping
-<div style= "float:right;position: relative; top: -80px;">
-```{r pressure, echo=TRUE, fig.cap= "caption", fig.width = 3, fig.height = 3, fig.align='right'}
+
+<div style= "float:right;position: relative; top: -20px;">
+```{r pressure, echo=TRUE, fig.cap= "caption", fig.width = 2.6, fig.height = 2.6, fig.align='right'}
 df <- data.frame(letters = letters[1:5], value = 1)
 
 ggplot(df, aes(letters, value, fill = letters)) +
@@ -188,4 +190,51 @@ Note that the `echo = TRUE` parameter was added to the code chunk to have printi
 - warning = FALSE or TRUE
 - error =FALSE or TRUE
 - results = 'asis' To show text exactly as printed/written
+
+
+
+```{r weird name chuck, eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
+x=c(1:10)
+x
+```
+
+
+
+```{r, message=FALSE}
+library(MASS)
+```
+
+
+
+```{r, warning=FALSE}
+library(dplyr)
+library(MASS)
+```
+
+
+```{r, results='asis'}
+cat("I'm raw **Markdown** content.\n",
+    
+                         "My poetry of Puerto Rico\n")
+```
+
+
+***
+***
+
+## Emoji or Symbols
+
+### Select Under the Edit ➡ Emoji & Symbols.
+
+
+
+##### Remember you can emojis to your document
+
+
+Sometimes you want to 🙈 around a bit and add some ⭐️⭐️ to your
+🎈🎈 Well we have a gift for you:
+
+
+
+
 
