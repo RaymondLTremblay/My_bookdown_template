@@ -31,61 +31,103 @@ library(forcats)
  
 ***
 ```{r, background='#2dc0cc'}
-x1 <- c("Dic", "Abr", "Ene", "Mar")
+
+month <-c("December" ,"January", "March", "April")
+
+month
+
+str(month)
+
 ```
 
 
 ```{r}
-x2 <- c("Dic", "Abr", "Eme", "Mar")
+valores <- c(7, 3, 2, 10)
+
+
 ```
 
+
+Unir las dos listas
+
 ```{r}
-sort(x1)
+df=as.data.frame(cbind(month, valores))
+df
 ```
 
 
-```{r}
-niveles_meses <- c(
-  "Ene", "Feb", "Mar", "Abr", "May", "Jun",
-  "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"
-)
+## ¿Qué ocurrio en el gráfico?
 
-sort(niveles_meses)
+```{r}
+library(tidyverse)
+
+ggplot(df, aes(month, valores))+
+  geom_point()
 ```
 
+Order months in correct order
+
+See this website for more details
+
+
+https://datacornering.com/how-to-get-the-month-name-from-the-number-in-r/
+
+
+
+
 ```{r}
-y1 <- factor(x1, levels = niveles_meses)
+
+df <- data.frame(Months=c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November","December"),
+                Attacks=c(49, 70, 49, 44, 53, 35, 33, 36, 47, 40, 44, 32))
+
+
+### validate my assumption *here*, to detemrine if all months are included in the data set.
+all(df$Months %in% month.name)
+# [1] TRUE
+
+### convert to a factor, order defined by `month.name`.  
+df$Months <- factor(df$Months, levels=month.name)
+
+ggplot(data=df, aes(x=Months, y=Attacks)) +
+  geom_point()
+
+```
+
+
+
+
+
+### Usando la funciones factor y levels, estamos asignando los factores a un nivel específico en el orden de la lista
+
+### parse_factor() is similar a factor(), but generates a warning if levels have been specified and some elements of x are not found in those levels.
+
+```{r}
+x1= c("Dic", "Ene", "Mar", "Dii") # Nota que esta lista tengo un mes que se llama "Dii"
+
+niveles_meses=c("Ene", "Mar", "Dic")
+
+y1 <-factor(x1, levels = niveles_meses)
 y1
 
-sort(y1)
+y1 <- parse_factor(x1, levels = niveles_meses)
+y1
+
 ```
 
 
-```{r}
-y2 <- factor(x2, levels = niveles_meses)
-y2
-```
+Si quiere que los valores aparezca en el orden que aparecen en la base de datos use **unique(variable)**
 
 ```{r}
-y2 <- parse_factor(x2, levels = niveles_meses)
-y2
-```
 
+df_est=data.frame(Nombre_est=c("Monica", "Isabela", "Juan", "Robo", "Pepito"),
+                  Nota_Final=c(99, 27, 89, 91, 27))
 
-```{r}
-factor(x1)
-```
+df_est
 
 
 
-```{r}
-y2 <- parse_factor(x2, levels = niveles_meses)
-```
-
-
-```{r}
-f1 <- factor(x1, levels = unique(x1))
-f1
+f1=factor(df_est$Nombre_est, levels = unique(df_est$Nombre_est))
+df_est
 ```
 
 ```{r}
@@ -122,7 +164,7 @@ encuesta
 ```
 
 
-
+Contabilizar la cantidad de persona por "estado civil"
 
 ```{r}
 df=encuesta %>% 
@@ -132,13 +174,14 @@ df
 knitr
 
 
-```{r fig.width=5}
+```{r fig.width=10}
 
 #encuesta$niveles_est_civil <- fct_reorder(
 #  "Sin respuesta", "Nunca se ha casado", "Casado", "Separado", "Divorciado", "Viudo")
 
 df$niveles_est_civil <- fct_reorder(df$estado_civil, df$n )
 
+df
 
 ggplot(df, 
        aes(estado_civil,n )) +

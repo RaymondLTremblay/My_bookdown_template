@@ -1,4 +1,4 @@
-# Opciones de Knitr
+A# Opciones de Knitr
 
 
 
@@ -228,11 +228,11 @@ cat("I'm raw **Markdown** content.\n",
 
 
 
-##### Remember you can emojis to your document
+##### Remember you can add emoji's to your document
 
 
 Sometimes you want to 🙈 around a bit and add some ⭐️⭐️ to your
-🎈🎈 Well we have a gift for you:
+🎈🎈 Well we have a gift for you if you add interesting emoji's to your document.
 
 
 
