@@ -582,18 +582,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb719-2"><a href="factores-1.html#cb719-2" tabindex="-1"></a>                <span class="at">Attacks=</span><span class="fu">c</span>(<span class="dv">49</span>, <span class="dv">70</span>, <span class="dv">49</span>, <span class="dv">44</span>, <span class="dv">53</span>, <span class="dv">35</span>, <span class="dv">33</span>, <span class="dv">36</span>, <span class="dv">47</span>, <span class="dv">40</span>, <span class="dv">44</span>, <span class="dv">32</span>))</span>
 <span id="cb719-3"><a href="factores-1.html#cb719-3" tabindex="-1"></a></span>
 <span id="cb719-4"><a href="factores-1.html#cb719-4" tabindex="-1"></a></span>
-<span id="cb719-5"><a href="factores-1.html#cb719-5" tabindex="-1"></a><span class="do">### validate my assumption *here*, to detemrine if all months are included in the data set.</span></span>
+<span id="cb719-5"><a href="factores-1.html#cb719-5" tabindex="-1"></a><span class="do">### validar el supuesto que tengo información escrita correctamente para cada mes de año en el dataframe </span></span>
 <span id="cb719-6"><a href="factores-1.html#cb719-6" tabindex="-1"></a><span class="fu">all</span>(df<span class="sc">$</span>Months <span class="sc">%in%</span> month.name)</span></code></pre></div>
 </details>
 <pre><code>## [1] TRUE</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="factores-1.html#cb721-1" tabindex="-1"></a><span class="co"># [1] TRUE</span></span>
-<span id="cb721-2"><a href="factores-1.html#cb721-2" tabindex="-1"></a></span>
-<span id="cb721-3"><a href="factores-1.html#cb721-3" tabindex="-1"></a><span class="do">### convert to a factor, order defined by `month.name`.  </span></span>
-<span id="cb721-4"><a href="factores-1.html#cb721-4" tabindex="-1"></a>df<span class="sc">$</span>Months <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>Months, <span class="at">levels=</span>month.name)</span>
-<span id="cb721-5"><a href="factores-1.html#cb721-5" tabindex="-1"></a></span>
-<span id="cb721-6"><a href="factores-1.html#cb721-6" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>df, <span class="fu">aes</span>(<span class="at">x=</span>Months, <span class="at">y=</span>Attacks)) <span class="sc">+</span></span>
-<span id="cb721-7"><a href="factores-1.html#cb721-7" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="factores-1.html#cb721-1" tabindex="-1"></a><span class="do">### convert to a factor, order defined by `month.name`.  </span></span>
+<span id="cb721-2"><a href="factores-1.html#cb721-2" tabindex="-1"></a>df<span class="sc">$</span>Months <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>Months, <span class="at">levels=</span>month.name)</span>
+<span id="cb721-3"><a href="factores-1.html#cb721-3" tabindex="-1"></a></span>
+<span id="cb721-4"><a href="factores-1.html#cb721-4" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>df, <span class="fu">aes</span>(<span class="at">x=</span>Months, <span class="at">y=</span>Attacks)) <span class="sc">+</span></span>
+<span id="cb721-5"><a href="factores-1.html#cb721-5" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 </details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-222-1.png" width="672" /></p>
 <div id="usando-la-funciones-factor-y-levels-estamos-asignando-los-factores-a-un-nivel-específico-en-el-orden-de-la-lista" class="section level3 hasAnchor" number="13.1.1">
@@ -641,15 +639,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 4       Robo         91
 ## 5     Pepito         27</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb730-1"><a href="factores-1.html#cb730-1" tabindex="-1"></a>f1<span class="ot">=</span><span class="fu">factor</span>(df_est<span class="sc">$</span>Nombre_est, <span class="at">levels =</span> <span class="fu">unique</span>(df_est<span class="sc">$</span>Nombre_est))</span>
-<span id="cb730-2"><a href="factores-1.html#cb730-2" tabindex="-1"></a>df_est</span></code></pre></div>
+<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb730-1"><a href="factores-1.html#cb730-1" tabindex="-1"></a><span class="fu">ggplot</span>(df_est, <span class="fu">aes</span>(Nombre_est, Nota_Final))<span class="sc">+</span></span>
+<span id="cb730-2"><a href="factores-1.html#cb730-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 </details>
-<pre><code>##   Nombre_est Nota_Final
-## 1     Monica         99
-## 2    Isabela         27
-## 3       Juan         89
-## 4       Robo         91
-## 5     Pepito         27</code></pre>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-224-1.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="factores-1.html#cb731-1" tabindex="-1"></a>df_est<span class="sc">$</span>fct1<span class="ot">=</span><span class="fu">factor</span>(df_est<span class="sc">$</span>Nombre_est, <span class="at">levels =</span> <span class="fu">unique</span>(df_est<span class="sc">$</span>Nombre_est))</span>
+<span id="cb731-2"><a href="factores-1.html#cb731-2" tabindex="-1"></a></span>
+<span id="cb731-3"><a href="factores-1.html#cb731-3" tabindex="-1"></a><span class="fu">ggplot</span>(df_est, <span class="fu">aes</span>(fct1, Nota_Final))<span class="sc">+</span></span>
+<span id="cb731-4"><a href="factores-1.html#cb731-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-224-2.png" width="672" /></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb732-1"><a href="factores-1.html#cb732-1" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> x1 <span class="sc">%&gt;%</span> <span class="fu">factor</span>() <span class="sc">%&gt;%</span> <span class="fu">fct_inorder</span>()</span>
 <span id="cb732-2"><a href="factores-1.html#cb732-2" tabindex="-1"></a>f2</span></code></pre></div>

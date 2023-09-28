@@ -102,9 +102,10 @@ df <- data.frame(Months=c("January", "February", "March", "April", "May", "June"
                 Attacks=c(49, 70, 49, 44, 53, 35, 33, 36, 47, 40, 44, 32))
 
 
-### validate my assumption *here*, to detemrine if all months are included in the data set.
+### validar el supuesto que tengo información escrita correctamente para cada mes de año en el dataframe 
 all(df$Months %in% month.name)
-# [1] TRUE
+
+
 
 ### convert to a factor, order defined by `month.name`.  
 df$Months <- factor(df$Months, levels=month.name)
@@ -145,10 +146,15 @@ df_est=data.frame(Nombre_est=c("Monica", "Isabela", "Juan", "Robo", "Pepito"),
 
 df_est
 
+ggplot(df_est, aes(Nombre_est, Nota_Final))+
+  geom_point()
 
 
-f1=factor(df_est$Nombre_est, levels = unique(df_est$Nombre_est))
-df_est
+
+df_est$fct1=factor(df_est$Nombre_est, levels = unique(df_est$Nombre_est))
+
+ggplot(df_est, aes(fct1, Nota_Final))+
+  geom_point()
 ```
 
 ```{r}
