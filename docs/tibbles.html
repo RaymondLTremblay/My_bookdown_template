@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-09-27" />
+<meta name="date" content="2023-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -386,7 +386,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13.3" data-path="factores-1.html"><a href="factores-1.html#a-smaller-figure-to-the-right-with-floating-text"><i class="fa fa-check"></i><b>13.3</b> A smaller figure to the right, with floating text</a></li>
 <li class="chapter" data-level="13.4" data-path="factores-1.html"><a href="factores-1.html#haga-un-re-order-por-la-cantidad-de-personas-por-religion"><i class="fa fa-check"></i><b>13.4</b> Haga un re-order por la cantidad de personas por religion</a></li>
-<li class="chapter" data-level="13.5" data-path="factores-1.html"><a href="factores-1.html#modificar-el-orden-de-los-factores"><i class="fa fa-check"></i><b>13.5</b> Modificar el orden de los factores</a></li>
+<li class="chapter" data-level="13.5" data-path="factores-1.html"><a href="factores-1.html#modificar-el-orden-de-los-factores"><i class="fa fa-check"></i><b>13.5</b> Modificar el orden de los factores</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="factores-1.html"><a href="factores-1.html#nota-el-efecto-de-añadir-un---antes-de-edad"><i class="fa fa-check"></i><b>13.5.1</b> Nota el efecto de añadir un “-” antes de <strong>edad</strong></a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html"><i class="fa fa-check"></i><b>14</b> Fechas, horas y minutas</a>
 <ul>
@@ -494,7 +497,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="tibbles" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">Chapter 8</span> Tibbles<a href="tibbles.html#tibbles" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Fecha de la ultima revisión</p>
-<pre><code>## [1] &quot;2023-09-27&quot;</code></pre>
+<pre><code>## [1] &quot;2023-09-28&quot;</code></pre>
 <hr />
 <p>El tema proviene de los siguientes sitios.</p>
 <p>English:
@@ -577,16 +580,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 100 × 5
 ##    a                   b              c       d e    
 ##    &lt;dttm&gt;              &lt;date&gt;     &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;
-##  1 2023-09-28 11:31:17 2023-10-04     1 0.223   j    
-##  2 2023-09-27 20:05:34 2023-10-22     2 0.200   g    
-##  3 2023-09-28 04:42:06 2023-10-23     3 0.859   c    
-##  4 2023-09-27 19:47:06 2023-10-05     4 0.0938  o    
-##  5 2023-09-27 23:42:27 2023-10-16     5 0.915   f    
-##  6 2023-09-28 14:19:49 2023-10-19     6 0.997   a    
-##  7 2023-09-28 00:48:44 2023-09-29     7 0.538   c    
-##  8 2023-09-27 18:57:48 2023-10-10     8 0.445   t    
-##  9 2023-09-27 20:49:47 2023-10-16     9 0.943   y    
-## 10 2023-09-27 21:15:57 2023-10-14    10 0.00347 w    
+##  1 2023-09-29 09:15:44 2023-10-05     1 0.223   j    
+##  2 2023-09-28 17:50:02 2023-10-23     2 0.200   g    
+##  3 2023-09-29 02:26:34 2023-10-24     3 0.859   c    
+##  4 2023-09-28 17:31:34 2023-10-06     4 0.0938  o    
+##  5 2023-09-28 21:26:55 2023-10-17     5 0.915   f    
+##  6 2023-09-29 12:04:17 2023-10-20     6 0.997   a    
+##  7 2023-09-28 22:33:12 2023-09-30     7 0.538   c    
+##  8 2023-09-28 16:42:16 2023-10-11     8 0.445   t    
+##  9 2023-09-28 18:34:15 2023-10-17     9 0.943   y    
+## 10 2023-09-28 19:00:24 2023-10-15    10 0.00347 w    
 ## # ℹ 90 more rows</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="tibbles.html#cb441-1" tabindex="-1"></a>tb <span class="sc">%&gt;%</span></span>
@@ -595,19 +598,19 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 100 × 5
 ##   a                   b              c      d e    
 ##   &lt;dttm&gt;              &lt;date&gt;     &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;
-## 1 2023-09-28 11:31:17 2023-10-04     1 0.223  j    
-## 2 2023-09-27 20:05:34 2023-10-22     2 0.200  g    
-## 3 2023-09-28 04:42:06 2023-10-23     3 0.859  c    
-## 4 2023-09-27 19:47:06 2023-10-05     4 0.0938 o    
+## 1 2023-09-29 09:15:44 2023-10-05     1 0.223  j    
+## 2 2023-09-28 17:50:02 2023-10-23     2 0.200  g    
+## 3 2023-09-29 02:26:34 2023-10-24     3 0.859  c    
+## 4 2023-09-28 17:31:34 2023-10-06     4 0.0938 o    
 ## # ℹ 96 more rows</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="tibbles.html#cb443-1" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">now</span>()</span></code></pre></div>
 </details>
-<pre><code>## [1] &quot;2023-09-27 18:23:36 AST&quot;</code></pre>
+<pre><code>## [1] &quot;2023-09-28 16:08:04 AST&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="tibbles.html#cb445-1" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">today</span>()</span></code></pre></div>
 </details>
-<pre><code>## [1] &quot;2023-09-27&quot;</code></pre>
+<pre><code>## [1] &quot;2023-09-28&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="tibbles.html#cb447-1" tabindex="-1"></a><span class="fu">head</span>(vuelos)</span></code></pre></div>
 </details>

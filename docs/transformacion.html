@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-09-27" />
+<meta name="date" content="2023-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -386,7 +386,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13.3" data-path="factores-1.html"><a href="factores-1.html#a-smaller-figure-to-the-right-with-floating-text"><i class="fa fa-check"></i><b>13.3</b> A smaller figure to the right, with floating text</a></li>
 <li class="chapter" data-level="13.4" data-path="factores-1.html"><a href="factores-1.html#haga-un-re-order-por-la-cantidad-de-personas-por-religion"><i class="fa fa-check"></i><b>13.4</b> Haga un re-order por la cantidad de personas por religion</a></li>
-<li class="chapter" data-level="13.5" data-path="factores-1.html"><a href="factores-1.html#modificar-el-orden-de-los-factores"><i class="fa fa-check"></i><b>13.5</b> Modificar el orden de los factores</a></li>
+<li class="chapter" data-level="13.5" data-path="factores-1.html"><a href="factores-1.html#modificar-el-orden-de-los-factores"><i class="fa fa-check"></i><b>13.5</b> Modificar el orden de los factores</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="factores-1.html"><a href="factores-1.html#nota-el-efecto-de-añadir-un---antes-de-edad"><i class="fa fa-check"></i><b>13.5.1</b> Nota el efecto de añadir un “-” antes de <strong>edad</strong></a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html"><i class="fa fa-check"></i><b>14</b> Fechas, horas y minutas</a>
 <ul>
@@ -494,7 +497,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="transformacion" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Transformacion<a href="transformacion.html#transformacion" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Fecha de la ultima revisión</p>
-<pre><code>## [1] &quot;2023-09-27&quot;</code></pre>
+<pre><code>## [1] &quot;2023-09-28&quot;</code></pre>
 <hr />
 <p>El tema proviene de los siguientes sitios.</p>
 <p>English: <a href="https://r4ds.had.co.nz/transform.html" class="uri">https://r4ds.had.co.nz/transform.html</a></p>
@@ -1080,7 +1083,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##   dat &lt;- vroom(...)
 ##   problems(dat)</code></pre>
 <pre><code>## Rows: 55983 Columns: 214</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────
+<pre><code>## ── Column specification ───────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr  (39): CNTYNAT, CNTOCFIP, CNTYRES, CITYRES, CITRSPOP, METRORES, STRESFIP...
 ## dbl (158): DATAYEAR, RECTYPE, RESTATUS, RECWT, PLDEL, PLDEL3, BIRATTND, REGN...
@@ -1698,7 +1701,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## New names:
 ## Rows: 587 Columns: 18
 ## ── Column specification
-## ──────────────────────────────────────────────────── Delimiter: &quot;,&quot; chr
+## ─────────────────────────────────────────────────── Delimiter: &quot;,&quot; chr
 ## (1): Fecha dbl (17): ...1, Muertes, IncrementoMuertes, CasosPCR_Salud,
 ## IncCasosPCR_Salu...
 ## ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
@@ -1877,7 +1880,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## New names:
 ## Rows: 587 Columns: 18
 ## ── Column specification
-## ──────────────────────────────────────────────────── Delimiter: &quot;,&quot; chr
+## ─────────────────────────────────────────────────── Delimiter: &quot;,&quot; chr
 ## (1): Fecha dbl (17): ...1, Muertes, IncrementoMuertes, CasosPCR_Salud,
 ## IncCasosPCR_Salu...
 ## ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
@@ -2387,8 +2390,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb349-2"><a href="transformacion.html#cb349-2" tabindex="-1"></a></span>
 <span id="cb349-3"><a href="transformacion.html#cb349-3" tabindex="-1"></a><span class="fu">summarise</span>(by_day, <span class="at">delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 </details>
-<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override using
-## the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override
+## using the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 365 × 4
 ## # Groups:   year, month [12]
 ##     year month   day delay
@@ -2409,8 +2412,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb352-2"><a href="transformacion.html#cb352-2" tabindex="-1"></a>  <span class="fu">group_by</span>(year, month, day) <span class="sc">%&gt;%</span> </span>
 <span id="cb352-3"><a href="transformacion.html#cb352-3" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 </details>
-<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override using
-## the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override
+## using the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 365 × 4
 ## # Groups:   year, month [12]
 ##     year month   day delay
@@ -2540,8 +2543,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
 <pre><code>## Warning: The following aesthetics were dropped during statistical transformation:
 ## label
-## ℹ This can happen when ggplot fails to infer the correct grouping structure
-##   in the data.
+## ℹ This can happen when ggplot fails to infer the correct grouping
+##   structure in the data.
 ## ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
 ##   variable into a factor?</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-136-1.png" width="672" /></p>

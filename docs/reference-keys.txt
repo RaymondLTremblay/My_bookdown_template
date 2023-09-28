@@ -1,8 +1,8 @@
 eq:reaction
 eq:promedio
-fig:unnamed-chunk-297
-fig:ggplot
 fig:unnamed-chunk-298
+fig:ggplot
+fig:unnamed-chunk-299
 fig:pressure
 ciencia-de-datos-con-r
 horario-de-clase
@@ -207,6 +207,7 @@ datos-encuesta-social-general
 a-smaller-figure-to-the-right-with-floating-text
 haga-un-re-order-por-la-cantidad-de-personas-por-religion
 modificar-el-orden-de-los-factores
+nota-el-efecto-de-añadir-un---antes-de-edad
 fechas-horas-y-minutas
 temas-5
 creando-fechashoras

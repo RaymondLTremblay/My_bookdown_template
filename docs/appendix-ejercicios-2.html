@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-09-27" />
+<meta name="date" content="2023-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -386,7 +386,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13.3" data-path="factores-1.html"><a href="factores-1.html#a-smaller-figure-to-the-right-with-floating-text"><i class="fa fa-check"></i><b>13.3</b> A smaller figure to the right, with floating text</a></li>
 <li class="chapter" data-level="13.4" data-path="factores-1.html"><a href="factores-1.html#haga-un-re-order-por-la-cantidad-de-personas-por-religion"><i class="fa fa-check"></i><b>13.4</b> Haga un re-order por la cantidad de personas por religion</a></li>
-<li class="chapter" data-level="13.5" data-path="factores-1.html"><a href="factores-1.html#modificar-el-orden-de-los-factores"><i class="fa fa-check"></i><b>13.5</b> Modificar el orden de los factores</a></li>
+<li class="chapter" data-level="13.5" data-path="factores-1.html"><a href="factores-1.html#modificar-el-orden-de-los-factores"><i class="fa fa-check"></i><b>13.5</b> Modificar el orden de los factores</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="factores-1.html"><a href="factores-1.html#nota-el-efecto-de-añadir-un---antes-de-edad"><i class="fa fa-check"></i><b>13.5.1</b> Nota el efecto de añadir un “-” antes de <strong>edad</strong></a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html"><i class="fa fa-check"></i><b>14</b> Fechas, horas y minutas</a>
 <ul>
@@ -501,14 +504,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="leen-bien-lo-que-estoy-pidiendo.-el-nombre-de-las-columnas-pueden-engañar" class="section level3 unnumbered hasAnchor">
 <h3>LEEN bien lo que estoy pidiendo. El nombre de las columnas pueden engañar!!!<a href="appendix-ejercicios-2.html#leen-bien-lo-que-estoy-pidiendo.-el-nombre-de-las-columnas-pueden-engañar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb961"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb961-1"><a href="appendix-ejercicios-2.html#cb961-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb961-2"><a href="appendix-ejercicios-2.html#cb961-2" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb961-3"><a href="appendix-ejercicios-2.html#cb961-3" tabindex="-1"></a>url_COVID_PR<span class="ot">=</span><span class="fu">fread</span>(<span class="st">&quot;https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb970"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb970-1"><a href="appendix-ejercicios-2.html#cb970-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb970-2"><a href="appendix-ejercicios-2.html#cb970-2" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb970-3"><a href="appendix-ejercicios-2.html#cb970-3" tabindex="-1"></a>url_COVID_PR<span class="ot">=</span><span class="fu">fread</span>(<span class="st">&quot;https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv&quot;</span>)</span></code></pre></div>
 </details>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb962"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb962-1"><a href="appendix-ejercicios-2.html#cb962-1" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb962-2"><a href="appendix-ejercicios-2.html#cb962-2" tabindex="-1"></a>Covid<span class="ot">=</span>url_COVID_PR</span>
-<span id="cb962-3"><a href="appendix-ejercicios-2.html#cb962-3" tabindex="-1"></a><span class="fu">gt</span>(<span class="fu">tail</span>(Covid, <span class="at">n=</span><span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb971"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb971-1"><a href="appendix-ejercicios-2.html#cb971-1" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb971-2"><a href="appendix-ejercicios-2.html#cb971-2" tabindex="-1"></a>Covid<span class="ot">=</span>url_COVID_PR</span>
+<span id="cb971-3"><a href="appendix-ejercicios-2.html#cb971-3" tabindex="-1"></a><span class="fu">gt</span>(<span class="fu">tail</span>(Covid, <span class="at">n=</span><span class="dv">2</span>))</span></code></pre></div>
 </details>
 <div id="nkhnldikby" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#nkhnldikby table {

@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-09-27" />
+<meta name="date" content="2023-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -386,7 +386,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13.3" data-path="factores-1.html"><a href="factores-1.html#a-smaller-figure-to-the-right-with-floating-text"><i class="fa fa-check"></i><b>13.3</b> A smaller figure to the right, with floating text</a></li>
 <li class="chapter" data-level="13.4" data-path="factores-1.html"><a href="factores-1.html#haga-un-re-order-por-la-cantidad-de-personas-por-religion"><i class="fa fa-check"></i><b>13.4</b> Haga un re-order por la cantidad de personas por religion</a></li>
-<li class="chapter" data-level="13.5" data-path="factores-1.html"><a href="factores-1.html#modificar-el-orden-de-los-factores"><i class="fa fa-check"></i><b>13.5</b> Modificar el orden de los factores</a></li>
+<li class="chapter" data-level="13.5" data-path="factores-1.html"><a href="factores-1.html#modificar-el-orden-de-los-factores"><i class="fa fa-check"></i><b>13.5</b> Modificar el orden de los factores</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="factores-1.html"><a href="factores-1.html#nota-el-efecto-de-añadir-un---antes-de-edad"><i class="fa fa-check"></i><b>13.5.1</b> Nota el efecto de añadir un “-” antes de <strong>edad</strong></a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html"><i class="fa fa-check"></i><b>14</b> Fechas, horas y minutas</a>
 <ul>
@@ -496,18 +499,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Es posible distinguir entre especies utilizando diferentes colores, pero debe utilizar la función <code>addCircleMarkers()</code> en lugar de <code>addAwesomeMarkers()</code>. Para colorear grupos en Leaflet es necesario generar una paleta de colores para las variables de interés de acuerdo al tipo de variable (<em>i.e.</em>, numérica, factorial). Para esto se utilizan las funciones <code>colorFactor()</code>, <code>colorNumeric()</code>, <code>colorBin()</code>, o <code>colorQuantile()</code>. <code>colorFactor()</code> y <code>colorNumeric()</code> generan paletas de colores para variables factoriales y numericas, respectivamente; mientras que <code>colorBin()</code> y <code>colorQuantile()</code> generan paletas de colores para valores numéricos resumidos en grupos.</p>
 <p>En este caso se está trabajando con una variable factorial que divide las observaciones entre 3 especies de orquídeas. Primero se crea una paleta de colores para una variable factorial con la función <code>colorFactor()</code>. Bajo esta función se especifican los parámetros <code>palette</code> y <code>levels</code>. <code>palette</code>es para especificar la paleta de colores a utilizar y <code>levels</code>especifica los niveles de la variable factorial. La paleta de colores que se utiliza (<code>"Dark2"</code>) proviene del paquete RColorBrewer. Esta paleta de colores para los niveles de la variable factorial <em>scientific_name</em> del data.frame <em>eulophia</em> se guardará en un objeto llamado <em>pal</em>.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb941"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb941-1"><a href="trabajando-variables-categóricas-con-leaflet.html#cb941-1" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">colorFactor</span>(<span class="at">palette =</span> <span class="st">&#39;Dark2&#39;</span>,</span>
-<span id="cb941-2"><a href="trabajando-variables-categóricas-con-leaflet.html#cb941-2" tabindex="-1"></a>            <span class="at">levels =</span> <span class="fu">levels</span>(eulophia<span class="sc">$</span>scientific_name))</span></code></pre></div>
+<div class="sourceCode" id="cb950"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb950-1"><a href="trabajando-variables-categóricas-con-leaflet.html#cb950-1" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">colorFactor</span>(<span class="at">palette =</span> <span class="st">&#39;Dark2&#39;</span>,</span>
+<span id="cb950-2"><a href="trabajando-variables-categóricas-con-leaflet.html#cb950-2" tabindex="-1"></a>            <span class="at">levels =</span> <span class="fu">levels</span>(eulophia<span class="sc">$</span>scientific_name))</span></code></pre></div>
 </details>
 <p>Ahora que se ha especificado los colores para los valores factoriales, es posible utilizar el objeto pal para colorear los marcadores circulares del mapa de Leaflet de acuerdo a la especie observada especificando el parámetro color</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb942"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb942-1"><a href="trabajando-variables-categóricas-con-leaflet.html#cb942-1" tabindex="-1"></a><span class="fu">leaflet</span>(eulophia) <span class="sc">%&gt;%</span> </span>
-<span id="cb942-2"><a href="trabajando-variables-categóricas-con-leaflet.html#cb942-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb942-3"><a href="trabajando-variables-categóricas-con-leaflet.html#cb942-3" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span> longitude, <span class="at">lat =</span> <span class="sc">~</span> latitude,</span>
-<span id="cb942-4"><a href="trabajando-variables-categóricas-con-leaflet.html#cb942-4" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
-<span id="cb942-5"><a href="trabajando-variables-categóricas-con-leaflet.html#cb942-5" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
-<span id="cb942-6"><a href="trabajando-variables-categóricas-con-leaflet.html#cb942-6" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
-<span id="cb942-7"><a href="trabajando-variables-categóricas-con-leaflet.html#cb942-7" tabindex="-1"></a>                   <span class="at">color =</span> <span class="sc">~</span> <span class="fu">pal</span>(scientific_name)) </span></code></pre></div>
+<div class="sourceCode" id="cb951"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb951-1"><a href="trabajando-variables-categóricas-con-leaflet.html#cb951-1" tabindex="-1"></a><span class="fu">leaflet</span>(eulophia) <span class="sc">%&gt;%</span> </span>
+<span id="cb951-2"><a href="trabajando-variables-categóricas-con-leaflet.html#cb951-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb951-3"><a href="trabajando-variables-categóricas-con-leaflet.html#cb951-3" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span> longitude, <span class="at">lat =</span> <span class="sc">~</span> latitude,</span>
+<span id="cb951-4"><a href="trabajando-variables-categóricas-con-leaflet.html#cb951-4" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb951-5"><a href="trabajando-variables-categóricas-con-leaflet.html#cb951-5" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb951-6"><a href="trabajando-variables-categóricas-con-leaflet.html#cb951-6" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
+<span id="cb951-7"><a href="trabajando-variables-categóricas-con-leaflet.html#cb951-7" tabindex="-1"></a>                   <span class="at">color =</span> <span class="sc">~</span> <span class="fu">pal</span>(scientific_name)) </span></code></pre></div>
 </details>
 <p>Para ayudar con la visualización de datos pertenecientes a diferentes grupos, en ocasiones es bueno presentar una leyenda que indique los colores que representan cada grupo. Es posible añadir una leyenda al mapa de Leaflet utilizando la función <code>addLegend()</code> y especificando los siguientes parámetros:</p>
 <ul>
@@ -517,30 +520,30 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>title</code>: El título de la leyenda especificado como una línea de caracteres.</p></li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb943"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb943-1"><a href="trabajando-variables-categóricas-con-leaflet.html#cb943-1" tabindex="-1"></a><span class="fu">leaflet</span>(eulophia) <span class="sc">%&gt;%</span> </span>
-<span id="cb943-2"><a href="trabajando-variables-categóricas-con-leaflet.html#cb943-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb943-3"><a href="trabajando-variables-categóricas-con-leaflet.html#cb943-3" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span> longitude, <span class="at">lat =</span> <span class="sc">~</span> latitude,</span>
-<span id="cb943-4"><a href="trabajando-variables-categóricas-con-leaflet.html#cb943-4" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
-<span id="cb943-5"><a href="trabajando-variables-categóricas-con-leaflet.html#cb943-5" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
-<span id="cb943-6"><a href="trabajando-variables-categóricas-con-leaflet.html#cb943-6" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
-<span id="cb943-7"><a href="trabajando-variables-categóricas-con-leaflet.html#cb943-7" tabindex="-1"></a>                   <span class="at">color =</span> <span class="sc">~</span> <span class="fu">pal</span>(scientific_name)) <span class="sc">%&gt;%</span> </span>
-<span id="cb943-8"><a href="trabajando-variables-categóricas-con-leaflet.html#cb943-8" tabindex="-1"></a>  <span class="fu">addLegend</span>(<span class="at">position =</span> <span class="st">&quot;topright&quot;</span>, </span>
-<span id="cb943-9"><a href="trabajando-variables-categóricas-con-leaflet.html#cb943-9" tabindex="-1"></a>            <span class="at">pal =</span> pal, </span>
-<span id="cb943-10"><a href="trabajando-variables-categóricas-con-leaflet.html#cb943-10" tabindex="-1"></a>            <span class="at">values =</span> <span class="sc">~</span> scientific_name,</span>
-<span id="cb943-11"><a href="trabajando-variables-categóricas-con-leaflet.html#cb943-11" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;Species&quot;</span></span>
-<span id="cb943-12"><a href="trabajando-variables-categóricas-con-leaflet.html#cb943-12" tabindex="-1"></a>            )</span></code></pre></div>
+<div class="sourceCode" id="cb952"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb952-1"><a href="trabajando-variables-categóricas-con-leaflet.html#cb952-1" tabindex="-1"></a><span class="fu">leaflet</span>(eulophia) <span class="sc">%&gt;%</span> </span>
+<span id="cb952-2"><a href="trabajando-variables-categóricas-con-leaflet.html#cb952-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb952-3"><a href="trabajando-variables-categóricas-con-leaflet.html#cb952-3" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span> longitude, <span class="at">lat =</span> <span class="sc">~</span> latitude,</span>
+<span id="cb952-4"><a href="trabajando-variables-categóricas-con-leaflet.html#cb952-4" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb952-5"><a href="trabajando-variables-categóricas-con-leaflet.html#cb952-5" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb952-6"><a href="trabajando-variables-categóricas-con-leaflet.html#cb952-6" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
+<span id="cb952-7"><a href="trabajando-variables-categóricas-con-leaflet.html#cb952-7" tabindex="-1"></a>                   <span class="at">color =</span> <span class="sc">~</span> <span class="fu">pal</span>(scientific_name)) <span class="sc">%&gt;%</span> </span>
+<span id="cb952-8"><a href="trabajando-variables-categóricas-con-leaflet.html#cb952-8" tabindex="-1"></a>  <span class="fu">addLegend</span>(<span class="at">position =</span> <span class="st">&quot;topright&quot;</span>, </span>
+<span id="cb952-9"><a href="trabajando-variables-categóricas-con-leaflet.html#cb952-9" tabindex="-1"></a>            <span class="at">pal =</span> pal, </span>
+<span id="cb952-10"><a href="trabajando-variables-categóricas-con-leaflet.html#cb952-10" tabindex="-1"></a>            <span class="at">values =</span> <span class="sc">~</span> scientific_name,</span>
+<span id="cb952-11"><a href="trabajando-variables-categóricas-con-leaflet.html#cb952-11" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;Species&quot;</span></span>
+<span id="cb952-12"><a href="trabajando-variables-categóricas-con-leaflet.html#cb952-12" tabindex="-1"></a>            )</span></code></pre></div>
 </details>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb944"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb944-1"><a href="trabajando-variables-categóricas-con-leaflet.html#cb944-1" tabindex="-1"></a>iconcolor <span class="ot">&lt;-</span> <span class="cf">function</span>(scienctific_name)</span>
-<span id="cb944-2"><a href="trabajando-variables-categóricas-con-leaflet.html#cb944-2" tabindex="-1"></a></span>
-<span id="cb944-3"><a href="trabajando-variables-categóricas-con-leaflet.html#cb944-3" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb944-4"><a href="trabajando-variables-categóricas-con-leaflet.html#cb944-4" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="st">&quot;Esri.WorldImagery&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb944-5"><a href="trabajando-variables-categóricas-con-leaflet.html#cb944-5" tabindex="-1"></a>  <span class="fu">addAwesomeMarkers</span>(<span class="at">lng =</span> eulophia<span class="sc">$</span>longitude, <span class="at">lat =</span> eulophia<span class="sc">$</span>latitude, </span>
-<span id="cb944-6"><a href="trabajando-variables-categóricas-con-leaflet.html#cb944-6" tabindex="-1"></a>             <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
-<span id="cb944-7"><a href="trabajando-variables-categóricas-con-leaflet.html#cb944-7" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
-<span id="cb944-8"><a href="trabajando-variables-categóricas-con-leaflet.html#cb944-8" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
-<span id="cb944-9"><a href="trabajando-variables-categóricas-con-leaflet.html#cb944-9" tabindex="-1"></a>            <span class="at">icon =</span> icon1</span>
-<span id="cb944-10"><a href="trabajando-variables-categóricas-con-leaflet.html#cb944-10" tabindex="-1"></a>               )</span></code></pre></div>
+<div class="sourceCode" id="cb953"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb953-1"><a href="trabajando-variables-categóricas-con-leaflet.html#cb953-1" tabindex="-1"></a>iconcolor <span class="ot">&lt;-</span> <span class="cf">function</span>(scienctific_name)</span>
+<span id="cb953-2"><a href="trabajando-variables-categóricas-con-leaflet.html#cb953-2" tabindex="-1"></a></span>
+<span id="cb953-3"><a href="trabajando-variables-categóricas-con-leaflet.html#cb953-3" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb953-4"><a href="trabajando-variables-categóricas-con-leaflet.html#cb953-4" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="st">&quot;Esri.WorldImagery&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb953-5"><a href="trabajando-variables-categóricas-con-leaflet.html#cb953-5" tabindex="-1"></a>  <span class="fu">addAwesomeMarkers</span>(<span class="at">lng =</span> eulophia<span class="sc">$</span>longitude, <span class="at">lat =</span> eulophia<span class="sc">$</span>latitude, </span>
+<span id="cb953-6"><a href="trabajando-variables-categóricas-con-leaflet.html#cb953-6" tabindex="-1"></a>             <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb953-7"><a href="trabajando-variables-categóricas-con-leaflet.html#cb953-7" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb953-8"><a href="trabajando-variables-categóricas-con-leaflet.html#cb953-8" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
+<span id="cb953-9"><a href="trabajando-variables-categóricas-con-leaflet.html#cb953-9" tabindex="-1"></a>            <span class="at">icon =</span> icon1</span>
+<span id="cb953-10"><a href="trabajando-variables-categóricas-con-leaflet.html#cb953-10" tabindex="-1"></a>               )</span></code></pre></div>
 </details>
 
 </div>
