@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 18 Ecuaciones Matemáticas | HexStickers</title>
+  <title>Chapter 19 Hex Stickers | HexStickers</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 18 Ecuaciones Matemáticas | HexStickers" />
+  <meta property="og:title" content="Chapter 19 Hex Stickers | HexStickers" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 18 Ecuaciones Matemáticas | HexStickers" />
+  <meta name="twitter:title" content="Chapter 19 Hex Stickers | HexStickers" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="trabajando-variables-categóricas-con-leaflet.html"/>
-<link rel="next" href="hex-stickers.html"/>
+<link rel="prev" href="math-sci.html"/>
+<link rel="next" href="appendix-ejercicios.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -502,327 +502,399 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="math-sci" class="section level1 hasAnchor" number="18">
-<h1><span class="header-section-number">Chapter 18</span> Ecuaciones Matemáticas<a href="math-sci.html#math-sci" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<!-- Required to number equations in HTML files -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
-<div id="ecuaciones-matemática" class="section level2 hasAnchor" number="18.1">
-<h2><span class="header-section-number">18.1</span> Ecuaciones matemática<a href="math-sci.html#ecuaciones-matemática" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><em>TeX</em> es la mejor manera de escribir funciones matemáticas en R. Donald Knuth diseñó el paquete  cuando se sintió frustrado por el tiempo que les tomaba a los tipógrafos y terminar su libro, que contenía mucha funciones matemática. Una característica interesante de <em>R Markdown</em> es su capacidad para leer código LaTeX directamente.</p>
-<p>Si está haciendo una tesis, artículo cientíco, presentaciones o quiere acalrar en su documento las funciones que estas usando, típicamente esto involucrará muchas ecuaciones matemáticas. Por consecuencia querrá leer la siguiente sección que ha sido comentada.</p>
-<hr />
-<div id="matemática-y-física" class="section level3 hasAnchor" number="18.1.1">
-<h3><span class="header-section-number">18.1.1</span> Matemática y Física<a href="math-sci.html#matemática-y-física" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math display">\[
-\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
-\left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2
-\]</span></p>
-<p>De Informational Dynamics, tenemos lo siguiente (Dave Braden):</p>
-<p>Después de <em>n</em> tales encuentros, la densidad posterior de <span class="math inline">\(\theta\)</span> es</p>
-<p><span class="math display">\[
-\pi(\theta|X_1&lt; y_1,\dots,X_n&lt;y_n) \varpropto \pi(\theta) \prod_{i=1}^n\int_{-\infty}^{y_i}
-   \exp\left(-{(x-\theta)^2\over{2\sigma^2}}\right)\ dx
-\]</span></p>
-<p>Otra Ecuaciones</p>
-<p><span class="math display">\[
-\det\left|\,\begin{matrix}%
-c_0&amp;c_1\hfill&amp;c_2\hfill&amp;\ldots&amp;c_n\hfill\cr
-c_1&amp;c_2\hfill&amp;c_3\hfill&amp;\ldots&amp;c_{n+1}\hfill\cr
-c_2&amp;c_3\hfill&amp;c_4\hfill&amp;\ldots&amp;c_{n+2}\hfill\cr
-\,\vdots\hfill&amp;\,\vdots\hfill&amp;
-  \,\vdots\hfill&amp;&amp;\,\vdots\hfill\cr
-c_n&amp;c_{n+1}\hfill&amp;c_{n+2}\hfill&amp;\ldots&amp;c_{2n}\hfill\cr
-\end{matrix}\right|&gt;0
-\]</span></p>
-<hr />
-<p>Lapidus y Píndaro, Solución numérica de ecuaciones diferenciales parciales en ciencia y Ingeniería. Página 54</p>
-<p><span class="math display">\[
-\int_t\left\{\sum_{j=1}^3 T_j \left({d\phi_j\over dt}+k\phi_j\right)-kT_e\right\}w_i(t)\ dt=0,
-   \qquad\quad i=1,2,3.
-\]</span></p>
-<p>Funciones de ponderación del método L&amp;P Galerkin. Página 55</p>
-<p><span class="math display">\[
-\sum_{j=1}^3 T_j\int_0^1\left\{{d\phi_j\over dt} + k\phi_j\right\} \phi_i\ dt
-   = \int_{0}^1k\,T_e\phi_idt, \qquad i=1,2,3 \]</span></p>
-<p>Otra de L&amp;P (p145)</p>
-<p><span class="math display">\[
-\int_{-1}^1\!\int_{-1}^1\!\int_{-1}^1 f\big(\xi,\eta,\zeta\big)
-   = \sum_{k=1}^n\sum_{j=1}^n\sum_{i=1}^n w_i w_j w_k f\big( \xi,\eta,\zeta\big).
-\]</span></p>
-<p>Otra de L&amp;P (p126)</p>
-<p><span class="math display">\[
-\int_{A_e} (\,\cdot\,) dx dy = \int_{-1}^1\!\int_{-1}^1 (\,\cdot\,) \det[J] d\xi d\eta.
-\]</span>
-–&gt;</p>
+<div id="hex-stickers" class="section level1 hasAnchor" number="19">
+<h1><span class="header-section-number">Chapter 19</span> Hex Stickers<a href="hex-stickers.html#hex-stickers" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Este paquete es para crear Hex Stickers con uno o dos gráficos.</p>
+<p>Se puede cambiar</p>
+<ul>
+<li><p>la posiciones y tamaño de los graficos</p></li>
+<li><p>la posiciones y tamaño de los textos</p></li>
+<li><p>añadir un url</p></li>
+<li><p>exportar el Hex</p></li>
+<li><p>y muchos otras alternativas</p></li>
+</ul>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb973"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb973-1"><a href="hex-stickers.html#cb973-1" tabindex="-1"></a><span class="co">#instalar y activar &quot;cowplot&quot;</span></span>
+<span id="cb973-2"><a href="hex-stickers.html#cb973-2" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span></code></pre></div>
+</details>
+<pre><code>## 
+## Attaching package: &#39;cowplot&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:lubridate&#39;:
+## 
+##     stamp</code></pre>
+<p>&lt;<a href="https://github.com/GerkeLab/hexLogoGerke/blob/master/sticker.R" class="uri">https://github.com/GerkeLab/hexLogoGerke/blob/master/sticker.R</a>&gt; El paquete fue desarollado por Garrick Aden-Buie.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb976"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb976-1"><a href="hex-stickers.html#cb976-1" tabindex="-1"></a><span class="do">##&#39; create sticker in R</span></span>
+<span id="cb976-2"><a href="hex-stickers.html#cb976-2" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb976-3"><a href="hex-stickers.html#cb976-3" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb976-4"><a href="hex-stickers.html#cb976-4" tabindex="-1"></a><span class="do">##&#39; @title sticker</span></span>
+<span id="cb976-5"><a href="hex-stickers.html#cb976-5" tabindex="-1"></a><span class="do">##&#39; @param subplot subplot</span></span>
+<span id="cb976-6"><a href="hex-stickers.html#cb976-6" tabindex="-1"></a><span class="do">##&#39; @param s_x x position for subplot</span></span>
+<span id="cb976-7"><a href="hex-stickers.html#cb976-7" tabindex="-1"></a><span class="do">##&#39; @param s_y y position for subplot</span></span>
+<span id="cb976-8"><a href="hex-stickers.html#cb976-8" tabindex="-1"></a><span class="do">##&#39; @param s_width width for subplot</span></span>
+<span id="cb976-9"><a href="hex-stickers.html#cb976-9" tabindex="-1"></a><span class="do">##&#39; @param s_height height for subplot</span></span>
+<span id="cb976-10"><a href="hex-stickers.html#cb976-10" tabindex="-1"></a><span class="do">##&#39; @param package package name</span></span>
+<span id="cb976-11"><a href="hex-stickers.html#cb976-11" tabindex="-1"></a><span class="do">##&#39; @param p_x x position for package name</span></span>
+<span id="cb976-12"><a href="hex-stickers.html#cb976-12" tabindex="-1"></a><span class="do">##&#39; @param p_y y position for package name</span></span>
+<span id="cb976-13"><a href="hex-stickers.html#cb976-13" tabindex="-1"></a><span class="do">##&#39; @param p_color color for package name</span></span>
+<span id="cb976-14"><a href="hex-stickers.html#cb976-14" tabindex="-1"></a><span class="do">##&#39; @param p_family font family for package name</span></span>
+<span id="cb976-15"><a href="hex-stickers.html#cb976-15" tabindex="-1"></a><span class="do">##&#39; @param p_size font size for package name</span></span>
+<span id="cb976-16"><a href="hex-stickers.html#cb976-16" tabindex="-1"></a><span class="do">##&#39; @param h_size size for hexagon border</span></span>
+<span id="cb976-17"><a href="hex-stickers.html#cb976-17" tabindex="-1"></a><span class="do">##&#39; @param h_fill color to fill hexagon</span></span>
+<span id="cb976-18"><a href="hex-stickers.html#cb976-18" tabindex="-1"></a><span class="do">##&#39; @param h_color color for hexagon border</span></span>
+<span id="cb976-19"><a href="hex-stickers.html#cb976-19" tabindex="-1"></a><span class="do">##&#39; @param spotlight whether add spotlight</span></span>
+<span id="cb976-20"><a href="hex-stickers.html#cb976-20" tabindex="-1"></a><span class="do">##&#39; @param l_x x position for spotlight</span></span>
+<span id="cb976-21"><a href="hex-stickers.html#cb976-21" tabindex="-1"></a><span class="do">##&#39; @param l_y y position for spotlight</span></span>
+<span id="cb976-22"><a href="hex-stickers.html#cb976-22" tabindex="-1"></a><span class="do">##&#39; @param l_width width for spotlight</span></span>
+<span id="cb976-23"><a href="hex-stickers.html#cb976-23" tabindex="-1"></a><span class="do">##&#39; @param l_height height for spotlight</span></span>
+<span id="cb976-24"><a href="hex-stickers.html#cb976-24" tabindex="-1"></a><span class="do">##&#39; @param l_alpha maximum alpha for spotlight</span></span>
+<span id="cb976-25"><a href="hex-stickers.html#cb976-25" tabindex="-1"></a><span class="do">##&#39; @param url url at lower border</span></span>
+<span id="cb976-26"><a href="hex-stickers.html#cb976-26" tabindex="-1"></a><span class="do">##&#39; @param u_x x position for url</span></span>
+<span id="cb976-27"><a href="hex-stickers.html#cb976-27" tabindex="-1"></a><span class="do">##&#39; @param u_y y position for url</span></span>
+<span id="cb976-28"><a href="hex-stickers.html#cb976-28" tabindex="-1"></a><span class="do">##&#39; @param u_color color for url</span></span>
+<span id="cb976-29"><a href="hex-stickers.html#cb976-29" tabindex="-1"></a><span class="do">##&#39; @param u_family font family for url</span></span>
+<span id="cb976-30"><a href="hex-stickers.html#cb976-30" tabindex="-1"></a><span class="do">##&#39; @param u_size text size for url</span></span>
+<span id="cb976-31"><a href="hex-stickers.html#cb976-31" tabindex="-1"></a><span class="do">##&#39; @param filename filename to save sticker</span></span>
+<span id="cb976-32"><a href="hex-stickers.html#cb976-32" tabindex="-1"></a><span class="do">##&#39; @return gg object</span></span>
+<span id="cb976-33"><a href="hex-stickers.html#cb976-33" tabindex="-1"></a><span class="do">##&#39; @importFrom ggplot2 ggplot</span></span>
+<span id="cb976-34"><a href="hex-stickers.html#cb976-34" tabindex="-1"></a><span class="do">##&#39; @importFrom ggplot2 aes</span></span>
+<span id="cb976-35"><a href="hex-stickers.html#cb976-35" tabindex="-1"></a><span class="do">##&#39; @importFrom ggimage geom_subview</span></span>
+<span id="cb976-36"><a href="hex-stickers.html#cb976-36" tabindex="-1"></a><span class="do">##&#39; @importFrom ggimage geom_image</span></span>
+<span id="cb976-37"><a href="hex-stickers.html#cb976-37" tabindex="-1"></a><span class="do">##&#39; @export</span></span>
+<span id="cb976-38"><a href="hex-stickers.html#cb976-38" tabindex="-1"></a><span class="do">##&#39; @examples</span></span>
+<span id="cb976-39"><a href="hex-stickers.html#cb976-39" tabindex="-1"></a><span class="do">##&#39; library(ggplot2)</span></span>
+<span id="cb976-40"><a href="hex-stickers.html#cb976-40" tabindex="-1"></a><span class="do">##&#39; p &lt;- ggplot(aes(x = mpg, y = wt), data = mtcars) + geom_point()</span></span>
+<span id="cb976-41"><a href="hex-stickers.html#cb976-41" tabindex="-1"></a><span class="do">##&#39; p &lt;- p + theme_void() + theme_transparent()</span></span>
+<span id="cb976-42"><a href="hex-stickers.html#cb976-42" tabindex="-1"></a><span class="do">##&#39; sticker(p, package=&quot;hexSticker&quot;)</span></span>
+<span id="cb976-43"><a href="hex-stickers.html#cb976-43" tabindex="-1"></a><span class="do">##&#39; @author guangchuang yu</span></span>
+<span id="cb976-44"><a href="hex-stickers.html#cb976-44" tabindex="-1"></a>sticker <span class="ot">&lt;-</span> <span class="cf">function</span>(subplot, <span class="at">s_x=</span>.<span class="dv">8</span>, <span class="at">s_y=</span>.<span class="dv">75</span>, <span class="at">s_width=</span>.<span class="dv">4</span>, <span class="at">s_height=</span>.<span class="dv">5</span>,</span>
+<span id="cb976-45"><a href="hex-stickers.html#cb976-45" tabindex="-1"></a>                    subplot2, <span class="at">s2_x=</span>.<span class="dv">8</span>, <span class="at">s2_y=</span>.<span class="dv">75</span>, <span class="at">s2_width=</span>.<span class="dv">4</span>, <span class="at">s2_height=</span>.<span class="dv">5</span>,</span>
+<span id="cb976-46"><a href="hex-stickers.html#cb976-46" tabindex="-1"></a>                    package, <span class="at">p_x=</span><span class="dv">1</span>, <span class="at">p_y=</span><span class="fl">1.4</span>, <span class="at">p_color=</span><span class="st">&quot;#FFFFFF&quot;</span>, <span class="at">p_family=</span><span class="st">&quot;Aller_Rg&quot;</span>, <span class="at">p_size=</span><span class="dv">8</span>,</span>
+<span id="cb976-47"><a href="hex-stickers.html#cb976-47" tabindex="-1"></a>                    <span class="at">h_size=</span><span class="fl">1.2</span>, <span class="at">h_fill=</span><span class="st">&quot;#1881C2&quot;</span>, <span class="at">h_color=</span><span class="st">&quot;#87B13F&quot;</span>,</span>
+<span id="cb976-48"><a href="hex-stickers.html#cb976-48" tabindex="-1"></a>                    <span class="at">spotlight=</span><span class="cn">FALSE</span>, <span class="at">l_x=</span><span class="dv">1</span>, <span class="at">l_y=</span>.<span class="dv">5</span>, <span class="at">l_width=</span><span class="dv">3</span>, <span class="at">l_height=</span><span class="dv">3</span>, <span class="at">l_alpha=</span><span class="fl">0.4</span>,</span>
+<span id="cb976-49"><a href="hex-stickers.html#cb976-49" tabindex="-1"></a>                    <span class="at">url =</span> <span class="st">&quot;&quot;</span>,  <span class="at">u_x=</span><span class="dv">1</span>, <span class="at">u_y=</span><span class="fl">0.08</span>, <span class="at">u_color=</span><span class="st">&quot;black&quot;</span>, <span class="at">u_family=</span><span class="st">&quot;Aller_Rg&quot;</span>, <span class="at">u_size=</span><span class="fl">1.5</span>,</span>
+<span id="cb976-50"><a href="hex-stickers.html#cb976-50" tabindex="-1"></a>                    <span class="at">filename =</span> <span class="fu">paste0</span>(package, <span class="st">&quot;.pdf&quot;</span>)) {</span>
+<span id="cb976-51"><a href="hex-stickers.html#cb976-51" tabindex="-1"></a>  </span>
+<span id="cb976-52"><a href="hex-stickers.html#cb976-52" tabindex="-1"></a>  hex <span class="ot">&lt;-</span> <span class="fu">hexagon</span>(<span class="at">size=</span>h_size, <span class="at">fill=</span>h_fill, <span class="at">color=</span>h_color)</span>
+<span id="cb976-53"><a href="hex-stickers.html#cb976-53" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">inherits</span>(subplot, <span class="st">&quot;character&quot;</span>)) {</span>
+<span id="cb976-54"><a href="hex-stickers.html#cb976-54" tabindex="-1"></a>    d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span>s_x, <span class="at">y=</span>s_y, <span class="at">image=</span>subplot)</span>
+<span id="cb976-55"><a href="hex-stickers.html#cb976-55" tabindex="-1"></a>    sticker <span class="ot">&lt;-</span> hex <span class="sc">+</span> <span class="fu">geom_image</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="sc">~</span>x, <span class="at">y=</span><span class="sc">~</span>y, <span class="at">image=</span><span class="sc">~</span>image), d, <span class="at">size=</span>s_width)</span>
+<span id="cb976-56"><a href="hex-stickers.html#cb976-56" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb976-57"><a href="hex-stickers.html#cb976-57" tabindex="-1"></a>    sticker <span class="ot">&lt;-</span> hex <span class="sc">+</span> <span class="fu">geom_subview</span>(<span class="at">subview=</span>subplot, <span class="at">x=</span>s_x, <span class="at">y=</span>s_y, <span class="at">width=</span>s_width, <span class="at">height=</span>s_height) <span class="sc">+</span></span>
+<span id="cb976-58"><a href="hex-stickers.html#cb976-58" tabindex="-1"></a>      <span class="fu">geom_subview</span>(<span class="at">subview=</span>subplot2, <span class="at">x=</span>s2_x, <span class="at">y=</span>s2_y, <span class="at">width=</span>s2_width, <span class="at">height=</span>s2_height)</span>
+<span id="cb976-59"><a href="hex-stickers.html#cb976-59" tabindex="-1"></a>  }</span>
+<span id="cb976-60"><a href="hex-stickers.html#cb976-60" tabindex="-1"></a>  </span>
+<span id="cb976-61"><a href="hex-stickers.html#cb976-61" tabindex="-1"></a>  <span class="cf">if</span>(spotlight)</span>
+<span id="cb976-62"><a href="hex-stickers.html#cb976-62" tabindex="-1"></a>    sticker <span class="ot">&lt;-</span> sticker <span class="sc">+</span> <span class="fu">geom_subview</span>(<span class="at">subview=</span><span class="fu">spotlight</span>(l_alpha), <span class="at">x=</span>l_x, <span class="at">y=</span>l_y, <span class="at">width=</span>l_width, <span class="at">height=</span>l_height)</span>
+<span id="cb976-63"><a href="hex-stickers.html#cb976-63" tabindex="-1"></a>  </span>
+<span id="cb976-64"><a href="hex-stickers.html#cb976-64" tabindex="-1"></a>  sticker <span class="ot">&lt;-</span> sticker <span class="sc">+</span> <span class="fu">geom_pkgname</span>(package, p_x, p_y, p_color, p_family, p_size)</span>
+<span id="cb976-65"><a href="hex-stickers.html#cb976-65" tabindex="-1"></a>  </span>
+<span id="cb976-66"><a href="hex-stickers.html#cb976-66" tabindex="-1"></a>  sticker <span class="ot">&lt;-</span> sticker <span class="sc">+</span> <span class="fu">geom_url</span>(url, <span class="at">x=</span>u_x, <span class="at">y =</span> u_y, <span class="at">color =</span> u_color, <span class="at">family =</span> u_family, <span class="at">size=</span>u_size)</span>
+<span id="cb976-67"><a href="hex-stickers.html#cb976-67" tabindex="-1"></a>  </span>
+<span id="cb976-68"><a href="hex-stickers.html#cb976-68" tabindex="-1"></a>  <span class="fu">save_sticker</span>(filename, sticker)</span>
+<span id="cb976-69"><a href="hex-stickers.html#cb976-69" tabindex="-1"></a>  <span class="fu">invisible</span>(sticker)</span>
+<span id="cb976-70"><a href="hex-stickers.html#cb976-70" tabindex="-1"></a>}</span>
+<span id="cb976-71"><a href="hex-stickers.html#cb976-71" tabindex="-1"></a></span>
+<span id="cb976-72"><a href="hex-stickers.html#cb976-72" tabindex="-1"></a><span class="do">##&#39; empty hexagon</span></span>
+<span id="cb976-73"><a href="hex-stickers.html#cb976-73" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb976-74"><a href="hex-stickers.html#cb976-74" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb976-75"><a href="hex-stickers.html#cb976-75" tabindex="-1"></a><span class="do">##&#39; @title hexagon</span></span>
+<span id="cb976-76"><a href="hex-stickers.html#cb976-76" tabindex="-1"></a><span class="do">##&#39; @param size size of border</span></span>
+<span id="cb976-77"><a href="hex-stickers.html#cb976-77" tabindex="-1"></a><span class="do">##&#39; @param fill color of hexagon</span></span>
+<span id="cb976-78"><a href="hex-stickers.html#cb976-78" tabindex="-1"></a><span class="do">##&#39; @param color border color of hexagon</span></span>
+<span id="cb976-79"><a href="hex-stickers.html#cb976-79" tabindex="-1"></a><span class="do">##&#39; @return hexagon</span></span>
+<span id="cb976-80"><a href="hex-stickers.html#cb976-80" tabindex="-1"></a><span class="do">##&#39; @export</span></span>
+<span id="cb976-81"><a href="hex-stickers.html#cb976-81" tabindex="-1"></a><span class="do">##&#39; @author guangchuang yu</span></span>
+<span id="cb976-82"><a href="hex-stickers.html#cb976-82" tabindex="-1"></a>hexagon <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">size=</span><span class="fl">1.2</span>, <span class="at">fill=</span><span class="st">&quot;#1881C2&quot;</span>, <span class="at">color=</span><span class="st">&quot;#87B13F&quot;</span>) {</span>
+<span id="cb976-83"><a href="hex-stickers.html#cb976-83" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_hexagon</span>(<span class="at">size=</span>size, <span class="at">fill=</span>fill, <span class="at">color=</span>color) <span class="sc">+</span> <span class="fu">theme_sticker</span>()</span>
+<span id="cb976-84"><a href="hex-stickers.html#cb976-84" tabindex="-1"></a>}</span>
+<span id="cb976-85"><a href="hex-stickers.html#cb976-85" tabindex="-1"></a></span>
+<span id="cb976-86"><a href="hex-stickers.html#cb976-86" tabindex="-1"></a><span class="do">##&#39; @importFrom grDevices rgb</span></span>
+<span id="cb976-87"><a href="hex-stickers.html#cb976-87" tabindex="-1"></a><span class="do">##&#39; @author Johannes Rainer with modification from Guangchuang Yu and Sebastian Gibb</span></span>
+<span id="cb976-88"><a href="hex-stickers.html#cb976-88" tabindex="-1"></a>whiteTrans <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) {</span>
+<span id="cb976-89"><a href="hex-stickers.html#cb976-89" tabindex="-1"></a>  <span class="cf">function</span>(n) {</span>
+<span id="cb976-90"><a href="hex-stickers.html#cb976-90" tabindex="-1"></a>    <span class="fu">rgb</span>(<span class="at">red =</span> <span class="fu">rep</span>(<span class="dv">1</span>, n), <span class="at">green =</span> <span class="fu">rep</span>(<span class="dv">1</span>, n), <span class="at">blue =</span> <span class="fu">rep</span>(<span class="dv">1</span>, n),</span>
+<span id="cb976-91"><a href="hex-stickers.html#cb976-91" tabindex="-1"></a>        <span class="at">alpha =</span> <span class="fu">seq</span>(<span class="dv">0</span>, alpha, <span class="at">length.out =</span> n))</span>
+<span id="cb976-92"><a href="hex-stickers.html#cb976-92" tabindex="-1"></a>  }</span>
+<span id="cb976-93"><a href="hex-stickers.html#cb976-93" tabindex="-1"></a>}</span>
+<span id="cb976-94"><a href="hex-stickers.html#cb976-94" tabindex="-1"></a></span>
+<span id="cb976-95"><a href="hex-stickers.html#cb976-95" tabindex="-1"></a><span class="do">##&#39; @importFrom stats rnorm</span></span>
+<span id="cb976-96"><a href="hex-stickers.html#cb976-96" tabindex="-1"></a><span class="do">##&#39; @importFrom hexbin hexbinplot</span></span>
+<span id="cb976-97"><a href="hex-stickers.html#cb976-97" tabindex="-1"></a><span class="do">##&#39; @author Johannes Rainer with modification from Guangchuang Yu</span></span>
+<span id="cb976-98"><a href="hex-stickers.html#cb976-98" tabindex="-1"></a>spotlight <span class="ot">&lt;-</span> <span class="cf">function</span>(alpha) {</span>
+<span id="cb976-99"><a href="hex-stickers.html#cb976-99" tabindex="-1"></a>  <span class="do">## set.seed(123)</span></span>
+<span id="cb976-100"><a href="hex-stickers.html#cb976-100" tabindex="-1"></a>  vals_x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">500000</span>, <span class="at">sd =</span> <span class="dv">2</span>, <span class="at">mean =</span> <span class="dv">0</span>)</span>
+<span id="cb976-101"><a href="hex-stickers.html#cb976-101" tabindex="-1"></a>  vals_y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">500000</span>, <span class="at">sd =</span> <span class="dv">2</span>, <span class="at">mean =</span> <span class="dv">0</span>)</span>
+<span id="cb976-102"><a href="hex-stickers.html#cb976-102" tabindex="-1"></a>  <span class="fu">hexbinplot</span>(vals_x <span class="sc">~</span> vals_y, <span class="at">colramp =</span> <span class="fu">whiteTrans</span>(alpha), <span class="at">colorkey =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb976-103"><a href="hex-stickers.html#cb976-103" tabindex="-1"></a>             <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="at">scales =</span> <span class="fu">list</span>(<span class="at">draw =</span> <span class="cn">FALSE</span>), <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb976-104"><a href="hex-stickers.html#cb976-104" tabindex="-1"></a>             <span class="at">border =</span> <span class="cn">NA</span>, <span class="at">par.settings =</span> <span class="fu">list</span>(<span class="at">axis.line =</span> <span class="fu">list</span>(<span class="at">col =</span> <span class="cn">NA</span>)))</span>
+<span id="cb976-105"><a href="hex-stickers.html#cb976-105" tabindex="-1"></a>}</span>
+<span id="cb976-106"><a href="hex-stickers.html#cb976-106" tabindex="-1"></a></span>
+<span id="cb976-107"><a href="hex-stickers.html#cb976-107" tabindex="-1"></a></span>
+<span id="cb976-108"><a href="hex-stickers.html#cb976-108" tabindex="-1"></a><span class="do">##&#39; add package name to sticker</span></span>
+<span id="cb976-109"><a href="hex-stickers.html#cb976-109" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb976-110"><a href="hex-stickers.html#cb976-110" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb976-111"><a href="hex-stickers.html#cb976-111" tabindex="-1"></a><span class="do">##&#39; @title geom_pkgname</span></span>
+<span id="cb976-112"><a href="hex-stickers.html#cb976-112" tabindex="-1"></a><span class="do">##&#39; @param package package name</span></span>
+<span id="cb976-113"><a href="hex-stickers.html#cb976-113" tabindex="-1"></a><span class="do">##&#39; @param x x position</span></span>
+<span id="cb976-114"><a href="hex-stickers.html#cb976-114" tabindex="-1"></a><span class="do">##&#39; @param y y position</span></span>
+<span id="cb976-115"><a href="hex-stickers.html#cb976-115" tabindex="-1"></a><span class="do">##&#39; @param color color</span></span>
+<span id="cb976-116"><a href="hex-stickers.html#cb976-116" tabindex="-1"></a><span class="do">##&#39; @param family font family</span></span>
+<span id="cb976-117"><a href="hex-stickers.html#cb976-117" tabindex="-1"></a><span class="do">##&#39; @param size font size</span></span>
+<span id="cb976-118"><a href="hex-stickers.html#cb976-118" tabindex="-1"></a><span class="do">##&#39; @param ... addition parameters passed to geom_text()</span></span>
+<span id="cb976-119"><a href="hex-stickers.html#cb976-119" tabindex="-1"></a><span class="do">##&#39; @return package name layer</span></span>
+<span id="cb976-120"><a href="hex-stickers.html#cb976-120" tabindex="-1"></a><span class="do">##&#39; @importFrom ggplot2 geom_text</span></span>
+<span id="cb976-121"><a href="hex-stickers.html#cb976-121" tabindex="-1"></a><span class="do">##&#39; @export</span></span>
+<span id="cb976-122"><a href="hex-stickers.html#cb976-122" tabindex="-1"></a><span class="do">##&#39; @author guangchuang yu</span></span>
+<span id="cb976-123"><a href="hex-stickers.html#cb976-123" tabindex="-1"></a>geom_pkgname <span class="ot">&lt;-</span> <span class="cf">function</span>(package, <span class="at">x=</span><span class="dv">1</span>, <span class="at">y=</span><span class="fl">1.4</span>, <span class="at">color=</span><span class="st">&quot;#FFFFFF&quot;</span>, <span class="at">family=</span><span class="st">&quot;Aller_Rg&quot;</span>, <span class="at">size=</span><span class="dv">8</span>, ...) {</span>
+<span id="cb976-124"><a href="hex-stickers.html#cb976-124" tabindex="-1"></a>  family <span class="ot">&lt;-</span> <span class="fu">load_font</span>(family)</span>
+<span id="cb976-125"><a href="hex-stickers.html#cb976-125" tabindex="-1"></a>  d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x, <span class="at">y =</span> y,</span>
+<span id="cb976-126"><a href="hex-stickers.html#cb976-126" tabindex="-1"></a>                  <span class="at">label =</span> package)</span>
+<span id="cb976-127"><a href="hex-stickers.html#cb976-127" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes_</span>(<span class="at">x=</span><span class="sc">~</span>x, <span class="at">y=</span><span class="sc">~</span>y, <span class="at">label=</span><span class="sc">~</span>label), d,</span>
+<span id="cb976-128"><a href="hex-stickers.html#cb976-128" tabindex="-1"></a>            <span class="at">size=</span>size, <span class="at">color=</span>color, <span class="at">family =</span> family, ...)</span>
+<span id="cb976-129"><a href="hex-stickers.html#cb976-129" tabindex="-1"></a>}</span>
+<span id="cb976-130"><a href="hex-stickers.html#cb976-130" tabindex="-1"></a></span>
+<span id="cb976-131"><a href="hex-stickers.html#cb976-131" tabindex="-1"></a><span class="do">##&#39; @importFrom sysfonts font_add</span></span>
+<span id="cb976-132"><a href="hex-stickers.html#cb976-132" tabindex="-1"></a><span class="fu">require</span>(sysfonts)</span></code></pre></div>
+</details>
+<pre><code>## Loading required package: sysfonts</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb978"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb978-1"><a href="hex-stickers.html#cb978-1" tabindex="-1"></a><span class="do">##&#39; @importFrom showtext showtext_auto</span></span>
+<span id="cb978-2"><a href="hex-stickers.html#cb978-2" tabindex="-1"></a><span class="fu">require</span>(showtext)</span></code></pre></div>
+</details>
+<pre><code>## Loading required package: showtext</code></pre>
+<pre><code>## Loading required package: showtextdb</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb981"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb981-1"><a href="hex-stickers.html#cb981-1" tabindex="-1"></a>load_font <span class="ot">&lt;-</span> <span class="cf">function</span>(family) {</span>
+<span id="cb981-2"><a href="hex-stickers.html#cb981-2" tabindex="-1"></a>  <span class="cf">if</span> (family <span class="sc">==</span> <span class="st">&quot;Aller&quot;</span>) {</span>
+<span id="cb981-3"><a href="hex-stickers.html#cb981-3" tabindex="-1"></a>    family <span class="ot">&lt;-</span> <span class="st">&quot;Aller_Rg&quot;</span></span>
+<span id="cb981-4"><a href="hex-stickers.html#cb981-4" tabindex="-1"></a>  }</span>
+<span id="cb981-5"><a href="hex-stickers.html#cb981-5" tabindex="-1"></a>  </span>
+<span id="cb981-6"><a href="hex-stickers.html#cb981-6" tabindex="-1"></a>  fonts <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="fu">system.file</span>(<span class="st">&quot;fonts&quot;</span>, <span class="at">package=</span><span class="st">&quot;hexSticker&quot;</span>),</span>
+<span id="cb981-7"><a href="hex-stickers.html#cb981-7" tabindex="-1"></a>                      <span class="at">pattern=</span><span class="st">&quot;ttf$&quot;</span>, <span class="at">recursive=</span><span class="cn">TRUE</span>, <span class="at">full.names=</span><span class="cn">TRUE</span>)</span>
+<span id="cb981-8"><a href="hex-stickers.html#cb981-8" tabindex="-1"></a>  i <span class="ot">&lt;-</span> family <span class="sc">==</span> <span class="fu">sub</span>(<span class="st">&quot;.ttf&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="fu">basename</span>(fonts))</span>
+<span id="cb981-9"><a href="hex-stickers.html#cb981-9" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">any</span>(i)) {</span>
+<span id="cb981-10"><a href="hex-stickers.html#cb981-10" tabindex="-1"></a>    <span class="fu">font_add</span>(family, fonts[<span class="fu">which</span>(i)[<span class="dv">1</span>]])</span>
+<span id="cb981-11"><a href="hex-stickers.html#cb981-11" tabindex="-1"></a>    <span class="fu">showtext_auto</span>()</span>
+<span id="cb981-12"><a href="hex-stickers.html#cb981-12" tabindex="-1"></a>  }</span>
+<span id="cb981-13"><a href="hex-stickers.html#cb981-13" tabindex="-1"></a>  <span class="fu">return</span>(family)</span>
+<span id="cb981-14"><a href="hex-stickers.html#cb981-14" tabindex="-1"></a>}</span>
+<span id="cb981-15"><a href="hex-stickers.html#cb981-15" tabindex="-1"></a></span>
+<span id="cb981-16"><a href="hex-stickers.html#cb981-16" tabindex="-1"></a><span class="do">##&#39; add url at the lower border of the sticker</span></span>
+<span id="cb981-17"><a href="hex-stickers.html#cb981-17" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb981-18"><a href="hex-stickers.html#cb981-18" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb981-19"><a href="hex-stickers.html#cb981-19" tabindex="-1"></a><span class="do">##&#39; @title geom_url</span></span>
+<span id="cb981-20"><a href="hex-stickers.html#cb981-20" tabindex="-1"></a><span class="do">##&#39; @param url url</span></span>
+<span id="cb981-21"><a href="hex-stickers.html#cb981-21" tabindex="-1"></a><span class="do">##&#39; @param x x position of url</span></span>
+<span id="cb981-22"><a href="hex-stickers.html#cb981-22" tabindex="-1"></a><span class="do">##&#39; @param y y position of url</span></span>
+<span id="cb981-23"><a href="hex-stickers.html#cb981-23" tabindex="-1"></a><span class="do">##&#39; @param family font family</span></span>
+<span id="cb981-24"><a href="hex-stickers.html#cb981-24" tabindex="-1"></a><span class="do">##&#39; @param size size of url</span></span>
+<span id="cb981-25"><a href="hex-stickers.html#cb981-25" tabindex="-1"></a><span class="do">##&#39; @param color color of url</span></span>
+<span id="cb981-26"><a href="hex-stickers.html#cb981-26" tabindex="-1"></a><span class="do">##&#39; @param angle angle of url, default is 30</span></span>
+<span id="cb981-27"><a href="hex-stickers.html#cb981-27" tabindex="-1"></a><span class="do">##&#39; @param hjust horizontal adjustment</span></span>
+<span id="cb981-28"><a href="hex-stickers.html#cb981-28" tabindex="-1"></a><span class="do">##&#39; @param ... additional parameters to geom_text</span></span>
+<span id="cb981-29"><a href="hex-stickers.html#cb981-29" tabindex="-1"></a><span class="do">##&#39; @return geom layer</span></span>
+<span id="cb981-30"><a href="hex-stickers.html#cb981-30" tabindex="-1"></a><span class="do">##&#39; @export</span></span>
+<span id="cb981-31"><a href="hex-stickers.html#cb981-31" tabindex="-1"></a><span class="do">##&#39; @author guangchuang yu</span></span>
+<span id="cb981-32"><a href="hex-stickers.html#cb981-32" tabindex="-1"></a>geom_url <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">url=</span><span class="st">&quot;www.bioconductor.org&quot;</span>, <span class="at">x=</span><span class="dv">1</span>, <span class="at">y=</span><span class="fl">0.08</span>, <span class="at">family=</span><span class="st">&quot;Aller_Rg&quot;</span>, <span class="at">size=</span><span class="fl">1.5</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">angle=</span><span class="dv">30</span>, <span class="at">hjust=</span><span class="dv">0</span>, ...) {</span>
+<span id="cb981-33"><a href="hex-stickers.html#cb981-33" tabindex="-1"></a>  family <span class="ot">&lt;-</span> <span class="fu">load_font</span>(family)</span>
+<span id="cb981-34"><a href="hex-stickers.html#cb981-34" tabindex="-1"></a>  d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x,</span>
+<span id="cb981-35"><a href="hex-stickers.html#cb981-35" tabindex="-1"></a>                  <span class="at">y =</span> y,</span>
+<span id="cb981-36"><a href="hex-stickers.html#cb981-36" tabindex="-1"></a>                  <span class="at">url =</span> url)</span>
+<span id="cb981-37"><a href="hex-stickers.html#cb981-37" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes_</span>(<span class="at">x=</span><span class="sc">~</span>x, <span class="at">y=</span><span class="sc">~</span>y, <span class="at">label=</span><span class="sc">~</span>url),</span>
+<span id="cb981-38"><a href="hex-stickers.html#cb981-38" tabindex="-1"></a>            <span class="at">data =</span> d,</span>
+<span id="cb981-39"><a href="hex-stickers.html#cb981-39" tabindex="-1"></a>            <span class="at">size =</span> size,</span>
+<span id="cb981-40"><a href="hex-stickers.html#cb981-40" tabindex="-1"></a>            <span class="at">color =</span> color,</span>
+<span id="cb981-41"><a href="hex-stickers.html#cb981-41" tabindex="-1"></a>            <span class="at">family =</span> family,</span>
+<span id="cb981-42"><a href="hex-stickers.html#cb981-42" tabindex="-1"></a>            <span class="at">angle =</span> angle,</span>
+<span id="cb981-43"><a href="hex-stickers.html#cb981-43" tabindex="-1"></a>            <span class="at">hjust =</span> hjust,</span>
+<span id="cb981-44"><a href="hex-stickers.html#cb981-44" tabindex="-1"></a>            ...)</span>
+<span id="cb981-45"><a href="hex-stickers.html#cb981-45" tabindex="-1"></a>}</span>
+<span id="cb981-46"><a href="hex-stickers.html#cb981-46" tabindex="-1"></a></span>
+<span id="cb981-47"><a href="hex-stickers.html#cb981-47" tabindex="-1"></a><span class="do">##&#39; geom layer of hexagon</span></span>
+<span id="cb981-48"><a href="hex-stickers.html#cb981-48" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb981-49"><a href="hex-stickers.html#cb981-49" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb981-50"><a href="hex-stickers.html#cb981-50" tabindex="-1"></a><span class="do">##&#39; @title geom_hexagon</span></span>
+<span id="cb981-51"><a href="hex-stickers.html#cb981-51" tabindex="-1"></a><span class="do">##&#39; @param size size of border</span></span>
+<span id="cb981-52"><a href="hex-stickers.html#cb981-52" tabindex="-1"></a><span class="do">##&#39; @param fill color of hexagon</span></span>
+<span id="cb981-53"><a href="hex-stickers.html#cb981-53" tabindex="-1"></a><span class="do">##&#39; @param color color of border</span></span>
+<span id="cb981-54"><a href="hex-stickers.html#cb981-54" tabindex="-1"></a><span class="do">##&#39; @return hexagon layer</span></span>
+<span id="cb981-55"><a href="hex-stickers.html#cb981-55" tabindex="-1"></a><span class="do">##&#39; @importFrom ggplot2 aes_</span></span>
+<span id="cb981-56"><a href="hex-stickers.html#cb981-56" tabindex="-1"></a><span class="do">##&#39; @importFrom ggplot2 geom_polygon</span></span>
+<span id="cb981-57"><a href="hex-stickers.html#cb981-57" tabindex="-1"></a><span class="do">##  @importFrom ggforce geom_circle</span></span>
+<span id="cb981-58"><a href="hex-stickers.html#cb981-58" tabindex="-1"></a><span class="do">##&#39; @export</span></span>
+<span id="cb981-59"><a href="hex-stickers.html#cb981-59" tabindex="-1"></a><span class="do">##&#39; @author guangchuang yu</span></span>
+<span id="cb981-60"><a href="hex-stickers.html#cb981-60" tabindex="-1"></a>geom_hexagon <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">size=</span><span class="fl">1.2</span>, <span class="at">fill=</span><span class="st">&quot;#1881C2&quot;</span>, <span class="at">color=</span><span class="st">&quot;#87B13F&quot;</span>) {</span>
+<span id="cb981-61"><a href="hex-stickers.html#cb981-61" tabindex="-1"></a>  <span class="do">## center &lt;- 1</span></span>
+<span id="cb981-62"><a href="hex-stickers.html#cb981-62" tabindex="-1"></a>  <span class="do">## radius &lt;- 1</span></span>
+<span id="cb981-63"><a href="hex-stickers.html#cb981-63" tabindex="-1"></a>  <span class="do">## d &lt;- data.frame(x0 = center, y0 = center, r = radius)</span></span>
+<span id="cb981-64"><a href="hex-stickers.html#cb981-64" tabindex="-1"></a>  <span class="do">## geom_circle(aes_(x0 = ~x0, y0 = ~y0, r = ~r),</span></span>
+<span id="cb981-65"><a href="hex-stickers.html#cb981-65" tabindex="-1"></a>  <span class="do">##             size = size, data = d, n = 5.5,</span></span>
+<span id="cb981-66"><a href="hex-stickers.html#cb981-66" tabindex="-1"></a>  <span class="do">##             fill = fill, color = color)</span></span>
+<span id="cb981-67"><a href="hex-stickers.html#cb981-67" tabindex="-1"></a>  hexd <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">+</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="sc">-</span><span class="fu">sqrt</span>(<span class="dv">3</span>)<span class="sc">/</span><span class="dv">2</span>, <span class="dv">2</span>), <span class="dv">0</span>, <span class="fu">rep</span>(<span class="fu">sqrt</span>(<span class="dv">3</span>)<span class="sc">/</span><span class="dv">2</span>, <span class="dv">2</span>), <span class="dv">0</span>),</span>
+<span id="cb981-68"><a href="hex-stickers.html#cb981-68" tabindex="-1"></a>                     <span class="at">y =</span> <span class="dv">1</span><span class="sc">+</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="sc">-</span><span class="fl">0.5</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="dv">1</span>))</span>
+<span id="cb981-69"><a href="hex-stickers.html#cb981-69" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="fu">aes_</span>(<span class="at">x=</span><span class="sc">~</span>x, <span class="at">y=</span><span class="sc">~</span>y), <span class="at">data=</span>hexd,</span>
+<span id="cb981-70"><a href="hex-stickers.html#cb981-70" tabindex="-1"></a>               <span class="at">size =</span> size, <span class="at">fill =</span> fill, <span class="at">color =</span> color)</span>
+<span id="cb981-71"><a href="hex-stickers.html#cb981-71" tabindex="-1"></a>}</span>
+<span id="cb981-72"><a href="hex-stickers.html#cb981-72" tabindex="-1"></a></span>
+<span id="cb981-73"><a href="hex-stickers.html#cb981-73" tabindex="-1"></a><span class="do">##&#39; sticker theme</span></span>
+<span id="cb981-74"><a href="hex-stickers.html#cb981-74" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb981-75"><a href="hex-stickers.html#cb981-75" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb981-76"><a href="hex-stickers.html#cb981-76" tabindex="-1"></a><span class="do">##&#39; @title theme_sticker</span></span>
+<span id="cb981-77"><a href="hex-stickers.html#cb981-77" tabindex="-1"></a><span class="do">##&#39; @param ... additional parameters passed to theme()</span></span>
+<span id="cb981-78"><a href="hex-stickers.html#cb981-78" tabindex="-1"></a><span class="do">##&#39; @return theme for sticker</span></span>
+<span id="cb981-79"><a href="hex-stickers.html#cb981-79" tabindex="-1"></a><span class="do">##&#39; @importFrom ggplot2 coord_fixed</span></span>
+<span id="cb981-80"><a href="hex-stickers.html#cb981-80" tabindex="-1"></a><span class="do">##&#39; @importFrom ggplot2 theme</span></span>
+<span id="cb981-81"><a href="hex-stickers.html#cb981-81" tabindex="-1"></a><span class="do">##&#39; @importFrom ggplot2 element_blank</span></span>
+<span id="cb981-82"><a href="hex-stickers.html#cb981-82" tabindex="-1"></a><span class="do">##&#39; @importFrom ggplot2 scale_x_continuous</span></span>
+<span id="cb981-83"><a href="hex-stickers.html#cb981-83" tabindex="-1"></a><span class="do">##&#39; @importFrom ggplot2 scale_y_continuous</span></span>
+<span id="cb981-84"><a href="hex-stickers.html#cb981-84" tabindex="-1"></a><span class="do">##&#39; @importFrom ggimage theme_transparent</span></span>
+<span id="cb981-85"><a href="hex-stickers.html#cb981-85" tabindex="-1"></a><span class="do">##&#39; @export</span></span>
+<span id="cb981-86"><a href="hex-stickers.html#cb981-86" tabindex="-1"></a><span class="do">##&#39; @author guangchuang yu</span></span>
+<span id="cb981-87"><a href="hex-stickers.html#cb981-87" tabindex="-1"></a>theme_sticker <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
+<span id="cb981-88"><a href="hex-stickers.html#cb981-88" tabindex="-1"></a>  center <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb981-89"><a href="hex-stickers.html#cb981-89" tabindex="-1"></a>  radius <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb981-90"><a href="hex-stickers.html#cb981-90" tabindex="-1"></a>  h <span class="ot">&lt;-</span> radius</span>
+<span id="cb981-91"><a href="hex-stickers.html#cb981-91" tabindex="-1"></a>  w <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">3</span>)<span class="sc">/</span><span class="dv">2</span> <span class="sc">*</span> radius</span>
+<span id="cb981-92"><a href="hex-stickers.html#cb981-92" tabindex="-1"></a>  m <span class="ot">&lt;-</span> <span class="fl">1.02</span></span>
+<span id="cb981-93"><a href="hex-stickers.html#cb981-93" tabindex="-1"></a>  </span>
+<span id="cb981-94"><a href="hex-stickers.html#cb981-94" tabindex="-1"></a>  <span class="fu">list</span>(<span class="fu">theme_transparent</span>() <span class="sc">+</span></span>
+<span id="cb981-95"><a href="hex-stickers.html#cb981-95" tabindex="-1"></a>         <span class="fu">theme</span>(<span class="at">plot.margin =</span> grid<span class="sc">::</span><span class="fu">unit</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="sc">-</span><span class="fl">0.2</span>, <span class="sc">-</span><span class="fl">0.2</span>), <span class="st">&quot;lines&quot;</span>),</span>
+<span id="cb981-96"><a href="hex-stickers.html#cb981-96" tabindex="-1"></a>               <span class="at">strip.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb981-97"><a href="hex-stickers.html#cb981-97" tabindex="-1"></a>               <span class="at">line =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb981-98"><a href="hex-stickers.html#cb981-98" tabindex="-1"></a>               <span class="at">text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb981-99"><a href="hex-stickers.html#cb981-99" tabindex="-1"></a>               <span class="at">title =</span> <span class="fu">element_blank</span>(), ...),</span>
+<span id="cb981-100"><a href="hex-stickers.html#cb981-100" tabindex="-1"></a>       <span class="fu">coord_fixed</span>(),</span>
+<span id="cb981-101"><a href="hex-stickers.html#cb981-101" tabindex="-1"></a>       <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">limits =</span> <span class="fu">c</span>(center<span class="sc">-</span>h<span class="sc">*</span>m, center<span class="sc">+</span>h<span class="sc">*</span>m)),</span>
+<span id="cb981-102"><a href="hex-stickers.html#cb981-102" tabindex="-1"></a>       <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">limits =</span> <span class="fu">c</span>(center<span class="sc">-</span>w<span class="sc">*</span>m, center<span class="sc">+</span>w<span class="sc">*</span>m))</span>
+<span id="cb981-103"><a href="hex-stickers.html#cb981-103" tabindex="-1"></a>  )</span>
+<span id="cb981-104"><a href="hex-stickers.html#cb981-104" tabindex="-1"></a>}</span>
+<span id="cb981-105"><a href="hex-stickers.html#cb981-105" tabindex="-1"></a></span>
+<span id="cb981-106"><a href="hex-stickers.html#cb981-106" tabindex="-1"></a></span>
+<span id="cb981-107"><a href="hex-stickers.html#cb981-107" tabindex="-1"></a><span class="do">##&#39; save sticker to file</span></span>
+<span id="cb981-108"><a href="hex-stickers.html#cb981-108" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb981-109"><a href="hex-stickers.html#cb981-109" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb981-110"><a href="hex-stickers.html#cb981-110" tabindex="-1"></a><span class="do">##&#39; @title save_sticker</span></span>
+<span id="cb981-111"><a href="hex-stickers.html#cb981-111" tabindex="-1"></a><span class="do">##&#39; @param filename file name</span></span>
+<span id="cb981-112"><a href="hex-stickers.html#cb981-112" tabindex="-1"></a><span class="do">##&#39; @param sticker sticker</span></span>
+<span id="cb981-113"><a href="hex-stickers.html#cb981-113" tabindex="-1"></a><span class="do">##&#39; @return NULL</span></span>
+<span id="cb981-114"><a href="hex-stickers.html#cb981-114" tabindex="-1"></a><span class="do">##&#39; @importFrom ggplot2 ggsave</span></span>
+<span id="cb981-115"><a href="hex-stickers.html#cb981-115" tabindex="-1"></a><span class="do">##&#39; @importFrom ggplot2 last_plot</span></span>
+<span id="cb981-116"><a href="hex-stickers.html#cb981-116" tabindex="-1"></a><span class="do">##&#39; @export</span></span>
+<span id="cb981-117"><a href="hex-stickers.html#cb981-117" tabindex="-1"></a><span class="do">##&#39; @author guangchuang yu</span></span>
+<span id="cb981-118"><a href="hex-stickers.html#cb981-118" tabindex="-1"></a>save_sticker <span class="ot">&lt;-</span> <span class="cf">function</span>(filename, <span class="at">sticker=</span><span class="fu">last_plot</span>()) {</span>
+<span id="cb981-119"><a href="hex-stickers.html#cb981-119" tabindex="-1"></a>  <span class="fu">ggsave</span>(sticker, <span class="at">width =</span> <span class="fl">43.9</span>, <span class="at">height =</span> <span class="fl">50.8</span>,</span>
+<span id="cb981-120"><a href="hex-stickers.html#cb981-120" tabindex="-1"></a>         <span class="at">device =</span> <span class="fu">pdf</span>(),</span>
+<span id="cb981-121"><a href="hex-stickers.html#cb981-121" tabindex="-1"></a>         <span class="at">filename =</span> filename,</span>
+<span id="cb981-122"><a href="hex-stickers.html#cb981-122" tabindex="-1"></a>         <span class="at">bg =</span> <span class="st">&#39;transparent&#39;</span>,</span>
+<span id="cb981-123"><a href="hex-stickers.html#cb981-123" tabindex="-1"></a>         <span class="at">units =</span> <span class="st">&quot;mm&quot;</span>)</span>
+<span id="cb981-124"><a href="hex-stickers.html#cb981-124" tabindex="-1"></a>}</span>
+<span id="cb981-125"><a href="hex-stickers.html#cb981-125" tabindex="-1"></a></span>
+<span id="cb981-126"><a href="hex-stickers.html#cb981-126" tabindex="-1"></a><span class="do">##&#39; open dev for sticker</span></span>
+<span id="cb981-127"><a href="hex-stickers.html#cb981-127" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb981-128"><a href="hex-stickers.html#cb981-128" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb981-129"><a href="hex-stickers.html#cb981-129" tabindex="-1"></a><span class="do">##&#39; @title sticker_dev</span></span>
+<span id="cb981-130"><a href="hex-stickers.html#cb981-130" tabindex="-1"></a><span class="do">##&#39; @return new dev</span></span>
+<span id="cb981-131"><a href="hex-stickers.html#cb981-131" tabindex="-1"></a><span class="do">##&#39; @importFrom grDevices dev.new</span></span>
+<span id="cb981-132"><a href="hex-stickers.html#cb981-132" tabindex="-1"></a><span class="do">##&#39; @export</span></span>
+<span id="cb981-133"><a href="hex-stickers.html#cb981-133" tabindex="-1"></a><span class="do">##&#39; @author guangchuang yu</span></span>
+<span id="cb981-134"><a href="hex-stickers.html#cb981-134" tabindex="-1"></a>sticker_dev <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb981-135"><a href="hex-stickers.html#cb981-135" tabindex="-1"></a>  <span class="co"># if (!(all.equal(dev.size()[1], sqrt(3)) &amp;&amp; all.equal(dev.size()[2], 2)))</span></span>
+<span id="cb981-136"><a href="hex-stickers.html#cb981-136" tabindex="-1"></a>  <span class="fu">dev.new</span>(<span class="at">width=</span><span class="fu">sqrt</span>(<span class="dv">3</span>), <span class="at">height=</span><span class="dv">2</span>, <span class="at">noRStudioGD=</span><span class="cn">TRUE</span>)</span>
+<span id="cb981-137"><a href="hex-stickers.html#cb981-137" tabindex="-1"></a>}</span>
+<span id="cb981-138"><a href="hex-stickers.html#cb981-138" tabindex="-1"></a></span>
+<span id="cb981-139"><a href="hex-stickers.html#cb981-139" tabindex="-1"></a></span>
+<span id="cb981-140"><a href="hex-stickers.html#cb981-140" tabindex="-1"></a><span class="do">##&#39; @export</span></span>
+<span id="cb981-141"><a href="hex-stickers.html#cb981-141" tabindex="-1"></a><span class="co">#ggimage::geom_subview</span></span>
+<span id="cb981-142"><a href="hex-stickers.html#cb981-142" tabindex="-1"></a><span class="fu">require</span>(ggimage)</span></code></pre></div>
+</details>
+<pre><code>## Loading required package: ggimage</code></pre>
+<pre><code>## 
+## Attaching package: &#39;ggimage&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:cowplot&#39;:
+## 
+##     theme_nothing</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb985"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb985-1"><a href="hex-stickers.html#cb985-1" tabindex="-1"></a><span class="do">##&#39; @export</span></span>
+<span id="cb985-2"><a href="hex-stickers.html#cb985-2" tabindex="-1"></a><span class="co">#ggimage::theme_transparent</span></span>
+<span id="cb985-3"><a href="hex-stickers.html#cb985-3" tabindex="-1"></a></span>
+<span id="cb985-4"><a href="hex-stickers.html#cb985-4" tabindex="-1"></a><span class="do">##&#39; @export</span></span>
+<span id="cb985-5"><a href="hex-stickers.html#cb985-5" tabindex="-1"></a><span class="co">#ggplot2::ggplot</span></span></code></pre></div>
+</details>
+<div id="crear-un-gráfico-sencillo" class="section level2 hasAnchor" number="19.1">
+<h2><span class="header-section-number">19.1</span> Crear un gráfico sencillo<a href="hex-stickers.html#crear-un-gráfico-sencillo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb986"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb986-1"><a href="hex-stickers.html#cb986-1" tabindex="-1"></a> <span class="co">#To show (e.g.) means, you need geom_col()</span></span>
+<span id="cb986-2"><a href="hex-stickers.html#cb986-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">trt =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;e&quot;</span>), <span class="at">outcome =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">1</span>)) <span class="co"># crear un df</span></span>
+<span id="cb986-3"><a href="hex-stickers.html#cb986-3" tabindex="-1"></a></span>
+<span id="cb986-4"><a href="hex-stickers.html#cb986-4" tabindex="-1"></a></span>
+<span id="cb986-5"><a href="hex-stickers.html#cb986-5" tabindex="-1"></a>p1<span class="ot">=</span><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(trt, outcome)) <span class="sc">+</span></span>
+<span id="cb986-6"><a href="hex-stickers.html#cb986-6" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill=</span>trt))<span class="sc">+</span></span>
+<span id="cb986-7"><a href="hex-stickers.html#cb986-7" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill=</span><span class="cn">FALSE</span>)<span class="sc">+</span><span class="fu">theme_void</span>() <span class="sc">+</span> <span class="fu">theme_transparent</span>() <span class="co"># crear un grafico</span></span></code></pre></div>
+</details>
+<pre><code>## Warning: The `&lt;scale&gt;` argument of `guides()` cannot be `FALSE`. Use &quot;none&quot; instead as of ggplot2 3.3.4.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb988"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb988-1"><a href="hex-stickers.html#cb988-1" tabindex="-1"></a>p1</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-305-1.png" width="672" /></p>
 </div>
+<div id="importar-un-gráfico" class="section level2 hasAnchor" number="19.2">
+<h2><span class="header-section-number">19.2</span> Importar un gráfico<a href="hex-stickers.html#importar-un-gráfico" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb989"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb989-1"><a href="hex-stickers.html#cb989-1" tabindex="-1"></a><span class="fu">library</span>(cowplot) <span class="co"># para la función ggdraw</span></span>
+<span id="cb989-2"><a href="hex-stickers.html#cb989-2" tabindex="-1"></a><span class="co"># añadir una figura </span></span>
+<span id="cb989-3"><a href="hex-stickers.html#cb989-3" tabindex="-1"></a>p2<span class="ot">=</span><span class="fu">ggdraw</span>() <span class="sc">+</span></span>
+<span id="cb989-4"><a href="hex-stickers.html#cb989-4" tabindex="-1"></a>  <span class="fu">draw_image</span>(<span class="st">&quot;Cat.jpg&quot;</span>) </span>
+<span id="cb989-5"><a href="hex-stickers.html#cb989-5" tabindex="-1"></a>p2</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-306-1.png" width="672" /></p>
 </div>
-<div id="química-101-símbolos" class="section level2 hasAnchor" number="18.2">
-<h2><span class="header-section-number">18.2</span> Química 101: Símbolos<a href="math-sci.html#química-101-símbolos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Las fórmulas químicas se verán mejor si no están en cursiva. Evite la cursiva automática del modo matemático en LaTeX usando el argumento <code>$\mathrm{fórmula aquí}$</code>, con su fórmula dentro de las llaves. (Observe el uso de comillas invertidas aquí que encierran texto y que actúa como código para ver el script original).</p>
-<p>Entonces, <span class="math inline">\(\mathrm{Fe_2^{2+}Cr_2O_4}\)</span> es escrito como <code>$\mathrm{Fe_2^{2+}Cr_2O_4}$</code>.</p>
-<!--
-The \noindent command below does what you'd expect:  it forces the current line/paragraph to not indent. This was done here to match the format of the LaTeX thesis PDF.
--->
-<p>Exponente or Sobrescrito: <span class="math inline">\(\mathrm{O^-}\)</span> y se escribe como <code>$\mathrm{O^-}$</code></p>
-<p>Subíndice: <span class="math inline">\(\mathrm{CH_4}\)</span> y se escribe como <code>$\mathrm{CH_4}$</code></p>
-<p>Para apilar números o letras como en <span class="math inline">\(\mathrm{Fe_2^{2+}}\)</span>, primero se define el subíndice y luego el superíndice y se escribe como <code>$\mathrm{Fe_2^{2+}}$</code>.</p>
-<p>punto se usa la palabra <strong>bullet</strong>: CuCl <span class="math inline">\(\bullet\)</span> <span class="math inline">\(\mathrm{7H_{2}O}\)</span></p>
-<p><code>CuCl $\bullet$ $\mathrm{7H_{2}O}$</code></p>
-<p>Delta: <span class="math inline">\(\Delta\)</span> y se escribe como `$</p>
-<p><span class="math inline">\(\Gamma\)</span></p>
-<p><span class="math inline">\(\gamma\)</span></p>
-<p>Aqui esta mi super formula de <span class="math inline">\(\phi\)</span> que voy a usar en el exam</p>
-<p>Flecha de Reacción: <span class="math inline">\(\longrightarrow\)</span> or <span class="math inline">\(\xrightarrow{solution}\)</span> y se escribe como <code>$\longrightarrow$</code> or <code>$\xrightarrow{solution}$</code></p>
-<p>Flecha de Resonancia: <span class="math inline">\(\leftrightarrow\)</span> y se escribe como <code>$\leftrightarrow$</code></p>
-<p>Flechas de reacción reversibles: <span class="math inline">\(\rightleftharpoons\)</span> y se escribe como <code>$\rightleftharpoons$</code></p>
-<div id="típografica-de-reaciones" class="section level3 hasAnchor" number="18.2.1">
-<h3><span class="header-section-number">18.2.1</span> Típografica de reaciones<a href="math-sci.html#típografica-de-reaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Es posible que desees poner tu reacción en un entorno de ecuaciones, lo que significa que LaTeX colocará la reacción donde encaje y numerará las ecuaciones por ti.</p>
-<p><span class="math display" id="eq:reaction">\[\begin{equation}
-  \mathrm{C_6H_{12}O_6  + 6O_2} \longrightarrow \mathrm{6CO_2 + 6H_2O}
-  \tag{18.1}
-\end{equation}\]</span></p>
-<p>y se escribe como</p>
-<pre class="verbatum"><code>\begin{equation}
-  \mathrm{C_6H_{12}O_6  + 6O_2} \longrightarrow \mathrm{6CO_2 + 6H_2O}
-  (\#eq:reaction)
-\end{equation}</code></pre>
-<p>Podemos hacer referencia a esta reacción de combustión de glucosa mediante la ecuación <a href="math-sci.html#eq:reaction">(18.1)</a>.</p>
+<div id="usar-otros-fonts" class="section level2 hasAnchor" number="19.3">
+<h2><span class="header-section-number">19.3</span> Usar otros fonts<a href="hex-stickers.html#usar-otros-fonts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb990"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb990-1"><a href="hex-stickers.html#cb990-1" tabindex="-1"></a>sysfonts<span class="sc">::</span><span class="fu">font_add_google</span>(<span class="st">&quot;Dancing Script&quot;</span>) <span class="do">## Website para fonts (Tiene que bajar el font antes de usarlo)</span></span>
+<span id="cb990-2"><a href="hex-stickers.html#cb990-2" tabindex="-1"></a><span class="co"># sysfonts::font_add_google(&quot;Noto Sans Korean&quot;) ## Algunos fonts no bajan</span></span>
+<span id="cb990-3"><a href="hex-stickers.html#cb990-3" tabindex="-1"></a>sysfonts<span class="sc">::</span><span class="fu">font_add_google</span>(<span class="st">&quot;Noto Serif&quot;</span>) <span class="co"># no funciona</span></span>
+<span id="cb990-4"><a href="hex-stickers.html#cb990-4" tabindex="-1"></a>sysfonts<span class="sc">::</span><span class="fu">font_add_google</span>(<span class="st">&quot;Permanent Marker&quot;</span>) </span></code></pre></div>
+</details>
 </div>
-<div id="otros-ejemplos-de-reacciones" class="section level3 hasAnchor" number="18.2.2">
-<h3><span class="header-section-number">18.2.2</span> Otros ejemplos de reacciones<a href="math-sci.html#otros-ejemplos-de-reacciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math inline">\(\mathrm{NH_4Cl_{(s)}}\)</span> <span class="math inline">\(\rightleftharpoons\)</span> <span class="math inline">\(\mathrm{NH_{3(g)}+HCl_{(g)}}\)</span></p>
-<p>y se esscribe como</p>
-<p><code>$\mathrm{NH_4Cl_{(s)}}$ $\rightleftharpoons$ $\mathrm{NH_{3(g)}+HCl_{(g)}}$</code></p>
-<p><span class="math inline">\(\mathrm{MeCH_2Br + Mg}\)</span> <span class="math inline">\(\xrightarrow[abajo]{ariba}\)</span> <span class="math inline">\(\mathrm{MeCH_2\bullet Mg \bullet Br}\)</span></p>
-<p>y se escribe como</p>
-<p><code>$\mathrm{MeCH_2Br + Mg}$ $\xrightarrow[abajo]{ariba}$ $\mathrm{MeCH_2\bullet Mg \bullet Br}$</code>
-## Física</p>
-<p>Muchos de los símbolos que necesitará se pueden encontrar en la página de matemáticas.</p>
-<p><a href="https://web.reed.edu/cis/help/latex/math.html" class="uri">https://web.reed.edu/cis/help/latex/math.html</a> y la guía completa de símbolos LaTeX (<a href="https://mirror.utexas.edu/ctan/info/symbols/comprehensive/symbols-letter.pdf" class="uri">https://mirror.utexas.edu/ctan/info/symbols/comprehensive/symbols-letter.pdf</a>).</p>
+<div id="crear-mi-hex" class="section level2 hasAnchor" number="19.4">
+<h2><span class="header-section-number">19.4</span> Crear mi Hex<a href="hex-stickers.html#crear-mi-hex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb991"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb991-1"><a href="hex-stickers.html#cb991-1" tabindex="-1"></a>Mi_gato<span class="ot">=</span><span class="fu">sticker</span>(<span class="at">subplot=</span>p2, <span class="at">s_x=</span><span class="dv">1</span>, <span class="at">s_y=</span><span class="fl">1.3</span>, <span class="at">s_width=</span><span class="fl">1.0</span>, <span class="at">s_height=</span><span class="fl">0.5</span>,</span>
+<span id="cb991-2"><a href="hex-stickers.html#cb991-2" tabindex="-1"></a>                </span>
+<span id="cb991-3"><a href="hex-stickers.html#cb991-3" tabindex="-1"></a>                <span class="at">subplot2=</span>p1,  <span class="at">s2_x=</span>.<span class="dv">6</span>, <span class="at">s2_y=</span>.<span class="dv">75</span>, <span class="at">s2_width=</span>.<span class="dv">55</span>,</span>
+<span id="cb991-4"><a href="hex-stickers.html#cb991-4" tabindex="-1"></a>                </span>
+<span id="cb991-5"><a href="hex-stickers.html#cb991-5" tabindex="-1"></a>        <span class="at">package=</span><span class="st">&quot;Mi gato&quot;</span>, <span class="at">p_x=</span><span class="fl">1.3</span>, <span class="at">p_y=</span>.<span class="dv">75</span>, <span class="at">p_size=</span><span class="dv">15</span>, <span class="at">p_color=</span><span class="st">&quot;black&quot;</span>,</span>
+<span id="cb991-6"><a href="hex-stickers.html#cb991-6" tabindex="-1"></a>        </span>
+<span id="cb991-7"><a href="hex-stickers.html#cb991-7" tabindex="-1"></a>        <span class="at">p_family=</span><span class="st">&quot;Permanent Marker&quot;</span>,</span>
+<span id="cb991-8"><a href="hex-stickers.html#cb991-8" tabindex="-1"></a>        </span>
+<span id="cb991-9"><a href="hex-stickers.html#cb991-9" tabindex="-1"></a>        <span class="at">h_fill=</span><span class="st">&quot;white&quot;</span>, <span class="at">h_color=</span><span class="st">&quot;gold&quot;</span>, <span class="at">url =</span> <span class="st">&quot;Fundación para la protección de gatos&quot;</span>, <span class="at">u_size=</span><span class="dv">15</span>)</span></code></pre></div>
+</details>
+<pre><code>## Warning: `aes_()` was deprecated in ggplot2 3.0.0.
+## ℹ Please use tidy evaluation idioms with `aes()`
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
+<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## ℹ Please use `linewidth` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb994"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb994-1"><a href="hex-stickers.html#cb994-1" tabindex="-1"></a>Mi_gato</span></code></pre></div>
+</details>
 </div>
-</div>
-<div id="biología" class="section level2 hasAnchor" number="18.3">
-<h2><span class="header-section-number">18.3</span> Biología<a href="math-sci.html#biología" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Probablemente encontrará los recursos en <a href="https://www.lecb.ncifcrf.gov/~toms/latex.html" class="uri">https://www.lecb.ncifcrf.gov/~toms/latex.html</a> útil, particularmente los enlaces a bsts de varias revistas. Quizás también le interese TeXShade para composición tipográfica de nucleótidos (<a href="https://homepages.uni-tuebingen.de/beitz/txe.html" class="uri">https://homepages.uni-tuebingen.de/beitz/txe.html</a>). Asegúrese de leer el capítulo anterior sobre gráficos y tablas.</p>
-<p>La formula del promedio</p>
-<p><span class="math inline">\(\mu=\frac{\sum{x}_{i}}{n}\)</span> se escribe asi <code>$\mu=\frac{\sum{x}_{i}}{n}$</code></p>
-<p>NOTE la diferencia en tipo de letra</p>
-<p><span class="math inline">\(\mathrm{\mu=\frac{\sum{x}_{i}}{n}}\)</span> se escribe asi <code>$\mathrm{\mu=\frac{\sum{x}_{i}}{n}}$</code></p>
-<p><span class="math display" id="eq:promedio">\[\begin{equation}
-  \mathrm{\mu=\frac{\sum{x}_{i}}{n}}
-  \tag{18.2}
-\end{equation}\]</span></p>
-<p><span class="math inline">\(s^{2}=\frac{\sum (x_{i}-\bar{x})^2}{n-1}\)</span></p>
-<p>Sitios en el web para preparar las ecuaciones Latex</p>
-<ol style="list-style-type: decimal">
-<li><p><a href="https://latex.codecogs.com/eqneditor/editor.php" class="uri">https://latex.codecogs.com/eqneditor/editor.php</a></p></li>
-<li><p><a href="https://latexeditor.lagrida.com" class="uri">https://latexeditor.lagrida.com</a></p></li>
-<li><p><a href="https://www.hostmath.com" class="uri">https://www.hostmath.com</a></p></li>
-<li><p><a href="https://www.overleaf.com/learn/latex/Mathematical_expressions" class="uri">https://www.overleaf.com/learn/latex/Mathematical_expressions</a></p></li>
-</ol>
+<div id="salvar-mi-gráfico" class="section level2 hasAnchor" number="19.5">
+<h2><span class="header-section-number">19.5</span> Salvar mi gráfico<a href="hex-stickers.html#salvar-mi-gráfico" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb995"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb995-1"><a href="hex-stickers.html#cb995-1" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;Mi_gato_Hex.jpeg&quot;</span>)</span></code></pre></div>
+</details>
+<pre><code>## Saving 7 x 5 in image</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb997"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb997-1"><a href="hex-stickers.html#cb997-1" tabindex="-1"></a><span class="co">#ggsave(&quot;Mi_gato_Hex.png&quot;) # Si quiere un borde gris alrededor del hex</span></span></code></pre></div>
+</details>
 
-<p>A# Opciones de Knitr</p>
-<p>La mayoria de los ejemplos y ideas de esta seccieon proviene de <strong>yihui</strong> en el siguiente website &lt;<a href="https://yihui.org/knitr/" class="uri">https://yihui.org/knitr/</a>&gt;</p>
-<p>el paquete <strong>knitr</strong> fue desiñado para ser transparente para generar reporte de R, añadiendo componente de animación y Latex (Ecuaciones) y otras funciones.</p>
-<p>Hay muchas opciones para determinar lo que have un <strong>chunk</strong></p>
-<ul>
-<li>Code evaluation: evaluación de código</li>
-<li>Text output: Formateo de texto</li>
-<li>Code decoration: Decoración del código</li>
-<li>Cache: Cache</li>
-<li>Plots: Gráficos</li>
-<li>Animation: Animaciones</li>
-<li>Code chunk: Código del chunk</li>
-<li>Child Document: Documento asociados</li>
-<li>Language engines: Asociación de lenguaje</li>
-<li>Option Temnplate:</li>
-<li>Extracting source code:</li>
-<li>Other chunk options:</li>
-<li>Package Options:</li>
-<li>Global R Options:</li>
-</ul>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb960"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb960-1"><a href="math-sci.html#cb960-1" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb960-2"><a href="math-sci.html#cb960-2" tabindex="-1"></a>hook_chunk <span class="ot">=</span> knit_hooks<span class="sc">$</span><span class="fu">get</span>(<span class="st">&#39;chunk&#39;</span>)</span>
-<span id="cb960-3"><a href="math-sci.html#cb960-3" tabindex="-1"></a>knit_hooks<span class="sc">$</span><span class="fu">set</span>(<span class="at">chunk =</span> <span class="cf">function</span>(x, options) {</span>
-<span id="cb960-4"><a href="math-sci.html#cb960-4" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(options<span class="sc">$</span>echo_opts)) {</span>
-<span id="cb960-5"><a href="math-sci.html#cb960-5" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">paste0</span>(<span class="st">&quot;```` ```{r &quot;</span>, options<span class="sc">$</span>params.src, <span class="st">&quot;} ````&quot;</span>, x, <span class="st">&quot;```` ``` ````&quot;</span>))</span>
-<span id="cb960-6"><a href="math-sci.html#cb960-6" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb960-7"><a href="math-sci.html#cb960-7" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">hook_chunk</span>(x, options)) <span class="co"># pass to default hook</span></span>
-<span id="cb960-8"><a href="math-sci.html#cb960-8" tabindex="-1"></a>  }</span>
-<span id="cb960-9"><a href="math-sci.html#cb960-9" tabindex="-1"></a>  })</span>
-<span id="cb960-10"><a href="math-sci.html#cb960-10" tabindex="-1"></a></span>
-<span id="cb960-11"><a href="math-sci.html#cb960-11" tabindex="-1"></a>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">eval.after =</span> <span class="st">&#39;fig.cap&#39;</span>)</span></code></pre></div>
-</details>
-<p>Los ejemplos aquí serán limitado a las alternativas para los documentos <strong>.Rmd</strong></p>
-<p>Las opciones están escrita de forma de <strong>tag=selección de la alternativa</strong>.</p>
-<ul>
-<li>Comenzando con dandole un nombre al chunk “mi-chunk”</li>
-</ul>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb961"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb961-1"><a href="math-sci.html#cb961-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-</details>
-<p>algun_nombre, echo=TRUE</p>
-<hr />
-<hr />
-<p>Eso es lo que va a ver cuando hace el knit</p>
-<hr />
-<hr />
-<p>Nota aqui tengo include=FALSE, por consecuencia cuando se hace un knit, no se ve los que hay en el chunk.<br />
-- Ahora cambialo a TRUE</p>
-<p><code>```{r include_true, include=TRUE, echo_opts=TRUE}</code></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb962"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb962-1"><a href="math-sci.html#cb962-1" tabindex="-1"></a><span class="fu">head</span>(cars)</span></code></pre></div>
-</details>
-<pre><code>##   speed dist
-## 1     4    2
-## 2     4   10
-## 3     7    4
-## 4     7   22
-## 5     8   16
-## 6     9   10</code></pre>
-<p><code>```</code></p>
-<hr />
-<hr />
-<p>Add a figure and give it a name</p>
-<p><code>```{r cars, echo=TRUE, echo_opts=TRUE}</code></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb964"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb964-1"><a href="math-sci.html#cb964-1" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div>
-</details>
-<p><img src="Ciencia_Datos_R_files/figure-html/cars-1.png" width="672" /><code>```</code></p>
-<hr />
-<hr />
-<p><code>```{r position_caption, fig.cap='A caption.', fig.topcaption=TRUE, echo_opts=TRUE}</code></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb965"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb965-1"><a href="math-sci.html#cb965-1" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div>
-</details>
-<div class="figure">
-<p class="caption">
-(#fig:position_caption)A caption.
-</p>
-<img src="Ciencia_Datos_R_files/figure-html/position_caption-1.png" alt="A caption." width="672" />
-</div>
-<p><code>```</code></p>
-<hr />
-<hr />
-<p><code>```{r fig.cap= "An incredible figure", echo_opts=TRUE}</code></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb966"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb966-1"><a href="math-sci.html#cb966-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb966-2"><a href="math-sci.html#cb966-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
-<span id="cb966-3"><a href="math-sci.html#cb966-3" tabindex="-1"></a></span>
-<span id="cb966-4"><a href="math-sci.html#cb966-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
-<span id="cb966-5"><a href="math-sci.html#cb966-5" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-</details>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-298"></span>
-<img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-298-1.png" alt="An incredible figure" width="672" />
-<p class="caption">
-Figure 18.1: An incredible figure
-</p>
-</div>
-<p><code>```</code></p>
-<hr />
-<hr />
-<code>```{r ggplot, fig.cap= "An incredible figure", fig.width = 3, fig.height = 3, echo_opts=TRUE, echo=FALSE}</code>
-<div class="figure"><span style="display:block;" id="fig:ggplot"></span>
-<img src="Ciencia_Datos_R_files/figure-html/ggplot-1.png" alt="An incredible figure" width="288" />
-<p class="caption">
-Figure 18.2: An incredible figure
-</p>
-</div>
-<p><code>```</code></p>
-<hr />
-<hr />
-<p>Figure aligment: default, left, right, and center</p>
-<p>fig.align</p>
-<p><code>```{r fig.cap= "caption", fig.width = 3, fig.height = 3, fig.align='right', echo_opts=TRUE}</code></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb967"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb967-1"><a href="math-sci.html#cb967-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb967-2"><a href="math-sci.html#cb967-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
-<span id="cb967-3"><a href="math-sci.html#cb967-3" tabindex="-1"></a></span>
-<span id="cb967-4"><a href="math-sci.html#cb967-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
-<span id="cb967-5"><a href="math-sci.html#cb967-5" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-</details>
-<div class="figure" style="text-align: right"><span style="display:block;" id="fig:unnamed-chunk-299"></span>
-<img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-299-1.png" alt="caption" width="288" />
-<p class="caption">
-Figure 18.3: caption
-</p>
-</div>
-<p><code>```</code></p>
-<hr />
-<hr />
-<p>Wrap text around figure</p>
-<p>Use ese código para que el texto “wraps” alrededor de ls figura (ese código es de otro idioma de computadora de se llama <strong>css</strong>)</p>
-<div style="float:right;position: relative; top: -80px;">
-<p>AQUI el CHUNK</p>
-</div>
-<div id="r-markdown-wrapping" class="section level5 hasAnchor" number="18.3.0.0.1">
-<h5><span class="header-section-number">18.3.0.0.1</span> R Markdown wrapping<a href="math-sci.html#r-markdown-wrapping" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div style="float:right;position: relative; top: -20px;">
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb968"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb968-1"><a href="math-sci.html#cb968-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
-<span id="cb968-2"><a href="math-sci.html#cb968-2" tabindex="-1"></a></span>
-<span id="cb968-3"><a href="math-sci.html#cb968-3" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
-<span id="cb968-4"><a href="math-sci.html#cb968-4" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-</details>
-<div class="figure" style="text-align: right"><span style="display:block;" id="fig:pressure"></span>
-<img src="Ciencia_Datos_R_files/figure-html/pressure-1.png" alt="caption" width="249.6" />
-<p class="caption">
-Figure 18.4: caption
-</p>
-</div>
-</div>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
-<p>Note that the <code>echo = TRUE</code> parameter was added to the code chunk to have printing of the R code that generated the plot.</p>
-<hr />
-<hr />
-</div>
-<div id="otras-funciones-de-knitr" class="section level3 hasAnchor" number="18.3.1">
-<h3><span class="header-section-number">18.3.1</span> OTRAS funciones de knitr<a href="math-sci.html#otras-funciones-de-knitr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>eval= to evaluate the code FALSE or TRUE</li>
-<li>echo = TO show the code FALSE or TRUE</li>
-<li>message = FALSE or TRUE</li>
-<li>warning = FALSE or TRUE</li>
-<li>error =FALSE or TRUE</li>
-<li>results = ‘asis’ To show text exactly as printed/written</li>
-</ul>
-<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb970"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb970-1"><a href="math-sci.html#cb970-1" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
-</details>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb971"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb971-1"><a href="math-sci.html#cb971-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb971-2"><a href="math-sci.html#cb971-2" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
-</details>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb972"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb972-1"><a href="math-sci.html#cb972-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;I&#39;m raw **Markdown** content.</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb972-2"><a href="math-sci.html#cb972-2" tabindex="-1"></a>    </span>
-<span id="cb972-3"><a href="math-sci.html#cb972-3" tabindex="-1"></a>                         <span class="st">&quot;My poetry of Puerto Rico</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-</details>
-<p>I’m raw <strong>Markdown</strong> content.
-My poetry of Puerto Rico</p>
-<hr />
-<hr />
-</div>
-</div>
-<div id="emoji-or-symbols" class="section level2 hasAnchor" number="18.4">
-<h2><span class="header-section-number">18.4</span> Emoji or Symbols<a href="math-sci.html#emoji-or-symbols" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="select-under-the-edit-emoji-symbols." class="section level3 hasAnchor" number="18.4.1">
-<h3><span class="header-section-number">18.4.1</span> Select Under the Edit ➡ Emoji &amp; Symbols.<a href="math-sci.html#select-under-the-edit-emoji-symbols." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="remember-you-can-add-emojis-to-your-document" class="section level5 hasAnchor" number="18.4.1.0.1">
-<h5><span class="header-section-number">18.4.1.0.1</span> Remember you can add emoji’s to your document<a href="math-sci.html#remember-you-can-add-emojis-to-your-document" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<p>Sometimes you want to 🙈 around a bit and add some ⭐️⭐️ to your
-🎈🎈 Well we have a gift for you if you add interesting emoji’s to your document.</p>
-
-</div>
-</div>
 </div>
 </div>
             </section>
@@ -830,8 +902,8 @@ My poetry of Puerto Rico</p>
           </div>
         </div>
       </div>
-<a href="trabajando-variables-categóricas-con-leaflet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="hex-stickers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="math-sci.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix-ejercicios.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -862,7 +934,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/17-Ecuaciones_matematicas.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/19-HexStickers.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -870,7 +942,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/17-Ecuaciones_matematicas.Rmd",
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/19-HexStickers.Rmd",
 "text": null
 },
 "download": null,

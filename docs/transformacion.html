@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Transformacion | Ciencia de Datos con R</title>
+  <title>Chapter 4 Transformacion | HexStickers</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Transformacion | Ciencia de Datos con R" />
+  <meta property="og:title" content="Chapter 4 Transformacion | HexStickers" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Transformacion | Ciencia de Datos con R" />
+  <meta name="twitter:title" content="Chapter 4 Transformacion | HexStickers" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
-<meta name="author" content="" />
+<meta name="author" content="RLTremblay" />
 
 
-<meta name="date" content="2023-09-28" />
+<meta name="date" content="2023-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -448,6 +448,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.4.1" data-path="math-sci.html"><a href="math-sci.html#select-under-the-edit-emoji-symbols."><i class="fa fa-check"></i><b>18.4.1</b> Select Under the Edit ➡ Emoji &amp; Symbols.</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="19" data-path="hex-stickers.html"><a href="hex-stickers.html"><i class="fa fa-check"></i><b>19</b> Hex Stickers</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="hex-stickers.html"><a href="hex-stickers.html#crear-un-gráfico-sencillo"><i class="fa fa-check"></i><b>19.1</b> Crear un gráfico sencillo</a></li>
+<li class="chapter" data-level="19.2" data-path="hex-stickers.html"><a href="hex-stickers.html#importar-un-gráfico"><i class="fa fa-check"></i><b>19.2</b> Importar un gráfico</a></li>
+<li class="chapter" data-level="19.3" data-path="hex-stickers.html"><a href="hex-stickers.html#usar-otros-fonts"><i class="fa fa-check"></i><b>19.3</b> Usar otros fonts</a></li>
+<li class="chapter" data-level="19.4" data-path="hex-stickers.html"><a href="hex-stickers.html#crear-mi-hex"><i class="fa fa-check"></i><b>19.4</b> Crear mi Hex</a></li>
+<li class="chapter" data-level="19.5" data-path="hex-stickers.html"><a href="hex-stickers.html#salvar-mi-gráfico"><i class="fa fa-check"></i><b>19.5</b> Salvar mi gráfico</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="appendix-ejercicios.html"><a href="appendix-ejercicios.html"><i class="fa fa-check"></i>(Appendix) Ejercicios</a>
 <ul>
 <li class="chapter" data-level="" data-path="appendix-ejercicios.html"><a href="appendix-ejercicios.html#capitulo-de-transformación-de-datos"><i class="fa fa-check"></i>Capitulo de Transformación de Datos</a></li>
@@ -486,7 +494,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ciencia de Datos con R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">HexStickers</a>
           </h1>
         </div>
 
@@ -497,7 +505,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="transformacion" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Transformacion<a href="transformacion.html#transformacion" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Fecha de la ultima revisión</p>
-<pre><code>## [1] &quot;2023-09-28&quot;</code></pre>
+<pre><code>## [1] &quot;2023-10-03&quot;</code></pre>
 <hr />
 <p>El tema proviene de los siguientes sitios.</p>
 <p>English: <a href="https://r4ds.had.co.nz/transform.html" class="uri">https://r4ds.had.co.nz/transform.html</a></p>
@@ -837,8 +845,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb159-5"><a href="transformacion.html#cb159-5" tabindex="-1"></a>  <span class="fu">group_by</span>(dia, mes) <span class="sc">%&gt;%</span> </span>
 <span id="cb159-6"><a href="transformacion.html#cb159-6" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">atraso =</span> <span class="fu">mean</span>(atraso_llegada, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 </details>
-<pre><code>## `summarise()` has grouped output by &#39;dia&#39;. You can override using the
-## `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;dia&#39;. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 1 × 3
 ## # Groups:   dia [1]
 ##     dia   mes atraso
@@ -1078,12 +1086,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb201-4"><a href="transformacion.html#cb201-4" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb201-5"><a href="transformacion.html#cb201-5" tabindex="-1"></a>nchs_births_2001 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;nchs_births_2001.csv&quot;</span>)</span></code></pre></div>
 </details>
-<pre><code>## Warning: One or more parsing issues, call `problems()` on your data frame for
-## details, e.g.:
+<pre><code>## Warning: One or more parsing issues, call `problems()` on your data frame for details, e.g.:
 ##   dat &lt;- vroom(...)
 ##   problems(dat)</code></pre>
 <pre><code>## Rows: 55983 Columns: 214</code></pre>
-<pre><code>## ── Column specification ───────────────────────────────────────────────────
+<pre><code>## ── Column specification ─────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr  (39): CNTYNAT, CNTOCFIP, CNTYRES, CITYRES, CITRSPOP, METRORES, STRESFIP...
 ## dbl (158): DATAYEAR, RECTYPE, RESTATUS, RECWT, PLDEL, PLDEL3, BIRATTND, REGN...
@@ -1701,12 +1708,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## New names:
 ## Rows: 587 Columns: 18
 ## ── Column specification
-## ─────────────────────────────────────────────────── Delimiter: &quot;,&quot; chr
-## (1): Fecha dbl (17): ...1, Muertes, IncrementoMuertes, CasosPCR_Salud,
-## IncCasosPCR_Salu...
-## ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-## Specify the column types or set `show_col_types = FALSE` to quiet this
-## message.
+## ───────────────────────────────────────────────────────────────────────── Delimiter: &quot;,&quot; chr
+## (1): Fecha dbl (17): ...1, Muertes, IncrementoMuertes, CasosPCR_Salud, IncCasosPCR_Salu...
+## ℹ Use `spec()` to retrieve the full column specification for this data. ℹ Specify the column
+## types or set `show_col_types = FALSE` to quiet this message.
 ## • `` -&gt; `...1`</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="transformacion.html#cb269-1" tabindex="-1"></a><span class="co">#head(url_COVID_PR)</span></span>
@@ -1757,8 +1762,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## ℹ Please use `as_tibble()` instead.
 ## ℹ The signature and semantics have changed, see `?as_tibble`.
 ## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-## generated.</code></pre>
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="transformacion.html#cb276-1" tabindex="-1"></a>df</span></code></pre></div>
 </details>
@@ -1880,12 +1884,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## New names:
 ## Rows: 587 Columns: 18
 ## ── Column specification
-## ─────────────────────────────────────────────────── Delimiter: &quot;,&quot; chr
-## (1): Fecha dbl (17): ...1, Muertes, IncrementoMuertes, CasosPCR_Salud,
-## IncCasosPCR_Salu...
-## ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-## Specify the column types or set `show_col_types = FALSE` to quiet this
-## message.
+## ───────────────────────────────────────────────────────────────────────── Delimiter: &quot;,&quot; chr
+## (1): Fecha dbl (17): ...1, Muertes, IncrementoMuertes, CasosPCR_Salud, IncCasosPCR_Salu...
+## ℹ Use `spec()` to retrieve the full column specification for this data. ℹ Specify the column
+## types or set `show_col_types = FALSE` to quiet this message.
 ## • `` -&gt; `...1`</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="transformacion.html#cb290-1" tabindex="-1"></a><span class="fu">head</span>(url_COVID_PR)</span></code></pre></div>
@@ -2041,11 +2043,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb315-2"><a href="transformacion.html#cb315-2" tabindex="-1"></a>datos_NA<span class="ot">=</span><span class="fu">as_data_frame</span>(datos_NA)</span></code></pre></div>
 </details>
 <pre><code>## Warning: `as_data_frame()` was deprecated in tibble 2.0.0.
-## ℹ Please use `as_tibble()` (with slightly different semantics) to convert
-##   to a tibble, or `as.data.frame()` to convert to a data frame.
+## ℹ Please use `as_tibble()` (with slightly different semantics) to convert to a tibble, or
+##   `as.data.frame()` to convert to a data frame.
 ## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-## generated.</code></pre>
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="transformacion.html#cb317-1" tabindex="-1"></a>datos_NA <span class="sc">%&gt;%</span> </span>
 <span id="cb317-2"><a href="transformacion.html#cb317-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(value) <span class="sc">%&gt;%</span> </span>
@@ -2390,8 +2391,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb349-2"><a href="transformacion.html#cb349-2" tabindex="-1"></a></span>
 <span id="cb349-3"><a href="transformacion.html#cb349-3" tabindex="-1"></a><span class="fu">summarise</span>(by_day, <span class="at">delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 </details>
-<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override
-## using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 365 × 4
 ## # Groups:   year, month [12]
 ##     year month   day delay
@@ -2412,8 +2413,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb352-2"><a href="transformacion.html#cb352-2" tabindex="-1"></a>  <span class="fu">group_by</span>(year, month, day) <span class="sc">%&gt;%</span> </span>
 <span id="cb352-3"><a href="transformacion.html#cb352-3" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 </details>
-<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override
-## using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 365 × 4
 ## # Groups:   year, month [12]
 ##     year month   day delay
@@ -2541,12 +2542,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb368-4"><a href="transformacion.html#cb368-4" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">size=</span><span class="dv">2</span>,<span class="fu">aes</span>(<span class="at">label=</span>dest), <span class="at">hjust=</span><span class="dv">1</span>, <span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
 </details>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
-<pre><code>## Warning: The following aesthetics were dropped during statistical transformation:
-## label
-## ℹ This can happen when ggplot fails to infer the correct grouping
-##   structure in the data.
-## ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
-##   variable into a factor?</code></pre>
+<pre><code>## Warning: The following aesthetics were dropped during statistical transformation: label
+## ℹ This can happen when ggplot fails to infer the correct grouping structure in the data.
+## ℹ Did you forget to specify a `group` aesthetic or to convert a numerical variable into a
+##   factor?</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-136-1.png" width="672" /></p>
 <hr />
 <ol start="5" style="list-style-type: decimal">
@@ -2596,8 +2595,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb373-2"><a href="transformacion.html#cb373-2" tabindex="-1"></a>  <span class="fu">group_by</span>(anio, mes, dia) <span class="sc">%&gt;%</span> </span>
 <span id="cb373-3"><a href="transformacion.html#cb373-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(atraso_salida))</span></code></pre></div>
 </details>
-<pre><code>## `summarise()` has grouped output by &#39;anio&#39;, &#39;mes&#39;. You can override using
-## the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;anio&#39;, &#39;mes&#39;. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 365 × 4
 ## # Groups:   anio, mes [12]
 ##     anio   mes   dia  mean
@@ -2618,8 +2617,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb376-2"><a href="transformacion.html#cb376-2" tabindex="-1"></a>  <span class="fu">group_by</span>(anio, mes, dia) <span class="sc">%&gt;%</span> </span>
 <span id="cb376-3"><a href="transformacion.html#cb376-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(atraso_salida, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
 </details>
-<pre><code>## `summarise()` has grouped output by &#39;anio&#39;, &#39;mes&#39;. You can override using
-## the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;anio&#39;, &#39;mes&#39;. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 365 × 4
 ## # Groups:   anio, mes [12]
 ##     anio   mes   dia  mean

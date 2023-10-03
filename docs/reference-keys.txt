@@ -247,3 +247,9 @@ otras-funciones-de-knitr
 emoji-or-symbols
 select-under-the-edit-emoji-symbols.
 remember-you-can-add-emojis-to-your-document
+hex-stickers
+crear-un-gráfico-sencillo
+importar-un-gráfico
+usar-otros-fonts
+crear-mi-hex
+salvar-mi-gráfico

@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 13 Factores | Ciencia de Datos con R</title>
+  <title>Chapter 13 Factores | HexStickers</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 13 Factores | Ciencia de Datos con R" />
+  <meta property="og:title" content="Chapter 13 Factores | HexStickers" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 13 Factores | Ciencia de Datos con R" />
+  <meta name="twitter:title" content="Chapter 13 Factores | HexStickers" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
-<meta name="author" content="" />
+<meta name="author" content="RLTremblay" />
 
 
-<meta name="date" content="2023-09-28" />
+<meta name="date" content="2023-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -448,6 +448,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.4.1" data-path="math-sci.html"><a href="math-sci.html#select-under-the-edit-emoji-symbols."><i class="fa fa-check"></i><b>18.4.1</b> Select Under the Edit ➡ Emoji &amp; Symbols.</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="19" data-path="hex-stickers.html"><a href="hex-stickers.html"><i class="fa fa-check"></i><b>19</b> Hex Stickers</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="hex-stickers.html"><a href="hex-stickers.html#crear-un-gráfico-sencillo"><i class="fa fa-check"></i><b>19.1</b> Crear un gráfico sencillo</a></li>
+<li class="chapter" data-level="19.2" data-path="hex-stickers.html"><a href="hex-stickers.html#importar-un-gráfico"><i class="fa fa-check"></i><b>19.2</b> Importar un gráfico</a></li>
+<li class="chapter" data-level="19.3" data-path="hex-stickers.html"><a href="hex-stickers.html#usar-otros-fonts"><i class="fa fa-check"></i><b>19.3</b> Usar otros fonts</a></li>
+<li class="chapter" data-level="19.4" data-path="hex-stickers.html"><a href="hex-stickers.html#crear-mi-hex"><i class="fa fa-check"></i><b>19.4</b> Crear mi Hex</a></li>
+<li class="chapter" data-level="19.5" data-path="hex-stickers.html"><a href="hex-stickers.html#salvar-mi-gráfico"><i class="fa fa-check"></i><b>19.5</b> Salvar mi gráfico</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="appendix-ejercicios.html"><a href="appendix-ejercicios.html"><i class="fa fa-check"></i>(Appendix) Ejercicios</a>
 <ul>
 <li class="chapter" data-level="" data-path="appendix-ejercicios.html"><a href="appendix-ejercicios.html#capitulo-de-transformación-de-datos"><i class="fa fa-check"></i>Capitulo de Transformación de Datos</a></li>
@@ -486,7 +494,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ciencia de Datos con R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">HexStickers</a>
           </h1>
         </div>
 
@@ -497,7 +505,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="factores-1" class="section level1 hasAnchor" number="13">
 <h1><span class="header-section-number">Chapter 13</span> Factores<a href="factores-1.html#factores-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Fecha de la ultima revisión</p>
-<pre><code>## [1] &quot;2023-09-28&quot;</code></pre>
+<pre><code>## [1] &quot;2023-10-03&quot;</code></pre>
 <hr />
 <p>El tema proviene de los siguientes sitios. Aunque los ejemplos son distinctos</p>
 <p>English:
@@ -517,31 +525,36 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </details>
 <pre><code>## [1] &quot;December&quot; &quot;January&quot;  &quot;March&quot;    &quot;April&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="factores-1.html#cb703-1" tabindex="-1"></a><span class="fu">str</span>(month)</span></code></pre></div>
+<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="factores-1.html#cb703-1" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb703-2"><a href="factores-1.html#cb703-2" tabindex="-1"></a><span class="fu">str</span>(month)</span></code></pre></div>
 </details>
 <pre><code>##  chr [1:4] &quot;December&quot; &quot;January&quot; &quot;March&quot; &quot;April&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb705-1"><a href="factores-1.html#cb705-1" tabindex="-1"></a>valores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb705-1"><a href="factores-1.html#cb705-1" tabindex="-1"></a><span class="fu">str</span>(x)</span></code></pre></div>
+</details>
+<pre><code>##  int [1:4] 1 2 3 4</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb707-1"><a href="factores-1.html#cb707-1" tabindex="-1"></a>valores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">10</span>)</span></code></pre></div>
 </details>
 <p>Unir las dos listas</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb706-1"><a href="factores-1.html#cb706-1" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(month, valores))</span>
-<span id="cb706-2"><a href="factores-1.html#cb706-2" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb708-1"><a href="factores-1.html#cb708-1" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(month, valores, x))</span>
+<span id="cb708-2"><a href="factores-1.html#cb708-2" tabindex="-1"></a>df</span></code></pre></div>
 </details>
-<pre><code>##      month valores
-## 1 December       7
-## 2  January       3
-## 3    March       2
-## 4    April      10</code></pre>
+<pre><code>##      month valores x
+## 1 December       7 1
+## 2  January       3 2
+## 3    March       2 3
+## 4    April      10 4</code></pre>
 <div id="qué-ocurrio-en-el-gráfico" class="section level2 hasAnchor" number="13.1">
 <h2><span class="header-section-number">13.1</span> ¿Qué ocurrio en el gráfico?<a href="factores-1.html#qué-ocurrio-en-el-gráfico" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb708-1"><a href="factores-1.html#cb708-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb708-2"><a href="factores-1.html#cb708-2" tabindex="-1"></a></span>
-<span id="cb708-3"><a href="factores-1.html#cb708-3" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(month, valores))<span class="sc">+</span></span>
-<span id="cb708-4"><a href="factores-1.html#cb708-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb710-1"><a href="factores-1.html#cb710-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb710-2"><a href="factores-1.html#cb710-2" tabindex="-1"></a></span>
+<span id="cb710-3"><a href="factores-1.html#cb710-3" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(month, valores))<span class="sc">+</span></span>
+<span id="cb710-4"><a href="factores-1.html#cb710-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 </details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-220-1.png" width="672" /></p>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-220-1.png" width="288" /></p>
 <p>Order months in correct order</p>
 <p>use <strong>month.name</strong></p>
 <p>Hay variables ya descrita en R, para facilitar el uso de constantes</p>
@@ -555,68 +568,73 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>See this website for more details</p>
 <p><a href="https://datacornering.com/how-to-get-the-month-name-from-the-number-in-r/" class="uri">https://datacornering.com/how-to-get-the-month-name-from-the-number-in-r/</a></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb709"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb709-1"><a href="factores-1.html#cb709-1" tabindex="-1"></a>LETTERS</span></code></pre></div>
+<div class="sourceCode" id="cb711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb711-1"><a href="factores-1.html#cb711-1" tabindex="-1"></a>LETTERS</span></code></pre></div>
 </details>
 <pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
 ## [20] &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb711-1"><a href="factores-1.html#cb711-1" tabindex="-1"></a>letters</span></code></pre></div>
+<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb713-1"><a href="factores-1.html#cb713-1" tabindex="-1"></a>letters</span></code></pre></div>
 </details>
 <pre><code>##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot;
 ## [20] &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb713-1"><a href="factores-1.html#cb713-1" tabindex="-1"></a>month.abb</span></code></pre></div>
+<div class="sourceCode" id="cb715"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb715-1"><a href="factores-1.html#cb715-1" tabindex="-1"></a>month.abb</span></code></pre></div>
 </details>
 <pre><code>##  [1] &quot;Jan&quot; &quot;Feb&quot; &quot;Mar&quot; &quot;Apr&quot; &quot;May&quot; &quot;Jun&quot; &quot;Jul&quot; &quot;Aug&quot; &quot;Sep&quot; &quot;Oct&quot; &quot;Nov&quot; &quot;Dec&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb715"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb715-1"><a href="factores-1.html#cb715-1" tabindex="-1"></a>month.name</span></code></pre></div>
+<div class="sourceCode" id="cb717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb717-1"><a href="factores-1.html#cb717-1" tabindex="-1"></a>month.name</span></code></pre></div>
 </details>
 <pre><code>##  [1] &quot;January&quot;   &quot;February&quot;  &quot;March&quot;     &quot;April&quot;     &quot;May&quot;       &quot;June&quot;     
 ##  [7] &quot;July&quot;      &quot;August&quot;    &quot;September&quot; &quot;October&quot;   &quot;November&quot;  &quot;December&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb717-1"><a href="factores-1.html#cb717-1" tabindex="-1"></a>pi</span></code></pre></div>
+<div class="sourceCode" id="cb719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb719-1"><a href="factores-1.html#cb719-1" tabindex="-1"></a>pi</span></code></pre></div>
 </details>
 <pre><code>## [1] 3.141593</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb719-1"><a href="factores-1.html#cb719-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Months=</span><span class="fu">c</span>(<span class="st">&quot;January&quot;</span>, <span class="st">&quot;February&quot;</span>, <span class="st">&quot;March&quot;</span>, <span class="st">&quot;April&quot;</span>, <span class="st">&quot;May&quot;</span>, <span class="st">&quot;June&quot;</span>, <span class="st">&quot;July&quot;</span>, <span class="st">&quot;August&quot;</span>, <span class="st">&quot;September&quot;</span>, <span class="st">&quot;October&quot;</span>, <span class="st">&quot;November&quot;</span>,<span class="st">&quot;December&quot;</span>),</span>
-<span id="cb719-2"><a href="factores-1.html#cb719-2" tabindex="-1"></a>                <span class="at">Attacks=</span><span class="fu">c</span>(<span class="dv">49</span>, <span class="dv">70</span>, <span class="dv">49</span>, <span class="dv">44</span>, <span class="dv">53</span>, <span class="dv">35</span>, <span class="dv">33</span>, <span class="dv">36</span>, <span class="dv">47</span>, <span class="dv">40</span>, <span class="dv">44</span>, <span class="dv">32</span>))</span>
-<span id="cb719-3"><a href="factores-1.html#cb719-3" tabindex="-1"></a></span>
-<span id="cb719-4"><a href="factores-1.html#cb719-4" tabindex="-1"></a></span>
-<span id="cb719-5"><a href="factores-1.html#cb719-5" tabindex="-1"></a><span class="do">### validar el supuesto que tengo información escrita correctamente para cada mes de año en el dataframe </span></span>
-<span id="cb719-6"><a href="factores-1.html#cb719-6" tabindex="-1"></a><span class="fu">all</span>(df<span class="sc">$</span>Months <span class="sc">%in%</span> month.name)</span></code></pre></div>
+<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="factores-1.html#cb721-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Months=</span><span class="fu">c</span>(<span class="st">&quot;January&quot;</span>, <span class="st">&quot;February&quot;</span>, <span class="st">&quot;March&quot;</span>, <span class="st">&quot;April&quot;</span>, <span class="st">&quot;May&quot;</span>, <span class="st">&quot;June&quot;</span>, <span class="st">&quot;July&quot;</span>, <span class="st">&quot;August&quot;</span>, <span class="st">&quot;September&quot;</span>, <span class="st">&quot;October&quot;</span>, <span class="st">&quot;November&quot;</span>,<span class="st">&quot;December&quot;</span>),</span>
+<span id="cb721-2"><a href="factores-1.html#cb721-2" tabindex="-1"></a>                <span class="at">Attacks=</span><span class="fu">c</span>(<span class="dv">49</span>, <span class="dv">70</span>, <span class="dv">49</span>, <span class="dv">44</span>, <span class="dv">53</span>, <span class="dv">35</span>, <span class="dv">33</span>, <span class="dv">36</span>, <span class="dv">47</span>, <span class="dv">40</span>, <span class="dv">44</span>, <span class="dv">32</span>))</span>
+<span id="cb721-3"><a href="factores-1.html#cb721-3" tabindex="-1"></a></span>
+<span id="cb721-4"><a href="factores-1.html#cb721-4" tabindex="-1"></a></span>
+<span id="cb721-5"><a href="factores-1.html#cb721-5" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(Months, Attacks))<span class="sc">+</span></span>
+<span id="cb721-6"><a href="factores-1.html#cb721-6" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-222-1.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="factores-1.html#cb722-1" tabindex="-1"></a><span class="do">### validar el supuesto que tengo información escrita correctamente para cada mes de año en el dataframe </span></span>
+<span id="cb722-2"><a href="factores-1.html#cb722-2" tabindex="-1"></a><span class="fu">all</span>(df<span class="sc">$</span>Months <span class="sc">%in%</span> month.name)</span></code></pre></div>
 </details>
 <pre><code>## [1] TRUE</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="factores-1.html#cb721-1" tabindex="-1"></a><span class="do">### convert to a factor, order defined by `month.name`.  </span></span>
-<span id="cb721-2"><a href="factores-1.html#cb721-2" tabindex="-1"></a>df<span class="sc">$</span>Months <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>Months, <span class="at">levels=</span>month.name)</span>
-<span id="cb721-3"><a href="factores-1.html#cb721-3" tabindex="-1"></a></span>
-<span id="cb721-4"><a href="factores-1.html#cb721-4" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>df, <span class="fu">aes</span>(<span class="at">x=</span>Months, <span class="at">y=</span>Attacks)) <span class="sc">+</span></span>
-<span id="cb721-5"><a href="factores-1.html#cb721-5" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb724-1"><a href="factores-1.html#cb724-1" tabindex="-1"></a><span class="do">### convert to a factor, order defined by `month.name`.  </span></span>
+<span id="cb724-2"><a href="factores-1.html#cb724-2" tabindex="-1"></a>df<span class="sc">$</span>Months <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>Months, <span class="at">levels=</span>month.name)</span>
+<span id="cb724-3"><a href="factores-1.html#cb724-3" tabindex="-1"></a></span>
+<span id="cb724-4"><a href="factores-1.html#cb724-4" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>df, <span class="fu">aes</span>(<span class="at">x=</span>Months, <span class="at">y=</span>Attacks)) <span class="sc">+</span></span>
+<span id="cb724-5"><a href="factores-1.html#cb724-5" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 </details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-222-1.png" width="672" /></p>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-222-2.png" width="672" /></p>
 <div id="usando-la-funciones-factor-y-levels-estamos-asignando-los-factores-a-un-nivel-específico-en-el-orden-de-la-lista" class="section level3 hasAnchor" number="13.1.1">
 <h3><span class="header-section-number">13.1.1</span> Usando la funciones factor y levels, estamos asignando los factores a un nivel específico en el orden de la lista<a href="factores-1.html#usando-la-funciones-factor-y-levels-estamos-asignando-los-factores-a-un-nivel-específico-en-el-orden-de-la-lista" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 <div id="parse_factor-is-similar-a-factor-but-generates-a-warning-if-levels-have-been-specified-and-some-elements-of-x-are-not-found-in-those-levels." class="section level3 hasAnchor" number="13.1.2">
 <h3><span class="header-section-number">13.1.2</span> parse_factor() is similar a factor(), but generates a warning if levels have been specified and some elements of x are not found in those levels.<a href="factores-1.html#parse_factor-is-similar-a-factor-but-generates-a-warning-if-levels-have-been-specified-and-some-elements-of-x-are-not-found-in-those-levels." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="factores-1.html#cb722-1" tabindex="-1"></a>x1<span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Dic&quot;</span>, <span class="st">&quot;Ene&quot;</span>, <span class="st">&quot;Mar&quot;</span>, <span class="st">&quot;Dii&quot;</span>) <span class="co"># Nota que esta lista tengo un mes que se llama &quot;Dii&quot;</span></span>
-<span id="cb722-2"><a href="factores-1.html#cb722-2" tabindex="-1"></a></span>
-<span id="cb722-3"><a href="factores-1.html#cb722-3" tabindex="-1"></a>niveles_meses<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Ene&quot;</span>, <span class="st">&quot;Mar&quot;</span>, <span class="st">&quot;Dic&quot;</span>)</span>
-<span id="cb722-4"><a href="factores-1.html#cb722-4" tabindex="-1"></a></span>
-<span id="cb722-5"><a href="factores-1.html#cb722-5" tabindex="-1"></a>y1 <span class="ot">&lt;-</span><span class="fu">factor</span>(x1, <span class="at">levels =</span> niveles_meses)</span>
-<span id="cb722-6"><a href="factores-1.html#cb722-6" tabindex="-1"></a>y1</span></code></pre></div>
+<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="factores-1.html#cb725-1" tabindex="-1"></a>x1<span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Dic&quot;</span>, <span class="st">&quot;Ene&quot;</span>, <span class="st">&quot;Mar&quot;</span>, <span class="st">&quot;Dii&quot;</span>) <span class="co"># Nota que esta lista tengo un mes que se llama &quot;Dii&quot;</span></span>
+<span id="cb725-2"><a href="factores-1.html#cb725-2" tabindex="-1"></a></span>
+<span id="cb725-3"><a href="factores-1.html#cb725-3" tabindex="-1"></a>niveles_meses<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Ene&quot;</span>, <span class="st">&quot;Mar&quot;</span>, <span class="st">&quot;Dic&quot;</span>)</span>
+<span id="cb725-4"><a href="factores-1.html#cb725-4" tabindex="-1"></a></span>
+<span id="cb725-5"><a href="factores-1.html#cb725-5" tabindex="-1"></a>y1 <span class="ot">&lt;-</span><span class="fu">factor</span>(x1, <span class="at">levels =</span> niveles_meses)</span>
+<span id="cb725-6"><a href="factores-1.html#cb725-6" tabindex="-1"></a>y1</span></code></pre></div>
 </details>
 <pre><code>## [1] Dic  Ene  Mar  &lt;NA&gt;
 ## Levels: Ene Mar Dic</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb724-1"><a href="factores-1.html#cb724-1" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">parse_factor</span>(x1, <span class="at">levels =</span> niveles_meses)</span></code></pre></div>
+<div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb727-1"><a href="factores-1.html#cb727-1" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">parse_factor</span>(x1, <span class="at">levels =</span> niveles_meses)</span></code></pre></div>
 </details>
 <pre><code>## Warning: 1 parsing failure.
 ## row col           expected actual
 ##   4  -- value in level set    Dii</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb726"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb726-1"><a href="factores-1.html#cb726-1" tabindex="-1"></a>y1</span></code></pre></div>
+<div class="sourceCode" id="cb729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb729-1"><a href="factores-1.html#cb729-1" tabindex="-1"></a>y1</span></code></pre></div>
 </details>
 <pre><code>## [1] Dic  Ene  Mar  &lt;NA&gt;
 ## attr(,&quot;problems&quot;)
@@ -627,10 +645,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## Levels: Ene Mar Dic</code></pre>
 <p>Si quiere que los valores aparezca en el orden que aparecen en la base de datos use <strong>unique(variable)</strong></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb728-1"><a href="factores-1.html#cb728-1" tabindex="-1"></a>df_est<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">Nombre_est=</span><span class="fu">c</span>(<span class="st">&quot;Monica&quot;</span>, <span class="st">&quot;Isabela&quot;</span>, <span class="st">&quot;Juan&quot;</span>, <span class="st">&quot;Robo&quot;</span>, <span class="st">&quot;Pepito&quot;</span>),</span>
-<span id="cb728-2"><a href="factores-1.html#cb728-2" tabindex="-1"></a>                  <span class="at">Nota_Final=</span><span class="fu">c</span>(<span class="dv">99</span>, <span class="dv">27</span>, <span class="dv">89</span>, <span class="dv">91</span>, <span class="dv">27</span>))</span>
-<span id="cb728-3"><a href="factores-1.html#cb728-3" tabindex="-1"></a></span>
-<span id="cb728-4"><a href="factores-1.html#cb728-4" tabindex="-1"></a>df_est</span></code></pre></div>
+<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="factores-1.html#cb731-1" tabindex="-1"></a>df_est<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">Nombre_est=</span><span class="fu">c</span>(<span class="st">&quot;Monica&quot;</span>, <span class="st">&quot;Isabela&quot;</span>, <span class="st">&quot;Juan&quot;</span>, <span class="st">&quot;Robo&quot;</span>, <span class="st">&quot;Pepito&quot;</span>),</span>
+<span id="cb731-2"><a href="factores-1.html#cb731-2" tabindex="-1"></a>                  <span class="at">Nota_Final=</span><span class="fu">c</span>(<span class="dv">99</span>, <span class="dv">27</span>, <span class="dv">89</span>, <span class="dv">91</span>, <span class="dv">27</span>))</span>
+<span id="cb731-3"><a href="factores-1.html#cb731-3" tabindex="-1"></a></span>
+<span id="cb731-4"><a href="factores-1.html#cb731-4" tabindex="-1"></a>df_est</span></code></pre></div>
 </details>
 <pre><code>##   Nombre_est Nota_Final
 ## 1     Monica         99
@@ -639,25 +657,25 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 4       Robo         91
 ## 5     Pepito         27</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb730-1"><a href="factores-1.html#cb730-1" tabindex="-1"></a><span class="fu">ggplot</span>(df_est, <span class="fu">aes</span>(Nombre_est, Nota_Final))<span class="sc">+</span></span>
-<span id="cb730-2"><a href="factores-1.html#cb730-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb733-1"><a href="factores-1.html#cb733-1" tabindex="-1"></a><span class="fu">ggplot</span>(df_est, <span class="fu">aes</span>(Nombre_est, Nota_Final))<span class="sc">+</span></span>
+<span id="cb733-2"><a href="factores-1.html#cb733-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 </details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-224-1.png" width="672" /></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="factores-1.html#cb731-1" tabindex="-1"></a>df_est<span class="sc">$</span>fct1<span class="ot">=</span><span class="fu">factor</span>(df_est<span class="sc">$</span>Nombre_est, <span class="at">levels =</span> <span class="fu">unique</span>(df_est<span class="sc">$</span>Nombre_est))</span>
-<span id="cb731-2"><a href="factores-1.html#cb731-2" tabindex="-1"></a></span>
-<span id="cb731-3"><a href="factores-1.html#cb731-3" tabindex="-1"></a><span class="fu">ggplot</span>(df_est, <span class="fu">aes</span>(fct1, Nota_Final))<span class="sc">+</span></span>
-<span id="cb731-4"><a href="factores-1.html#cb731-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb734-1"><a href="factores-1.html#cb734-1" tabindex="-1"></a>df_est<span class="sc">$</span>fct1<span class="ot">=</span><span class="fu">factor</span>(df_est<span class="sc">$</span>Nombre_est, <span class="at">levels =</span> <span class="fu">unique</span>(df_est<span class="sc">$</span>Nombre_est))</span>
+<span id="cb734-2"><a href="factores-1.html#cb734-2" tabindex="-1"></a></span>
+<span id="cb734-3"><a href="factores-1.html#cb734-3" tabindex="-1"></a><span class="fu">ggplot</span>(df_est, <span class="fu">aes</span>(fct1, Nota_Final))<span class="sc">+</span></span>
+<span id="cb734-4"><a href="factores-1.html#cb734-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 </details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-224-2.png" width="672" /></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb732-1"><a href="factores-1.html#cb732-1" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> x1 <span class="sc">%&gt;%</span> <span class="fu">factor</span>() <span class="sc">%&gt;%</span> <span class="fu">fct_inorder</span>()</span>
-<span id="cb732-2"><a href="factores-1.html#cb732-2" tabindex="-1"></a>f2</span></code></pre></div>
+<div class="sourceCode" id="cb735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb735-1"><a href="factores-1.html#cb735-1" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> x1 <span class="sc">%&gt;%</span> <span class="fu">factor</span>() <span class="sc">%&gt;%</span> <span class="fu">fct_inorder</span>()</span>
+<span id="cb735-2"><a href="factores-1.html#cb735-2" tabindex="-1"></a>f2</span></code></pre></div>
 </details>
 <pre><code>## [1] Dic Ene Mar Dii
 ## Levels: Dic Ene Mar Dii</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb734-1"><a href="factores-1.html#cb734-1" tabindex="-1"></a><span class="fu">levels</span>(f2)</span></code></pre></div>
+<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb737-1"><a href="factores-1.html#cb737-1" tabindex="-1"></a><span class="fu">levels</span>(f2)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;Dic&quot; &quot;Ene&quot; &quot;Mar&quot; &quot;Dii&quot;</code></pre>
 </div>
@@ -682,7 +700,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Ejercicios</strong>:</li>
 </ol>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb736-1"><a href="factores-1.html#cb736-1" tabindex="-1"></a>encuesta</span></code></pre></div>
+<div class="sourceCode" id="cb739"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb739-1"><a href="factores-1.html#cb739-1" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
+<span id="cb739-2"><a href="factores-1.html#cb739-2" tabindex="-1"></a>encuesta</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 21,483 × 9
 ##     anio estado_civil  edad raza  ingreso partido religion denominacion horas_tv
@@ -700,9 +719,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## # ℹ 21,473 more rows</code></pre>
 <p>Contabilizar la cantidad de persona por “estado civil”</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb738-1"><a href="factores-1.html#cb738-1" tabindex="-1"></a>df<span class="ot">=</span>encuesta <span class="sc">%&gt;%</span> </span>
-<span id="cb738-2"><a href="factores-1.html#cb738-2" tabindex="-1"></a>   <span class="fu">count</span>(estado_civil)</span>
-<span id="cb738-3"><a href="factores-1.html#cb738-3" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb741-1"><a href="factores-1.html#cb741-1" tabindex="-1"></a>df<span class="ot">=</span>encuesta <span class="sc">%&gt;%</span> </span>
+<span id="cb741-2"><a href="factores-1.html#cb741-2" tabindex="-1"></a>   <span class="fu">count</span>(estado_civil)</span>
+<span id="cb741-3"><a href="factores-1.html#cb741-3" tabindex="-1"></a>df</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 6 × 2
 ##   estado_civil           n
@@ -715,26 +734,31 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 6 Casado             10117</code></pre>
 <p>knitr</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb740"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb740-1"><a href="factores-1.html#cb740-1" tabindex="-1"></a><span class="co">#encuesta$niveles_est_civil &lt;- fct_reorder(</span></span>
-<span id="cb740-2"><a href="factores-1.html#cb740-2" tabindex="-1"></a><span class="co">#  &quot;Sin respuesta&quot;, &quot;Nunca se ha casado&quot;, &quot;Casado&quot;, &quot;Separado&quot;, &quot;Divorciado&quot;, &quot;Viudo&quot;)</span></span>
-<span id="cb740-3"><a href="factores-1.html#cb740-3" tabindex="-1"></a></span>
-<span id="cb740-4"><a href="factores-1.html#cb740-4" tabindex="-1"></a>df<span class="sc">$</span>niveles_est_civil <span class="ot">&lt;-</span> <span class="fu">fct_reorder</span>(df<span class="sc">$</span>estado_civil, df<span class="sc">$</span>n )</span>
-<span id="cb740-5"><a href="factores-1.html#cb740-5" tabindex="-1"></a></span>
-<span id="cb740-6"><a href="factores-1.html#cb740-6" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="factores-1.html#cb743-1" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>estado_civil)</span></code></pre></div>
 </details>
-<pre><code>## # A tibble: 6 × 3
-##   estado_civil           n niveles_est_civil 
-##   &lt;fct&gt;              &lt;int&gt; &lt;fct&gt;             
-## 1 Sin respuesta         17 Sin respuesta     
-## 2 Nunca se ha casado  5416 Nunca se ha casado
-## 3 Separado             743 Separado          
-## 4 Divorciado          3383 Divorciado        
-## 5 Viudo               1807 Viudo             
-## 6 Casado             10117 Casado</code></pre>
+<pre><code>## [1] Sin respuesta      Nunca se ha casado Separado           Divorciado        
+## [5] Viudo              Casado            
+## 6 Levels: Sin respuesta Nunca se ha casado Separado Divorciado ... Casado</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb742-1"><a href="factores-1.html#cb742-1" tabindex="-1"></a><span class="fu">ggplot</span>(df, </span>
-<span id="cb742-2"><a href="factores-1.html#cb742-2" tabindex="-1"></a>       <span class="fu">aes</span>(estado_civil,n )) <span class="sc">+</span></span>
-<span id="cb742-3"><a href="factores-1.html#cb742-3" tabindex="-1"></a>       <span class="fu">geom_col</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb745-1"><a href="factores-1.html#cb745-1" tabindex="-1"></a>df<span class="sc">$</span>estado_est_civil <span class="ot">&lt;-</span><span class="fu">factor</span>(df<span class="sc">$</span>estado_civil, <span class="at">levels =</span> df<span class="sc">$</span>estado_civil)</span>
+<span id="cb745-2"><a href="factores-1.html#cb745-2" tabindex="-1"></a></span>
+<span id="cb745-3"><a href="factores-1.html#cb745-3" tabindex="-1"></a>df<span class="sc">$</span>niveles_est_civil <span class="ot">&lt;-</span> <span class="fu">fct_reorder</span>(df<span class="sc">$</span>estado_civil, df<span class="sc">$</span>n )</span>
+<span id="cb745-4"><a href="factores-1.html#cb745-4" tabindex="-1"></a></span>
+<span id="cb745-5"><a href="factores-1.html#cb745-5" tabindex="-1"></a>df</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 6 × 4
+##   estado_civil           n estado_est_civil   niveles_est_civil 
+##   &lt;fct&gt;              &lt;int&gt; &lt;fct&gt;              &lt;fct&gt;             
+## 1 Sin respuesta         17 Sin respuesta      Sin respuesta     
+## 2 Nunca se ha casado  5416 Nunca se ha casado Nunca se ha casado
+## 3 Separado             743 Separado           Separado          
+## 4 Divorciado          3383 Divorciado         Divorciado        
+## 5 Viudo               1807 Viudo              Viudo             
+## 6 Casado             10117 Casado             Casado</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb747-1"><a href="factores-1.html#cb747-1" tabindex="-1"></a><span class="fu">ggplot</span>(df, </span>
+<span id="cb747-2"><a href="factores-1.html#cb747-2" tabindex="-1"></a>       <span class="fu">aes</span>(estado_civil,n )) <span class="sc">+</span></span>
+<span id="cb747-3"><a href="factores-1.html#cb747-3" tabindex="-1"></a>       <span class="fu">geom_col</span>()</span></code></pre></div>
 </details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-229-1.png" width="960" /></p>
 </div>
@@ -748,14 +772,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="haga-un-re-order-por-la-cantidad-de-personas-por-religion" class="section level2 hasAnchor" number="13.4">
 <h2><span class="header-section-number">13.4</span> Haga un re-order por la cantidad de personas por religion<a href="factores-1.html#haga-un-re-order-por-la-cantidad-de-personas-por-religion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="factores-1.html#cb743-1" tabindex="-1"></a>df2<span class="ot">=</span>encuesta <span class="sc">%&gt;%</span> </span>
-<span id="cb743-2"><a href="factores-1.html#cb743-2" tabindex="-1"></a>   <span class="fu">count</span>(religion)</span>
-<span id="cb743-3"><a href="factores-1.html#cb743-3" tabindex="-1"></a></span>
-<span id="cb743-4"><a href="factores-1.html#cb743-4" tabindex="-1"></a>df2 <span class="sc">%&gt;%</span></span>
-<span id="cb743-5"><a href="factores-1.html#cb743-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">religion =</span> <span class="fu">fct_reorder</span>(religion, n)) <span class="sc">%&gt;%</span></span>
-<span id="cb743-6"><a href="factores-1.html#cb743-6" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> religion, <span class="at">y =</span> n)) <span class="sc">+</span> </span>
-<span id="cb743-7"><a href="factores-1.html#cb743-7" tabindex="-1"></a>  <span class="fu">geom_col</span>()<span class="sc">+</span></span>
-<span id="cb743-8"><a href="factores-1.html#cb743-8" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="factores-1.html#cb748-1" tabindex="-1"></a>df2<span class="ot">=</span>encuesta <span class="sc">%&gt;%</span> </span>
+<span id="cb748-2"><a href="factores-1.html#cb748-2" tabindex="-1"></a>   <span class="fu">count</span>(religion)</span>
+<span id="cb748-3"><a href="factores-1.html#cb748-3" tabindex="-1"></a></span>
+<span id="cb748-4"><a href="factores-1.html#cb748-4" tabindex="-1"></a>df2 <span class="sc">%&gt;%</span></span>
+<span id="cb748-5"><a href="factores-1.html#cb748-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">religion =</span> <span class="fu">fct_reorder</span>(religion, n)) <span class="sc">%&gt;%</span></span>
+<span id="cb748-6"><a href="factores-1.html#cb748-6" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> religion, <span class="at">y =</span> n)) <span class="sc">+</span> </span>
+<span id="cb748-7"><a href="factores-1.html#cb748-7" tabindex="-1"></a>  <span class="fu">geom_col</span>()<span class="sc">+</span></span>
+<span id="cb748-8"><a href="factores-1.html#cb748-8" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
 </details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-231-1.png" width="672" /></p>
 <p>Hacer los ejercicios en la sección 15.3.1 del libro en español</p>
@@ -773,19 +797,19 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>fct_lump()</li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb744-1"><a href="factores-1.html#cb744-1" tabindex="-1"></a><span class="co">#model=lm(y~x, df)</span></span>
-<span id="cb744-2"><a href="factores-1.html#cb744-2" tabindex="-1"></a><span class="co">#summary(model)</span></span>
-<span id="cb744-3"><a href="factores-1.html#cb744-3" tabindex="-1"></a></span>
-<span id="cb744-4"><a href="factores-1.html#cb744-4" tabindex="-1"></a></span>
-<span id="cb744-5"><a href="factores-1.html#cb744-5" tabindex="-1"></a>resumen_religion <span class="ot">&lt;-</span> encuesta <span class="sc">%&gt;%</span></span>
-<span id="cb744-6"><a href="factores-1.html#cb744-6" tabindex="-1"></a>  <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
-<span id="cb744-7"><a href="factores-1.html#cb744-7" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb744-8"><a href="factores-1.html#cb744-8" tabindex="-1"></a>    <span class="at">edad =</span> <span class="fu">mean</span>(edad, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb744-9"><a href="factores-1.html#cb744-9" tabindex="-1"></a>    <span class="at">horas_tv =</span> <span class="fu">mean</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb744-10"><a href="factores-1.html#cb744-10" tabindex="-1"></a>    <span class="at">sd_edad =</span>  <span class="fu">min</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb744-11"><a href="factores-1.html#cb744-11" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
-<span id="cb744-12"><a href="factores-1.html#cb744-12" tabindex="-1"></a>  )</span>
-<span id="cb744-13"><a href="factores-1.html#cb744-13" tabindex="-1"></a>resumen_religion</span></code></pre></div>
+<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="factores-1.html#cb749-1" tabindex="-1"></a><span class="co">#model=lm(y~x, df)</span></span>
+<span id="cb749-2"><a href="factores-1.html#cb749-2" tabindex="-1"></a><span class="co">#summary(model)</span></span>
+<span id="cb749-3"><a href="factores-1.html#cb749-3" tabindex="-1"></a></span>
+<span id="cb749-4"><a href="factores-1.html#cb749-4" tabindex="-1"></a></span>
+<span id="cb749-5"><a href="factores-1.html#cb749-5" tabindex="-1"></a>resumen_religion <span class="ot">&lt;-</span> encuesta <span class="sc">%&gt;%</span></span>
+<span id="cb749-6"><a href="factores-1.html#cb749-6" tabindex="-1"></a>  <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
+<span id="cb749-7"><a href="factores-1.html#cb749-7" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb749-8"><a href="factores-1.html#cb749-8" tabindex="-1"></a>    <span class="at">edad =</span> <span class="fu">mean</span>(edad, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb749-9"><a href="factores-1.html#cb749-9" tabindex="-1"></a>    <span class="at">horas_tv =</span> <span class="fu">mean</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb749-10"><a href="factores-1.html#cb749-10" tabindex="-1"></a>    <span class="at">sd_edad =</span>  <span class="fu">min</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb749-11"><a href="factores-1.html#cb749-11" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb749-12"><a href="factores-1.html#cb749-12" tabindex="-1"></a>  )</span>
+<span id="cb749-13"><a href="factores-1.html#cb749-13" tabindex="-1"></a>resumen_religion</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 15 × 5
 ##    religion                edad horas_tv sd_edad     n
@@ -806,41 +830,41 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 14 Católica                46.9     2.96    2.96  5124
 ## 15 Protestante             49.9     3.15    3.15 10846</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="factores-1.html#cb746-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_religion, <span class="fu">aes</span>(edad, religion)) <span class="sc">+</span> </span>
-<span id="cb746-2"><a href="factores-1.html#cb746-2" tabindex="-1"></a>   <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="factores-1.html#cb751-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_religion, <span class="fu">aes</span>(edad, religion)) <span class="sc">+</span> </span>
+<span id="cb751-2"><a href="factores-1.html#cb751-2" tabindex="-1"></a>   <span class="fu">geom_point</span>()</span></code></pre></div>
 </details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-232-1.png" width="672" /></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb747-1"><a href="factores-1.html#cb747-1" tabindex="-1"></a><span class="fu">min</span>(encuesta<span class="sc">$</span>horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="factores-1.html#cb752-1" tabindex="-1"></a><span class="fu">min</span>(encuesta<span class="sc">$</span>horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] 0</code></pre>
 <div id="nota-el-efecto-de-añadir-un---antes-de-edad" class="section level3 hasAnchor" number="13.5.1">
 <h3><span class="header-section-number">13.5.1</span> Nota el efecto de añadir un “-” antes de <strong>edad</strong><a href="factores-1.html#nota-el-efecto-de-añadir-un---antes-de-edad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="factores-1.html#cb749-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_religion, <span class="fu">aes</span>(edad, <span class="fu">fct_reorder</span>(religion, <span class="sc">-</span>edad))) <span class="sc">+</span></span>
-<span id="cb749-2"><a href="factores-1.html#cb749-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb754-1"><a href="factores-1.html#cb754-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_religion, <span class="fu">aes</span>(edad, <span class="fu">fct_reorder</span>(religion, <span class="sc">-</span>edad))) <span class="sc">+</span></span>
+<span id="cb754-2"><a href="factores-1.html#cb754-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 </details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-233-1.png" width="672" /></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="factores-1.html#cb750-1" tabindex="-1"></a>resumen_religion <span class="sc">%&gt;%</span></span>
-<span id="cb750-2"><a href="factores-1.html#cb750-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">religion =</span> <span class="fu">fct_reorder</span>(religion, horas_tv)) <span class="sc">%&gt;%</span></span>
-<span id="cb750-3"><a href="factores-1.html#cb750-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(horas_tv, religion)) <span class="sc">+</span></span>
-<span id="cb750-4"><a href="factores-1.html#cb750-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="factores-1.html#cb755-1" tabindex="-1"></a>resumen_religion <span class="sc">%&gt;%</span></span>
+<span id="cb755-2"><a href="factores-1.html#cb755-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">religion =</span> <span class="fu">fct_reorder</span>(religion, horas_tv)) <span class="sc">%&gt;%</span></span>
+<span id="cb755-3"><a href="factores-1.html#cb755-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(horas_tv, religion)) <span class="sc">+</span></span>
+<span id="cb755-4"><a href="factores-1.html#cb755-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 </details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-234-1.png" width="672" /></p>
 <p>Reorder factor levels by sorting along another variable
 Description
 fct_reorder() is useful for 1d displays where the factor is mapped to position; fct_reorder2() for 2d displays where the factor is mapped to a non-position aesthetic. last2() and first2() are helpers for fct_reorder2(); last2() finds the last value of y when sorted by x; first2() finds the first value.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="factores-1.html#cb751-1" tabindex="-1"></a>resumen_ingreso <span class="ot">&lt;-</span> encuesta <span class="sc">%&gt;%</span></span>
-<span id="cb751-2"><a href="factores-1.html#cb751-2" tabindex="-1"></a>  <span class="fu">group_by</span>(ingreso) <span class="sc">%&gt;%</span></span>
-<span id="cb751-3"><a href="factores-1.html#cb751-3" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb751-4"><a href="factores-1.html#cb751-4" tabindex="-1"></a>    <span class="at">edad =</span> <span class="fu">mean</span>(edad, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb751-5"><a href="factores-1.html#cb751-5" tabindex="-1"></a>    <span class="at">horas_tv =</span> <span class="fu">mean</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb751-6"><a href="factores-1.html#cb751-6" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
-<span id="cb751-7"><a href="factores-1.html#cb751-7" tabindex="-1"></a>  )</span>
-<span id="cb751-8"><a href="factores-1.html#cb751-8" tabindex="-1"></a></span>
-<span id="cb751-9"><a href="factores-1.html#cb751-9" tabindex="-1"></a>resumen_ingreso</span></code></pre></div>
+<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb756-1"><a href="factores-1.html#cb756-1" tabindex="-1"></a>resumen_ingreso <span class="ot">&lt;-</span> encuesta <span class="sc">%&gt;%</span></span>
+<span id="cb756-2"><a href="factores-1.html#cb756-2" tabindex="-1"></a>  <span class="fu">group_by</span>(ingreso) <span class="sc">%&gt;%</span></span>
+<span id="cb756-3"><a href="factores-1.html#cb756-3" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb756-4"><a href="factores-1.html#cb756-4" tabindex="-1"></a>    <span class="at">edad =</span> <span class="fu">mean</span>(edad, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb756-5"><a href="factores-1.html#cb756-5" tabindex="-1"></a>    <span class="at">horas_tv =</span> <span class="fu">mean</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb756-6"><a href="factores-1.html#cb756-6" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb756-7"><a href="factores-1.html#cb756-7" tabindex="-1"></a>  )</span>
+<span id="cb756-8"><a href="factores-1.html#cb756-8" tabindex="-1"></a></span>
+<span id="cb756-9"><a href="factores-1.html#cb756-9" tabindex="-1"></a>resumen_ingreso</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 16 × 4
 ##    ingreso               edad horas_tv     n
@@ -862,16 +886,16 @@ fct_reorder() is useful for 1d displays where the factor is mapped to position; 
 ## 15 Menos de 1000         40.5     3.36   286
 ## 16 No aplica             56.1     3.79  7043</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="factores-1.html#cb753-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_ingreso, <span class="fu">aes</span>(horas_tv, <span class="fu">fct_reorder</span>(ingreso, horas_tv))) <span class="sc">+</span></span>
-<span id="cb753-2"><a href="factores-1.html#cb753-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb758-1"><a href="factores-1.html#cb758-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_ingreso, <span class="fu">aes</span>(horas_tv, <span class="fu">fct_reorder</span>(ingreso, horas_tv))) <span class="sc">+</span></span>
+<span id="cb758-2"><a href="factores-1.html#cb758-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 </details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-235-1.png" width="672" /></p>
 <p>Reorder factor levels by hand
 Description
 This is a generalisation of stats::relevel() that allows you to move any number of levels to any location.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb754-1"><a href="factores-1.html#cb754-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_ingreso, <span class="fu">aes</span>(edad, <span class="fu">fct_relevel</span>(ingreso, <span class="st">&quot;No aplica&quot;</span>))) <span class="sc">+</span></span>
-<span id="cb754-2"><a href="factores-1.html#cb754-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb759-1"><a href="factores-1.html#cb759-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_ingreso, <span class="fu">aes</span>(edad, <span class="fu">fct_relevel</span>(ingreso, <span class="st">&quot;No aplica&quot;</span>))) <span class="sc">+</span></span>
+<span id="cb759-2"><a href="factores-1.html#cb759-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 </details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-236-1.png" width="672" /></p>
 <ol start="2" style="list-style-type: decimal">

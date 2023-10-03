@@ -35,9 +35,9 @@ library(forcats)
 month <-c("December" ,"January", "March", "April")
 
 month
-
+x=c(1:4)
 str(month)
-
+str(x)
 ```
 
 
@@ -51,14 +51,14 @@ valores <- c(7, 3, 2, 10)
 Unir las dos listas
 
 ```{r}
-df=as.data.frame(cbind(month, valores))
+df=as.data.frame(cbind(month, valores, x))
 df
 ```
 
 
 ## ¿Qué ocurrio en el gráfico?
 
-```{r}
+```{r, fig.width=3}
 library(tidyverse)
 
 ggplot(df, aes(month, valores))+
@@ -100,6 +100,10 @@ pi
 
 df <- data.frame(Months=c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November","December"),
                 Attacks=c(49, 70, 49, 44, 53, 35, 33, 36, 47, 40, 44, 32))
+
+
+ggplot(df, aes(Months, Attacks))+
+  geom_point()
 
 
 ### validar el supuesto que tengo información escrita correctamente para cada mes de año en el dataframe 
@@ -187,6 +191,7 @@ levels(f2)
 
 
 ```{r}
+library(datos)
 encuesta
 ```
 
@@ -203,8 +208,10 @@ knitr
 
 ```{r fig.width=10}
 
-#encuesta$niveles_est_civil <- fct_reorder(
-#  "Sin respuesta", "Nunca se ha casado", "Casado", "Separado", "Divorciado", "Viudo")
+unique(df$estado_civil)
+
+
+df$estado_est_civil <-factor(df$estado_civil, levels = df$estado_civil)
 
 df$niveles_est_civil <- fct_reorder(df$estado_civil, df$n )
 
@@ -253,8 +260,6 @@ df2 %>%
   ggplot(aes(x = religion, y = n)) + 
   geom_col()+
   theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=1))
-
-
 
 ```
 

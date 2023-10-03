@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 8 Tibbles | Ciencia de Datos con R</title>
+  <title>Chapter 8 Tibbles | HexStickers</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 8 Tibbles | Ciencia de Datos con R" />
+  <meta property="og:title" content="Chapter 8 Tibbles | HexStickers" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 Tibbles | Ciencia de Datos con R" />
+  <meta name="twitter:title" content="Chapter 8 Tibbles | HexStickers" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
-<meta name="author" content="" />
+<meta name="author" content="RLTremblay" />
 
 
-<meta name="date" content="2023-09-28" />
+<meta name="date" content="2023-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -448,6 +448,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.4.1" data-path="math-sci.html"><a href="math-sci.html#select-under-the-edit-emoji-symbols."><i class="fa fa-check"></i><b>18.4.1</b> Select Under the Edit ➡ Emoji &amp; Symbols.</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="19" data-path="hex-stickers.html"><a href="hex-stickers.html"><i class="fa fa-check"></i><b>19</b> Hex Stickers</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="hex-stickers.html"><a href="hex-stickers.html#crear-un-gráfico-sencillo"><i class="fa fa-check"></i><b>19.1</b> Crear un gráfico sencillo</a></li>
+<li class="chapter" data-level="19.2" data-path="hex-stickers.html"><a href="hex-stickers.html#importar-un-gráfico"><i class="fa fa-check"></i><b>19.2</b> Importar un gráfico</a></li>
+<li class="chapter" data-level="19.3" data-path="hex-stickers.html"><a href="hex-stickers.html#usar-otros-fonts"><i class="fa fa-check"></i><b>19.3</b> Usar otros fonts</a></li>
+<li class="chapter" data-level="19.4" data-path="hex-stickers.html"><a href="hex-stickers.html#crear-mi-hex"><i class="fa fa-check"></i><b>19.4</b> Crear mi Hex</a></li>
+<li class="chapter" data-level="19.5" data-path="hex-stickers.html"><a href="hex-stickers.html#salvar-mi-gráfico"><i class="fa fa-check"></i><b>19.5</b> Salvar mi gráfico</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="appendix-ejercicios.html"><a href="appendix-ejercicios.html"><i class="fa fa-check"></i>(Appendix) Ejercicios</a>
 <ul>
 <li class="chapter" data-level="" data-path="appendix-ejercicios.html"><a href="appendix-ejercicios.html#capitulo-de-transformación-de-datos"><i class="fa fa-check"></i>Capitulo de Transformación de Datos</a></li>
@@ -486,7 +494,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ciencia de Datos con R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">HexStickers</a>
           </h1>
         </div>
 
@@ -497,7 +505,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="tibbles" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">Chapter 8</span> Tibbles<a href="tibbles.html#tibbles" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Fecha de la ultima revisión</p>
-<pre><code>## [1] &quot;2023-09-28&quot;</code></pre>
+<pre><code>## [1] &quot;2023-10-03&quot;</code></pre>
 <hr />
 <p>El tema proviene de los siguientes sitios.</p>
 <p>English:
@@ -580,16 +588,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 100 × 5
 ##    a                   b              c       d e    
 ##    &lt;dttm&gt;              &lt;date&gt;     &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;
-##  1 2023-09-29 09:28:35 2023-10-05     1 0.223   j    
-##  2 2023-09-28 18:02:52 2023-10-23     2 0.200   g    
-##  3 2023-09-29 02:39:24 2023-10-24     3 0.859   c    
-##  4 2023-09-28 17:44:24 2023-10-06     4 0.0938  o    
-##  5 2023-09-28 21:39:46 2023-10-17     5 0.915   f    
-##  6 2023-09-29 12:17:07 2023-10-20     6 0.997   a    
-##  7 2023-09-28 22:46:02 2023-09-30     7 0.538   c    
-##  8 2023-09-28 16:55:06 2023-10-11     8 0.445   t    
-##  9 2023-09-28 18:47:05 2023-10-17     9 0.943   y    
-## 10 2023-09-28 19:13:15 2023-10-15    10 0.00347 w    
+##  1 2023-10-04 07:54:27 2023-10-10     1 0.223   j    
+##  2 2023-10-03 16:28:45 2023-10-28     2 0.200   g    
+##  3 2023-10-04 01:05:17 2023-10-29     3 0.859   c    
+##  4 2023-10-03 16:10:17 2023-10-11     4 0.0938  o    
+##  5 2023-10-03 20:05:38 2023-10-22     5 0.915   f    
+##  6 2023-10-04 10:43:00 2023-10-25     6 0.997   a    
+##  7 2023-10-03 21:11:55 2023-10-05     7 0.538   c    
+##  8 2023-10-03 15:20:59 2023-10-16     8 0.445   t    
+##  9 2023-10-03 17:12:58 2023-10-22     9 0.943   y    
+## 10 2023-10-03 17:39:07 2023-10-20    10 0.00347 w    
 ## # ℹ 90 more rows</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="tibbles.html#cb441-1" tabindex="-1"></a>tb <span class="sc">%&gt;%</span></span>
@@ -598,19 +606,19 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 100 × 5
 ##   a                   b              c      d e    
 ##   &lt;dttm&gt;              &lt;date&gt;     &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;
-## 1 2023-09-29 09:28:35 2023-10-05     1 0.223  j    
-## 2 2023-09-28 18:02:52 2023-10-23     2 0.200  g    
-## 3 2023-09-29 02:39:24 2023-10-24     3 0.859  c    
-## 4 2023-09-28 17:44:24 2023-10-06     4 0.0938 o    
+## 1 2023-10-04 07:54:27 2023-10-10     1 0.223  j    
+## 2 2023-10-03 16:28:45 2023-10-28     2 0.200  g    
+## 3 2023-10-04 01:05:17 2023-10-29     3 0.859  c    
+## 4 2023-10-03 16:10:17 2023-10-11     4 0.0938 o    
 ## # ℹ 96 more rows</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="tibbles.html#cb443-1" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">now</span>()</span></code></pre></div>
 </details>
-<pre><code>## [1] &quot;2023-09-28 16:20:54 AST&quot;</code></pre>
+<pre><code>## [1] &quot;2023-10-03 14:46:47 AST&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="tibbles.html#cb445-1" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">today</span>()</span></code></pre></div>
 </details>
-<pre><code>## [1] &quot;2023-09-28&quot;</code></pre>
+<pre><code>## [1] &quot;2023-10-03&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="tibbles.html#cb447-1" tabindex="-1"></a><span class="fu">head</span>(vuelos)</span></code></pre></div>
 </details>
