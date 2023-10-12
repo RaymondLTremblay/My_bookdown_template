@@ -641,17 +641,17 @@ The \noindent command below does what you'd expect:  it forces the current line/
 <li>Global R Options:</li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb969"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb969-1"><a href="math-sci.html#cb969-1" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb969-2"><a href="math-sci.html#cb969-2" tabindex="-1"></a>hook_chunk <span class="ot">=</span> knit_hooks<span class="sc">$</span><span class="fu">get</span>(<span class="st">&#39;chunk&#39;</span>)</span>
-<span id="cb969-3"><a href="math-sci.html#cb969-3" tabindex="-1"></a>knit_hooks<span class="sc">$</span><span class="fu">set</span>(<span class="at">chunk =</span> <span class="cf">function</span>(x, options) {</span>
-<span id="cb969-4"><a href="math-sci.html#cb969-4" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(options<span class="sc">$</span>echo_opts)) {</span>
-<span id="cb969-5"><a href="math-sci.html#cb969-5" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">paste0</span>(<span class="st">&quot;```` ```{r &quot;</span>, options<span class="sc">$</span>params.src, <span class="st">&quot;} ````&quot;</span>, x, <span class="st">&quot;```` ``` ````&quot;</span>))</span>
-<span id="cb969-6"><a href="math-sci.html#cb969-6" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb969-7"><a href="math-sci.html#cb969-7" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">hook_chunk</span>(x, options)) <span class="co"># pass to default hook</span></span>
-<span id="cb969-8"><a href="math-sci.html#cb969-8" tabindex="-1"></a>  }</span>
-<span id="cb969-9"><a href="math-sci.html#cb969-9" tabindex="-1"></a>  })</span>
-<span id="cb969-10"><a href="math-sci.html#cb969-10" tabindex="-1"></a></span>
-<span id="cb969-11"><a href="math-sci.html#cb969-11" tabindex="-1"></a>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">eval.after =</span> <span class="st">&#39;fig.cap&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb971"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb971-1"><a href="math-sci.html#cb971-1" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb971-2"><a href="math-sci.html#cb971-2" tabindex="-1"></a>hook_chunk <span class="ot">=</span> knit_hooks<span class="sc">$</span><span class="fu">get</span>(<span class="st">&#39;chunk&#39;</span>)</span>
+<span id="cb971-3"><a href="math-sci.html#cb971-3" tabindex="-1"></a>knit_hooks<span class="sc">$</span><span class="fu">set</span>(<span class="at">chunk =</span> <span class="cf">function</span>(x, options) {</span>
+<span id="cb971-4"><a href="math-sci.html#cb971-4" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(options<span class="sc">$</span>echo_opts)) {</span>
+<span id="cb971-5"><a href="math-sci.html#cb971-5" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">paste0</span>(<span class="st">&quot;```` ```{r &quot;</span>, options<span class="sc">$</span>params.src, <span class="st">&quot;} ````&quot;</span>, x, <span class="st">&quot;```` ``` ````&quot;</span>))</span>
+<span id="cb971-6"><a href="math-sci.html#cb971-6" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb971-7"><a href="math-sci.html#cb971-7" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">hook_chunk</span>(x, options)) <span class="co"># pass to default hook</span></span>
+<span id="cb971-8"><a href="math-sci.html#cb971-8" tabindex="-1"></a>  }</span>
+<span id="cb971-9"><a href="math-sci.html#cb971-9" tabindex="-1"></a>  })</span>
+<span id="cb971-10"><a href="math-sci.html#cb971-10" tabindex="-1"></a></span>
+<span id="cb971-11"><a href="math-sci.html#cb971-11" tabindex="-1"></a>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">eval.after =</span> <span class="st">&#39;fig.cap&#39;</span>)</span></code></pre></div>
 </details>
 <p>Los ejemplos aquí serán limitado a las alternativas para los documentos <strong>.Rmd</strong></p>
 <p>Las opciones están escrita de forma de <strong>tag=selección de la alternativa</strong>.</p>
@@ -659,7 +659,7 @@ The \noindent command below does what you'd expect:  it forces the current line/
 <li>Comenzando con dandole un nombre al chunk “mi-chunk”</li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb970"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb970-1"><a href="math-sci.html#cb970-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb972"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb972-1"><a href="math-sci.html#cb972-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 </details>
 <p>algun_nombre, echo=TRUE</p>
 <hr />
@@ -671,7 +671,7 @@ The \noindent command below does what you'd expect:  it forces the current line/
 - Ahora cambialo a TRUE</p>
 <p><code>```{r include_true, include=TRUE, echo_opts=TRUE}</code></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb971"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb971-1"><a href="math-sci.html#cb971-1" tabindex="-1"></a><span class="fu">head</span>(cars)</span></code></pre></div>
+<div class="sourceCode" id="cb973"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb973-1"><a href="math-sci.html#cb973-1" tabindex="-1"></a><span class="fu">head</span>(cars)</span></code></pre></div>
 </details>
 <pre><code>##   speed dist
 ## 1     4    2
@@ -686,14 +686,14 @@ The \noindent command below does what you'd expect:  it forces the current line/
 <p>Add a figure and give it a name</p>
 <p><code>```{r cars, echo=TRUE, echo_opts=TRUE}</code></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb973"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb973-1"><a href="math-sci.html#cb973-1" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div>
+<div class="sourceCode" id="cb975"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb975-1"><a href="math-sci.html#cb975-1" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div>
 </details>
 <p><img src="Ciencia_Datos_R_files/figure-html/cars-1.png" width="672" /><code>```</code></p>
 <hr />
 <hr />
 <p><code>```{r position_caption, fig.cap='A caption.', fig.topcaption=TRUE, echo_opts=TRUE}</code></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb974"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb974-1"><a href="math-sci.html#cb974-1" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div>
+<div class="sourceCode" id="cb976"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb976-1"><a href="math-sci.html#cb976-1" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div>
 </details>
 <div class="figure">
 <p class="caption">
@@ -706,14 +706,14 @@ The \noindent command below does what you'd expect:  it forces the current line/
 <hr />
 <p><code>```{r fig.cap= "An incredible figure", echo_opts=TRUE}</code></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb975"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb975-1"><a href="math-sci.html#cb975-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb975-2"><a href="math-sci.html#cb975-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
-<span id="cb975-3"><a href="math-sci.html#cb975-3" tabindex="-1"></a></span>
-<span id="cb975-4"><a href="math-sci.html#cb975-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
-<span id="cb975-5"><a href="math-sci.html#cb975-5" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb977"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb977-1"><a href="math-sci.html#cb977-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb977-2"><a href="math-sci.html#cb977-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
+<span id="cb977-3"><a href="math-sci.html#cb977-3" tabindex="-1"></a></span>
+<span id="cb977-4"><a href="math-sci.html#cb977-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
+<span id="cb977-5"><a href="math-sci.html#cb977-5" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
 </details>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-304"></span>
-<img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-304-1.png" alt="An incredible figure" width="672" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-305"></span>
+<img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-305-1.png" alt="An incredible figure" width="672" />
 <p class="caption">
 Figure 18.1: An incredible figure
 </p>
@@ -735,14 +735,14 @@ Figure 18.2: An incredible figure
 <p>fig.align</p>
 <p><code>```{r fig.cap= "caption", fig.width = 3, fig.height = 3, fig.align='right', echo_opts=TRUE}</code></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb976"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb976-1"><a href="math-sci.html#cb976-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb976-2"><a href="math-sci.html#cb976-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
-<span id="cb976-3"><a href="math-sci.html#cb976-3" tabindex="-1"></a></span>
-<span id="cb976-4"><a href="math-sci.html#cb976-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
-<span id="cb976-5"><a href="math-sci.html#cb976-5" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb978"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb978-1"><a href="math-sci.html#cb978-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb978-2"><a href="math-sci.html#cb978-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
+<span id="cb978-3"><a href="math-sci.html#cb978-3" tabindex="-1"></a></span>
+<span id="cb978-4"><a href="math-sci.html#cb978-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
+<span id="cb978-5"><a href="math-sci.html#cb978-5" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
 </details>
-<div class="figure" style="text-align: right"><span style="display:block;" id="fig:unnamed-chunk-305"></span>
-<img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-305-1.png" alt="caption" width="288" />
+<div class="figure" style="text-align: right"><span style="display:block;" id="fig:unnamed-chunk-306"></span>
+<img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-306-1.png" alt="caption" width="288" />
 <p class="caption">
 Figure 18.3: caption
 </p>
@@ -759,10 +759,10 @@ Figure 18.3: caption
 <h5><span class="header-section-number">18.3.0.0.1</span> R Markdown wrapping<a href="math-sci.html#r-markdown-wrapping" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div style="float:right;position: relative; top: -20px;">
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb977"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb977-1"><a href="math-sci.html#cb977-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
-<span id="cb977-2"><a href="math-sci.html#cb977-2" tabindex="-1"></a></span>
-<span id="cb977-3"><a href="math-sci.html#cb977-3" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
-<span id="cb977-4"><a href="math-sci.html#cb977-4" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb979"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb979-1"><a href="math-sci.html#cb979-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
+<span id="cb979-2"><a href="math-sci.html#cb979-2" tabindex="-1"></a></span>
+<span id="cb979-3"><a href="math-sci.html#cb979-3" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
+<span id="cb979-4"><a href="math-sci.html#cb979-4" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
 </details>
 <div class="figure" style="text-align: right"><span style="display:block;" id="fig:pressure"></span>
 <img src="Ciencia_Datos_R_files/figure-html/pressure-1.png" alt="caption" width="249.6" />
@@ -789,16 +789,16 @@ Figure 18.4: caption
 </ul>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb979"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb979-1"><a href="math-sci.html#cb979-1" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
+<div class="sourceCode" id="cb981"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb981-1"><a href="math-sci.html#cb981-1" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
 </details>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb980"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb980-1"><a href="math-sci.html#cb980-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb980-2"><a href="math-sci.html#cb980-2" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
+<div class="sourceCode" id="cb982"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb982-1"><a href="math-sci.html#cb982-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb982-2"><a href="math-sci.html#cb982-2" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
 </details>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb981"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb981-1"><a href="math-sci.html#cb981-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;I&#39;m raw **Markdown** content.</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb981-2"><a href="math-sci.html#cb981-2" tabindex="-1"></a>    </span>
-<span id="cb981-3"><a href="math-sci.html#cb981-3" tabindex="-1"></a>                         <span class="st">&quot;My poetry of Puerto Rico</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb983"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb983-1"><a href="math-sci.html#cb983-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;I&#39;m raw **Markdown** content.</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb983-2"><a href="math-sci.html#cb983-2" tabindex="-1"></a>    </span>
+<span id="cb983-3"><a href="math-sci.html#cb983-3" tabindex="-1"></a>                         <span class="st">&quot;My poetry of Puerto Rico</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
 </details>
 <p>I’m raw <strong>Markdown</strong> content.
 My poetry of Puerto Rico</p>

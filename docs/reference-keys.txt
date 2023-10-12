@@ -1,8 +1,8 @@
 eq:reaction
 eq:promedio
-fig:unnamed-chunk-304
-fig:ggplot
 fig:unnamed-chunk-305
+fig:ggplot
+fig:unnamed-chunk-306
 fig:pressure
 ciencia-de-datos-con-r
 horario-de-clase
@@ -223,6 +223,7 @@ fechas
 crear-una-fecha-desde-columnas-individuales
 integer-division
 the-operator-returns-the-modulus-remainder-of-a-division-operation.
+cuantos-segundos-hay-en-un-dia
 extrayendo-parte-de-las-fecha-hora
 lapso-de-tiempo
 duraciones

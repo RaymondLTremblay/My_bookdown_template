@@ -286,9 +286,9 @@ vuelos %>%
 
 
 ```{r}
-vuelos |> select(tiempo_vuelo) |> 
-  mutate(t=tiempo_vuelo %/% 100) |> 
-  mutate(m= tiempo_vuelo %% 100)
+vuelos |> dplyr::select(tiempo_vuelo) |> 
+  mutate(t=tiempo_vuelo %/% 100) |>  # Division
+  mutate(m= tiempo_vuelo %% 100)     # modulus... Cambia el 100 para 1, 10, 1000... y mira cual es el resultado
 
 
 ```
@@ -320,6 +320,11 @@ vuelos_dt <- vuelos %>%
 head(vuelos_dt)
 
 ```
+
+
+#### Cuantos segundos hay en un dia?
+
+
  
 ```{r}
 vuelos_dt %>%
@@ -334,7 +339,9 @@ vuelos_dt %>%
   ggplot(aes(horario_salida)) +
   geom_freqpoly(binwidth = 600) # 600 segundos = 10 minutos
 ```
- 
+
+
+Nota variables que no funciona
  
 ```{r}
   ymd(c("2010-10-10", "bananas"))

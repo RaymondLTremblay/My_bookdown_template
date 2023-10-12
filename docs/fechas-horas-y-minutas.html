@@ -770,7 +770,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb805-1"><a href="fechas-horas-y-minutas.html#cb805-1" tabindex="-1"></a><span class="fu">now</span>()</span></code></pre></div>
 </details>
-<pre><code>## [1] &quot;2023-10-12 13:26:49 AST&quot;</code></pre>
+<pre><code>## [1] &quot;2023-10-12 14:05:26 AST&quot;</code></pre>
 </div>
 <div id="fechas-con-cednas-de-caracteres" class="section level3 hasAnchor" number="14.7.2">
 <h3><span class="header-section-number">14.7.2</span> Fechas con cednas de caracteres<a href="fechas-horas-y-minutas.html#fechas-con-cednas-de-caracteres" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -878,6 +878,25 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="integer-division" class="section level2 hasAnchor" number="14.9">
 <h2><span class="header-section-number">14.9</span> %/%: integer division<a href="fechas-horas-y-minutas.html#integer-division" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb817-1"><a href="fechas-horas-y-minutas.html#cb817-1" tabindex="-1"></a>vuelos <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(tiempo_vuelo) <span class="sc">|&gt;</span> </span>
+<span id="cb817-2"><a href="fechas-horas-y-minutas.html#cb817-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">t=</span>tiempo_vuelo <span class="sc">%/%</span> <span class="dv">100</span>) <span class="sc">|&gt;</span>  <span class="co"># Division</span></span>
+<span id="cb817-3"><a href="fechas-horas-y-minutas.html#cb817-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">m=</span> tiempo_vuelo <span class="sc">%%</span> <span class="dv">100</span>)     <span class="co"># modulus... Cambia el 100 para 1, 10, 1000... y mira cual es el resultado</span></span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 336,776 × 3
+##    tiempo_vuelo     t     m
+##           &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1          227     2    27
+##  2          227     2    27
+##  3          160     1    60
+##  4          183     1    83
+##  5          116     1    16
+##  6          150     1    50
+##  7          158     1    58
+##  8           53     0    53
+##  9          140     1    40
+## 10          138     1    38
+## # ℹ 336,766 more rows</code></pre>
 </div>
 <div id="the-operator-returns-the-modulus-remainder-of-a-division-operation." class="section level2 hasAnchor" number="14.10">
 <h2><span class="header-section-number">14.10</span> The %% operator returns the modulus (remainder) of a division operation.<a href="fechas-horas-y-minutas.html#the-operator-returns-the-modulus-remainder-of-a-division-operation." class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -885,7 +904,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>For instance, 5 %% 2 would return 1, as the remainder of 5 divided by 2 is 1.</li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb817-1"><a href="fechas-horas-y-minutas.html#cb817-1" tabindex="-1"></a><span class="fu">names</span>(vuelos)</span></code></pre></div>
+<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb819-1"><a href="fechas-horas-y-minutas.html#cb819-1" tabindex="-1"></a><span class="fu">names</span>(vuelos)</span></code></pre></div>
 </details>
 <pre><code>##  [1] &quot;anio&quot;               &quot;mes&quot;                &quot;dia&quot;               
 ##  [4] &quot;horario_salida&quot;     &quot;salida_programada&quot;  &quot;atraso_salida&quot;     
@@ -895,21 +914,21 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## [16] &quot;distancia&quot;          &quot;hora&quot;               &quot;minuto&quot;            
 ## [19] &quot;fecha_hora&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb819-1"><a href="fechas-horas-y-minutas.html#cb819-1" tabindex="-1"></a>hacer_fechahora_100 <span class="ot">&lt;-</span> <span class="cf">function</span>(anio, mes, dia, tiempo) {</span>
-<span id="cb819-2"><a href="fechas-horas-y-minutas.html#cb819-2" tabindex="-1"></a>  <span class="fu">make_datetime</span>(anio, mes, dia, tiempo <span class="sc">%/%</span> <span class="dv">100</span>, tiempo <span class="sc">%%</span> <span class="dv">100</span>)</span>
-<span id="cb819-3"><a href="fechas-horas-y-minutas.html#cb819-3" tabindex="-1"></a>}</span>
-<span id="cb819-4"><a href="fechas-horas-y-minutas.html#cb819-4" tabindex="-1"></a></span>
-<span id="cb819-5"><a href="fechas-horas-y-minutas.html#cb819-5" tabindex="-1"></a>vuelos_dt <span class="ot">&lt;-</span> vuelos <span class="sc">%&gt;%</span></span>
-<span id="cb819-6"><a href="fechas-horas-y-minutas.html#cb819-6" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(horario_salida), <span class="sc">!</span><span class="fu">is.na</span>(horario_llegada)) <span class="sc">%&gt;%</span></span>
-<span id="cb819-7"><a href="fechas-horas-y-minutas.html#cb819-7" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb819-8"><a href="fechas-horas-y-minutas.html#cb819-8" tabindex="-1"></a>    <span class="at">horario_salida =</span> <span class="fu">hacer_fechahora_100</span>(anio, mes, dia, horario_salida),</span>
-<span id="cb819-9"><a href="fechas-horas-y-minutas.html#cb819-9" tabindex="-1"></a>    <span class="at">horario_llegada =</span> <span class="fu">hacer_fechahora_100</span>(anio, mes, dia, horario_llegada),</span>
-<span id="cb819-10"><a href="fechas-horas-y-minutas.html#cb819-10" tabindex="-1"></a>    <span class="at">salida_programada =</span> <span class="fu">hacer_fechahora_100</span>(anio, mes, dia, salida_programada),</span>
-<span id="cb819-11"><a href="fechas-horas-y-minutas.html#cb819-11" tabindex="-1"></a>    <span class="at">llegada_programada =</span> <span class="fu">hacer_fechahora_100</span>(anio, mes, dia, llegada_programada)</span>
-<span id="cb819-12"><a href="fechas-horas-y-minutas.html#cb819-12" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb819-13"><a href="fechas-horas-y-minutas.html#cb819-13" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(origen, destino, <span class="fu">starts_with</span>(<span class="st">&quot;atraso&quot;</span>), <span class="fu">starts_with</span>(<span class="st">&quot;horario&quot;</span>), <span class="fu">ends_with</span>(<span class="st">&quot;programada&quot;</span>), tiempo_vuelo)</span>
-<span id="cb819-14"><a href="fechas-horas-y-minutas.html#cb819-14" tabindex="-1"></a></span>
-<span id="cb819-15"><a href="fechas-horas-y-minutas.html#cb819-15" tabindex="-1"></a><span class="fu">head</span>(vuelos_dt)</span></code></pre></div>
+<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb821-1"><a href="fechas-horas-y-minutas.html#cb821-1" tabindex="-1"></a>hacer_fechahora_100 <span class="ot">&lt;-</span> <span class="cf">function</span>(anio, mes, dia, tiempo) {</span>
+<span id="cb821-2"><a href="fechas-horas-y-minutas.html#cb821-2" tabindex="-1"></a>  <span class="fu">make_datetime</span>(anio, mes, dia, tiempo <span class="sc">%/%</span> <span class="dv">100</span>, tiempo <span class="sc">%%</span> <span class="dv">100</span>)</span>
+<span id="cb821-3"><a href="fechas-horas-y-minutas.html#cb821-3" tabindex="-1"></a>}</span>
+<span id="cb821-4"><a href="fechas-horas-y-minutas.html#cb821-4" tabindex="-1"></a></span>
+<span id="cb821-5"><a href="fechas-horas-y-minutas.html#cb821-5" tabindex="-1"></a>vuelos_dt <span class="ot">&lt;-</span> vuelos <span class="sc">%&gt;%</span></span>
+<span id="cb821-6"><a href="fechas-horas-y-minutas.html#cb821-6" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(horario_salida), <span class="sc">!</span><span class="fu">is.na</span>(horario_llegada)) <span class="sc">%&gt;%</span></span>
+<span id="cb821-7"><a href="fechas-horas-y-minutas.html#cb821-7" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb821-8"><a href="fechas-horas-y-minutas.html#cb821-8" tabindex="-1"></a>    <span class="at">horario_salida =</span> <span class="fu">hacer_fechahora_100</span>(anio, mes, dia, horario_salida),</span>
+<span id="cb821-9"><a href="fechas-horas-y-minutas.html#cb821-9" tabindex="-1"></a>    <span class="at">horario_llegada =</span> <span class="fu">hacer_fechahora_100</span>(anio, mes, dia, horario_llegada),</span>
+<span id="cb821-10"><a href="fechas-horas-y-minutas.html#cb821-10" tabindex="-1"></a>    <span class="at">salida_programada =</span> <span class="fu">hacer_fechahora_100</span>(anio, mes, dia, salida_programada),</span>
+<span id="cb821-11"><a href="fechas-horas-y-minutas.html#cb821-11" tabindex="-1"></a>    <span class="at">llegada_programada =</span> <span class="fu">hacer_fechahora_100</span>(anio, mes, dia, llegada_programada)</span>
+<span id="cb821-12"><a href="fechas-horas-y-minutas.html#cb821-12" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb821-13"><a href="fechas-horas-y-minutas.html#cb821-13" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(origen, destino, <span class="fu">starts_with</span>(<span class="st">&quot;atraso&quot;</span>), <span class="fu">starts_with</span>(<span class="st">&quot;horario&quot;</span>), <span class="fu">ends_with</span>(<span class="st">&quot;programada&quot;</span>), tiempo_vuelo)</span>
+<span id="cb821-14"><a href="fechas-horas-y-minutas.html#cb821-14" tabindex="-1"></a></span>
+<span id="cb821-15"><a href="fechas-horas-y-minutas.html#cb821-15" tabindex="-1"></a><span class="fu">head</span>(vuelos_dt)</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 6 × 9
 ##   origen destino atraso_salida atraso_llegada horario_salida     
@@ -922,116 +941,119 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 6 EWR    ORD                -4             12 2013-01-01 05:54:00
 ## # ℹ 4 more variables: horario_llegada &lt;dttm&gt;, salida_programada &lt;dttm&gt;,
 ## #   llegada_programada &lt;dttm&gt;, tiempo_vuelo &lt;dbl&gt;</code></pre>
+<div id="cuantos-segundos-hay-en-un-dia" class="section level4 hasAnchor" number="14.10.0.1">
+<h4><span class="header-section-number">14.10.0.1</span> Cuantos segundos hay en un dia?<a href="fechas-horas-y-minutas.html#cuantos-segundos-hay-en-un-dia" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb821-1"><a href="fechas-horas-y-minutas.html#cb821-1" tabindex="-1"></a>vuelos_dt <span class="sc">%&gt;%</span></span>
-<span id="cb821-2"><a href="fechas-horas-y-minutas.html#cb821-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(horario_salida)) <span class="sc">+</span></span>
-<span id="cb821-3"><a href="fechas-horas-y-minutas.html#cb821-3" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="dv">86400</span>) <span class="co"># 86400 segundos = 1 día</span></span></code></pre></div>
-</details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-265-1.png" width="672" /></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb822"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb822-1"><a href="fechas-horas-y-minutas.html#cb822-1" tabindex="-1"></a>vuelos_dt <span class="sc">%&gt;%</span></span>
-<span id="cb822-2"><a href="fechas-horas-y-minutas.html#cb822-2" tabindex="-1"></a>  <span class="fu">filter</span>(horario_salida <span class="sc">&lt;</span> <span class="fu">ymd</span>(<span class="dv">20130102</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb822-3"><a href="fechas-horas-y-minutas.html#cb822-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(horario_salida)) <span class="sc">+</span></span>
-<span id="cb822-4"><a href="fechas-horas-y-minutas.html#cb822-4" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="dv">600</span>) <span class="co"># 600 segundos = 10 minutos</span></span></code></pre></div>
+<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb823-1"><a href="fechas-horas-y-minutas.html#cb823-1" tabindex="-1"></a>vuelos_dt <span class="sc">%&gt;%</span></span>
+<span id="cb823-2"><a href="fechas-horas-y-minutas.html#cb823-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(horario_salida)) <span class="sc">+</span></span>
+<span id="cb823-3"><a href="fechas-horas-y-minutas.html#cb823-3" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="dv">86400</span>) <span class="co"># 86400 segundos = 1 día</span></span></code></pre></div>
 </details>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-266-1.png" width="672" /></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb823-1"><a href="fechas-horas-y-minutas.html#cb823-1" tabindex="-1"></a>  <span class="fu">ymd</span>(<span class="fu">c</span>(<span class="st">&quot;2010-10-10&quot;</span>, <span class="st">&quot;bananas&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb824"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb824-1"><a href="fechas-horas-y-minutas.html#cb824-1" tabindex="-1"></a>vuelos_dt <span class="sc">%&gt;%</span></span>
+<span id="cb824-2"><a href="fechas-horas-y-minutas.html#cb824-2" tabindex="-1"></a>  <span class="fu">filter</span>(horario_salida <span class="sc">&lt;</span> <span class="fu">ymd</span>(<span class="dv">20130102</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb824-3"><a href="fechas-horas-y-minutas.html#cb824-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(horario_salida)) <span class="sc">+</span></span>
+<span id="cb824-4"><a href="fechas-horas-y-minutas.html#cb824-4" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="dv">600</span>) <span class="co"># 600 segundos = 10 minutos</span></span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-267-1.png" width="672" /></p>
+<p>Nota variables que no funciona</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb825"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb825-1"><a href="fechas-horas-y-minutas.html#cb825-1" tabindex="-1"></a>  <span class="fu">ymd</span>(<span class="fu">c</span>(<span class="st">&quot;2010-10-10&quot;</span>, <span class="st">&quot;bananas&quot;</span>))</span></code></pre></div>
 </details>
 <pre><code>## Warning: 1 failed to parse.</code></pre>
 <pre><code>## [1] &quot;2010-10-10&quot; NA</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb826"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb826-1"><a href="fechas-horas-y-minutas.html#cb826-1" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> <span class="st">&quot;Jan 1, 2010&quot;</span></span>
-<span id="cb826-2"><a href="fechas-horas-y-minutas.html#cb826-2" tabindex="-1"></a><span class="fu">mdy</span>(d1)</span></code></pre></div>
+<div class="sourceCode" id="cb828"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb828-1"><a href="fechas-horas-y-minutas.html#cb828-1" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> <span class="st">&quot;Jan 1, 2010&quot;</span></span>
+<span id="cb828-2"><a href="fechas-horas-y-minutas.html#cb828-2" tabindex="-1"></a><span class="fu">mdy</span>(d1)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;2010-01-01&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb828"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb828-1"><a href="fechas-horas-y-minutas.html#cb828-1" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> <span class="st">&quot;2015-Mar-07&quot;</span></span>
-<span id="cb828-2"><a href="fechas-horas-y-minutas.html#cb828-2" tabindex="-1"></a><span class="fu">ymd</span>(d2)</span></code></pre></div>
+<div class="sourceCode" id="cb830"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb830-1"><a href="fechas-horas-y-minutas.html#cb830-1" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> <span class="st">&quot;2015-Mar-07&quot;</span></span>
+<span id="cb830-2"><a href="fechas-horas-y-minutas.html#cb830-2" tabindex="-1"></a><span class="fu">ymd</span>(d2)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;2015-03-07&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb830"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb830-1"><a href="fechas-horas-y-minutas.html#cb830-1" tabindex="-1"></a>d3 <span class="ot">&lt;-</span> <span class="st">&quot;06-Jun-2017&quot;</span></span>
-<span id="cb830-2"><a href="fechas-horas-y-minutas.html#cb830-2" tabindex="-1"></a><span class="fu">dmy</span>(d3)</span></code></pre></div>
+<div class="sourceCode" id="cb832"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb832-1"><a href="fechas-horas-y-minutas.html#cb832-1" tabindex="-1"></a>d3 <span class="ot">&lt;-</span> <span class="st">&quot;06-Jun-2017&quot;</span></span>
+<span id="cb832-2"><a href="fechas-horas-y-minutas.html#cb832-2" tabindex="-1"></a><span class="fu">dmy</span>(d3)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;2017-06-06&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb832"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb832-1"><a href="fechas-horas-y-minutas.html#cb832-1" tabindex="-1"></a>d4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Aug 19 (2015)&quot;</span>, <span class="st">&quot;Jul 1 (2015)&quot;</span>)</span>
-<span id="cb832-2"><a href="fechas-horas-y-minutas.html#cb832-2" tabindex="-1"></a><span class="fu">mdy</span>(d4)</span></code></pre></div>
+<div class="sourceCode" id="cb834"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb834-1"><a href="fechas-horas-y-minutas.html#cb834-1" tabindex="-1"></a>d4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Aug 19 (2015)&quot;</span>, <span class="st">&quot;Jul 1 (2015)&quot;</span>)</span>
+<span id="cb834-2"><a href="fechas-horas-y-minutas.html#cb834-2" tabindex="-1"></a><span class="fu">mdy</span>(d4)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;2015-08-19&quot; &quot;2015-07-01&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb834"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb834-1"><a href="fechas-horas-y-minutas.html#cb834-1" tabindex="-1"></a>d5 <span class="ot">&lt;-</span> <span class="st">&quot;12/30/14&quot;</span> <span class="co"># Diciembre 30, 2014</span></span>
-<span id="cb834-2"><a href="fechas-horas-y-minutas.html#cb834-2" tabindex="-1"></a><span class="fu">mdy</span>(d5)</span></code></pre></div>
+<div class="sourceCode" id="cb836"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb836-1"><a href="fechas-horas-y-minutas.html#cb836-1" tabindex="-1"></a>d5 <span class="ot">&lt;-</span> <span class="st">&quot;12/30/14&quot;</span> <span class="co"># Diciembre 30, 2014</span></span>
+<span id="cb836-2"><a href="fechas-horas-y-minutas.html#cb836-2" tabindex="-1"></a><span class="fu">mdy</span>(d5)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;2014-12-30&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb836"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb836-1"><a href="fechas-horas-y-minutas.html#cb836-1" tabindex="-1"></a>d6 <span class="ot">&lt;-</span> <span class="st">&quot;ene 1, 2010&quot;</span></span>
-<span id="cb836-2"><a href="fechas-horas-y-minutas.html#cb836-2" tabindex="-1"></a><span class="fu">mdy</span>(d6)</span></code></pre></div>
+<div class="sourceCode" id="cb838"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb838-1"><a href="fechas-horas-y-minutas.html#cb838-1" tabindex="-1"></a>d6 <span class="ot">&lt;-</span> <span class="st">&quot;ene 1, 2010&quot;</span></span>
+<span id="cb838-2"><a href="fechas-horas-y-minutas.html#cb838-2" tabindex="-1"></a><span class="fu">mdy</span>(d6)</span></code></pre></div>
 </details>
 <pre><code>## Warning: All formats failed to parse. No formats found.</code></pre>
 <pre><code>## [1] NA</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb839"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb839-1"><a href="fechas-horas-y-minutas.html#cb839-1" tabindex="-1"></a>d7 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Agosto 19 (2015)&quot;</span>, <span class="st">&quot;Julio 1 (2015)&quot;</span>)</span>
-<span id="cb839-2"><a href="fechas-horas-y-minutas.html#cb839-2" tabindex="-1"></a><span class="fu">mdy</span>(d7)</span></code></pre></div>
+<div class="sourceCode" id="cb841"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb841-1"><a href="fechas-horas-y-minutas.html#cb841-1" tabindex="-1"></a>d7 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Agosto 19 (2015)&quot;</span>, <span class="st">&quot;Julio 1 (2015)&quot;</span>)</span>
+<span id="cb841-2"><a href="fechas-horas-y-minutas.html#cb841-2" tabindex="-1"></a><span class="fu">mdy</span>(d7)</span></code></pre></div>
 </details>
 <pre><code>## Warning: All formats failed to parse. No formats found.</code></pre>
 <pre><code>## [1] NA NA</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb842"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb842-1"><a href="fechas-horas-y-minutas.html#cb842-1" tabindex="-1"></a>d1</span></code></pre></div>
+<div class="sourceCode" id="cb844"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb844-1"><a href="fechas-horas-y-minutas.html#cb844-1" tabindex="-1"></a>d1</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;Jan 1, 2010&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb844"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb844-1"><a href="fechas-horas-y-minutas.html#cb844-1" tabindex="-1"></a>d2</span></code></pre></div>
+<div class="sourceCode" id="cb846"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb846-1"><a href="fechas-horas-y-minutas.html#cb846-1" tabindex="-1"></a>d2</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;2015-Mar-07&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb846"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb846-1"><a href="fechas-horas-y-minutas.html#cb846-1" tabindex="-1"></a>d3</span></code></pre></div>
+<div class="sourceCode" id="cb848"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb848-1"><a href="fechas-horas-y-minutas.html#cb848-1" tabindex="-1"></a>d3</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;06-Jun-2017&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb848"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb848-1"><a href="fechas-horas-y-minutas.html#cb848-1" tabindex="-1"></a>d4</span></code></pre></div>
+<div class="sourceCode" id="cb850"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb850-1"><a href="fechas-horas-y-minutas.html#cb850-1" tabindex="-1"></a>d4</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;Aug 19 (2015)&quot; &quot;Jul 1 (2015)&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb850"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb850-1"><a href="fechas-horas-y-minutas.html#cb850-1" tabindex="-1"></a>d5</span></code></pre></div>
+<div class="sourceCode" id="cb852"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb852-1"><a href="fechas-horas-y-minutas.html#cb852-1" tabindex="-1"></a>d5</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;12/30/14&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb852"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb852-1"><a href="fechas-horas-y-minutas.html#cb852-1" tabindex="-1"></a>d6</span></code></pre></div>
+<div class="sourceCode" id="cb854"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb854-1"><a href="fechas-horas-y-minutas.html#cb854-1" tabindex="-1"></a>d6</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;ene 1, 2010&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb854"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb854-1"><a href="fechas-horas-y-minutas.html#cb854-1" tabindex="-1"></a>d7</span></code></pre></div>
+<div class="sourceCode" id="cb856"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb856-1"><a href="fechas-horas-y-minutas.html#cb856-1" tabindex="-1"></a>d7</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;Agosto 19 (2015)&quot; &quot;Julio 1 (2015)&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb856"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb856-1"><a href="fechas-horas-y-minutas.html#cb856-1" tabindex="-1"></a><span class="fu">mdy</span>(d1)</span></code></pre></div>
+<div class="sourceCode" id="cb858"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb858-1"><a href="fechas-horas-y-minutas.html#cb858-1" tabindex="-1"></a><span class="fu">mdy</span>(d1)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;2010-01-01&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb858"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb858-1"><a href="fechas-horas-y-minutas.html#cb858-1" tabindex="-1"></a><span class="fu">ymd</span>(d2)</span></code></pre></div>
+<div class="sourceCode" id="cb860"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb860-1"><a href="fechas-horas-y-minutas.html#cb860-1" tabindex="-1"></a><span class="fu">ymd</span>(d2)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;2015-03-07&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb860"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb860-1"><a href="fechas-horas-y-minutas.html#cb860-1" tabindex="-1"></a><span class="fu">dmy</span>(d3)</span></code></pre></div>
+<div class="sourceCode" id="cb862"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb862-1"><a href="fechas-horas-y-minutas.html#cb862-1" tabindex="-1"></a><span class="fu">dmy</span>(d3)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;2017-06-06&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb862"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb862-1"><a href="fechas-horas-y-minutas.html#cb862-1" tabindex="-1"></a><span class="fu">mdy</span>(d4)</span></code></pre></div>
+<div class="sourceCode" id="cb864"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb864-1"><a href="fechas-horas-y-minutas.html#cb864-1" tabindex="-1"></a><span class="fu">mdy</span>(d4)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;2015-08-19&quot; &quot;2015-07-01&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb864"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb864-1"><a href="fechas-horas-y-minutas.html#cb864-1" tabindex="-1"></a><span class="fu">mdy</span>(d5)</span></code></pre></div>
+<div class="sourceCode" id="cb866"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb866-1"><a href="fechas-horas-y-minutas.html#cb866-1" tabindex="-1"></a><span class="fu">mdy</span>(d5)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;2014-12-30&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb866"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb866-1"><a href="fechas-horas-y-minutas.html#cb866-1" tabindex="-1"></a><span class="fu">mdy</span>(d6)</span></code></pre></div>
+<div class="sourceCode" id="cb868"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb868-1"><a href="fechas-horas-y-minutas.html#cb868-1" tabindex="-1"></a><span class="fu">mdy</span>(d6)</span></code></pre></div>
 </details>
 <pre><code>## Warning: All formats failed to parse. No formats found.</code></pre>
 <pre><code>## [1] NA</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb869"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb869-1"><a href="fechas-horas-y-minutas.html#cb869-1" tabindex="-1"></a><span class="fu">mdy</span>(d7)</span></code></pre></div>
+<div class="sourceCode" id="cb871"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb871-1"><a href="fechas-horas-y-minutas.html#cb871-1" tabindex="-1"></a><span class="fu">mdy</span>(d7)</span></code></pre></div>
 </details>
 <pre><code>## Warning: All formats failed to parse. No formats found.</code></pre>
 <pre><code>## [1] NA NA</code></pre>
@@ -1040,6 +1062,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>Hacer los ejercicios en la sección 16.2.4 del libro en español</p>
 <hr />
+</div>
 </div>
 <div id="extrayendo-parte-de-las-fecha-hora" class="section level2 hasAnchor" number="14.11">
 <h2><span class="header-section-number">14.11</span> Extrayendo parte de las fecha-hora<a href="fechas-horas-y-minutas.html#extrayendo-parte-de-las-fecha-hora" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1065,171 +1088,171 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="duraciones" class="section level2 hasAnchor" number="14.13">
 <h2><span class="header-section-number">14.13</span> duraciones<a href="fechas-horas-y-minutas.html#duraciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb872"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb872-1"><a href="fechas-horas-y-minutas.html#cb872-1" tabindex="-1"></a><span class="co"># ¿Qué edad tiene Charles Darwin?  February 12, 1809</span></span>
-<span id="cb872-2"><a href="fechas-horas-y-minutas.html#cb872-2" tabindex="-1"></a>edad_h <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> <span class="fu">ymd</span>(<span class="st">&quot;1809-02-12&quot;</span>)</span>
-<span id="cb872-3"><a href="fechas-horas-y-minutas.html#cb872-3" tabindex="-1"></a>edad_h <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> <span class="fu">ymd</span>(<span class="dv">18090212</span>)</span>
-<span id="cb872-4"><a href="fechas-horas-y-minutas.html#cb872-4" tabindex="-1"></a>edad_h</span></code></pre></div>
+<div class="sourceCode" id="cb874"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb874-1"><a href="fechas-horas-y-minutas.html#cb874-1" tabindex="-1"></a><span class="co"># ¿Qué edad tiene Charles Darwin?  February 12, 1809</span></span>
+<span id="cb874-2"><a href="fechas-horas-y-minutas.html#cb874-2" tabindex="-1"></a>edad_h <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> <span class="fu">ymd</span>(<span class="st">&quot;1809-02-12&quot;</span>)</span>
+<span id="cb874-3"><a href="fechas-horas-y-minutas.html#cb874-3" tabindex="-1"></a>edad_h <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> <span class="fu">ymd</span>(<span class="dv">18090212</span>)</span>
+<span id="cb874-4"><a href="fechas-horas-y-minutas.html#cb874-4" tabindex="-1"></a>edad_h</span></code></pre></div>
 </details>
 <pre><code>## Time difference of 78404 days</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb874"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb874-1"><a href="fechas-horas-y-minutas.html#cb874-1" tabindex="-1"></a><span class="fu">as.duration</span>(edad_h)</span></code></pre></div>
+<div class="sourceCode" id="cb876"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb876-1"><a href="fechas-horas-y-minutas.html#cb876-1" tabindex="-1"></a><span class="fu">as.duration</span>(edad_h)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;6774105600s (~214.66 years)&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb876"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb876-1"><a href="fechas-horas-y-minutas.html#cb876-1" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">as.duration</span>(edad_h)</span></code></pre></div>
+<div class="sourceCode" id="cb878"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb878-1"><a href="fechas-horas-y-minutas.html#cb878-1" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">as.duration</span>(edad_h)</span></code></pre></div>
 </details>
 <p>Otras funciones de duración</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb877"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb877-1"><a href="fechas-horas-y-minutas.html#cb877-1" tabindex="-1"></a><span class="fu">dseconds</span>(<span class="dv">15</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb879"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb879-1"><a href="fechas-horas-y-minutas.html#cb879-1" tabindex="-1"></a><span class="fu">dseconds</span>(<span class="dv">15</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;15s&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb879"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb879-1"><a href="fechas-horas-y-minutas.html#cb879-1" tabindex="-1"></a><span class="fu">dminutes</span>(<span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb881"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb881-1"><a href="fechas-horas-y-minutas.html#cb881-1" tabindex="-1"></a><span class="fu">dminutes</span>(<span class="dv">10</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;600s (~10 minutes)&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb881"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb881-1"><a href="fechas-horas-y-minutas.html#cb881-1" tabindex="-1"></a><span class="fu">dhours</span>(<span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">24</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb883"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb883-1"><a href="fechas-horas-y-minutas.html#cb883-1" tabindex="-1"></a><span class="fu">dhours</span>(<span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">24</span>))</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;43200s (~12 hours)&quot; &quot;86400s (~1 days)&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb883"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb883-1"><a href="fechas-horas-y-minutas.html#cb883-1" tabindex="-1"></a><span class="fu">ddays</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb885"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb885-1"><a href="fechas-horas-y-minutas.html#cb885-1" tabindex="-1"></a><span class="fu">ddays</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;0s&quot;                &quot;86400s (~1 days)&quot;  &quot;172800s (~2 days)&quot;
 ## [4] &quot;259200s (~3 days)&quot; &quot;345600s (~4 days)&quot; &quot;432000s (~5 days)&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb885"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb885-1"><a href="fechas-horas-y-minutas.html#cb885-1" tabindex="-1"></a><span class="fu">dweeks</span>(<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb887"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb887-1"><a href="fechas-horas-y-minutas.html#cb887-1" tabindex="-1"></a><span class="fu">dweeks</span>(<span class="dv">3</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;1814400s (~3 weeks)&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb887"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb887-1"><a href="fechas-horas-y-minutas.html#cb887-1" tabindex="-1"></a><span class="fu">dyears</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb889"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb889-1"><a href="fechas-horas-y-minutas.html#cb889-1" tabindex="-1"></a><span class="fu">dyears</span>(<span class="dv">1</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;31557600s (~1 years)&quot;</code></pre>
 </div>
 <div id="puede-agregar-periodos-de-tiempo" class="section level2 hasAnchor" number="14.14">
 <h2><span class="header-section-number">14.14</span> Puede agregar periodos de tiempo<a href="fechas-horas-y-minutas.html#puede-agregar-periodos-de-tiempo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb889"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb889-1"><a href="fechas-horas-y-minutas.html#cb889-1" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">dyears</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb891"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb891-1"><a href="fechas-horas-y-minutas.html#cb891-1" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">dyears</span>(<span class="dv">1</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;63115200s (~2 years)&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb891"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb891-1"><a href="fechas-horas-y-minutas.html#cb891-1" tabindex="-1"></a><span class="fu">dyears</span>(<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">dweeks</span>(<span class="dv">12</span>) <span class="sc">+</span> <span class="fu">dhours</span>(<span class="dv">15</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb893"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb893-1"><a href="fechas-horas-y-minutas.html#cb893-1" tabindex="-1"></a><span class="fu">dyears</span>(<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">dweeks</span>(<span class="dv">12</span>) <span class="sc">+</span> <span class="fu">dhours</span>(<span class="dv">15</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;38869200s (~1.23 years)&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb893"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb893-1"><a href="fechas-horas-y-minutas.html#cb893-1" tabindex="-1"></a>ayer <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> <span class="fu">ddays</span>(<span class="dv">1</span>)</span>
-<span id="cb893-2"><a href="fechas-horas-y-minutas.html#cb893-2" tabindex="-1"></a>anio_pasado <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> <span class="fu">dyears</span>(<span class="dv">1</span>)</span>
-<span id="cb893-3"><a href="fechas-horas-y-minutas.html#cb893-3" tabindex="-1"></a></span>
-<span id="cb893-4"><a href="fechas-horas-y-minutas.html#cb893-4" tabindex="-1"></a>ayer</span></code></pre></div>
+<div class="sourceCode" id="cb895"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb895-1"><a href="fechas-horas-y-minutas.html#cb895-1" tabindex="-1"></a>ayer <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> <span class="fu">ddays</span>(<span class="dv">1</span>)</span>
+<span id="cb895-2"><a href="fechas-horas-y-minutas.html#cb895-2" tabindex="-1"></a>anio_pasado <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> <span class="fu">dyears</span>(<span class="dv">1</span>)</span>
+<span id="cb895-3"><a href="fechas-horas-y-minutas.html#cb895-3" tabindex="-1"></a></span>
+<span id="cb895-4"><a href="fechas-horas-y-minutas.html#cb895-4" tabindex="-1"></a>ayer</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;2023-10-11&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb895"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb895-1"><a href="fechas-horas-y-minutas.html#cb895-1" tabindex="-1"></a>anio_pasado</span></code></pre></div>
+<div class="sourceCode" id="cb897"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb897-1"><a href="fechas-horas-y-minutas.html#cb897-1" tabindex="-1"></a>anio_pasado</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;2022-10-11 18:00:00 UTC&quot;</code></pre>
 </div>
 <div id="períodos" class="section level2 hasAnchor" number="14.15">
 <h2><span class="header-section-number">14.15</span> períodos<a href="fechas-horas-y-minutas.html#períodos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb897"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb897-1"><a href="fechas-horas-y-minutas.html#cb897-1" tabindex="-1"></a>una_pm <span class="ot">&lt;-</span> <span class="fu">ymd_hms</span>(<span class="st">&quot;2016-03-12 13:00:00&quot;</span>, <span class="at">tz =</span> <span class="st">&quot;America/New_York&quot;</span>)</span>
-<span id="cb897-2"><a href="fechas-horas-y-minutas.html#cb897-2" tabindex="-1"></a></span>
-<span id="cb897-3"><a href="fechas-horas-y-minutas.html#cb897-3" tabindex="-1"></a>una_pm</span></code></pre></div>
+<div class="sourceCode" id="cb899"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb899-1"><a href="fechas-horas-y-minutas.html#cb899-1" tabindex="-1"></a>una_pm <span class="ot">&lt;-</span> <span class="fu">ymd_hms</span>(<span class="st">&quot;2016-03-12 13:00:00&quot;</span>, <span class="at">tz =</span> <span class="st">&quot;America/New_York&quot;</span>)</span>
+<span id="cb899-2"><a href="fechas-horas-y-minutas.html#cb899-2" tabindex="-1"></a></span>
+<span id="cb899-3"><a href="fechas-horas-y-minutas.html#cb899-3" tabindex="-1"></a>una_pm</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;2016-03-12 13:00:00 EST&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb899"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb899-1"><a href="fechas-horas-y-minutas.html#cb899-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2016-03-12 13:00:00 EST&quot;</span></span>
-<span id="cb899-2"><a href="fechas-horas-y-minutas.html#cb899-2" tabindex="-1"></a>una_pm <span class="sc">+</span> <span class="fu">ddays</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb901"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb901-1"><a href="fechas-horas-y-minutas.html#cb901-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2016-03-12 13:00:00 EST&quot;</span></span>
+<span id="cb901-2"><a href="fechas-horas-y-minutas.html#cb901-2" tabindex="-1"></a>una_pm <span class="sc">+</span> <span class="fu">ddays</span>(<span class="dv">1</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;2016-03-13 14:00:00 EDT&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb901"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb901-1"><a href="fechas-horas-y-minutas.html#cb901-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2016-03-13 14:00:00 EDT&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb903"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb903-1"><a href="fechas-horas-y-minutas.html#cb903-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2016-03-13 14:00:00 EDT&quot;</span></span></code></pre></div>
 </details>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb902"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb902-1"><a href="fechas-horas-y-minutas.html#cb902-1" tabindex="-1"></a><span class="fu">seconds</span>(<span class="dv">15</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb904"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb904-1"><a href="fechas-horas-y-minutas.html#cb904-1" tabindex="-1"></a><span class="fu">seconds</span>(<span class="dv">15</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;15S&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb904"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb904-1"><a href="fechas-horas-y-minutas.html#cb904-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;15S&quot;</span></span>
-<span id="cb904-2"><a href="fechas-horas-y-minutas.html#cb904-2" tabindex="-1"></a><span class="fu">minutes</span>(<span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb906"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb906-1"><a href="fechas-horas-y-minutas.html#cb906-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;15S&quot;</span></span>
+<span id="cb906-2"><a href="fechas-horas-y-minutas.html#cb906-2" tabindex="-1"></a><span class="fu">minutes</span>(<span class="dv">10</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;10M 0S&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb906"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb906-1"><a href="fechas-horas-y-minutas.html#cb906-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;10M 0S&quot;</span></span>
-<span id="cb906-2"><a href="fechas-horas-y-minutas.html#cb906-2" tabindex="-1"></a><span class="fu">hours</span>(<span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">24</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb908"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb908-1"><a href="fechas-horas-y-minutas.html#cb908-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;10M 0S&quot;</span></span>
+<span id="cb908-2"><a href="fechas-horas-y-minutas.html#cb908-2" tabindex="-1"></a><span class="fu">hours</span>(<span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">24</span>))</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;12H 0M 0S&quot; &quot;24H 0M 0S&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb908"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb908-1"><a href="fechas-horas-y-minutas.html#cb908-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;12H 0M 0S&quot; &quot;24H 0M 0S&quot;</span></span>
-<span id="cb908-2"><a href="fechas-horas-y-minutas.html#cb908-2" tabindex="-1"></a><span class="fu">days</span>(<span class="dv">7</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb910"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb910-1"><a href="fechas-horas-y-minutas.html#cb910-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;12H 0M 0S&quot; &quot;24H 0M 0S&quot;</span></span>
+<span id="cb910-2"><a href="fechas-horas-y-minutas.html#cb910-2" tabindex="-1"></a><span class="fu">days</span>(<span class="dv">7</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;7d 0H 0M 0S&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb910"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb910-1"><a href="fechas-horas-y-minutas.html#cb910-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;7d 0H 0M 0S&quot;</span></span>
-<span id="cb910-2"><a href="fechas-horas-y-minutas.html#cb910-2" tabindex="-1"></a><span class="fu">months</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb912"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb912-1"><a href="fechas-horas-y-minutas.html#cb912-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;7d 0H 0M 0S&quot;</span></span>
+<span id="cb912-2"><a href="fechas-horas-y-minutas.html#cb912-2" tabindex="-1"></a><span class="fu">months</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;1m 0d 0H 0M 0S&quot; &quot;2m 0d 0H 0M 0S&quot; &quot;3m 0d 0H 0M 0S&quot; &quot;4m 0d 0H 0M 0S&quot;
 ## [5] &quot;5m 0d 0H 0M 0S&quot; &quot;6m 0d 0H 0M 0S&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb912"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb912-1"><a href="fechas-horas-y-minutas.html#cb912-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;1m 0d 0H 0M 0S&quot; &quot;2m 0d 0H 0M 0S&quot; &quot;3m 0d 0H 0M 0S&quot; &quot;4m 0d 0H 0M 0S&quot;</span></span>
-<span id="cb912-2"><a href="fechas-horas-y-minutas.html#cb912-2" tabindex="-1"></a><span class="co">#&gt; [5] &quot;5m 0d 0H 0M 0S&quot; &quot;6m 0d 0H 0M 0S&quot;</span></span>
-<span id="cb912-3"><a href="fechas-horas-y-minutas.html#cb912-3" tabindex="-1"></a><span class="fu">weeks</span>(<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb914"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb914-1"><a href="fechas-horas-y-minutas.html#cb914-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;1m 0d 0H 0M 0S&quot; &quot;2m 0d 0H 0M 0S&quot; &quot;3m 0d 0H 0M 0S&quot; &quot;4m 0d 0H 0M 0S&quot;</span></span>
+<span id="cb914-2"><a href="fechas-horas-y-minutas.html#cb914-2" tabindex="-1"></a><span class="co">#&gt; [5] &quot;5m 0d 0H 0M 0S&quot; &quot;6m 0d 0H 0M 0S&quot;</span></span>
+<span id="cb914-3"><a href="fechas-horas-y-minutas.html#cb914-3" tabindex="-1"></a><span class="fu">weeks</span>(<span class="dv">3</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;21d 0H 0M 0S&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb914"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb914-1"><a href="fechas-horas-y-minutas.html#cb914-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;21d 0H 0M 0S&quot;</span></span>
-<span id="cb914-2"><a href="fechas-horas-y-minutas.html#cb914-2" tabindex="-1"></a><span class="fu">years</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb916"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb916-1"><a href="fechas-horas-y-minutas.html#cb916-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;21d 0H 0M 0S&quot;</span></span>
+<span id="cb916-2"><a href="fechas-horas-y-minutas.html#cb916-2" tabindex="-1"></a><span class="fu">years</span>(<span class="dv">1</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;1y 0m 0d 0H 0M 0S&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb916"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb916-1"><a href="fechas-horas-y-minutas.html#cb916-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;1y 0m 0d 0H 0M 0S&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb918"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb918-1"><a href="fechas-horas-y-minutas.html#cb918-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;1y 0m 0d 0H 0M 0S&quot;</span></span></code></pre></div>
 </details>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb917"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb917-1"><a href="fechas-horas-y-minutas.html#cb917-1" tabindex="-1"></a><span class="dv">10</span> <span class="sc">*</span> (<span class="fu">months</span>(<span class="dv">6</span>) <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb919"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb919-1"><a href="fechas-horas-y-minutas.html#cb919-1" tabindex="-1"></a><span class="dv">10</span> <span class="sc">*</span> (<span class="fu">months</span>(<span class="dv">6</span>) <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">1</span>))</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;60m 10d 0H 0M 0S&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb919"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb919-1"><a href="fechas-horas-y-minutas.html#cb919-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;60m 10d 0H 0M 0S&quot;</span></span>
-<span id="cb919-2"><a href="fechas-horas-y-minutas.html#cb919-2" tabindex="-1"></a><span class="fu">days</span>(<span class="dv">50</span>) <span class="sc">+</span> <span class="fu">hours</span>(<span class="dv">25</span>) <span class="sc">+</span> <span class="fu">minutes</span>(<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb921"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb921-1"><a href="fechas-horas-y-minutas.html#cb921-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;60m 10d 0H 0M 0S&quot;</span></span>
+<span id="cb921-2"><a href="fechas-horas-y-minutas.html#cb921-2" tabindex="-1"></a><span class="fu">days</span>(<span class="dv">50</span>) <span class="sc">+</span> <span class="fu">hours</span>(<span class="dv">25</span>) <span class="sc">+</span> <span class="fu">minutes</span>(<span class="dv">2</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;50d 25H 2M 0S&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb921"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb921-1"><a href="fechas-horas-y-minutas.html#cb921-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;50d 25H 2M 0S&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb923"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb923-1"><a href="fechas-horas-y-minutas.html#cb923-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;50d 25H 2M 0S&quot;</span></span></code></pre></div>
 </details>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb922"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb922-1"><a href="fechas-horas-y-minutas.html#cb922-1" tabindex="-1"></a><span class="co"># Un año bisiesto</span></span>
-<span id="cb922-2"><a href="fechas-horas-y-minutas.html#cb922-2" tabindex="-1"></a><span class="fu">ymd</span>(<span class="st">&quot;2016-01-01&quot;</span>) <span class="sc">+</span> <span class="fu">dyears</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb924"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb924-1"><a href="fechas-horas-y-minutas.html#cb924-1" tabindex="-1"></a><span class="co"># Un año bisiesto</span></span>
+<span id="cb924-2"><a href="fechas-horas-y-minutas.html#cb924-2" tabindex="-1"></a><span class="fu">ymd</span>(<span class="st">&quot;2016-01-01&quot;</span>) <span class="sc">+</span> <span class="fu">dyears</span>(<span class="dv">1</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;2016-12-31 06:00:00 UTC&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb924"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb924-1"><a href="fechas-horas-y-minutas.html#cb924-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2016-12-31 06:00:00 UTC&quot;</span></span>
-<span id="cb924-2"><a href="fechas-horas-y-minutas.html#cb924-2" tabindex="-1"></a><span class="fu">ymd</span>(<span class="st">&quot;2016-01-01&quot;</span>) <span class="sc">+</span> <span class="fu">years</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb926"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb926-1"><a href="fechas-horas-y-minutas.html#cb926-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2016-12-31 06:00:00 UTC&quot;</span></span>
+<span id="cb926-2"><a href="fechas-horas-y-minutas.html#cb926-2" tabindex="-1"></a><span class="fu">ymd</span>(<span class="st">&quot;2016-01-01&quot;</span>) <span class="sc">+</span> <span class="fu">years</span>(<span class="dv">1</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;2017-01-01&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb926"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb926-1"><a href="fechas-horas-y-minutas.html#cb926-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2017-01-01&quot;</span></span>
-<span id="cb926-2"><a href="fechas-horas-y-minutas.html#cb926-2" tabindex="-1"></a></span>
-<span id="cb926-3"><a href="fechas-horas-y-minutas.html#cb926-3" tabindex="-1"></a><span class="co"># Horarios de verano</span></span>
-<span id="cb926-4"><a href="fechas-horas-y-minutas.html#cb926-4" tabindex="-1"></a>una_pm <span class="sc">+</span> <span class="fu">ddays</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb928"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb928-1"><a href="fechas-horas-y-minutas.html#cb928-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2017-01-01&quot;</span></span>
+<span id="cb928-2"><a href="fechas-horas-y-minutas.html#cb928-2" tabindex="-1"></a></span>
+<span id="cb928-3"><a href="fechas-horas-y-minutas.html#cb928-3" tabindex="-1"></a><span class="co"># Horarios de verano</span></span>
+<span id="cb928-4"><a href="fechas-horas-y-minutas.html#cb928-4" tabindex="-1"></a>una_pm <span class="sc">+</span> <span class="fu">ddays</span>(<span class="dv">1</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;2016-03-13 14:00:00 EDT&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb928"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb928-1"><a href="fechas-horas-y-minutas.html#cb928-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2016-03-13 14:00:00 EDT&quot;</span></span>
-<span id="cb928-2"><a href="fechas-horas-y-minutas.html#cb928-2" tabindex="-1"></a>una_pm <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb930"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb930-1"><a href="fechas-horas-y-minutas.html#cb930-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2016-03-13 14:00:00 EDT&quot;</span></span>
+<span id="cb930-2"><a href="fechas-horas-y-minutas.html#cb930-2" tabindex="-1"></a>una_pm <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">1</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;2016-03-13 13:00:00 EDT&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb930"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb930-1"><a href="fechas-horas-y-minutas.html#cb930-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2016-03-13 13:00:00 EDT&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb932"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb932-1"><a href="fechas-horas-y-minutas.html#cb932-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2016-03-13 13:00:00 EDT&quot;</span></span></code></pre></div>
 </details>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb931"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb931-1"><a href="fechas-horas-y-minutas.html#cb931-1" tabindex="-1"></a><span class="dv">10</span> <span class="sc">*</span> (<span class="fu">months</span>(<span class="dv">6</span>) <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb933"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb933-1"><a href="fechas-horas-y-minutas.html#cb933-1" tabindex="-1"></a><span class="dv">10</span> <span class="sc">*</span> (<span class="fu">months</span>(<span class="dv">6</span>) <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">1</span>))</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;60m 10d 0H 0M 0S&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb933"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb933-1"><a href="fechas-horas-y-minutas.html#cb933-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;60m 10d 0H 0M 0S&quot;</span></span>
-<span id="cb933-2"><a href="fechas-horas-y-minutas.html#cb933-2" tabindex="-1"></a><span class="fu">days</span>(<span class="dv">50</span>) <span class="sc">+</span> <span class="fu">hours</span>(<span class="dv">25</span>) <span class="sc">+</span> <span class="fu">minutes</span>(<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb935"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb935-1"><a href="fechas-horas-y-minutas.html#cb935-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;60m 10d 0H 0M 0S&quot;</span></span>
+<span id="cb935-2"><a href="fechas-horas-y-minutas.html#cb935-2" tabindex="-1"></a><span class="fu">days</span>(<span class="dv">50</span>) <span class="sc">+</span> <span class="fu">hours</span>(<span class="dv">25</span>) <span class="sc">+</span> <span class="fu">minutes</span>(<span class="dv">2</span>)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;50d 25H 2M 0S&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb935"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb935-1"><a href="fechas-horas-y-minutas.html#cb935-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;50d 25H 2M 0S&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb937"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb937-1"><a href="fechas-horas-y-minutas.html#cb937-1" tabindex="-1"></a><span class="co">#&gt; [1] &quot;50d 25H 2M 0S&quot;</span></span></code></pre></div>
 </details>
 <ul>
 <li>intervalos</li>
@@ -1290,15 +1313,15 @@ Pueden ser el mismo mes en 3 diferente años o 3 diferentes mese en el mismo añ
 
 <p>16-Terremotos_fecha_mapa</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb936"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb936-1"><a href="fechas-horas-y-minutas.html#cb936-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb938"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb938-1"><a href="fechas-horas-y-minutas.html#cb938-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 </details>
 <p>Website: <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php" class="uri">https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php</a></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb937"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb937-1"><a href="fechas-horas-y-minutas.html#cb937-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb937-2"><a href="fechas-horas-y-minutas.html#cb937-2" tabindex="-1"></a>Earthquake_all_month <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Datos/Earthquake_all_month.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb939"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb939-1"><a href="fechas-horas-y-minutas.html#cb939-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb939-2"><a href="fechas-horas-y-minutas.html#cb939-2" tabindex="-1"></a>Earthquake_all_month <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Datos/Earthquake_all_month.csv&quot;</span>)</span></code></pre></div>
 </details>
 <pre><code>## Rows: 10743 Columns: 22
-## ── Column specification ────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr   (8): magType, net, id, place, type, status, locationSource, magSource
 ## dbl  (12): latitude, longitude, depth, mag, nst, gap, dmin, rms, horizontalE...
@@ -1307,8 +1330,8 @@ Pueden ser el mismo mes en 3 diferente años o 3 diferentes mese en el mismo añ
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb939"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb939-1"><a href="fechas-horas-y-minutas.html#cb939-1" tabindex="-1"></a>EQ<span class="ot">=</span>Earthquake_all_month</span>
-<span id="cb939-2"><a href="fechas-horas-y-minutas.html#cb939-2" tabindex="-1"></a><span class="fu">head</span>(EQ, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb941"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb941-1"><a href="fechas-horas-y-minutas.html#cb941-1" tabindex="-1"></a>EQ<span class="ot">=</span>Earthquake_all_month</span>
+<span id="cb941-2"><a href="fechas-horas-y-minutas.html#cb941-2" tabindex="-1"></a><span class="fu">head</span>(EQ, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 10 × 22
 ##    time                latitude longitude depth   mag magType   nst   gap
@@ -1328,7 +1351,7 @@ Pueden ser el mismo mes en 3 diferente años o 3 diferentes mese en el mismo añ
 ## #   depthError &lt;dbl&gt;, magError &lt;dbl&gt;, magNst &lt;dbl&gt;, status &lt;chr&gt;,
 ## #   locationSource &lt;chr&gt;, magSource &lt;chr&gt;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb941"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb941-1"><a href="fechas-horas-y-minutas.html#cb941-1" tabindex="-1"></a><span class="fu">names</span>(EQ)</span></code></pre></div>
+<div class="sourceCode" id="cb943"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb943-1"><a href="fechas-horas-y-minutas.html#cb943-1" tabindex="-1"></a><span class="fu">names</span>(EQ)</span></code></pre></div>
 </details>
 <pre><code>##  [1] &quot;time&quot;            &quot;latitude&quot;        &quot;longitude&quot;       &quot;depth&quot;          
 ##  [5] &quot;mag&quot;             &quot;magType&quot;         &quot;nst&quot;             &quot;gap&quot;            
@@ -1337,7 +1360,7 @@ Pueden ser el mismo mes en 3 diferente años o 3 diferentes mese en el mismo añ
 ## [17] &quot;depthError&quot;      &quot;magError&quot;        &quot;magNst&quot;          &quot;status&quot;         
 ## [21] &quot;locationSource&quot;  &quot;magSource&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb943"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb943-1"><a href="fechas-horas-y-minutas.html#cb943-1" tabindex="-1"></a><span class="fu">str</span>(EQ)</span></code></pre></div>
+<div class="sourceCode" id="cb945"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb945-1"><a href="fechas-horas-y-minutas.html#cb945-1" tabindex="-1"></a><span class="fu">str</span>(EQ)</span></code></pre></div>
 </details>
 <pre><code>## spc_tbl_ [10,743 × 22] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ##  $ time           : POSIXct[1:10743], format: &quot;2023-09-11 20:29:51&quot; &quot;2023-09-11 20:25:31&quot; ...

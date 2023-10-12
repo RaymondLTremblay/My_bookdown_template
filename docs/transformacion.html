@@ -1084,7 +1084,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##   dat &lt;- vroom(...)
 ##   problems(dat)</code></pre>
 <pre><code>## Rows: 55983 Columns: 214</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────────
+<pre><code>## ── Column specification ───────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr  (39): CNTYNAT, CNTOCFIP, CNTYRES, CITYRES, CITRSPOP, METRORES, STRESFIP...
 ## dbl (158): DATAYEAR, RECTYPE, RESTATUS, RECWT, PLDEL, PLDEL3, BIRATTND, REGN...
@@ -1702,11 +1702,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## New names:
 ## Rows: 587 Columns: 18
 ## ── Column specification
-## ──────────────────────────────────────────────────────────── Delimiter: &quot;,&quot; chr
-## (1): Fecha dbl (17): ...1, Muertes, IncrementoMuertes, CasosPCR_Salud,
-## IncCasosPCR_Salu...
-## ℹ Use `spec()` to retrieve the full column specification for this data. ℹ Specify
-## the column types or set `show_col_types = FALSE` to quiet this message.
+## ─────────────────────────────────────────────────────────────────────────────── Delimiter: &quot;,&quot; chr
+## (1): Fecha dbl (17): ...1, Muertes, IncrementoMuertes, CasosPCR_Salud, IncCasosPCR_Salu...
+## ℹ Use `spec()` to retrieve the full column specification for this data. ℹ Specify the column types or
+## set `show_col_types = FALSE` to quiet this message.
 ## • `` -&gt; `...1`</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="transformacion.html#cb269-1" tabindex="-1"></a><span class="co">#head(url_COVID_PR)</span></span>
@@ -1757,8 +1756,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## ℹ Please use `as_tibble()` instead.
 ## ℹ The signature and semantics have changed, see `?as_tibble`.
 ## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-## generated.</code></pre>
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="transformacion.html#cb276-1" tabindex="-1"></a>df</span></code></pre></div>
 </details>
@@ -1880,11 +1878,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## New names:
 ## Rows: 587 Columns: 18
 ## ── Column specification
-## ──────────────────────────────────────────────────────────── Delimiter: &quot;,&quot; chr
-## (1): Fecha dbl (17): ...1, Muertes, IncrementoMuertes, CasosPCR_Salud,
-## IncCasosPCR_Salu...
-## ℹ Use `spec()` to retrieve the full column specification for this data. ℹ Specify
-## the column types or set `show_col_types = FALSE` to quiet this message.
+## ─────────────────────────────────────────────────────────────────────────────── Delimiter: &quot;,&quot; chr
+## (1): Fecha dbl (17): ...1, Muertes, IncrementoMuertes, CasosPCR_Salud, IncCasosPCR_Salu...
+## ℹ Use `spec()` to retrieve the full column specification for this data. ℹ Specify the column types or
+## set `show_col_types = FALSE` to quiet this message.
 ## • `` -&gt; `...1`</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="transformacion.html#cb290-1" tabindex="-1"></a><span class="fu">head</span>(url_COVID_PR)</span></code></pre></div>
@@ -2040,11 +2037,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb315-2"><a href="transformacion.html#cb315-2" tabindex="-1"></a>datos_NA<span class="ot">=</span><span class="fu">as_data_frame</span>(datos_NA)</span></code></pre></div>
 </details>
 <pre><code>## Warning: `as_data_frame()` was deprecated in tibble 2.0.0.
-## ℹ Please use `as_tibble()` (with slightly different semantics) to convert to a
-##   tibble, or `as.data.frame()` to convert to a data frame.
+## ℹ Please use `as_tibble()` (with slightly different semantics) to convert to a tibble, or
+##   `as.data.frame()` to convert to a data frame.
 ## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-## generated.</code></pre>
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="transformacion.html#cb317-1" tabindex="-1"></a>datos_NA <span class="sc">%&gt;%</span> </span>
 <span id="cb317-2"><a href="transformacion.html#cb317-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(value) <span class="sc">%&gt;%</span> </span>
@@ -2541,10 +2537,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </details>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
 <pre><code>## Warning: The following aesthetics were dropped during statistical transformation: label
-## ℹ This can happen when ggplot fails to infer the correct grouping structure in the
-##   data.
-## ℹ Did you forget to specify a `group` aesthetic or to convert a numerical variable
-##   into a factor?</code></pre>
+## ℹ This can happen when ggplot fails to infer the correct grouping structure in the data.
+## ℹ Did you forget to specify a `group` aesthetic or to convert a numerical variable into a factor?</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-136-1.png" width="672" /></p>
 <hr />
 <ol start="5" style="list-style-type: decimal">

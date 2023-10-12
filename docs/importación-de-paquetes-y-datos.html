@@ -499,11 +499,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="importación-de-paquetes-y-datos" class="section level1 hasAnchor" number="15">
 <h1><span class="header-section-number">Chapter 15</span> Importación de Paquetes y Datos<a href="importación-de-paquetes-y-datos.html#importación-de-paquetes-y-datos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb945"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb945-1"><a href="importación-de-paquetes-y-datos.html#cb945-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb945-2"><a href="importación-de-paquetes-y-datos.html#cb945-2" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
-<span id="cb945-3"><a href="importación-de-paquetes-y-datos.html#cb945-3" tabindex="-1"></a><span class="co">#library(rinat)</span></span>
-<span id="cb945-4"><a href="importación-de-paquetes-y-datos.html#cb945-4" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
-<span id="cb945-5"><a href="importación-de-paquetes-y-datos.html#cb945-5" tabindex="-1"></a><span class="fu">library</span>(flextable)</span></code></pre></div>
+<div class="sourceCode" id="cb947"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb947-1"><a href="importación-de-paquetes-y-datos.html#cb947-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb947-2"><a href="importación-de-paquetes-y-datos.html#cb947-2" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb947-3"><a href="importación-de-paquetes-y-datos.html#cb947-3" tabindex="-1"></a><span class="co">#library(rinat)</span></span>
+<span id="cb947-4"><a href="importación-de-paquetes-y-datos.html#cb947-4" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb947-5"><a href="importación-de-paquetes-y-datos.html#cb947-5" tabindex="-1"></a><span class="fu">library</span>(flextable)</span></code></pre></div>
 </details>
 <pre><code>## 
 ## Attaching package: &#39;flextable&#39;</code></pre>
@@ -511,16 +511,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ##     compose</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb948"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb948-1"><a href="importación-de-paquetes-y-datos.html#cb948-1" tabindex="-1"></a>cajapr <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb948-2"><a href="importación-de-paquetes-y-datos.html#cb948-2" tabindex="-1"></a>  <span class="fl">17.75</span>, <span class="co">#Latitud Sur</span></span>
-<span id="cb948-3"><a href="importación-de-paquetes-y-datos.html#cb948-3" tabindex="-1"></a>   <span class="sc">-</span><span class="fl">67.4</span>, <span class="co">#Longitud Oeste</span></span>
-<span id="cb948-4"><a href="importación-de-paquetes-y-datos.html#cb948-4" tabindex="-1"></a>  <span class="fl">18.75</span>, <span class="co">#Latitud Norte</span></span>
-<span id="cb948-5"><a href="importación-de-paquetes-y-datos.html#cb948-5" tabindex="-1"></a>  <span class="sc">-</span><span class="fl">65.15</span> <span class="co">#Longitud Este</span></span>
-<span id="cb948-6"><a href="importación-de-paquetes-y-datos.html#cb948-6" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb950"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb950-1"><a href="importación-de-paquetes-y-datos.html#cb950-1" tabindex="-1"></a>cajapr <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb950-2"><a href="importación-de-paquetes-y-datos.html#cb950-2" tabindex="-1"></a>  <span class="fl">17.75</span>, <span class="co">#Latitud Sur</span></span>
+<span id="cb950-3"><a href="importación-de-paquetes-y-datos.html#cb950-3" tabindex="-1"></a>   <span class="sc">-</span><span class="fl">67.4</span>, <span class="co">#Longitud Oeste</span></span>
+<span id="cb950-4"><a href="importación-de-paquetes-y-datos.html#cb950-4" tabindex="-1"></a>  <span class="fl">18.75</span>, <span class="co">#Latitud Norte</span></span>
+<span id="cb950-5"><a href="importación-de-paquetes-y-datos.html#cb950-5" tabindex="-1"></a>  <span class="sc">-</span><span class="fl">65.15</span> <span class="co">#Longitud Este</span></span>
+<span id="cb950-6"><a href="importación-de-paquetes-y-datos.html#cb950-6" tabindex="-1"></a>  )</span></code></pre></div>
 </details>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb949"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb949-1"><a href="importación-de-paquetes-y-datos.html#cb949-1" tabindex="-1"></a>EQ_100 <span class="ot">=</span> EQ <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>)</span>
-<span id="cb949-2"><a href="importación-de-paquetes-y-datos.html#cb949-2" tabindex="-1"></a>EQ_100</span></code></pre></div>
+<div class="sourceCode" id="cb951"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb951-1"><a href="importación-de-paquetes-y-datos.html#cb951-1" tabindex="-1"></a>EQ_100 <span class="ot">=</span> EQ <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>)</span>
+<span id="cb951-2"><a href="importación-de-paquetes-y-datos.html#cb951-2" tabindex="-1"></a>EQ_100</span></code></pre></div>
 </details>
 <pre><code>## # A tibble: 300 × 22
 ##    time                latitude longitude depth   mag magType   nst   gap
@@ -541,30 +541,30 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## #   depthError &lt;dbl&gt;, magError &lt;dbl&gt;, magNst &lt;dbl&gt;, status &lt;chr&gt;,
 ## #   locationSource &lt;chr&gt;, magSource &lt;chr&gt;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb951"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb951-1"><a href="importación-de-paquetes-y-datos.html#cb951-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb951-2"><a href="importación-de-paquetes-y-datos.html#cb951-2" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
-<span id="cb951-3"><a href="importación-de-paquetes-y-datos.html#cb951-3" tabindex="-1"></a></span>
-<span id="cb951-4"><a href="importación-de-paquetes-y-datos.html#cb951-4" tabindex="-1"></a><span class="fu">mutate</span>(EQ_100, <span class="at">group =</span> <span class="fu">cut</span>(mag, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="cn">Inf</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;orange&quot;</span>))) <span class="ot">-&gt;</span> mydf</span>
-<span id="cb951-5"><a href="importación-de-paquetes-y-datos.html#cb951-5" tabindex="-1"></a></span>
-<span id="cb951-6"><a href="importación-de-paquetes-y-datos.html#cb951-6" tabindex="-1"></a><span class="do">### I edit this png file and created my own marker.</span></span>
-<span id="cb951-7"><a href="importación-de-paquetes-y-datos.html#cb951-7" tabindex="-1"></a><span class="do">### https://raw.githubusercontent.com/lvoogdt/Leaflet.awesome-markers/master/dist/images/markers-soft.png</span></span>
-<span id="cb951-8"><a href="importación-de-paquetes-y-datos.html#cb951-8" tabindex="-1"></a>quakeIcons <span class="ot">&lt;-</span> <span class="fu">iconList</span>(<span class="at">blue =</span> <span class="fu">makeIcon</span>(<span class="st">&quot;/Users/jazzurro/Documents/Stack Overflow/blue.png&quot;</span>, <span class="at">iconWidth =</span> <span class="dv">24</span>, <span class="at">iconHeight =</span><span class="dv">32</span>),</span>
-<span id="cb951-9"><a href="importación-de-paquetes-y-datos.html#cb951-9" tabindex="-1"></a>                       <span class="at">green =</span> <span class="fu">makeIcon</span>(<span class="st">&quot;/Users/jazzurro/Documents/Stack Overflow/green.png&quot;</span>, <span class="at">iconWidth =</span> <span class="dv">24</span>, <span class="at">iconHeight =</span><span class="dv">32</span>),</span>
-<span id="cb951-10"><a href="importación-de-paquetes-y-datos.html#cb951-10" tabindex="-1"></a>                       <span class="at">orange =</span> <span class="fu">makeIcon</span>(<span class="st">&quot;/Users/jazzurro/Documents/Stack Overflow/orange.png&quot;</span>, <span class="at">iconWidth =</span> <span class="dv">24</span>, <span class="at">iconHeight =</span><span class="dv">32</span>))</span>
-<span id="cb951-11"><a href="importación-de-paquetes-y-datos.html#cb951-11" tabindex="-1"></a></span>
-<span id="cb951-12"><a href="importación-de-paquetes-y-datos.html#cb951-12" tabindex="-1"></a></span>
-<span id="cb951-13"><a href="importación-de-paquetes-y-datos.html#cb951-13" tabindex="-1"></a><span class="fu">leaflet</span>(<span class="at">data =</span> mydf[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,]) <span class="sc">%&gt;%</span> </span>
-<span id="cb951-14"><a href="importación-de-paquetes-y-datos.html#cb951-14" tabindex="-1"></a><span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb951-15"><a href="importación-de-paquetes-y-datos.html#cb951-15" tabindex="-1"></a><span class="fu">addMarkers</span>(<span class="at">icon =</span> <span class="sc">~</span>Icons[group])</span></code></pre></div>
+<div class="sourceCode" id="cb953"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb953-1"><a href="importación-de-paquetes-y-datos.html#cb953-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb953-2"><a href="importación-de-paquetes-y-datos.html#cb953-2" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb953-3"><a href="importación-de-paquetes-y-datos.html#cb953-3" tabindex="-1"></a></span>
+<span id="cb953-4"><a href="importación-de-paquetes-y-datos.html#cb953-4" tabindex="-1"></a><span class="fu">mutate</span>(EQ_100, <span class="at">group =</span> <span class="fu">cut</span>(mag, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="cn">Inf</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;orange&quot;</span>))) <span class="ot">-&gt;</span> mydf</span>
+<span id="cb953-5"><a href="importación-de-paquetes-y-datos.html#cb953-5" tabindex="-1"></a></span>
+<span id="cb953-6"><a href="importación-de-paquetes-y-datos.html#cb953-6" tabindex="-1"></a><span class="do">### I edit this png file and created my own marker.</span></span>
+<span id="cb953-7"><a href="importación-de-paquetes-y-datos.html#cb953-7" tabindex="-1"></a><span class="do">### https://raw.githubusercontent.com/lvoogdt/Leaflet.awesome-markers/master/dist/images/markers-soft.png</span></span>
+<span id="cb953-8"><a href="importación-de-paquetes-y-datos.html#cb953-8" tabindex="-1"></a>quakeIcons <span class="ot">&lt;-</span> <span class="fu">iconList</span>(<span class="at">blue =</span> <span class="fu">makeIcon</span>(<span class="st">&quot;/Users/jazzurro/Documents/Stack Overflow/blue.png&quot;</span>, <span class="at">iconWidth =</span> <span class="dv">24</span>, <span class="at">iconHeight =</span><span class="dv">32</span>),</span>
+<span id="cb953-9"><a href="importación-de-paquetes-y-datos.html#cb953-9" tabindex="-1"></a>                       <span class="at">green =</span> <span class="fu">makeIcon</span>(<span class="st">&quot;/Users/jazzurro/Documents/Stack Overflow/green.png&quot;</span>, <span class="at">iconWidth =</span> <span class="dv">24</span>, <span class="at">iconHeight =</span><span class="dv">32</span>),</span>
+<span id="cb953-10"><a href="importación-de-paquetes-y-datos.html#cb953-10" tabindex="-1"></a>                       <span class="at">orange =</span> <span class="fu">makeIcon</span>(<span class="st">&quot;/Users/jazzurro/Documents/Stack Overflow/orange.png&quot;</span>, <span class="at">iconWidth =</span> <span class="dv">24</span>, <span class="at">iconHeight =</span><span class="dv">32</span>))</span>
+<span id="cb953-11"><a href="importación-de-paquetes-y-datos.html#cb953-11" tabindex="-1"></a></span>
+<span id="cb953-12"><a href="importación-de-paquetes-y-datos.html#cb953-12" tabindex="-1"></a></span>
+<span id="cb953-13"><a href="importación-de-paquetes-y-datos.html#cb953-13" tabindex="-1"></a><span class="fu">leaflet</span>(<span class="at">data =</span> mydf[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,]) <span class="sc">%&gt;%</span> </span>
+<span id="cb953-14"><a href="importación-de-paquetes-y-datos.html#cb953-14" tabindex="-1"></a><span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb953-15"><a href="importación-de-paquetes-y-datos.html#cb953-15" tabindex="-1"></a><span class="fu">addMarkers</span>(<span class="at">icon =</span> <span class="sc">~</span>Icons[group])</span></code></pre></div>
 </details>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb952"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb952-1"><a href="importación-de-paquetes-y-datos.html#cb952-1" tabindex="-1"></a><span class="cf">function</span> <span class="fu">getColor</span>(d){</span>
-<span id="cb952-2"><a href="importación-de-paquetes-y-datos.html#cb952-2" tabindex="-1"></a>  return d <span class="sc">&gt;=</span> <span class="dv">1966</span> ? <span class="st">&#39;green&#39;</span> <span class="sc">:</span> <span class="co">#// Means: if (d &gt;= 1966) return &#39;green&#39; else…</span></span>
-<span id="cb952-3"><a href="importación-de-paquetes-y-datos.html#cb952-3" tabindex="-1"></a>    d <span class="sc">&gt;=</span> <span class="dv">1960</span> ? <span class="st">&#39;black&#39;</span> <span class="sc">:</span> <span class="er">//</span> <span class="co">#if (d &gt;= 1960) return &#39;black&#39; else etc…</span></span>
-<span id="cb952-4"><a href="importación-de-paquetes-y-datos.html#cb952-4" tabindex="-1"></a>    d <span class="sc">&gt;=</span> <span class="dv">1952</span> ? <span class="st">&#39;red&#39;</span> <span class="sc">:</span></span>
-<span id="cb952-5"><a href="importación-de-paquetes-y-datos.html#cb952-5" tabindex="-1"></a>    d <span class="sc">&gt;=</span> <span class="dv">1940</span> ? <span class="st">&#39;orange&#39;</span> <span class="sc">:</span> <span class="co">#// Note that numbers must be in descending order</span></span>
-<span id="cb952-6"><a href="importación-de-paquetes-y-datos.html#cb952-6" tabindex="-1"></a>    <span class="st">&#39;grey&#39;</span>;</span>
-<span id="cb952-7"><a href="importación-de-paquetes-y-datos.html#cb952-7" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb954"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb954-1"><a href="importación-de-paquetes-y-datos.html#cb954-1" tabindex="-1"></a><span class="cf">function</span> <span class="fu">getColor</span>(d){</span>
+<span id="cb954-2"><a href="importación-de-paquetes-y-datos.html#cb954-2" tabindex="-1"></a>  return d <span class="sc">&gt;=</span> <span class="dv">1966</span> ? <span class="st">&#39;green&#39;</span> <span class="sc">:</span> <span class="co">#// Means: if (d &gt;= 1966) return &#39;green&#39; else…</span></span>
+<span id="cb954-3"><a href="importación-de-paquetes-y-datos.html#cb954-3" tabindex="-1"></a>    d <span class="sc">&gt;=</span> <span class="dv">1960</span> ? <span class="st">&#39;black&#39;</span> <span class="sc">:</span> <span class="er">//</span> <span class="co">#if (d &gt;= 1960) return &#39;black&#39; else etc…</span></span>
+<span id="cb954-4"><a href="importación-de-paquetes-y-datos.html#cb954-4" tabindex="-1"></a>    d <span class="sc">&gt;=</span> <span class="dv">1952</span> ? <span class="st">&#39;red&#39;</span> <span class="sc">:</span></span>
+<span id="cb954-5"><a href="importación-de-paquetes-y-datos.html#cb954-5" tabindex="-1"></a>    d <span class="sc">&gt;=</span> <span class="dv">1940</span> ? <span class="st">&#39;orange&#39;</span> <span class="sc">:</span> <span class="co">#// Note that numbers must be in descending order</span></span>
+<span id="cb954-6"><a href="importación-de-paquetes-y-datos.html#cb954-6" tabindex="-1"></a>    <span class="st">&#39;grey&#39;</span>;</span>
+<span id="cb954-7"><a href="importación-de-paquetes-y-datos.html#cb954-7" tabindex="-1"></a>}</span></code></pre></div>
 </details>
 <p>L.circleMarker([place.lon, place.lat], {
 color: getColor(place.constructdate), // you can call the getColor function
@@ -572,21 +572,21 @@ fillColor: getColor(place.constructdate),
 fillOpacity: 0.5
 })</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb953"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb953-1"><a href="importación-de-paquetes-y-datos.html#cb953-1" tabindex="-1"></a><span class="fu">names</span>(EQ_100)</span>
-<span id="cb953-2"><a href="importación-de-paquetes-y-datos.html#cb953-2" tabindex="-1"></a><span class="fu">unique</span>(EQ_100<span class="sc">$</span>type)</span>
-<span id="cb953-3"><a href="importación-de-paquetes-y-datos.html#cb953-3" tabindex="-1"></a>pal <span class="ot">=</span> <span class="fu">colorFactor</span>(<span class="at">palette =</span> <span class="st">&quot;viridis&quot;</span>, <span class="at">domain =</span> <span class="cn">NULL</span>)</span>
-<span id="cb953-4"><a href="importación-de-paquetes-y-datos.html#cb953-4" tabindex="-1"></a></span>
-<span id="cb953-5"><a href="importación-de-paquetes-y-datos.html#cb953-5" tabindex="-1"></a></span>
-<span id="cb953-6"><a href="importación-de-paquetes-y-datos.html#cb953-6" tabindex="-1"></a><span class="co">#pal &lt;- colorNumeric(</span></span>
-<span id="cb953-7"><a href="importación-de-paquetes-y-datos.html#cb953-7" tabindex="-1"></a><span class="co">#  palette = &quot;Blues&quot;,</span></span>
-<span id="cb953-8"><a href="importación-de-paquetes-y-datos.html#cb953-8" tabindex="-1"></a><span class="co">#  domain = EQ$type)</span></span>
-<span id="cb953-9"><a href="importación-de-paquetes-y-datos.html#cb953-9" tabindex="-1"></a></span>
-<span id="cb953-10"><a href="importación-de-paquetes-y-datos.html#cb953-10" tabindex="-1"></a><span class="fu">leaflet</span>(EQ_100) <span class="sc">%&gt;%</span> </span>
-<span id="cb953-11"><a href="importación-de-paquetes-y-datos.html#cb953-11" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb953-12"><a href="importación-de-paquetes-y-datos.html#cb953-12" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span>longitude, </span>
-<span id="cb953-13"><a href="importación-de-paquetes-y-datos.html#cb953-13" tabindex="-1"></a>             <span class="at">lat =</span> <span class="sc">~</span>latitude, </span>
-<span id="cb953-14"><a href="importación-de-paquetes-y-datos.html#cb953-14" tabindex="-1"></a>             <span class="at">color=</span> <span class="sc">~</span><span class="fu">pal</span>(type),</span>
-<span id="cb953-15"><a href="importación-de-paquetes-y-datos.html#cb953-15" tabindex="-1"></a>             <span class="at">popup =</span> <span class="sc">~</span>mag)</span></code></pre></div>
+<div class="sourceCode" id="cb955"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb955-1"><a href="importación-de-paquetes-y-datos.html#cb955-1" tabindex="-1"></a><span class="fu">names</span>(EQ_100)</span>
+<span id="cb955-2"><a href="importación-de-paquetes-y-datos.html#cb955-2" tabindex="-1"></a><span class="fu">unique</span>(EQ_100<span class="sc">$</span>type)</span>
+<span id="cb955-3"><a href="importación-de-paquetes-y-datos.html#cb955-3" tabindex="-1"></a>pal <span class="ot">=</span> <span class="fu">colorFactor</span>(<span class="at">palette =</span> <span class="st">&quot;viridis&quot;</span>, <span class="at">domain =</span> <span class="cn">NULL</span>)</span>
+<span id="cb955-4"><a href="importación-de-paquetes-y-datos.html#cb955-4" tabindex="-1"></a></span>
+<span id="cb955-5"><a href="importación-de-paquetes-y-datos.html#cb955-5" tabindex="-1"></a></span>
+<span id="cb955-6"><a href="importación-de-paquetes-y-datos.html#cb955-6" tabindex="-1"></a><span class="co">#pal &lt;- colorNumeric(</span></span>
+<span id="cb955-7"><a href="importación-de-paquetes-y-datos.html#cb955-7" tabindex="-1"></a><span class="co">#  palette = &quot;Blues&quot;,</span></span>
+<span id="cb955-8"><a href="importación-de-paquetes-y-datos.html#cb955-8" tabindex="-1"></a><span class="co">#  domain = EQ$type)</span></span>
+<span id="cb955-9"><a href="importación-de-paquetes-y-datos.html#cb955-9" tabindex="-1"></a></span>
+<span id="cb955-10"><a href="importación-de-paquetes-y-datos.html#cb955-10" tabindex="-1"></a><span class="fu">leaflet</span>(EQ_100) <span class="sc">%&gt;%</span> </span>
+<span id="cb955-11"><a href="importación-de-paquetes-y-datos.html#cb955-11" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb955-12"><a href="importación-de-paquetes-y-datos.html#cb955-12" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span>longitude, </span>
+<span id="cb955-13"><a href="importación-de-paquetes-y-datos.html#cb955-13" tabindex="-1"></a>             <span class="at">lat =</span> <span class="sc">~</span>latitude, </span>
+<span id="cb955-14"><a href="importación-de-paquetes-y-datos.html#cb955-14" tabindex="-1"></a>             <span class="at">color=</span> <span class="sc">~</span><span class="fu">pal</span>(type),</span>
+<span id="cb955-15"><a href="importación-de-paquetes-y-datos.html#cb955-15" tabindex="-1"></a>             <span class="at">popup =</span> <span class="sc">~</span>mag)</span></code></pre></div>
 </details>
 <p><strong>Obtener los datos de observaciones de una especie en iNaturalist desde R:</strong></p>
 <p>Los datos a utilizar se obtendrán desde iNaturalist, una aplicación con base en la ciencia ciudadana que mantiene un registro de ocurrencias de especies.</p>
@@ -604,28 +604,28 @@ fillOpacity: 0.5
 Esto crea un problema a la hora del filtrar los datos por el nombre de una región, pues es difícil encontrar un solo valor que encompase a todas las variantes del nombre utilizado para esa región. iNaturalist se encuentra a nivel mundial, y usted puede acceder a todos esos datos. Sin embargo, hoy accederemos solamente a datos de Puerto Rico. Entonces, lo primero antes de acceder a lo datos de iNaturalist, es crear un objeto que contenga los límites geográficos de interés crea. Para esto se crea un objeto que contenga un cuadro delimitador (<em>bounding box</em>):</p></li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb954"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb954-1"><a href="importación-de-paquetes-y-datos.html#cb954-1" tabindex="-1"></a>cajapr <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb954-2"><a href="importación-de-paquetes-y-datos.html#cb954-2" tabindex="-1"></a>  <span class="fl">17.75</span>, <span class="co">#Latitud Sur</span></span>
-<span id="cb954-3"><a href="importación-de-paquetes-y-datos.html#cb954-3" tabindex="-1"></a>   <span class="sc">-</span><span class="fl">67.4</span>, <span class="co">#Longitud Oeste</span></span>
-<span id="cb954-4"><a href="importación-de-paquetes-y-datos.html#cb954-4" tabindex="-1"></a>  <span class="fl">18.75</span>, <span class="co">#Latitud Norte</span></span>
-<span id="cb954-5"><a href="importación-de-paquetes-y-datos.html#cb954-5" tabindex="-1"></a>  <span class="sc">-</span><span class="fl">65.15</span> <span class="co">#Longitud Este</span></span>
-<span id="cb954-6"><a href="importación-de-paquetes-y-datos.html#cb954-6" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb956"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb956-1"><a href="importación-de-paquetes-y-datos.html#cb956-1" tabindex="-1"></a>cajapr <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb956-2"><a href="importación-de-paquetes-y-datos.html#cb956-2" tabindex="-1"></a>  <span class="fl">17.75</span>, <span class="co">#Latitud Sur</span></span>
+<span id="cb956-3"><a href="importación-de-paquetes-y-datos.html#cb956-3" tabindex="-1"></a>   <span class="sc">-</span><span class="fl">67.4</span>, <span class="co">#Longitud Oeste</span></span>
+<span id="cb956-4"><a href="importación-de-paquetes-y-datos.html#cb956-4" tabindex="-1"></a>  <span class="fl">18.75</span>, <span class="co">#Latitud Norte</span></span>
+<span id="cb956-5"><a href="importación-de-paquetes-y-datos.html#cb956-5" tabindex="-1"></a>  <span class="sc">-</span><span class="fl">65.15</span> <span class="co">#Longitud Este</span></span>
+<span id="cb956-6"><a href="importación-de-paquetes-y-datos.html#cb956-6" tabindex="-1"></a>  )</span></code></pre></div>
 </details>
 <p>Ahora podemos acceder a datos de Puerto Rico utilizando el objeto <code>cajapr</code>. Para este ejercicio utilizaremos datos de orquídeas pertenecientes al género <em>Eulophia</em>. En Puerto Rico se han reportado 3 especies de este género <em>Eulophia alta</em>, <em>Eulophia maculata</em> y <em>Eulophia graminea</em>. De estos, sólo <em>E. alta</em> es considerada nativa de la isla. Entonces, utilizando la función <code>get_inat_obs</code> podemos acceder a los datos de <em>Eulophia</em> en Puerto Rico</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb955"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb955-1"><a href="importación-de-paquetes-y-datos.html#cb955-1" tabindex="-1"></a>eulophia <span class="ot">&lt;-</span> <span class="fu">get_inat_obs</span>(<span class="at">taxon_name =</span> <span class="st">&quot;Eulophia&quot;</span>, </span>
-<span id="cb955-2"><a href="importación-de-paquetes-y-datos.html#cb955-2" tabindex="-1"></a>                            <span class="at">quality =</span> <span class="st">&#39;research&#39;</span>, </span>
-<span id="cb955-3"><a href="importación-de-paquetes-y-datos.html#cb955-3" tabindex="-1"></a>                            <span class="at">geo =</span> T, </span>
-<span id="cb955-4"><a href="importación-de-paquetes-y-datos.html#cb955-4" tabindex="-1"></a>                            <span class="at">maxresults =</span> <span class="dv">10000</span>,</span>
-<span id="cb955-5"><a href="importación-de-paquetes-y-datos.html#cb955-5" tabindex="-1"></a>                            <span class="at">bounds =</span> cajapr) </span>
-<span id="cb955-6"><a href="importación-de-paquetes-y-datos.html#cb955-6" tabindex="-1"></a></span>
-<span id="cb955-7"><a href="importación-de-paquetes-y-datos.html#cb955-7" tabindex="-1"></a>eulophia<span class="sc">$</span>scientific_name <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(eulophia<span class="sc">$</span>scientific_name)</span>
-<span id="cb955-8"><a href="importación-de-paquetes-y-datos.html#cb955-8" tabindex="-1"></a></span>
-<span id="cb955-9"><a href="importación-de-paquetes-y-datos.html#cb955-9" tabindex="-1"></a><span class="fu">flextable</span>(<span class="fu">head</span>(eulophia)) <span class="co"># Para ver la sprimeras 6 lineas en una tabla bonita</span></span></code></pre></div>
+<div class="sourceCode" id="cb957"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb957-1"><a href="importación-de-paquetes-y-datos.html#cb957-1" tabindex="-1"></a>eulophia <span class="ot">&lt;-</span> <span class="fu">get_inat_obs</span>(<span class="at">taxon_name =</span> <span class="st">&quot;Eulophia&quot;</span>, </span>
+<span id="cb957-2"><a href="importación-de-paquetes-y-datos.html#cb957-2" tabindex="-1"></a>                            <span class="at">quality =</span> <span class="st">&#39;research&#39;</span>, </span>
+<span id="cb957-3"><a href="importación-de-paquetes-y-datos.html#cb957-3" tabindex="-1"></a>                            <span class="at">geo =</span> T, </span>
+<span id="cb957-4"><a href="importación-de-paquetes-y-datos.html#cb957-4" tabindex="-1"></a>                            <span class="at">maxresults =</span> <span class="dv">10000</span>,</span>
+<span id="cb957-5"><a href="importación-de-paquetes-y-datos.html#cb957-5" tabindex="-1"></a>                            <span class="at">bounds =</span> cajapr) </span>
+<span id="cb957-6"><a href="importación-de-paquetes-y-datos.html#cb957-6" tabindex="-1"></a></span>
+<span id="cb957-7"><a href="importación-de-paquetes-y-datos.html#cb957-7" tabindex="-1"></a>eulophia<span class="sc">$</span>scientific_name <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(eulophia<span class="sc">$</span>scientific_name)</span>
+<span id="cb957-8"><a href="importación-de-paquetes-y-datos.html#cb957-8" tabindex="-1"></a></span>
+<span id="cb957-9"><a href="importación-de-paquetes-y-datos.html#cb957-9" tabindex="-1"></a><span class="fu">flextable</span>(<span class="fu">head</span>(eulophia)) <span class="co"># Para ver la sprimeras 6 lineas en una tabla bonita</span></span></code></pre></div>
 </details>
 <p>Con el siguiente código podemos ver de forma rápida cuántas observaciones de cada especie hemos obtenido de iNaturalist:</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb956"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb956-1"><a href="importación-de-paquetes-y-datos.html#cb956-1" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">as.factor</span>(eulophia<span class="sc">$</span>scientific_name))</span></code></pre></div>
+<div class="sourceCode" id="cb958"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb958-1"><a href="importación-de-paquetes-y-datos.html#cb958-1" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">as.factor</span>(eulophia<span class="sc">$</span>scientific_name))</span></code></pre></div>
 </details>
 <p>Ahora que hemos obtenido los datos, podemos observar su distrubución en el mapa de Puerto Rico utilizando <code>leaflet</code>.</p>
 </div>
