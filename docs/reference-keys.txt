@@ -1,8 +1,8 @@
 eq:reaction
 eq:promedio
-fig:unnamed-chunk-298
+fig:unnamed-chunk-304
 fig:ggplot
-fig:unnamed-chunk-299
+fig:unnamed-chunk-305
 fig:pressure
 ciencia-de-datos-con-r
 horario-de-clase
@@ -136,12 +136,11 @@ dos-variables-categóricas
 dos-variables-continuas
 patrones-y-modelos
 pipes
-temas-el-paquete-magrittr
+temas-el-paquete-magrittr-y-sus-funciones
 pipes-1
 alternativas-a-los-pipes
-el-uso-de-lo-tipos-de-pipe
 section-1
-otro-ejemplo-de
+otro-ejemplo-de-pipe
 section-2
 in
 t
@@ -214,6 +213,7 @@ creando-fechashoras
 el-paquete-lubridate
 un-error-tipico
 intervalos-y-duraciones
+el-operador----simplifica-el-cálculo-del-intervalo
 ejercicio
 as.duration
 funciones
@@ -221,10 +221,12 @@ fechas-con-cednas-de-caracteres
 fechas-con-horas
 fechas
 crear-una-fecha-desde-columnas-individuales
+integer-division
+the-operator-returns-the-modulus-remainder-of-a-division-operation.
 extrayendo-parte-de-las-fecha-hora
 lapso-de-tiempo
 duraciones
-puede-agragar-periodos-de-tiempo
+puede-agregar-periodos-de-tiempo
 períodos
 multiplicaciones-y-sumas-de-fechas
 períodos-1
@@ -247,9 +249,3 @@ otras-funciones-de-knitr
 emoji-or-symbols
 select-under-the-edit-emoji-symbols.
 remember-you-can-add-emojis-to-your-document
-hex-stickers
-crear-un-gráfico-sencillo
-importar-un-gráfico
-usar-otros-fonts
-crear-mi-hex
-salvar-mi-gráfico

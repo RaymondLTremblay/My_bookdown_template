@@ -38,7 +38,7 @@ https://github.com/edgararuiz/guias-rapidas/blob/master/fechas.pdf
 
 ```{r}
 library(tidyverse)
-library(lubridate)
+library(lubridate) # paquete para convertir fechas
 ```
 
 ## El paquete `lubridate`
@@ -57,7 +57,7 @@ fechas <- tribble(
     "001",    "01/01/2019 00:00:00",
     "002",    "31/03/2019 01:05:00",
     "003",    "14/06/2019 20:00:00",
-    "004",    "01/03/1859 11:32:13"
+    "004",    "01/12/1859 11:32:13"
 )
 fechas
 ```
@@ -100,7 +100,8 @@ nueva_fechas %>%
   mutate(
     redondear = round_date(fecha, unit = " month"),
     techo = ceiling_date(fecha, unit = "day"),
-    suelo = floor_date(fecha, unit = "month")
+    suelo = floor_date(fecha, unit = "month"),
+    suelo_hour= floor_date(fecha, unit = "hour")
   )
 ```
 
@@ -128,18 +129,22 @@ nueva_fechas %>%
     )
 ```
 
-El operador `%--%` simplifica el cálculo del intervalo
+## El operador `%--%` simplifica el cálculo del intervalo
+
+Compara con el script anterior
 
 ```{r}
 nueva_fechas %>%
   mutate(intervalo = fecha %--% today())
 ```
 
-Para saber el número del días, divida el intervalo por la función que corresponde a días, `days()`
+Para saber el número del días en el intervalo, divida el intervalo por la función que corresponde a días, `days()`
 
 ```{r}
 nueva_fechas %>%
   mutate(dias = fecha %--% today() / days())
+
+#Cuantos años de diferencia en el intervalo?
 ```
 
 
@@ -152,14 +157,18 @@ nueva_fechas %>%
 
 
 ## Ejercicio 
-Usa esta funtión y calcula el numero de dia que ha transcurido entre el dia de su nacimiento y el dia de hoy
+
+Usa esta función y calcula el número de día que ha transcurido entre el día de su nacimiento y el dia de hoy
 
 
 ```{r}
 
- dias = "2018-08-14 00:00:00" %--% today() /  milliseconds()
-
+ dias = "2018-08-14 00:00:00" %--% today() /  days()
 dias
+
+millisecond = "2018-08-14 00:00:00" %--% today() /  milliseconds()
+
+millisecond
 ```
 
 
@@ -182,12 +191,12 @@ nueva_fechas %>%
   mutate(desde_hoy = as.duration(fecha %--% today()))
 ```
 
-El objeto de duración de tiempo se puede filtrar fácilmente basado en una variedad de tipo de tiempos.  En este caso, semanas. `dweeks()` crea un objeto de duración de la largura especificada
+El objeto de duración de tiempo se puede filtrar fácilmente basado en una variedad de tipo de tiempos.  En este caso, semanas `dweeks()` crea un objeto de duración de la largura especificada
 
 ```{r}
 nueva_fechas %>%
   mutate(desde_hoy = as.duration(fecha %--% today())) %>%
-  filter(desde_hoy > dyears(100))
+  filter(desde_hoy < dyears(100))
 ```
 
 Otra opción es `ddays()`. 
@@ -195,7 +204,7 @@ Otra opción es `ddays()`.
 ```{r}
 nueva_fechas %>%
   mutate(desde_hoy = as.duration(fecha %--% today())) %>%
-  filter(desde_hoy < ddays(700))  # Note that you filter for the number of days that have acculmulated
+  filter(desde_hoy < ddays(2500))  # Note that you filter for the number of days that have acculmulated
 ```
 
 ###  Funciones
@@ -240,7 +249,7 @@ yq("2012.1")
 ```
   
   
-Cuidado con el paquete hms que tiene funciones igual como lubridate (hms, hm, y ms)  
+Cuidado con el **paquete hms** que tiene funciones igual como lubridate (hms, hm, y ms)  
 
 ***
 
@@ -248,7 +257,9 @@ Cuidado con el paquete hms que tiene funciones igual como lubridate (hms, hm, y 
 
  - make_date()
  - make_datetime()
- 
+
+
+Unir el año, mes, día, hora y minutos que esten en diferentes columnas en uno
  
 ```{r}
 library(datos)
@@ -257,12 +268,37 @@ vuelos %>%
   dplyr::select(anio, mes, dia, hora, minuto) %>%
   mutate(salida = make_datetime(anio, mes, dia, hora, minuto))
 
+```
+
+Unir el año, mes, día, hora  que esten en diferentes columnas en uno
+
+
+```{r}
 vuelos %>%
   dplyr::select(anio, mes, dia, hora, minuto) %>%
   mutate(salida2 = make_date(anio, mes, dia))
 
 
 ```
+ 
+ 
+## %/%: integer division  
+
+
+```{r}
+vuelos |> select(tiempo_vuelo) |> 
+  mutate(t=tiempo_vuelo %/% 100) |> 
+  mutate(m= tiempo_vuelo %% 100)
+
+
+```
+
+
+## The %% operator returns the modulus (remainder) of a division operation. 
+ - For instance, 5 %% 2 would return 1, as the remainder of 5 divided by 2 is 1. 
+ 
+ 
+ 
  
 ```{r}
 
@@ -405,7 +441,7 @@ dyears(1)
 ```
  
  
-## Puede agragar periodos de tiempo
+## Puede agregar periodos de tiempo
  
  
  

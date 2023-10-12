@@ -1,0 +1,58 @@
+---
+title: "Hex_2nd_round"
+author: "RLTremblay"
+date: "2023-10-03"
+output: html_document
+---
+
+
+
+```{r}
+library(hexSticker) 
+library(magick)
+library(sysfonts)
+library(tidyverse)
+
+
+```
+
+
+
+
+```{r}
+
+#font_files()  #a list of all fonts available
+
+
+sysfonts::font_add_google("Dancing Script") # selección de fonts de google
+sysfonts::font_add_google("Bebas Neue")
+sysfonts::font_add_google("Fuggles")
+# sysfonts::font_add_google("Young Serif") ## No baja
+
+cat_img=image_read('cat.jpg')
+analitica_img=image_read('Analitica3.png')
+
+sticker(
+  subplot= cat_img,
+  package="Meow",
+  s_width =.75,
+  s_height = .75,
+  s_x=1,
+  s_y=.75,
+  p_size=19,
+  p_x = 1.0,
+  p_y = 1.5,
+  p_color= 'purple',
+  p_family= "Fuggles",
+  h_fill ='gold',
+  h_color='hotpink',
+  h_size = 2,
+  url="www.cat.foundation.com",
+  u_size=4,
+  u_color = "violetred",
+  spotlight=T
+
+) %>% print
+
+```
+
