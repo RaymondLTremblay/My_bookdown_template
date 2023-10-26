@@ -1,6 +1,6 @@
-# (Appendix) Ejercicios 2 {-}
+# (Appendix) Ejercicios {.unnumbered}
 
-
+------------------------------------------------------------------------
 
 ## Ejercicios para las funciones de transformaciones 2 {-}
 
@@ -88,7 +88,7 @@ ggplot(cum_x, aes(order, Var_cum))+
 ```
 
 
-
+------------------------------------------------------------------------
 
 
 

@@ -1,15 +1,7 @@
----
-title: "B-Ejercicios_Fechas"
-author: "Raymond_L_Tremblay"
-date: "2023-10-17"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+# (Appendix) Ejercicios {.unnumbered}
 
 
+------------------------------------------------------------------------
 
 ```{r}
 library(readr)
@@ -109,7 +101,7 @@ HIV %>%
 ```
 
 
-
+------------------------------------------------------------------------
 
 
 
