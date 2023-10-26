@@ -253,9 +253,14 @@ remember-you-can-add-emojis-to-your-document
 wordcloud_en_r
 paso-1
 subir-el-texto-en-formato-corpus
-mirar-el-documento
+mirar-el-documento-para-evaluar-su-contenido
+transformar-el-texto-para-reemplazar-algunos-caracteres-especiales
+el-paquete-tm-es-para-text-mining
 check-your-words-and-remove-unwanted-words-individually
 how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts
+como-remover-palabras-de-otra-idioma
+vea-este-enlace-para-los-stopwords-de-muchos-idiomas
+en-español
 hex-stickers
 appendix-a
 ejercicio-de-transformación

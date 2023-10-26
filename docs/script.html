@@ -459,11 +459,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="19.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#paso-1"><i class="fa fa-check"></i><b>19.1</b> Paso 1</a></li>
 <li class="chapter" data-level="19.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#subir-el-texto-en-formato-corpus"><i class="fa fa-check"></i><b>19.2</b> Subir el texto en formato <strong>Corpus</strong></a></li>
-<li class="chapter" data-level="19.3" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#mirar-el-documento"><i class="fa fa-check"></i><b>19.3</b> Mirar el documento</a>
+<li class="chapter" data-level="19.3" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#mirar-el-documento-para-evaluar-su-contenido"><i class="fa fa-check"></i><b>19.3</b> Mirar el documento, para evaluar su contenido</a></li>
+<li class="chapter" data-level="19.4" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#transformar-el-texto-para-reemplazar-algunos-caracteres-especiales"><i class="fa fa-check"></i><b>19.4</b> Transformar el texto para reemplazar algunos caracteres especiales</a></li>
+<li class="chapter" data-level="19.5" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#el-paquete-tm-es-para-text-mining"><i class="fa fa-check"></i><b>19.5</b> el paquete <strong>tm</strong> es para <strong>text mining</strong></a>
 <ul>
-<li class="chapter" data-level="19.3.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#check-your-words-and-remove-unwanted-words-individually"><i class="fa fa-check"></i><b>19.3.1</b> Check your words and remove unwanted words individually</a></li>
-<li class="chapter" data-level="19.3.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts"><i class="fa fa-check"></i><b>19.3.2</b> How would you remove from the data frame all words that have less or equal to 3 counts</a></li>
+<li class="chapter" data-level="19.5.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#check-your-words-and-remove-unwanted-words-individually"><i class="fa fa-check"></i><b>19.5.1</b> Check your words and remove unwanted words individually</a></li>
+<li class="chapter" data-level="19.5.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts"><i class="fa fa-check"></i><b>19.5.2</b> How would you remove from the data frame all words that have less or equal to 3 counts</a></li>
 </ul></li>
+<li class="chapter" data-level="19.6" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#como-remover-palabras-de-otra-idioma"><i class="fa fa-check"></i><b>19.6</b> Como remover palabras de otra idioma</a>
+<ul>
+<li class="chapter" data-level="19.6.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#vea-este-enlace-para-los-stopwords-de-muchos-idiomas"><i class="fa fa-check"></i><b>19.6.1</b> Vea este enlace para los “stopwords” de muchos idiomas</a></li>
+</ul></li>
+<li class="chapter" data-level="19.7" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#en-español"><i class="fa fa-check"></i><b>19.7</b> En español</a></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="hex-stickers.html"><a href="hex-stickers.html"><i class="fa fa-check"></i><b>20</b> Hex Stickers</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
@@ -577,8 +584,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb400-2"><a href="script.html#cb400-2" tabindex="-1"></a>  <span class="fu">group_by</span>(anio, mes, dia) <span class="sc">%&gt;%</span> </span>
 <span id="cb400-3"><a href="script.html#cb400-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(atraso_salida))</span></code></pre></div>
 </details>
-<pre><code>## `summarise()` has grouped output by &#39;anio&#39;, &#39;mes&#39;. You
-## can override using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;anio&#39;, &#39;mes&#39;. You can override using
+## the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 365 × 4
 ## # Groups:   anio, mes [12]
 ##     anio   mes   dia media

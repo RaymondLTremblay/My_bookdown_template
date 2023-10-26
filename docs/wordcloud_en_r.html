@@ -459,11 +459,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="19.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#paso-1"><i class="fa fa-check"></i><b>19.1</b> Paso 1</a></li>
 <li class="chapter" data-level="19.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#subir-el-texto-en-formato-corpus"><i class="fa fa-check"></i><b>19.2</b> Subir el texto en formato <strong>Corpus</strong></a></li>
-<li class="chapter" data-level="19.3" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#mirar-el-documento"><i class="fa fa-check"></i><b>19.3</b> Mirar el documento</a>
+<li class="chapter" data-level="19.3" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#mirar-el-documento-para-evaluar-su-contenido"><i class="fa fa-check"></i><b>19.3</b> Mirar el documento, para evaluar su contenido</a></li>
+<li class="chapter" data-level="19.4" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#transformar-el-texto-para-reemplazar-algunos-caracteres-especiales"><i class="fa fa-check"></i><b>19.4</b> Transformar el texto para reemplazar algunos caracteres especiales</a></li>
+<li class="chapter" data-level="19.5" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#el-paquete-tm-es-para-text-mining"><i class="fa fa-check"></i><b>19.5</b> el paquete <strong>tm</strong> es para <strong>text mining</strong></a>
 <ul>
-<li class="chapter" data-level="19.3.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#check-your-words-and-remove-unwanted-words-individually"><i class="fa fa-check"></i><b>19.3.1</b> Check your words and remove unwanted words individually</a></li>
-<li class="chapter" data-level="19.3.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts"><i class="fa fa-check"></i><b>19.3.2</b> How would you remove from the data frame all words that have less or equal to 3 counts</a></li>
+<li class="chapter" data-level="19.5.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#check-your-words-and-remove-unwanted-words-individually"><i class="fa fa-check"></i><b>19.5.1</b> Check your words and remove unwanted words individually</a></li>
+<li class="chapter" data-level="19.5.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts"><i class="fa fa-check"></i><b>19.5.2</b> How would you remove from the data frame all words that have less or equal to 3 counts</a></li>
 </ul></li>
+<li class="chapter" data-level="19.6" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#como-remover-palabras-de-otra-idioma"><i class="fa fa-check"></i><b>19.6</b> Como remover palabras de otra idioma</a>
+<ul>
+<li class="chapter" data-level="19.6.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#vea-este-enlace-para-los-stopwords-de-muchos-idiomas"><i class="fa fa-check"></i><b>19.6.1</b> Vea este enlace para los “stopwords” de muchos idiomas</a></li>
+</ul></li>
+<li class="chapter" data-level="19.7" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#en-español"><i class="fa fa-check"></i><b>19.7</b> En español</a></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="hex-stickers.html"><a href="hex-stickers.html"><i class="fa fa-check"></i><b>20</b> Hex Stickers</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
@@ -531,11 +538,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb1001"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1001-1"><a href="wordcloud_en_r.html#cb1001-1" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tm, SnowballC, wordcloud, RColorBrewer, wordcloud2)</span>
 <span id="cb1001-2"><a href="wordcloud_en_r.html#cb1001-2" tabindex="-1"></a></span>
-<span id="cb1001-3"><a href="wordcloud_en_r.html#cb1001-3" tabindex="-1"></a><span class="fu">library</span>(wordcloud)</span>
-<span id="cb1001-4"><a href="wordcloud_en_r.html#cb1001-4" tabindex="-1"></a><span class="fu">library</span>(wordcloud2)</span>
-<span id="cb1001-5"><a href="wordcloud_en_r.html#cb1001-5" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
-<span id="cb1001-6"><a href="wordcloud_en_r.html#cb1001-6" tabindex="-1"></a><span class="fu">library</span>(tm)</span>
-<span id="cb1001-7"><a href="wordcloud_en_r.html#cb1001-7" tabindex="-1"></a><span class="fu">library</span>(SnowballC)</span></code></pre></div>
+<span id="cb1001-3"><a href="wordcloud_en_r.html#cb1001-3" tabindex="-1"></a><span class="fu">library</span>(wordcloud) <span class="co"># Un paquete para hacer word clour</span></span>
+<span id="cb1001-4"><a href="wordcloud_en_r.html#cb1001-4" tabindex="-1"></a><span class="fu">library</span>(wordcloud2) <span class="co"># paquete más sencillo para hacer word cloud</span></span>
+<span id="cb1001-5"><a href="wordcloud_en_r.html#cb1001-5" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer) <span class="co"># paquete para cambiar los colores </span></span>
+<span id="cb1001-6"><a href="wordcloud_en_r.html#cb1001-6" tabindex="-1"></a><span class="fu">library</span>(tm)  <span class="co"># paquete de text mining</span></span>
+<span id="cb1001-7"><a href="wordcloud_en_r.html#cb1001-7" tabindex="-1"></a><span class="fu">library</span>(SnowballC) <span class="co"># paquete para trabajar en otro idioma aparte del ingles</span></span></code></pre></div>
 </details>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb1002"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1002-1"><a href="wordcloud_en_r.html#cb1002-1" tabindex="-1"></a><span class="fu">library</span>(wordcloud2)</span>
@@ -560,34 +567,38 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="paso-1" class="section level2 hasAnchor" number="19.1">
 <h2><span class="header-section-number">19.1</span> Paso 1<a href="wordcloud_en_r.html#paso-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Importar los datos de la web</p>
-<p>Importar un texto de su computadora</p>
+<p>Importar un texto de su computadora en formato <strong>.txt</strong> No va a funcionar el formato <strong>.doc</strong> de MSWord.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb1005"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1005-1"><a href="wordcloud_en_r.html#cb1005-1" tabindex="-1"></a>text2 <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="fu">file.choose</span>())</span>
+<div class="sourceCode" id="cb1005"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1005-1"><a href="wordcloud_en_r.html#cb1005-1" tabindex="-1"></a>mi_texto <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="fu">file.choose</span>())</span>
 <span id="cb1005-2"><a href="wordcloud_en_r.html#cb1005-2" tabindex="-1"></a><span class="co">#text</span></span></code></pre></div>
 </details>
 </div>
 <div id="subir-el-texto-en-formato-corpus" class="section level2 hasAnchor" number="19.2">
 <h2><span class="header-section-number">19.2</span> Subir el texto en formato <strong>Corpus</strong><a href="wordcloud_en_r.html#subir-el-texto-en-formato-corpus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb1006"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1006-1"><a href="wordcloud_en_r.html#cb1006-1" tabindex="-1"></a>docs2<span class="ot">=</span><span class="fu">iconv</span>(text2,<span class="st">&quot;WINDOWS-1252&quot;</span>,<span class="st">&quot;UTF-8&quot;</span>) <span class="co"># Use this for removing accents and non - english characters</span></span>
+<div class="sourceCode" id="cb1006"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1006-1"><a href="wordcloud_en_r.html#cb1006-1" tabindex="-1"></a>mi_texto2<span class="ot">=</span><span class="fu">iconv</span>(mi_texto,<span class="st">&quot;WINDOWS-1252&quot;</span>,<span class="st">&quot;UTF-8&quot;</span>) <span class="co"># Use this for removing accents and non - english characters</span></span>
 <span id="cb1006-2"><a href="wordcloud_en_r.html#cb1006-2" tabindex="-1"></a></span>
 <span id="cb1006-3"><a href="wordcloud_en_r.html#cb1006-3" tabindex="-1"></a><span class="co"># Load the data as a corpus</span></span>
-<span id="cb1006-4"><a href="wordcloud_en_r.html#cb1006-4" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">Corpus</span>(<span class="fu">VectorSource</span>(docs2))</span></code></pre></div>
+<span id="cb1006-4"><a href="wordcloud_en_r.html#cb1006-4" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">Corpus</span>(<span class="fu">VectorSource</span>(mi_texto2))</span></code></pre></div>
 </details>
 </div>
-<div id="mirar-el-documento" class="section level2 hasAnchor" number="19.3">
-<h2><span class="header-section-number">19.3</span> Mirar el documento<a href="wordcloud_en_r.html#mirar-el-documento" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="mirar-el-documento-para-evaluar-su-contenido" class="section level2 hasAnchor" number="19.3">
+<h2><span class="header-section-number">19.3</span> Mirar el documento, para evaluar su contenido<a href="wordcloud_en_r.html#mirar-el-documento-para-evaluar-su-contenido" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb1007"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1007-1"><a href="wordcloud_en_r.html#cb1007-1" tabindex="-1"></a><span class="fu">inspect</span>(docs)</span></code></pre></div>
 </details>
-<p>Transformar el texto para reemplazar caracteres especiales</p>
+</div>
+<div id="transformar-el-texto-para-reemplazar-algunos-caracteres-especiales" class="section level2 hasAnchor" number="19.4">
+<h2><span class="header-section-number">19.4</span> Transformar el texto para reemplazar algunos caracteres especiales<a href="wordcloud_en_r.html#transformar-el-texto-para-reemplazar-algunos-caracteres-especiales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb1008"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1008-1"><a href="wordcloud_en_r.html#cb1008-1" tabindex="-1"></a>toSpace <span class="ot">&lt;-</span> <span class="fu">content_transformer</span>(<span class="cf">function</span> (x , pattern ) <span class="fu">gsub</span>(pattern, <span class="st">&quot; &quot;</span>, x))</span>
 <span id="cb1008-2"><a href="wordcloud_en_r.html#cb1008-2" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, toSpace, <span class="st">&quot;-&quot;</span>)</span>
 <span id="cb1008-3"><a href="wordcloud_en_r.html#cb1008-3" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, toSpace, <span class="st">&quot;@&quot;</span>)</span>
 <span id="cb1008-4"><a href="wordcloud_en_r.html#cb1008-4" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, toSpace, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">|&quot;</span>)</span></code></pre></div>
 </details>
-<p><strong>tm</strong> stands for the <strong>text mining</strong></p>
+</div>
+<div id="el-paquete-tm-es-para-text-mining" class="section level2 hasAnchor" number="19.5">
+<h2><span class="header-section-number">19.5</span> el paquete <strong>tm</strong> es para <strong>text mining</strong><a href="wordcloud_en_r.html#el-paquete-tm-es-para-text-mining" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb1009"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1009-1"><a href="wordcloud_en_r.html#cb1009-1" tabindex="-1"></a><span class="co"># Convert the text to lower case</span></span>
 <span id="cb1009-2"><a href="wordcloud_en_r.html#cb1009-2" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, <span class="fu">content_transformer</span>(tolower))</span>
@@ -619,32 +630,51 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1010-4"><a href="wordcloud_en_r.html#cb1010-4" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">word =</span> <span class="fu">names</span>(v),<span class="at">freq=</span>v)</span>
 <span id="cb1010-5"><a href="wordcloud_en_r.html#cb1010-5" tabindex="-1"></a>d</span></code></pre></div>
 </details>
-<div id="check-your-words-and-remove-unwanted-words-individually" class="section level3 hasAnchor" number="19.3.1">
-<h3><span class="header-section-number">19.3.1</span> Check your words and remove unwanted words individually<a href="wordcloud_en_r.html#check-your-words-and-remove-unwanted-words-individually" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="check-your-words-and-remove-unwanted-words-individually" class="section level3 hasAnchor" number="19.5.1">
+<h3><span class="header-section-number">19.5.1</span> Check your words and remove unwanted words individually<a href="wordcloud_en_r.html#check-your-words-and-remove-unwanted-words-individually" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>“òó”</p>
 <p>òorchid</p>
 <p>pollinators</p>
 </div>
-<div id="how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts" class="section level3 hasAnchor" number="19.3.2">
-<h3><span class="header-section-number">19.3.2</span> How would you remove from the data frame all words that have less or equal to 3 counts<a href="wordcloud_en_r.html#how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts" class="section level3 hasAnchor" number="19.5.2">
+<h3><span class="header-section-number">19.5.2</span> How would you remove from the data frame all words that have less or equal to 3 counts<a href="wordcloud_en_r.html#how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<hr />
+<p>Del paquete <strong>wordcloud</strong></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb1011"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1011-1"><a href="wordcloud_en_r.html#cb1011-1" tabindex="-1"></a><span class="fu">wordcloud</span>(<span class="at">words =</span> d<span class="sc">$</span>word, <span class="at">freq =</span> d<span class="sc">$</span>freq, <span class="at">min.freq =</span> <span class="dv">1</span>,</span>
-<span id="cb1011-2"><a href="wordcloud_en_r.html#cb1011-2" tabindex="-1"></a>          <span class="at">max.words=</span><span class="dv">200</span>, <span class="at">random.order=</span><span class="cn">FALSE</span>, <span class="at">rot.per=</span><span class="fl">0.35</span>, </span>
-<span id="cb1011-3"><a href="wordcloud_en_r.html#cb1011-3" tabindex="-1"></a>          <span class="at">colors=</span><span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1011"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1011-1"><a href="wordcloud_en_r.html#cb1011-1" tabindex="-1"></a><span class="fu">wordcloud</span>(<span class="at">words =</span> d<span class="sc">$</span>word, </span>
+<span id="cb1011-2"><a href="wordcloud_en_r.html#cb1011-2" tabindex="-1"></a>          <span class="at">freq =</span> d<span class="sc">$</span>freq, </span>
+<span id="cb1011-3"><a href="wordcloud_en_r.html#cb1011-3" tabindex="-1"></a>          <span class="at">min.freq =</span> <span class="dv">1</span>,</span>
+<span id="cb1011-4"><a href="wordcloud_en_r.html#cb1011-4" tabindex="-1"></a>          <span class="at">max.words=</span><span class="dv">200</span>, </span>
+<span id="cb1011-5"><a href="wordcloud_en_r.html#cb1011-5" tabindex="-1"></a>          <span class="at">random.order=</span><span class="cn">FALSE</span>, </span>
+<span id="cb1011-6"><a href="wordcloud_en_r.html#cb1011-6" tabindex="-1"></a>          <span class="at">rot.per=</span><span class="fl">0.35</span>, </span>
+<span id="cb1011-7"><a href="wordcloud_en_r.html#cb1011-7" tabindex="-1"></a>          <span class="at">colors=</span><span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>))</span></code></pre></div>
 </details>
-<p>Como remover palabras de otra idioma</p>
+<hr />
+<p>Del paquete <strong>wordcloud2</strong></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1012"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1012-1"><a href="wordcloud_en_r.html#cb1012-1" tabindex="-1"></a><span class="fu">wordcloud2</span>(<span class="at">data =</span> d)</span></code></pre></div>
+</details>
+</div>
+</div>
+<div id="como-remover-palabras-de-otra-idioma" class="section level2 hasAnchor" number="19.6">
+<h2><span class="header-section-number">19.6</span> Como remover palabras de otra idioma<a href="wordcloud_en_r.html#como-remover-palabras-de-otra-idioma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="vea-este-enlace-para-los-stopwords-de-muchos-idiomas" class="section level3 hasAnchor" number="19.6.1">
+<h3><span class="header-section-number">19.6.1</span> Vea este enlace para los “stopwords” de muchos idiomas<a href="wordcloud_en_r.html#vea-este-enlace-para-los-stopwords-de-muchos-idiomas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><a href="https://cran.r-project.org/web/packages/stopwords/readme/README.html" class="uri">https://cran.r-project.org/web/packages/stopwords/readme/README.html</a></p>
-<p>En español</p>
+</div>
+</div>
+<div id="en-español" class="section level2 hasAnchor" number="19.7">
+<h2><span class="header-section-number">19.7</span> En español<a href="wordcloud_en_r.html#en-español" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb1012"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1012-1"><a href="wordcloud_en_r.html#cb1012-1" tabindex="-1"></a><span class="co"># from CRAN</span></span>
-<span id="cb1012-2"><a href="wordcloud_en_r.html#cb1012-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;stopwords&quot;</span>)</span>
-<span id="cb1012-3"><a href="wordcloud_en_r.html#cb1012-3" tabindex="-1"></a></span>
-<span id="cb1012-4"><a href="wordcloud_en_r.html#cb1012-4" tabindex="-1"></a><span class="co"># Or get the development version from GitHub:</span></span>
-<span id="cb1012-5"><a href="wordcloud_en_r.html#cb1012-5" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
-<span id="cb1012-6"><a href="wordcloud_en_r.html#cb1012-6" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;quanteda/stopwords&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1013"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1013-1"><a href="wordcloud_en_r.html#cb1013-1" tabindex="-1"></a><span class="co"># from CRAN</span></span>
+<span id="cb1013-2"><a href="wordcloud_en_r.html#cb1013-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;stopwords&quot;</span>)</span>
+<span id="cb1013-3"><a href="wordcloud_en_r.html#cb1013-3" tabindex="-1"></a></span>
+<span id="cb1013-4"><a href="wordcloud_en_r.html#cb1013-4" tabindex="-1"></a><span class="co"># Or get the development version from GitHub:</span></span>
+<span id="cb1013-5"><a href="wordcloud_en_r.html#cb1013-5" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
+<span id="cb1013-6"><a href="wordcloud_en_r.html#cb1013-6" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;quanteda/stopwords&quot;</span>)</span></code></pre></div>
 </details>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb1013"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1013-1"><a href="wordcloud_en_r.html#cb1013-1" tabindex="-1"></a><span class="fu">head</span>(stopwords<span class="sc">::</span><span class="fu">stopwords</span>(<span class="st">&quot;es&quot;</span>, <span class="at">source =</span> <span class="st">&quot;snowball&quot;</span>), <span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1014"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1014-1"><a href="wordcloud_en_r.html#cb1014-1" tabindex="-1"></a><span class="fu">head</span>(stopwords<span class="sc">::</span><span class="fu">stopwords</span>(<span class="st">&quot;es&quot;</span>, <span class="at">source =</span> <span class="st">&quot;snowball&quot;</span>), <span class="dv">100</span>)</span></code></pre></div>
 </details>
 <pre><code>##   [1] &quot;de&quot;       &quot;la&quot;       &quot;que&quot;      &quot;el&quot;       &quot;en&quot;       &quot;y&quot;       
 ##   [7] &quot;a&quot;        &quot;los&quot;      &quot;del&quot;      &quot;se&quot;       &quot;las&quot;      &quot;por&quot;     
@@ -664,7 +694,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##  [91] &quot;ellas&quot;    &quot;nosotras&quot; &quot;vosotros&quot; &quot;vosotras&quot; &quot;os&quot;       &quot;mío&quot;     
 ##  [97] &quot;mía&quot;      &quot;míos&quot;     &quot;mías&quot;     &quot;tuyo&quot;</code></pre>
 
-</div>
 </div>
 </div>
             </section>

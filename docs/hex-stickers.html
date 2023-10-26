@@ -459,11 +459,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="19.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#paso-1"><i class="fa fa-check"></i><b>19.1</b> Paso 1</a></li>
 <li class="chapter" data-level="19.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#subir-el-texto-en-formato-corpus"><i class="fa fa-check"></i><b>19.2</b> Subir el texto en formato <strong>Corpus</strong></a></li>
-<li class="chapter" data-level="19.3" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#mirar-el-documento"><i class="fa fa-check"></i><b>19.3</b> Mirar el documento</a>
+<li class="chapter" data-level="19.3" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#mirar-el-documento-para-evaluar-su-contenido"><i class="fa fa-check"></i><b>19.3</b> Mirar el documento, para evaluar su contenido</a></li>
+<li class="chapter" data-level="19.4" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#transformar-el-texto-para-reemplazar-algunos-caracteres-especiales"><i class="fa fa-check"></i><b>19.4</b> Transformar el texto para reemplazar algunos caracteres especiales</a></li>
+<li class="chapter" data-level="19.5" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#el-paquete-tm-es-para-text-mining"><i class="fa fa-check"></i><b>19.5</b> el paquete <strong>tm</strong> es para <strong>text mining</strong></a>
 <ul>
-<li class="chapter" data-level="19.3.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#check-your-words-and-remove-unwanted-words-individually"><i class="fa fa-check"></i><b>19.3.1</b> Check your words and remove unwanted words individually</a></li>
-<li class="chapter" data-level="19.3.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts"><i class="fa fa-check"></i><b>19.3.2</b> How would you remove from the data frame all words that have less or equal to 3 counts</a></li>
+<li class="chapter" data-level="19.5.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#check-your-words-and-remove-unwanted-words-individually"><i class="fa fa-check"></i><b>19.5.1</b> Check your words and remove unwanted words individually</a></li>
+<li class="chapter" data-level="19.5.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts"><i class="fa fa-check"></i><b>19.5.2</b> How would you remove from the data frame all words that have less or equal to 3 counts</a></li>
 </ul></li>
+<li class="chapter" data-level="19.6" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#como-remover-palabras-de-otra-idioma"><i class="fa fa-check"></i><b>19.6</b> Como remover palabras de otra idioma</a>
+<ul>
+<li class="chapter" data-level="19.6.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#vea-este-enlace-para-los-stopwords-de-muchos-idiomas"><i class="fa fa-check"></i><b>19.6.1</b> Vea este enlace para los “stopwords” de muchos idiomas</a></li>
+</ul></li>
+<li class="chapter" data-level="19.7" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#en-español"><i class="fa fa-check"></i><b>19.7</b> En español</a></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="hex-stickers.html"><a href="hex-stickers.html"><i class="fa fa-check"></i><b>20</b> Hex Stickers</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
@@ -523,51 +530,51 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="hex-stickers" class="section level1 hasAnchor" number="20">
 <h1><span class="header-section-number">Chapter 20</span> Hex Stickers<a href="hex-stickers.html#hex-stickers" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb1015"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1015-1"><a href="hex-stickers.html#cb1015-1" tabindex="-1"></a><span class="fu">library</span>(hexSticker) </span>
-<span id="cb1015-2"><a href="hex-stickers.html#cb1015-2" tabindex="-1"></a><span class="fu">library</span>(magick)</span></code></pre></div>
+<div class="sourceCode" id="cb1016"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1016-1"><a href="hex-stickers.html#cb1016-1" tabindex="-1"></a><span class="fu">library</span>(hexSticker) </span>
+<span id="cb1016-2"><a href="hex-stickers.html#cb1016-2" tabindex="-1"></a><span class="fu">library</span>(magick)</span></code></pre></div>
 </details>
 <pre><code>## Linking to ImageMagick 6.9.12.93
 ## Enabled features: cairo, fontconfig, freetype, heic, lcms, pango, raw, rsvg, webp
 ## Disabled features: fftw, ghostscript, x11</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb1017"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1017-1"><a href="hex-stickers.html#cb1017-1" tabindex="-1"></a><span class="fu">library</span>(sysfonts)</span>
-<span id="cb1017-2"><a href="hex-stickers.html#cb1017-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb1018"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1018-1"><a href="hex-stickers.html#cb1018-1" tabindex="-1"></a><span class="fu">library</span>(sysfonts)</span>
+<span id="cb1018-2"><a href="hex-stickers.html#cb1018-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 </details>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb1018"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1018-1"><a href="hex-stickers.html#cb1018-1" tabindex="-1"></a><span class="co">#font_files()  #a list of all fonts available</span></span>
-<span id="cb1018-2"><a href="hex-stickers.html#cb1018-2" tabindex="-1"></a></span>
-<span id="cb1018-3"><a href="hex-stickers.html#cb1018-3" tabindex="-1"></a></span>
-<span id="cb1018-4"><a href="hex-stickers.html#cb1018-4" tabindex="-1"></a>sysfonts<span class="sc">::</span><span class="fu">font_add_google</span>(<span class="st">&quot;Dancing Script&quot;</span>) <span class="co"># selección de fonts de google</span></span>
-<span id="cb1018-5"><a href="hex-stickers.html#cb1018-5" tabindex="-1"></a>sysfonts<span class="sc">::</span><span class="fu">font_add_google</span>(<span class="st">&quot;Bebas Neue&quot;</span>)</span>
-<span id="cb1018-6"><a href="hex-stickers.html#cb1018-6" tabindex="-1"></a>sysfonts<span class="sc">::</span><span class="fu">font_add_google</span>(<span class="st">&quot;Fuggles&quot;</span>)</span>
-<span id="cb1018-7"><a href="hex-stickers.html#cb1018-7" tabindex="-1"></a><span class="co"># sysfonts::font_add_google(&quot;Young Serif&quot;) ## No baja</span></span>
-<span id="cb1018-8"><a href="hex-stickers.html#cb1018-8" tabindex="-1"></a></span>
-<span id="cb1018-9"><a href="hex-stickers.html#cb1018-9" tabindex="-1"></a>cat_img<span class="ot">=</span><span class="fu">image_read</span>(<span class="st">&#39;cat.jpg&#39;</span>)</span>
-<span id="cb1018-10"><a href="hex-stickers.html#cb1018-10" tabindex="-1"></a>analitica_img<span class="ot">=</span><span class="fu">image_read</span>(<span class="st">&#39;Analitica3.png&#39;</span>)</span>
-<span id="cb1018-11"><a href="hex-stickers.html#cb1018-11" tabindex="-1"></a></span>
-<span id="cb1018-12"><a href="hex-stickers.html#cb1018-12" tabindex="-1"></a><span class="fu">sticker</span>(</span>
-<span id="cb1018-13"><a href="hex-stickers.html#cb1018-13" tabindex="-1"></a>  <span class="at">subplot=</span> cat_img,</span>
-<span id="cb1018-14"><a href="hex-stickers.html#cb1018-14" tabindex="-1"></a>  <span class="at">package=</span><span class="st">&quot;Meow&quot;</span>,</span>
-<span id="cb1018-15"><a href="hex-stickers.html#cb1018-15" tabindex="-1"></a>  <span class="at">s_width =</span>.<span class="dv">75</span>,</span>
-<span id="cb1018-16"><a href="hex-stickers.html#cb1018-16" tabindex="-1"></a>  <span class="at">s_height =</span> .<span class="dv">75</span>,</span>
-<span id="cb1018-17"><a href="hex-stickers.html#cb1018-17" tabindex="-1"></a>  <span class="at">s_x=</span><span class="dv">1</span>,</span>
-<span id="cb1018-18"><a href="hex-stickers.html#cb1018-18" tabindex="-1"></a>  <span class="at">s_y=</span>.<span class="dv">75</span>,</span>
-<span id="cb1018-19"><a href="hex-stickers.html#cb1018-19" tabindex="-1"></a>  <span class="at">p_size=</span><span class="dv">19</span>,</span>
-<span id="cb1018-20"><a href="hex-stickers.html#cb1018-20" tabindex="-1"></a>  <span class="at">p_x =</span> <span class="fl">1.0</span>,</span>
-<span id="cb1018-21"><a href="hex-stickers.html#cb1018-21" tabindex="-1"></a>  <span class="at">p_y =</span> <span class="fl">1.5</span>,</span>
-<span id="cb1018-22"><a href="hex-stickers.html#cb1018-22" tabindex="-1"></a>  <span class="at">p_color=</span> <span class="st">&#39;purple&#39;</span>,</span>
-<span id="cb1018-23"><a href="hex-stickers.html#cb1018-23" tabindex="-1"></a>  <span class="at">p_family=</span> <span class="st">&quot;Fuggles&quot;</span>,</span>
-<span id="cb1018-24"><a href="hex-stickers.html#cb1018-24" tabindex="-1"></a>  <span class="at">h_fill =</span><span class="st">&#39;gold&#39;</span>,</span>
-<span id="cb1018-25"><a href="hex-stickers.html#cb1018-25" tabindex="-1"></a>  <span class="at">h_color=</span><span class="st">&#39;hotpink&#39;</span>,</span>
-<span id="cb1018-26"><a href="hex-stickers.html#cb1018-26" tabindex="-1"></a>  <span class="at">h_size =</span> <span class="dv">2</span>,</span>
-<span id="cb1018-27"><a href="hex-stickers.html#cb1018-27" tabindex="-1"></a>  <span class="at">url=</span><span class="st">&quot;www.cat.foundation.com&quot;</span>,</span>
-<span id="cb1018-28"><a href="hex-stickers.html#cb1018-28" tabindex="-1"></a>  <span class="at">u_size=</span><span class="dv">4</span>,</span>
-<span id="cb1018-29"><a href="hex-stickers.html#cb1018-29" tabindex="-1"></a>  <span class="at">u_color =</span> <span class="st">&quot;violetred&quot;</span>,</span>
-<span id="cb1018-30"><a href="hex-stickers.html#cb1018-30" tabindex="-1"></a>  <span class="at">spotlight=</span>T</span>
-<span id="cb1018-31"><a href="hex-stickers.html#cb1018-31" tabindex="-1"></a></span>
-<span id="cb1018-32"><a href="hex-stickers.html#cb1018-32" tabindex="-1"></a>) <span class="sc">%&gt;%</span> print</span></code></pre></div>
+<div class="sourceCode" id="cb1019"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1019-1"><a href="hex-stickers.html#cb1019-1" tabindex="-1"></a><span class="co">#font_files()  #a list of all fonts available</span></span>
+<span id="cb1019-2"><a href="hex-stickers.html#cb1019-2" tabindex="-1"></a></span>
+<span id="cb1019-3"><a href="hex-stickers.html#cb1019-3" tabindex="-1"></a></span>
+<span id="cb1019-4"><a href="hex-stickers.html#cb1019-4" tabindex="-1"></a>sysfonts<span class="sc">::</span><span class="fu">font_add_google</span>(<span class="st">&quot;Dancing Script&quot;</span>) <span class="co"># selección de fonts de google</span></span>
+<span id="cb1019-5"><a href="hex-stickers.html#cb1019-5" tabindex="-1"></a>sysfonts<span class="sc">::</span><span class="fu">font_add_google</span>(<span class="st">&quot;Bebas Neue&quot;</span>)</span>
+<span id="cb1019-6"><a href="hex-stickers.html#cb1019-6" tabindex="-1"></a>sysfonts<span class="sc">::</span><span class="fu">font_add_google</span>(<span class="st">&quot;Fuggles&quot;</span>)</span>
+<span id="cb1019-7"><a href="hex-stickers.html#cb1019-7" tabindex="-1"></a><span class="co"># sysfonts::font_add_google(&quot;Young Serif&quot;) ## No baja</span></span>
+<span id="cb1019-8"><a href="hex-stickers.html#cb1019-8" tabindex="-1"></a></span>
+<span id="cb1019-9"><a href="hex-stickers.html#cb1019-9" tabindex="-1"></a>cat_img<span class="ot">=</span><span class="fu">image_read</span>(<span class="st">&#39;cat.jpg&#39;</span>)</span>
+<span id="cb1019-10"><a href="hex-stickers.html#cb1019-10" tabindex="-1"></a>analitica_img<span class="ot">=</span><span class="fu">image_read</span>(<span class="st">&#39;Analitica3.png&#39;</span>)</span>
+<span id="cb1019-11"><a href="hex-stickers.html#cb1019-11" tabindex="-1"></a></span>
+<span id="cb1019-12"><a href="hex-stickers.html#cb1019-12" tabindex="-1"></a><span class="fu">sticker</span>(</span>
+<span id="cb1019-13"><a href="hex-stickers.html#cb1019-13" tabindex="-1"></a>  <span class="at">subplot=</span> cat_img,</span>
+<span id="cb1019-14"><a href="hex-stickers.html#cb1019-14" tabindex="-1"></a>  <span class="at">package=</span><span class="st">&quot;Meow&quot;</span>,</span>
+<span id="cb1019-15"><a href="hex-stickers.html#cb1019-15" tabindex="-1"></a>  <span class="at">s_width =</span>.<span class="dv">75</span>,</span>
+<span id="cb1019-16"><a href="hex-stickers.html#cb1019-16" tabindex="-1"></a>  <span class="at">s_height =</span> .<span class="dv">75</span>,</span>
+<span id="cb1019-17"><a href="hex-stickers.html#cb1019-17" tabindex="-1"></a>  <span class="at">s_x=</span><span class="dv">1</span>,</span>
+<span id="cb1019-18"><a href="hex-stickers.html#cb1019-18" tabindex="-1"></a>  <span class="at">s_y=</span>.<span class="dv">75</span>,</span>
+<span id="cb1019-19"><a href="hex-stickers.html#cb1019-19" tabindex="-1"></a>  <span class="at">p_size=</span><span class="dv">19</span>,</span>
+<span id="cb1019-20"><a href="hex-stickers.html#cb1019-20" tabindex="-1"></a>  <span class="at">p_x =</span> <span class="fl">1.0</span>,</span>
+<span id="cb1019-21"><a href="hex-stickers.html#cb1019-21" tabindex="-1"></a>  <span class="at">p_y =</span> <span class="fl">1.5</span>,</span>
+<span id="cb1019-22"><a href="hex-stickers.html#cb1019-22" tabindex="-1"></a>  <span class="at">p_color=</span> <span class="st">&#39;purple&#39;</span>,</span>
+<span id="cb1019-23"><a href="hex-stickers.html#cb1019-23" tabindex="-1"></a>  <span class="at">p_family=</span> <span class="st">&quot;Fuggles&quot;</span>,</span>
+<span id="cb1019-24"><a href="hex-stickers.html#cb1019-24" tabindex="-1"></a>  <span class="at">h_fill =</span><span class="st">&#39;gold&#39;</span>,</span>
+<span id="cb1019-25"><a href="hex-stickers.html#cb1019-25" tabindex="-1"></a>  <span class="at">h_color=</span><span class="st">&#39;hotpink&#39;</span>,</span>
+<span id="cb1019-26"><a href="hex-stickers.html#cb1019-26" tabindex="-1"></a>  <span class="at">h_size =</span> <span class="dv">2</span>,</span>
+<span id="cb1019-27"><a href="hex-stickers.html#cb1019-27" tabindex="-1"></a>  <span class="at">url=</span><span class="st">&quot;www.cat.foundation.com&quot;</span>,</span>
+<span id="cb1019-28"><a href="hex-stickers.html#cb1019-28" tabindex="-1"></a>  <span class="at">u_size=</span><span class="dv">4</span>,</span>
+<span id="cb1019-29"><a href="hex-stickers.html#cb1019-29" tabindex="-1"></a>  <span class="at">u_color =</span> <span class="st">&quot;violetred&quot;</span>,</span>
+<span id="cb1019-30"><a href="hex-stickers.html#cb1019-30" tabindex="-1"></a>  <span class="at">spotlight=</span>T</span>
+<span id="cb1019-31"><a href="hex-stickers.html#cb1019-31" tabindex="-1"></a></span>
+<span id="cb1019-32"><a href="hex-stickers.html#cb1019-32" tabindex="-1"></a>) <span class="sc">%&gt;%</span> print</span></code></pre></div>
 </details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-327-1.png" width="672" /></p>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-328-1.png" width="672" /></p>
 
 </div>
 

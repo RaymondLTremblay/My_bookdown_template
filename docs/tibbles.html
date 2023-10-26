@@ -459,11 +459,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="19.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#paso-1"><i class="fa fa-check"></i><b>19.1</b> Paso 1</a></li>
 <li class="chapter" data-level="19.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#subir-el-texto-en-formato-corpus"><i class="fa fa-check"></i><b>19.2</b> Subir el texto en formato <strong>Corpus</strong></a></li>
-<li class="chapter" data-level="19.3" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#mirar-el-documento"><i class="fa fa-check"></i><b>19.3</b> Mirar el documento</a>
+<li class="chapter" data-level="19.3" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#mirar-el-documento-para-evaluar-su-contenido"><i class="fa fa-check"></i><b>19.3</b> Mirar el documento, para evaluar su contenido</a></li>
+<li class="chapter" data-level="19.4" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#transformar-el-texto-para-reemplazar-algunos-caracteres-especiales"><i class="fa fa-check"></i><b>19.4</b> Transformar el texto para reemplazar algunos caracteres especiales</a></li>
+<li class="chapter" data-level="19.5" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#el-paquete-tm-es-para-text-mining"><i class="fa fa-check"></i><b>19.5</b> el paquete <strong>tm</strong> es para <strong>text mining</strong></a>
 <ul>
-<li class="chapter" data-level="19.3.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#check-your-words-and-remove-unwanted-words-individually"><i class="fa fa-check"></i><b>19.3.1</b> Check your words and remove unwanted words individually</a></li>
-<li class="chapter" data-level="19.3.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts"><i class="fa fa-check"></i><b>19.3.2</b> How would you remove from the data frame all words that have less or equal to 3 counts</a></li>
+<li class="chapter" data-level="19.5.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#check-your-words-and-remove-unwanted-words-individually"><i class="fa fa-check"></i><b>19.5.1</b> Check your words and remove unwanted words individually</a></li>
+<li class="chapter" data-level="19.5.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts"><i class="fa fa-check"></i><b>19.5.2</b> How would you remove from the data frame all words that have less or equal to 3 counts</a></li>
 </ul></li>
+<li class="chapter" data-level="19.6" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#como-remover-palabras-de-otra-idioma"><i class="fa fa-check"></i><b>19.6</b> Como remover palabras de otra idioma</a>
+<ul>
+<li class="chapter" data-level="19.6.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#vea-este-enlace-para-los-stopwords-de-muchos-idiomas"><i class="fa fa-check"></i><b>19.6.1</b> Vea este enlace para los “stopwords” de muchos idiomas</a></li>
+</ul></li>
+<li class="chapter" data-level="19.7" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#en-español"><i class="fa fa-check"></i><b>19.7</b> En español</a></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="hex-stickers.html"><a href="hex-stickers.html"><i class="fa fa-check"></i><b>20</b> Hex Stickers</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
@@ -606,16 +613,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 100 × 5
 ##    a                   b              c       d e    
 ##    &lt;dttm&gt;              &lt;date&gt;     &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;
-##  1 2023-10-27 07:36:56 2023-11-02     1 0.223   j    
-##  2 2023-10-26 16:11:14 2023-11-20     2 0.200   g    
-##  3 2023-10-27 00:47:45 2023-11-21     3 0.859   c    
-##  4 2023-10-26 15:52:46 2023-11-03     4 0.0938  o    
-##  5 2023-10-26 19:48:07 2023-11-14     5 0.915   f    
-##  6 2023-10-27 10:25:29 2023-11-17     6 0.997   a    
-##  7 2023-10-26 20:54:23 2023-10-28     7 0.538   c    
-##  8 2023-10-26 15:03:28 2023-11-08     8 0.445   t    
-##  9 2023-10-26 16:55:27 2023-11-14     9 0.943   y    
-## 10 2023-10-26 17:21:36 2023-11-12    10 0.00347 w    
+##  1 2023-10-27 07:57:59 2023-11-02     1 0.223   j    
+##  2 2023-10-26 16:32:16 2023-11-20     2 0.200   g    
+##  3 2023-10-27 01:08:48 2023-11-21     3 0.859   c    
+##  4 2023-10-26 16:13:48 2023-11-03     4 0.0938  o    
+##  5 2023-10-26 20:09:09 2023-11-14     5 0.915   f    
+##  6 2023-10-27 10:46:31 2023-11-17     6 0.997   a    
+##  7 2023-10-26 21:15:26 2023-10-28     7 0.538   c    
+##  8 2023-10-26 15:24:30 2023-11-08     8 0.445   t    
+##  9 2023-10-26 17:16:29 2023-11-14     9 0.943   y    
+## 10 2023-10-26 17:42:39 2023-11-12    10 0.00347 w    
 ## # ℹ 90 more rows</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="tibbles.html#cb447-1" tabindex="-1"></a>tb <span class="sc">%&gt;%</span></span>
@@ -624,15 +631,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 100 × 5
 ##   a                   b              c      d e    
 ##   &lt;dttm&gt;              &lt;date&gt;     &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;
-## 1 2023-10-27 07:36:56 2023-11-02     1 0.223  j    
-## 2 2023-10-26 16:11:14 2023-11-20     2 0.200  g    
-## 3 2023-10-27 00:47:45 2023-11-21     3 0.859  c    
-## 4 2023-10-26 15:52:46 2023-11-03     4 0.0938 o    
+## 1 2023-10-27 07:57:59 2023-11-02     1 0.223  j    
+## 2 2023-10-26 16:32:16 2023-11-20     2 0.200  g    
+## 3 2023-10-27 01:08:48 2023-11-21     3 0.859  c    
+## 4 2023-10-26 16:13:48 2023-11-03     4 0.0938 o    
 ## # ℹ 96 more rows</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="tibbles.html#cb449-1" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">now</span>()</span></code></pre></div>
 </details>
-<pre><code>## [1] &quot;2023-10-26 14:29:16 AST&quot;</code></pre>
+<pre><code>## [1] &quot;2023-10-26 14:50:18 AST&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="tibbles.html#cb451-1" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">today</span>()</span></code></pre></div>
 </details>

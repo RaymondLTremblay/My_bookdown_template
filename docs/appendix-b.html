@@ -459,11 +459,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="19.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#paso-1"><i class="fa fa-check"></i><b>19.1</b> Paso 1</a></li>
 <li class="chapter" data-level="19.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#subir-el-texto-en-formato-corpus"><i class="fa fa-check"></i><b>19.2</b> Subir el texto en formato <strong>Corpus</strong></a></li>
-<li class="chapter" data-level="19.3" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#mirar-el-documento"><i class="fa fa-check"></i><b>19.3</b> Mirar el documento</a>
+<li class="chapter" data-level="19.3" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#mirar-el-documento-para-evaluar-su-contenido"><i class="fa fa-check"></i><b>19.3</b> Mirar el documento, para evaluar su contenido</a></li>
+<li class="chapter" data-level="19.4" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#transformar-el-texto-para-reemplazar-algunos-caracteres-especiales"><i class="fa fa-check"></i><b>19.4</b> Transformar el texto para reemplazar algunos caracteres especiales</a></li>
+<li class="chapter" data-level="19.5" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#el-paquete-tm-es-para-text-mining"><i class="fa fa-check"></i><b>19.5</b> el paquete <strong>tm</strong> es para <strong>text mining</strong></a>
 <ul>
-<li class="chapter" data-level="19.3.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#check-your-words-and-remove-unwanted-words-individually"><i class="fa fa-check"></i><b>19.3.1</b> Check your words and remove unwanted words individually</a></li>
-<li class="chapter" data-level="19.3.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts"><i class="fa fa-check"></i><b>19.3.2</b> How would you remove from the data frame all words that have less or equal to 3 counts</a></li>
+<li class="chapter" data-level="19.5.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#check-your-words-and-remove-unwanted-words-individually"><i class="fa fa-check"></i><b>19.5.1</b> Check your words and remove unwanted words individually</a></li>
+<li class="chapter" data-level="19.5.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts"><i class="fa fa-check"></i><b>19.5.2</b> How would you remove from the data frame all words that have less or equal to 3 counts</a></li>
 </ul></li>
+<li class="chapter" data-level="19.6" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#como-remover-palabras-de-otra-idioma"><i class="fa fa-check"></i><b>19.6</b> Como remover palabras de otra idioma</a>
+<ul>
+<li class="chapter" data-level="19.6.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#vea-este-enlace-para-los-stopwords-de-muchos-idiomas"><i class="fa fa-check"></i><b>19.6.1</b> Vea este enlace para los “stopwords” de muchos idiomas</a></li>
+</ul></li>
+<li class="chapter" data-level="19.7" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#en-español"><i class="fa fa-check"></i><b>19.7</b> En español</a></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="hex-stickers.html"><a href="hex-stickers.html"><i class="fa fa-check"></i><b>20</b> Hex Stickers</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
@@ -531,14 +538,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="leen-bien-lo-que-estoy-pidiendo.-el-nombre-de-las-columnas-pueden-engañar" class="section level3 unnumbered hasAnchor">
 <h3>LEEN bien lo que estoy pidiendo. El nombre de las columnas pueden engañar!!!<a href="appendix-b.html#leen-bien-lo-que-estoy-pidiendo.-el-nombre-de-las-columnas-pueden-engañar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb1042"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1042-1"><a href="appendix-b.html#cb1042-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1042-2"><a href="appendix-b.html#cb1042-2" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb1042-3"><a href="appendix-b.html#cb1042-3" tabindex="-1"></a>url_COVID_PR<span class="ot">=</span><span class="fu">fread</span>(<span class="st">&quot;https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1043"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1043-1"><a href="appendix-b.html#cb1043-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1043-2"><a href="appendix-b.html#cb1043-2" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb1043-3"><a href="appendix-b.html#cb1043-3" tabindex="-1"></a>url_COVID_PR<span class="ot">=</span><span class="fu">fread</span>(<span class="st">&quot;https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv&quot;</span>)</span></code></pre></div>
 </details>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb1043"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1043-1"><a href="appendix-b.html#cb1043-1" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb1043-2"><a href="appendix-b.html#cb1043-2" tabindex="-1"></a>Covid<span class="ot">=</span>url_COVID_PR</span>
-<span id="cb1043-3"><a href="appendix-b.html#cb1043-3" tabindex="-1"></a><span class="fu">gt</span>(<span class="fu">tail</span>(Covid, <span class="at">n=</span><span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1044"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1044-1"><a href="appendix-b.html#cb1044-1" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1044-2"><a href="appendix-b.html#cb1044-2" tabindex="-1"></a>Covid<span class="ot">=</span>url_COVID_PR</span>
+<span id="cb1044-3"><a href="appendix-b.html#cb1044-3" tabindex="-1"></a><span class="fu">gt</span>(<span class="fu">tail</span>(Covid, <span class="at">n=</span><span class="dv">2</span>))</span></code></pre></div>
 </details>
 <div id="ewhdrzckyp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#ewhdrzckyp table {

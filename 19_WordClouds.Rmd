@@ -10,11 +10,11 @@ http://www.sthda.com/english/wiki/word-cloud-generator-in-r-one-killer-function-
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tm, SnowballC, wordcloud, RColorBrewer, wordcloud2)
 
-library(wordcloud)
-library(wordcloud2)
-library(RColorBrewer)
-library(tm)
-library(SnowballC)
+library(wordcloud) # Un paquete para hacer word clour
+library(wordcloud2) # paquete más sencillo para hacer word cloud
+library(RColorBrewer) # paquete para cambiar los colores 
+library(tm)  # paquete de text mining
+library(SnowballC) # paquete para trabajar en otro idioma aparte del ingles
 
 ```
 
@@ -54,11 +54,11 @@ text <- readLines(filePath)
 
 
 
-Importar un texto de su computadora
+Importar un texto de su computadora en formato **.txt** No va a funcionar el formato **.doc** de MSWord. 
 
 
 ```{r, echo=TRUE, eval=FALSE}
-text2 <- readLines(file.choose())
+mi_texto <- readLines(file.choose())
 #text
 ```
 
@@ -67,16 +67,16 @@ text2 <- readLines(file.choose())
 
 ```{r, echo=TRUE, eval=FALSE}
 
-docs2=iconv(text2,"WINDOWS-1252","UTF-8") # Use this for removing accents and non - english characters
+mi_texto2=iconv(mi_texto,"WINDOWS-1252","UTF-8") # Use this for removing accents and non - english characters
 
 # Load the data as a corpus
-docs <- Corpus(VectorSource(docs2))
+docs <- Corpus(VectorSource(mi_texto2))
 
 
 ```
 
 
-## Mirar el documento
+## Mirar el documento, para evaluar su contenido
 
 ```{r, echo=TRUE, eval=FALSE}
 inspect(docs)
@@ -84,7 +84,7 @@ inspect(docs)
 
 
 
-Transformar el texto para reemplazar caracteres especiales
+## Transformar el texto para reemplazar algunos caracteres especiales
 
 ```{r, echo=TRUE, eval=FALSE}
 toSpace <- content_transformer(function (x , pattern ) gsub(pattern, " ", x))
@@ -94,7 +94,7 @@ docs <- tm_map(docs, toSpace, "\\|")
 ```
 
 
-**tm** stands for the **text mining**
+## el paquete **tm** es para **text mining**
 
 ```{r, echo=TRUE, eval=FALSE}
 # Convert the text to lower case
@@ -146,24 +146,44 @@ pollinators
 ### How would you remove from the data frame all words that have less or equal to 3 counts
 
 
+***
+
+Del paquete **wordcloud**
 
 ```{r, echo=TRUE, eval=FALSE, warning=FALSE}
-wordcloud(words = d$word, freq = d$freq, min.freq = 1,
-          max.words=200, random.order=FALSE, rot.per=0.35, 
+wordcloud(words = d$word, 
+          freq = d$freq, 
+          min.freq = 1,
+          max.words=200, 
+          random.order=FALSE, 
+          rot.per=0.35, 
           colors=brewer.pal(8, "Dark2"))
 ```
 
 
-
-Como remover palabras de otra idioma
-
-https://cran.r-project.org/web/packages/stopwords/readme/README.html
+***
 
 
+Del paquete **wordcloud2**
+
+
+```{r, echo=TRUE, eval=FALSE}
+wordcloud2(data = d)
+```
 
 
 
-En español
+## Como remover palabras de otra idioma
+
+### Vea este enlace para los "stopwords" de muchos idiomas
+
+<https://cran.r-project.org/web/packages/stopwords/readme/README.html>
+
+
+
+
+
+## En español
 
 ```{r, echo=TRUE, eval=FALSE}
 # from CRAN
