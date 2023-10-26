@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 18 Ecuaciones Matemáticas | Ciencia de Datos con R</title>
+  <title>C Appendix B | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 18 Ecuaciones Matemáticas | Ciencia de Datos con R" />
+  <meta property="og:title" content="C Appendix B | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 18 Ecuaciones Matemáticas | Ciencia de Datos con R" />
+  <meta name="twitter:title" content="C Appendix B | Ciencia de Datos con R" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="trabajando-variables-categóricas-con-leaflet.html"/>
-<link rel="next" href="wordcloud_en_r.html"/>
+<link rel="prev" href="appendix-c.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -520,327 +520,554 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="math-sci" class="section level1 hasAnchor" number="18">
-<h1><span class="header-section-number">Chapter 18</span> Ecuaciones Matemáticas<a href="math-sci.html#math-sci" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<!-- Required to number equations in HTML files -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
-<div id="ecuaciones-matemática" class="section level2 hasAnchor" number="18.1">
-<h2><span class="header-section-number">18.1</span> Ecuaciones matemática<a href="math-sci.html#ecuaciones-matemática" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><em>TeX</em> es la mejor manera de escribir funciones matemáticas en R. Donald Knuth diseñó el paquete  cuando se sintió frustrado por el tiempo que les tomaba a los tipógrafos y terminar su libro, que contenía mucha funciones matemática. Una característica interesante de <em>R Markdown</em> es su capacidad para leer código LaTeX directamente.</p>
-<p>Si está haciendo una tesis, artículo cientíco, presentaciones o quiere acalrar en su documento las funciones que estas usando, típicamente esto involucrará muchas ecuaciones matemáticas. Por consecuencia querrá leer la siguiente sección que ha sido comentada.</p>
+<div id="appendix-b" class="section level1 hasAnchor" number="23">
+<h1><span class="header-section-number">C</span> Appendix B<a href="appendix-b.html#appendix-b" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <hr />
-<div id="matemática-y-física" class="section level3 hasAnchor" number="18.1.1">
-<h3><span class="header-section-number">18.1.1</span> Matemática y Física<a href="math-sci.html#matemática-y-física" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math display">\[
-\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
-\left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2
-\]</span></p>
-<p>De Informational Dynamics, tenemos lo siguiente (Dave Braden):</p>
-<p>Después de <em>n</em> tales encuentros, la densidad posterior de <span class="math inline">\(\theta\)</span> es</p>
-<p><span class="math display">\[
-\pi(\theta|X_1&lt; y_1,\dots,X_n&lt;y_n) \varpropto \pi(\theta) \prod_{i=1}^n\int_{-\infty}^{y_i}
-   \exp\left(-{(x-\theta)^2\over{2\sigma^2}}\right)\ dx
-\]</span></p>
-<p>Otra Ecuaciones</p>
-<p><span class="math display">\[
-\det\left|\,\begin{matrix}%
-c_0&amp;c_1\hfill&amp;c_2\hfill&amp;\ldots&amp;c_n\hfill\cr
-c_1&amp;c_2\hfill&amp;c_3\hfill&amp;\ldots&amp;c_{n+1}\hfill\cr
-c_2&amp;c_3\hfill&amp;c_4\hfill&amp;\ldots&amp;c_{n+2}\hfill\cr
-\,\vdots\hfill&amp;\,\vdots\hfill&amp;
-  \,\vdots\hfill&amp;&amp;\,\vdots\hfill\cr
-c_n&amp;c_{n+1}\hfill&amp;c_{n+2}\hfill&amp;\ldots&amp;c_{2n}\hfill\cr
-\end{matrix}\right|&gt;0
-\]</span></p>
-<hr />
-<p>Lapidus y Píndaro, Solución numérica de ecuaciones diferenciales parciales en ciencia y Ingeniería. Página 54</p>
-<p><span class="math display">\[
-\int_t\left\{\sum_{j=1}^3 T_j \left({d\phi_j\over dt}+k\phi_j\right)-kT_e\right\}w_i(t)\ dt=0,
-   \qquad\quad i=1,2,3.
-\]</span></p>
-<p>Funciones de ponderación del método L&amp;P Galerkin. Página 55</p>
-<p><span class="math display">\[
-\sum_{j=1}^3 T_j\int_0^1\left\{{d\phi_j\over dt} + k\phi_j\right\} \phi_i\ dt
-   = \int_{0}^1k\,T_e\phi_idt, \qquad i=1,2,3 \]</span></p>
-<p>Otra de L&amp;P (p145)</p>
-<p><span class="math display">\[
-\int_{-1}^1\!\int_{-1}^1\!\int_{-1}^1 f\big(\xi,\eta,\zeta\big)
-   = \sum_{k=1}^n\sum_{j=1}^n\sum_{i=1}^n w_i w_j w_k f\big( \xi,\eta,\zeta\big).
-\]</span></p>
-<p>Otra de L&amp;P (p126)</p>
-<p><span class="math display">\[
-\int_{A_e} (\,\cdot\,) dx dy = \int_{-1}^1\!\int_{-1}^1 (\,\cdot\,) \det[J] d\xi d\eta.
-\]</span>
-–&gt;</p>
+<div id="ejercicios-para-las-funciones-de-transformaciones-2" class="section level2 unnumbered hasAnchor">
+<h2>Ejercicios para las funciones de transformaciones 2<a href="appendix-b.html#ejercicios-para-las-funciones-de-transformaciones-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-</div>
-<div id="química-101-símbolos" class="section level2 hasAnchor" number="18.2">
-<h2><span class="header-section-number">18.2</span> Química 101: Símbolos<a href="math-sci.html#química-101-símbolos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Las fórmulas químicas se verán mejor si no están en cursiva. Evite la cursiva automática del modo matemático en LaTeX usando el argumento <code>$\mathrm{fórmula aquí}$</code>, con su fórmula dentro de las llaves. (Observe el uso de comillas invertidas aquí que encierran texto y que actúa como código para ver el script original).</p>
-<p>Entonces, <span class="math inline">\(\mathrm{Fe_2^{2+}Cr_2O_4}\)</span> es escrito como <code>$\mathrm{Fe_2^{2+}Cr_2O_4}$</code>.</p>
-<!--
-The \noindent command below does what you'd expect:  it forces the current line/paragraph to not indent. This was done here to match the format of the LaTeX thesis PDF.
--->
-<p>Exponente or Sobrescrito: <span class="math inline">\(\mathrm{O^-}\)</span> y se escribe como <code>$\mathrm{O^-}$</code></p>
-<p>Subíndice: <span class="math inline">\(\mathrm{CH_4}\)</span> y se escribe como <code>$\mathrm{CH_4}$</code></p>
-<p>Para apilar números o letras como en <span class="math inline">\(\mathrm{Fe_2^{2+}}\)</span>, primero se define el subíndice y luego el superíndice y se escribe como <code>$\mathrm{Fe_2^{2+}}$</code>.</p>
-<p>punto se usa la palabra <strong>bullet</strong>: CuCl <span class="math inline">\(\bullet\)</span> <span class="math inline">\(\mathrm{7H_{2}O}\)</span></p>
-<p><code>CuCl $\bullet$ $\mathrm{7H_{2}O}$</code></p>
-<p>Delta: <span class="math inline">\(\Delta\)</span> y se escribe como `$</p>
-<p><span class="math inline">\(\Gamma\)</span></p>
-<p><span class="math inline">\(\gamma\)</span></p>
-<p>Aqui esta mi super formula de <span class="math inline">\(\phi\)</span> que voy a usar en el exam</p>
-<p>Flecha de Reacción: <span class="math inline">\(\longrightarrow\)</span> or <span class="math inline">\(\xrightarrow{solution}\)</span> y se escribe como <code>$\longrightarrow$</code> or <code>$\xrightarrow{solution}$</code></p>
-<p>Flecha de Resonancia: <span class="math inline">\(\leftrightarrow\)</span> y se escribe como <code>$\leftrightarrow$</code></p>
-<p>Flechas de reacción reversibles: <span class="math inline">\(\rightleftharpoons\)</span> y se escribe como <code>$\rightleftharpoons$</code></p>
-<div id="típografica-de-reaciones" class="section level3 hasAnchor" number="18.2.1">
-<h3><span class="header-section-number">18.2.1</span> Típografica de reaciones<a href="math-sci.html#típografica-de-reaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Es posible que desees poner tu reacción en un entorno de ecuaciones, lo que significa que LaTeX colocará la reacción donde encaje y numerará las ecuaciones por ti.</p>
-<p><span class="math display" id="eq:reaction">\[\begin{equation}
-  \mathrm{C_6H_{12}O_6  + 6O_2} \longrightarrow \mathrm{6CO_2 + 6H_2O}
-  \tag{18.1}
-\end{equation}\]</span></p>
-<p>y se escribe como</p>
-<pre class="verbatum"><code>\begin{equation}
-  \mathrm{C_6H_{12}O_6  + 6O_2} \longrightarrow \mathrm{6CO_2 + 6H_2O}
-  (\#eq:reaction)
-\end{equation}</code></pre>
-<p>Podemos hacer referencia a esta reacción de combustión de glucosa mediante la ecuación <a href="math-sci.html#eq:reaction">(18.1)</a>.</p>
-</div>
-<div id="otros-ejemplos-de-reacciones" class="section level3 hasAnchor" number="18.2.2">
-<h3><span class="header-section-number">18.2.2</span> Otros ejemplos de reacciones<a href="math-sci.html#otros-ejemplos-de-reacciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math inline">\(\mathrm{NH_4Cl_{(s)}}\)</span> <span class="math inline">\(\rightleftharpoons\)</span> <span class="math inline">\(\mathrm{NH_{3(g)}+HCl_{(g)}}\)</span></p>
-<p>y se esscribe como</p>
-<p><code>$\mathrm{NH_4Cl_{(s)}}$ $\rightleftharpoons$ $\mathrm{NH_{3(g)}+HCl_{(g)}}$</code></p>
-<p><span class="math inline">\(\mathrm{MeCH_2Br + Mg}\)</span> <span class="math inline">\(\xrightarrow[abajo]{ariba}\)</span> <span class="math inline">\(\mathrm{MeCH_2\bullet Mg \bullet Br}\)</span></p>
-<p>y se escribe como</p>
-<p><code>$\mathrm{MeCH_2Br + Mg}$ $\xrightarrow[abajo]{ariba}$ $\mathrm{MeCH_2\bullet Mg \bullet Br}$</code>
-## Física</p>
-<p>Muchos de los símbolos que necesitará se pueden encontrar en la página de matemáticas.</p>
-<p><a href="https://web.reed.edu/cis/help/latex/math.html" class="uri">https://web.reed.edu/cis/help/latex/math.html</a> y la guía completa de símbolos LaTeX (<a href="https://mirror.utexas.edu/ctan/info/symbols/comprehensive/symbols-letter.pdf" class="uri">https://mirror.utexas.edu/ctan/info/symbols/comprehensive/symbols-letter.pdf</a>).</p>
-</div>
-</div>
-<div id="biología" class="section level2 hasAnchor" number="18.3">
-<h2><span class="header-section-number">18.3</span> Biología<a href="math-sci.html#biología" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Probablemente encontrará los recursos en <a href="https://www.lecb.ncifcrf.gov/~toms/latex.html" class="uri">https://www.lecb.ncifcrf.gov/~toms/latex.html</a> útil, particularmente los enlaces a bsts de varias revistas. Quizás también le interese TeXShade para composición tipográfica de nucleótidos (<a href="https://homepages.uni-tuebingen.de/beitz/txe.html" class="uri">https://homepages.uni-tuebingen.de/beitz/txe.html</a>). Asegúrese de leer el capítulo anterior sobre gráficos y tablas.</p>
-<p>La formula del promedio</p>
-<p><span class="math inline">\(\mu=\frac{\sum{x}_{i}}{n}\)</span> se escribe asi <code>$\mu=\frac{\sum{x}_{i}}{n}$</code></p>
-<p>NOTE la diferencia en tipo de letra</p>
-<p><span class="math inline">\(\mathrm{\mu=\frac{\sum{x}_{i}}{n}}\)</span> se escribe asi <code>$\mathrm{\mu=\frac{\sum{x}_{i}}{n}}$</code></p>
-<p><span class="math display" id="eq:promedio">\[\begin{equation}
-  \mathrm{\mu=\frac{\sum{x}_{i}}{n}}
-  \tag{18.2}
-\end{equation}\]</span></p>
-<p><span class="math inline">\(s^{2}=\frac{\sum (x_{i}-\bar{x})^2}{n-1}\)</span></p>
-<p>Sitios en el web para preparar las ecuaciones Latex</p>
-<ol style="list-style-type: decimal">
-<li><p><a href="https://latex.codecogs.com/eqneditor/editor.php" class="uri">https://latex.codecogs.com/eqneditor/editor.php</a></p></li>
-<li><p><a href="https://latexeditor.lagrida.com" class="uri">https://latexeditor.lagrida.com</a></p></li>
-<li><p><a href="https://www.hostmath.com" class="uri">https://www.hostmath.com</a></p></li>
-<li><p><a href="https://www.overleaf.com/learn/latex/Mathematical_expressions" class="uri">https://www.overleaf.com/learn/latex/Mathematical_expressions</a></p></li>
-</ol>
+<div id="seleccione-los-siguientes-datos-sobre-covid-en-pr" class="section level2 unnumbered hasAnchor">
+<h2>Seleccione los siguientes datos sobre COVID en PR<a href="appendix-b.html#seleccione-los-siguientes-datos-sobre-covid-en-pr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="leen-bien-lo-que-estoy-pidiendo.-el-nombre-de-las-columnas-pueden-engañar" class="section level3 unnumbered hasAnchor">
+<h3>LEEN bien lo que estoy pidiendo. El nombre de las columnas pueden engañar!!!<a href="appendix-b.html#leen-bien-lo-que-estoy-pidiendo.-el-nombre-de-las-columnas-pueden-engañar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1039"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1039-1"><a href="appendix-b.html#cb1039-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1039-2"><a href="appendix-b.html#cb1039-2" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb1039-3"><a href="appendix-b.html#cb1039-3" tabindex="-1"></a>url_COVID_PR<span class="ot">=</span><span class="fu">fread</span>(<span class="st">&quot;https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv&quot;</span>)</span></code></pre></div>
+</details>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1040"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1040-1"><a href="appendix-b.html#cb1040-1" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1040-2"><a href="appendix-b.html#cb1040-2" tabindex="-1"></a>Covid<span class="ot">=</span>url_COVID_PR</span>
+<span id="cb1040-3"><a href="appendix-b.html#cb1040-3" tabindex="-1"></a><span class="fu">gt</span>(<span class="fu">tail</span>(Covid, <span class="at">n=</span><span class="dv">2</span>))</span></code></pre></div>
+</details>
+<div id="ewhdrzckyp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ewhdrzckyp table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-<p>A# Opciones de Knitr</p>
-<p>La mayoria de los ejemplos y ideas de esta seccieon proviene de <strong>yihui</strong> en el siguiente website &lt;<a href="https://yihui.org/knitr/" class="uri">https://yihui.org/knitr/</a>&gt;</p>
-<p>el paquete <strong>knitr</strong> fue desiñado para ser transparente para generar reporte de R, añadiendo componente de animación y Latex (Ecuaciones) y otras funciones.</p>
-<p>Hay muchas opciones para determinar lo que have un <strong>chunk</strong></p>
-<ul>
-<li>Code evaluation: evaluación de código</li>
-<li>Text output: Formateo de texto</li>
-<li>Code decoration: Decoración del código</li>
-<li>Cache: Cache</li>
-<li>Plots: Gráficos</li>
-<li>Animation: Animaciones</li>
-<li>Code chunk: Código del chunk</li>
-<li>Child Document: Documento asociados</li>
-<li>Language engines: Asociación de lenguaje</li>
-<li>Option Temnplate:</li>
-<li>Extracting source code:</li>
-<li>Other chunk options:</li>
-<li>Package Options:</li>
-<li>Global R Options:</li>
-</ul>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb986"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb986-1"><a href="math-sci.html#cb986-1" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb986-2"><a href="math-sci.html#cb986-2" tabindex="-1"></a>hook_chunk <span class="ot">=</span> knit_hooks<span class="sc">$</span><span class="fu">get</span>(<span class="st">&#39;chunk&#39;</span>)</span>
-<span id="cb986-3"><a href="math-sci.html#cb986-3" tabindex="-1"></a>knit_hooks<span class="sc">$</span><span class="fu">set</span>(<span class="at">chunk =</span> <span class="cf">function</span>(x, options) {</span>
-<span id="cb986-4"><a href="math-sci.html#cb986-4" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(options<span class="sc">$</span>echo_opts)) {</span>
-<span id="cb986-5"><a href="math-sci.html#cb986-5" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">paste0</span>(<span class="st">&quot;```` ```{r &quot;</span>, options<span class="sc">$</span>params.src, <span class="st">&quot;} ````&quot;</span>, x, <span class="st">&quot;```` ``` ````&quot;</span>))</span>
-<span id="cb986-6"><a href="math-sci.html#cb986-6" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb986-7"><a href="math-sci.html#cb986-7" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">hook_chunk</span>(x, options)) <span class="co"># pass to default hook</span></span>
-<span id="cb986-8"><a href="math-sci.html#cb986-8" tabindex="-1"></a>  }</span>
-<span id="cb986-9"><a href="math-sci.html#cb986-9" tabindex="-1"></a>  })</span>
-<span id="cb986-10"><a href="math-sci.html#cb986-10" tabindex="-1"></a></span>
-<span id="cb986-11"><a href="math-sci.html#cb986-11" tabindex="-1"></a>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">eval.after =</span> <span class="st">&#39;fig.cap&#39;</span>)</span></code></pre></div>
-</details>
-<p>Los ejemplos aquí serán limitado a las alternativas para los documentos <strong>.Rmd</strong></p>
-<p>Las opciones están escrita de forma de <strong>tag=selección de la alternativa</strong>.</p>
-<ul>
-<li>Comenzando con dandole un nombre al chunk “mi-chunk”</li>
-</ul>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb987"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb987-1"><a href="math-sci.html#cb987-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-</details>
-<p>algun_nombre, echo=TRUE</p>
-<hr />
-<hr />
-<p>Eso es lo que va a ver cuando hace el knit</p>
-<hr />
-<hr />
-<p>Nota aqui tengo include=FALSE, por consecuencia cuando se hace un knit, no se ve los que hay en el chunk.<br />
-- Ahora cambialo a TRUE</p>
-<p><code>```{r include_true, include=TRUE, echo_opts=TRUE}</code></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb988"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb988-1"><a href="math-sci.html#cb988-1" tabindex="-1"></a><span class="fu">head</span>(cars)</span></code></pre></div>
-</details>
-<pre><code>##   speed dist
-## 1     4    2
-## 2     4   10
-## 3     7    4
-## 4     7   22
-## 5     8   16
-## 6     9   10</code></pre>
-<p><code>```</code></p>
-<hr />
-<hr />
-<p>Add a figure and give it a name</p>
-<p><code>```{r cars, echo=TRUE, echo_opts=TRUE}</code></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb990"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb990-1"><a href="math-sci.html#cb990-1" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div>
-</details>
-<p><img src="Ciencia_Datos_R_files/figure-html/cars-1.png" width="672" /><code>```</code></p>
-<hr />
-<hr />
-<p><code>```{r position_caption, fig.cap='A caption.', fig.topcaption=TRUE, echo_opts=TRUE}</code></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb991"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb991-1"><a href="math-sci.html#cb991-1" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div>
-</details>
-<div class="figure">
-<p class="caption">
-(#fig:position_caption)A caption.
-</p>
-<img src="Ciencia_Datos_R_files/figure-html/position_caption-1.png" alt="A caption." width="672" />
-</div>
-<p><code>```</code></p>
-<hr />
-<hr />
-<p><code>```{r fig.cap= "An incredible figure", echo_opts=TRUE}</code></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb992"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb992-1"><a href="math-sci.html#cb992-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb992-2"><a href="math-sci.html#cb992-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
-<span id="cb992-3"><a href="math-sci.html#cb992-3" tabindex="-1"></a></span>
-<span id="cb992-4"><a href="math-sci.html#cb992-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
-<span id="cb992-5"><a href="math-sci.html#cb992-5" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-</details>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-309"></span>
-<img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-309-1.png" alt="An incredible figure" width="672" />
-<p class="caption">
-Figure 18.1: An incredible figure
-</p>
-</div>
-<p><code>```</code></p>
-<hr />
-<hr />
-<code>```{r ggplot, fig.cap= "An incredible figure", fig.width = 3, fig.height = 3, echo_opts=TRUE, echo=FALSE}</code>
-<div class="figure"><span style="display:block;" id="fig:ggplot"></span>
-<img src="Ciencia_Datos_R_files/figure-html/ggplot-1.png" alt="An incredible figure" width="288" />
-<p class="caption">
-Figure 18.2: An incredible figure
-</p>
-</div>
-<p><code>```</code></p>
-<hr />
-<hr />
-<p>Figure aligment: default, left, right, and center</p>
-<p>fig.align</p>
-<p><code>```{r fig.cap= "caption", fig.width = 3, fig.height = 3, fig.align='right', echo_opts=TRUE}</code></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb993"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb993-1"><a href="math-sci.html#cb993-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb993-2"><a href="math-sci.html#cb993-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
-<span id="cb993-3"><a href="math-sci.html#cb993-3" tabindex="-1"></a></span>
-<span id="cb993-4"><a href="math-sci.html#cb993-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
-<span id="cb993-5"><a href="math-sci.html#cb993-5" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-</details>
-<div class="figure" style="text-align: right"><span style="display:block;" id="fig:unnamed-chunk-310"></span>
-<img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-310-1.png" alt="caption" width="288" />
-<p class="caption">
-Figure 18.3: caption
-</p>
-</div>
-<p><code>```</code></p>
-<hr />
-<hr />
-<p>Wrap text around figure</p>
-<p>Use ese código para que el texto “wraps” alrededor de ls figura (ese código es de otro idioma de computadora de se llama <strong>css</strong>)</p>
-<div style="float:right;position: relative; top: -80px;">
-<p>AQUI el CHUNK</p>
-</div>
-<div id="r-markdown-wrapping" class="section level5 hasAnchor" number="18.3.0.0.1">
-<h5><span class="header-section-number">18.3.0.0.1</span> R Markdown wrapping<a href="math-sci.html#r-markdown-wrapping" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div style="float:right;position: relative; top: -20px;">
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb994"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb994-1"><a href="math-sci.html#cb994-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
-<span id="cb994-2"><a href="math-sci.html#cb994-2" tabindex="-1"></a></span>
-<span id="cb994-3"><a href="math-sci.html#cb994-3" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
-<span id="cb994-4"><a href="math-sci.html#cb994-4" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-</details>
-<div class="figure" style="text-align: right"><span style="display:block;" id="fig:pressure"></span>
-<img src="Ciencia_Datos_R_files/figure-html/pressure-1.png" alt="caption" width="249.6" />
-<p class="caption">
-Figure 18.4: caption
-</p>
-</div>
-</div>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
-<p>Note that the <code>echo = TRUE</code> parameter was added to the code chunk to have printing of the R code that generated the plot.</p>
-<hr />
-<hr />
-</div>
-<div id="otras-funciones-de-knitr" class="section level3 hasAnchor" number="18.3.1">
-<h3><span class="header-section-number">18.3.1</span> OTRAS funciones de knitr<a href="math-sci.html#otras-funciones-de-knitr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>eval= to evaluate the code FALSE or TRUE</li>
-<li>echo = TO show the code FALSE or TRUE</li>
-<li>message = FALSE or TRUE</li>
-<li>warning = FALSE or TRUE</li>
-<li>error =FALSE or TRUE</li>
-<li>results = ‘asis’ To show text exactly as printed/written</li>
-</ul>
-<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb996"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb996-1"><a href="math-sci.html#cb996-1" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
-</details>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb997"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb997-1"><a href="math-sci.html#cb997-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb997-2"><a href="math-sci.html#cb997-2" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
-</details>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb998"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb998-1"><a href="math-sci.html#cb998-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;I&#39;m raw **Markdown** content.</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb998-2"><a href="math-sci.html#cb998-2" tabindex="-1"></a>    </span>
-<span id="cb998-3"><a href="math-sci.html#cb998-3" tabindex="-1"></a>                         <span class="st">&quot;My poetry of Puerto Rico</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-</details>
-<p>I’m raw <strong>Markdown</strong> content.
-My poetry of Puerto Rico</p>
-<hr />
-<hr />
-</div>
-</div>
-<div id="emoji-or-symbols" class="section level2 hasAnchor" number="18.4">
-<h2><span class="header-section-number">18.4</span> Emoji or Symbols<a href="math-sci.html#emoji-or-symbols" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="select-under-the-edit-emoji-symbols." class="section level3 hasAnchor" number="18.4.1">
-<h3><span class="header-section-number">18.4.1</span> Select Under the Edit ➡ Emoji &amp; Symbols.<a href="math-sci.html#select-under-the-edit-emoji-symbols." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="remember-you-can-add-emojis-to-your-document" class="section level5 hasAnchor" number="18.4.1.0.1">
-<h5><span class="header-section-number">18.4.1.0.1</span> Remember you can add emoji’s to your document<a href="math-sci.html#remember-you-can-add-emojis-to-your-document" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<p>Sometimes you want to 🙈 around a bit and add some ⭐️⭐️ to your
-🎈🎈 Well we have a gift for you if you add interesting emoji’s to your document.</p>
+#ewhdrzckyp thead, #ewhdrzckyp tbody, #ewhdrzckyp tfoot, #ewhdrzckyp tr, #ewhdrzckyp td, #ewhdrzckyp th {
+  border-style: none;
+}
 
+#ewhdrzckyp p {
+  margin: 0;
+  padding: 0;
+}
+
+#ewhdrzckyp .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ewhdrzckyp .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ewhdrzckyp .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ewhdrzckyp .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ewhdrzckyp .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ewhdrzckyp .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ewhdrzckyp .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ewhdrzckyp .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ewhdrzckyp .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ewhdrzckyp .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ewhdrzckyp .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ewhdrzckyp .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ewhdrzckyp .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ewhdrzckyp .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ewhdrzckyp .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ewhdrzckyp .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ewhdrzckyp .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ewhdrzckyp .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ewhdrzckyp .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ewhdrzckyp .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ewhdrzckyp .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ewhdrzckyp .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ewhdrzckyp .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ewhdrzckyp .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ewhdrzckyp .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ewhdrzckyp .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ewhdrzckyp .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ewhdrzckyp .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ewhdrzckyp .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ewhdrzckyp .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ewhdrzckyp .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ewhdrzckyp .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ewhdrzckyp .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ewhdrzckyp .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ewhdrzckyp .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ewhdrzckyp .gt_left {
+  text-align: left;
+}
+
+#ewhdrzckyp .gt_center {
+  text-align: center;
+}
+
+#ewhdrzckyp .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ewhdrzckyp .gt_font_normal {
+  font-weight: normal;
+}
+
+#ewhdrzckyp .gt_font_bold {
+  font-weight: bold;
+}
+
+#ewhdrzckyp .gt_font_italic {
+  font-style: italic;
+}
+
+#ewhdrzckyp .gt_super {
+  font-size: 65%;
+}
+
+#ewhdrzckyp .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ewhdrzckyp .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ewhdrzckyp .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ewhdrzckyp .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ewhdrzckyp .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ewhdrzckyp .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ewhdrzckyp .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Fecha">Fecha</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Muertes">Muertes</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="IncrementoMuertes">IncrementoMuertes</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="CasosPCR_Salud">CasosPCR_Salud</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="IncCasosPCR_Salud">IncCasosPCR_Salud</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="CasosSaludNuevo">CasosSaludNuevo</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="IncCasosSaludNuevo">IncCasosSaludNuevo</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="HospitCOV19">HospitCOV19</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="CamasICU">CamasICU</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="CamasICU_disp">CamasICU_disp</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Ventiladores">Ventiladores</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="MuertesSalud">MuertesSalud</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="IncMueSalud">IncMueSalud</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="VacDoses">VacDoses</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="VacAdm">VacAdm</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="N1MoreDoses">N1MoreDoses</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="N2Doses">N2Doses</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Fecha" class="gt_row gt_right">10/18/21</td>
+<td headers="Muertes" class="gt_row gt_right">3209</td>
+<td headers="IncrementoMuertes" class="gt_row gt_right">2</td>
+<td headers="CasosPCR_Salud" class="gt_row gt_right">151033</td>
+<td headers="IncCasosPCR_Salud" class="gt_row gt_right">6</td>
+<td headers="CasosSaludNuevo" class="gt_row gt_right">151089</td>
+<td headers="IncCasosSaludNuevo" class="gt_row gt_right">11</td>
+<td headers="HospitCOV19" class="gt_row gt_right">78</td>
+<td headers="CamasICU" class="gt_row gt_right">28</td>
+<td headers="CamasICU_disp" class="gt_row gt_right">189</td>
+<td headers="Ventiladores" class="gt_row gt_right">17</td>
+<td headers="MuertesSalud" class="gt_row gt_right">3212</td>
+<td headers="IncMueSalud" class="gt_row gt_right">2</td>
+<td headers="VacDoses" class="gt_row gt_right">4972170</td>
+<td headers="VacAdm" class="gt_row gt_right">4848929</td>
+<td headers="N1MoreDoses" class="gt_row gt_right">2578407</td>
+<td headers="N2Doses" class="gt_row gt_right">2306058</td></tr>
+    <tr><td headers="Fecha" class="gt_row gt_right">10/19/21</td>
+<td headers="Muertes" class="gt_row gt_right">3213</td>
+<td headers="IncrementoMuertes" class="gt_row gt_right">4</td>
+<td headers="CasosPCR_Salud" class="gt_row gt_right">151089</td>
+<td headers="IncCasosPCR_Salud" class="gt_row gt_right">56</td>
+<td headers="CasosSaludNuevo" class="gt_row gt_right">NA</td>
+<td headers="IncCasosSaludNuevo" class="gt_row gt_right">NA</td>
+<td headers="HospitCOV19" class="gt_row gt_right">82</td>
+<td headers="CamasICU" class="gt_row gt_right">22</td>
+<td headers="CamasICU_disp" class="gt_row gt_right">193</td>
+<td headers="Ventiladores" class="gt_row gt_right">16</td>
+<td headers="MuertesSalud" class="gt_row gt_right">3213</td>
+<td headers="IncMueSalud" class="gt_row gt_right">1</td>
+<td headers="VacDoses" class="gt_row gt_right">NA</td>
+<td headers="VacAdm" class="gt_row gt_right">NA</td>
+<td headers="N1MoreDoses" class="gt_row gt_right">NA</td>
+<td headers="N2Doses" class="gt_row gt_right">NA</td></tr>
+  </tbody>
+  
+  
+</table>
 </div>
 </div>
+</div>
+<div id="calcular-el-promedio-de-muertes-por-dia-de-nuevos-muertos-desde-el-comienzo-hasta-el-ultimo-dia-del-archivo" class="section level2 unnumbered hasAnchor">
+<h2>1. Calcular el promedio de Muertes por dia de nuevos muertos desde el comienzo hasta el ultimo dia del archivo<a href="appendix-b.html#calcular-el-promedio-de-muertes-por-dia-de-nuevos-muertos-desde-el-comienzo-hasta-el-ultimo-dia-del-archivo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="cual-es-la-máximo-de-nuevos-casos-en-un-día" class="section level2 unnumbered hasAnchor">
+<h2>2. ¿Cual es la máximo de nuevos casos en un día<a href="appendix-b.html#cual-es-la-máximo-de-nuevos-casos-en-un-día" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="calcular-la-cantidad-cumulativa-de-numero-de-camas-camasicu" class="section level2 unnumbered hasAnchor">
+<h2>3. ¿Calcular la cantidad cumulativa de numero de camas CamasICU<a href="appendix-b.html#calcular-la-cantidad-cumulativa-de-numero-de-camas-camasicu" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Enseñe solamente las ultimas 4 filas</li>
+</ul>
+</div>
+<div id="haz-una-grafica-de-la-varianza-y-como-cambia-atravez-del-tiempo." class="section level2 unnumbered hasAnchor">
+<h2>4. Haz una grafica de la varianza y como cambia atravez del tiempo.<a href="appendix-b.html#haz-una-grafica-de-la-varianza-y-como-cambia-atravez-del-tiempo." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>usa puntos para cada fecha</li>
+<li>añade una regresión LOESS</li>
+<li>cambia los nombres de los ejes para algo más claro</li>
+<li>los colores de los puntos</li>
+<li>cambia el color de la linea</li>
+</ul>
+<hr />
+
 </div>
 </div>
             </section>
@@ -848,8 +1075,8 @@ My poetry of Puerto Rico</p>
           </div>
         </div>
       </div>
-<a href="trabajando-variables-categóricas-con-leaflet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="wordcloud_en_r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="appendix-c.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -880,7 +1107,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/17-Ecuaciones_matematicas.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/B-Ejercicios_Transformacion_2.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -888,7 +1115,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/17-Ecuaciones_matematicas.Rmd",
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/B-Ejercicios_Transformacion_2.Rmd",
 "text": null
 },
 "download": null,

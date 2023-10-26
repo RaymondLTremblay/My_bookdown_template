@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 18 Ecuaciones Matemáticas | Ciencia de Datos con R</title>
+  <title>A Ejercicio C | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 18 Ecuaciones Matemáticas | Ciencia de Datos con R" />
+  <meta property="og:title" content="A Ejercicio C | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 18 Ecuaciones Matemáticas | Ciencia de Datos con R" />
+  <meta name="twitter:title" content="A Ejercicio C | Ciencia de Datos con R" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="trabajando-variables-categóricas-con-leaflet.html"/>
-<link rel="next" href="wordcloud_en_r.html"/>
+<link rel="prev" href="appendix-ejercicios-1.html"/>
+<link rel="next" href="appendix-ejercicios-2.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -53,11 +53,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
-<link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet" />
-<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script>
-<script src="libs/wordcloud2-0.0.1/hover.js"></script>
-<script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script>
 
 
 <style type="text/css">
@@ -267,14 +262,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.25.1" data-path="transformacion.html"><a href="transformacion.html#replacar-los-na-con-0-usando-la-función-replace_na-con-un-valor-especifico-replace_navariable-0"><i class="fa fa-check"></i><b>4.25.1</b> Replacar los NA con 0, usando la función <strong>replace_na()</strong> con un valor especifico <strong>replace_na(“variable”, 0)</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="4.26" data-path="transformacion.html"><a href="transformacion.html#la-función-percent_rank"><i class="fa fa-check"></i><b>4.26</b> la función <strong>percent_rank()</strong></a></li>
-<li class="chapter" data-level="4.27" data-path="transformacion.html"><a href="transformacion.html#la-función-percent_rank-sin-na"><i class="fa fa-check"></i><b>4.27</b> la función <strong>percent_rank()</strong> sin <strong>NA</strong></a></li>
-<li class="chapter" data-level="4.28" data-path="transformacion.html"><a href="transformacion.html#la-función-cume_dist"><i class="fa fa-check"></i><b>4.28</b> la función <strong>cume_dist()</strong></a></li>
-<li class="chapter" data-level="4.29" data-path="transformacion.html"><a href="transformacion.html#resúmenes-con-summarise-by-group-using-group_by"><i class="fa fa-check"></i><b>4.29</b> Resúmenes con summarise() by group using group_by()</a></li>
-<li class="chapter" data-level="4.30" data-path="transformacion.html"><a href="transformacion.html#the-worst-airline-in-departure-delays"><i class="fa fa-check"></i><b>4.30</b> The worst airline in departure delays</a></li>
-<li class="chapter" data-level="4.31" data-path="transformacion.html"><a href="transformacion.html#el-pipe"><i class="fa fa-check"></i><b>4.31</b> El Pipe</a></li>
-<li class="chapter" data-level="4.32" data-path="transformacion.html"><a href="transformacion.html#otras-funciones-na"><i class="fa fa-check"></i><b>4.32</b> Otras funciones: NA</a></li>
-<li class="chapter" data-level="4.33" data-path="transformacion.html"><a href="transformacion.html#otras-funciones"><i class="fa fa-check"></i><b>4.33</b> Otras funciones:</a></li>
+<li class="chapter" data-level="4.26" data-path="transformacion.html"><a href="transformacion.html#pruebas-no-paraméticas"><i class="fa fa-check"></i><b>4.26</b> Pruebas no paraméticas</a></li>
+<li class="chapter" data-level="4.27" data-path="transformacion.html"><a href="transformacion.html#min_rank-y-min_rankdesc"><i class="fa fa-check"></i><b>4.27</b> min_rank() y # min_rank(desc())</a></li>
+<li class="chapter" data-level="4.28" data-path="transformacion.html"><a href="transformacion.html#row_number"><i class="fa fa-check"></i><b>4.28</b> row_number()</a></li>
+<li class="chapter" data-level="4.29" data-path="transformacion.html"><a href="transformacion.html#dense_rank"><i class="fa fa-check"></i><b>4.29</b> dense_rank()</a></li>
+<li class="chapter" data-level="4.30" data-path="transformacion.html"><a href="transformacion.html#la-función-percent_rank"><i class="fa fa-check"></i><b>4.30</b> la función <strong>percent_rank()</strong></a></li>
+<li class="chapter" data-level="4.31" data-path="transformacion.html"><a href="transformacion.html#la-función-percent_rank-sin-na"><i class="fa fa-check"></i><b>4.31</b> la función <strong>percent_rank()</strong> sin <strong>NA</strong></a></li>
+<li class="chapter" data-level="4.32" data-path="transformacion.html"><a href="transformacion.html#la-función-cume_dist"><i class="fa fa-check"></i><b>4.32</b> la función <strong>cume_dist()</strong></a></li>
+<li class="chapter" data-level="4.33" data-path="transformacion.html"><a href="transformacion.html#resúmenes-con-summarise-by-group-using-group_by"><i class="fa fa-check"></i><b>4.33</b> Resúmenes con summarise() by group using group_by()</a></li>
+<li class="chapter" data-level="4.34" data-path="transformacion.html"><a href="transformacion.html#the-worst-airline-in-departure-delays"><i class="fa fa-check"></i><b>4.34</b> The worst airline in departure delays</a></li>
+<li class="chapter" data-level="4.35" data-path="transformacion.html"><a href="transformacion.html#el-pipe"><i class="fa fa-check"></i><b>4.35</b> El Pipe</a></li>
+<li class="chapter" data-level="4.36" data-path="transformacion.html"><a href="transformacion.html#otras-funciones-na"><i class="fa fa-check"></i><b>4.36</b> Otras funciones: NA</a></li>
+<li class="chapter" data-level="4.37" data-path="transformacion.html"><a href="transformacion.html#otras-funciones"><i class="fa fa-check"></i><b>4.37</b> Otras funciones:</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>5</b> Script</a>
 <ul>
@@ -298,11 +297,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1" data-path="pipes.html"><a href="pipes.html#temas-el-paquete-magrittr-y-sus-funciones"><i class="fa fa-check"></i><b>7.1</b> Temas: El paquete “magrittr” y sus funciones</a></li>
 <li class="chapter" data-level="7.2" data-path="pipes.html"><a href="pipes.html#pipes-1"><i class="fa fa-check"></i><b>7.2</b> %&gt;% pipes</a></li>
 <li class="chapter" data-level="7.3" data-path="pipes.html"><a href="pipes.html#alternativas-a-los-pipes"><i class="fa fa-check"></i><b>7.3</b> Alternativas a los pipes</a></li>
-<li class="chapter" data-level="7.4" data-path="pipes.html"><a href="pipes.html#section-1"><i class="fa fa-check"></i><b>7.4</b> %$%</a>
-<ul>
-<li class="chapter" data-level="7.4.1" data-path="pipes.html"><a href="pipes.html#otro-ejemplo-de-pipe"><i class="fa fa-check"></i><b>7.4.1</b> Otro ejemplo de Pipe: %$%</a></li>
-</ul></li>
-<li class="chapter" data-level="7.5" data-path="pipes.html"><a href="pipes.html#section-2"><i class="fa fa-check"></i><b>7.5</b> %&lt;&gt;%</a></li>
+<li class="chapter" data-level="7.4" data-path="pipes.html"><a href="pipes.html#otro-ejemplo-de-pipe"><i class="fa fa-check"></i><b>7.4</b> %<span class="math inline">\(% ### Otro ejemplo de Pipe: %\)</span>%</a></li>
+<li class="chapter" data-level="7.5" data-path="pipes.html"><a href="pipes.html#section-1"><i class="fa fa-check"></i><b>7.5</b> %&lt;&gt;%</a></li>
 <li class="chapter" data-level="7.6" data-path="pipes.html"><a href="pipes.html#in"><i class="fa fa-check"></i><b>7.6</b> %in%</a></li>
 <li class="chapter" data-level="7.7" data-path="pipes.html"><a href="pipes.html#t"><i class="fa fa-check"></i><b>7.7</b> %T&gt;%</a></li>
 </ul></li>
@@ -433,72 +429,76 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.19" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#time-zones"><i class="fa fa-check"></i><b>14.19</b> Time zones</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="importación-de-paquetes-y-datos.html"><a href="importación-de-paquetes-y-datos.html"><i class="fa fa-check"></i><b>15</b> Importación de Paquetes y Datos</a></li>
-<li class="chapter" data-level="16" data-path="utilizando-leaflet.html"><a href="utilizando-leaflet.html"><i class="fa fa-check"></i><b>16</b> Utilizando Leaflet</a></li>
-<li class="chapter" data-level="17" data-path="trabajando-variables-categóricas-con-leaflet.html"><a href="trabajando-variables-categóricas-con-leaflet.html"><i class="fa fa-check"></i><b>17</b> Trabajando Variables Categóricas con Leaflet:</a></li>
-<li class="chapter" data-level="18" data-path="math-sci.html"><a href="math-sci.html"><i class="fa fa-check"></i><b>18</b> Ecuaciones Matemáticas</a>
+<li class="chapter" data-level="16" data-path="math-sci.html"><a href="math-sci.html"><i class="fa fa-check"></i><b>16</b> Ecuaciones Matemáticas</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="math-sci.html"><a href="math-sci.html#ecuaciones-matemática"><i class="fa fa-check"></i><b>18.1</b> Ecuaciones matemática</a>
+<li class="chapter" data-level="16.1" data-path="math-sci.html"><a href="math-sci.html#ecuaciones-matemática"><i class="fa fa-check"></i><b>16.1</b> Ecuaciones matemática</a>
 <ul>
-<li class="chapter" data-level="18.1.1" data-path="math-sci.html"><a href="math-sci.html#matemática-y-física"><i class="fa fa-check"></i><b>18.1.1</b> Matemática y Física</a></li>
+<li class="chapter" data-level="16.1.1" data-path="math-sci.html"><a href="math-sci.html#matemática-y-física"><i class="fa fa-check"></i><b>16.1.1</b> Matemática y Física</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="math-sci.html"><a href="math-sci.html#química-101-símbolos"><i class="fa fa-check"></i><b>18.2</b> Química 101: Símbolos</a>
+<li class="chapter" data-level="16.2" data-path="math-sci.html"><a href="math-sci.html#química-101-símbolos"><i class="fa fa-check"></i><b>16.2</b> Química 101: Símbolos</a>
 <ul>
-<li class="chapter" data-level="18.2.1" data-path="math-sci.html"><a href="math-sci.html#típografica-de-reaciones"><i class="fa fa-check"></i><b>18.2.1</b> Típografica de reaciones</a></li>
-<li class="chapter" data-level="18.2.2" data-path="math-sci.html"><a href="math-sci.html#otros-ejemplos-de-reacciones"><i class="fa fa-check"></i><b>18.2.2</b> Otros ejemplos de reacciones</a></li>
+<li class="chapter" data-level="16.2.1" data-path="math-sci.html"><a href="math-sci.html#típografica-de-reaciones"><i class="fa fa-check"></i><b>16.2.1</b> Típografica de reaciones</a></li>
+<li class="chapter" data-level="16.2.2" data-path="math-sci.html"><a href="math-sci.html#otros-ejemplos-de-reacciones"><i class="fa fa-check"></i><b>16.2.2</b> Otros ejemplos de reacciones</a></li>
 </ul></li>
-<li class="chapter" data-level="18.3" data-path="math-sci.html"><a href="math-sci.html#biología"><i class="fa fa-check"></i><b>18.3</b> Biología</a>
+<li class="chapter" data-level="16.3" data-path="math-sci.html"><a href="math-sci.html#física"><i class="fa fa-check"></i><b>16.3</b> Física</a></li>
+<li class="chapter" data-level="16.4" data-path="math-sci.html"><a href="math-sci.html#biología"><i class="fa fa-check"></i><b>16.4</b> Biología</a>
 <ul>
-<li class="chapter" data-level="18.3.1" data-path="math-sci.html"><a href="math-sci.html#otras-funciones-de-knitr"><i class="fa fa-check"></i><b>18.3.1</b> OTRAS funciones de knitr</a></li>
+<li class="chapter" data-level="16.4.1" data-path="math-sci.html"><a href="math-sci.html#otras-funciones-de-knitr"><i class="fa fa-check"></i><b>16.4.1</b> OTRAS funciones de knitr</a></li>
 </ul></li>
-<li class="chapter" data-level="18.4" data-path="math-sci.html"><a href="math-sci.html#emoji-or-symbols"><i class="fa fa-check"></i><b>18.4</b> Emoji or Symbols</a>
+<li class="chapter" data-level="16.5" data-path="math-sci.html"><a href="math-sci.html#emoji-or-symbols"><i class="fa fa-check"></i><b>16.5</b> Emoji or Symbols</a>
 <ul>
-<li class="chapter" data-level="18.4.1" data-path="math-sci.html"><a href="math-sci.html#select-under-the-edit-emoji-symbols."><i class="fa fa-check"></i><b>18.4.1</b> Select Under the Edit ➡ Emoji &amp; Symbols.</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html"><i class="fa fa-check"></i><b>19</b> WordCloud_en_R</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#paso-1"><i class="fa fa-check"></i><b>19.1</b> Paso 1</a></li>
-<li class="chapter" data-level="19.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#subir-el-texto-en-formato-corpus"><i class="fa fa-check"></i><b>19.2</b> Subir el texto en formato <strong>Corpus</strong></a></li>
-<li class="chapter" data-level="19.3" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#mirar-el-documento"><i class="fa fa-check"></i><b>19.3</b> Mirar el documento</a>
-<ul>
-<li class="chapter" data-level="19.3.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#check-your-words-and-remove-unwanted-words-individually"><i class="fa fa-check"></i><b>19.3.1</b> Check your words and remove unwanted words individually</a></li>
-<li class="chapter" data-level="19.3.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts"><i class="fa fa-check"></i><b>19.3.2</b> How would you remove from the data frame all words that have less or equal to 3 counts</a></li>
+<li class="chapter" data-level="16.5.1" data-path="math-sci.html"><a href="math-sci.html#select-under-the-edit-emoji-symbols."><i class="fa fa-check"></i><b>16.5.1</b> Select Under the Edit ➡ Emoji &amp; Symbols.</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="hex-stickers.html"><a href="hex-stickers.html"><i class="fa fa-check"></i><b>20</b> Hex Stickers</a></li>
+<li class="chapter" data-level="17" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html"><i class="fa fa-check"></i><b>17</b> WordCloud_en_R</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#paso-1"><i class="fa fa-check"></i><b>17.1</b> Paso 1</a></li>
+<li class="chapter" data-level="17.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#subir-el-texto-en-formato-corpus"><i class="fa fa-check"></i><b>17.2</b> Subir el texto en formato <strong>Corpus</strong></a></li>
+<li class="chapter" data-level="17.3" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#mirar-el-documento"><i class="fa fa-check"></i><b>17.3</b> Mirar el documento</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#check-your-words-and-remove-unwanted-words-individually"><i class="fa fa-check"></i><b>17.3.1</b> Check your words and remove unwanted words individually</a></li>
+<li class="chapter" data-level="17.3.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts"><i class="fa fa-check"></i><b>17.3.2</b> How would you remove from the data frame all words that have less or equal to 3 counts</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="hex-stickers.html"><a href="hex-stickers.html"><i class="fa fa-check"></i><b>18</b> Hex Stickers</a></li>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-1.html"><a href="appendix-ejercicios-1.html"><i class="fa fa-check"></i>(Appendix) Ejercicios 1</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-1.html"><a href="appendix-ejercicios-1.html#capitulo-de-transformación-de-datos"><i class="fa fa-check"></i>Capitulo de Transformación de Datos</a></li>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-1.html"><a href="appendix-ejercicios-1.html#ejercicios-con-destrezar-de-aplicar-algunas-funciones-de-transformaciones-de-datos"><i class="fa fa-check"></i>Ejercicios con destrezar de aplicar algunas funciones de transformaciones de datos</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-1.html"><a href="appendix-ejercicios-1.html#para-tener-los-puntos-tiene-que-enseñar-todos-los-scripts-los-resultados-y-explicar-en-palabra-los-que-encontró-dentro-de-un-documento-bien-organizado."><i class="fa fa-check"></i>Para tener los puntos tiene que enseñar TODOS los scripts, los resultados y explicar en palabra los que encontró dentro de un documento bien organizado.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-1.html"><a href="appendix-ejercicios-1.html#busca-el-bateador-que-tuvo-más-carreras-en-cualquier-año"><i class="fa fa-check"></i>1. Busca el bateador que tuvo más carreras en cualquier año</a></li>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-1.html"><a href="appendix-ejercicios-1.html#cual-es-el-nombre-del-bateador-id_jugador-que-estuvo-más-veces-al_bate-prepara-una-lista-del-bateador-más-frecuente-al-bate-al-menos"><i class="fa fa-check"></i>2. ¿Cual es el nombre del bateador (id_jugador) que estuvo más veces “al_bate”? Prepara una lista del bateador más frecuente al bate al menos</a></li>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-1.html"><a href="appendix-ejercicios-1.html#cuales-son-las-ligas-de-baseball-pelota-que-estan-incluida-en-este-archivo"><i class="fa fa-check"></i>3. ¿Cuales son las “ligas” de baseball (pelota) que estan incluida en este archivo?</a></li>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-1.html"><a href="appendix-ejercicios-1.html#selecciona-los-años-1900-1950-2000-y-2020-y-jonrones-y-hacer-una-tabla-por-año-que-demuestra-el-máximo-de-jonrones-para-cada-año"><i class="fa fa-check"></i>4. Selecciona los años (1900, 1950, 2000 y 2020) y jonrones y hacer una tabla por año que demuestra el máximo de jonrones para cada año</a></li>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-1.html"><a href="appendix-ejercicios-1.html#haz-una-tabla-de-la-los-jugadores-que-juraron-más-años"><i class="fa fa-check"></i>5. Haz una tabla de la los jugadores que juraron más años</a></li>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-1.html"><a href="appendix-ejercicios-1.html#selecciona-solamente-la-liga-al-los-años-desde-de-2000-en-adelande-y-determina-cual-es-la-suma-de-carreras-anotadas-por-cada-equipo."><i class="fa fa-check"></i>6. Selecciona solamente la liga “AL”, los años desde de 2000 en adelande, y determina cual es la suma de “carreras” anotadas por cada equipo.</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="appendix-a.html"><a href="appendix-a.html"><i class="fa fa-check"></i><b>A</b> Appendix A</a>
+<li class="chapter" data-level="A" data-path="ejercicio-c.html"><a href="ejercicio-c.html"><i class="fa fa-check"></i><b>A</b> Ejercicio C</a>
 <ul>
-<li class="chapter" data-level="A.1" data-path="appendix-a.html"><a href="appendix-a.html#ejercicio-de-transformación"><i class="fa fa-check"></i><b>A.1</b> Ejercicio de Transformación</a></li>
-<li class="chapter" data-level="" data-path="appendix-a.html"><a href="appendix-a.html#capitulo-de-transformación-de-datos"><i class="fa fa-check"></i>Capitulo de Transformación de Datos</a></li>
-<li class="chapter" data-level="" data-path="appendix-a.html"><a href="appendix-a.html#ejercicios-con-destrezar-de-aplicar-algunas-funciones-de-transformaciones-de-datos"><i class="fa fa-check"></i>Ejercicios con destrezar de aplicar algunas funciones de transformaciones de datos</a>
-<ul>
-<li class="chapter" data-level="" data-path="appendix-a.html"><a href="appendix-a.html#para-tener-los-puntos-tiene-que-enseñar-todos-los-scripts-los-resultados-y-explicar-en-palabra-los-que-encontró-dentro-de-un-documento-bien-organizado."><i class="fa fa-check"></i>Para tener los puntos tiene que enseñar TODOS los scripts, los resultados y explicar en palabra los que encontró dentro de un documento bien organizado.</a></li>
+<li class="chapter" data-level="" data-path="ejercicio-c.html"><a href="ejercicio-c.html#calculate-the-age-of-individuals-when-they-were-diagnosed-with-hiv"><i class="fa fa-check"></i>Calculate the age of individuals when they were diagnosed with HIV</a></li>
+<li class="chapter" data-level="" data-path="ejercicio-c.html"><a href="ejercicio-c.html#calculate-the-time-between-the-date-of-diagnosis-of-hiv-and-the-date-of-death."><i class="fa fa-check"></i>Calculate the time between the date of diagnosis of HIV and the date of death.</a></li>
+<li class="chapter" data-level="" data-path="ejercicio-c.html"><a href="ejercicio-c.html#calculate-the-difference-in-life-between-the-date-of-diagnosis-and-death"><i class="fa fa-check"></i>Calculate the difference in life between the date of diagnosis and death</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="appendix-a.html"><a href="appendix-a.html#busca-el-bateador-que-tuvo-más-carreras-en-cualquier-año"><i class="fa fa-check"></i>1. Busca el bateador que tuvo más carreras en cualquier año</a></li>
-<li class="chapter" data-level="" data-path="appendix-a.html"><a href="appendix-a.html#cual-es-el-nombre-del-bateador-id_jugador-que-estuvo-más-veces-al_bate-prepara-una-lista-del-bateador-más-frecuente-al-bate-al-menos"><i class="fa fa-check"></i>2. ¿Cual es el nombre del bateador (id_jugador) que estuvo más veces “al_bate”? Prepara una lista del bateador más frecuente al bate al menos</a></li>
-<li class="chapter" data-level="" data-path="appendix-a.html"><a href="appendix-a.html#cuales-son-las-ligas-de-baseball-pelota-que-estan-incluida-en-este-archivo"><i class="fa fa-check"></i>3. ¿Cuales son las “ligas” de baseball (pelota) que estan incluida en este archivo?</a></li>
-<li class="chapter" data-level="" data-path="appendix-a.html"><a href="appendix-a.html#selecciona-los-años-1900-1950-2000-y-2020-y-jonrones-y-hacer-una-tabla-por-año-que-demuestra-el-máximo-de-jonrones-para-cada-año"><i class="fa fa-check"></i>4. Selecciona los años (1900, 1950, 2000 y 2020) y jonrones y hacer una tabla por año que demuestra el máximo de jonrones para cada año</a></li>
-<li class="chapter" data-level="" data-path="appendix-a.html"><a href="appendix-a.html#haz-una-tabla-de-la-los-jugadores-que-juraron-más-años"><i class="fa fa-check"></i>5. Haz una tabla de la los jugadores que juraron más años</a></li>
-<li class="chapter" data-level="" data-path="appendix-a.html"><a href="appendix-a.html#selecciona-solamente-la-liga-al-los-años-desde-de-2000-en-adelande-y-determina-cual-es-la-suma-de-carreras-anotadas-por-cada-equipo."><i class="fa fa-check"></i>6. Selecciona solamente la liga “AL”, los años desde de 2000 en adelande, y determina cual es la suma de “carreras” anotadas por cada equipo.</a></li>
-</ul></li>
-<li class="chapter" data-level="B" data-path="appendix-c.html"><a href="appendix-c.html"><i class="fa fa-check"></i><b>B</b> Appendix C</a>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-2.html"><a href="appendix-ejercicios-2.html"><i class="fa fa-check"></i>(Appendix) Ejercicios 2</a>
 <ul>
-<li class="chapter" data-level="" data-path="appendix-c.html"><a href="appendix-c.html#calculate-the-age-of-individuals-when-they-were-diagnosed-with-hiv"><i class="fa fa-check"></i>Calculate the age of individuals when they were diagnosed with HIV</a></li>
-<li class="chapter" data-level="" data-path="appendix-c.html"><a href="appendix-c.html#calculate-the-time-between-the-date-of-diagnosis-of-hiv-and-the-date-of-death."><i class="fa fa-check"></i>Calculate the time between the date of diagnosis of HIV and the date of death.</a></li>
-<li class="chapter" data-level="" data-path="appendix-c.html"><a href="appendix-c.html#calculate-the-difference-in-life-between-the-date-of-diagnosis-and-death"><i class="fa fa-check"></i>Calculate the difference in life between the date of diagnosis and death</a></li>
-</ul></li>
-<li class="chapter" data-level="C" data-path="appendix-b.html"><a href="appendix-b.html"><i class="fa fa-check"></i><b>C</b> Appendix B</a>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-2.html"><a href="appendix-ejercicios-2.html#ejercicios-para-las-funciones-de-transformaciones-2"><i class="fa fa-check"></i>Ejercicios para las funciones de transformaciones 2</a></li>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-2.html"><a href="appendix-ejercicios-2.html#seleccione-los-siguientes-datos-sobre-covid-en-pr"><i class="fa fa-check"></i>Seleccione los siguientes datos sobre COVID en PR</a>
 <ul>
-<li class="chapter" data-level="" data-path="appendix-b.html"><a href="appendix-b.html#ejercicios-para-las-funciones-de-transformaciones-2"><i class="fa fa-check"></i>Ejercicios para las funciones de transformaciones 2</a></li>
-<li class="chapter" data-level="" data-path="appendix-b.html"><a href="appendix-b.html#seleccione-los-siguientes-datos-sobre-covid-en-pr"><i class="fa fa-check"></i>Seleccione los siguientes datos sobre COVID en PR</a>
-<ul>
-<li class="chapter" data-level="" data-path="appendix-b.html"><a href="appendix-b.html#leen-bien-lo-que-estoy-pidiendo.-el-nombre-de-las-columnas-pueden-engañar"><i class="fa fa-check"></i>LEEN bien lo que estoy pidiendo. El nombre de las columnas pueden engañar!!!</a></li>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-2.html"><a href="appendix-ejercicios-2.html#leen-bien-lo-que-estoy-pidiendo.-el-nombre-de-las-columnas-pueden-engañar"><i class="fa fa-check"></i>LEEN bien lo que estoy pidiendo. El nombre de las columnas pueden engañar!!!</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="appendix-b.html"><a href="appendix-b.html#calcular-el-promedio-de-muertes-por-dia-de-nuevos-muertos-desde-el-comienzo-hasta-el-ultimo-dia-del-archivo"><i class="fa fa-check"></i>1. Calcular el promedio de Muertes por dia de nuevos muertos desde el comienzo hasta el ultimo dia del archivo</a></li>
-<li class="chapter" data-level="" data-path="appendix-b.html"><a href="appendix-b.html#cual-es-la-máximo-de-nuevos-casos-en-un-día"><i class="fa fa-check"></i>2. ¿Cual es la máximo de nuevos casos en un día</a></li>
-<li class="chapter" data-level="" data-path="appendix-b.html"><a href="appendix-b.html#calcular-la-cantidad-cumulativa-de-numero-de-camas-camasicu"><i class="fa fa-check"></i>3. ¿Calcular la cantidad cumulativa de numero de camas CamasICU</a></li>
-<li class="chapter" data-level="" data-path="appendix-b.html"><a href="appendix-b.html#haz-una-grafica-de-la-varianza-y-como-cambia-atravez-del-tiempo."><i class="fa fa-check"></i>4. Haz una grafica de la varianza y como cambia atravez del tiempo.</a></li>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-2.html"><a href="appendix-ejercicios-2.html#calcular-el-promedio-de-muertes-por-dia-de-nuevos-muertos-desde-el-comienzo-hasta-el-ultimo-dia-del-archivo"><i class="fa fa-check"></i>1. Calcular el promedio de Muertes por dia de nuevos muertos desde el comienzo hasta el ultimo dia del archivo</a></li>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-2.html"><a href="appendix-ejercicios-2.html#cual-es-la-máximo-de-nuevos-casos-en-un-día"><i class="fa fa-check"></i>2. ¿Cual es la máximo de nuevos casos en un día</a></li>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-2.html"><a href="appendix-ejercicios-2.html#calcular-la-cantidad-cumulativa-de-numero-de-camas-camasicu"><i class="fa fa-check"></i>3. ¿Calcular la cantidad cumulativa de numero de camas CamasICU</a></li>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-2.html"><a href="appendix-ejercicios-2.html#haz-una-grafica-de-la-varianza-y-como-cambia-atravez-del-tiempo."><i class="fa fa-check"></i>4. Haz una grafica de la varianza y como cambia atravez del tiempo.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-3.html"><a href="appendix-ejercicios-3.html"><i class="fa fa-check"></i>(Appendix) Ejercicios 3</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-3.html"><a href="appendix-ejercicios-3.html#calculate-the-age-of-individuals-when-they-were-diagnosed-with-hiv-1"><i class="fa fa-check"></i>Calculate the age of individuals when they were diagnosed with HIV</a></li>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-3.html"><a href="appendix-ejercicios-3.html#calculate-the-time-between-the-date-of-diagnosis-of-hiv-and-the-date-of-death.-1"><i class="fa fa-check"></i>Calculate the time between the date of diagnosis of HIV and the date of death.</a></li>
+<li class="chapter" data-level="" data-path="appendix-ejercicios-3.html"><a href="appendix-ejercicios-3.html#calculate-the-difference-in-life-between-the-date-of-diagnosis-and-death-1"><i class="fa fa-check"></i>Calculate the difference in life between the date of diagnosis and death</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -520,327 +520,256 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="math-sci" class="section level1 hasAnchor" number="18">
-<h1><span class="header-section-number">Chapter 18</span> Ecuaciones Matemáticas<a href="math-sci.html#math-sci" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<!-- Required to number equations in HTML files -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
-<div id="ecuaciones-matemática" class="section level2 hasAnchor" number="18.1">
-<h2><span class="header-section-number">18.1</span> Ecuaciones matemática<a href="math-sci.html#ecuaciones-matemática" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><em>TeX</em> es la mejor manera de escribir funciones matemáticas en R. Donald Knuth diseñó el paquete  cuando se sintió frustrado por el tiempo que les tomaba a los tipógrafos y terminar su libro, que contenía mucha funciones matemática. Una característica interesante de <em>R Markdown</em> es su capacidad para leer código LaTeX directamente.</p>
-<p>Si está haciendo una tesis, artículo cientíco, presentaciones o quiere acalrar en su documento las funciones que estas usando, típicamente esto involucrará muchas ecuaciones matemáticas. Por consecuencia querrá leer la siguiente sección que ha sido comentada.</p>
+<div id="ejercicio-c" class="section level1 hasAnchor" number="19">
+<h1><span class="header-section-number">A</span> Ejercicio C<a href="ejercicio-c.html#ejercicio-c" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <hr />
-<div id="matemática-y-física" class="section level3 hasAnchor" number="18.1.1">
-<h3><span class="header-section-number">18.1.1</span> Matemática y Física<a href="math-sci.html#matemática-y-física" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math display">\[
-\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
-\left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2
-\]</span></p>
-<p>De Informational Dynamics, tenemos lo siguiente (Dave Braden):</p>
-<p>Después de <em>n</em> tales encuentros, la densidad posterior de <span class="math inline">\(\theta\)</span> es</p>
-<p><span class="math display">\[
-\pi(\theta|X_1&lt; y_1,\dots,X_n&lt;y_n) \varpropto \pi(\theta) \prod_{i=1}^n\int_{-\infty}^{y_i}
-   \exp\left(-{(x-\theta)^2\over{2\sigma^2}}\right)\ dx
-\]</span></p>
-<p>Otra Ecuaciones</p>
-<p><span class="math display">\[
-\det\left|\,\begin{matrix}%
-c_0&amp;c_1\hfill&amp;c_2\hfill&amp;\ldots&amp;c_n\hfill\cr
-c_1&amp;c_2\hfill&amp;c_3\hfill&amp;\ldots&amp;c_{n+1}\hfill\cr
-c_2&amp;c_3\hfill&amp;c_4\hfill&amp;\ldots&amp;c_{n+2}\hfill\cr
-\,\vdots\hfill&amp;\,\vdots\hfill&amp;
-  \,\vdots\hfill&amp;&amp;\,\vdots\hfill\cr
-c_n&amp;c_{n+1}\hfill&amp;c_{n+2}\hfill&amp;\ldots&amp;c_{2n}\hfill\cr
-\end{matrix}\right|&gt;0
-\]</span></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="ejercicio-c.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="ejercicio-c.html#cb1-2" tabindex="-1"></a>HIV <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;HIV.csv&quot;</span>)</span></code></pre></div>
+</details>
+<pre><code>## Rows: 824 Columns: 10
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (7): gender, dob, hiv_risk_factor_f, ins_type_f, vital_status, date_of_d...
+## dbl (3): Poverty_numeric, hh_size, lifespan
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="ejercicio-c.html#cb3-1" tabindex="-1"></a>HIV</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 824 × 10
+##    gender dob      hiv_risk_factor_f Poverty_numeric hh_size ins_type_f
+##    &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;                       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     
+##  1 Hombre 8/21/34  Heterosexual                  0.5       2 Medicaid  
+##  2 Mujer  1/25/31  Heterosexual                  0.5       3 Medicaid  
+##  3 Hombre 11/18/36 Heterosexual                  0.5       1 Medicaid  
+##  4 Mujer  6/29/37  Heterosexual                  0.5       1 Medicaid  
+##  5 Hombre 12/26/42 Heterosexual                  0.5       2 Medicaid  
+##  6 Mujer  3/21/40  Heterosexual                  0.5       2 Medicaid  
+##  7 Hombre 8/17/36  Heterosexual                  0.5       1 Medicaid  
+##  8 Mujer  10/17/42 Heterosexual                  0.5       1 Medicaid  
+##  9 Mujer  10/17/42 Heterosexual                  0.5       1 Medicaid  
+## 10 Hombre 7/17/47  Heterosexual                  0.5       2 Medicaid  
+## # ℹ 814 more rows
+## # ℹ 4 more variables: vital_status &lt;chr&gt;, date_of_death &lt;chr&gt;, hiv_date &lt;chr&gt;,
+## #   lifespan &lt;dbl&gt;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="ejercicio-c.html#cb5-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+</details>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.3     ✔ purrr     1.0.2
+## ✔ forcats   1.0.0     ✔ stringr   1.5.0
+## ✔ ggplot2   3.4.3     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<p><a href="https://www.stat.berkeley.edu/~s133/dates.html" class="uri">https://www.stat.berkeley.edu/~s133/dates.html</a></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="ejercicio-c.html#cb7-1" tabindex="-1"></a>HIV<span class="sc">$</span>dob<span class="ot">=</span><span class="fu">as.Date</span>(<span class="fu">format</span>(<span class="fu">as.Date</span>(HIV<span class="sc">$</span>dob,<span class="at">format=</span><span class="st">&quot;%m/%d/%y&quot;</span>), <span class="st">&quot;19%y%m%d&quot;</span>), <span class="st">&quot;%Y%m%d&quot;</span>)</span>
+<span id="cb7-2"><a href="ejercicio-c.html#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="ejercicio-c.html#cb7-3" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="ejercicio-c.html#cb7-4" tabindex="-1"></a>HIV</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 824 × 10
+##    gender dob        hiv_risk_factor_f Poverty_numeric hh_size ins_type_f
+##    &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt;                       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     
+##  1 Hombre 1934-08-21 Heterosexual                  0.5       2 Medicaid  
+##  2 Mujer  1931-01-25 Heterosexual                  0.5       3 Medicaid  
+##  3 Hombre 1936-11-18 Heterosexual                  0.5       1 Medicaid  
+##  4 Mujer  1937-06-29 Heterosexual                  0.5       1 Medicaid  
+##  5 Hombre 1942-12-26 Heterosexual                  0.5       2 Medicaid  
+##  6 Mujer  1940-03-21 Heterosexual                  0.5       2 Medicaid  
+##  7 Hombre 1936-08-17 Heterosexual                  0.5       1 Medicaid  
+##  8 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+##  9 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+## 10 Hombre 1947-07-17 Heterosexual                  0.5       2 Medicaid  
+## # ℹ 814 more rows
+## # ℹ 4 more variables: vital_status &lt;chr&gt;, date_of_death &lt;chr&gt;, hiv_date &lt;chr&gt;,
+## #   lifespan &lt;dbl&gt;</code></pre>
+<div id="calculate-the-age-of-individuals-when-they-were-diagnosed-with-hiv" class="section level2 unnumbered hasAnchor">
+<h2>Calculate the age of individuals when they were diagnosed with HIV<a href="ejercicio-c.html#calculate-the-age-of-individuals-when-they-were-diagnosed-with-hiv" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="calculate-the-time-between-the-date-of-diagnosis-of-hiv-and-the-date-of-death." class="section level2 unnumbered hasAnchor">
+<h2>Calculate the time between the date of diagnosis of HIV and the date of death.<a href="ejercicio-c.html#calculate-the-time-between-the-date-of-diagnosis-of-hiv-and-the-date-of-death." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="ejercicio-c.html#cb9-1" tabindex="-1"></a>HIV<span class="ot">=</span> HIV <span class="sc">|&gt;</span>  </span>
+<span id="cb9-2"><a href="ejercicio-c.html#cb9-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date_d=</span><span class="fu">mdy</span>(date_of_death),</span>
+<span id="cb9-3"><a href="ejercicio-c.html#cb9-3" tabindex="-1"></a>         <span class="at">hiv_d =</span> <span class="fu">mdy</span>(hiv_date))</span>
+<span id="cb9-4"><a href="ejercicio-c.html#cb9-4" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="ejercicio-c.html#cb9-5" tabindex="-1"></a>HIV</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 824 × 12
+##    gender dob        hiv_risk_factor_f Poverty_numeric hh_size ins_type_f
+##    &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt;                       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     
+##  1 Hombre 1934-08-21 Heterosexual                  0.5       2 Medicaid  
+##  2 Mujer  1931-01-25 Heterosexual                  0.5       3 Medicaid  
+##  3 Hombre 1936-11-18 Heterosexual                  0.5       1 Medicaid  
+##  4 Mujer  1937-06-29 Heterosexual                  0.5       1 Medicaid  
+##  5 Hombre 1942-12-26 Heterosexual                  0.5       2 Medicaid  
+##  6 Mujer  1940-03-21 Heterosexual                  0.5       2 Medicaid  
+##  7 Hombre 1936-08-17 Heterosexual                  0.5       1 Medicaid  
+##  8 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+##  9 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+## 10 Hombre 1947-07-17 Heterosexual                  0.5       2 Medicaid  
+## # ℹ 814 more rows
+## # ℹ 6 more variables: vital_status &lt;chr&gt;, date_of_death &lt;chr&gt;, hiv_date &lt;chr&gt;,
+## #   lifespan &lt;dbl&gt;, date_d &lt;date&gt;, hiv_d &lt;date&gt;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="ejercicio-c.html#cb11-1" tabindex="-1"></a>HIV1 <span class="ot">&lt;-</span> HIV <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="ejercicio-c.html#cb11-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hiv_date =</span> <span class="fu">mdy</span>(hiv_date))</span>
+<span id="cb11-3"><a href="ejercicio-c.html#cb11-3" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="ejercicio-c.html#cb11-4" tabindex="-1"></a>HIV1</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 824 × 12
+##    gender dob        hiv_risk_factor_f Poverty_numeric hh_size ins_type_f
+##    &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt;                       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     
+##  1 Hombre 1934-08-21 Heterosexual                  0.5       2 Medicaid  
+##  2 Mujer  1931-01-25 Heterosexual                  0.5       3 Medicaid  
+##  3 Hombre 1936-11-18 Heterosexual                  0.5       1 Medicaid  
+##  4 Mujer  1937-06-29 Heterosexual                  0.5       1 Medicaid  
+##  5 Hombre 1942-12-26 Heterosexual                  0.5       2 Medicaid  
+##  6 Mujer  1940-03-21 Heterosexual                  0.5       2 Medicaid  
+##  7 Hombre 1936-08-17 Heterosexual                  0.5       1 Medicaid  
+##  8 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+##  9 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+## 10 Hombre 1947-07-17 Heterosexual                  0.5       2 Medicaid  
+## # ℹ 814 more rows
+## # ℹ 6 more variables: vital_status &lt;chr&gt;, date_of_death &lt;chr&gt;, hiv_date &lt;date&gt;,
+## #   lifespan &lt;dbl&gt;, date_d &lt;date&gt;, hiv_d &lt;date&gt;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="ejercicio-c.html#cb13-1" tabindex="-1"></a>HIV2 <span class="ot">&lt;-</span> HIV1 <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="ejercicio-c.html#cb13-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">edad =</span> dob <span class="sc">%--%</span> hiv_date <span class="sc">/</span> <span class="fu">years</span>())</span>
+<span id="cb13-3"><a href="ejercicio-c.html#cb13-3" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="ejercicio-c.html#cb13-4" tabindex="-1"></a>HIV2</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 824 × 13
+##    gender dob        hiv_risk_factor_f Poverty_numeric hh_size ins_type_f
+##    &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt;                       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     
+##  1 Hombre 1934-08-21 Heterosexual                  0.5       2 Medicaid  
+##  2 Mujer  1931-01-25 Heterosexual                  0.5       3 Medicaid  
+##  3 Hombre 1936-11-18 Heterosexual                  0.5       1 Medicaid  
+##  4 Mujer  1937-06-29 Heterosexual                  0.5       1 Medicaid  
+##  5 Hombre 1942-12-26 Heterosexual                  0.5       2 Medicaid  
+##  6 Mujer  1940-03-21 Heterosexual                  0.5       2 Medicaid  
+##  7 Hombre 1936-08-17 Heterosexual                  0.5       1 Medicaid  
+##  8 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+##  9 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+## 10 Hombre 1947-07-17 Heterosexual                  0.5       2 Medicaid  
+## # ℹ 814 more rows
+## # ℹ 7 more variables: vital_status &lt;chr&gt;, date_of_death &lt;chr&gt;, hiv_date &lt;date&gt;,
+## #   lifespan &lt;dbl&gt;, date_d &lt;date&gt;, hiv_d &lt;date&gt;, edad &lt;dbl&gt;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="ejercicio-c.html#cb15-1" tabindex="-1"></a>HIV3 <span class="ot">&lt;-</span> HIV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="ejercicio-c.html#cb15-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date_of_death =</span> <span class="fu">mdy</span>(date_of_death))</span>
+<span id="cb15-3"><a href="ejercicio-c.html#cb15-3" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="ejercicio-c.html#cb15-4" tabindex="-1"></a>HIV3</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 824 × 13
+##    gender dob        hiv_risk_factor_f Poverty_numeric hh_size ins_type_f
+##    &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt;                       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     
+##  1 Hombre 1934-08-21 Heterosexual                  0.5       2 Medicaid  
+##  2 Mujer  1931-01-25 Heterosexual                  0.5       3 Medicaid  
+##  3 Hombre 1936-11-18 Heterosexual                  0.5       1 Medicaid  
+##  4 Mujer  1937-06-29 Heterosexual                  0.5       1 Medicaid  
+##  5 Hombre 1942-12-26 Heterosexual                  0.5       2 Medicaid  
+##  6 Mujer  1940-03-21 Heterosexual                  0.5       2 Medicaid  
+##  7 Hombre 1936-08-17 Heterosexual                  0.5       1 Medicaid  
+##  8 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+##  9 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+## 10 Hombre 1947-07-17 Heterosexual                  0.5       2 Medicaid  
+## # ℹ 814 more rows
+## # ℹ 7 more variables: vital_status &lt;chr&gt;, date_of_death &lt;date&gt;,
+## #   hiv_date &lt;date&gt;, lifespan &lt;dbl&gt;, date_d &lt;date&gt;, hiv_d &lt;date&gt;, edad &lt;dbl&gt;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="ejercicio-c.html#cb17-1" tabindex="-1"></a>HIV4 <span class="ot">&lt;-</span> HIV3 <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="ejercicio-c.html#cb17-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">diagnosed_death =</span> hiv_date <span class="sc">%--%</span> date_of_death <span class="sc">/</span> <span class="fu">years</span>())</span>
+<span id="cb17-3"><a href="ejercicio-c.html#cb17-3" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="ejercicio-c.html#cb17-4" tabindex="-1"></a>HIV4</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 824 × 14
+##    gender dob        hiv_risk_factor_f Poverty_numeric hh_size ins_type_f
+##    &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt;                       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     
+##  1 Hombre 1934-08-21 Heterosexual                  0.5       2 Medicaid  
+##  2 Mujer  1931-01-25 Heterosexual                  0.5       3 Medicaid  
+##  3 Hombre 1936-11-18 Heterosexual                  0.5       1 Medicaid  
+##  4 Mujer  1937-06-29 Heterosexual                  0.5       1 Medicaid  
+##  5 Hombre 1942-12-26 Heterosexual                  0.5       2 Medicaid  
+##  6 Mujer  1940-03-21 Heterosexual                  0.5       2 Medicaid  
+##  7 Hombre 1936-08-17 Heterosexual                  0.5       1 Medicaid  
+##  8 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+##  9 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+## 10 Hombre 1947-07-17 Heterosexual                  0.5       2 Medicaid  
+## # ℹ 814 more rows
+## # ℹ 8 more variables: vital_status &lt;chr&gt;, date_of_death &lt;date&gt;,
+## #   hiv_date &lt;date&gt;, lifespan &lt;dbl&gt;, date_d &lt;date&gt;, hiv_d &lt;date&gt;, edad &lt;dbl&gt;,
+## #   diagnosed_death &lt;dbl&gt;</code></pre>
+</div>
+<div id="calculate-the-difference-in-life-between-the-date-of-diagnosis-and-death" class="section level2 unnumbered hasAnchor">
+<h2>Calculate the difference in life between the date of diagnosis and death<a href="ejercicio-c.html#calculate-the-difference-in-life-between-the-date-of-diagnosis-and-death" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="ejercicio-c.html#cb19-1" tabindex="-1"></a>HIV<span class="sc">$</span>months<span class="ot">=</span> <span class="fu">floor</span>(<span class="fu">time_length</span>(<span class="fu">difftime</span>(HIV<span class="sc">$</span>date_d, HIV<span class="sc">$</span>hiv_d), <span class="st">&quot;months&quot;</span>))</span>
+<span id="cb19-2"><a href="ejercicio-c.html#cb19-2" tabindex="-1"></a>HIV<span class="sc">$</span>months</span></code></pre></div>
+</details>
+<pre><code>##   [1] 182  17   3  11 159  46 143 190 188 265 196 272  97 332 307 282 179 368
+##  [19] 363 363 228 192 195  80  55 299 299  17   1 273 216  86 201 201 154 110
+##  [37]  55  32 182 123  74 324 223 213 127  72 264 116 100  95  57   4 220 204
+##  [55] 102  10   4 339 306 294 208 205 167 102  86   1 320 320 240 181 176 115
+##  [73]  33   2 314 197 203 181 183 137  47  47  46  27 373 239 239 239 231 223
+##  [91] 201 195 200 174 160 158  81  27  17 326 332 312 312 280 226 226 211 171
+## [109] 163 129 105  80  76  58  11  10 309 275 243 234 117  56 329 302 271 266
+## [127] 196 161 124 118  72  71 313 209 198 157 158 155  44 267 273 254 188 134
+## [145] 110  77  48   6 261 218 110  90  25 252 154  65  18  14 276 227 157 161
+## [163]  29 273 243 118  79  51  42   1 262 229  87 246 158   3 256 144 143  61
+## [181]  31  19   2 141 173  23  15   5 102 102 179  67  36 177 132   0   5 197
+## [199] 121   2 225 225 164 166   2 132 132 106  66  87  67 295 236 346 211 204
+## [217] 286 334 150 166  90 215  24  69   4 132   2 230 222 169 112  27 233  65
+## [235]   2 279 271 238 232  21 228 223 191 207 164 151 162  65  65  67  17 286
+## [253]  97 212  19 324  86 110  68 208 203 183 284  62  52  30 137  10 193  22
+## [271] 101 101  97  96  90   0   0 266 298 227  97 128  10 312 323   4   0   4
+## [289] 274 241 209 168 168 316 207  84 287 100 461 237 237 235 139 214  98 355
+## [307] 323 280 283 315 298 298 231 180 212 224 221 221 221 337 174 142 423 371
+## [325] 166 282 265 165 164 391 394 348 352 352 338 242 196 162 128 291 263 235
+## [343] 235 269 204 214 201 175 160 146 154  81 339 291 277 259 219 213 207 213
+## [361] 180 132 140 119 111 102 392 283 281 229 189  38 274 168 168 170 164 157
+## [379] 150 150 135  87  79 322 322 322 274 259 216 167 138 317 289 275 237 186
+## [397] 150 144 125  80  72  49  56 315 292 233 221 219 195 195 198 177 152 144
+## [415] 103  67 384 381 379 345 332 210 170 159 143 142 132  99  90  95  95  87
+## [433]  33  33  33  26 377 340 307 301 225 179 166 115  97  93  54 416 335 249
+## [451] 222 213 201 189 141  52  42 318 300 300 300 244 238 218 186 176 136 142
+## [469] 131 131 127 124 109  76  54 264 214 185 181 151 154 154  73  70 403 336
+## [487] 281 228 216 187 190 179 144 131 100  47  43 347 289 277 259 259 259 218
+## [505] 218 211 157 141  53   4 281 257 229 224 217 218 134 134  90  95  56  34
+## [523]  35  21  22 386 284 248 235 235 207 199 146 144 122 110  66 273 197 153
+## [541] 107 100  67 254 209 173 122 122 114  56   2 247 127 106  85  76  67   3
+## [559] 193 198 199 164 108  65 127 112 103 179  34  14 212 191 150 144  80 171
+## [577] 133  66 121  95 182 166  21   6   1  31  23   6 388 388  62  20  26 158
+## [595] 332 370 274 242 228  98  15 277 222 306  52 187 186 269 295 195 172 214
+## [613] 184 123   6  55   3 142 148  93 139 316 270 271 262 179 182 240 189  73
+## [631]  32 106 134  83 281 236 137 137 144 249 304 192  34 259 197   3 155 223
+## [649] 165 152 184 329 329 253 107 135  50 134 141 227 142 124  57 223 175 171
+## [667] 241 215  71   1 269 230 292 252  25 248  63 248 261 188  91 190 175  69
+## [685]  25 192 162 211 248 261 278 199 233 456 455 229 156 111 124  22 233 323
+## [703] 344 340 114 193 118 246 267 254 195 168 229 236 219 280 332 313 244 244
+## [721] 295 187 137 138 182  86 125  17  57 361 384 128 358 212 374 310 157  99
+## [739]  99  84 126 214 125 321 129 111  58  69 190 190  52  24 226 226 321 296
+## [757] 211 118 101 276 258 222 115 182 137 251 208  32   8   2   0 206 210 186
+## [775] 112 475  57 316 231 351 143 252 159 327 336  65 143 254 254   3  15  90
+## [793] 209 183 183 271  81 235 163 283 248 190  59 119 230 288 410 216  24 120
+## [811]  54   1 290 279 268 293 260  81 269 272 309 361 336 315</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="ejercicio-c.html#cb21-1" tabindex="-1"></a>HIV <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="ejercicio-c.html#cb21-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Period_HIV_death =</span> <span class="fu">as.duration</span>(hiv_d <span class="sc">%--%</span> date_d)) <span class="sc">|&gt;</span> </span>
+<span id="cb21-3"><a href="ejercicio-c.html#cb21-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_time=</span><span class="fu">mean</span>(Period_HIV_death)) </span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 1 × 1
+##    mean_time
+##        &lt;dbl&gt;
+## 1 462043713.</code></pre>
 <hr />
-<p>Lapidus y Píndaro, Solución numérica de ecuaciones diferenciales parciales en ciencia y Ingeniería. Página 54</p>
-<p><span class="math display">\[
-\int_t\left\{\sum_{j=1}^3 T_j \left({d\phi_j\over dt}+k\phi_j\right)-kT_e\right\}w_i(t)\ dt=0,
-   \qquad\quad i=1,2,3.
-\]</span></p>
-<p>Funciones de ponderación del método L&amp;P Galerkin. Página 55</p>
-<p><span class="math display">\[
-\sum_{j=1}^3 T_j\int_0^1\left\{{d\phi_j\over dt} + k\phi_j\right\} \phi_i\ dt
-   = \int_{0}^1k\,T_e\phi_idt, \qquad i=1,2,3 \]</span></p>
-<p>Otra de L&amp;P (p145)</p>
-<p><span class="math display">\[
-\int_{-1}^1\!\int_{-1}^1\!\int_{-1}^1 f\big(\xi,\eta,\zeta\big)
-   = \sum_{k=1}^n\sum_{j=1}^n\sum_{i=1}^n w_i w_j w_k f\big( \xi,\eta,\zeta\big).
-\]</span></p>
-<p>Otra de L&amp;P (p126)</p>
-<p><span class="math display">\[
-\int_{A_e} (\,\cdot\,) dx dy = \int_{-1}^1\!\int_{-1}^1 (\,\cdot\,) \det[J] d\xi d\eta.
-\]</span>
-–&gt;</p>
-</div>
-</div>
-<div id="química-101-símbolos" class="section level2 hasAnchor" number="18.2">
-<h2><span class="header-section-number">18.2</span> Química 101: Símbolos<a href="math-sci.html#química-101-símbolos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Las fórmulas químicas se verán mejor si no están en cursiva. Evite la cursiva automática del modo matemático en LaTeX usando el argumento <code>$\mathrm{fórmula aquí}$</code>, con su fórmula dentro de las llaves. (Observe el uso de comillas invertidas aquí que encierran texto y que actúa como código para ver el script original).</p>
-<p>Entonces, <span class="math inline">\(\mathrm{Fe_2^{2+}Cr_2O_4}\)</span> es escrito como <code>$\mathrm{Fe_2^{2+}Cr_2O_4}$</code>.</p>
-<!--
-The \noindent command below does what you'd expect:  it forces the current line/paragraph to not indent. This was done here to match the format of the LaTeX thesis PDF.
--->
-<p>Exponente or Sobrescrito: <span class="math inline">\(\mathrm{O^-}\)</span> y se escribe como <code>$\mathrm{O^-}$</code></p>
-<p>Subíndice: <span class="math inline">\(\mathrm{CH_4}\)</span> y se escribe como <code>$\mathrm{CH_4}$</code></p>
-<p>Para apilar números o letras como en <span class="math inline">\(\mathrm{Fe_2^{2+}}\)</span>, primero se define el subíndice y luego el superíndice y se escribe como <code>$\mathrm{Fe_2^{2+}}$</code>.</p>
-<p>punto se usa la palabra <strong>bullet</strong>: CuCl <span class="math inline">\(\bullet\)</span> <span class="math inline">\(\mathrm{7H_{2}O}\)</span></p>
-<p><code>CuCl $\bullet$ $\mathrm{7H_{2}O}$</code></p>
-<p>Delta: <span class="math inline">\(\Delta\)</span> y se escribe como `$</p>
-<p><span class="math inline">\(\Gamma\)</span></p>
-<p><span class="math inline">\(\gamma\)</span></p>
-<p>Aqui esta mi super formula de <span class="math inline">\(\phi\)</span> que voy a usar en el exam</p>
-<p>Flecha de Reacción: <span class="math inline">\(\longrightarrow\)</span> or <span class="math inline">\(\xrightarrow{solution}\)</span> y se escribe como <code>$\longrightarrow$</code> or <code>$\xrightarrow{solution}$</code></p>
-<p>Flecha de Resonancia: <span class="math inline">\(\leftrightarrow\)</span> y se escribe como <code>$\leftrightarrow$</code></p>
-<p>Flechas de reacción reversibles: <span class="math inline">\(\rightleftharpoons\)</span> y se escribe como <code>$\rightleftharpoons$</code></p>
-<div id="típografica-de-reaciones" class="section level3 hasAnchor" number="18.2.1">
-<h3><span class="header-section-number">18.2.1</span> Típografica de reaciones<a href="math-sci.html#típografica-de-reaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Es posible que desees poner tu reacción en un entorno de ecuaciones, lo que significa que LaTeX colocará la reacción donde encaje y numerará las ecuaciones por ti.</p>
-<p><span class="math display" id="eq:reaction">\[\begin{equation}
-  \mathrm{C_6H_{12}O_6  + 6O_2} \longrightarrow \mathrm{6CO_2 + 6H_2O}
-  \tag{18.1}
-\end{equation}\]</span></p>
-<p>y se escribe como</p>
-<pre class="verbatum"><code>\begin{equation}
-  \mathrm{C_6H_{12}O_6  + 6O_2} \longrightarrow \mathrm{6CO_2 + 6H_2O}
-  (\#eq:reaction)
-\end{equation}</code></pre>
-<p>Podemos hacer referencia a esta reacción de combustión de glucosa mediante la ecuación <a href="math-sci.html#eq:reaction">(18.1)</a>.</p>
-</div>
-<div id="otros-ejemplos-de-reacciones" class="section level3 hasAnchor" number="18.2.2">
-<h3><span class="header-section-number">18.2.2</span> Otros ejemplos de reacciones<a href="math-sci.html#otros-ejemplos-de-reacciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math inline">\(\mathrm{NH_4Cl_{(s)}}\)</span> <span class="math inline">\(\rightleftharpoons\)</span> <span class="math inline">\(\mathrm{NH_{3(g)}+HCl_{(g)}}\)</span></p>
-<p>y se esscribe como</p>
-<p><code>$\mathrm{NH_4Cl_{(s)}}$ $\rightleftharpoons$ $\mathrm{NH_{3(g)}+HCl_{(g)}}$</code></p>
-<p><span class="math inline">\(\mathrm{MeCH_2Br + Mg}\)</span> <span class="math inline">\(\xrightarrow[abajo]{ariba}\)</span> <span class="math inline">\(\mathrm{MeCH_2\bullet Mg \bullet Br}\)</span></p>
-<p>y se escribe como</p>
-<p><code>$\mathrm{MeCH_2Br + Mg}$ $\xrightarrow[abajo]{ariba}$ $\mathrm{MeCH_2\bullet Mg \bullet Br}$</code>
-## Física</p>
-<p>Muchos de los símbolos que necesitará se pueden encontrar en la página de matemáticas.</p>
-<p><a href="https://web.reed.edu/cis/help/latex/math.html" class="uri">https://web.reed.edu/cis/help/latex/math.html</a> y la guía completa de símbolos LaTeX (<a href="https://mirror.utexas.edu/ctan/info/symbols/comprehensive/symbols-letter.pdf" class="uri">https://mirror.utexas.edu/ctan/info/symbols/comprehensive/symbols-letter.pdf</a>).</p>
-</div>
-</div>
-<div id="biología" class="section level2 hasAnchor" number="18.3">
-<h2><span class="header-section-number">18.3</span> Biología<a href="math-sci.html#biología" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Probablemente encontrará los recursos en <a href="https://www.lecb.ncifcrf.gov/~toms/latex.html" class="uri">https://www.lecb.ncifcrf.gov/~toms/latex.html</a> útil, particularmente los enlaces a bsts de varias revistas. Quizás también le interese TeXShade para composición tipográfica de nucleótidos (<a href="https://homepages.uni-tuebingen.de/beitz/txe.html" class="uri">https://homepages.uni-tuebingen.de/beitz/txe.html</a>). Asegúrese de leer el capítulo anterior sobre gráficos y tablas.</p>
-<p>La formula del promedio</p>
-<p><span class="math inline">\(\mu=\frac{\sum{x}_{i}}{n}\)</span> se escribe asi <code>$\mu=\frac{\sum{x}_{i}}{n}$</code></p>
-<p>NOTE la diferencia en tipo de letra</p>
-<p><span class="math inline">\(\mathrm{\mu=\frac{\sum{x}_{i}}{n}}\)</span> se escribe asi <code>$\mathrm{\mu=\frac{\sum{x}_{i}}{n}}$</code></p>
-<p><span class="math display" id="eq:promedio">\[\begin{equation}
-  \mathrm{\mu=\frac{\sum{x}_{i}}{n}}
-  \tag{18.2}
-\end{equation}\]</span></p>
-<p><span class="math inline">\(s^{2}=\frac{\sum (x_{i}-\bar{x})^2}{n-1}\)</span></p>
-<p>Sitios en el web para preparar las ecuaciones Latex</p>
-<ol style="list-style-type: decimal">
-<li><p><a href="https://latex.codecogs.com/eqneditor/editor.php" class="uri">https://latex.codecogs.com/eqneditor/editor.php</a></p></li>
-<li><p><a href="https://latexeditor.lagrida.com" class="uri">https://latexeditor.lagrida.com</a></p></li>
-<li><p><a href="https://www.hostmath.com" class="uri">https://www.hostmath.com</a></p></li>
-<li><p><a href="https://www.overleaf.com/learn/latex/Mathematical_expressions" class="uri">https://www.overleaf.com/learn/latex/Mathematical_expressions</a></p></li>
-</ol>
 
-<p>A# Opciones de Knitr</p>
-<p>La mayoria de los ejemplos y ideas de esta seccieon proviene de <strong>yihui</strong> en el siguiente website &lt;<a href="https://yihui.org/knitr/" class="uri">https://yihui.org/knitr/</a>&gt;</p>
-<p>el paquete <strong>knitr</strong> fue desiñado para ser transparente para generar reporte de R, añadiendo componente de animación y Latex (Ecuaciones) y otras funciones.</p>
-<p>Hay muchas opciones para determinar lo que have un <strong>chunk</strong></p>
-<ul>
-<li>Code evaluation: evaluación de código</li>
-<li>Text output: Formateo de texto</li>
-<li>Code decoration: Decoración del código</li>
-<li>Cache: Cache</li>
-<li>Plots: Gráficos</li>
-<li>Animation: Animaciones</li>
-<li>Code chunk: Código del chunk</li>
-<li>Child Document: Documento asociados</li>
-<li>Language engines: Asociación de lenguaje</li>
-<li>Option Temnplate:</li>
-<li>Extracting source code:</li>
-<li>Other chunk options:</li>
-<li>Package Options:</li>
-<li>Global R Options:</li>
-</ul>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb986"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb986-1"><a href="math-sci.html#cb986-1" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb986-2"><a href="math-sci.html#cb986-2" tabindex="-1"></a>hook_chunk <span class="ot">=</span> knit_hooks<span class="sc">$</span><span class="fu">get</span>(<span class="st">&#39;chunk&#39;</span>)</span>
-<span id="cb986-3"><a href="math-sci.html#cb986-3" tabindex="-1"></a>knit_hooks<span class="sc">$</span><span class="fu">set</span>(<span class="at">chunk =</span> <span class="cf">function</span>(x, options) {</span>
-<span id="cb986-4"><a href="math-sci.html#cb986-4" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(options<span class="sc">$</span>echo_opts)) {</span>
-<span id="cb986-5"><a href="math-sci.html#cb986-5" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">paste0</span>(<span class="st">&quot;```` ```{r &quot;</span>, options<span class="sc">$</span>params.src, <span class="st">&quot;} ````&quot;</span>, x, <span class="st">&quot;```` ``` ````&quot;</span>))</span>
-<span id="cb986-6"><a href="math-sci.html#cb986-6" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb986-7"><a href="math-sci.html#cb986-7" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">hook_chunk</span>(x, options)) <span class="co"># pass to default hook</span></span>
-<span id="cb986-8"><a href="math-sci.html#cb986-8" tabindex="-1"></a>  }</span>
-<span id="cb986-9"><a href="math-sci.html#cb986-9" tabindex="-1"></a>  })</span>
-<span id="cb986-10"><a href="math-sci.html#cb986-10" tabindex="-1"></a></span>
-<span id="cb986-11"><a href="math-sci.html#cb986-11" tabindex="-1"></a>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">eval.after =</span> <span class="st">&#39;fig.cap&#39;</span>)</span></code></pre></div>
-</details>
-<p>Los ejemplos aquí serán limitado a las alternativas para los documentos <strong>.Rmd</strong></p>
-<p>Las opciones están escrita de forma de <strong>tag=selección de la alternativa</strong>.</p>
-<ul>
-<li>Comenzando con dandole un nombre al chunk “mi-chunk”</li>
-</ul>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb987"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb987-1"><a href="math-sci.html#cb987-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-</details>
-<p>algun_nombre, echo=TRUE</p>
-<hr />
-<hr />
-<p>Eso es lo que va a ver cuando hace el knit</p>
-<hr />
-<hr />
-<p>Nota aqui tengo include=FALSE, por consecuencia cuando se hace un knit, no se ve los que hay en el chunk.<br />
-- Ahora cambialo a TRUE</p>
-<p><code>```{r include_true, include=TRUE, echo_opts=TRUE}</code></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb988"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb988-1"><a href="math-sci.html#cb988-1" tabindex="-1"></a><span class="fu">head</span>(cars)</span></code></pre></div>
-</details>
-<pre><code>##   speed dist
-## 1     4    2
-## 2     4   10
-## 3     7    4
-## 4     7   22
-## 5     8   16
-## 6     9   10</code></pre>
-<p><code>```</code></p>
-<hr />
-<hr />
-<p>Add a figure and give it a name</p>
-<p><code>```{r cars, echo=TRUE, echo_opts=TRUE}</code></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb990"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb990-1"><a href="math-sci.html#cb990-1" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div>
-</details>
-<p><img src="Ciencia_Datos_R_files/figure-html/cars-1.png" width="672" /><code>```</code></p>
-<hr />
-<hr />
-<p><code>```{r position_caption, fig.cap='A caption.', fig.topcaption=TRUE, echo_opts=TRUE}</code></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb991"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb991-1"><a href="math-sci.html#cb991-1" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div>
-</details>
-<div class="figure">
-<p class="caption">
-(#fig:position_caption)A caption.
-</p>
-<img src="Ciencia_Datos_R_files/figure-html/position_caption-1.png" alt="A caption." width="672" />
-</div>
-<p><code>```</code></p>
-<hr />
-<hr />
-<p><code>```{r fig.cap= "An incredible figure", echo_opts=TRUE}</code></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb992"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb992-1"><a href="math-sci.html#cb992-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb992-2"><a href="math-sci.html#cb992-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
-<span id="cb992-3"><a href="math-sci.html#cb992-3" tabindex="-1"></a></span>
-<span id="cb992-4"><a href="math-sci.html#cb992-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
-<span id="cb992-5"><a href="math-sci.html#cb992-5" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-</details>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-309"></span>
-<img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-309-1.png" alt="An incredible figure" width="672" />
-<p class="caption">
-Figure 18.1: An incredible figure
-</p>
-</div>
-<p><code>```</code></p>
-<hr />
-<hr />
-<code>```{r ggplot, fig.cap= "An incredible figure", fig.width = 3, fig.height = 3, echo_opts=TRUE, echo=FALSE}</code>
-<div class="figure"><span style="display:block;" id="fig:ggplot"></span>
-<img src="Ciencia_Datos_R_files/figure-html/ggplot-1.png" alt="An incredible figure" width="288" />
-<p class="caption">
-Figure 18.2: An incredible figure
-</p>
-</div>
-<p><code>```</code></p>
-<hr />
-<hr />
-<p>Figure aligment: default, left, right, and center</p>
-<p>fig.align</p>
-<p><code>```{r fig.cap= "caption", fig.width = 3, fig.height = 3, fig.align='right', echo_opts=TRUE}</code></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb993"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb993-1"><a href="math-sci.html#cb993-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb993-2"><a href="math-sci.html#cb993-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
-<span id="cb993-3"><a href="math-sci.html#cb993-3" tabindex="-1"></a></span>
-<span id="cb993-4"><a href="math-sci.html#cb993-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
-<span id="cb993-5"><a href="math-sci.html#cb993-5" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-</details>
-<div class="figure" style="text-align: right"><span style="display:block;" id="fig:unnamed-chunk-310"></span>
-<img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-310-1.png" alt="caption" width="288" />
-<p class="caption">
-Figure 18.3: caption
-</p>
-</div>
-<p><code>```</code></p>
-<hr />
-<hr />
-<p>Wrap text around figure</p>
-<p>Use ese código para que el texto “wraps” alrededor de ls figura (ese código es de otro idioma de computadora de se llama <strong>css</strong>)</p>
-<div style="float:right;position: relative; top: -80px;">
-<p>AQUI el CHUNK</p>
-</div>
-<div id="r-markdown-wrapping" class="section level5 hasAnchor" number="18.3.0.0.1">
-<h5><span class="header-section-number">18.3.0.0.1</span> R Markdown wrapping<a href="math-sci.html#r-markdown-wrapping" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div style="float:right;position: relative; top: -20px;">
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb994"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb994-1"><a href="math-sci.html#cb994-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
-<span id="cb994-2"><a href="math-sci.html#cb994-2" tabindex="-1"></a></span>
-<span id="cb994-3"><a href="math-sci.html#cb994-3" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
-<span id="cb994-4"><a href="math-sci.html#cb994-4" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-</details>
-<div class="figure" style="text-align: right"><span style="display:block;" id="fig:pressure"></span>
-<img src="Ciencia_Datos_R_files/figure-html/pressure-1.png" alt="caption" width="249.6" />
-<p class="caption">
-Figure 18.4: caption
-</p>
-</div>
-</div>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
-<p>Note that the <code>echo = TRUE</code> parameter was added to the code chunk to have printing of the R code that generated the plot.</p>
-<hr />
-<hr />
-</div>
-<div id="otras-funciones-de-knitr" class="section level3 hasAnchor" number="18.3.1">
-<h3><span class="header-section-number">18.3.1</span> OTRAS funciones de knitr<a href="math-sci.html#otras-funciones-de-knitr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>eval= to evaluate the code FALSE or TRUE</li>
-<li>echo = TO show the code FALSE or TRUE</li>
-<li>message = FALSE or TRUE</li>
-<li>warning = FALSE or TRUE</li>
-<li>error =FALSE or TRUE</li>
-<li>results = ‘asis’ To show text exactly as printed/written</li>
-</ul>
-<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb996"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb996-1"><a href="math-sci.html#cb996-1" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
-</details>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb997"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb997-1"><a href="math-sci.html#cb997-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb997-2"><a href="math-sci.html#cb997-2" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
-</details>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb998"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb998-1"><a href="math-sci.html#cb998-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;I&#39;m raw **Markdown** content.</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb998-2"><a href="math-sci.html#cb998-2" tabindex="-1"></a>    </span>
-<span id="cb998-3"><a href="math-sci.html#cb998-3" tabindex="-1"></a>                         <span class="st">&quot;My poetry of Puerto Rico</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-</details>
-<p>I’m raw <strong>Markdown</strong> content.
-My poetry of Puerto Rico</p>
-<hr />
-<hr />
-</div>
-</div>
-<div id="emoji-or-symbols" class="section level2 hasAnchor" number="18.4">
-<h2><span class="header-section-number">18.4</span> Emoji or Symbols<a href="math-sci.html#emoji-or-symbols" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="select-under-the-edit-emoji-symbols." class="section level3 hasAnchor" number="18.4.1">
-<h3><span class="header-section-number">18.4.1</span> Select Under the Edit ➡ Emoji &amp; Symbols.<a href="math-sci.html#select-under-the-edit-emoji-symbols." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="remember-you-can-add-emojis-to-your-document" class="section level5 hasAnchor" number="18.4.1.0.1">
-<h5><span class="header-section-number">18.4.1.0.1</span> Remember you can add emoji’s to your document<a href="math-sci.html#remember-you-can-add-emojis-to-your-document" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<p>Sometimes you want to 🙈 around a bit and add some ⭐️⭐️ to your
-🎈🎈 Well we have a gift for you if you add interesting emoji’s to your document.</p>
-
-</div>
-</div>
 </div>
 </div>
             </section>
@@ -848,8 +777,8 @@ My poetry of Puerto Rico</p>
           </div>
         </div>
       </div>
-<a href="trabajando-variables-categóricas-con-leaflet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="wordcloud_en_r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="appendix-ejercicios-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix-ejercicios-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -880,7 +809,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/17-Ecuaciones_matematicas.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/B-Ejercicios_Fechas.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -888,7 +817,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/17-Ecuaciones_matematicas.Rmd",
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/B-Ejercicios_Fechas.Rmd",
 "text": null
 },
 "download": null,
