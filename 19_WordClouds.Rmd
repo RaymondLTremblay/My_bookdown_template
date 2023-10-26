@@ -94,22 +94,31 @@ docs <- tm_map(docs, toSpace, "\\|")
 ```
 
 
+**tm** stands for the **text mining**
+
 ```{r, echo=TRUE, eval=FALSE}
 # Convert the text to lower case
 docs <- tm_map(docs, content_transformer(tolower))
+
 # Remove numbers
 docs <- tm_map(docs, removeNumbers)
+
 # Remove english common stopwords
 docs <- tm_map(docs, removeWords, stopwords("english"))
+
 # Remove your own stop word
 # specify your stopwords as a character vector
 docs <- tm_map(docs, removeWords, c("blabla1", "blabla2")) 
+
 # Remove punctuations
 docs <- tm_map(docs, removePunctuation)
+
 # Eliminate extra white spaces
 docs <- tm_map(docs, stripWhitespace)
 # Text stemming
 # docs <- tm_map(docs, stemDocument)
+
+stopwords() # Here are all the stopwords in the function **stopwords**
 ```
 
 
@@ -131,16 +140,43 @@ d
 
 òorchid
 
+pollinators
+
 
 ### How would you remove from the data frame all words that have less or equal to 3 counts
 
 
 
-```{r, echo=TRUE, eval=FALSE}
+```{r, echo=TRUE, eval=FALSE, warning=FALSE}
 wordcloud(words = d$word, freq = d$freq, min.freq = 1,
           max.words=200, random.order=FALSE, rot.per=0.35, 
           colors=brewer.pal(8, "Dark2"))
 ```
 
+
+
+Como remover palabras de otra idioma
+
+https://cran.r-project.org/web/packages/stopwords/readme/README.html
+
+
+
+
+
+En español
+
+```{r, echo=TRUE, eval=FALSE}
+# from CRAN
+install.packages("stopwords")
+
+# Or get the development version from GitHub:
+# install.packages("devtools")
+devtools::install_github("quanteda/stopwords")
+```
+
+
+```{r}
+head(stopwords::stopwords("es", source = "snowball"), 100)
+```
 
 

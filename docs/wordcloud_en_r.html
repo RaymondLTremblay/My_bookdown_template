@@ -587,22 +587,30 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1008-3"><a href="wordcloud_en_r.html#cb1008-3" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, toSpace, <span class="st">&quot;@&quot;</span>)</span>
 <span id="cb1008-4"><a href="wordcloud_en_r.html#cb1008-4" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, toSpace, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">|&quot;</span>)</span></code></pre></div>
 </details>
+<p><strong>tm</strong> stands for the <strong>text mining</strong></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb1009"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1009-1"><a href="wordcloud_en_r.html#cb1009-1" tabindex="-1"></a><span class="co"># Convert the text to lower case</span></span>
 <span id="cb1009-2"><a href="wordcloud_en_r.html#cb1009-2" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, <span class="fu">content_transformer</span>(tolower))</span>
-<span id="cb1009-3"><a href="wordcloud_en_r.html#cb1009-3" tabindex="-1"></a><span class="co"># Remove numbers</span></span>
-<span id="cb1009-4"><a href="wordcloud_en_r.html#cb1009-4" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeNumbers)</span>
-<span id="cb1009-5"><a href="wordcloud_en_r.html#cb1009-5" tabindex="-1"></a><span class="co"># Remove english common stopwords</span></span>
-<span id="cb1009-6"><a href="wordcloud_en_r.html#cb1009-6" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeWords, <span class="fu">stopwords</span>(<span class="st">&quot;english&quot;</span>))</span>
-<span id="cb1009-7"><a href="wordcloud_en_r.html#cb1009-7" tabindex="-1"></a><span class="co"># Remove your own stop word</span></span>
-<span id="cb1009-8"><a href="wordcloud_en_r.html#cb1009-8" tabindex="-1"></a><span class="co"># specify your stopwords as a character vector</span></span>
-<span id="cb1009-9"><a href="wordcloud_en_r.html#cb1009-9" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeWords, <span class="fu">c</span>(<span class="st">&quot;blabla1&quot;</span>, <span class="st">&quot;blabla2&quot;</span>)) </span>
-<span id="cb1009-10"><a href="wordcloud_en_r.html#cb1009-10" tabindex="-1"></a><span class="co"># Remove punctuations</span></span>
-<span id="cb1009-11"><a href="wordcloud_en_r.html#cb1009-11" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removePunctuation)</span>
-<span id="cb1009-12"><a href="wordcloud_en_r.html#cb1009-12" tabindex="-1"></a><span class="co"># Eliminate extra white spaces</span></span>
-<span id="cb1009-13"><a href="wordcloud_en_r.html#cb1009-13" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, stripWhitespace)</span>
-<span id="cb1009-14"><a href="wordcloud_en_r.html#cb1009-14" tabindex="-1"></a><span class="co"># Text stemming</span></span>
-<span id="cb1009-15"><a href="wordcloud_en_r.html#cb1009-15" tabindex="-1"></a><span class="co"># docs &lt;- tm_map(docs, stemDocument)</span></span></code></pre></div>
+<span id="cb1009-3"><a href="wordcloud_en_r.html#cb1009-3" tabindex="-1"></a></span>
+<span id="cb1009-4"><a href="wordcloud_en_r.html#cb1009-4" tabindex="-1"></a><span class="co"># Remove numbers</span></span>
+<span id="cb1009-5"><a href="wordcloud_en_r.html#cb1009-5" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeNumbers)</span>
+<span id="cb1009-6"><a href="wordcloud_en_r.html#cb1009-6" tabindex="-1"></a></span>
+<span id="cb1009-7"><a href="wordcloud_en_r.html#cb1009-7" tabindex="-1"></a><span class="co"># Remove english common stopwords</span></span>
+<span id="cb1009-8"><a href="wordcloud_en_r.html#cb1009-8" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeWords, <span class="fu">stopwords</span>(<span class="st">&quot;english&quot;</span>))</span>
+<span id="cb1009-9"><a href="wordcloud_en_r.html#cb1009-9" tabindex="-1"></a></span>
+<span id="cb1009-10"><a href="wordcloud_en_r.html#cb1009-10" tabindex="-1"></a><span class="co"># Remove your own stop word</span></span>
+<span id="cb1009-11"><a href="wordcloud_en_r.html#cb1009-11" tabindex="-1"></a><span class="co"># specify your stopwords as a character vector</span></span>
+<span id="cb1009-12"><a href="wordcloud_en_r.html#cb1009-12" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeWords, <span class="fu">c</span>(<span class="st">&quot;blabla1&quot;</span>, <span class="st">&quot;blabla2&quot;</span>)) </span>
+<span id="cb1009-13"><a href="wordcloud_en_r.html#cb1009-13" tabindex="-1"></a></span>
+<span id="cb1009-14"><a href="wordcloud_en_r.html#cb1009-14" tabindex="-1"></a><span class="co"># Remove punctuations</span></span>
+<span id="cb1009-15"><a href="wordcloud_en_r.html#cb1009-15" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removePunctuation)</span>
+<span id="cb1009-16"><a href="wordcloud_en_r.html#cb1009-16" tabindex="-1"></a></span>
+<span id="cb1009-17"><a href="wordcloud_en_r.html#cb1009-17" tabindex="-1"></a><span class="co"># Eliminate extra white spaces</span></span>
+<span id="cb1009-18"><a href="wordcloud_en_r.html#cb1009-18" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, stripWhitespace)</span>
+<span id="cb1009-19"><a href="wordcloud_en_r.html#cb1009-19" tabindex="-1"></a><span class="co"># Text stemming</span></span>
+<span id="cb1009-20"><a href="wordcloud_en_r.html#cb1009-20" tabindex="-1"></a><span class="co"># docs &lt;- tm_map(docs, stemDocument)</span></span>
+<span id="cb1009-21"><a href="wordcloud_en_r.html#cb1009-21" tabindex="-1"></a></span>
+<span id="cb1009-22"><a href="wordcloud_en_r.html#cb1009-22" tabindex="-1"></a><span class="fu">stopwords</span>() <span class="co"># Here are all the stopwords in the function **stopwords**</span></span></code></pre></div>
 </details>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb1010"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1010-1"><a href="wordcloud_en_r.html#cb1010-1" tabindex="-1"></a>dtm <span class="ot">&lt;-</span> <span class="fu">TermDocumentMatrix</span>(docs)</span>
@@ -615,6 +623,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">19.3.1</span> Check your words and remove unwanted words individually<a href="wordcloud_en_r.html#check-your-words-and-remove-unwanted-words-individually" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>“òó”</p>
 <p>òorchid</p>
+<p>pollinators</p>
 </div>
 <div id="how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts" class="section level3 hasAnchor" number="19.3.2">
 <h3><span class="header-section-number">19.3.2</span> How would you remove from the data frame all words that have less or equal to 3 counts<a href="wordcloud_en_r.html#how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -623,6 +632,37 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1011-2"><a href="wordcloud_en_r.html#cb1011-2" tabindex="-1"></a>          <span class="at">max.words=</span><span class="dv">200</span>, <span class="at">random.order=</span><span class="cn">FALSE</span>, <span class="at">rot.per=</span><span class="fl">0.35</span>, </span>
 <span id="cb1011-3"><a href="wordcloud_en_r.html#cb1011-3" tabindex="-1"></a>          <span class="at">colors=</span><span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>))</span></code></pre></div>
 </details>
+<p>Como remover palabras de otra idioma</p>
+<p><a href="https://cran.r-project.org/web/packages/stopwords/readme/README.html" class="uri">https://cran.r-project.org/web/packages/stopwords/readme/README.html</a></p>
+<p>En español</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1012"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1012-1"><a href="wordcloud_en_r.html#cb1012-1" tabindex="-1"></a><span class="co"># from CRAN</span></span>
+<span id="cb1012-2"><a href="wordcloud_en_r.html#cb1012-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;stopwords&quot;</span>)</span>
+<span id="cb1012-3"><a href="wordcloud_en_r.html#cb1012-3" tabindex="-1"></a></span>
+<span id="cb1012-4"><a href="wordcloud_en_r.html#cb1012-4" tabindex="-1"></a><span class="co"># Or get the development version from GitHub:</span></span>
+<span id="cb1012-5"><a href="wordcloud_en_r.html#cb1012-5" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
+<span id="cb1012-6"><a href="wordcloud_en_r.html#cb1012-6" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;quanteda/stopwords&quot;</span>)</span></code></pre></div>
+</details>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1013"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1013-1"><a href="wordcloud_en_r.html#cb1013-1" tabindex="-1"></a><span class="fu">head</span>(stopwords<span class="sc">::</span><span class="fu">stopwords</span>(<span class="st">&quot;es&quot;</span>, <span class="at">source =</span> <span class="st">&quot;snowball&quot;</span>), <span class="dv">100</span>)</span></code></pre></div>
+</details>
+<pre><code>##   [1] &quot;de&quot;       &quot;la&quot;       &quot;que&quot;      &quot;el&quot;       &quot;en&quot;       &quot;y&quot;       
+##   [7] &quot;a&quot;        &quot;los&quot;      &quot;del&quot;      &quot;se&quot;       &quot;las&quot;      &quot;por&quot;     
+##  [13] &quot;un&quot;       &quot;para&quot;     &quot;con&quot;      &quot;no&quot;       &quot;una&quot;      &quot;su&quot;      
+##  [19] &quot;al&quot;       &quot;lo&quot;       &quot;como&quot;     &quot;más&quot;      &quot;pero&quot;     &quot;sus&quot;     
+##  [25] &quot;le&quot;       &quot;ya&quot;       &quot;o&quot;        &quot;este&quot;     &quot;sí&quot;       &quot;porque&quot;  
+##  [31] &quot;esta&quot;     &quot;entre&quot;    &quot;cuando&quot;   &quot;muy&quot;      &quot;sin&quot;      &quot;sobre&quot;   
+##  [37] &quot;también&quot;  &quot;me&quot;       &quot;hasta&quot;    &quot;hay&quot;      &quot;donde&quot;    &quot;quien&quot;   
+##  [43] &quot;desde&quot;    &quot;todo&quot;     &quot;nos&quot;      &quot;durante&quot;  &quot;todos&quot;    &quot;uno&quot;     
+##  [49] &quot;les&quot;      &quot;ni&quot;       &quot;contra&quot;   &quot;otros&quot;    &quot;ese&quot;      &quot;eso&quot;     
+##  [55] &quot;ante&quot;     &quot;ellos&quot;    &quot;e&quot;        &quot;esto&quot;     &quot;mí&quot;       &quot;antes&quot;   
+##  [61] &quot;algunos&quot;  &quot;qué&quot;      &quot;unos&quot;     &quot;yo&quot;       &quot;otro&quot;     &quot;otras&quot;   
+##  [67] &quot;otra&quot;     &quot;él&quot;       &quot;tanto&quot;    &quot;esa&quot;      &quot;estos&quot;    &quot;mucho&quot;   
+##  [73] &quot;quienes&quot;  &quot;nada&quot;     &quot;muchos&quot;   &quot;cual&quot;     &quot;poco&quot;     &quot;ella&quot;    
+##  [79] &quot;estar&quot;    &quot;estas&quot;    &quot;algunas&quot;  &quot;algo&quot;     &quot;nosotros&quot; &quot;mi&quot;      
+##  [85] &quot;mis&quot;      &quot;tú&quot;       &quot;te&quot;       &quot;ti&quot;       &quot;tu&quot;       &quot;tus&quot;     
+##  [91] &quot;ellas&quot;    &quot;nosotras&quot; &quot;vosotros&quot; &quot;vosotras&quot; &quot;os&quot;       &quot;mío&quot;     
+##  [97] &quot;mía&quot;      &quot;míos&quot;     &quot;mías&quot;     &quot;tuyo&quot;</code></pre>
 
 </div>
 </div>
