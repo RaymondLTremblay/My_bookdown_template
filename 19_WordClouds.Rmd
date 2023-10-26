@@ -1,0 +1,146 @@
+# WordCloud_en_R
+
+
+Para generar nubes de palabras con R. Se necesita los paquetes **wordcloud**, **RColorBrewer** y **wordcloud2**
+
+
+http://www.sthda.com/english/wiki/word-cloud-generator-in-r-one-killer-function-to-do-everything-you-need
+
+```{r}
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tm, SnowballC, wordcloud, RColorBrewer, wordcloud2)
+
+library(wordcloud)
+library(wordcloud2)
+library(RColorBrewer)
+library(tm)
+library(SnowballC)
+
+```
+
+
+
+
+
+
+```{r}
+library(wordcloud2)
+head(demoFreq, n=10)
+wordcloud2(data = demoFreq)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Paso 1 
+
+Importar los datos de la web
+
+```{r, echo=FALSE, eval=FALSE}
+filePath <- "http://www.sthda.com/sthda/RDoc/example-files/martin-luther-king-i-have-a-dream-speech.txt"
+text <- readLines(filePath)
+```
+
+
+
+Importar un texto de su computadora
+
+
+```{r, echo=TRUE, eval=FALSE}
+text2 <- readLines(file.choose())
+#text
+```
+
+
+## Subir el texto en formato **Corpus**
+
+```{r, echo=TRUE, eval=FALSE}
+
+docs2=iconv(text2,"WINDOWS-1252","UTF-8") # Use this for removing accents and non - english characters
+
+# Load the data as a corpus
+docs <- Corpus(VectorSource(docs2))
+
+
+```
+
+
+## Mirar el documento
+
+```{r, echo=TRUE, eval=FALSE}
+inspect(docs)
+```
+
+
+
+Transformar el texto para reemplazar caracteres especiales
+
+```{r, echo=TRUE, eval=FALSE}
+toSpace <- content_transformer(function (x , pattern ) gsub(pattern, " ", x))
+docs <- tm_map(docs, toSpace, "-")
+docs <- tm_map(docs, toSpace, "@")
+docs <- tm_map(docs, toSpace, "\\|")
+```
+
+
+```{r, echo=TRUE, eval=FALSE}
+# Convert the text to lower case
+docs <- tm_map(docs, content_transformer(tolower))
+# Remove numbers
+docs <- tm_map(docs, removeNumbers)
+# Remove english common stopwords
+docs <- tm_map(docs, removeWords, stopwords("english"))
+# Remove your own stop word
+# specify your stopwords as a character vector
+docs <- tm_map(docs, removeWords, c("blabla1", "blabla2")) 
+# Remove punctuations
+docs <- tm_map(docs, removePunctuation)
+# Eliminate extra white spaces
+docs <- tm_map(docs, stripWhitespace)
+# Text stemming
+# docs <- tm_map(docs, stemDocument)
+```
+
+
+```{r, echo=TRUE, eval=FALSE}
+dtm <- TermDocumentMatrix(docs)
+m <- as.matrix(dtm)
+v <- sort(rowSums(m),decreasing=TRUE)
+d <- data.frame(word = names(v),freq=v)
+d
+```
+
+
+
+### Check your words and remove unwanted words individually
+
+
+
+"òó"
+
+òorchid
+
+
+### How would you remove from the data frame all words that have less or equal to 3 counts
+
+
+
+```{r, echo=TRUE, eval=FALSE}
+wordcloud(words = d$word, freq = d$freq, min.freq = 1,
+          max.words=200, random.order=FALSE, rot.per=0.35, 
+          colors=brewer.pal(8, "Dark2"))
+```
+
+
+

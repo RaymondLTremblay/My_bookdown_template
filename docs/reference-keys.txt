@@ -1,8 +1,8 @@
 eq:reaction
 eq:promedio
-fig:unnamed-chunk-305
+fig:unnamed-chunk-309
 fig:ggplot
-fig:unnamed-chunk-306
+fig:unnamed-chunk-310
 fig:pressure
 ciencia-de-datos-con-r
 horario-de-clase
@@ -177,7 +177,7 @@ definiendo-las-columnas-clave
 otras-implementaciones
 uniones-de-filtro
 problemas-con-las-uniones
-cadena-de-caracteres
+cadena-de-caracteres-strings
 temas-cadenas-de-caracteres
 largo-de-cadena
 combinar-cadenas
@@ -250,3 +250,12 @@ otras-funciones-de-knitr
 emoji-or-symbols
 select-under-the-edit-emoji-symbols.
 remember-you-can-add-emojis-to-your-document
+wordcloud_en_r
+paso-1
+subir-el-texto-en-formato-corpus
+mirar-el-documento
+check-your-words-and-remove-unwanted-words-individually
+how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts
+calculate-the-age-of-individuals-when-they-were-diagnosed-with-hiv
+calculate-the-time-between-the-date-of-diagnosis-of-hiv-and-the-date-of-death.
+calculate-the-difference-in-life-between-the-date-of-diagnosis-and-death

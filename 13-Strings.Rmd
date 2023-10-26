@@ -1,4 +1,4 @@
-# Cadena de Caracteres
+# Cadena de Caracteres = STRINGS
 
 Fecha de la ultima revisión
 ```{r echo=FALSE}
@@ -16,8 +16,50 @@ English:
 Español:
  <https://es.r4ds.hadley.nz/14-strings.html>
  
- 
+
+
+```{r}
+library(tidyverse)
+library(datos)
+```
+
+
 ***
+
+```{r}
+string1 <- "El Pequeño Principe; Saint Exupery"
+string2 <- "El segundo sexo: Simone de Beauvoir"
+string3 <- "El segundo sexo '\\' Simone de Beauvoir"
+
+
+string1
+string2
+string3
+```
+
+
+```{r}
+comilla_doble <- '\"' # o '"'
+comilla_simple <- '\'' # o "'"
+
+comilla_doble
+comilla_simple
+
+
+```
+
+
+```{r}
+x <- c("\"", "\\")
+x
+
+writeLines(x)
+```
+
+
+
+
+
 
 ## Temas: Cadenas de Caracteres
 

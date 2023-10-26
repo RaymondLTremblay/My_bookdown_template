@@ -78,10 +78,10 @@ addMarkers(icon = ~Icons[group])
 ```{r, eval=FALSE}
 
 function getColor(d){
-  return d >= 1966 ? 'green' : #// Means: if (d >= 1966) return 'green' else…
-    d >= 1960 ? 'black' : // #if (d >= 1960) return 'black' else etc…
+  return d >= 1966 ? 'green'  #// Means: if (d >= 1966) return 'green' else…
+    d >= 1960 ? 'black'   #if (d >= 1960) return 'black' else etc…
     d >= 1952 ? 'red' :
-    d >= 1940 ? 'orange' : #// Note that numbers must be in descending order
+    d >= 1940 ? 'orange'  #// Note that numbers must be in descending order
     'grey';
 }
 

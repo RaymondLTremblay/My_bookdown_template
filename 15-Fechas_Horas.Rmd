@@ -249,7 +249,8 @@ yq("2012.1")
 ```
   
   
-Cuidado con el **paquete hms** que tiene funciones igual como lubridate (hms, hm, y ms)  
+- Cuidado
+con el **paquete hms** que tiene funciones igual como lubridate (hms, hm, y ms)  
 
 ***
 
@@ -420,7 +421,7 @@ Hacer los ejercicios en la sección 16.3.4 del libro en español
 ## duraciones
  
 ```{r}
-# ¿Qué edad tiene Charles Darwin?  February 12, 1809
+# ¿Qué edad tiene Charles Darwin?  fecha de naciemiento February 12, 1809
 edad_h <- today() - ymd("1809-02-12")
 edad_h <- today() - ymd(18090212)
 edad_h
