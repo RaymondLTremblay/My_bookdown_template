@@ -53,11 +53,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
-<link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet" />
-<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script>
-<script src="libs/wordcloud2-0.0.1/hover.js"></script>
-<script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script>
 
 
 <style type="text/css">
@@ -267,14 +262,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.25.1" data-path="transformacion.html"><a href="transformacion.html#replacar-los-na-con-0-usando-la-función-replace_na-con-un-valor-especifico-replace_navariable-0"><i class="fa fa-check"></i><b>4.25.1</b> Replacar los NA con 0, usando la función <strong>replace_na()</strong> con un valor especifico <strong>replace_na(“variable”, 0)</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="4.26" data-path="transformacion.html"><a href="transformacion.html#la-función-percent_rank"><i class="fa fa-check"></i><b>4.26</b> la función <strong>percent_rank()</strong></a></li>
-<li class="chapter" data-level="4.27" data-path="transformacion.html"><a href="transformacion.html#la-función-percent_rank-sin-na"><i class="fa fa-check"></i><b>4.27</b> la función <strong>percent_rank()</strong> sin <strong>NA</strong></a></li>
-<li class="chapter" data-level="4.28" data-path="transformacion.html"><a href="transformacion.html#la-función-cume_dist"><i class="fa fa-check"></i><b>4.28</b> la función <strong>cume_dist()</strong></a></li>
-<li class="chapter" data-level="4.29" data-path="transformacion.html"><a href="transformacion.html#resúmenes-con-summarise-by-group-using-group_by"><i class="fa fa-check"></i><b>4.29</b> Resúmenes con summarise() by group using group_by()</a></li>
-<li class="chapter" data-level="4.30" data-path="transformacion.html"><a href="transformacion.html#the-worst-airline-in-departure-delays"><i class="fa fa-check"></i><b>4.30</b> The worst airline in departure delays</a></li>
-<li class="chapter" data-level="4.31" data-path="transformacion.html"><a href="transformacion.html#el-pipe"><i class="fa fa-check"></i><b>4.31</b> El Pipe</a></li>
-<li class="chapter" data-level="4.32" data-path="transformacion.html"><a href="transformacion.html#otras-funciones-na"><i class="fa fa-check"></i><b>4.32</b> Otras funciones: NA</a></li>
-<li class="chapter" data-level="4.33" data-path="transformacion.html"><a href="transformacion.html#otras-funciones"><i class="fa fa-check"></i><b>4.33</b> Otras funciones:</a></li>
+<li class="chapter" data-level="4.26" data-path="transformacion.html"><a href="transformacion.html#pruebas-no-paraméticas"><i class="fa fa-check"></i><b>4.26</b> Pruebas no paraméticas</a></li>
+<li class="chapter" data-level="4.27" data-path="transformacion.html"><a href="transformacion.html#min_rank-y-min_rankdesc"><i class="fa fa-check"></i><b>4.27</b> min_rank() y # min_rank(desc())</a></li>
+<li class="chapter" data-level="4.28" data-path="transformacion.html"><a href="transformacion.html#row_number"><i class="fa fa-check"></i><b>4.28</b> row_number()</a></li>
+<li class="chapter" data-level="4.29" data-path="transformacion.html"><a href="transformacion.html#dense_rank"><i class="fa fa-check"></i><b>4.29</b> dense_rank()</a></li>
+<li class="chapter" data-level="4.30" data-path="transformacion.html"><a href="transformacion.html#la-función-percent_rank"><i class="fa fa-check"></i><b>4.30</b> la función <strong>percent_rank()</strong></a></li>
+<li class="chapter" data-level="4.31" data-path="transformacion.html"><a href="transformacion.html#la-función-percent_rank-sin-na"><i class="fa fa-check"></i><b>4.31</b> la función <strong>percent_rank()</strong> sin <strong>NA</strong></a></li>
+<li class="chapter" data-level="4.32" data-path="transformacion.html"><a href="transformacion.html#la-función-cume_dist"><i class="fa fa-check"></i><b>4.32</b> la función <strong>cume_dist()</strong></a></li>
+<li class="chapter" data-level="4.33" data-path="transformacion.html"><a href="transformacion.html#resúmenes-con-summarise-by-group-using-group_by"><i class="fa fa-check"></i><b>4.33</b> Resúmenes con summarise() by group using group_by()</a></li>
+<li class="chapter" data-level="4.34" data-path="transformacion.html"><a href="transformacion.html#the-worst-airline-in-departure-delays"><i class="fa fa-check"></i><b>4.34</b> The worst airline in departure delays</a></li>
+<li class="chapter" data-level="4.35" data-path="transformacion.html"><a href="transformacion.html#el-pipe"><i class="fa fa-check"></i><b>4.35</b> El Pipe</a></li>
+<li class="chapter" data-level="4.36" data-path="transformacion.html"><a href="transformacion.html#otras-funciones-na"><i class="fa fa-check"></i><b>4.36</b> Otras funciones: NA</a></li>
+<li class="chapter" data-level="4.37" data-path="transformacion.html"><a href="transformacion.html#otras-funciones"><i class="fa fa-check"></i><b>4.37</b> Otras funciones:</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>5</b> Script</a>
 <ul>
@@ -298,11 +297,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1" data-path="pipes.html"><a href="pipes.html#temas-el-paquete-magrittr-y-sus-funciones"><i class="fa fa-check"></i><b>7.1</b> Temas: El paquete “magrittr” y sus funciones</a></li>
 <li class="chapter" data-level="7.2" data-path="pipes.html"><a href="pipes.html#pipes-1"><i class="fa fa-check"></i><b>7.2</b> %&gt;% pipes</a></li>
 <li class="chapter" data-level="7.3" data-path="pipes.html"><a href="pipes.html#alternativas-a-los-pipes"><i class="fa fa-check"></i><b>7.3</b> Alternativas a los pipes</a></li>
-<li class="chapter" data-level="7.4" data-path="pipes.html"><a href="pipes.html#section-1"><i class="fa fa-check"></i><b>7.4</b> %$%</a>
-<ul>
-<li class="chapter" data-level="7.4.1" data-path="pipes.html"><a href="pipes.html#otro-ejemplo-de-pipe"><i class="fa fa-check"></i><b>7.4.1</b> Otro ejemplo de Pipe: %$%</a></li>
-</ul></li>
-<li class="chapter" data-level="7.5" data-path="pipes.html"><a href="pipes.html#section-2"><i class="fa fa-check"></i><b>7.5</b> %&lt;&gt;%</a></li>
+<li class="chapter" data-level="7.4" data-path="pipes.html"><a href="pipes.html#otro-ejemplo-de-pipe"><i class="fa fa-check"></i><b>7.4</b> %<span class="math inline">\(% ### Otro ejemplo de Pipe: %\)</span>%</a></li>
+<li class="chapter" data-level="7.5" data-path="pipes.html"><a href="pipes.html#section-1"><i class="fa fa-check"></i><b>7.5</b> %&lt;&gt;%</a></li>
 <li class="chapter" data-level="7.6" data-path="pipes.html"><a href="pipes.html#in"><i class="fa fa-check"></i><b>7.6</b> %in%</a></li>
 <li class="chapter" data-level="7.7" data-path="pipes.html"><a href="pipes.html#t"><i class="fa fa-check"></i><b>7.7</b> %T&gt;%</a></li>
 </ul></li>
@@ -433,39 +429,38 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.19" data-path="fechas-horas-y-minutas.html"><a href="fechas-horas-y-minutas.html#time-zones"><i class="fa fa-check"></i><b>14.19</b> Time zones</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="importación-de-paquetes-y-datos.html"><a href="importación-de-paquetes-y-datos.html"><i class="fa fa-check"></i><b>15</b> Importación de Paquetes y Datos</a></li>
-<li class="chapter" data-level="16" data-path="utilizando-leaflet.html"><a href="utilizando-leaflet.html"><i class="fa fa-check"></i><b>16</b> Utilizando Leaflet</a></li>
-<li class="chapter" data-level="17" data-path="trabajando-variables-categóricas-con-leaflet.html"><a href="trabajando-variables-categóricas-con-leaflet.html"><i class="fa fa-check"></i><b>17</b> Trabajando Variables Categóricas con Leaflet:</a></li>
-<li class="chapter" data-level="18" data-path="math-sci.html"><a href="math-sci.html"><i class="fa fa-check"></i><b>18</b> Ecuaciones Matemáticas</a>
+<li class="chapter" data-level="16" data-path="math-sci.html"><a href="math-sci.html"><i class="fa fa-check"></i><b>16</b> Ecuaciones Matemáticas</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="math-sci.html"><a href="math-sci.html#ecuaciones-matemática"><i class="fa fa-check"></i><b>18.1</b> Ecuaciones matemática</a>
+<li class="chapter" data-level="16.1" data-path="math-sci.html"><a href="math-sci.html#ecuaciones-matemática"><i class="fa fa-check"></i><b>16.1</b> Ecuaciones matemática</a>
 <ul>
-<li class="chapter" data-level="18.1.1" data-path="math-sci.html"><a href="math-sci.html#matemática-y-física"><i class="fa fa-check"></i><b>18.1.1</b> Matemática y Física</a></li>
+<li class="chapter" data-level="16.1.1" data-path="math-sci.html"><a href="math-sci.html#matemática-y-física"><i class="fa fa-check"></i><b>16.1.1</b> Matemática y Física</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="math-sci.html"><a href="math-sci.html#química-101-símbolos"><i class="fa fa-check"></i><b>18.2</b> Química 101: Símbolos</a>
+<li class="chapter" data-level="16.2" data-path="math-sci.html"><a href="math-sci.html#química-101-símbolos"><i class="fa fa-check"></i><b>16.2</b> Química 101: Símbolos</a>
 <ul>
-<li class="chapter" data-level="18.2.1" data-path="math-sci.html"><a href="math-sci.html#típografica-de-reaciones"><i class="fa fa-check"></i><b>18.2.1</b> Típografica de reaciones</a></li>
-<li class="chapter" data-level="18.2.2" data-path="math-sci.html"><a href="math-sci.html#otros-ejemplos-de-reacciones"><i class="fa fa-check"></i><b>18.2.2</b> Otros ejemplos de reacciones</a></li>
+<li class="chapter" data-level="16.2.1" data-path="math-sci.html"><a href="math-sci.html#típografica-de-reaciones"><i class="fa fa-check"></i><b>16.2.1</b> Típografica de reaciones</a></li>
+<li class="chapter" data-level="16.2.2" data-path="math-sci.html"><a href="math-sci.html#otros-ejemplos-de-reacciones"><i class="fa fa-check"></i><b>16.2.2</b> Otros ejemplos de reacciones</a></li>
 </ul></li>
-<li class="chapter" data-level="18.3" data-path="math-sci.html"><a href="math-sci.html#biología"><i class="fa fa-check"></i><b>18.3</b> Biología</a>
+<li class="chapter" data-level="16.3" data-path="math-sci.html"><a href="math-sci.html#física"><i class="fa fa-check"></i><b>16.3</b> Física</a></li>
+<li class="chapter" data-level="16.4" data-path="math-sci.html"><a href="math-sci.html#biología"><i class="fa fa-check"></i><b>16.4</b> Biología</a>
 <ul>
-<li class="chapter" data-level="18.3.1" data-path="math-sci.html"><a href="math-sci.html#otras-funciones-de-knitr"><i class="fa fa-check"></i><b>18.3.1</b> OTRAS funciones de knitr</a></li>
+<li class="chapter" data-level="16.4.1" data-path="math-sci.html"><a href="math-sci.html#otras-funciones-de-knitr"><i class="fa fa-check"></i><b>16.4.1</b> OTRAS funciones de knitr</a></li>
 </ul></li>
-<li class="chapter" data-level="18.4" data-path="math-sci.html"><a href="math-sci.html#emoji-or-symbols"><i class="fa fa-check"></i><b>18.4</b> Emoji or Symbols</a>
+<li class="chapter" data-level="16.5" data-path="math-sci.html"><a href="math-sci.html#emoji-or-symbols"><i class="fa fa-check"></i><b>16.5</b> Emoji or Symbols</a>
 <ul>
-<li class="chapter" data-level="18.4.1" data-path="math-sci.html"><a href="math-sci.html#select-under-the-edit-emoji-symbols."><i class="fa fa-check"></i><b>18.4.1</b> Select Under the Edit ➡ Emoji &amp; Symbols.</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html"><i class="fa fa-check"></i><b>19</b> WordCloud_en_R</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#paso-1"><i class="fa fa-check"></i><b>19.1</b> Paso 1</a></li>
-<li class="chapter" data-level="19.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#subir-el-texto-en-formato-corpus"><i class="fa fa-check"></i><b>19.2</b> Subir el texto en formato <strong>Corpus</strong></a></li>
-<li class="chapter" data-level="19.3" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#mirar-el-documento"><i class="fa fa-check"></i><b>19.3</b> Mirar el documento</a>
-<ul>
-<li class="chapter" data-level="19.3.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#check-your-words-and-remove-unwanted-words-individually"><i class="fa fa-check"></i><b>19.3.1</b> Check your words and remove unwanted words individually</a></li>
-<li class="chapter" data-level="19.3.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts"><i class="fa fa-check"></i><b>19.3.2</b> How would you remove from the data frame all words that have less or equal to 3 counts</a></li>
+<li class="chapter" data-level="16.5.1" data-path="math-sci.html"><a href="math-sci.html#select-under-the-edit-emoji-symbols."><i class="fa fa-check"></i><b>16.5.1</b> Select Under the Edit ➡ Emoji &amp; Symbols.</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="hex-stickers.html"><a href="hex-stickers.html"><i class="fa fa-check"></i><b>20</b> Hex Stickers</a></li>
+<li class="chapter" data-level="17" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html"><i class="fa fa-check"></i><b>17</b> WordCloud_en_R</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#paso-1"><i class="fa fa-check"></i><b>17.1</b> Paso 1</a></li>
+<li class="chapter" data-level="17.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#subir-el-texto-en-formato-corpus"><i class="fa fa-check"></i><b>17.2</b> Subir el texto en formato <strong>Corpus</strong></a></li>
+<li class="chapter" data-level="17.3" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#mirar-el-documento"><i class="fa fa-check"></i><b>17.3</b> Mirar el documento</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#check-your-words-and-remove-unwanted-words-individually"><i class="fa fa-check"></i><b>17.3.1</b> Check your words and remove unwanted words individually</a></li>
+<li class="chapter" data-level="17.3.2" data-path="wordcloud_en_r.html"><a href="wordcloud_en_r.html#how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts"><i class="fa fa-check"></i><b>17.3.2</b> How would you remove from the data frame all words that have less or equal to 3 counts</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="hex-stickers.html"><a href="hex-stickers.html"><i class="fa fa-check"></i><b>18</b> Hex Stickers</a></li>
 <li class="chapter" data-level="" data-path="appendix-ejercicios.html"><a href="appendix-ejercicios.html"><i class="fa fa-check"></i>(Appendix) Ejercicios</a>
 <ul>
 <li class="chapter" data-level="" data-path="appendix-ejercicios.html"><a href="appendix-ejercicios.html#capitulo-de-transformación-de-datos"><i class="fa fa-check"></i>Capitulo de Transformación de Datos</a></li>
@@ -482,9 +477,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix-ejercicios-1.html"><a href="appendix-ejercicios-1.html"><i class="fa fa-check"></i>(Appendix) Ejercicios</a>
 <ul>
-<li class="chapter" data-level="20.1" data-path="appendix-ejercicios-1.html"><a href="appendix-ejercicios-1.html#calculate-the-age-of-individuals-when-they-were-diagnosed-with-hiv"><i class="fa fa-check"></i><b>20.1</b> Calculate the age of individuals when they were diagnosed with HIV</a></li>
-<li class="chapter" data-level="20.2" data-path="appendix-ejercicios-1.html"><a href="appendix-ejercicios-1.html#calculate-the-time-between-the-date-of-diagnosis-of-hiv-and-the-date-of-death."><i class="fa fa-check"></i><b>20.2</b> Calculate the time between the date of diagnosis of HIV and the date of death.</a></li>
-<li class="chapter" data-level="20.3" data-path="appendix-ejercicios-1.html"><a href="appendix-ejercicios-1.html#calculate-the-difference-in-life-between-the-date-of-diagnosis-and-death"><i class="fa fa-check"></i><b>20.3</b> Calculate the difference in life between the date of diagnosis and death</a></li>
+<li class="chapter" data-level="18.1" data-path="appendix-ejercicios-1.html"><a href="appendix-ejercicios-1.html#calculate-the-age-of-individuals-when-they-were-diagnosed-with-hiv"><i class="fa fa-check"></i><b>18.1</b> Calculate the age of individuals when they were diagnosed with HIV</a></li>
+<li class="chapter" data-level="18.2" data-path="appendix-ejercicios-1.html"><a href="appendix-ejercicios-1.html#calculate-the-time-between-the-date-of-diagnosis-of-hiv-and-the-date-of-death."><i class="fa fa-check"></i><b>18.2</b> Calculate the time between the date of diagnosis of HIV and the date of death.</a></li>
+<li class="chapter" data-level="18.3" data-path="appendix-ejercicios-1.html"><a href="appendix-ejercicios-1.html#calculate-the-difference-in-life-between-the-date-of-diagnosis-and-death"><i class="fa fa-check"></i><b>18.3</b> Calculate the difference in life between the date of diagnosis and death</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix-ejercicios-2.html"><a href="appendix-ejercicios-2.html"><i class="fa fa-check"></i>(Appendix) Ejercicios</a>
 <ul>
@@ -529,32 +524,44 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="para-tener-los-puntos-tiene-que-enseñar-todos-los-scripts-los-resultados-y-explicar-en-palabra-los-que-encontró-dentro-de-un-documento-bien-organizado." class="section level3 unnumbered hasAnchor">
 <h3>Para tener los puntos tiene que enseñar TODOS los scripts, los resultados y explicar en palabra los que encontró dentro de un documento bien organizado.<a href="appendix-ejercicios.html#para-tener-los-puntos-tiene-que-enseñar-todos-los-scripts-los-resultados-y-explicar-en-palabra-los-que-encontró-dentro-de-un-documento-bien-organizado." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb1016"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1016-1"><a href="appendix-ejercicios.html#cb1016-1" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
-<span id="cb1016-2"><a href="appendix-ejercicios.html#cb1016-2" tabindex="-1"></a><span class="fu">attach</span>(bateadores)</span>
-<span id="cb1016-3"><a href="appendix-ejercicios.html#cb1016-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1016-4"><a href="appendix-ejercicios.html#cb1016-4" tabindex="-1"></a><span class="fu">library</span>(gt)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="appendix-ejercicios.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
+<span id="cb1-2"><a href="appendix-ejercicios.html#cb1-2" tabindex="-1"></a><span class="fu">attach</span>(bateadores)</span>
+<span id="cb1-3"><a href="appendix-ejercicios.html#cb1-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+</details>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.3     ✔ readr     2.1.4
+## ✔ forcats   1.0.0     ✔ stringr   1.5.0
+## ✔ ggplot2   3.4.3     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+## ✔ purrr     1.0.2     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="appendix-ejercicios.html#cb3-1" tabindex="-1"></a><span class="fu">library</span>(gt)</span></code></pre></div>
 </details>
 <p>Use el data frame de “bateadores” en el paquete “datos”.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb1017"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1017-1"><a href="appendix-ejercicios.html#cb1017-1" tabindex="-1"></a><span class="fu">gt</span>(<span class="fu">head</span>(bateadores, <span class="at">n=</span><span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="appendix-ejercicios.html#cb4-1" tabindex="-1"></a><span class="fu">gt</span>(<span class="fu">head</span>(bateadores, <span class="at">n=</span><span class="dv">3</span>))</span></code></pre></div>
 </details>
-<div id="mvywyfwjgb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#mvywyfwjgb table {
+<div id="txcmtrvygu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#txcmtrvygu table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#mvywyfwjgb thead, #mvywyfwjgb tbody, #mvywyfwjgb tfoot, #mvywyfwjgb tr, #mvywyfwjgb td, #mvywyfwjgb th {
+#txcmtrvygu thead, #txcmtrvygu tbody, #txcmtrvygu tfoot, #txcmtrvygu tr, #txcmtrvygu td, #txcmtrvygu th {
   border-style: none;
 }
 
-#mvywyfwjgb p {
+#txcmtrvygu p {
   margin: 0;
   padding: 0;
 }
 
-#mvywyfwjgb .gt_table {
+#txcmtrvygu .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -580,12 +587,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-left-color: #D3D3D3;
 }
 
-#mvywyfwjgb .gt_caption {
+#txcmtrvygu .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#mvywyfwjgb .gt_title {
+#txcmtrvygu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -597,7 +604,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-width: 0;
 }
 
-#mvywyfwjgb .gt_subtitle {
+#txcmtrvygu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -609,7 +616,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-top-width: 0;
 }
 
-#mvywyfwjgb .gt_heading {
+#txcmtrvygu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -621,13 +628,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#mvywyfwjgb .gt_bottom_border {
+#txcmtrvygu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#mvywyfwjgb .gt_col_headings {
+#txcmtrvygu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -642,7 +649,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#mvywyfwjgb .gt_col_heading {
+#txcmtrvygu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -662,7 +669,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#mvywyfwjgb .gt_column_spanner_outer {
+#txcmtrvygu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -674,15 +681,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 4px;
 }
 
-#mvywyfwjgb .gt_column_spanner_outer:first-child {
+#txcmtrvygu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#mvywyfwjgb .gt_column_spanner_outer:last-child {
+#txcmtrvygu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#mvywyfwjgb .gt_column_spanner {
+#txcmtrvygu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -694,11 +701,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   width: 100%;
 }
 
-#mvywyfwjgb .gt_spanner_row {
+#txcmtrvygu .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#mvywyfwjgb .gt_group_heading {
+#txcmtrvygu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -724,7 +731,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   text-align: left;
 }
 
-#mvywyfwjgb .gt_empty_group_heading {
+#txcmtrvygu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -739,15 +746,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-#mvywyfwjgb .gt_from_md > :first-child {
+#txcmtrvygu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#mvywyfwjgb .gt_from_md > :last-child {
+#txcmtrvygu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#mvywyfwjgb .gt_row {
+#txcmtrvygu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -766,7 +773,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#mvywyfwjgb .gt_stub {
+#txcmtrvygu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -779,7 +786,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#mvywyfwjgb .gt_stub_row_group {
+#txcmtrvygu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -793,15 +800,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: top;
 }
 
-#mvywyfwjgb .gt_row_group_first td {
+#txcmtrvygu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#mvywyfwjgb .gt_row_group_first th {
+#txcmtrvygu .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#mvywyfwjgb .gt_summary_row {
+#txcmtrvygu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -811,16 +818,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#mvywyfwjgb .gt_first_summary_row {
+#txcmtrvygu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#mvywyfwjgb .gt_first_summary_row.thick {
+#txcmtrvygu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#mvywyfwjgb .gt_last_summary_row {
+#txcmtrvygu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -830,7 +837,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-#mvywyfwjgb .gt_grand_summary_row {
+#txcmtrvygu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -840,7 +847,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#mvywyfwjgb .gt_first_grand_summary_row {
+#txcmtrvygu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -850,7 +857,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-#mvywyfwjgb .gt_last_grand_summary_row_top {
+#txcmtrvygu .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -860,11 +867,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-#mvywyfwjgb .gt_striped {
+#txcmtrvygu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#mvywyfwjgb .gt_table_body {
+#txcmtrvygu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -873,7 +880,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-#mvywyfwjgb .gt_footnotes {
+#txcmtrvygu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -887,7 +894,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#mvywyfwjgb .gt_footnote {
+#txcmtrvygu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -896,7 +903,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#mvywyfwjgb .gt_sourcenotes {
+#txcmtrvygu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -910,7 +917,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#mvywyfwjgb .gt_sourcenote {
+#txcmtrvygu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -918,63 +925,63 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#mvywyfwjgb .gt_left {
+#txcmtrvygu .gt_left {
   text-align: left;
 }
 
-#mvywyfwjgb .gt_center {
+#txcmtrvygu .gt_center {
   text-align: center;
 }
 
-#mvywyfwjgb .gt_right {
+#txcmtrvygu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#mvywyfwjgb .gt_font_normal {
+#txcmtrvygu .gt_font_normal {
   font-weight: normal;
 }
 
-#mvywyfwjgb .gt_font_bold {
+#txcmtrvygu .gt_font_bold {
   font-weight: bold;
 }
 
-#mvywyfwjgb .gt_font_italic {
+#txcmtrvygu .gt_font_italic {
   font-style: italic;
 }
 
-#mvywyfwjgb .gt_super {
+#txcmtrvygu .gt_super {
   font-size: 65%;
 }
 
-#mvywyfwjgb .gt_footnote_marks {
+#txcmtrvygu .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#mvywyfwjgb .gt_asterisk {
+#txcmtrvygu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#mvywyfwjgb .gt_indent_1 {
+#txcmtrvygu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#mvywyfwjgb .gt_indent_2 {
+#txcmtrvygu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#mvywyfwjgb .gt_indent_3 {
+#txcmtrvygu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#mvywyfwjgb .gt_indent_4 {
+#txcmtrvygu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#mvywyfwjgb .gt_indent_5 {
+#txcmtrvygu .gt_indent_5 {
   text-indent: 25px;
 }
 </style>

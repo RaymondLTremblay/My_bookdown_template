@@ -1,4 +1,4 @@
-# (Appendix) Ejercicios {.unnumbered}
+# (Appendix) Ejercicios 3 {.unnumbered}
 
 
 ------------------------------------------------------------------------
@@ -35,9 +35,9 @@ HIV
 
 ```
 
-## Calculate the age of individuals when they were diagnosed with HIV
+## Calculate the age of individuals when they were diagnosed with HIV {-}
 
-## Calculate the time between the date of diagnosis of HIV and the date of death. 
+## Calculate the time between the date of diagnosis of HIV and the date of death. {-}
 
 
 
@@ -82,7 +82,7 @@ HIV4
 ```
 
 
-## Calculate the difference in life between the date of diagnosis and death 
+## Calculate the difference in life between the date of diagnosis and death {-}
 
 
 ```{r}
