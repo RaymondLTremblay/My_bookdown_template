@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2023-10-30" />
+<meta name="date" content="2023-11-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -576,13 +576,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="flujo-de-trabajo.html#cb1-1" tabindex="-1"></a><span class="co">#install.packages(&quot;tidyverse&quot;)</span></span>
 <span id="cb1-2"><a href="flujo-de-trabajo.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 </details>
-<pre><code>## ── Attaching core tidyverse packages 
+<pre><code>## ── Attaching core tidyverse packages ──────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.1.3     ✔ readr     2.1.4
 ## ✔ forcats   1.0.0     ✔ stringr   1.5.0
 ## ✔ ggplot2   3.4.3     ✔ tibble    3.2.1
 ## ✔ lubridate 1.9.3     ✔ tidyr     1.3.0
 ## ✔ purrr     1.0.2     
-## ── Conflicts ────────────────────────
+## ── Conflicts ────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
@@ -830,7 +830,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb38-2"><a href="flujo-de-trabajo.html#cb38-2" tabindex="-1"></a>Vuelos_SJU_2018_Ene <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Datos/Vuelos_SJU_2018_Ene.csv&quot;</span>)</span></code></pre></div>
 </details>
 <pre><code>## Rows: 3831 Columns: 14
-## ── Column specification ─────────────
+## ── Column specification ────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (8): FL_DATE, OP_UNIQUE_CARRIER, ORIGIN, ORIGIN_CITY_NAME, ORIGIN_STATE_...
 ## dbl (6): DEP_TIME, DEP_DELAY, CRS_ARR_TIME, ARR_TIME, ARR_DELAY, CANCELLED
@@ -855,7 +855,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 <p># Visualización de datos</p>
 <p>Fecha de la ultima revisión</p>
-<pre><code>## [1] &quot;2023-10-30&quot;</code></pre>
+<pre><code>## [1] &quot;2023-11-01&quot;</code></pre>
 <hr />
 <p>El tema proviene de los siguientes sitios.</p>
 <p>English:
@@ -889,8 +889,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb44-2"><a href="flujo-de-trabajo.html#cb44-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> SVL, <span class="at">y =</span> TAIL, <span class="at">color=</span>SEX_AGE))<span class="sc">+</span></span>
 <span id="cb44-3"><a href="flujo-de-trabajo.html#cb44-3" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>SEX_AGE, <span class="at">ncol=</span><span class="dv">1</span>)</span></code></pre></div>
 </details>
-<pre><code>## Warning: Removed 418 rows containing missing
-## values (`geom_point()`).</code></pre>
+<pre><code>## Warning: Removed 418 rows containing missing values (`geom_point()`).</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 </div>
 <div id="regresión-lineal" class="section level3 hasAnchor" number="2.6.3">
@@ -907,8 +906,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb47-3"><a href="flujo-de-trabajo.html#cb47-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm,<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista))<span class="sc">+</span>  <span class="co"># y = mx+b</span></span>
 <span id="cb47-4"><a href="flujo-de-trabajo.html#cb47-4" tabindex="-1"></a>  <span class="fu">geom_point</span>( <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista))</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using formula = &#39;y ~
-## x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-23-2.png" width="672" /></p>
 </div>
 <div id="regresión-loess" class="section level3 hasAnchor" number="2.6.4">
@@ -925,8 +923,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="flujo-de-trabajo.html#cb51-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> millas) <span class="sc">+</span></span>
 <span id="cb51-2"><a href="flujo-de-trabajo.html#cb51-2" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista, <span class="at">linetype =</span> clase, <span class="at">colour=</span>clase))</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using method =
-## &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 </div>
 <div id="regresión-loess-de-un-grupo" class="section level3 hasAnchor" number="2.6.5">
@@ -936,8 +933,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb53-2"><a href="flujo-de-trabajo.html#cb53-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> clase)) <span class="sc">+</span></span>
 <span id="cb53-3"><a href="flujo-de-trabajo.html#cb53-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> <span class="fu">filter</span>(millas, clase <span class="sc">==</span> <span class="st">&quot;suv&quot;</span>), <span class="at">se =</span><span class="cn">TRUE</span>)</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using method =
-## &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 </div>
 <div id="regresión-loess-dos-alternativas" class="section level3 hasAnchor" number="2.6.6">
@@ -947,16 +943,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb55-2"><a href="flujo-de-trabajo.html#cb55-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb55-3"><a href="flujo-de-trabajo.html#cb55-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using method =
-## &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="flujo-de-trabajo.html#cb57-1" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb57-2"><a href="flujo-de-trabajo.html#cb57-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> millas, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista)) <span class="sc">+</span></span>
 <span id="cb57-3"><a href="flujo-de-trabajo.html#cb57-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> millas, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista))</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using method =
-## &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-26-2.png" width="672" /></p>
 </div>
 <div id="regresión-lineal-ybmx" class="section level3 hasAnchor" number="2.6.7">
@@ -966,8 +960,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb59-2"><a href="flujo-de-trabajo.html#cb59-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> clase)) <span class="sc">+</span></span>
 <span id="cb59-3"><a href="flujo-de-trabajo.html#cb59-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm)</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using formula = &#39;y ~
-## x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 </div>
 <div id="geom_bar" class="section level3 hasAnchor" number="2.6.8">

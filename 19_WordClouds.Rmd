@@ -361,22 +361,10 @@ wordcloud(words = tabla_frecuencia$palabras,
 
 ***
 
-Como Exportar la figura de wordcloud
+Como ver la figuras en la pestaña "Plots"
+
+De esa forma puede bajar los WordClouds como  .pdf o otro formato.   
 
 
-```{r}
-library(htmlwidgets) 
-#install.packages("webshot")
-library(webshot)
-webshot::install_phantomjs()
-
-
-saveWidget(mwc,"mi_word.html")
-webshot::webshot("mi_word.html","mi_word.png",vwidth = 1992, vheight = 1744, delay =10)
-
-
-
-my_path  <- htmltools::html_print(mi_word_cloud) # saves html in temp directory
-print(my_path)
-```
+<<https://stackoverflow.com/questions/40570621/rstudio-how-to-show-plot-output-in-bottom-right-pane>>
 
