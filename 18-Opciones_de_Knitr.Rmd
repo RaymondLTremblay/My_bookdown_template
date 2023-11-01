@@ -1,4 +1,4 @@
-A# Opciones de Knitr
+# Opciones de Knitr
 
 
 
@@ -27,6 +27,11 @@ Hay muchas opciones para determinar lo que have un **chunk**
  
 
 
+Este **chunk** es para que la información de los chunk and la parte de **knitr** se vea.   
+
+
+
+
 ```{r new_chunk_option}
 library(knitr)
 hook_chunk = knit_hooks$get('chunk')
@@ -44,9 +49,33 @@ opts_knit$set(eval.after = 'fig.cap')
 
 
 
- Los ejemplos aquí serán limitado a las alternativas para los documentos **.Rmd**
+Los ejemplos aquí serán limitado a las alternativas para los documentos **.Rmd**
  
- Las opciones están escrita de forma de **tag=selección de la alternativa**.
+ - Las opciones están escrita de forma de **tag=selección de la alternativa**.
+ 
+ 
+ Opciones de bloques
+ 
+ Se personaliza los bloques con "opeciones" **options** de los chunks.
+ 
+ En la rueda de a la derecha de cada **chunk** hay opciones para seleccionar opciones.
+ 
+ Tablas de opciones principales
+-------------
+ 
+| Opción     | Ejecuta | Muestra | Output | Gráficos | Mensajes | Advertencias |
+|:--------|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+|eval=FASLE|   -   |   |   -   | - |  - | -| 
+|include=FALSE|      |  - |   -   | - |  - | -|
+|echo=FALSE|     |  - |      |  |   |  |
+|results="hide"|     |   |  -    |  |   |  |
+|fig.show ="hide"|     |   |      |-  |   |  |
+|message=FALSE|     |   |      |  |  - |  |
+|warning=FALSE|     |   |      |  |   | - |
+ 
+ 
+ 
+ 
  
  - Comenzando con dandole un nombre al chunk "mi-chunk"
 
@@ -74,7 +103,7 @@ algun_nombre, echo=TRUE
 ***
 ***
 
-Nota aqui tengo include=FALSE, por consecuencia cuando se hace un knit, no se ve los que hay en el chunk.  
+Nota aqui tengo include=FALSE, por consecuencia cuando se hace un knit, no se ve lo que hay en el chunk.  
   - Ahora cambialo a TRUE
 
 ```{r include_false, include=FALSE, echo_opts=TRUE}
@@ -90,7 +119,7 @@ head(cars)
 ***
 ***
 
-Add a figure and give it a name
+Añade una figura 
 
 ```{r cars, echo=TRUE, echo_opts=TRUE}
 plot(cars)
@@ -103,7 +132,7 @@ plot(cars)
 ***
 
 
-```{r position_caption, fig.cap='A caption.', fig.topcaption=TRUE, echo_opts=TRUE}
+```{r position_caption, fig.cap='El nombre de mi figure.', fig.topcaption=TRUE, echo_opts=TRUE}
 plot(cars)
 ```
 

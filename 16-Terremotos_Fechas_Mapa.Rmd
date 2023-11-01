@@ -17,12 +17,12 @@ head(EQ, n=10)
 ```
 
 
-```{r}
+```{r nombre de las variables}
 names(EQ)
 ```
 
 
-```{r}
+```{r, tipos de datos str}
 str(EQ)
 ```
 
@@ -61,7 +61,7 @@ library(leaflet)
 mutate(EQ_100, group = cut(mag, breaks = c(0, 5, 6, Inf), labels = c("blue", "green", "orange"))) -> mydf
 
 ### I edit this png file and created my own marker.
-### https://raw.githubusercontent.com/lvoogdt/Leaflet.awesome-markers/master/dist/images/markers-soft.png
+ https://raw.githubusercontent.com/lvoogdt/Leaflet.awesome-markers/master/dist/images/markers-soft.png
 quakeIcons <- iconList(blue = makeIcon("/Users/jazzurro/Documents/Stack Overflow/blue.png", iconWidth = 24, iconHeight =32),
                        green = makeIcon("/Users/jazzurro/Documents/Stack Overflow/green.png", iconWidth = 24, iconHeight =32),
                        orange = makeIcon("/Users/jazzurro/Documents/Stack Overflow/orange.png", iconWidth = 24, iconHeight =32))

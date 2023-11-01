@@ -1,8 +1,8 @@
 eq:reaction
 eq:promedio
-fig:unnamed-chunk-309
+fig:unnamed-chunk-307
 fig:ggplot
-fig:unnamed-chunk-310
+fig:unnamed-chunk-308
 fig:pressure
 ciencia-de-datos-con-r
 horario-de-clase
@@ -245,6 +245,8 @@ química-101-símbolos
 típografica-de-reaciones
 otros-ejemplos-de-reacciones
 biología
+opciones-de-knitr
+tablas-de-opciones-principales
 r-markdown-wrapping
 otras-funciones-de-knitr
 emoji-or-symbols
