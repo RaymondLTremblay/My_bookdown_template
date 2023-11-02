@@ -57,6 +57,57 @@ writeLines(x)
 ```
 
 
+## Caracteres especiales
+
+```{r}
+"\n"
+"\t"
+```
+
+
+## Para ver las opciones de caracteres y como trabajar cadenas de caracteres use **?"'"** para ver 
+
+```{r}
+?"'"
+```
+
+## Lista de caracteres especiales (unicodes)
+
+
+Vea el siguiente enlace para los unicodes
+
+<https://en.wikipedia.org/wiki/List_of_Unicode_characters>
+
+
+
+```{r}
+x <- "\u00b5"
+x
+
+y <- "\u00b6"
+y
+
+z <- "\u00A1"
+z
+
+w <- "\u01FC"
+w
+```
+
+
+
+Escribir si nombre en el alfabeto cyrilico
+
+ -  Vea este enlace pra conocer el alfebeto cyrilico
+
+
+
+<<https://www.google.com/search?client=safari&rls=en&q=cyrillic+alphabet&ie=UTF-8&oe=UTF-8#vhid=cMLOx1fN0Zg5UM&vssid=l>>
+
+```{r}
+Raymond = "\u048E\u0430\u042B\u043C\u043E\u043D\u0434"
+Raymond
+```
 
 
 
@@ -65,20 +116,90 @@ writeLines(x)
 
  - library(stringr)
  
-## Largo de cadena
-
-  - str_length()
+Solamente trabajermos con el paquete stringr, donde las funciones escrita de forma que sean más intuitivos para recordar.  Todas las funciones conmienzan con **str_**
 
 
-## Combinar cadenas
+### El largo de una cadena de caracteres con **str_length**
 
-  - str_c()
-  - str_replace_na()
+```{r}
+library(stringr)
+str_length("Yo quiero un Lamborghini")
+```
+
+
+
+### Combinar cadenas con **str_c**
+
+
+```{r}
+
+
+str_c("Es una oración con muchas letras y palabras", "Mi pelicula favorita es Cinema Paraiso")
+
+
+```
+
+
+Usa el argumento **sep = "xxx  "** para controlar cómo separar las oraciones
+
+
+```{r}
+
+
+str_c("Es una oración con muchas letras y palabras", "Mi pelicula favorita es Cinema Paraiso", sep = ", ")
+
+
+```
+
+
   
-## Dividir cadenas
+  
+  - str_replace_na()
+
+```{r} 
+x <- c("Mi pelicula favorita es Cinema Paraiso", NA)
+str_c("|-", x, "-|")
+```
+  
+  
+## Dividir cadenas basado en la posición de los caracteres en la cadena
 
   - str_sub()
-  - str_to_lower()
+  
+  
+```{r}
+x= c( "Piña", "Manzana", "Toronja")
+str_sub(x, 1,3)
+
+
+```
+  
+### Seleccionar los caracteres del ultimo caracter
+
+```{r}
+x= c( "Piña", "Manzana", "Toronja")
+str_sub(x, -3,-1)
+
+
+```
+  
+  
+
+### Cambiar a todo minuscula
+
+
+```{r}
+x= c( "Piña", "Manzana", "Toronja")
+str_to_lower(x)
+```
+
+
+### Cambiar a mayuscula
+
+```{r}
+x= c( "Piña", "Manzana", "Toronja")
+str_to_upper(x)
+```
   
 ## Locales
 
@@ -109,7 +230,104 @@ x <- c("manzana", "banana", "pera")
 str_view(x, "an")
 ```
 
- - los puntos y caracter especiales
+
+Ejemplo de como uno puede utiliza esas funciones
+
+
+ 
+```{r}
+x= c( "Piña", "Manzana", "Toronja", "Jugo")
+str_detect(x, "a") # detectar la e
+str_detect(x, "i") # detectar la i
+str_detect(x, "ñ")
+``` 
+
+
+```{r}
+# ¿Cuántas palabras comunes empiezan con m?
+sum(str_detect(x, "^m"))
+sum(str_detect(x, "^M"))
+```
+
+
+
+```{r}
+# ¿Qué proporción de palabras comunes terminan con una vocal?
+mean(str_detect(x, "[aáeéiéoéuú]$"))
+
+# ¿Qué proporción de palabras comunes terminan con una vocal?
+mean(str_detect(x, "[o]$"))
+```
+
+
+- Comienza para mirar el archivo palabras
+ 
+- Cuentas palabras tiene ese archivo?
+
+```{r}
+palabras
+```
+
+
+
+```{r}
+# Encuentra todas las palabras que contengan al menos una vocal, y luego niégalo
+sin_vocales_1 <- !str_detect(palabras, "[aáeéiíoóuúúü]")
+# Encuentra todas las palabras consistentes solo en consonantes (no vocales)
+sin_vocales_2 <- str_detect(palabras, "^[^aáeéiíoóuúúü]+$")
+identical(sin_vocales_1, sin_vocales_2)
+
+
+
+```
+
+
+
+Suma la cantidad de palabras que no tienen vocales?
+
+
+
+```{r}
+df <- tibble(
+  palabra = palabras, 
+  i = seq_along(palabra)
+) ## poner los datos en un dataframe 
+
+
+df %>% 
+  filter(str_detect(palabras, "x$")) # filtrar todas la palabras para solamente las terminan en **x**
+
+df %>% 
+  filter(str_detect(palabras, "z$")) # filtrar todas la palabras para solamente las terminan en **z**
+```
+
+
+
+
+Contar cuantas palabras tienen "a"
+
+```{r}
+x= c( "Piña", "Manzana", "Toronja", "Jugo")
+str_count(x, "a")
+```
+
+
+```{r}
+# En promedio, ¿cuántas vocales hay por palabra?
+mean(str_count(palabras, "[aáeéiíoóuúü]"))
+```
+
+
+
+```{r}
+df %>% 
+  mutate(
+    vocales = str_count(palabra, "[aáeéiíoóuúü]"), # Cuenta cuantas vocales 
+    consonantes = str_count(palabra, "[^aáeéiíoóuúü]") # cuenta cuantos consonantes
+  )
+```
+
+ - los puntos y caracteres especiales
  
  
  
