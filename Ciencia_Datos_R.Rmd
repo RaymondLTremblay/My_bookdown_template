@@ -1,0 +1,6729 @@
+---
+title: "Ciencia de Datos con R"
+ 
+output:
+  bookdown::gitbook:
+    highlight: tango
+    code_folding: hide
+
+author: ""
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+
+description: |
+  Este libro digital es una introdución al estudio de Biometría
+link-citations: yes
+
+editor_options: 
+  markdown: 
+    wrap: 72    
+---
+
+# Ciencia de Datos con R
+
+***
+**Instructor:** Raymond L. Tremblay, PhD   
+  
+**Oficina**: NL 104			 		 
+**Teléfono**: (787) 850-0000 (dept de biología)			  		
+**Coreo electrónico**: raymond.tremblay_at_upr_dot_edu	
+ 
+***
+### Horario de clase
+
+**Presentación de temas y discusión**: Lunes y miercoles 4:30-5:50pm (80 mins) (NOTE: Necesita traer su laptop!)   
+
+**Hora de consulta con Estudiantes**:  
+
+- Lunes y miercoles de 1:00 a 4:00pm (NL 104).    
+
+***
+
+
+
+### Libros sugeridos       
+- [Garrett Grolemund, Hadley Wickham. R for Data Science](https://r4ds.had.co.nz) En Ingles. 
+- [Garrett Grolemund, Hadley Wickham. R para Ciencia de Datos](https://es.r4ds.hadley.nz) En Español.
+- [Tremblay y Hernández-Serrano, 2018](https://www.amazon.com/Gráficas-Versátiles-ggplot2-Análisis-Spanish-ebook/dp/B07P2Q87H2/ref=sr_1_1?dchild=1&keywords=Graficas+versatiles&qid=1591404029&sr=8-1).
+
+•	Artículos revisados por pares serán asignados para fomentar el método de utilizar estas herramientas en ciencias. 
+
+***
+### Programados
+- [R- free statistical programming language](https://cran.r-project.org/) 
+- [RStudio](https://rstudio.com)
+- MSExcel, Numbers o Google Sheet 
+
+***
+
+### Prerequisitos    
+
+Ninguno 
+
+***
+### Descripción del curso  
+Estudio de diferentes técnicas estadísticas con aplicación a la Biología. Se enfatizará en la estadística descriptiva, análisis de regresiones y correlaciones, pruebas de hipótesis paramétricas y no paramétricas y análisis de frecuencias y varianza. Se hará énfasis en los supuestos de las pruebas, para seleccionar cual método estadístico es adecuado para el diseño experimental y la distribución de los datos. Además, se utilizarán las computadoras como mecanismos para facilitar y agilizar el cómputo y análisis estadístico.
+
+***
+### Objetivos del curso
+
+Tema general del curso
+-	Desarrollar destrezas de organizar y evaluar datos para contestar preguntas cuantitativas con R, RStudio, RMarkdown y Quarto y otros programados
+
+
+ 
+
+***
+### Puntuación: 
+Este curso sera evaluado con los siguiente items:
+
+
+|Item                    |     Valor              |
+|:--------------------|-------------------:|
+|Ejercicios práctico (10-15 total) |	  80%|     
+| Participación en clase |10%|
+| Asistencia a clase |10%|
+
+NOTE: 
+Escala de Notas: 
+
+  * A (100 to 90) 
+  * B (89 to 80) 
+  * C (79 to 70) 
+  * D (69 to 60) 
+  * F (< 60) 
+
+***
+### Examenes:
+Habrá dos examen parciales y un examen final *comprensivo*.  Estos exámenes serán de selecciones múltiples, pareo, respuesta corta, y análisis de conceptos.  El examen final será comprensivo (incluye todos los temas del semestre).  En este examen final se hará énfasis en la comprensión y aplicaciones de los supuestos de las pruebas y la capacidad de seleccionar la prueba correcta basado en el diseño experimental y los supuestos. 
+
+
+### Es obligatorio tener la camera prendida durante **todo el exámen**. No es permitido usar el celular, Ud. tendrá que demostrar que el celular este detrás de uds antes de comenzar el examen   
+
+***
+### Conferencias
+En la clase las notas serán basado primeramente en la participación y algunas pruebas cortas.  Su participación es esencial para el aprendizaje (y para un ambiente positivo). Aprender *NO* es un proceso pasivo: los estudiantes deben participar haciendo preguntas y discutir el material con su conocimiento anterior (Su bagaje de conocimiento).  
+
+***
+### Ejercicios  
+Los ejercicios están enfocado en la aplicación de conceptos y métodos discutido en la clase y solución de problemas. Se hará un esfuerza de usar datos reales para demostrar como trabajar con los análisis, tablas, y gráficos en R, RStudio y RMarkdown.  Típicamente, tendrán solamente una semana para hacer los ejercicios y entregarlos en formato *.html*.   
+
+***
+### Faltar a clase y examen:
+*Los trabajos cortos y pruebas cortas NO se reponen*.  Si falta a la clase es su responsabilidad hablar con los otros estudiantes para saber lo que se discutió en la clase. Los examen se reponen solamente por una escusa valida.    
+
+***
+### Derechos de Estudiantes con Impedimentos
+
+La UPR-Humacao cumple con las leyes ADA (Americans with Disabilities Act) y
+51 (Servicios Educativos Integrales para Personas con Impedimentos) para garantizar
+igualdad en el acceso a la educación y servicios. Estudiantes con impedimentos: informe al (la) profesor(a) de cada curso sobre sus necesidades especiales y/o de acomodo razonable para el curso, en la tarjeta de información de la primera semana y visite la Oficina de Servicios para la Población con Impedimentos (SERPI) a la brevedad posible. Se mantendrá la confidencialidad.
+
+***
+### Integridad académica
+La Universidad de Puerto Rico promueve los más altos estándares de integridad
+académica y científica. El Artículo 6.2 del Reglamento General de Estudiantes de la
+Universidad de Puerto Rico (Certificación Núm. 13, 2009-2010, de la Junta de Síndicos)
+establece que "la deshonestidad académica incluye, pero no se limita a: acciones
+fraudulentas, la obtención de notas o grados académicos valiéndose de falsas o
+fraudulentas simulaciones, copiar total o parcialmente la labor académica de otra persona,
+plagiar total o parcialmente el trabajo de otra persona, copiar total o parcialmente las
+respuestas de otra persona a las preguntas de un examen, haciendo o consiguiendo que
+otro tome en su nombre cualquier prueba o examen oral o escrito, así como la ayuda o
+facilitación para que otra persona incurra en la referida conducta". Cualquiera de estas
+acciones estará sujeta a sanciones disciplinarias en conformidad con el procedimiento
+disciplinario establecido en el Reglamento General de Estudiantes de la UPR vigente.
+
+***
+### Comentario sobre grabar videos y/o audio de las clases
+Los estudiantes no PUEDEN grabar la clase por forma de video o audio sin el permiso del profesor.  Algunos estudiantes con necesidades especiales pueden hablar con el profesor para pedir el permiso.  La solicitud y aprobación del permiso tiene que ser por escrito (por ejemplo por email).  
+
+***
+### Espacio libre de acoso sexual
+La Universidad de Puerto Rico prohíbe el descrimen por razón de sexo y género en todas sus modalidades, incluyendo el hostigamiento sexual. Según la Política Institucional contra el hostigamiento sexual, en la Universidad de Puerto Rico, Cert. Núm. 130 (2014-2015) de la Junta de Gobierno, si un(a) estudiante está siendo o fue afectado por conductas relacionadas a hostigamiento sexual, puede acudir ante la Oficina del Procurador Estudiantil, el Decanato de Estudiantes o el Coordinador de Cumplimiento con Título IX para una orientación o presentar una querella.
+
+***
+### Protocolo de la Clase
+Los teléfonos mobiles serán apagado durante la clase.  Si necesita una calculadora traerla al salón. El teléfono no debería esta visible durante la clase al menos que pide permiso al instructor. Recuerda que que se usara computadoras portátiles en cada sesión.
+
+
+<!--chapter:end:index.Rmd-->
+
+# Flujo de trabajo
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/workflow-projects.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/04-workflow-basics.html>
+
+
+***
+
+
+## Temas:
+
+  - Reduciendo Errores
+  - getwd()
+  - setwd()
+  - Su Proyecto
+  
+  - Selecionar el tab **Session** →→ **Set Working Directory** →→ **To Project Directory** 
+*** 
+  
+## Creación de un proyecto:
+
+  - crear un proyecto para cada curso.
+  - crear un proyecto para cada investigación.
+  - No se te olvida de añadir tu archivos de datos en el proyecto.
+  - Describe claramente todos tus análisis y donde conseguiste la información.
+  - Describe tu interpretación de los análisis o gráficos.
+  - Correr los "scripts" uno a la vez para asegurar que funcione.
+  - knit el archivo .rmd para asegurar que no falte nada.
+  - no mezclar proyectos de investigación en un mismo proyecto.
+  
+  
+***
+  
+```{r}
+#install.packages("tidyverse")
+library(tidyverse)
+
+# install.packages("datos")
+library(datos)
+```
+
+### Un set de sobre carros en el archivo (paquete) **datos**
+
+```{r}
+millas
+
+```
+
+
+### Mi primer gráfico
+
+```{r}
+ggplot(data = millas) +
+  geom_point(mapping = aes(x = cilindrada, y = autopista))
+```
+
+
+### Las funciones **head** y **tail**
+```{r}
+ggplot(data=millas)
+
+head(millas) # las primeras 6 filas
+tail(millas, n=10) # las ultimas 10 filas
+
+```
+
+## Información sobre el archivo
+Usa el signo de interogación **?** antes del nombre de la función o archivo
+
+```{r}
+?millas
+
+
+?head
+
+
+```
+
+
+### Las dimensiones del archivo
+
+```{r}
+dim(millas)
+```
+
+
+
+### Construcción de mi primer gráfico
+
+- el nombre del archivo es primero
+- nombre de las variables (nombre de las columnas)
+- si quiere tener un color para cada grupo
+
+```{r}
+ggplot(data = millas) +
+  geom_point(mapping = aes(x = cilindrada, y = autopista,  colour=fabricante))
+```
+
+
+### La función shape para cambiar la forma de los puntos
+
+La función **shape** es para cambiar el estilo de los puntos
+
+```{r}
+ggplot(data = millas) +
+ geom_point(mapping = aes(x = cilindrada, y = autopista), shape=11, color = "#c093cc", fill="yellow")
+```
+
+
+### Salvar un grafico en otro formato
+
+Como salvar la figura en formato recuperable para subir en otros documentos o compartir
+
+```{r}
+ ggplot(data = millas) +
+   geom_point(mapping = aes(x = cilindrada, y = autopista), color = "blue")
+
+ggsave("cilindro_milla.jpg") #. png, .tiff
+
+```
+
+
+
+```{r}
+millas
+```
+
+
+
+Ejercicio para someter:
+
+1. baja el paquete "ggversa"
+2. activar el paquete "ggversa"
+3. mirar las variables del archivo en este paquete que se llama "Anolis"
+4. haga un gráfico que incluye lo siguiente
+   a. en el eje de x = el SVL. que es el tamaño del lagarto del hocico a la cloaca y en la variable de "TAIL" en el eje de y.
+   b. selecciona la variable "SEX_AGE" para color
+   c. selecciona la función correcta para que cada "SEX_AGE" tenga su proprio gráfico
+   d. salva el gráfico en .png o .jpg
+   e. subir el gráfico aquí
+
+
+```{r}
+
+library(ggversa)
+head(Anolis)
+```
+
+
+
+***
+
+
+
+## Extracción de valores de un conjunto de datos
+
+Aqui usamos el conjunto de datos de **diamantes** que se encuentra en el paquete **ggplot2**
+
+
+#### Los primeros datos de un archivo
+```{r}
+head(diamantes)
+```
+
+#### La cantidad de fila
+```{r}
+nrow(diamantes)
+```
+
+#### La cantidad de columnas (variables)
+```{r}
+ncol(diamantes)
+```
+
+#### La dimensiones de un archivo
+
+```{r}
+dim(diamantes)
+```
+
+#### El valor máximo de una variable
+
+```{r}
+max(diamantes$precio)
+```
+
+#### El valor mínimo de una variable
+
+```{r}
+min(diamantes$precio)
+```
+
+#### Los valores discretos de una variable
+
+```{r}
+unique(diamantes$corte)
+```
+
+
+ - diamantes$corte
+
+ - diamantes$precio
+
+## Ejemplos de Gráficos
+
+
+
+```{r}
+library(readr)
+Vuelos_SJU_2018_Ene <- read_csv("Datos/Vuelos_SJU_2018_Ene.csv")
+
+head(Vuelos_SJU_2018_Ene)
+```
+
+
+
+
+<!--chapter:end:02-Flujo_de_Trabajo.Rmd-->
+
+ # Visualización de datos
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+
+Sys.Date()
+```
+
+
+***
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/data-visualisation.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/03-visualize.html>
+ 
+ 
+***
+
+
+## Temas:
+
+  - Introducción
+  - paquete "tidyverse"
+  - datos de "mgp"
+  - ggplot2
+  - El concepto de la gramática de gráficos
+  
+
+***
+
+### Los paquetes
+
+```{r}
+library(tidyverse)
+library(ggversa)
+library(datos)
+```
+
+
+
+### Facet_wrap
+
+
+```{r}
+ggplot(data = Anolis) +
+  geom_point(mapping = aes(x = SVL, y = TAIL, color=SEX_AGE))+
+  facet_wrap(~SEX_AGE, ncol=1)
+```
+
+### Regresión lineal
+
+
+```{r}
+# izquierda
+ggplot(data = millas) +
+  geom_point(mapping = aes(x = cilindrada, y = autopista))
+
+# derecha   LOESS  
+ggplot(data = millas) +
+  geom_smooth(method=lm,mapping = aes(x = cilindrada, y = autopista))+  # y = mx+b
+  geom_point( mapping = aes(x = cilindrada, y = autopista))
+```
+
+
+### Regresión Loess
+
+Vea este enlace para información sobre la regresión LOESS
+
+<<https://en.wikipedia.org/wiki/Local_regression>>
+
+
+
+```{r, warning=FALSE}
+names(millas)
+
+ggplot(data = millas) +
+  geom_smooth(mapping = aes(x = cilindrada, y = autopista, linetype = clase, colour=clase))
+```
+
+### Regresión LOESS de un grupo
+
+```{r}
+ggplot(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
+  geom_point(mapping = aes(color = clase)) +
+  geom_smooth(data = filter(millas, clase == "suv"), se =TRUE)
+```
+
+### Regresión LOESS: dos alternativas
+
+```{r}
+ggplot(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
+  geom_point() +
+  geom_smooth()
+
+ggplot() +
+  geom_point(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
+  geom_smooth(data = millas, mapping = aes(x = cilindrada, y = autopista))
+```
+
+### Regresión Lineal $$y=b+mx$$
+
+
+
+```{r}
+ggplot(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
+  geom_point(mapping = aes(color = clase)) +
+  geom_smooth(method=lm)
+```
+
+### geom_bar()
+
+```{r}
+ggplot(data = diamantes) +
+  geom_bar(mapping = aes(x = corte))
+```
+
+
+### Puntos con intervalo mínimo y máximo
+
+
+```{r}
+ggplot(data = diamantes) +
+  stat_summary(
+    mapping = aes(x = corte, y = profundidad),
+    fun.min = min,
+    fun.max = max,
+    fun = median
+  )
+```
+
+
+### geom_boxplot
+
+
+```{r}
+ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
+  geom_boxplot()
+
+ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
+  geom_boxplot() +
+  coord_flip()
+```
+
+
+### geom_bar y circular
+
+
+
+
+```{r}
+bar <- ggplot(data = diamantes) +
+  geom_bar(
+    mapping = aes(x = corte, fill = corte),
+    show.legend = FALSE,
+    width = 1
+  ) +
+  theme(aspect.ratio = 1) +
+  labs(x = NULL, y = NULL)
+```
+
+#### geom_bar
+
+```{r}
+bar
+```
+
+#### geom_bar & flip coordinates
+
+```{r}
+bar + coord_flip()
+```
+
+
+#### geom_bar & circular distribution
+```{r}
+bar + coord_polar()
+```
+
+
+##  Leer datos de un archivo
+  
+1.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 3.2.4 del libro en español
+
+***
+
+  - Aestética 
+  
+  ***
+
+2.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 3.3.1 del libro en español
+
+***
+
+  - Problemas comunes
+  - Separar en facetas
+  
+***
+3.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 3.5.1 del libro en español
+
+***
+
+
+  - Objetos geométricos
+***
+
+4.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 3.6.1 del libro en español
+
+***
+
+
+  - Transformación estadísticas
+
+***
+
+5.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 3.7.1 del libro en español
+
+***
+  - Ajuste de posición
+
+***
+
+6.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 3.8.1 del libro en español
+
+***
+
+  - Sistema de coordenadas
+
+
+***
+
+7.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 3.9.1 del libro en español
+
+***
+ 
+
+Ejercicio para entregar  ( 6 puntos) 
+
+1. Activa el paquete "ggversa"
+2. Activa el paquete "tidyverse"
+3. Utiliza los datos "PartosInfantes". Leen la información sobre el archivo
+Son tres graficas que tendrán que someter
+4. Hacer un gráfico de puntos entre el número de muertes de infante y la cantidad de madres que mueren en el parto. (1 punto)
+5. Añadir al gráfico anterior un modelo lineal (linear model). Y Demostrando todos los datos con un color por region geografica, o sea añadir un color a los puntos por Grupo "region geográfica". AM=America, EU= Union Europea, AF= Africa, O=Oceania, AS=Asia, Medio Oriente, (2 puntos)
+6. Enseña el modelo de regresion lineal solamente para AFRICA y ASIA (en la misma gráfica) (3 puntos)
+
+Someter las tres gráficas en formato .jpeg o .png en el portal.  
+
+
+
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+library(ggversa)
+
+```
+
+
+```{r}
+head(PartosInfantes)
+#unique(PartosInfantes$Pais)
+```
+Hacer un grafico de puntos entre el numero de muertes por infante y la cantidad la cantidad de madres que mueren en el parto
+```{r eval=FALSE, include=FALSE}
+ggplot(PartosInfantes, aes(NMI, NMP))+
+  geom_point()
+```
+
+
+Añadir al grafico anterior un modelo lineal (linear model)
+
+
+```{r eval=FALSE, include=FALSE}
+ggplot(PartosInfantes, aes(NMI, NMP))+
+  geom_point()+
+  geom_smooth(method=lm)
+```
+
+
+Añadir un color a los puntos por grupo "region". AM=America, EU= Union Europea, AF= Africa, O=Oceania, AS=Asia, Medio Oriente, 
+
+```{r eval=FALSE, include=FALSE}
+#PartosInfantes
+unique(PartosInfantes$Grupo)
+```
+
+Demostrando todos los datos con un color por region geografica, enseña el modelo de regresion lineal solamente para AFRICA
+
+```{r eval=FALSE, include=FALSE}
+ggplot(PartosInfantes, aes(NMI, NMP, colour=Grupo))+
+  geom_point()+
+  geom_smooth(method=lm, data = filter(PartosInfantes, Grupo == "AF"), se=FALSE)+
+  geom_smooth(method=lm, data = filter(PartosInfantes, Grupo == "AS"), se=FALSE)
+
+
+```
+
+
+### Ejercicios
+
+
+Buscar el error en el código.
+
+1. ¿Qué no va bien en este código? ¿Por qué hay puntos que no son azules en el siguiente codigo?
+
+```{r, eval=FALSE, echo=TRUE}
+ggplot(data = millas) +
+   geom_point(mapping = aes(x = cilindrada, y = autopista, color = "blue"))
+```
+
+
+
+2. Por que la gráfica no se produce en el siguiente código
+
+```{r, eval=FALSE}
+ggplot(data = millas)
++ geom_point(mapping = aes(x = cilindrada, y = autopista))
+
+
+
+```
+## Vea el siguiente gráfico
+
+```{r}
+ggplot(data = millas) +
+  geom_point(mapping = aes(x = cilindrada, y = autopista)) +
+  facet_grid(traccion ~ cilindros)
+```
+
+
+3. ¿Por qué hay facetas que son vacias?
+
+
+4. Explica que hace "."? en estas funciones
+
+```{r}
+ggplot(data = millas) +
+  geom_point(mapping = aes(x = cilindrada, y = autopista)) +
+  facet_grid(traccion ~ .)
+
+ggplot(data = millas) +
+  geom_point(mapping = aes(x = cilindrada, y = autopista)) +
+  facet_grid(. ~ cilindros)
+```
+
+5. Qué hace **nrow** en este código
+
+
+```{r}
+ggplot(data = millas) +
+  geom_point(mapping = aes(x = cilindrada, y = autopista)) +
+  facet_wrap(~ clase, nrow = 2)
+```
+
+
+
+
+<!--chapter:end:03-Visualizacion_Datos.Rmd-->
+
+# Calculadora sofisticada
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+
+Sys.Date()
+#getwd()
+```
+
+***
+
+Activar los siguientes packetes
+
+```{r}
+library(tidyverse)
+library(datos)
+```
+
+
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/workflow-basics.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/04-workflow-basics.html>
+ 
+ 
+***
+
+
+
+## Temas:
+
+  - Conocimiento básicos de programación
+  - La importancia de los nombres
+  - Usando funciones
+  
+### Sumar  
+  
+```{r}
+2+2
+```
+
+### Exactamente como una calculadora
+
+```{r}
+(23+3+3)^2+2
+```
+
+
+### Trigonometria
+
+```{r}
+sin(pi/3)
+```
+
+
+### Log natural y a base 10
+
+
+```{r}
+log(100)
+log10(100)
+```
+
+### Asignaciones de variables
+
+```{r}
+x<- 4
+x
+y=3
+y
+
+x/y
+```
+
+
+### Variables 
+
+
+- la función "seq" para secuencia
+
+```{r}
+edad_nd=seq(101, 110)
+edad_nd
+```
+
+- variables asignada
+
+```{r}
+edad_uprh=c(11:20)
+edad_uprh
+```
+
+### Unir variables en un data frame
+
+```{r}
+edad=data.frame(edad_nd, edad_uprh)
+edad
+```
+
+
+```{r}
+edad$diff=edad$edad_nd-edad$edad_uprh
+edad
+
+
+edad$tres=edad$edad_uprh^3
+edad
+```
+
+
+### Errores cuando a variables no tienen la misma cantidad de entradas
+
+
+```{r}
+edad_nd_1=base::seq(101, 111)
+edad_nd_1
+```
+
+- variables asignada
+
+```{r}
+edad_uprh_1=c(11:20, NA)
+edad_uprh_1
+```
+
+### Unir variables en un data frame
+
+```{r}
+edad_1=data.frame(edad_nd_1, edad_uprh_1)
+edad_1
+```
+
+
+### Cuantos valores hay en una variable
+
+```{r}
+length(edad_uprh)
+
+length(edad$tres)
+length(edad)
+```
+
+
+### Seleccionar solamente parte de los datos de un archivo
+
+- Primero visualizar los datos
+
+```{r}
+library(datos)
+millas
+```
+
+#### Seleccionar los carros que tienen cilindros igual a 8 (solamente)
+
+La función de Pipe.    %>% o |>
+
+
+
+```{r}
+library(tidyverse)
+millas
+names(millas)
+
+millas |> dplyr::select(cilindros) |> 
+  dplyr::filter(cilindros == 8)
+
+```
+
+
+
+
+
+#### Selecionar los diamantes mayor de 3 quilate
+
+```{r}
+diamantes |> dplyr::select(quilate) |> 
+  filter(quilate > 3)
+```
+
+
+#### Selecionar los diamantes con igual o mayor de 4000 precio
+
+```{r, echo=FALSE}
+#unique(diamantes$precio)
+
+dia_4000 = diamantes |> dplyr::select(precio) |> 
+  dplyr::filter(precio >= 4000)
+
+head(dia_4000)
+```
+
+
+***
+#### Contabiliza cuantos diamantes tienen un valor de $4000 o más
+
+
+```{r, contar las cantidad lineas}
+
+nrow(dia_4000) 
+
+```
+
+
+
+
+
+<!--chapter:end:04-Calculadora_sofisticada.Rmd-->
+
+# Transformacion
+
+Fecha de la ultima revisión
+
+```{r echo=FALSE}
+
+Sys.Date()
+```
+
+------------------------------------------------------------------------
+
+El tema proviene de los siguientes sitios.
+
+English: <https://r4ds.had.co.nz/transform.html>
+
+Español: <https://es.r4ds.hadley.nz/05-transform.html>
+
+------------------------------------------------------------------------
+
+```{r}
+library(tidyverse)
+library(datos)
+head(vuelos)
+```
+
+## Evaluar el archivo
+
+Mirar el archivo y entender la información antes de hacer cualquier analisis/
+
+-   Cual son las variables
+-   Cuales son. los tipos de datos
+    -   **int** valores enteros,
+    -   **dbl** números reales, significa dobles
+    -   **chr** caracteres o vectores
+    -   **dttm** fecha y tiempo, minutos
+    -   **date** fecha
+    -   **S3: POSIXct** Fecha y tiempo, minutos
+    -   **lgl** valores logicos "cierto" (TRUE) y "falso" (FALSE)
+    -   **fctr** factores categoricos.
+
+Evalua en este archivo los tipos de variables que se encuentra.
+
+```{r}
+vuelos
+```
+
+### Cual son todos los destinos de vuelos?
+
+-   cual función usará
+
+```{r}
+unique(vuelos$destino)
+
+```
+
+### Seleciona los vuelos donde el destino es San Juan
+
+```{r}
+vuelos %>%
+  filter(destino=="SJU")
+```
+
+### Selecciona los vuelos donde el destino es San Juan el dia de navidad
+
+```{r}
+vuelos %>%
+  filter(destino=="SJU") %>%
+  filter(mes==12, dia==25) %>% 
+  filter(aerolinea %in% c("AA", "UA"))  #pipe Command shift M
+```
+
+### Selecciona los vuelos que salen de San Juan en el dia de ti cumpleaños y contabiliza cuanto hubo
+
+```{r}
+df_dia_cumpl=vuelos %>%  
+filter(destino =="SJU") %>% 
+  filter(mes== 8, dia== 1) |> 
+  nrow()
+
+df_dia_cumpl
+```
+
+#### Organizar los datos en orden de más grande a más pequeño
+
+-   Selecciona los mes, dia, destino, atraso_salida, atraso_llegada
+-   Selecciona solamente el mes de noviembre
+-   Selecciona solamente los vuelos a destino de a San Juan
+-   oraganiza los datos en orden de más atraso_salido de mayor a menor
+
+```{r}
+names(vuelos)
+
+vuelos %>% 
+  dplyr::select(mes, dia, destino, atraso_salida, atraso_llegada) %>% 
+  filter(mes==11) %>% 
+filter(destino =="SJU") %>% 
+  arrange(desc(atraso_salida))
+```
+
+## Temas: Reconocer y aplicar las diferentes funciones
+
+-   Tipos de variables:
+
+    -   int
+    -   dbl
+    -   chr
+    -   dttm
+    -   lgl
+    -   fctr
+    -   date
+
+------------------------------------------------------------------------
+
+-   Funciones de dplyr:
+
+    -   filter()
+    -   arrange()
+    -   select()
+    -   summarize()
+    -   group_by()
+
+```{r}
+library(datos)
+library(tidyverse)
+por_dia <- vuelos %>% 
+  group_by(dia) %>% 
+  summarise(atraso_promedio = mean(atraso_salida, na.rm = TRUE))
+por_dia
+
+```
+
+```{r}
+## The median of the data set by day of the month
+
+
+por_dia_2 <- vuelos %>% 
+  group_by( dia) %>% 
+  summarise(atraso_promedio = mean(atraso_salida, na.rm = TRUE),
+            atraso_mediana = median(atraso_salida, na.rm=TRUE))
+por_dia_2
+
+```
+
+------------------------------------------------------------------------
+
+## Dia 2:
+
+Funciones
+
+-   summarise
+-   mean, median, Mode
+-   operaciones boolean
+-   
+
+```{r}
+## The mode of the value
+# Create the function.
+getmode <- function(v) {
+   uniqv <- unique(v)
+   uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+
+library(DescTools)
+
+por_dia_3=vuelos |> 
+  dplyr::select(dia, mes, atraso_salida) |> 
+  group_by(dia) %>% 
+  summarise(atraso_promedio = mean(atraso_salida, na.rm = TRUE),
+            atraso_max=max(atraso_salida, na.rm=TRUE),
+            atraso_mode = getmode(atraso_salida),
+            atraso_Mode = Mode(atraso_salida))
+por_dia_3
+
+```
+
+ADD the mean, median and mode to the same data frame
+
+```{r}
+## The mode of the value
+library(DescTools)
+
+por_dia_4 <- 
+  group_by(vuelos, dia) %>% 
+  summarise(atraso_promedio = mean(atraso_salida, na.rm = TRUE),
+            atraso_median = median(atraso_salida, na.rm=TRUE),
+            atraso_mode = Mode(atraso_salida))
+por_dia_4
+names(vuelos)
+```
+
+```{r}
+vuelos %>% 
+  dplyr::select(anio, mes, dia, atraso_llegada, destino) %>% 
+  filter(destino =="SJU") %>% 
+  filter(mes == 12 & dia ==25) %>% 
+  group_by(dia, mes) %>% 
+  summarise(atraso = mean(atraso_llegada, na.rm = TRUE))
+
+```
+
+------------------------------------------------------------------------
+
+## Operaciones lógicas boolean:
+
+-   & "ampersand"
+-   "\|" or= "o"
+-   !, no incluye, excluir....
+-   %in%, filtrar para múltiples valores
+-   ==, es igual a... "exactamente"
+-   "\<"
+-   "\>"
+-   "\<=" es menor o igual
+-   "\>=" es mayor o igual
+
+Bollean, que incluye múltiples opciones %in%
+
+```{r}
+vuelos %>% 
+  dplyr::select(anio, mes, dia, atraso_salida) %>% 
+  group_by(mes) %>% 
+  filter(mes %in% c(1:6)) %>% 
+  summarise(atraso = mean(atraso_salida, na.rm = TRUE))
+```
+
+### Otra alternativa para filtrar
+
+#### "\|"
+
+```{r}
+vuelos %>% 
+  dplyr::select(anio, mes, dia, atraso_salida) %>% 
+  filter(mes == 11 | mes == 12)
+
+#%>% 
+ # summarise(atraso = mean(atraso_salida, na.rm = TRUE))
+```
+
+#### & el "y"
+
+```{r}
+names(vuelos)
+vuelos %>% 
+  dplyr::select(anio, mes, dia, atraso_salida, aerolinea) %>% 
+  filter(mes == 12 & dia == 25 & aerolinea=="AA")
+```
+
+------------------------------------------------------------------------
+
+## Ejercicios
+
+Como se seleccionaría los meses de diciembre pero desde la del 25 o más
+
+------------------------------------------------------------------------
+
+## Día 3:
+
+!, excluye algo, En este caso estamos excluyendo los dias del 1 al 10
+
+```{r, echo=FALSE, eval=FALSE}
+library(datos)
+library(tidyverse)
+vuelos %>% 
+  dplyr::dplyr::select(anio, mes, dia, atraso_salida, aerolinea) %>%
+  filter(mes == 11 & !aerolinea %in% c("AA", "DL")) %>% 
+  group_by(aerolinea) %>% 
+  summarise(atraso = mean(atraso_salida, na.rm = TRUE))
+```
+
+------------------------------------------------------------------------
+
+1.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 5.2.4 del libro en español
+
+5.2.4 Ejercicios
+
+-   Encuentra todos los vuelos que:
+
+-   Tuvieron un retraso de llegada de dos o más horas
+
+```{r, echo=FALSE, eval=FALSE}
+#names(vuelos)
+
+vuelos %>% 
+  filter(atraso_llegada >=120) %>% 
+  filter(destino == "HOU" | destino == "IAH")
+```
+
+-   Volaron a Houston (IAH o HOU)
+
+Cual son estos aeropuertos, Hou == Houston, IAH == George Bush, Texas
+
+```{r, echo=FALSE, eval=FALSE}
+vuelos %>% 
+  filter(destino %in% c("IAH", "HOU"))
+
+
+vuelos %>%
+dplyr::select(anio, mes, dia, destino, aerolinea, atraso_llegada) %>%
+filter(destino %in% c("IAH", "HOU"))
+```
+
+-   Seleciona solamente los vuelos que fueron operados por United, American o Delta
+
+```{r, echo=FALSE, eval=FALSE}
+unique(vuelos$aerolinea)
+
+vuelos %>% 
+  filter(aerolinea %in% c("UA", "AA","DL"))
+```
+
+-   Selecciona solamente los vuelos que partieron en invierno del hemisferio sur (julio, agosto y septiembre)
+
+```{r, echo=FALSE, eval=FALSE}
+vuelos %>% 
+  filter(mes %in% c(6:8))
+
+vuelos %>%
+filter(mes %in% c(7, 8, 9))
+```
+
+-   Selecciona solamente los vuelos que llegaron más de dos horas tarde, pero no salieron tarde
+
+```{r, echo=FALSE, eval=FALSE}
+names(vuelos)
+vuelos %>% 
+  filter(atraso_llegada>120 |atraso_salida <0)
+
+vuelos %>%
+dplyr::select(atraso_llegada, atraso_salida) %>%
+filter(atraso_llegada > 120 & atraso_salida <= 0)
+         
+```
+
+-   Selecciona solamente los vuelos que se retrasaron por lo menos una hora, pero repusieron más de 30 minutos en vuelo
+
+```{r, echo=FALSE, eval=FALSE}
+
+#vuelos
+vuelos |>  
+dplyr::select(atraso_salida, atraso_llegada) %>%
+filter(atraso_salida >= 60 & atraso_llegada <= -30)
+
+filter(atraso_salida >= 60 & atraso_salida - atraso_llegada <= 30 )
+```
+
+-   Selecciona solamente los vuelos que partieron entre la medianoche y las 6a.m. (incluyente)
+
+```{r, echo=FALSE, eval=FALSE}
+names(vuelos) # 360 minutos
+
+
+vuelos %>%
+dplyr::select(horario_salida) %>%
+filter(horario_salida <=600)
+```
+
+-   Otra función de dplyr que es útil para usar filtros es between(). ¿Qué hace? ¿Puedes usarla para simplificar el código necesario para responder a los desafíos anteriores?
+
+```{r, echo=FALSE, eval=FALSE}
+vuelos %>%
+dplyr::select(horario_salida) %>%
+filter(between(horario_salida,00, 360))
+
+vuelos %>%
+dplyr::select(horario_salida) %>%
+filter(between(horario_salida, 00, 360))
+```
+
+## Contabilizar los NA
+
+-   ¿Cuántos vuelos tienen datos faltantes en horario_salida?
+-   ¿Qué otras variables tienen valores faltantes?
+-   ¿Qué representan estas filas?
+
+```{r, echo=FALSE, eval=FALSE}
+vuelos %>%
+dplyr::select(horario_salida) %>%
+is.na() %>% 
+  table()
+
+
+```
+
+## Seleccionar solamente los vuelos donde el "horario de salida" es desconocido
+
+```{r, echo=FALSE, eval=FALSE}
+vuelos %>% 
+  dplyr::select(anio, mes, dia, horario_salida, aerolinea) |> 
+filter(is.na(horario_salida))
+
+
+
+```
+
+-   Determinar cual "aerolinea" tiene más vuelos
+
+```{r, echo=FALSE, eval=FALSE}
+vuelos %>% select(anio, mes, dia, horario_salida, horario_llegada, aerolinea) |> 
+filter(is.na(horario_salida)) |>
+  group_by(aerolinea) |> 
+  count()
+
+
+
+```
+
+------------------------------------------------------------------------
+
+## Día 4
+
+### ¿Qué pasa con los valores faltantes y resultados de analisis sin sentido?
+
+```{r}
+library(tidyverse)
+2^2
+1^2
+1^0
+
+NA^0
+#NA==1
+NA|TRUE
+
+FALSE & NA
+FALSE * NA
+
+TRUE * NA
+NA * 0  
+NA * 1
+12 * 3
+NA - 3
+```
+
+------------------------------------------------------------------------
+
+## Datos importado de la web.
+
+### Usar datos que provienen de una base de datos del web.
+
+Aquí un website que recopila la cantidad de personas vacunadas en los EEUU.
+
+```{r eval=FALSE, include=FALSE}
+library(tidyverse)
+library(data.table)
+COVID_DATA<-fread("https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/us_state_vaccinations.csv")
+
+
+
+head(COVID_DATA)
+```
+
+------------------------------------------------------------------------
+
+Seleccionar solamente los datos de Puerto Rico
+
+```{r eval=FALSE, include=FALSE}
+COVID_DATA %>% 
+  filter(location=="Puerto Rico")
+```
+
+### COVID world
+
+Otro website de datos de COVID, estos representa los datos de todos los paises del mundo
+
+```{r eval=FALSE, include=FALSE}
+url_COVID=fread("https://covid.ourworldindata.org/data/owid-covid-data.csv")
+head(url_COVID)
+
+head(unique(url_COVID$location))
+
+url_COVID %>% 
+  filter(location=="United States")
+```
+
+Datos de PR
+
+<https://datos.estadisticas.pr/dataset?res_format=CSV>
+
+```{r}
+
+library(data.table)
+birth=fread("https://datos.estadisticas.pr/dataset/87620d17-bf63-445c-bb71-aca1a41c9077/resource/92728670-42cb-49d4-8fd3-cffdb6e54372/download/natlterr2014.csv")
+
+
+library(readr)
+nchs_births_2001 <- read_csv("nchs_births_2001.csv")
+head(nchs_births_2001)
+
+nchs_births_2001 %>%
+  group_by(WEEKDAY) %>% 
+  filter(BIRMON=="01") %>% 
+  count()
+
+```
+
+```{r}
+names(birth)
+head(nchs_births_2001$BIRMON)
+
+```
+
+```{r}
+nchs_births_2001 |> dplyr::select(BIRMON, CSEX) |> 
+  group_by()
+unique(nchs_births_2001$STATENAT)
+unique(nchs_births_2001$NOCCUR)
+unique(nchs_births_2001$RB)
+
+#WEEKDAY
+#DGESTAT
+```
+
+------------------------------------------------------------------------
+
+COVID_PR
+
+```{r,DatosMortandad2, echo=FALSE, eval=FALSE}
+library(data.table)
+url_COVID_PR=fread("https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv")
+
+#write_csv(url_COVID_PR, "url_COVID_PR.csv")
+
+library(readr)
+url_COVID_PR <- read_csv("Datos/url_COVID_PR.csv")
+
+url_COVID=url_COVID_PR
+
+names(url_COVID)
+head(url_COVID)
+tail(url_COVID)
+
+url_COVID
+```
+
+-   Calcula la cantidad de muertes por dia en PR, y el maximo de muerto en un día por COVID
+
+```{r, echo=FALSE, eval=FALSE}
+ url_COVID_PR %>% 
+  dplyr::select(IncrementoMuertes) %>% 
+  summarise(Prom_muerte_dia = mean(IncrementoMuertes, na.rm = TRUE),
+            maximo_muerte_dia = max(IncrementoMuertes, na.rm = TRUE))
+
+ 
+```
+
+------------------------------------------------------------------------
+
+### La función arrange()
+
+arrange()
+
+------------------------------------------------------------------------
+
+```{r, echo=FALSE, eval=FALSE}
+
+vuelos %>% 
+  dplyr::select(horario_salida) %>% 
+  arrange()
+
+
+
+vuelos %>% 
+  arrange(desc(horario_salida))
+
+
+
+
+```
+
+5.3.1 Ejercicios
+
+Ordena vuelos para encontrar los vuelos más retrasados en salida.
+
+```{r, echo=FALSE, eval=FALSE}
+?vuelos
+vuelos %>% 
+  dplyr::select(atraso_llegada, horario_salida) %>% 
+  arrange(atraso_llegada, desc(horario_salida))
+```
+
+Encuentra los vuelos que salieron más temprano.
+
+```{r, echo=FALSE, eval=FALSE}
+vuelos %>% dplyr::select(horario_salida) %>% filter(horario_salida >= 600) %>% filter(horario_salida > 2400)
+
+
+names(vuelos)
+vuelos %>% 
+  dplyr::select(atraso_salida) %>% 
+  arrange(atraso_salida)
+```
+
+Ordena vuelos para encontrar los vuelos más rápidos (que viajaron a mayor velocidad).
+
+```{r, echo=FALSE, eval=FALSE}
+vuelos %>% 
+  mutate(velocidad=distancia/tiempo_vuelo) %>% 
+  arrange(desc(velocidad))
+```
+
+¿Cuáles vuelos viajaron más lejos?
+
+```{r, echo=FALSE, eval=FALSE}
+vuelos %>% 
+  arrange(desc(distancia))
+```
+
+¿Cuál viajó más cerca?
+
+```{r, echo=FALSE, eval=FALSE}
+vuelos %>% 
+  arrange(distancia)
+```
+
+-   Otra función
+
+    -   desc()
+
+------------------------------------------------------------------------
+
+
+## Día 5
+
+
+2.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 5.3.1 del libro en español
+
+------------------------------------------------------------------------
+
+-   Otras funciones:
+
+    -   starts_with()
+
+    -   ends_with()
+
+    -   rename()
+
+    -   contains()
+
+    -   matches("(.)\\1") \# paquete STRING
+
+    -   everything()
+
+## starts_with(), ends_with()
+
+Es una función para seleccionar basado
+
+```{r}
+names(vuelos)
+
+vuelos %>% 
+  dplyr::select(horario_salida)
+
+vuelos %>% 
+  dplyr::select(starts_with("horario"))
+
+vuelos %>% 
+  dplyr::select(ends_with("salida"))
+
+vuelos %>% 
+  dplyr::select(contains("hora"))
+
+```
+
+## rename()
+
+Cambiar el nombre de la columna
+
+```{r}
+vuelos %>% 
+  rename(aeropuerto_origen=origen) %>% 
+  rename(areopuerto_distino=destino) # nombre nuevo= nombre original
+```
+
+## Reoganizar el orden de las columnas, using select() and everything()
+
+```{r}
+head(vuelos)
+vuelos %>% 
+    dplyr::select(distancia, aerolinea, everything())
+```
+
+Seleccionar de un subset de variables en orden que aparece en el data.frame
+
+```{r}
+vuelos |> dplyr::select(anio:horario_salida)
+  
+```
+
+
+
+
+## matches("(.)\\1") Lo veremos en la lección de "STRING"
+
+------------------------------------------------------------------------
+
+3.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 5.4.1 del libro en español
+
+------------------------------------------------------------------------
+
+-   Otras funciones:
+
+    -   mutate()
+    
+    
+```{r}
+names(vuelos)
+
+vuelos |> dplyr::select(distancia, tiempo_vuelo, atraso_salida,  atraso_llegada) |> 
+  mutate( ganancia = atraso_salida - atraso_llegada,
+          velocidad = distancia / tiempo_vuelo * 60)
+```
+
+    
+    
+
+```{r}
+library(tidyverse)
+library(nycflights13)
+head(flights)
+
+  flights_sml <- flights |>  dplyr::select( 
+  year:day, 
+  ends_with("delay"), 
+  distance, 
+  air_time
+  )
+  
+head(flights_sml)
+  
+flights_sml |> mutate(gain = dep_delay - arr_delay,
+                      speed = distance / air_time * 60
+                      )
+```
+
+## Hagan lo con el data set en espanol
+
+```{r}
+names(vuelos)
+  vuelos_sml <- dplyr::select(vuelos, 
+  anio:dia, 
+  starts_with("atraso"), 
+  distancia, 
+  tiempo_vuelo
+)
+head(vuelos_sml)
+  
+mutate(vuelos_sml,
+  ganado = atraso_salida - atraso_llegada,
+  velocidad = distancia / tiempo_vuelo * 60
+)
+```
+
+## transmute()
+
+Para guardar solamente la nueva variable usa **transmutate**
+
+```{r}
+
+flights |> transmute(
+  gain = dep_delay - arr_delay,
+  hours = air_time / 60,
+  gain_per_hour = gain / hours
+)
+
+```
+
+## lag()
+
+Para calcular diferencias entre variables en la misma columna
+
+```{r}
+set.seed(12345) # que los datos sean al azar, siempre sean los mismo, se usa el "set.seed()" para enseñanza.
+#rnorm()  DATOS CON DISTRIBUCION NORMAL
+rpois(7, 2)
+data=rpois(14, 10)
+df=as_tibble(data)
+df
+
+df %>% 
+  dplyr::select(value) %>% 
+  mutate(lag1=lag(value)) %>% 
+  mutate(lag3=lag(value, 3)) %>% 
+  mutate(lag7=lag(value,5))
+
+df%>% 
+  dplyr::select(value) %>% 
+  mutate(Changes=value-lag(value, 1)) # El cambio en los valores entre celdas
+
+
+```
+
+## Usa "Lag" con "IncCasosSaludNuevo" en COVID-19 PR
+
+Evalua la diferencia en números de casos entre 7 días de las semana en números de casos nuevos de COVID, "IncCasosSaludNuevo"
+
+```{r}
+library(readr)
+library(dplyr)
+#names(url_COVID_PR)
+url_COVID_PR <- read_csv("Datos/url_COVID_PR.csv")
+#head(url_COVID_PR)
+#names(url_COVID_PR)
+df2=url_COVID_PR %>% 
+  dplyr::select(IncCasosSaludNuevo) %>% 
+  mutate(Cambios_Casos=IncCasosSaludNuevo-lag(IncCasosSaludNuevo,5)) 
+
+
+df2
+df2 %>% 
+  dplyr::select(IncCasosSaludNuevo, Cambios_Casos) %>% 
+  colMeans(na.rm=TRUE)
+
+
+
+
+
+#df2 %>% 
+#  select()
+#  slice(na.rm=TRUE) # lets you index rows by their (integer) locations. It allows you to select, remove, and duplicate rows. It is accompanied by a number of helpers for common use cases
+
+
+```
+
+
+## lead(),
+
+is the "next" (lead()) values in a vector/column
+
+```{r}
+set.seed(12345)
+data=rpois(15, 10)
+df=as.tibble(data)
+df
+
+df %>% 
+  dplyr::select(value) %>% 
+  mutate(lead1=lead(value)) %>% 
+  mutate(lead3=lead(value, 3))
+
+# Calculate the change in value from one (1) time period and four (4) time periods
+df%>% 
+  dplyr::select(value) %>% 
+  mutate(lead1=value-lead(value)) %>% 
+  mutate(lead7=value-lead(value, 7))
+```
+
+## cumsum
+
+Cumulative Sum: the values are sum along the vector or column
+
+```{r}
+x <- sample(1:15, 10, replace=TRUE)
+
+x
+df=as.tibble(x)
+df
+
+df %>% 
+  dplyr::select(value) %>% 
+  mutate(suma=cumsum(value))
+
+
+
+
+```
+
+```{r}
+url_COVID_PR <- read_csv("Datos/url_COVID_PR.csv")
+
+head(url_COVID_PR)
+
+url_COVID_PR %>%
+dplyr::select(IncCasosSaludNuevo, CasosSaludNuevo) %>%
+mutate(suma=cumsum(IncCasosSaludNuevo))
+```
+
+## Día 6
+
+## cummean() and cumvar()
+
+The mean of the values are calculated
+
+Cummulative mean
+
+```{r}
+
+set.seed(678)
+x <- rnorm(1000, 5, .001)
+head(x)
+df=as.tibble(x)
+head(df)
+mean(df$value)
+
+
+library(MASS)
+
+df3=df %>% 
+  dplyr::select(value) %>% 
+  mutate(Prom_cum=cummean(value)) %>% 
+  mutate(Var_cum=cumstats::cumvar(value)) # activa el paquete cumstats
+
+
+library(cumstats)
+ df3=df %>% 
+  dplyr::select(value) %>% 
+  mutate(Prom_cum=cummean(value)) %>% 
+  mutate(Var_cum=cumvar(value))
+
+ df3
+
+
+```
+
+
+## Uso de varianza cumulativa en investigación:
+
+Un metodo para determinar si la cantidad de muestras recolectada es suficiente, es evaluar si la varianza cumulativa sigue cambiando cuando se añade nuevas recolección de datos.   
+
+
+```{r}
+df3$order=c(1:1000)
+df3
+
+
+ggplot(df3, aes(order, Var_cum))+
+  geom_point()+
+  geom_smooth()
+```
+
+
+
+## Que pasa con las funciones **cummean**, **cumsum** y **cumvar** si hay NA en el archivo de datos?
+
+### Replacar los NA con 0, usando la función **replace_na()** con un valor especifico **replace_na("variable", 0)**
+
+
+```{r}
+datos_NA=c(1:8, NA, 10:20)
+datos_NA=as_data_frame(datos_NA)
+
+datos_NA %>% 
+  dplyr::select(value) %>% 
+  mutate(Prom_cum=cummean(value)) %>% 
+  mutate(Var_cum=cumstats::cumvar(value)) 
+
+# Solución para resolver los NA.   Cual problema hay con usar NA?
+
+
+datos_NA %>% 
+  dplyr::select(value) %>% 
+  mutate(Prom_cum=cummean(replace_na(value, 0))) %>% 
+  mutate(Var_cum=cumstats::cumvar(replace_na(value, 0)))
+
+```
+
+
+
+------------------------------------------------------------------------
+## Pruebas no paraméticas
+
+
+La pruebas no paramétricas no son basado en distribución normal y los indices como promedio, descviación estandard no se usan. 
+
+## min_rank() y \# min_rank(desc())
+
+Asignar valores de rangos a los valores originales o de más grande a meas pequeño o vise versa.
+
+```{r}
+set.seed(45678)
+  x <- sample(1:50, 10)
+head(x)
+df=as.tibble(x)
+df
+
+df %>% 
+  dplyr::select(value) %>% 
+  mutate(rango_minimo=min_rank(value)) %>%  
+  mutate(rango_min_desc=min_rank(desc(value)) )
+```
+
+## row_number()
+
+Qué hace la función **row_number**?
+
+```{r}
+set.seed(45678)
+y <- c(10,21,22,NA,5,4)
+head(y)
+df=as.tibble(y)
+df
+
+
+df %>% 
+  dplyr::select(value) %>% 
+  mutate(row=row_number(value)) # equivalente a rank, 
+```
+
+## dense_rank()
+
+```{r}
+set.seed(45678)
+z <- c(10,12,12,NA,51,4)
+df=as.tibble(z)
+df
+
+
+df %>% 
+  dplyr::select(value) %>% 
+  mutate(dense=dense_rank(value)) # equivalente a rank, NOTA que los NA no son asignado un valor
+
+
+```
+
+------------------------------------------------------------------------
+
+
+
+## la función **percent_rank()**
+
+```{r}
+set.seed(45678)
+w <- c(1,2,2,NA,5,4)
+w
+df=as.tibble(w)
+df
+
+
+df %>% 
+  dplyr::select(value) %>% 
+  mutate(porcentaje_rank=percent_rank(value)) # equivalente a rank, Un número entre a  0 y 1 calculado haciendo una re-escala de los valores usando min_rank to [0, 1]. NOTA que el valor más pequeño es reasignado un valor de 0 y el más grande un valor de 1.  
+```
+
+
+## la función **percent_rank()** sin **NA**
+
+```{r}
+set.seed(45678)
+x2 <- sample(1:50, 7)
+df2=as.tibble(x2)
+df2
+
+df2 %>% 
+  dplyr::select(value) %>% 
+  mutate(porc2=percent_rank(value))
+
+```
+
+## la función **cume_dist()**
+
+Es la suma cumulativa de los rangos
+
+```{r}
+set.seed(45678)
+  x <- c(1,2,3,NA,5,4, 10, 8)
+  x
+df=as.tibble(x)
+df
+
+
+df %>% 
+  dplyr::select(value) %>% 
+  mutate(rangos_cumulativo=cume_dist(value)) 
+```
+
+------------------------------------------------------------------------
+
+4.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 5.5.2 del libro en español
+
+Encuentra los 10 vuelos más retrasados utilizando una función de ordenamiento. ¿Cómo quieres manejar los empates? Lee atentamente la documentación de min_rank().
+
+```{r}
+names(vuelos)
+vuelos%>%
+  dplyr::select(atraso_salida)%>%
+  arrange(desc(atraso_salida))%>% 
+  mutate(mas_atrados=min_rank(desc(atraso_salida))) %>% 
+  head(n=10)
+```
+
+```{r}
+names(vuelos)
+vuelos %>% 
+  arrange(atraso_salida) %>% 
+  mutate(rango_minimo=min_rank(atraso_salida)) %>% 
+  head(n=10)
+
+```
+
+------------------------------------------------------------------------
+
+## Resúmenes con summarise() by group using group_by()
+
+```{r}
+library(datos)
+library(nycflights13)
+summarise(flights, delay = mean(dep_delay, na.rm = TRUE))
+
+
+flights %>% 
+  summarise(delay = mean(dep_delay, na.rm = TRUE))
+```
+
+```{r}
+by_day <- group_by(flights, year, month, day)
+
+summarise(by_day, delay = mean(dep_delay, na.rm = TRUE))
+```
+
+```{r}
+flights %>% 
+  group_by(year, month, day) %>% 
+summarise(delay = mean(dep_delay, na.rm = TRUE))
+```
+
+## The worst airline in departure delays
+
+```{r}
+flights %>%
+group_by(carrier) %>%
+summarise(delay = mean(dep_delay, na.rm = TRUE)) %>%
+arrange(desc(delay))
+```
+
+```{r}
+by_dest <- group_by(flights, dest)
+by_dest
+delay <- summarise(by_dest,
+  count = n(),
+  dist = mean(distance, na.rm = TRUE),
+  delay = mean(arr_delay, na.rm = TRUE))
+
+
+delay
+#> `summarise()` ungrouping output (override with `.groups` argument)
+delay <- filter(delay, count > 20, dest != "HNL")
+
+# It looks like delays increase with distance up to ~750 miles 
+# and then decrease. Maybe as flights get longer there's more 
+# ability to make up delays in the air?
+ggplot(data = delay, aes(x = dist, y = delay)) +
+  geom_point(aes(size = count), alpha = 1/3) +
+  geom_smooth(se = FALSE)
+#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+
+
+```{r}
+names(delay)
+head(delay)
+ggplot(data = delay, aes(x = dist, y = delay, label=dest)) +
+  geom_point() +
+  geom_smooth(se = FALSE)+
+  geom_text(size=2,aes(label=dest), hjust=1, vjust=-1)
+  
+
+```
+
+------------------------------------------------------------------------
+
+5.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 5.6.7 del libro en español
+
+------------------------------------------------------------------------
+
+## El Pipe
+
+-   %\>% "El pipe"
+
+------------------------------------------------------------------------
+
+## Otras funciones: NA
+
+-   na.rm=TRUE
+-   !is.na() = is not NA, pq al frente tiene "!"
+
+```{r}
+no_cancelados <- vuelos %>% 
+  filter(!is.na(atraso_salida), !is.na(atraso_llegada))
+no_cancelados
+
+no_cancelados %>% 
+  group_by(anio, mes, dia) %>% 
+  summarise(mean = mean(atraso_salida))
+
+
+vuelos %>% 
+  group_by(anio, mes, dia) %>% 
+  summarise(mean = mean(atraso_salida, na.rm=TRUE))
+#,
+#            max=max(atraso_salida,na.rm = TRUE),
+#            n=n())
+```
+
+------------------------------------------------------------------------
+
+## Otras funciones:
+
+Tarea de grupo.
+
+Preparar un .rmd con la explicaciones de como utilizar la función mencionado abajo. Debe incluir
+
+1.  La definición de la función en palabra y matemática.
+2.  un script sencillo (con pocos datos) (uno o más ejemplos) para explicar la función
+3.  un script con los datos de "vuelos" o de "Covid-19 de PR".
+4.  a las 2:20pm cada grupo presentará su trabajo.
+5.  Despues de la clase cada grupo, mejorará su .rmd con los comentarios recibidos.\
+6.  Domingo se subirá el .rmd y el .html en Edmodo (cada estudiante lo subira: tendra el nombre de cada estudiante en el trabajo)
+7.  El profesor revisará los trabajos y subsiguiente se distribuira los .rmd y html a los estudiantes.
+
+-   IQR() \## G1
+
+-   mad() \## G2
+
+-   first() \## G3
+
+-   last() \## G3
+
+-   quantile() \## G4
+
+-   signif() \## G5
+
+    -   min()
+
+-   max()
+
+-   mean()
+
+-   sd() \*\*\*
+
+1.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 5.7.1 del libro en español
+
+------------------------------------------------------------------------
+
+```{r}
+
+```
+
+Rolling average:
+
+<https://stackoverflow.com/questions/743812/calculating-moving-average>
+
+```{r}
+library(tidyverse)
+library(zoo)
+
+some_data = tibble(day = 1:10)
+some_data
+# cma = centered moving average
+# tma = trailing moving average
+some_data %>%
+    mutate(cma = rollmean(day, k = 3, fill = NA)) %>%
+    mutate(tma = rollmean(day, k = 3, fill = NA, align = "right")) %>% 
+   mutate(lma = rollmean(day, k = 3, fill = NA, align = "left")) %>% 
+  mutate(cmax=rollmax(day, k=30, fill=NA))
+some_data
+
+```
+
+```{r}
+library(tidyverse)
+library(dplyr)
+some_data |> 
+  mutate(day_p = if_else(day %in% c(0:3), "pre",
+         if_else(day %in% c(4:10), "normal",
+         NA_character_)))
+
+
+
+
+```
+
+
+
+```{r}
+y=runif(10000, 0, 100)
+
+y=as.data.frame(y)
+y
+
+library(ggplot2)
+
+ggplot(y, aes(y))+
+  geom_histogram()
+```
+
+
+<!--chapter:end:05-Transformacion.Rmd-->
+
+# Script
+
+Fecha de la ultima revisión
+
+```{r echo=FALSE}
+
+Sys.Date()
+```
+
+------------------------------------------------------------------------
+
+El tema proviene de los siguientes sitios.
+
+English: <https://r4ds.had.co.nz/workflow-scripts.html>
+
+Español: <https://es.r4ds.hadley.nz/06-workflow-scripts.html>
+
+------------------------------------------------------------------------
+
+
+**Temas super importante**:
+
+## Scripts:
+
+-   Ejecutando códigos
+-   Diagnostico de Rstudio
+
+1.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 6.3 del libro en español
+
+```{r}
+library(dplyr)
+library(datos)
+library(nycflights13)
+
+names(vuelos)
+no_cancelado <- vuelos %>% 
+  filter(!is.na(atraso_salida), !is.na(atraso_llegada))
+head(no_cancelado)
+
+no_cancelado %>% 
+  group_by(anio, mes, dia) %>% 
+  summarise(media = mean(atraso_salida))
+```
+
+```{r}
+x <- 10 
+```
+
+
+
+
+
+<!--chapter:end:06-Scripts.Rmd-->
+
+# Analisis Exploratorio
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+
+Sys.Date()
+```
+
+***
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/exploratory-data-analysis.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/07-eda.html>
+ 
+ 
+***
+
+## Temas
+
+ - Variación
+ - Valores faltantes
+ - Covariación
+ - Patrones y modelos
+ - Argumentos en ggplot2
+ 
+***
+
+
+## Terminos importantes
+  
+  - variable
+  - valor
+  - observación
+  - datos tabulados
+  
+  
+***
+  
+### Variación
+
+ - visualización de las distribuciones
+ - count()
+ - cut_width()
+ - valores típicos
+ - valores inusuales o atípicos
+
+ 
+***
+
+1.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 7.3.4 del libro en español
+
+***
+ 
+ 
+### Valores faltantes
+
+ - between()
+ - ifelse()
+ 
+
+***
+
+2.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 7.4.1 del libro en español
+
+***
+
+### Covariación
+
+
+ - geom_boxplot
+ - IQR()
+ 
+***
+ 
+2.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 7.5.1.1 del libro en español
+
+ 
+
+
+***
+
+### Dos variables categóricas
+
+ - geom_count()
+ - geom_tile()
+ 
+
+*** 
+ 
+2.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 7.5.2.1 del libro en español
+
+***
+
+### Dos variables continuas
+
+
+ - geom_point()
+ - geom_hex()
+ - geopm_boxplot()
+ 
+*** 
+ 
+3.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 7.5.3.1 del libro en español
+
+***
+ 
+### Patrones y modelos
+
+ - construir un modelo estádistico
+
+
+
+
+<!--chapter:end:07-Analisis_Exploratorio.Rmd-->
+
+# Pipes
+
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+
+Sys.Date()
+```
+
+***
+
+```{r, message=FALSE}
+library(tidyverse)
+library(magrittr) # El paquete de Pipe, se activa usando tidyverse
+```
+
+***
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/pipes.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/>
+ 
+ 
+***
+
+
+## Temas: El paquete "magrittr" y sus funciones
+
+Los pipes que vamos a evaluar son los siguientes:
+
+ - %>%     "Pipe"
+ - %!>%  "Eager Pipe"
+ - %$%    "Exposition pipe"
+ - %<>%   "Assigment pipe"
+
+ - %T>%   "Tee Pipe"
+ - %in%   "In Pipe"
+ 
+
+Función basica para calcular el precio básico de de diamantes por quilates 
+
+```{r}
+head(diamonds, n=3)
+
+diamonds$Precio_q = diamonds$price/diamonds$carat # crear una nueva variable
+
+head(diamonds, n=3)
+```
+
+
+
+```{r}
+diamonds2 <- diamonds %>% 
+  dplyr::mutate(price_per_carat = price / carat)
+```
+
+***
+
+Calcular el promedio de precio por la calidad de los diamantes usando pipes
+
+```{r}
+diamonds %>% 
+  group_by(cut) %>% 
+  summarize(Precio_color= mean(price))
+```
+
+
+***
+
+Calcular el promedio de precio por color de los diamantes usando pipes
+
+```{r, eval=FALSE, echo=FALSE}
+diamonds %>% 
+  group_by(color) %>% 
+  summarize(Precio_color= mean(price))
+```
+
+
+
+
+
+
+## %>% pipes
+
+
+Un ejemplo básico del pipe
+
+```{r}
+car_data <- 
+  mtcars %>%
+  subset(hp > 100) %>%
+  aggregate(. ~ cyl, data = ., FUN = . %>% mean %>% round(2)) %>%
+  transform(kpl = mpg %>% multiply_by(0.4251)) %>%
+  print
+```
+
+
+Un ejemplo sin usar el pipe para calcular la misma información
+
+```{r}
+car_data <- 
+  transform(aggregate(. ~ cyl, 
+                      data = subset(mtcars, hp > 100), 
+                      FUN = function(x) round(mean(x), 2)), 
+                      kpl = mpg*0.4251)
+
+car_data
+```
+
+
+
+
+```{r}
+car_data <- 
+  mtcars %>%
+  subset(hp > 100) %>%
+  group_by(cyl) %>% 
+  summarise(across(everything(), list(mean))) %>% 
+  transform(kpl = mpg_1 %>% multiply_by(0.4251)) %>% 
+  print
+
+
+```
+
+
+
+
+
+
+
+
+***
+
+
+## Alternativas a los pipes
+ - Pasos intermedios
+ - Sobre escribir el original
+ 
+
+
+***
+
+## %$%
+ 
+```{r}
+library(magrittr)
+
+#iris %>%
+#  subset(Sepal.Length > mean(Sepal.Length)) |> 
+#  cor(Sepal.Length, Sepal.Width)
+
+
+iris %>%
+  subset(Sepal.Length > mean(Sepal.Length)) %$%
+ cor(Sepal.Length, Sepal.Width)
+
+iris %>%
+  subset(Sepal.Length > mean(Sepal.Length)) |> 
+  summarize(corr= cor(Sepal.Length, Sepal.Width))
+
+```
+ 
+ 
+### Otro ejemplo de Pipe: %$%
+ 
+```{r}
+data.frame(z = rnorm(100)) %$% 
+  ts.plot(z)
+
+#data.frame(z = rnorm(100)) |>  
+#  ts.plot(z)
+
+#Para hacerlo la misma grafico con Tidyverse
+z1=data.frame(z = rnorm(100)) 
+library(data.table)
+z1=data.table(z1)
+z1$order= c(1:100)
+z1|> 
+  ggplot(aes(order, z))+
+  geom_line()
+
+
+```
+
+*** 
+
+## %<>%
+  
+  Pipe an object forward into a function or call expression and update the lhs object with the resulting value.
+  
+  lhs %<>% rhs
+  
+  
+ - lhs : An object which serves both as the initial value and as target.
+
+ - rhs : a function call using the magrittr semantics.
+ 
+
+ 
+ 
+```{r}
+
+# Example 1
+head(iris)
+
+head(iris$Sepal.Length %<>% sqrt)
+
+
+
+# Example 2
+x <- rnorm(100)
+head(x, n=10)
+x %<>% 
+  abs %>% 
+  sort
+
+head(x, 20)
+```
+ 
+ 
+***
+
+## %in% 
+
+ - Filter for values specific values within a variable
+ 
+ 
+```{r}
+
+# Example 1
+names(iris)
+iris |> 
+  filter(Species %in% c("setosa", "virginica")) |> 
+  head()
+
+
+
+
+
+```
+ 
+***
+
+## %T>%
+
+The tee pipe, %T>%, is useful when a series of operations have a function that does not return any value. 
+
+https://stackoverflow.com/questions/61196304/magrittr-tee-pipe-t-equivalent
+
+
+ 
+```{r}
+rnorm(200) %>%
+matrix(ncol = 2) %T>%
+plot %>%  # plot usually does not return anything. 
+colSums
+```
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+<!--chapter:end:08-Pipes.Rmd-->
+
+# Tibbles
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+
+Sys.Date() # la fecha de hoy
+```
+
+***
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/tibbles.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/10-tibble.html>
+ 
+ 
+***
+
+
+## Temas: El paquete Tibble
+
+  - as_tibble()
+
+***  
+  
+## Crear un tibble
+
+ - tibble()
+ 
+ Crear un tibble con la siguiente información.  Una columna que tiene los valores del 1 al 8 que se llama "secuencia", una segunda columna que tiene los siguientes valores 23,26, 24,26,27, 11,20,21 que se llama edad y una tercera columna con la siguiente información, Jose, Maria, Carol, Moncho, Liz, Maria, Jorge, Miguel, que ser llama Nombre 
+ 
+```{r}
+library(tidyverse)
+library(datos)
+
+tibble(
+  secuencia = c(1:8),
+  edad = c(23,26, 24,26,27, 11,20,21),
+  nombre = c("Jose", "Maria", "Carol", "Moncho", "Liz", "Maria", "Jorge", "Miguel")
+)
+
+```
+ 
+ 
+***
+
+## Crear un tribble
+
+ - tribble()
+ 
+ Haga un tribble con las primera 3 lineas del tibble anterior
+ 
+```{r}
+tribble(
+  ~secuencia, ~edad, ~nombre,
+  1, 23, "Jose",
+  2, 26, "Maria",
+  3, 23, "Carol"
+  
+  
+)
+```
+
+
+***
+
+## tibble vs. data.frame
+
+
+```{r}
+tb = tibble(
+  a = lubridate::now() + runif(1e2) * 86400,
+  b = lubridate::today() + runif(1e2) * 30,
+  c = 1:1e2,
+  d = runif(1e2),
+  e = sample(letters, 1e2, replace = TRUE)
+)
+tb
+
+```
+
+
+
+```{r}
+tb %>%
+  print(n = 4, width = Inf)
+
+
+
+lubridate::now()
+lubridate::today()
+
+```
+
+
+```{r}
+head(vuelos)
+
+vuelos %>%
+  print(n = 4, width = 2)
+```
+
+
+
+```{r}
+class(as.data.frame(tb))
+```
+
+
+## Seleccion de subconjuntos de datos
+
+```{r}
+head(vuelos$salida_programada, n=20) 
+vuelos[["salida_programada"]] |> head(n=20)
+
+#Usar esta función dentro de pipe
+
+vuelos %>% .$salida_programada |> head(n=20)
+
+vuelos %>% .[["salida_programada"]] |> head(n=20)
+```
+
+
+1.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 10.5 del libro en español
+
+
+
+
+  
+
+<!--chapter:end:09-Tibbles.Rmd-->
+
+# Importar datos
+
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+
+Sys.Date()
+```
+
+***
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/data-import.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/11-import.html>
+ 
+ 
+***
+
+## Temas: Funciones para importar datos con el paquete readr
+
+ - read_csv() # comma seperated variable,
+ - read_csv2()
+ - read_tsv()
+ - read_delim()
+ - read_fwf()
+ - read_width()
+ - read_positions()
+ - read_table()
+
+col1, col2, col3,
+3, 4, 6,
+5,3,NA
+
+; /
+ ***
+ 
+ 
+```{r}
+library(tidyverse)
+library(readr)
+Newborn_Karn_Penrose <- read_csv("Datos/Newborn_Karn_Penrose.csv")
+
+
+#library(readxl)
+#Newborn_Karn_Penrose1 <- read_excel("~/Google Drive/GitHub_Google_Drive/GitHub/Vintage_DATA/DATA/Human_Birth_Weight/Newborn_Karn_Penrose.xlsx", sheet = 3)
+
+head(Newborn_Karn_Penrose)
+
+
+```
+ 
+Hacer una columna de la proporción de los niños que no sobrevivieron.
+
+Newborn_Karn_Penrose %>%
+select(Count_Non_survivors, Count_Total_Birth) %>%
+arrange(Count_Total_Birth, Count_Non_survivors) %>%
+mutate(Perc_sobrevivieron = Count_Non_survivors/Count_Total_Birth)
+
+
+
+
+```{r}
+
+Newborn_Karn_Penrose %>% 
+  mutate(Percent_Decease = Count_Non_survivors/Count_Total_Birth)
+
+```
+
+
+Newborn_Karn_Penrose %>%
+select(Count_Non_survivors, Count_Total_Birth, Birth_weight) %>%
+arrange(Count_Total_Birth, Count_Non_survivors) %>%
+mutate(porc_sobrevivieron = Count_Non_survivors / Count_Total_Birth)%>%
+ggplot(aes(x= Birth_weight, y=porc_sobrevivieron))+
+geom_point()+
+geom_smooth()
+
+
+```{r}
+Newborn_Karn_Penrose %>% 
+  mutate(Percent_Decease = Count_Non_survivors/Count_Total_Birth) %>% 
+  ggplot(aes(Birth_weight, Percent_Decease)) + 
+  geom_point() +
+  geom_smooth()
+  
+```
+
+
+
+```{r}
+Newborn_Karn_Penrose %>% 
+  mutate(Percent_Decease = Count_Non_survivors/Count_Total_Birth) %>% 
+  ggplot(aes(Birth_weight, Percent_Decease)) + 
+  geom_point() +
+  geom_smooth()+
+  facet_wrap(~Mother_age)
+```  
+
+```{r}
+
+Newborn_Karn_Penrose %>% 
+  mutate(Percent_Decease = Count_Non_survivors/Count_Total_Birth) %>% 
+  ggplot(aes(Birth_weight, Percent_Decease, color=Mother_age)) + 
+  geom_point(aes(color=factor(Mother_age))) +
+  geom_smooth(aes(color=factor(Mother_age)))
+```
+
+
+## Comparar con base R
+ 
+ ***
+ 
+ 1.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 11.2.2 del libro en español
+
+***
+
+## Segmentar un vector
+
+ - str(parse_logical())
+ 
+ 
+```{r}
+
+x= c("TRUE", "FALSE", "NA")
+x   
+str(parse_logical(x)) 
+
+y= c("Carlos", "Kelvin")
+     
+y
+str(parse_logical(y)) 
+
+
+str(parse_logical(c("TRUE", "FALSE", "NA")))
+
+
+z=c("1", "2", "3")
+z
+mean(z)
+z1=str(parse_integer(z))
+
+
+
+str(parse_integer(c("1", "2", "3")))
+
+str(parse_date(c("2010-01-01", "1979-10-14")))
+
+```
+
+```{r}
+m=c("$4000", "$500" )
+parse_number(m)
+
+
+parse_number("$100")
+#> [1] 100
+parse_number("20%")
+#> [1] 20
+parse_number("It cost $123.45")
+#> [1] 123.45
+```
+ 
+ - str(parse_integer())
+ - str(parse_date())
+ 
+ 
+***
+
+## Números
+
+ - parse_double()
+ - parse_number()
+ - parse_number(locale=locale(grouping_mark = "."))
+ 
+
+
+***
+
+## Caderna de texto
+
+  - parse_character()
+  
+  - charToRaw()
+  
+  
+```{r}
+charToRaw("Ramn")
+
+```
+  
+  
+
+```{r} 
+x1 <- "El Ni\xf1o was particularly bad this year"
+x2 <- "\x82\xb1\x82\xf1\x82\xc9\x82\xbf\x82\xcd"
+x3 <- "The boy was particularly bad this year"
+
+library(readr)
+  parse_character(x1, locale = locale(encoding = "Latin1"))
+#> [1] "El Niño was particularly bad this year"
+parse_character(x2, locale = locale(encoding = "Shift-JIS"))
+
+
+parse_character(x, locale = locale(encoding = "Shift-JIS"))
+#> [1] "こんにちは"
+```  
+ 
+ 
+  - guess_encoding(charToRaw())
+  
+  
+```{r}
+guess_encoding(charToRaw(x3))
+```
+  
+## Factores
+
+ - parse_factor()
+ 
+ 
+## Fechas, fechas-horas, horas
+
+ - parse_datetime()
+ 
+ - library(hms)
+  - parse_time()
+  
+  
+  
+ 2.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 11.3.5 del libro en español 
+
+
+## Segmentar un archivo
+
+ - guess_parser
+ 
+## Escribir un Archivo
+
+  - write_csv()
+  - write_tsv()
+  
+## Otro tipos de datos
+
+  - library(haven) # SPSS, Stata y SAS
+  - readxl() lee archivo Excel en formato .xls, xlsx
+  - BDI lee archivo RMySQL y otros
+  
+  
+```{r}
+parse_date("01/02/15", "%m/%d/%y")
+
+parse_date("01/02/15", "%m/%d/%y")
+
+parse_date("01/1982/15 11:15:30", "%m/%Y/%d  /%H/%M/%S")
+
+```
+  
+  
+
+
+
+
+<!--chapter:end:10-Importar_Datos.Rmd-->
+
+# Datos Ordenados
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+
+Sys.Date()
+```
+
+***
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/tidy-data.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/12-tidy.html>
+ 
+ 
+***
+
+## Temas: Datos Ordenados
+
+### El paquete tidyr
+
+Ver vignettes  
+
+
+
+```{r} 
+ library(tidyverse)
+library(datos)
+``` 
+ 
+ 
+```{r}
+tabla1
+
+tabla2
+
+tabla3
+
+tabla4a
+
+tabla4b
+```
+
+<!--chapter:end:11-Datos-Ordenados.Rmd-->
+
+# Datos Relacionados
+
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+
+Sys.Date()
+```
+
+***
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/relational-data.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/13-relational-data.html>
+ 
+ 
+***
+
+
+```{r}
+library(tidyverse)
+library(datos)
+```
+
+```{r}
+vuelos # data set #1
+names(vuelos)
+aerolineas # data set #2
+names(aerolineas)
+```
+
+```{r}
+aeropuertos
+names(aeropuertos)
+```
+
+```{r}
+aviones
+```
+
+
+```{r}
+clima
+```
+
+
+```{r}
+vuelos
+```
+
+```{r}
+aviones
+
+aviones %>%
+  count(codigo_cola) %>%
+  filter(n > 1)
+```
+
+## Temas: Datos Relacionados
+
+- mutating joins
+- filtering joins
+- operations
+
+### Los datos de vuelos
+
+ 1.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 13.2.1 del libro en español
+
+***
+
+
+## Claves
+
+ 2.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 13.3.1 del libro en español
+
+Identify the keys in the following datasets
+
+Lahman::Batting,
+babynames::babynames
+nasaweather::atmos
+fueleconomy::vehicles
+ggplot2::diamonds
+
+
+```{r}
+Lahman::Batting
+datos::bateadores
+
+
+Lahman::Batting %>% 
+  count(playerID) %>% 
+  filter(n>1)
+
+datos::bateadores
+bateadores %>%
+count(id_jugador,id_anio,orden_equipos) %>%
+filter(n > 1)
+```
+
+```{r}
+Lahman::Batting %>% 
+  count(playerID, yearID, stint) %>% 
+  filter(n>1)
+```
+
+
+
+```{r}
+babynames::babynames
+```
+
+```{r}
+babynames::babynames %>% 
+  count(year, name, sex) %>% 
+  filter(n>1)
+```
+
+Cual fue el primer año que su nombre aparece en la base de datos
+
+```{r}
+babynames::babynames %>% 
+filter(name =="Abimelys")
+
+max(babynames::babynames$year)
+```
+
+
+
+```{r}
+nasaweather::atmos
+
+```
+
+
+
+```{r}
+nasaweather::atmos %>% 
+  count(lat, long, year, month) %>% 
+  filter(n>1)
+```
+
+
+```{r}
+fueleconomy::vehicles
+```
+
+
+
+```{r}
+fueleconomy::vehicles %>% 
+    count(id) %>% 
+  filter(n>1)
+```
+
+```{r}
+ggplot2::diamonds
+```
+
+
+
+```{r}
+ggplot2::diamonds %>% 
+      count(carat, cut, color, clarity, depth, price, x, y, z) %>% 
+  filter(n>1)
+```
+
+
+Draw a diagram illustrating the connections between the Batting, People, and Salaries tables in the Lahman package. Draw another diagram that shows the relationship between People, Managers, AwardsManagers.
+
+
+Dibuja un diagrama que ilustre las conexiones entre las tablas bateadores, personas y salarios incluidas en el paquete datos. Dibuja otro diagrama que muestre la relación entre personas, dirigentes y premios_dirigentes.
+
+```{r}
+names(Lahman::Batting)
+names(Lahman::Salaries)
+names(Lahman::People)
+```
+
+
+
+
+***
+
+## Uniones de transformaciones
+
+ - mutating join
+ 
+```{r}
+vuelos2 <- vuelos %>%
+  dplyr::select(anio, dia, hora, origen, destino, codigo_cola, aerolinea)
+vuelos2
+```
+ 
+```{r}
+names(aerolineas)
+aerolineas
+
+
+vuelos2 %>%
+  dplyr::select(-origen, -destino) %>%
+  left_join(aerolineas, by = "aerolinea")
+```
+ 
+ 
+```{r}
+x <- tribble(
+  ~key, ~val_x,
+  1, "x1",
+  2, "x2",
+  3, "x3"
+)
+y <- tribble(
+  ~key, ~val_y,
+  1, "y1",
+  2, "y2",
+  4, "y3"
+)
+
+x
+y
+```
+```{r}
+x %>% 
+  inner_join(y, by="key")
+```
+ 
+ 
+ 
+```{r}
+#left_join
+
+x %>% 
+  left_join(y, by="key")
+
+
+#right_join
+
+x %>% 
+  right_join(y, by="key")
+#full_join
+
+x %>% 
+  full_join(y, by="key")
+```
+
+left_join
+
+
+```{r}
+x <- tribble(
+  ~key, ~nombre_x,
+  1, "Juan",
+  2, "Maria",
+  3, "Orlando"
+)
+y <- tribble(
+  ~key, ~edad_y,
+  1, 20,
+  2, 21,
+  4, 22
+)
+
+x
+y
+
+x %>% 
+  full_join(y, by="key")
+
+x %>% 
+  inner_join(y, by="key")
+```
+
+
+```{r}
+x %>% 
+  left_join(y, by="key")
+
+x %>% 
+  right_join(y, by="key")
+
+x %>% 
+  full_join(y, by="key")
+
+x %>% 
+  inner_join(y, by="key")
+```
+
+ 
+ START HERE!!!!
+ 
+```{r}
+
+vuelos2 %>%
+  dplyr::select(-origen, -destino) %>%
+  left_join(aerolineas, by = "aerolinea")
+
+
+names(vuelos2)
+names(clima)
+```
+
+```{r}
+
+vuelos2 %>%
+left_join(clima)
+
+#> Joining, by = c("anio", "mes", "dia", "hora", "origen")
+vuelos2 %>%
+left_join(clima, by = c("anio", "dia", "hora", "origen"))
+```
+ 
+ 
+ 
+```{r}
+
+names(vuelos2)
+names(aeropuertos)
+
+head(vuelos2, n=3)
+aeropuertos
+
+
+
+
+
+vuelos2 %>%
+ right_join(aeropuertos, c("origen" = "codigo_aeropuerto"))
+```
+ 
+```{r}
+library(maps)
+
+aeropuertos %>%
+semi_join(vuelos, c("codigo_aeropuerto" = "destino")) %>%
+ggplot(aes(longitud, latitud)) +
+borders("state") +
+geom_point() +
+coord_quickmap()
+```
+ 
+ 
+ - mutate()
+ - select()
+ - left_join()
+ - match()
+
+
+***
+
+## Entendiendo las uniones
+
+***
+
+### Unión interiores
+
+
+### Unión exteriores
+
+
+### Claves duplicadas
+
+
+***
+
+## Definiendo las columnas clave
+
+3.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 13.4.6 del libro en español
+
+***
+
+
+## Otras implementaciones
+
+ - merge()
+ 
+***
+
+## Uniones de filtro
+
+ - semi_join()
+ - anti_join()
+ 
+4.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 13.5.1 del libro en español
+
+***
+
+## Problemas con las uniones
+
+
+
+
+ 
+ 
+
+
+***
+
+
+
+<!--chapter:end:12-Datos_Relacionados.Rmd-->
+
+# Cadena de Caracteres = STRINGS
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+
+Sys.Date()
+```
+
+***
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/strings.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/14-strings.html>
+ 
+
+
+```{r}
+library(tidyverse)
+library(datos)
+```
+
+
+***
+
+```{r}
+string1 <- "El Pequeño Principe; Saint Exupery"
+string2 <- "El segundo sexo: Simone de Beauvoir"
+string3 <- "El segundo sexo '\\' Simone de Beauvoir"
+
+
+string1
+string2
+string3
+```
+
+
+```{r}
+comilla_doble <- '\"' # o '"'
+comilla_simple <- '\'' # o "'"
+
+comilla_doble
+comilla_simple
+
+
+```
+
+
+```{r}
+x <- c("\"", "\\")
+x
+
+writeLines(x)
+```
+
+
+## Caracteres especiales
+
+```{r}
+"\n"
+"\t"
+```
+
+
+## Para ver las opciones de caracteres y como trabajar cadenas de caracteres use **?"'"** para ver 
+
+```{r}
+?"'"
+```
+
+## Lista de caracteres especiales (unicodes)
+
+
+Vea el siguiente enlace para los unicodes
+
+<https://en.wikipedia.org/wiki/List_of_Unicode_characters>
+
+
+
+```{r}
+x <- "\u00b5"
+x
+
+y <- "\u00b6"
+y
+
+z <- "\u00A1"
+z
+
+w <- "\u01FC\u00b6"
+w
+```
+
+
+
+Escribir si nombre en el alfabeto cyrilico
+
+ -  Vea este enlace pra conocer el alfebeto cyrilico
+
+
+
+<<https://www.google.com/search?client=safari&rls=en&q=cyrillic+alphabet&ie=UTF-8&oe=UTF-8#vhid=cMLOx1fN0Zg5UM&vssid=l>>
+
+```{r}
+Raymond = "\u048E\u0430\u042B\u043C\u043E\u043D\u0434, Asi se escribe mi nombre en ruso"
+Raymond
+```
+
+
+
+
+## Temas: Cadenas de Caracteres
+
+ - library(stringr)
+ 
+Solamente trabajermos con el paquete stringr, donde las funciones escrita de forma que sean más intuitivos para recordar.  Todas las funciones conmienzan con **str_**
+
+
+### El largo de una cadena de caracteres con **str_length**
+
+```{r}
+library(stringr)
+str_length("Yo quiero un Lamborghini")
+```
+
+
+
+### Combinar cadenas con **str_c**
+
+
+```{r}
+
+
+str_c("Es una oración con muchas letras y palabras", "Mi pelicula favorita es Cinema Paraiso")
+
+
+```
+
+
+Usa el argumento **sep = "xxx  "** para controlar cómo separar las oraciones
+
+
+```{r}
+
+
+str_c("Es una oración con muchas letras y palabras", "Mi pelicula favorita es Cinema Paraiso", sep = ", ")
+
+
+```
+
+
+  
+  
+  - str_replace_na()
+
+```{r} 
+x <- c("Mi pelicula favorita es Cinema Paraiso", NA)
+str_c("|-", x, "-|")
+```
+  
+  
+## Dividir cadenas basado en la posición de los caracteres en la cadena
+
+  - str_sub()
+  
+  
+```{r}
+x= c( "Piña", "Manzana", "Toronja")
+str_sub(x, 1,3)
+
+
+```
+  
+### Seleccionar los caracteres del ultimo caracter
+
+```{r}
+x= c( "Piña", "Manzana", "Toronja")
+str_sub(x, -2,-2)
+
+
+```
+  
+  
+
+### Cambiar a todo minuscula
+
+
+```{r}
+x= c( "Piña", "Manzana", "Toronja", "HAPPY")
+str_to_lower(x)
+```
+
+
+### Cambiar a mayuscula
+
+```{r}
+x= c( "Piña", "Manzana", "Toronja")
+str_to_upper(x)
+```
+  
+## Locales
+
+  - ¿Qué es un locale?
+  - str_to_lower()
+  - str_to_upper()
+  - str_order() # que hace esta función?
+  - str_sort() # que hace esta función?
+  
+
+```{r}
+x
+str_order(x)
+
+str_sort(x)
+```
+
+
+  
+1.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.2.5 del libro en español
+
+***  
+  
+## Buscar patrones
+
+## Coincidencia básica
+
+Para visualizar patrones de letras
+
+ - str_view()
+ - str_view( , .x.)
+
+```{r}
+
+library(stringr)
+x <- c("manzana", "banana", "pera")
+str_view(x, "er")
+```
+
+
+Ejemplo de como uno puede utiliza esas funciones
+
+
+ 
+```{r}
+x= c( "Piña", "Manzana", "Toronja", "Jugo", "Monique")
+str_detect(x, "a") # detectar la a
+str_detect(x, "i") # detectar la i
+str_detect(x, "ñ")
+``` 
+
+
+```{r}
+# ¿Cuántas palabras comunes empiezan con m?
+# str_detect(x, "^M")
+x
+sum(str_detect(x, "^m"))
+sum(str_detect(x, "^M"))
+```
+
+
+
+```{r}
+# ¿Qué proporción de palabras comunes terminan con una vocal?
+mean(str_detect(x, "[aáeéiéoéuú]$"))
+
+# ¿Qué proporción de palabras comunes terminan con una vocal especifica?
+mean(str_detect(x, "[o]$"))
+```
+
+
+- Comienza para mirar el archivo palabras
+ 
+- Cuentas palabras tiene ese archivo?
+
+```{r}
+library(stringr)
+palabras
+```
+
+
+
+```{r}
+# Encuentra todas las palabras que contengan al menos una vocal, y luego niégalo
+sin_vocales_1 <- !str_detect(palabras, "[aáeéiíoóuúúü]")
+
+
+
+
+# Encuentra todas las palabras consistentes solo en consonantes (no vocales)
+sin_vocales_2 <- str_detect(palabras, "^[^aáeéiíoóuúúü]+$")
+
+identical(sin_vocales_1, sin_vocales_2)
+
+
+
+```
+
+
+
+Suma la cantidad de palabras que no tienen vocales?
+
+
+
+```{r}
+df <- tibble(
+  palabra = palabras, 
+  i = seq_along(palabra)
+) ## poner los datos en un dataframe 
+
+
+df %>% 
+  filter(str_detect(palabras, "x$")) # filtrar todas la palabras para solamente las terminan en **x**
+
+df %>% 
+  filter(str_detect(palabras, "z$")) # filtrar todas la palabras para solamente las terminan en **z**
+```
+
+
+
+
+Contar cuantas palabras tienen "a"
+
+```{r}
+x= c( "Piña", "Manzana", "Toronja", "Jugo")
+str_count(x, "a")
+```
+
+
+```{r}
+# En promedio, ¿cuántas vocales hay por palabra?
+mean(str_count(palabras, "[aáeéiíoóuúü]"))
+
+mean(str_count(palabras, "[x]"))
+```
+
+
+
+```{r}
+df %>% 
+  mutate(
+    vocales = str_count(palabra, "[aáeéiíoóuúü]"), # Cuenta cuantas vocales 
+    consonantes = str_count(palabra, "[^aáeéiíoóuúü]") # cuenta cuantos consonantes
+  )
+```
+
+ - los puntos y caracteres especiales
+ 
+ 
+ 
+2.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.2.7.1 del libro en español
+
+***  
+
+
+## Anclas
+
+ - ^ al principio
+ - $ al final
+ 
+
+3.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.2.8.1 del libro en español
+
+***  
+
+## Clases de caracteres y alternativas
+
+ - \d
+ - \s
+ - [abc]
+ - [^abc]
+ 
+ - $ . | ? * + ( ) [ {
+ 
+
+```{r}
+str_view(c("cómo", "como", "Raymond"), "c(ó|o)mo")
+
+
+```
+ 
+4.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.2.9.1 del libro en español
+
+***
+ 
+ 
+
+
+## Repetición
+
+ - ?, 0 o 1, precencia o auscencia
+ - +, 1 o más
+ - *, 0 o más
+ - str_view()
+ - {n} : exactamente n
+ - {n, }: n o más
+ - { , m}: no más de m
+ - {n, m}: entre n y m
+ - {n, m}?: la cadena más larga
+ - {n, m}+?: la cadena más corta
+ 
+ 
+5.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.2.10.1 del libro en español
+
+***
+
+ 
+## Agrupamiento y referencias previas
+
+ - str_view(frutas, "(..)\\1", match=TRUE)
+ 
+
+6.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.2.11.1 del libro en español
+
+***
+ 
+
+
+## Herramientas: Objetivos
+
+ - Determinar qué cadenas coinciden con un patrón.
+ - Encontrar la posición de una coincidencia.
+ - Extraer el contenido de las coincidencias.
+ - Remplazar coincidencias con nuevos valores.
+ - Dividir una cadena de acuerdo a una coincidencia.
+ 
+ 
+### Detectar coincidencias
+
+ - str_detect(x, "e")
+
+ 
+```{r}
+library(datos) 
+#fruit
+head(palabras)
+```
+ 
+ 
+ 
+```{r}
+# Encuentra todas las palabras que contengan al menos una vocal, y luego niégalo
+sin_vocales_1 <- !str_detect(palabras, "[aáeéiíoóuúúü]")
+
+#sin_vocales_1
+# Encuentra todas las palabras consistentes solo en consonantes (no vocales)
+sin_vocales_2 <- str_detect(palabras, "^[^aáeéiíoóuúúü]+$")
+#sin_vocales_1
+identical(sin_vocales_1, sin_vocales_2)
+#> [1] TRUE
+```
+ 
+ - str_subset()
+ - seq_along()
+ - str_count()
+ 
+ 
+ 
+7.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.3.2 del libro en español
+
+***
+
+
+## Extraer coincidencias
+
+ - str_extract()
+ - str_extract_all()
+ 
+
+
+8.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.3.3.1 del libro en español
+
+***
+ 
+## Coincidencias agrupadas:
+
+ - str_match*
+```{r}
+sustantivo <- "(el|la|los|las|lo|un|una|unos|unas) ([^ ]+)"
+
+tiene_sustantivo <- oraciones %>%
+  str_subset(sustantivo) %>%
+  head(10)
+
+#tiene_sustantivo
+tiene_sustantivo %>% 
+  str_extract(sustantivo)
+#>  [1] "los de"      "el camión"   "la mejor"    "la cuenta"   "las ruinas."
+#>  [6] "la hoja"     "la cocina."  "la taza"     "el tanque."  "el calor"
+```
+
+
+8.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.3.4.1 del libro en español
+
+***
+
+## Remplazar coincidencias
+
+
+ - str_replace()
+ - str_replace_all()
+ 
+ 
+9.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.3.5.1 del libro en español
+
+***
+
+
+## Divisiones
+
+
+  - str_split()
+  - str_split(" ", simplify=TRUE)
+  - str_split(x, boundery("word"))[[1]]
+  
+
+10.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.3.6.1 del libro en español
+
+***  
+  
+  
+## Otro tipos de patrones
+
+ - regex("x", ignore_case=TRUE)
+ - seperar números telefonicos
+ 
+## stringi: 
+
+10.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 14.3.6.1 del libro en español
+Buscar 3 funciones en stringi y aplica y explica las funciones con un set de datos.
+
+
+
+
+
+*** 
+ 
+
+ 
+  
+  
+
+ 
+
+<!--chapter:end:13-Strings.Rmd-->
+
+# Factores
+
+
+Fecha de la ultima revisión
+```{r echo=FALSE, size="Large"}
+
+Sys.Date()
+```
+
+***
+
+
+
+
+El tema proviene de los siguientes sitios. Aunque los ejemplos son distinctos
+
+English:
+ <https://r4ds.had.co.nz/factors.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/15-factors.html>
+ 
+ 
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(datos)
+library(forcats)
+```
+ 
+ 
+ 
+***
+```{r, background='#2dc0cc'}
+
+month <-c("December" ,"January", "March", "April")
+
+month
+x=c(1:4)
+str(month)
+str(x)
+```
+
+
+```{r}
+valores <- c(7, 3, 2, 10)
+
+
+```
+
+
+Unir las dos listas
+
+```{r}
+df=as.data.frame(cbind(month, valores, x))
+df
+```
+
+
+## ¿Qué ocurrio en el gráfico?
+
+```{r, fig.width=3}
+library(tidyverse)
+
+ggplot(df, aes(month, valores))+
+  geom_point()
+```
+
+Order months in correct order
+
+use **month.name**
+
+Hay variables ya descrita en R, para facilitar el uso de constantes 
+
+ - LETTERS: Mayuscula
+ - letters: minuscula
+ - month.abb: abreviación de meses en Ingles
+ - month.name: nombre de meses en Ingles
+ - pi = el valor de pi
+
+
+
+See this website for more details
+
+
+https://datacornering.com/how-to-get-the-month-name-from-the-number-in-r/
+
+
+```{r}
+LETTERS
+letters
+month.abb
+month.name
+pi
+```
+
+
+
+
+```{r}
+
+df <- data.frame(Months=c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November","December"),
+                Attacks=c(49, 70, 49, 44, 53, 35, 33, 36, 47, 40, 44, 32))
+
+
+ggplot(df, aes(Months, Attacks))+
+  geom_point()
+
+
+### validar el supuesto que tengo información escrita correctamente para cada mes de año en el dataframe 
+all(df$Months %in% month.name)
+
+
+
+### convert to a factor, order defined by `month.name`.  
+df$Months <- factor(df$Months, levels=month.name)
+
+ggplot(data=df, aes(x=Months, y=Attacks)) +
+  geom_point()
+
+```
+
+
+
+
+
+### Usando la funciones factor y levels, estamos asignando los factores a un nivel específico en el orden de la lista
+
+### parse_factor() is similar a factor(), but generates a warning if levels have been specified and some elements of x are not found in those levels.
+
+```{r}
+x1= c("Dic", "Ene", "Mar", "Dii") # Nota que esta lista tengo un mes que se llama "Dii"
+
+niveles_meses=c("Ene", "Mar", "Dic")
+
+y1 <-factor(x1, levels = niveles_meses)
+y1
+
+y1 <- parse_factor(x1, levels = niveles_meses)
+y1
+
+```
+
+
+Si quiere que los valores aparezca en el orden que aparecen en la base de datos use **unique(variable)**
+
+```{r}
+
+df_est=data.frame(Nombre_est=c("Monica", "Isabela", "Juan", "Robo", "Pepito"),
+                  Nota_Final=c(99, 27, 89, 91, 27))
+
+df_est
+
+ggplot(df_est, aes(Nombre_est, Nota_Final))+
+  geom_point()
+
+
+
+df_est$fct1=factor(df_est$Nombre_est, levels = unique(df_est$Nombre_est))
+
+ggplot(df_est, aes(fct1, Nota_Final))+
+  geom_point()
+```
+
+```{r}
+f2 <- x1 %>% factor() %>% fct_inorder()
+f2
+
+```
+
+```{r}
+levels(f2)
+```
+
+
+## Temas:
+ - library(forcats)
+ 
+ - sort()
+ - factor()
+ - parse_factor()
+ - unique()
+ - fact_inorder()
+ - levels()
+ 
+### Datos : Encuesta Social General
+ 
+ - count()
+ 
+1.  **Ejercicios**:
+
+
+
+```{r}
+library(datos)
+encuesta
+```
+
+
+Contabilizar la cantidad de persona por "estado civil"
+
+```{r}
+df=encuesta %>% 
+   count(estado_civil)
+df
+```
+knitr
+
+
+```{r fig.width=10}
+
+unique(df$estado_civil)
+
+
+df$estado_est_civil <-factor(df$estado_civil, levels = df$estado_civil)
+
+df$niveles_est_civil <- fct_reorder(df$estado_civil, df$n )
+
+df
+
+ggplot(df, 
+       aes(estado_civil,n )) +
+       geom_col()
+```
+
+
+## A smaller figure to the right, with floating text
+
+```{r, echo=FALSE, out.width= "50%", out.extra='style="float:right; padding:10px"'}
+
+df %>%
+  mutate(estado_civil = fct_reorder(estado_civil, n)) %>%
+  ggplot(aes(x = estado_civil, y = n)) + 
+  geom_col()
+
+
+```
+
+
+
+
+
+
+ 
+LOTS of text here to wrap around the figure.  dfghjlkjhgdgxchvbvcxcvbnnbvvbvbbvcvxcv. fgffhgcvbcvbhbvvbvcvbnv bcbnbbnmmbnmnb vbcbnbvvnbbb vbb v b b cgjhkggbcv
+
+
+
+<br>
+
+
+
+## Haga un re-order por la cantidad de personas por religion
+
+```{r, fig.ncol = 2}
+df2=encuesta %>% 
+   count(religion)
+
+df2 %>%
+  mutate(religion = fct_reorder(religion, n)) %>%
+  ggplot(aes(x = religion, y = n)) + 
+  geom_col()+
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=1))
+
+```
+
+
+Hacer los ejercicios en la sección 15.3.1 del libro en español
+
+***  
+
+## Modificar el orden de los factores
+
+   - fct_reorder()
+   - !is.na( ) remover los "NA"
+   - fct_infreq()
+   - fct_rev()
+   - fct_recode()
+   - fct_collapse()
+   - fct_lump()
+
+
+```{r}
+
+
+#model=lm(y~x, df)
+#summary(model)
+
+
+resumen_religion <- encuesta %>%
+  group_by(religion) %>%
+  summarise(
+    edad = mean(edad, na.rm = TRUE),
+    horas_tv = mean(horas_tv, na.rm = TRUE),
+    sd_edad =  min(horas_tv, na.rm = TRUE),
+    n = n()
+  )
+resumen_religion
+
+
+ggplot(resumen_religion, aes(edad, religion)) + 
+   geom_point()
+
+min(encuesta$horas_tv, na.rm = TRUE)
+```
+
+
+### Nota el efecto de añadir un "-" antes de **edad** 
+
+```{r}
+ggplot(resumen_religion, aes(edad, fct_reorder(religion, -edad))) +
+  geom_point()
+```
+
+```{r}
+resumen_religion %>%
+  mutate(religion = fct_reorder(religion, horas_tv)) %>%
+  ggplot(aes(horas_tv, religion)) +
+  geom_point()
+```
+
+
+
+Reorder factor levels by sorting along another variable
+Description
+fct_reorder() is useful for 1d displays where the factor is mapped to position; fct_reorder2() for 2d displays where the factor is mapped to a non-position aesthetic. last2() and first2() are helpers for fct_reorder2(); last2() finds the last value of y when sorted by x; first2() finds the first value.
+
+
+```{r}
+resumen_ingreso <- encuesta %>%
+  group_by(ingreso) %>%
+  summarise(
+    edad = mean(edad, na.rm = TRUE),
+    horas_tv = mean(horas_tv, na.rm = TRUE),
+    n = n()
+  )
+
+resumen_ingreso
+
+ggplot(resumen_ingreso, aes(horas_tv, fct_reorder(ingreso, horas_tv))) +
+  geom_point()
+
+```
+
+
+Reorder factor levels by hand
+Description
+This is a generalisation of stats::relevel() that allows you to move any number of levels to any location.
+
+```{r}
+ggplot(resumen_ingreso, aes(edad, fct_relevel(ingreso, "No aplica"))) +
+  geom_point()
+```
+
+
+2.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 15.5.1 del libro en español
+
+*** 
+
+
+<!--chapter:end:14-Factores.Rmd-->
+
+# Fechas, horas y minutas
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+
+Sys.Date()
+```
+
+***
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/dates-and-times.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/16-datetimes.html>
+ 
+ 
+***
+
+## Temas:
+
+  - library(lubridate)
+  - library(datos)
+  - library(tidyverse)
+  
+  
+## Creando fechas/horas
+
+  - date, <date>
+  - time, <time>
+  - date-time, <dttm>
+  
+
+
+https://github.com/edgararuiz/guias-rapidas/blob/master/fechas.pdf
+
+```{r}
+library(tidyverse)
+library(lubridate) # paquete para convertir fechas
+```
+
+## El paquete `lubridate`
+
+La función `today()` regresa la fecha de hoy, similar a `Sys.date()`
+
+```{r}
+today()
+```
+
+Usames `tibble()`, del paquete `tibble`, para crear una tabla manualmente
+
+```{r}
+fechas <- tribble(
+  ~ codigo, ~ fecha,
+    "001",    "01/01/2019 00:00:00",
+    "002",    "31/03/2019 01:05:00",
+    "003",    "14/06/2019 20:00:00",
+    "004",    "01/12/1859 11:32:13"
+)
+fechas
+```
+
+Hay varias opciones para convertir texto a fechas, el más usado es `mdy_hms()`, pero en este caso el formato utilizado no funciona bien.
+
+### Un error tipico
+
+```{r}
+fechas %>%
+  mutate(fecha = mdy_hms(fecha))
+```
+
+Ya que el día es el primero, y no el mes, usamos `dmy_hms()`
+
+```{r}
+nueva_fechas <- fechas %>%
+  mutate(fecha = dmy_hms(fecha))
+
+nueva_fechas
+```
+
+`lubridate` tiene varias funciones para extraer partes de la fecha, por ejemplo: año, mes, día, hora, minuto, y quatrimestre.
+
+```{r}
+nueva_fechas %>%
+  mutate(a = year(fecha),
+         m = month(fecha),
+         d = day(fecha),
+         h = hour(fecha),
+         mn = minute(fecha),
+         q = quarter(fecha)
+         )
+```
+
+Las funciones `round_date()`, `ceiling_date()` y `floor_date()` permiten redondear la fecha al número más cercano de la unidad especificada
+
+```{r}
+nueva_fechas %>%
+  mutate(
+    redondear = round_date(fecha, unit = " month"),
+    techo = ceiling_date(fecha, unit = "day"),
+    suelo = floor_date(fecha, unit = "month"),
+    suelo_hour= floor_date(fecha, unit = "hour")
+  )
+```
+
+## Intervalos y duraciones
+
+La función `interval()` crea un objeto R de intervalo de tiempo. En este caso, el intervalo entro la fecha en la tabla, y el día de hoy.  Nota que esto puede ser muy util si quiere calcular la cantidad de tiempo entre dos fechas.
+
+
+```{r}
+nueva_fechas %>%
+  mutate(intervalo = interval(fecha, today()))
+```
+
+
+
+
+
+`int_length()` regresa el número de segundos dentro del intervalo
+
+```{r}
+nueva_fechas %>%
+  mutate(
+    intervalo = interval(fecha, today()),
+    segundos = int_length(intervalo)
+    )
+```
+
+## El operador `%--%` simplifica el cálculo del intervalo
+
+Compara con el script anterior
+
+```{r}
+nueva_fechas %>%
+  mutate(intervalo = fecha %--% today())
+```
+
+Para saber el número del días en el intervalo, divida el intervalo por la función que corresponde a días, `days()`
+
+```{r}
+nueva_fechas %>%
+  mutate(dias = fecha %--% today() / days())
+
+#Cuantos años de diferencia en el intervalo?
+```
+
+
+Intervalo entre una lista de fecha y otra fecha y hora
+
+```{r}
+nueva_fechas %>%
+  mutate(dias = fecha %--% "2020-01-01 00:00:00" / days())
+```
+
+
+## Ejercicio 
+
+Usa esta función y calcula el número de día que ha transcurido entre el día de su nacimiento y el dia de hoy
+
+
+```{r}
+
+ dias = "2018-08-14 00:00:00" %--% today() /  days()
+dias
+
+millisecond = "2018-08-14 00:00:00" %--% today() /  milliseconds()
+
+millisecond
+```
+
+
+
+Los resultados se pueden visualizar usando `ggplot2`
+
+```{r}
+nueva_fechas %>%
+  mutate(dias = fecha %--% today() / days()) %>%
+  ggplot() +
+  geom_col(aes(codigo, dias)) +
+  coord_flip()
+```
+
+## as.duration
+
+`as.duration()` crea un objecto en R que contiene la duración del intervalo de tiempo.  
+```{r}
+nueva_fechas %>%
+  mutate(desde_hoy = as.duration(fecha %--% today()))
+```
+
+El objeto de duración de tiempo se puede filtrar fácilmente basado en una variedad de tipo de tiempos.  En este caso, semanas `dweeks()` crea un objeto de duración de la largura especificada
+
+```{r}
+nueva_fechas %>%
+  mutate(desde_hoy = as.duration(fecha %--% today())) %>%
+  filter(desde_hoy < dyears(100))
+```
+
+Otra opción es `ddays()`. 
+
+```{r}
+nueva_fechas %>%
+  mutate(desde_hoy = as.duration(fecha %--% today())) %>%
+  filter(desde_hoy < ddays(2500))  # Note that you filter for the number of days that have acculmulated
+```
+
+###  Funciones
+  
+   - today()
+   - now()
+   
+   
+   
+```{r}
+today()
+now()
+```
+   
+### Fechas con cednas de caracteres
+
+  - ymd()
+  - ydm()
+  - mdy()
+  - myd()
+  - dmy()
+  - dym()
+  
+  
+### Fechas con horas
+
+ - ymd_hms()
+ - ymd_hm()
+ - ymd_h()
+ 
+  - ydm_hms()
+  - ydm_hm()
+  - etc
+  
+### Fechas 
+  - yq() Year quarter (quaters are 1, 2, 3, 4, Jan-March, April-Jun, Jul-Sept, Oct-Dec)
+  
+```{r}
+x =c("2012.1", "1970.4")
+yq(x)
+yq("2012.1")
+```
+  
+  
+- Cuidado
+con el **paquete hms** que tiene funciones igual como lubridate (hms, hm, y ms)  
+
+***
+
+## Crear una fecha desde columnas individuales
+
+ - make_date()
+ - make_datetime()
+
+
+Unir el año, mes, día, hora y minutos que esten en diferentes columnas en uno
+ 
+```{r}
+library(datos)
+head(vuelos)
+vuelos %>%
+  dplyr::select(anio, mes, dia, hora, minuto) %>%
+  mutate(salida = make_datetime(anio, mes, dia, hora, minuto))
+
+```
+
+Unir el año, mes, día, hora  que esten en diferentes columnas en uno
+
+
+```{r}
+vuelos %>%
+  dplyr::select(anio, mes, dia, hora, minuto) %>%
+  mutate(salida2 = make_date(anio, mes, dia))
+
+
+```
+ 
+ 
+## %/%: integer division  
+
+
+```{r}
+vuelos |> dplyr::select(tiempo_vuelo) |> 
+  mutate(t=tiempo_vuelo %/% 100) |>  # Division
+  mutate(m= tiempo_vuelo %% 100)     # modulus... Cambia el 100 para 1, 10, 1000... y mira cual es el resultado
+
+
+```
+
+
+## The %% operator returns the modulus (remainder) of a division operation. 
+ - For instance, 5 %% 2 would return 1, as the remainder of 5 divided by 2 is 1. 
+ 
+ 
+ 
+ 
+```{r}
+
+names(vuelos)
+hacer_fechahora_100 <- function(anio, mes, dia, tiempo) {
+  make_datetime(anio, mes, dia, tiempo %/% 100, tiempo %% 100)
+}
+
+vuelos_dt <- vuelos %>%
+  filter(!is.na(horario_salida), !is.na(horario_llegada)) %>%
+  mutate(
+    horario_salida = hacer_fechahora_100(anio, mes, dia, horario_salida),
+    horario_llegada = hacer_fechahora_100(anio, mes, dia, horario_llegada),
+    salida_programada = hacer_fechahora_100(anio, mes, dia, salida_programada),
+    llegada_programada = hacer_fechahora_100(anio, mes, dia, llegada_programada)
+  ) %>%
+  dplyr::select(origen, destino, starts_with("atraso"), starts_with("horario"), ends_with("programada"), tiempo_vuelo)
+
+head(vuelos_dt)
+
+```
+
+
+#### Cuantos segundos hay en un dia?
+
+
+ 
+```{r}
+vuelos_dt %>%
+  ggplot(aes(horario_salida)) +
+  geom_freqpoly(binwidth = 86400) # 86400 segundos = 1 día
+```
+ 
+ 
+```{r}
+vuelos_dt %>%
+  filter(horario_salida < ymd(20130102)) %>%
+  ggplot(aes(horario_salida)) +
+  geom_freqpoly(binwidth = 600) # 600 segundos = 10 minutos
+```
+
+
+Nota variables que no funciona
+ 
+```{r}
+  ymd(c("2010-10-10", "bananas"))
+
+```
+ 
+
+
+```{r}
+d1 <- "Jan 1, 2010"
+mdy(d1)
+d2 <- "2015-Mar-07"
+ymd(d2)
+d3 <- "06-Jun-2017"
+dmy(d3)
+d4 <- c("Aug 19 (2015)", "Jul 1 (2015)")
+mdy(d4)
+d5 <- "12/30/14" # Diciembre 30, 2014
+mdy(d5)
+d6 <- "ene 1, 2010"
+mdy(d6)
+d7 <- c("Agosto 19 (2015)", "Julio 1 (2015)")
+mdy(d7)
+d1
+d2
+d3
+d4
+d5
+d6
+d7
+```
+ 
+ 
+```{r}
+mdy(d1)
+ymd(d2)
+dmy(d3)
+mdy(d4)
+mdy(d5)
+mdy(d6)
+mdy(d7)
+
+```
+ 
+ 
+ 
+1.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 16.2.4 del libro en español
+
+***  
+  
+  
+## Extrayendo parte de las fecha-hora 
+
+ - year()
+ - month()
+ - mday()
+ - yday()
+ - wday()
+ 
+ - ceiling_date()
+ - floor_date()
+ - round_date()
+
+ 
+ 
+2.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 16.3.4 del libro en español
+
+***  
+
+## Lapso de tiempo
+
+## duraciones
+ 
+```{r}
+# ¿Qué edad tiene Charles Darwin?  fecha de naciemiento February 12, 1809
+edad_h <- today() - ymd("1809-02-12")
+edad_h <- today() - ymd(18090212)
+edad_h
+
+
+as.duration(edad_h)
+x=as.duration(edad_h)
+```
+ 
+ Otras funciones de duración
+ 
+```{r}
+dseconds(15)
+
+dminutes(10)
+
+dhours(c(12, 24))
+
+ddays(0:5)
+
+dweeks(3)
+
+dyears(1)
+
+```
+ 
+ 
+## Puede agregar periodos de tiempo
+ 
+ 
+ 
+```{r}
+2 * dyears(1)
+
+dyears(1) + dweeks(12) + dhours(15)
+
+```
+ 
+
+
+
+```{r}
+ayer <- today() - ddays(1)
+anio_pasado <- today() - dyears(1)
+
+ayer
+anio_pasado
+
+```
+
+## períodos
+ 
+```{r}
+una_pm <- ymd_hms("2016-03-12 13:00:00", tz = "America/New_York")
+
+una_pm
+#> [1] "2016-03-12 13:00:00 EST"
+una_pm + ddays(1)
+#> [1] "2016-03-13 14:00:00 EDT"
+```
+ 
+ 
+```{r}
+seconds(15)
+#> [1] "15S"
+minutes(10)
+#> [1] "10M 0S"
+hours(c(12, 24))
+#> [1] "12H 0M 0S" "24H 0M 0S"
+days(7)
+#> [1] "7d 0H 0M 0S"
+months(1:6)
+#> [1] "1m 0d 0H 0M 0S" "2m 0d 0H 0M 0S" "3m 0d 0H 0M 0S" "4m 0d 0H 0M 0S"
+#> [5] "5m 0d 0H 0M 0S" "6m 0d 0H 0M 0S"
+weeks(3)
+#> [1] "21d 0H 0M 0S"
+years(1)
+#> [1] "1y 0m 0d 0H 0M 0S"
+```
+ 
+ 
+```{r}
+10 * (months(6) + days(1))
+#> [1] "60m 10d 0H 0M 0S"
+days(50) + hours(25) + minutes(2)
+#> [1] "50d 25H 2M 0S"
+```
+ 
+
+
+```{r}
+# Un año bisiesto
+ymd("2016-01-01") + dyears(1)
+#> [1] "2016-12-31 06:00:00 UTC"
+ymd("2016-01-01") + years(1)
+#> [1] "2017-01-01"
+
+# Horarios de verano
+una_pm + ddays(1)
+#> [1] "2016-03-13 14:00:00 EDT"
+una_pm + days(1)
+#> [1] "2016-03-13 13:00:00 EDT"
+```
+
+```{r}
+10 * (months(6) + days(1))
+#> [1] "60m 10d 0H 0M 0S"
+days(50) + hours(25) + minutes(2)
+#> [1] "50d 25H 2M 0S"
+```
+
+
+
+ - intervalos
+ 
+
+
+
+
+  
+  
+### Multiplicaciones y sumas de fechas
+
+
+
+## Períodos
+
+  - seconds()
+  - minutes()
+  - hours()
+  - days()
+  - months()
+  - weeks()
+  - years()
+  
+### Multiplicaciones y sumas de periodos 
+
+
+## Intervalos
+
+  - %--%  start end
+  
+## Resumen
+
+
+2.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 16.4.5 del libro en español
+
+***   
+
+## Time zones
+
+ - Sys.timezone()
+ - head(OlsonNames())
+ - tz= ""
+ 
+
+2.  **Ejercicios**:
+
+Seleccionar 3 archivos de los vuelos que salen o llegan a PR, (el codigo del aeropuerto es "SJU") de la base de datos de <https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236>
+  Pueden ser el mismo mes en 3 diferente años o 3 diferentes mese en el mismo año.
+  
+  
+  - Repite la mayoría de los análisis enseñado arriba (como practica).
+  
+  - Evaluar el tiempo de retrazo de los vuelos que salen de SJU en cada periodo seleccionado, y haz *una* gráfica para visualizar el patrón
+  
+  - Cual es el diá preferible para no tener retraso
+  - Cual es la mejor hora de salida para no tener retraso
+  - Compara por lo menos 3 diferentes lineas saliendo de SJU y el periodo de retrazo.  
+  
+  
+  
+
+*** 
+
+
+
+<!--chapter:end:15-Fechas_Horas.Rmd-->
+
+16-Terremotos_fecha_mapa
+
+```{r}
+library(tidyverse)
+```
+
+Website:  https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php
+
+
+
+```{r}
+library(readr)
+Earthquake_all_month <- read_csv("Datos/Earthquake_all_month.csv")
+
+EQ=Earthquake_all_month
+head(EQ, n=10)
+```
+
+
+```{r nombre de las variables}
+names(EQ)
+```
+
+
+```{r, tipos de datos str}
+str(EQ)
+```
+
+
+
+
+
+# Importación de Paquetes y Datos
+
+```{r}
+library(tidyverse)
+library(leaflet)
+#library(rinat)
+library(RColorBrewer)
+library(flextable)
+```
+```{r}
+cajapr <- c(
+  17.75, #Latitud Sur
+   -67.4, #Longitud Oeste
+  18.75, #Latitud Norte
+  -65.15 #Longitud Este
+  )
+```
+
+
+```{r}
+EQ_100 = EQ |> slice(1:300)
+EQ_100
+```
+
+```{r, eval=FALSE}
+library(dplyr)
+library(leaflet)
+
+mutate(EQ_100, group = cut(mag, breaks = c(0, 5, 6, Inf), labels = c("blue", "green", "orange"))) -> mydf
+
+### I edit this png file and created my own marker.
+ https://raw.githubusercontent.com/lvoogdt/Leaflet.awesome-markers/master/dist/images/markers-soft.png
+quakeIcons <- iconList(blue = makeIcon("/Users/jazzurro/Documents/Stack Overflow/blue.png", iconWidth = 24, iconHeight =32),
+                       green = makeIcon("/Users/jazzurro/Documents/Stack Overflow/green.png", iconWidth = 24, iconHeight =32),
+                       orange = makeIcon("/Users/jazzurro/Documents/Stack Overflow/orange.png", iconWidth = 24, iconHeight =32))
+
+
+leaflet(data = mydf[1:100,]) %>% 
+addTiles() %>%
+addMarkers(icon = ~Icons[group])
+```
+
+ 
+
+
+```{r, eval=FALSE}
+
+function getColor(d){
+  return d >= 1966 ? 'green'  #// Means: if (d >= 1966) return 'green' else…
+    d >= 1960 ? 'black'   #if (d >= 1960) return 'black' else etc…
+    d >= 1952 ? 'red' :
+    d >= 1940 ? 'orange'  #// Note that numbers must be in descending order
+    'grey';
+}
+
+```
+
+L.circleMarker([place.lon, place.lat], {
+  color: getColor(place.constructdate), // you can call the getColor function
+  fillColor: getColor(place.constructdate),
+  fillOpacity: 0.5
+})
+
+
+
+```{r, eval=FALSE}
+names(EQ_100)
+unique(EQ_100$type)
+pal = colorFactor(palette = "viridis", domain = NULL)
+
+
+#pal <- colorNumeric(
+#  palette = "Blues",
+#  domain = EQ$type)
+
+leaflet(EQ_100) %>% 
+  addTiles() %>% 
+  addCircleMarkers(lng = ~longitude, 
+             lat = ~latitude, 
+             color= ~pal(type),
+             popup = ~mag)
+```
+
+**Obtener los datos de observaciones de una especie en iNaturalist desde R:**
+
+Los datos a utilizar se obtendrán desde iNaturalist, una aplicación con base en la ciencia ciudadana que mantiene un registro de ocurrencias de especies.
+
+La función `get_inat_obs()` permite acceder a los datos disponibles en iNaturalist, especificando los siguientes parámetros:
+
+-   `taxon_name`: La especies de interés, siempre escrita entre comillas ("). Puede utilizar nombre común o científico.
+
+-   `quality`: Siendo una aplicación basada en ciencia ciudadana, la calidad de algunos datos podría ser baja, debido a que les falta información - como nombre científico o ubicación - o que contienen información errónea - especies mal identificadas-. Colocando `'research'` en este parámetro se especifica que se desea obtener sólo aquellas observaciones con alta calidad - que tengan información completa y cuya identificación haya sido confirmada por varias personas de la comunidad -.
+
+-   `geo`: Al igual que el parámetro `quality`, este parámetro cuyo valor es lógico (`TRUE` o `FALSE`), es para especificar que se quiere obtener sólo los datos que están georeferenciados (cuando se coloca como `TRUE`).
+
+-   `maxresults`: A través del API (Interfaz de Programación de Aplicaciones) de iNaturalist se puede acceder a un máximo de 10,000 observaciones en una sola búsqueda. Con este parámetro, cuyo valor debe ser numérico, se especifica cuantas observaciones se desea obtener, y no se debe exceder de 10,000 por búsqueda.
+
+-   `bounds`: Un vector que contiene los límites geográficos de la búsqueda. Se puede insertar un cuadro delimitador ya especificado en un objeto, concatenar los valores del vector, o insertar un objeto de características simples (Simple Feature, sf). El argumento `bounds` es importante porque si obtenemos datos de iNaturalist, las unicas columnas que obtenemos con información acerca de la región o área donde se hicieron las observaciones son:\
+
+-   *place_guess*: Contiene el nombre de la región, pero su presición y los nombrs utilizados para cada región varía mucho.
+
+-   *latitue*: Posición en el eje vertical del sistema de coordenadas.
+
+-   *longitude*: Posición en el eje horizontal del sistema de coordenadas.\
+    Esto crea un problema a la hora del filtrar los datos por el nombre de una región, pues es difícil encontrar un solo valor que encompase a todas las variantes del nombre utilizado para esa región. iNaturalist se encuentra a nivel mundial, y usted puede acceder a todos esos datos. Sin embargo, hoy accederemos solamente a datos de Puerto Rico. Entonces, lo primero antes de acceder a lo datos de iNaturalist, es crear un objeto que contenga los límites geográficos de interés crea. Para esto se crea un objeto que contenga un cuadro delimitador (*bounding box*):
+
+```{r, eval=FALSE}
+cajapr <- c(
+  17.75, #Latitud Sur
+   -67.4, #Longitud Oeste
+  18.75, #Latitud Norte
+  -65.15 #Longitud Este
+  )
+```
+
+Ahora podemos acceder a datos de Puerto Rico utilizando el objeto `cajapr`. Para este ejercicio utilizaremos datos de orquídeas pertenecientes al género *Eulophia*. En Puerto Rico se han reportado 3 especies de este género *Eulophia alta*, *Eulophia maculata* y *Eulophia graminea*. De estos, sólo *E. alta* es considerada nativa de la isla. Entonces, utilizando la función `get_inat_obs` podemos acceder a los datos de *Eulophia* en Puerto Rico
+
+```{r, eval=FALSE}
+
+eulophia <- get_inat_obs(taxon_name = "Eulophia", 
+                            quality = 'research', 
+                            geo = T, 
+                            maxresults = 10000,
+                            bounds = cajapr) 
+
+eulophia$scientific_name <- as.factor(eulophia$scientific_name)
+
+flextable(head(eulophia)) # Para ver la sprimeras 6 lineas en una tabla bonita
+```
+
+Con el siguiente código podemos ver de forma rápida cuántas observaciones de cada especie hemos obtenido de iNaturalist:
+
+```{r, eval=FALSE}
+summary(as.factor(eulophia$scientific_name))
+```
+
+Ahora que hemos obtenido los datos, podemos observar su distrubución en el mapa de Puerto Rico utilizando `leaflet`.
+
+# Utilizando Leaflet
+
+La función base del paquete leaflet es `leaflet()`, con esta se activa un artilugio (*widget* en inglés) sobre el cuál se construye el mapa. Esta función debe estar unida a otra función como `addTiles()` que añade el mapa.
+
+```{r, eval=FALSE}
+leaflet() %>% 
+  addTiles() 
+```
+
+Una vez tenemos el artilugio y el mapa, añadimos una capa que incluye los datos que se desean visualizar con marcadores sobre el mapa con la función `addMarkers()` dentro del cual se deben especificar los parámetros `lng` (longitud) y `lat` (latitud). Note que también se especifica el data.frame que contiene los datos bajo la función `leaflet()`. Cuando se trabaja en Leaflet, al especificar las variables a utilizar, es necesario colocar una virgulilla (\~) antes de la variable. Esto le deja saber a R que lo que se especifica es una variable dentro del data.frame mencionado en la primera capa bajo la función `leaflet()`.
+
+```{r, eval=FALSE}
+leaflet(eulophia) %>% 
+  addTiles() %>% 
+  addMarkers(lng = ~longitude, 
+             lat = ~latitude)
+```
+
+Una vez los marcadores están establecidos, es posible añadir etiquetas que contengan información acerca de las observaciones con el parámetro `popup` de la función `addMarkers()`. Por ejemplo, se pueden colocar etiquetas que contengan información del lugar de la observación especificando que la etiqueta contenga la información de la variable *place_guess*. Para ver la etiqueta debe hacer clic sobre el marcador de interés.
+
+```{r, eval=FALSE}
+leaflet(eulophia) %>% 
+  addTiles() %>% 
+  addMarkers(lng = ~ longitude, 
+             lat = ~ latitude, 
+             popup = ~ place_guess)
+```
+
+La función `paste0` es una función base de R que concatena todos los elementos en una línea de caracteres. Los caracteres introducidos serán interpretados como UTF-8 o codificación de caracteres. Estos caracteres pueden ser mezclados con valores de una variable de caracteres en un data.frame. En el siguiente ejemplo se crea una etiqueta que contiene la ubicación y la especie observada. Se utiliza la función `paste0()` para combinar caracteres y las variables *scientific_name* y *place_guess* del data.frame.
+
+```{r, eval=FALSE}
+leaflet(eulophia) %>% 
+  addTiles() %>% 
+  addMarkers(lng = ~ longitude, 
+             lat = ~ latitude, 
+             popup = paste0("<B>Especie: </B>", "<I>", eulophia$scientific_name, "</I>",
+                            "<br/>",
+                            "<B>Colectado por: </B>", eulophia$place_guess)
+               )
+```
+
+La función `addAwesomeMarkers()` puede ser utilizada en lugar de `addMarkers()` y permite utilizar marcadores con diferentes diseños que se pueden obtener de [fontawesome](https://fontawesome.com/v5.15/icons?d=gallery&p=1). Es posible cambiar los colores de los marcadores utilizando la codificación de colores RGB en formato (#RRGGBB). La siguiente guía de colores en R creada por Melissa Clarkson (2010) explica como utilizar colores en R: [A guide to using color in R](https://bootstrappers.umassmed.edu/bootstrappers-courses/pastCourses/rCourse_2014-09/resources/helpfulGuides/Rcolorstyle.pdf). Adicional, esta [guía](https://derekogle.com/NCGraphing/resources/colors) creada por Derek H. Ogle (2022) es muy útil. En [schemecolor](https://www.schemecolor.com/github-cat-icon-colors.php) podemos encontrar las codificaciones de los colores y muchos funcionan para `leaflet`. Para hacer estos cambios utilizamos la función `awesomeIcons()` bajo el parámetro `icon` dentro de `addAwesomeMarkers()`. Dentro de la función `awesomeIcons()` podemos especificar varios parámetros como:
+
+-   `icon`: El icono que desea utilizar para su marcador. Debe poner el nombre que aparece en la página web de iconos que esté utilizando (*i.e.*, fontawesome).
+
+-   `library`: Cuando se especifica un icono, es necesario especificar la biblioteca de donde se saca el icono. Si es de fontawesome sería `'fa'`.
+
+-   `markerColor`: Para cambiar el color del marcador (parte que rodea el icono), utilizando la codificación de colores de schemecolor.
+
+-   `iconColor`: Para cambiar el color del icono del marcadora, también con la codificación de schemecolor.
+
+```{r, eval=FALSE}
+leaflet() %>% 
+  addTiles() %>% 
+  addAwesomeMarkers(lng = eulophia$longitude, lat = eulophia$latitude, 
+             popup = paste0("<B>Especie: </B>", "<I>", eulophia$scientific_name, "</I>",
+                            "<br/>",
+                            "<B>Colectado por: </B>", eulophia$place_guess),
+            icon = awesomeIcons(icon = "leaf", library = "fa", 
+                                markerColor = "darkgreen",
+                                iconColor =  "#FFFFFF")
+               ) 
+```
+
+Cuando se visualiza una gran cantidad de datos, esto puede resultar en el solapamiento de los marcadores, lo cual no es muy agradable a la vista. Es posible crear agregados que ayuden a visualizar mejor y faciliten el movimiento a través del mapa con el parámetro `clusterOptions` bajo la función `addAwesomeMarkers()`. El valor de este parámetro debe ser la función `markerClusterOptions()`.
+
+```{r, eval=FALSE}
+leaflet() %>% 
+  addTiles() %>% 
+  addAwesomeMarkers(lng = eulophia$longitude, lat = eulophia$latitude, 
+             popup = paste0("<B>Especie: </B>", "<I>", eulophia$scientific_name, "</I>",
+                            "<br/>",
+                            "<B>Colectado por: </B>", eulophia$place_guess),
+            icon = awesomeIcons(icon = "leaf", library = "fa", 
+                                markerColor = "darkgreen",
+                                iconColor =  "#FFFFFF"),
+            clusterOptions = markerClusterOptions()
+               ) 
+
+
+```
+
+Y para culminar, es posible cambiar el diseño del mapa utilizando la función `addProviderTiles()` en lugar de `addTiles()`. Puede echar un vistazo a los diferentes diseños disponibles para Leaflet la página de [proveedores de Leaflet](http://leaflet-extras.github.io/leaflet-providers/preview/) en GitHub. Actualmente Leaflet en R admite diseños de los siguientes proveedores: OpenStreetMap, MapQuestOpen, Stamen, Esri and OpenWeatherMap.
+
+```{r, eval=FALSE}
+icon1 <- awesomeIcons(icon = "smile-o",
+                      iconColor = "#FFFFFF",
+                      library = "fa",
+                      markerColor = "darkgreen")
+
+leaflet() %>% 
+  addProviderTiles("Esri.WorldImagery") %>% 
+  addAwesomeMarkers(lng = eulophia$longitude, lat = eulophia$latitude, 
+             popup = paste0("<B>Especie: </B>", "<I>", eulophia$scientific_name, "</I>",
+                            "<br/>",
+                            "<B>Colectado por: </B>", eulophia$place_guess),
+            icon = icon1
+               )
+
+```
+
+# Trabajando Variables Categóricas con Leaflet:
+
+Es posible distinguir entre especies utilizando diferentes colores, pero debe utilizar la función `addCircleMarkers()` en lugar de `addAwesomeMarkers()`. Para colorear grupos en Leaflet es necesario generar una paleta de colores para las variables de interés de acuerdo al tipo de variable (*i.e.*, numérica, factorial). Para esto se utilizan las funciones `colorFactor()`, `colorNumeric()`, `colorBin()`, o `colorQuantile()`. `colorFactor()` y `colorNumeric()` generan paletas de colores para variables factoriales y numericas, respectivamente; mientras que `colorBin()` y `colorQuantile()` generan paletas de colores para valores numéricos resumidos en grupos.
+
+En este caso se está trabajando con una variable factorial que divide las observaciones entre 3 especies de orquídeas. Primero se crea una paleta de colores para una variable factorial con la función `colorFactor()`. Bajo esta función se especifican los parámetros `palette` y `levels`. `palette`es para especificar la paleta de colores a utilizar y `levels`especifica los niveles de la variable factorial. La paleta de colores que se utiliza (`"Dark2"`) proviene del paquete RColorBrewer. Esta paleta de colores para los niveles de la variable factorial *scientific_name* del data.frame *eulophia* se guardará en un objeto llamado *pal*.
+
+```{r, eval=FALSE}
+pal <- colorFactor(palette = 'Dark2',
+            levels = levels(eulophia$scientific_name))
+```
+
+Ahora que se ha especificado los colores para los valores factoriales, es posible utilizar el objeto pal para colorear los marcadores circulares del mapa de Leaflet de acuerdo a la especie observada especificando el parámetro color
+
+```{r, eval=FALSE}
+leaflet(eulophia) %>% 
+  addTiles() %>% 
+  addCircleMarkers(lng = ~ longitude, lat = ~ latitude,
+                   popup = paste0("<B>Especie: </B>", "<I>", eulophia$scientific_name, "</I>",
+                            "<br/>",
+                            "<B>Colectado por: </B>", eulophia$place_guess),
+                   color = ~ pal(scientific_name)) 
+
+```
+
+Para ayudar con la visualización de datos pertenecientes a diferentes grupos, en ocasiones es bueno presentar una leyenda que indique los colores que representan cada grupo. Es posible añadir una leyenda al mapa de Leaflet utilizando la función `addLegend()` y especificando los siguientes parámetros:
+
+-   `position`: Para determinar la posición de la leyenda, en este caso se colocará en la parte superior derecha, `"topright"`, del mapa, pero podría colocarla en la parte inferior derecha (`"bottomright"`), la parte inferior izquierda (`"bottomleft"`), o la parte superior izquierda (`"topleft"`).
+
+-   pal: La paleta de colores a utilizar generada a través de la función `colorFactor()` o sus equivalentes (*i.e.*, `colorNumeric()`)
+
+-   `values`: Los valores o la variable u objeto que contiene los valores utilizados.
+
+-   `title`: El título de la leyenda especificado como una línea de caracteres.
+
+```{r, eval=FALSE}
+leaflet(eulophia) %>% 
+  addTiles() %>% 
+  addCircleMarkers(lng = ~ longitude, lat = ~ latitude,
+                   popup = paste0("<B>Especie: </B>", "<I>", eulophia$scientific_name, "</I>",
+                            "<br/>",
+                            "<B>Colectado por: </B>", eulophia$place_guess),
+                   color = ~ pal(scientific_name)) %>% 
+  addLegend(position = "topright", 
+            pal = pal, 
+            values = ~ scientific_name,
+            title = "Species"
+            )
+```
+
+
+```{r, eval=FALSE}
+iconcolor <- function(scienctific_name)
+
+leaflet() %>% 
+  addProviderTiles("Esri.WorldImagery") %>% 
+  addAwesomeMarkers(lng = eulophia$longitude, lat = eulophia$latitude, 
+             popup = paste0("<B>Especie: </B>", "<I>", eulophia$scientific_name, "</I>",
+                            "<br/>",
+                            "<B>Colectado por: </B>", eulophia$place_guess),
+            icon = icon1
+               )
+
+```
+
+
+
+
+
+
+<!--chapter:end:16-Terremotos_Fechas_Mapa.Rmd-->
+
+# Ecuaciones Matemáticas {#math-sci}
+
+<!-- Required to number equations in HTML files -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+## Ecuaciones matemática
+
+*TeX* es la mejor manera de escribir funciones matemáticas en R. Donald Knuth diseñó el paquete \TeX\ cuando se sintió frustrado por el tiempo que les tomaba a los tipógrafos y terminar su libro, que contenía mucha funciones matemática. Una característica interesante de _R Markdown_ es su capacidad para leer código LaTeX directamente. 
+
+
+Si está haciendo una tesis, artículo cientíco, presentaciones o quiere acalrar en su documento las funciones que estas usando, típicamente esto involucrará muchas ecuaciones matemáticas. Por consecuencia querrá leer la siguiente sección que ha sido comentada. 
+
+
+***
+
+### Matemática y Física
+
+$$
+\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
+\left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2
+$$
+
+
+
+De Informational Dynamics, tenemos lo siguiente (Dave Braden):
+
+Después de _n_ tales encuentros, la densidad posterior de $\theta$ es
+
+$$
+\pi(\theta|X_1< y_1,\dots,X_n<y_n) \varpropto \pi(\theta) \prod_{i=1}^n\int_{-\infty}^{y_i}
+   \exp\left(-{(x-\theta)^2\over{2\sigma^2}}\right)\ dx
+$$
+
+
+
+Otra Ecuaciones
+
+$$
+\det\left|\,\begin{matrix}%
+c_0&c_1\hfill&c_2\hfill&\ldots&c_n\hfill\cr
+c_1&c_2\hfill&c_3\hfill&\ldots&c_{n+1}\hfill\cr
+c_2&c_3\hfill&c_4\hfill&\ldots&c_{n+2}\hfill\cr
+\,\vdots\hfill&\,\vdots\hfill&
+  \,\vdots\hfill&&\,\vdots\hfill\cr
+c_n&c_{n+1}\hfill&c_{n+2}\hfill&\ldots&c_{2n}\hfill\cr
+\end{matrix}\right|>0
+$$
+
+***
+
+Lapidus y Píndaro, Solución numérica de ecuaciones diferenciales parciales en ciencia y Ingeniería. Página 54
+
+$$
+\int_t\left\{\sum_{j=1}^3 T_j \left({d\phi_j\over dt}+k\phi_j\right)-kT_e\right\}w_i(t)\ dt=0,
+   \qquad\quad i=1,2,3.
+$$
+
+
+Funciones de ponderación del método L\&P Galerkin. Página 55
+
+$$
+\sum_{j=1}^3 T_j\int_0^1\left\{{d\phi_j\over dt} + k\phi_j\right\} \phi_i\ dt
+   = \int_{0}^1k\,T_e\phi_idt, \qquad i=1,2,3 $$
+
+Otra de L\&P (p145)
+
+$$
+\int_{-1}^1\!\int_{-1}^1\!\int_{-1}^1 f\big(\xi,\eta,\zeta\big)
+   = \sum_{k=1}^n\sum_{j=1}^n\sum_{i=1}^n w_i w_j w_k f\big( \xi,\eta,\zeta\big).
+$$
+
+Otra de L\&P (p126)
+
+$$
+\int_{A_e} (\,\cdot\,) dx dy = \int_{-1}^1\!\int_{-1}^1 (\,\cdot\,) \det[J] d\xi d\eta.
+$$
+-->
+
+## Química 101: Símbolos
+
+
+Las fórmulas químicas se verán mejor si no están en cursiva. Evite la cursiva automática del modo matemático en LaTeX usando el argumento `$\mathrm{fórmula aquí}$`, con su fórmula dentro de las llaves. (Observe el uso de comillas invertidas aquí que encierran texto y que actúa como código para ver el script original).
+
+
+Entonces, $\mathrm{Fe_2^{2+}Cr_2O_4}$ es escrito como `$\mathrm{Fe_2^{2+}Cr_2O_4}$`.
+
+<!--
+The \noindent command below does what you'd expect:  it forces the current line/paragraph to not indent. This was done here to match the format of the LaTeX thesis PDF.
+-->
+
+\noindent Exponente or Sobrescrito: $\mathrm{O^-}$ y se escribe como `$\mathrm{O^-}$`
+
+\noindent Subíndice: $\mathrm{CH_4}$ y se escribe como `$\mathrm{CH_4}$`
+
+Para apilar números o letras como en $\mathrm{Fe_2^{2+}}$, primero se define el subíndice y luego el superíndice y se escribe como `$\mathrm{Fe_2^{2+}}$`. 
+
+\noindent punto se usa la palabra **bullet**: CuCl $\bullet$ $\mathrm{7H_{2}O}$ 
+
+
+`CuCl $\bullet$ $\mathrm{7H_{2}O}$`
+
+
+\noindent Delta: $\Delta$ y se escribe como `$\Delta
+
+$\Gamma$
+
+$\gamma$
+
+Aqui esta mi super formula de $\phi$ que voy a usar en el exam
+
+\noindent Flecha de Reacción: $\longrightarrow$ or  $\xrightarrow{solution}$ y se escribe como `$\longrightarrow$` or  `$\xrightarrow{solution}$`
+
+\noindent Flecha de Resonancia: $\leftrightarrow$ y se escribe como `$\leftrightarrow$`
+
+\noindent Flechas de reacción reversibles: $\rightleftharpoons$ y se escribe como `$\rightleftharpoons$`
+
+### Típografica de reaciones
+
+Es posible que desees poner tu reacción en un entorno de ecuaciones, lo que significa que LaTeX colocará la reacción donde encaje y numerará las ecuaciones por ti. 
+
+
+\begin{equation}
+  \mathrm{C_6H_{12}O_6  + 6O_2} \longrightarrow \mathrm{6CO_2 + 6H_2O}
+  (\#eq:reaction)
+\end{equation}
+
+
+
+
+y se escribe como 
+
+````{verbatum}
+\begin{equation}
+  \mathrm{C_6H_{12}O_6  + 6O_2} \longrightarrow \mathrm{6CO_2 + 6H_2O}
+  (\#eq:reaction)
+\end{equation}
+````
+
+Podemos hacer referencia a esta reacción de combustión de glucosa mediante la ecuación \@ref(eq:reaction).
+
+### Otros ejemplos de reacciones
+
+$\mathrm{NH_4Cl_{(s)}}$ $\rightleftharpoons$ $\mathrm{NH_{3(g)}+HCl_{(g)}}$
+
+y se esscribe como
+
+`$\mathrm{NH_4Cl_{(s)}}$ $\rightleftharpoons$ $\mathrm{NH_{3(g)}+HCl_{(g)}}$`
+
+\noindent $\mathrm{MeCH_2Br + Mg}$ $\xrightarrow[abajo]{ariba}$ $\mathrm{MeCH_2\bullet Mg \bullet Br}$
+
+y se escribe como 
+
+\noindent `$\mathrm{MeCH_2Br + Mg}$ $\xrightarrow[abajo]{ariba}$ $\mathrm{MeCH_2\bullet Mg \bullet Br}$`
+## Física
+
+
+Muchos de los símbolos que necesitará se pueden encontrar en la página de matemáticas.
+
+<https://web.reed.edu/cis/help/latex/math.html> y la guía completa de símbolos LaTeX (<https://mirror.utexas.edu/ctan/info/symbols/comprehensive/symbols-letter.pdf>).
+
+## Biología
+
+Probablemente encontrará los recursos en <https://www.lecb.ncifcrf.gov/~toms/latex.html> útil, particularmente los enlaces a bsts de varias revistas. Quizás también le interese TeXShade para composición tipográfica de nucleótidos (<https://homepages.uni-tuebingen.de/beitz/txe.html>). Asegúrese de leer el capítulo anterior sobre gráficos y tablas.
+
+La formula del promedio 
+
+
+
+$\mu=\frac{\sum{x}_{i}}{n}$ se escribe asi `$\mu=\frac{\sum{x}_{i}}{n}$`
+
+NOTE la diferencia en tipo de letra 
+
+
+$\mathrm{\mu=\frac{\sum{x}_{i}}{n}}$ se escribe asi `$\mathrm{\mu=\frac{\sum{x}_{i}}{n}}$`
+
+
+\begin{equation}
+  \mathrm{\mu=\frac{\sum{x}_{i}}{n}}
+  (\#eq:promedio)
+\end{equation}
+
+
+$s^{2}=\frac{\sum (x_{i}-\bar{x})^2}{n-1}$
+
+Sitios en el web para preparar las ecuaciones Latex
+
+1. <https://latex.codecogs.com/eqneditor/editor.php>
+
+2. <https://latexeditor.lagrida.com>
+
+3. <https://www.hostmath.com>
+
+4. <https://www.overleaf.com/learn/latex/Mathematical_expressions>
+
+<!--chapter:end:17-Ecuaciones_matematicas.Rmd-->
+
+# Opciones de Knitr
+
+
+
+La mayoria de los ejemplos y ideas de esta seccieon proviene de **yihui** en el siguiente website <<https://yihui.org/knitr/>>
+
+el paquete **knitr** fue desiñado para ser transparente para generar reporte de R, añadiendo componente de animación y Latex (Ecuaciones) y otras funciones.
+
+
+
+Hay muchas opciones para determinar lo que have un **chunk**
+
+ - Code evaluation: evaluación de código
+ - Text output: Formateo de texto
+ - Code decoration: Decoración del código
+ - Cache: Cache
+ - Plots: Gráficos
+ - Animation: Animaciones
+ - Code chunk: Código del chunk
+ - Child Document: Documento asociados
+ - Language engines: Asociación de lenguaje
+ - Option Temnplate:
+ - Extracting source code:
+ - Other chunk options:
+ - Package Options:
+ - Global R Options:
+ 
+
+
+Este **chunk** es para que la información de los chunk and la parte de **knitr** se vea.   
+
+
+
+
+```{r new_chunk_option}
+library(knitr)
+hook_chunk = knit_hooks$get('chunk')
+knit_hooks$set(chunk = function(x, options) {
+  if (!is.null(options$echo_opts)) {
+    return(paste0("```` ```{r ", options$params.src, "} ````", x, "```` ``` ````"))
+  } else {
+    return(hook_chunk(x, options)) # pass to default hook
+  }
+  })
+
+opts_knit$set(eval.after = 'fig.cap')
+```
+
+
+
+
+Los ejemplos aquí serán limitado a las alternativas para los documentos **.Rmd**
+ 
+ - Las opciones están escrita de forma de **tag=selección de la alternativa**.
+ 
+ 
+ Opciones de bloques
+ 
+ Se personaliza los bloques con "opeciones" **options** de los chunks.
+ 
+ En la rueda de a la derecha de cada **chunk** hay opciones para seleccionar opciones.
+ 
+ Tablas de opciones principales
+-------------
+ 
+| Opción     | Ejecuta | Muestra | Output | Gráficos | Mensajes | Advertencias |
+|:--------|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+|eval=FASLE|   -   |   |   -   | - |  - | -| 
+|include=FALSE|      |  - |   -   | - |  - | -|
+|echo=FALSE|     |  - |      |  |   |  |
+|results="hide"|     |   |  -    |  |   |  |
+|fig.show ="hide"|     |   |      |-  |   |  |
+|message=FALSE|     |   |      |  |  - |  |
+|warning=FALSE|     |   |      |  |   | - |
+ 
+ 
+ 
+ 
+ 
+ - Comenzando con dandole un nombre al chunk "mi-chunk"
+
+
+```{r activar_tidyverse, echo=TRUE}
+library(tidyverse)
+```
+
+
+algun_nombre, echo=TRUE
+
+
+
+
+
+***
+***
+ Eso es lo que va a ver cuando hace el knit 
+ 
+
+
+
+
+
+***
+***
+
+Nota aqui tengo include=FALSE, por consecuencia cuando se hace un knit, no se ve lo que hay en el chunk.  
+  - Ahora cambialo a TRUE
+
+```{r include_false, include=FALSE, echo_opts=TRUE}
+head(cars)
+```
+
+
+```{r include_true, include=TRUE, echo_opts=TRUE}
+head(cars)
+```
+
+
+***
+***
+
+Añade una figura 
+
+```{r cars, echo=TRUE, echo_opts=TRUE}
+plot(cars)
+```
+
+
+
+ 
+***
+***
+
+
+```{r position_caption, fig.cap='El nombre de mi figure.', fig.topcaption=TRUE, echo_opts=TRUE}
+plot(cars)
+```
+
+
+***
+***
+```{r fig.cap= "An incredible figure", echo_opts=TRUE}
+library(ggplot2)
+df <- data.frame(letters = letters[1:5], value = 1)
+
+ggplot(df, aes(letters, value, fill = letters)) +
+ geom_bar(stat = "identity")
+
+```
+
+
+***
+***
+
+```{r ggplot, fig.cap= "An incredible figure", fig.width = 3, fig.height = 3, echo_opts=TRUE, echo=FALSE}
+library(ggplot2)
+df <- data.frame(letters = letters[1:5], value = 1)
+
+ggplot(df, aes(letters, value, fill = letters)) +
+ geom_bar(stat = "identity")
+
+```
+
+***
+***
+
+Figure aligment: default, left, right, and center
+
+fig.align
+
+```{r fig.cap= "caption", fig.width = 3, fig.height = 3, fig.align='right', echo_opts=TRUE}
+library(ggplot2)
+df <- data.frame(letters = letters[1:5], value = 1)
+
+ggplot(df, aes(letters, value, fill = letters)) +
+ geom_bar(stat = "identity")
+
+```
+
+***
+***
+
+Wrap text around figure
+
+Use ese código para que el texto "wraps" alrededor de ls figura (ese código es de otro idioma de computadora de se llama **css**)
+
+<div style= "float:right;position: relative; top: -80px;">
+
+AQUI el CHUNK
+
+</div>
+
+
+##### R Markdown wrapping
+
+<div style= "float:right;position: relative; top: -20px;">
+```{r pressure, echo=TRUE, fig.cap= "caption", fig.width = 2.6, fig.height = 2.6, fig.align='right'}
+df <- data.frame(letters = letters[1:5], value = 1)
+
+ggplot(df, aes(letters, value, fill = letters)) +
+ geom_bar(stat = "identity")
+```
+</div>
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+Note that the `echo = TRUE` parameter was added to the code chunk to have printing of the R code that generated the plot.
+
+***
+***
+
+### OTRAS funciones de knitr
+
+- eval= to evaluate the code FALSE or TRUE
+- echo = TO show the code FALSE or TRUE
+- message = FALSE or TRUE
+- warning = FALSE or TRUE
+- error =FALSE or TRUE
+- results = 'asis' To show text exactly as printed/written
+
+
+
+```{r weird name chuck, eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
+x=c(1:10)
+x
+```
+
+
+
+```{r, message=FALSE}
+library(MASS)
+```
+
+
+
+```{r, warning=FALSE}
+library(dplyr)
+library(MASS)
+```
+
+
+```{r, results='asis'}
+cat("I'm raw **Markdown** content.\n",
+    
+                         "My poetry of Puerto Rico\n")
+```
+
+
+***
+***
+
+## Emoji or Symbols
+
+### Select Under the Edit ➡ Emoji & Symbols.
+
+
+
+##### Remember you can add emoji's to your document
+
+
+Sometimes you want to 🙈 around a bit and add some ⭐️⭐️ to your
+🎈🎈 Well we have a gift for you if you add interesting emoji's to your document.
+
+
+
+
+
+
+<!--chapter:end:18-Opciones_de_Knitr.Rmd-->
+
+# WordCloud_en_R
+
+
+
+## Ejemplo #1
+
+
+
+
+
+Para generar nubes de palabras con R. Se necesita los paquetes **wordcloud**, **RColorBrewer** y **wordcloud2**
+
+
+Ese ejemplo es una copia de la siguiente pagina de web
+
+<http://www.sthda.com/english/wiki/word-cloud-generator-in-r-one-killer-function-to-do-everything-you-need>
+
+```{r}
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tm, SnowballC, wordcloud, RColorBrewer, wordcloud2)
+
+library(wordcloud) # Un paquete para hacer word clour
+library(wordcloud2) # paquete más sencillo para hacer word cloud
+library(RColorBrewer) # paquete para cambiar los colores 
+library(tm)  # paquete de text mining
+library(SnowballC) # paquete para trabajar en otro idioma aparte del ingles
+
+```
+
+
+
+## Usando los datos en el paquete wordcloud2 que se llama **demoFreq**
+
+
+```{r}
+library(wordcloud2)
+head(demoFreq, n=10)
+wordcloud2(data = demoFreq)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Paso 1 
+
+Importar los datos de la web
+
+```{r, echo=FALSE}
+filePath <- "http://www.sthda.com/sthda/RDoc/example-files/martin-luther-king-i-have-a-dream-speech.txt"
+text <- readLines(filePath)
+```
+
+
+
+Importar un texto de su computadora en formato **.txt** No va a funcionar el formato **.doc** de MSWord. 
+
+
+```{r, echo=TRUE, eval=FALSE}
+#mi_texto <- readLines(file.choose())
+
+```
+
+
+## Subir el texto en formato **Corpus**
+
+```{r, echo=TRUE}
+
+mi_texto=iconv(text,"WINDOWS-1252","UTF-8") # Use this for removing accents and non - english characters
+
+# Load the data as a corpus
+docs <- Corpus(VectorSource(mi_texto))
+
+
+```
+
+
+## Mirar el documento, para evaluar su contenido
+
+```{r, echo=TRUE}
+# inspect(docs) # quita el hashtag para ver el documento
+```
+
+
+
+## Transformar el texto para reemplazar algunos caracteres especiales
+
+```{r, echo=TRUE}
+toSpace <- content_transformer(function (x , pattern ) gsub(pattern, " ", x))
+docs <- tm_map(docs, toSpace, "-")
+docs <- tm_map(docs, toSpace, "@")
+docs <- tm_map(docs, toSpace, "\\|")
+```
+
+
+## el paquete **tm** es para **text mining**
+
+```{r, echo=TRUE}
+# Convert the text to lower case
+docs <- tm_map(docs, content_transformer(tolower))
+
+# Remove numbers
+docs <- tm_map(docs, removeNumbers)
+
+# Remove english common stopwords
+docs <- tm_map(docs, removeWords, stopwords("english"))
+
+# Remove your own stop word
+# specify your stopwords as a character vector
+docs <- tm_map(docs, removeWords, c("blabla1", "blabla2")) 
+
+# Remove punctuations
+docs <- tm_map(docs, removePunctuation)
+
+# Eliminate extra white spaces
+docs <- tm_map(docs, stripWhitespace)
+# Text stemming
+# docs <- tm_map(docs, stemDocument)
+
+#stopwords() # Here are all the stopwords in the function **stopwords**
+```
+
+
+```{r}
+dtm <- TermDocumentMatrix(docs)
+m <- as.matrix(dtm)
+v <- sort(rowSums(m),decreasing=TRUE)
+d <- data.frame(word = names(v),freq=v)
+head(d, n=10) # las primeras 10 palabras más comunes
+```
+
+
+
+### Check your words and remove unwanted words individually
+
+
+
+"òó"
+
+òorchid
+
+pollinators
+
+
+### How would you remove from the data frame all words that have less or equal to 3 counts
+
+
+***
+
+Del paquete **wordcloud**
+
+```{r, echo=TRUE,  warning=FALSE}
+wordcloud(words = d$word, 
+          freq = d$freq, 
+          min.freq = 1,
+          max.words=200, 
+          random.order=FALSE, 
+          rot.per=0.35, 
+          colors=brewer.pal(8, "Dark2"))
+```
+
+
+***
+
+
+## Ejemplo 2
+
+
+
+Del paquete **wordcloud2**
+
+
+```{r, echo=TRUE}
+wordcloud2(data = d)
+```
+
+
+
+## Como remover palabras de otra idioma
+
+### Vea este enlace para los "stopwords" de muchos idiomas
+
+<https://cran.r-project.org/web/packages/stopwords/readme/README.html>
+
+
+
+
+
+## En español
+
+```{r, echo=TRUE, eval=FALSE}
+# from CRAN
+install.packages("stopwords")
+
+# Or get the development version from GitHub:
+# install.packages("devtools")
+devtools::install_github("quanteda/stopwords")
+```
+
+
+### Las 30 primeras palabras en la lista de stopword del paquete "stopwords" en español 
+
+```{r}
+head(stopwords::stopwords("es", source = "snowball"), 30)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***
+
+
+Ejemplos #3
+
+Aqui un tercer ejemplo 
+
+
+
+```{r}
+# install.packages("pacman") # Si no tiene instalada la Biblioteca Pacman ejecutar esta línea de código
+library("pacman")
+
+
+p_load("tm") # Biblioteca para realizar el preprocesado del texto,
+p_load("tidyverse") # Biblioteca con funciones para manipular datos.
+p_load("wordcloud") # Biblioteca para graficar nuestra nube de palabras.
+p_load("RColorBrewer") # Biblioteca para seleccionar una paleta de colores de nuestra nube de palabras.
+```
+
+
+## Un documento para hacer un word cloud
+
+```{r}
+articulo_IA <- "https://gist.github.com/EverVino/7bdbbe7ebdff5987970036f52f0e384f/raw/3a1997b6f9e3471555a941f8812ada0cef84977d/gistfile1.txt"
+texto <- read_file(articulo_IA)
+#texto
+```
+
+
+## Convertir su documento en **Corpus** y identificar que es en español
+
+```{r}
+texto2 <- VCorpus(VectorSource(texto), 
+                 readerControl = list(reader = readPlain, language = "es", load=TRUE))
+texto2
+
+#inspect(texto2)
+```
+
+## Limpieza del documento
+
+- remover los números
+- remover las puntuaciones
+- cambiar a letras minúsculas
+- remover las palabras comunes en español
+- usar solamente la base de las palabres ("stem") por ejemplo remover las conjugaciones **espero**, **esparas**, **espera**, **esperamos**... se convierte en "esper"
+- remover espacios blancos
+
+
+
+```{r}
+texto2 <- tm_map(texto2, removeNumbers)
+texto2 <- tm_map(texto2, removePunctuation)
+texto2 <- tm_map(texto2, tolower)
+texto2 <- tm_map(texto2, removeWords, stopwords::stopwords("es", source = "snowball"))
+#texto2 <- tm_map(texto2, stemDocument, language="spanish")
+texto2 <- tm_map(texto2, stripWhitespace)
+
+
+```
+
+
+## Transformar el texto en un documento de texto sencillo (Plain Text)
+
+```{r}
+texto2 <- tm_map(texto2, PlainTextDocument)
+```
+
+
+
+
+
+## Transformar el texto para reemplazar algunos caracteres especiales
+
+```{r, echo=TRUE, eval=FALSE}
+toSpace <- content_transformer(function (x , pattern ) gsub(pattern, " ", x))
+#texto2 <- tm_map(texto2, toSpace, "-")
+texto2 <- tm_map(texto2, toSpace, "@")
+texto2 <- tm_map(texto2, toSpace, "\\|")
+```
+
+
+## Crear una matriz de las palabras
+
+```{r}
+tabla_frecuencia <- DocumentTermMatrix(texto2)
+```
+
+## Calcular la frecuencia de de cada palabra
+
+
+```{r}
+tabla_frecuencia <- cbind(palabras = tabla_frecuencia$dimnames$Terms, 
+                          frecuencia = tabla_frecuencia$v)
+```
+
+
+
+
+```{r}
+# Convertimos los valores enlazados con cbind a un objeto dataframe.
+tabla_frecuencia<-as.data.frame(tabla_frecuencia) 
+
+# Forzamos a que la columna de frecuencia contenga valores numéricos.
+tabla_frecuencia$frecuencia<-as.numeric(tabla_frecuencia$frecuencia)
+
+# Ordenamos muestra tabla de frecuencias de acuerdo a sus valores numéricos.
+tabla_frecuencia<-tabla_frecuencia[order(tabla_frecuencia$frecuencia, decreasing=TRUE),]
+
+
+head(tabla_frecuencia) # aqui vemos las 6 palabras más comunes en el texto
+
+```
+
+```{r}
+wordcloud(words = tabla_frecuencia$palabras, 
+          freq = tabla_frecuencia$frecuencia,
+          min.freq = 5, 
+          max.words = 100, 
+          random.order = FALSE, 
+          colors = brewer.pal(8,"Paired"))
+
+
+
+
+```
+
+
+
+
+
+***
+
+Como ver la figuras en la pestaña "Plots"
+
+De esa forma puede bajar los WordClouds como  .pdf o otro formato.   
+
+
+<<https://stackoverflow.com/questions/40570621/rstudio-how-to-show-plot-output-in-bottom-right-pane>>
+
+
+<!--chapter:end:19_WordClouds.Rmd-->
+
+# Hex Stickers
+
+
+
+```{r}
+library(hexSticker) 
+library(magick)
+library(sysfonts)
+library(tidyverse)
+
+
+```
+
+
+
+
+```{r}
+
+#font_files()  #a list of all fonts available
+
+
+sysfonts::font_add_google("Dancing Script") # selección de fonts de google
+sysfonts::font_add_google("Bebas Neue")
+sysfonts::font_add_google("Fuggles")
+# sysfonts::font_add_google("Young Serif") ## No baja
+
+cat_img=image_read('cat.jpg')
+analitica_img=image_read('Analitica3.png')
+
+sticker(
+  subplot= cat_img,
+  package="Meow",
+  s_width =.75,
+  s_height = .75,
+  s_x=1,
+  s_y=.75,
+  p_size=19,
+  p_x = 1.0,
+  p_y = 1.5,
+  p_color= 'purple',
+  p_family= "Fuggles",
+  h_fill ='gold',
+  h_color='hotpink',
+  h_size = 2,
+  url="www.cat.foundation.com",
+  u_size=4,
+  u_color = "violetred",
+  spotlight=T
+
+) %>% print
+
+```
+
+
+<!--chapter:end:20_HEX_stickers.Rmd-->
+
+# (APPENDIX) Appendix {.unnumbered}
+
+# Appendix A
+
+## Ejercicio de Transformación
+
+------------------------------------------------------------------------
+
+## Capitulo de Transformación de Datos {.unnumbered}
+
+## Ejercicios con destrezar de aplicar algunas funciones de transformaciones de datos {.unnumbered}
+
+### Para tener los puntos tiene que enseñar TODOS los scripts, los resultados y explicar en palabra los que encontró dentro de un documento bien organizado. {.unnumbered}
+
+```{r}
+library(datos)
+attach(bateadores)
+library(tidyverse)
+library(gt)
+```
+
+Use el data frame de "bateadores" en el paquete "datos".
+
+```{r}
+
+gt(head(bateadores, n=3))
+
+```
+
+------------------------------------------------------------------------
+
+## 1. Busca el bateador que tuvo más carreras en cualquier año {.unnumbered}
+
+```{r, eval=FALSE, echo=FALSE}
+
+max(bateadores$carreras)
+
+bateadores |> select(id_jugador, carreras) |> 
+  arrange(desc(carreras)) |> 
+  slice_max(carreras)
+
+```
+
+------------------------------------------------------------------------
+
+## 2. ¿Cual es el nombre del bateador (id_jugador) que estuvo más veces "al_bate"? Prepara una lista del bateador más frecuente al bate al menos {.unnumbered}
+
+```{r, eval=FALSE, echo=FALSE}
+
+bateadores |> select(id_jugador, al_bate) |> 
+  arrange(desc(al_bate))
+
+```
+
+------------------------------------------------------------------------
+
+## 3. ¿Cuales son las "ligas" de baseball (pelota) que estan incluida en este archivo? {.unnumbered}
+
+
+```{r, eval=FALSE, echo=FALSE}
+
+unique(bateadores$id_liga)
+```
+
+------------------------------------------------------------------------
+
+## 4. Selecciona los años (1900, 1950, 2000 y 2020) y jonrones y hacer una tabla por año que demuestra el máximo de jonrones para cada año {.unnumbered}
+
+¿Cual fue el máximo de jonrones por año para los años selecionado? Haga una lista.
+
+```{r, eval=FALSE, echo=FALSE}
+unique(bateadores$id_anio)
+bateadores |> select(id_anio, cuadrangulares) |> 
+  filter(id_anio %in% c(1900, 1950, 2000, 2020)) |> 
+  group_by(id_anio) |> 
+  summarise(max=max(cuadrangulares))
+  
+```
+
+------------------------------------------------------------------------
+
+## 5. Haz una tabla de la los jugadores que juraron más años {.unnumbered}
+
+-   ¿Cual es el jugador que ha jugado más años?
+
+```{r, eval=FALSE, echo=FALSE}
+bateadores |> select(id_jugador, id_anio) |> 
+  group_by(id_jugador) |> 
+  summarise(count_years= sum(duplicated(id_jugador))) |> 
+  arrange(desc(count_years))
+```
+
+------------------------------------------------------------------------
+
+## 6. Selecciona solamente la liga "AL", los años desde de 2000 en adelande, y determina cual es la suma de "carreras" anotadas por cada equipo. {.unnumbered}
+
+-   a)  ¿Cual es el equipo que tiene mayor carreras?
+
+-   b)  ¿Cual es el equipo que tiene menor carreras?
+
+-   c)  Como explica que ese equipo tiene tan poca carreras.
+        Piensa en un tipo de "Data wrangling", que podria explicar esto (BONO), si lo resuelve tendrá un bono
+
+```{r, eval=FALSE, echo=FALSE}
+bateadores |> select(id_liga, id_anio, id_equipo, carreras) |> 
+  filter(id_liga == "AL") |> 
+  filter(id_anio %in% c(2000:2020)) |> 
+  group_by(id_equipo) |> 
+  summarise(sum=sum(carreras))
+```
+
+------------------------------------------------------------------------
+
+```{r, eval=FALSE, echo=FALSE}
+bateadores |> select(id_liga, id_anio, id_equipo) |> 
+  filter(id_liga == "AL") |> 
+  filter(id_anio %in% c(2000:2020)) |> 
+  group_by(id_equipo) |> 
+  summarize(n=n_distinct(id_anio))
+
+
+```
+
+
+------------------------------------------------------------------------
+
+<!--chapter:end:A-Ejercicios_Transformacion.Rmd-->
+
+
+
+# Appendix C
+
+
+------------------------------------------------------------------------
+
+```{r}
+library(readr)
+HIV <- read_csv("HIV.csv")
+
+
+HIV
+```
+
+
+
+
+
+
+
+
+```{r}
+library(tidyverse)
+```
+
+https://www.stat.berkeley.edu/~s133/dates.html
+
+```{r}
+
+
+
+HIV$dob=as.Date(format(as.Date(HIV$dob,format="%m/%d/%y"), "19%y%m%d"), "%Y%m%d")
+
+
+HIV
+
+```
+
+## Calculate the age of individuals when they were diagnosed with HIV {-}
+
+## Calculate the time between the date of diagnosis of HIV and the date of death. {-}
+
+
+
+
+
+
+```{r}
+
+HIV= HIV |>  
+  mutate(date_d=mdy(date_of_death),
+         hiv_d = mdy(hiv_date))
+
+HIV
+
+```
+
+
+```{r}
+HIV1 <- HIV %>% 
+  mutate(hiv_date = mdy(hiv_date))
+
+HIV1
+
+HIV2 <- HIV1 %>% 
+  mutate(edad = dob %--% hiv_date / years())
+
+HIV2
+
+
+```
+
+```{r}
+HIV3 <- HIV2 %>% 
+  mutate(date_of_death = mdy(date_of_death))
+
+HIV3
+
+HIV4 <- HIV3 %>% 
+  mutate(diagnosed_death = hiv_date %--% date_of_death / years())
+
+HIV4
+```
+
+
+## Calculate the difference in life between the date of diagnosis and death {-}
+
+
+```{r}
+
+HIV$months= floor(time_length(difftime(HIV$date_d, HIV$hiv_d), "months"))
+HIV$months
+
+
+
+
+
+
+HIV %>%
+  mutate(Period_HIV_death = as.duration(hiv_d %--% date_d)) |> 
+  summarise(mean_time=mean(Period_HIV_death)) 
+```
+
+
+------------------------------------------------------------------------
+
+
+
+
+
+
+
+<!--chapter:end:B-Ejercicios_Fechas.Rmd-->
+
+
+
+# Appendix B
+
+------------------------------------------------------------------------
+
+## Ejercicios para las funciones de transformaciones 2 {-}
+
+
+## Seleccione los siguientes datos sobre COVID en PR {-}
+
+### LEEN bien lo que estoy pidiendo. El nombre de las columnas pueden engañar!!! {-}
+
+```{r}
+library(tidyverse)
+library(data.table)
+url_COVID_PR=fread("https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv")
+```
+
+
+
+
+```{r}
+library(gt)
+Covid=url_COVID_PR
+gt(tail(Covid, n=2))
+```
+
+
+
+## 1. Calcular el promedio de Muertes por dia de nuevos muertos desde el comienzo hasta el ultimo dia del archivo {-}
+
+
+```{r, eval=FALSE, echo=FALSE}
+Covid |> dplyr::select(IncrementoMuertes) |> 
+  summarize(mean=mean(IncrementoMuertes, na.rm = TRUE))
+```
+
+
+## 2. ¿Cual es la máximo de nuevos casos en un día {-}
+
+```{r, eval=FALSE, echo=FALSE}
+Covid |> dplyr::select(IncCasosSaludNuevo) |> 
+  summarize(mean=mean(IncCasosSaludNuevo, na.rm = TRUE))
+
+```
+
+
+## 3. ¿Calcular la cantidad cumulativa de numero de camas CamasICU {-}
+
+ - Enseñe solamente las ultimas 4 filas
+
+```{r, eval=FALSE, echo=FALSE}
+library(MASS)
+library(GMCM) # cummean
+library(cumstats)
+Covid |> dplyr::select(Ventiladores) |> 
+         mutate(suma=cummean(Ventiladores)) %>% 
+         mutate(Var_cum=cumstats::cumvar(Ventiladores)) 
+
+
+```
+
+
+
+```{r, eval=FALSE, echo=FALSE}
+cum_x=Covid |> dplyr::select(Ventiladores) |> 
+         mutate(suma=cummean(replace_na(Ventiladores, 0))) %>% 
+         mutate(Var_cum=cumstats::cumvar(replace_na(Ventiladores, 0)))
+
+tail(cum_x, n=4)
+```
+
+
+## 4. Haz una grafica de la varianza y como cambia atravez del tiempo. {-}
+
+ - usa puntos para cada fecha
+ - añade una regresión LOESS
+ - cambia los nombres de los ejes para algo más claro
+ - los colores de los puntos
+ - cambia el color de la linea
+
+
+```{r, eval=FALSE, echo=FALSE}
+cum_x$order=c(1:587)
+
+ggplot(cum_x, aes(order, Var_cum))+
+  geom_point()+
+  geom_smooth(color="red")
+```
+
+
+------------------------------------------------------------------------
+
+
+
+
+<!--chapter:end:B-Ejercicios_Transformacion_2.Rmd-->
+

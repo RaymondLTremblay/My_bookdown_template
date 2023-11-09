@@ -208,7 +208,7 @@ devtools::install_github("quanteda/stopwords")
 ```
 
 
-### Las 30 priemras palabras en la lista de stopword del paquete "stopwords" en español 
+### Las 30 primeras palabras en la lista de stopword del paquete "stopwords" en español 
 
 ```{r}
 head(stopwords::stopwords("es", source = "snowball"), 30)

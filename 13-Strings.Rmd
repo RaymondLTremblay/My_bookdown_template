@@ -90,7 +90,7 @@ y
 z <- "\u00A1"
 z
 
-w <- "\u01FC"
+w <- "\u01FC\u00b6"
 w
 ```
 
@@ -105,7 +105,7 @@ Escribir si nombre en el alfabeto cyrilico
 <<https://www.google.com/search?client=safari&rls=en&q=cyrillic+alphabet&ie=UTF-8&oe=UTF-8#vhid=cMLOx1fN0Zg5UM&vssid=l>>
 
 ```{r}
-Raymond = "\u048E\u0430\u042B\u043C\u043E\u043D\u0434"
+Raymond = "\u048E\u0430\u042B\u043C\u043E\u043D\u0434, Asi se escribe mi nombre en ruso"
 Raymond
 ```
 
@@ -178,7 +178,7 @@ str_sub(x, 1,3)
 
 ```{r}
 x= c( "Piña", "Manzana", "Toronja")
-str_sub(x, -3,-1)
+str_sub(x, -2,-2)
 
 
 ```
@@ -189,7 +189,7 @@ str_sub(x, -3,-1)
 
 
 ```{r}
-x= c( "Piña", "Manzana", "Toronja")
+x= c( "Piña", "Manzana", "Toronja", "HAPPY")
 str_to_lower(x)
 ```
 
@@ -206,9 +206,18 @@ str_to_upper(x)
   - ¿Qué es un locale?
   - str_to_lower()
   - str_to_upper()
-  - str_order()
-  - str_sort()
+  - str_order() # que hace esta función?
+  - str_sort() # que hace esta función?
   
+
+```{r}
+x
+str_order(x)
+
+str_sort(x)
+```
+
+
   
 1.  **Ejercicios**:
 
@@ -220,6 +229,8 @@ Hacer los ejercicios en la sección 14.2.5 del libro en español
 
 ## Coincidencia básica
 
+Para visualizar patrones de letras
+
  - str_view()
  - str_view( , .x.)
 
@@ -227,7 +238,7 @@ Hacer los ejercicios en la sección 14.2.5 del libro en español
 
 library(stringr)
 x <- c("manzana", "banana", "pera")
-str_view(x, "an")
+str_view(x, "er")
 ```
 
 
@@ -236,8 +247,8 @@ Ejemplo de como uno puede utiliza esas funciones
 
  
 ```{r}
-x= c( "Piña", "Manzana", "Toronja", "Jugo")
-str_detect(x, "a") # detectar la e
+x= c( "Piña", "Manzana", "Toronja", "Jugo", "Monique")
+str_detect(x, "a") # detectar la a
 str_detect(x, "i") # detectar la i
 str_detect(x, "ñ")
 ``` 
@@ -245,6 +256,8 @@ str_detect(x, "ñ")
 
 ```{r}
 # ¿Cuántas palabras comunes empiezan con m?
+# str_detect(x, "^M")
+x
 sum(str_detect(x, "^m"))
 sum(str_detect(x, "^M"))
 ```
@@ -255,7 +268,7 @@ sum(str_detect(x, "^M"))
 # ¿Qué proporción de palabras comunes terminan con una vocal?
 mean(str_detect(x, "[aáeéiéoéuú]$"))
 
-# ¿Qué proporción de palabras comunes terminan con una vocal?
+# ¿Qué proporción de palabras comunes terminan con una vocal especifica?
 mean(str_detect(x, "[o]$"))
 ```
 
@@ -265,6 +278,7 @@ mean(str_detect(x, "[o]$"))
 - Cuentas palabras tiene ese archivo?
 
 ```{r}
+library(stringr)
 palabras
 ```
 
@@ -273,8 +287,13 @@ palabras
 ```{r}
 # Encuentra todas las palabras que contengan al menos una vocal, y luego niégalo
 sin_vocales_1 <- !str_detect(palabras, "[aáeéiíoóuúúü]")
+
+
+
+
 # Encuentra todas las palabras consistentes solo en consonantes (no vocales)
 sin_vocales_2 <- str_detect(palabras, "^[^aáeéiíoóuúúü]+$")
+
 identical(sin_vocales_1, sin_vocales_2)
 
 
@@ -315,6 +334,8 @@ str_count(x, "a")
 ```{r}
 # En promedio, ¿cuántas vocales hay por palabra?
 mean(str_count(palabras, "[aáeéiíoóuúü]"))
+
+mean(str_count(palabras, "[x]"))
 ```
 
 
