@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 16 Utilizando Leaflet | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 16 Utilizando Leaflet | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2024-01-18" />
+<meta name="date" content="2024-08-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,6 +53,7 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet" />
 <script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script>
@@ -62,7 +63,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -558,34 +559,34 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 16</span> Utilizando Leaflet<a href="utilizando-leaflet.html#utilizando-leaflet" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>La función base del paquete leaflet es <code>leaflet()</code>, con esta se activa un artilugio (<em>widget</em> en inglés) sobre el cuál se construye el mapa. Esta función debe estar unida a otra función como <code>addTiles()</code> que añade el mapa.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb1043"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1043-1"><a href="utilizando-leaflet.html#cb1043-1" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb1043-2"><a href="utilizando-leaflet.html#cb1043-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb1044"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1044-1"><a href="utilizando-leaflet.html#cb1044-1" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb1044-2"><a href="utilizando-leaflet.html#cb1044-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() </span></code></pre></div>
 </details>
 <p>Una vez tenemos el artilugio y el mapa, añadimos una capa que incluye los datos que se desean visualizar con marcadores sobre el mapa con la función <code>addMarkers()</code> dentro del cual se deben especificar los parámetros <code>lng</code> (longitud) y <code>lat</code> (latitud). Note que también se especifica el data.frame que contiene los datos bajo la función <code>leaflet()</code>. Cuando se trabaja en Leaflet, al especificar las variables a utilizar, es necesario colocar una virgulilla (~) antes de la variable. Esto le deja saber a R que lo que se especifica es una variable dentro del data.frame mencionado en la primera capa bajo la función <code>leaflet()</code>.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb1044"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1044-1"><a href="utilizando-leaflet.html#cb1044-1" tabindex="-1"></a><span class="fu">leaflet</span>(eulophia) <span class="sc">%&gt;%</span> </span>
-<span id="cb1044-2"><a href="utilizando-leaflet.html#cb1044-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb1044-3"><a href="utilizando-leaflet.html#cb1044-3" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span>longitude, </span>
-<span id="cb1044-4"><a href="utilizando-leaflet.html#cb1044-4" tabindex="-1"></a>             <span class="at">lat =</span> <span class="sc">~</span>latitude)</span></code></pre></div>
-</details>
-<p>Una vez los marcadores están establecidos, es posible añadir etiquetas que contengan información acerca de las observaciones con el parámetro <code>popup</code> de la función <code>addMarkers()</code>. Por ejemplo, se pueden colocar etiquetas que contengan información del lugar de la observación especificando que la etiqueta contenga la información de la variable <em>place_guess</em>. Para ver la etiqueta debe hacer clic sobre el marcador de interés.</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb1045"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1045-1"><a href="utilizando-leaflet.html#cb1045-1" tabindex="-1"></a><span class="fu">leaflet</span>(eulophia) <span class="sc">%&gt;%</span> </span>
 <span id="cb1045-2"><a href="utilizando-leaflet.html#cb1045-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb1045-3"><a href="utilizando-leaflet.html#cb1045-3" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span> longitude, </span>
-<span id="cb1045-4"><a href="utilizando-leaflet.html#cb1045-4" tabindex="-1"></a>             <span class="at">lat =</span> <span class="sc">~</span> latitude, </span>
-<span id="cb1045-5"><a href="utilizando-leaflet.html#cb1045-5" tabindex="-1"></a>             <span class="at">popup =</span> <span class="sc">~</span> place_guess)</span></code></pre></div>
+<span id="cb1045-3"><a href="utilizando-leaflet.html#cb1045-3" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span>longitude, </span>
+<span id="cb1045-4"><a href="utilizando-leaflet.html#cb1045-4" tabindex="-1"></a>             <span class="at">lat =</span> <span class="sc">~</span>latitude)</span></code></pre></div>
 </details>
-<p>La función <code>paste0</code> es una función base de R que concatena todos los elementos en una línea de caracteres. Los caracteres introducidos serán interpretados como UTF-8 o codificación de caracteres. Estos caracteres pueden ser mezclados con valores de una variable de caracteres en un data.frame. En el siguiente ejemplo se crea una etiqueta que contiene la ubicación y la especie observada. Se utiliza la función <code>paste0()</code> para combinar caracteres y las variables <em>scientific_name</em> y <em>place_guess</em> del data.frame.</p>
+<p>Una vez los marcadores están establecidos, es posible añadir etiquetas que contengan información acerca de las observaciones con el parámetro <code>popup</code> de la función <code>addMarkers()</code>. Por ejemplo, se pueden colocar etiquetas que contengan información del lugar de la observación especificando que la etiqueta contenga la información de la variable <em>place_guess</em>. Para ver la etiqueta debe hacer clic sobre el marcador de interés.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb1046"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1046-1"><a href="utilizando-leaflet.html#cb1046-1" tabindex="-1"></a><span class="fu">leaflet</span>(eulophia) <span class="sc">%&gt;%</span> </span>
 <span id="cb1046-2"><a href="utilizando-leaflet.html#cb1046-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb1046-3"><a href="utilizando-leaflet.html#cb1046-3" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span> longitude, </span>
 <span id="cb1046-4"><a href="utilizando-leaflet.html#cb1046-4" tabindex="-1"></a>             <span class="at">lat =</span> <span class="sc">~</span> latitude, </span>
-<span id="cb1046-5"><a href="utilizando-leaflet.html#cb1046-5" tabindex="-1"></a>             <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
-<span id="cb1046-6"><a href="utilizando-leaflet.html#cb1046-6" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
-<span id="cb1046-7"><a href="utilizando-leaflet.html#cb1046-7" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess)</span>
-<span id="cb1046-8"><a href="utilizando-leaflet.html#cb1046-8" tabindex="-1"></a>               )</span></code></pre></div>
+<span id="cb1046-5"><a href="utilizando-leaflet.html#cb1046-5" tabindex="-1"></a>             <span class="at">popup =</span> <span class="sc">~</span> place_guess)</span></code></pre></div>
+</details>
+<p>La función <code>paste0</code> es una función base de R que concatena todos los elementos en una línea de caracteres. Los caracteres introducidos serán interpretados como UTF-8 o codificación de caracteres. Estos caracteres pueden ser mezclados con valores de una variable de caracteres en un data.frame. En el siguiente ejemplo se crea una etiqueta que contiene la ubicación y la especie observada. Se utiliza la función <code>paste0()</code> para combinar caracteres y las variables <em>scientific_name</em> y <em>place_guess</em> del data.frame.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1047"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1047-1"><a href="utilizando-leaflet.html#cb1047-1" tabindex="-1"></a><span class="fu">leaflet</span>(eulophia) <span class="sc">%&gt;%</span> </span>
+<span id="cb1047-2"><a href="utilizando-leaflet.html#cb1047-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb1047-3"><a href="utilizando-leaflet.html#cb1047-3" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span> longitude, </span>
+<span id="cb1047-4"><a href="utilizando-leaflet.html#cb1047-4" tabindex="-1"></a>             <span class="at">lat =</span> <span class="sc">~</span> latitude, </span>
+<span id="cb1047-5"><a href="utilizando-leaflet.html#cb1047-5" tabindex="-1"></a>             <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb1047-6"><a href="utilizando-leaflet.html#cb1047-6" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb1047-7"><a href="utilizando-leaflet.html#cb1047-7" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess)</span>
+<span id="cb1047-8"><a href="utilizando-leaflet.html#cb1047-8" tabindex="-1"></a>               )</span></code></pre></div>
 </details>
 <p>La función <code>addAwesomeMarkers()</code> puede ser utilizada en lugar de <code>addMarkers()</code> y permite utilizar marcadores con diferentes diseños que se pueden obtener de <a href="https://fontawesome.com/v5.15/icons?d=gallery&amp;p=1">fontawesome</a>. Es posible cambiar los colores de los marcadores utilizando la codificación de colores RGB en formato (#RRGGBB). La siguiente guía de colores en R creada por Melissa Clarkson (2010) explica como utilizar colores en R: <a href="https://bootstrappers.umassmed.edu/bootstrappers-courses/pastCourses/rCourse_2014-09/resources/helpfulGuides/Rcolorstyle.pdf">A guide to using color in R</a>. Adicional, esta <a href="https://derekogle.com/NCGraphing/resources/colors">guía</a> creada por Derek H. Ogle (2022) es muy útil. En <a href="https://www.schemecolor.com/github-cat-icon-colors.php">schemecolor</a> podemos encontrar las codificaciones de los colores y muchos funcionan para <code>leaflet</code>. Para hacer estos cambios utilizamos la función <code>awesomeIcons()</code> bajo el parámetro <code>icon</code> dentro de <code>addAwesomeMarkers()</code>. Dentro de la función <code>awesomeIcons()</code> podemos especificar varios parámetros como:</p>
 <ul>
@@ -595,19 +596,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>iconColor</code>: Para cambiar el color del icono del marcadora, también con la codificación de schemecolor.</p></li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb1047"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1047-1"><a href="utilizando-leaflet.html#cb1047-1" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb1047-2"><a href="utilizando-leaflet.html#cb1047-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb1047-3"><a href="utilizando-leaflet.html#cb1047-3" tabindex="-1"></a>  <span class="fu">addAwesomeMarkers</span>(<span class="at">lng =</span> eulophia<span class="sc">$</span>longitude, <span class="at">lat =</span> eulophia<span class="sc">$</span>latitude, </span>
-<span id="cb1047-4"><a href="utilizando-leaflet.html#cb1047-4" tabindex="-1"></a>             <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
-<span id="cb1047-5"><a href="utilizando-leaflet.html#cb1047-5" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
-<span id="cb1047-6"><a href="utilizando-leaflet.html#cb1047-6" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
-<span id="cb1047-7"><a href="utilizando-leaflet.html#cb1047-7" tabindex="-1"></a>            <span class="at">icon =</span> <span class="fu">awesomeIcons</span>(<span class="at">icon =</span> <span class="st">&quot;leaf&quot;</span>, <span class="at">library =</span> <span class="st">&quot;fa&quot;</span>, </span>
-<span id="cb1047-8"><a href="utilizando-leaflet.html#cb1047-8" tabindex="-1"></a>                                <span class="at">markerColor =</span> <span class="st">&quot;darkgreen&quot;</span>,</span>
-<span id="cb1047-9"><a href="utilizando-leaflet.html#cb1047-9" tabindex="-1"></a>                                <span class="at">iconColor =</span>  <span class="st">&quot;#FFFFFF&quot;</span>)</span>
-<span id="cb1047-10"><a href="utilizando-leaflet.html#cb1047-10" tabindex="-1"></a>               ) </span></code></pre></div>
-</details>
-<p>Cuando se visualiza una gran cantidad de datos, esto puede resultar en el solapamiento de los marcadores, lo cual no es muy agradable a la vista. Es posible crear agregados que ayuden a visualizar mejor y faciliten el movimiento a través del mapa con el parámetro <code>clusterOptions</code> bajo la función <code>addAwesomeMarkers()</code>. El valor de este parámetro debe ser la función <code>markerClusterOptions()</code>.</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb1048"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1048-1"><a href="utilizando-leaflet.html#cb1048-1" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb1048-2"><a href="utilizando-leaflet.html#cb1048-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb1048-3"><a href="utilizando-leaflet.html#cb1048-3" tabindex="-1"></a>  <span class="fu">addAwesomeMarkers</span>(<span class="at">lng =</span> eulophia<span class="sc">$</span>longitude, <span class="at">lat =</span> eulophia<span class="sc">$</span>latitude, </span>
@@ -616,25 +604,38 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1048-6"><a href="utilizando-leaflet.html#cb1048-6" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
 <span id="cb1048-7"><a href="utilizando-leaflet.html#cb1048-7" tabindex="-1"></a>            <span class="at">icon =</span> <span class="fu">awesomeIcons</span>(<span class="at">icon =</span> <span class="st">&quot;leaf&quot;</span>, <span class="at">library =</span> <span class="st">&quot;fa&quot;</span>, </span>
 <span id="cb1048-8"><a href="utilizando-leaflet.html#cb1048-8" tabindex="-1"></a>                                <span class="at">markerColor =</span> <span class="st">&quot;darkgreen&quot;</span>,</span>
-<span id="cb1048-9"><a href="utilizando-leaflet.html#cb1048-9" tabindex="-1"></a>                                <span class="at">iconColor =</span>  <span class="st">&quot;#FFFFFF&quot;</span>),</span>
-<span id="cb1048-10"><a href="utilizando-leaflet.html#cb1048-10" tabindex="-1"></a>            <span class="at">clusterOptions =</span> <span class="fu">markerClusterOptions</span>()</span>
-<span id="cb1048-11"><a href="utilizando-leaflet.html#cb1048-11" tabindex="-1"></a>               ) </span></code></pre></div>
+<span id="cb1048-9"><a href="utilizando-leaflet.html#cb1048-9" tabindex="-1"></a>                                <span class="at">iconColor =</span>  <span class="st">&quot;#FFFFFF&quot;</span>)</span>
+<span id="cb1048-10"><a href="utilizando-leaflet.html#cb1048-10" tabindex="-1"></a>               ) </span></code></pre></div>
+</details>
+<p>Cuando se visualiza una gran cantidad de datos, esto puede resultar en el solapamiento de los marcadores, lo cual no es muy agradable a la vista. Es posible crear agregados que ayuden a visualizar mejor y faciliten el movimiento a través del mapa con el parámetro <code>clusterOptions</code> bajo la función <code>addAwesomeMarkers()</code>. El valor de este parámetro debe ser la función <code>markerClusterOptions()</code>.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1049"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1049-1"><a href="utilizando-leaflet.html#cb1049-1" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb1049-2"><a href="utilizando-leaflet.html#cb1049-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb1049-3"><a href="utilizando-leaflet.html#cb1049-3" tabindex="-1"></a>  <span class="fu">addAwesomeMarkers</span>(<span class="at">lng =</span> eulophia<span class="sc">$</span>longitude, <span class="at">lat =</span> eulophia<span class="sc">$</span>latitude, </span>
+<span id="cb1049-4"><a href="utilizando-leaflet.html#cb1049-4" tabindex="-1"></a>             <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb1049-5"><a href="utilizando-leaflet.html#cb1049-5" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb1049-6"><a href="utilizando-leaflet.html#cb1049-6" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
+<span id="cb1049-7"><a href="utilizando-leaflet.html#cb1049-7" tabindex="-1"></a>            <span class="at">icon =</span> <span class="fu">awesomeIcons</span>(<span class="at">icon =</span> <span class="st">&quot;leaf&quot;</span>, <span class="at">library =</span> <span class="st">&quot;fa&quot;</span>, </span>
+<span id="cb1049-8"><a href="utilizando-leaflet.html#cb1049-8" tabindex="-1"></a>                                <span class="at">markerColor =</span> <span class="st">&quot;darkgreen&quot;</span>,</span>
+<span id="cb1049-9"><a href="utilizando-leaflet.html#cb1049-9" tabindex="-1"></a>                                <span class="at">iconColor =</span>  <span class="st">&quot;#FFFFFF&quot;</span>),</span>
+<span id="cb1049-10"><a href="utilizando-leaflet.html#cb1049-10" tabindex="-1"></a>            <span class="at">clusterOptions =</span> <span class="fu">markerClusterOptions</span>()</span>
+<span id="cb1049-11"><a href="utilizando-leaflet.html#cb1049-11" tabindex="-1"></a>               ) </span></code></pre></div>
 </details>
 <p>Y para culminar, es posible cambiar el diseño del mapa utilizando la función <code>addProviderTiles()</code> en lugar de <code>addTiles()</code>. Puede echar un vistazo a los diferentes diseños disponibles para Leaflet la página de <a href="http://leaflet-extras.github.io/leaflet-providers/preview/">proveedores de Leaflet</a> en GitHub. Actualmente Leaflet en R admite diseños de los siguientes proveedores: OpenStreetMap, MapQuestOpen, Stamen, Esri and OpenWeatherMap.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb1049"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1049-1"><a href="utilizando-leaflet.html#cb1049-1" tabindex="-1"></a>icon1 <span class="ot">&lt;-</span> <span class="fu">awesomeIcons</span>(<span class="at">icon =</span> <span class="st">&quot;smile-o&quot;</span>,</span>
-<span id="cb1049-2"><a href="utilizando-leaflet.html#cb1049-2" tabindex="-1"></a>                      <span class="at">iconColor =</span> <span class="st">&quot;#FFFFFF&quot;</span>,</span>
-<span id="cb1049-3"><a href="utilizando-leaflet.html#cb1049-3" tabindex="-1"></a>                      <span class="at">library =</span> <span class="st">&quot;fa&quot;</span>,</span>
-<span id="cb1049-4"><a href="utilizando-leaflet.html#cb1049-4" tabindex="-1"></a>                      <span class="at">markerColor =</span> <span class="st">&quot;darkgreen&quot;</span>)</span>
-<span id="cb1049-5"><a href="utilizando-leaflet.html#cb1049-5" tabindex="-1"></a></span>
-<span id="cb1049-6"><a href="utilizando-leaflet.html#cb1049-6" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb1049-7"><a href="utilizando-leaflet.html#cb1049-7" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="st">&quot;Esri.WorldImagery&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1049-8"><a href="utilizando-leaflet.html#cb1049-8" tabindex="-1"></a>  <span class="fu">addAwesomeMarkers</span>(<span class="at">lng =</span> eulophia<span class="sc">$</span>longitude, <span class="at">lat =</span> eulophia<span class="sc">$</span>latitude, </span>
-<span id="cb1049-9"><a href="utilizando-leaflet.html#cb1049-9" tabindex="-1"></a>             <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
-<span id="cb1049-10"><a href="utilizando-leaflet.html#cb1049-10" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
-<span id="cb1049-11"><a href="utilizando-leaflet.html#cb1049-11" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
-<span id="cb1049-12"><a href="utilizando-leaflet.html#cb1049-12" tabindex="-1"></a>            <span class="at">icon =</span> icon1</span>
-<span id="cb1049-13"><a href="utilizando-leaflet.html#cb1049-13" tabindex="-1"></a>               )</span></code></pre></div>
+<div class="sourceCode" id="cb1050"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1050-1"><a href="utilizando-leaflet.html#cb1050-1" tabindex="-1"></a>icon1 <span class="ot">&lt;-</span> <span class="fu">awesomeIcons</span>(<span class="at">icon =</span> <span class="st">&quot;smile-o&quot;</span>,</span>
+<span id="cb1050-2"><a href="utilizando-leaflet.html#cb1050-2" tabindex="-1"></a>                      <span class="at">iconColor =</span> <span class="st">&quot;#FFFFFF&quot;</span>,</span>
+<span id="cb1050-3"><a href="utilizando-leaflet.html#cb1050-3" tabindex="-1"></a>                      <span class="at">library =</span> <span class="st">&quot;fa&quot;</span>,</span>
+<span id="cb1050-4"><a href="utilizando-leaflet.html#cb1050-4" tabindex="-1"></a>                      <span class="at">markerColor =</span> <span class="st">&quot;darkgreen&quot;</span>)</span>
+<span id="cb1050-5"><a href="utilizando-leaflet.html#cb1050-5" tabindex="-1"></a></span>
+<span id="cb1050-6"><a href="utilizando-leaflet.html#cb1050-6" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb1050-7"><a href="utilizando-leaflet.html#cb1050-7" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="st">&quot;Esri.WorldImagery&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1050-8"><a href="utilizando-leaflet.html#cb1050-8" tabindex="-1"></a>  <span class="fu">addAwesomeMarkers</span>(<span class="at">lng =</span> eulophia<span class="sc">$</span>longitude, <span class="at">lat =</span> eulophia<span class="sc">$</span>latitude, </span>
+<span id="cb1050-9"><a href="utilizando-leaflet.html#cb1050-9" tabindex="-1"></a>             <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb1050-10"><a href="utilizando-leaflet.html#cb1050-10" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb1050-11"><a href="utilizando-leaflet.html#cb1050-11" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
+<span id="cb1050-12"><a href="utilizando-leaflet.html#cb1050-12" tabindex="-1"></a>            <span class="at">icon =</span> icon1</span>
+<span id="cb1050-13"><a href="utilizando-leaflet.html#cb1050-13" tabindex="-1"></a>               )</span></code></pre></div>
 </details>
 </div>
             </section>
