@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2024-08-07" />
+<meta name="date" content="2024-08-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -558,7 +558,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="fechas-horas-y-minutas" class="section level1 hasAnchor" number="14">
 <h1><span class="header-section-number">Chapter 14</span> Fechas, horas y minutas<a href="fechas-horas-y-minutas.html#fechas-horas-y-minutas" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Fecha de la ultima revisión</p>
-<pre><code>## [1] &quot;2024-08-07&quot;</code></pre>
+<pre><code>## [1] &quot;2024-08-19&quot;</code></pre>
 <hr />
 <p>El tema proviene de los siguientes sitios.</p>
 <p>English:
@@ -593,7 +593,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb853"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb853-1"><a href="fechas-horas-y-minutas.html#cb853-1" tabindex="-1"></a><span class="fu">today</span>()</span></code></pre></div>
 </details>
-<pre><code>## [1] &quot;2024-08-07&quot;</code></pre>
+<pre><code>## [1] &quot;2024-08-19&quot;</code></pre>
 <p>Usames <code>tibble()</code>, del paquete <code>tibble</code>, para crear una tabla manualmente</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb855"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb855-1"><a href="fechas-horas-y-minutas.html#cb855-1" tabindex="-1"></a>fechas <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
@@ -692,10 +692,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 4 × 3
 ##   codigo fecha               intervalo                              
 ##   &lt;chr&gt;  &lt;dttm&gt;              &lt;Interval&gt;                             
-## 1 001    2019-01-01 00:00:00 2019-01-01 00:00:00 UTC--2024-08-07 UTC
-## 2 002    2019-03-31 01:05:00 2019-03-31 01:05:00 UTC--2024-08-07 UTC
-## 3 003    2019-06-14 20:00:00 2019-06-14 20:00:00 UTC--2024-08-07 UTC
-## 4 004    1859-12-01 11:32:13 1859-12-01 11:32:13 UTC--2024-08-07 UTC</code></pre>
+## 1 001    2019-01-01 00:00:00 2019-01-01 00:00:00 UTC--2024-08-19 UTC
+## 2 002    2019-03-31 01:05:00 2019-03-31 01:05:00 UTC--2024-08-19 UTC
+## 3 003    2019-06-14 20:00:00 2019-06-14 20:00:00 UTC--2024-08-19 UTC
+## 4 004    1859-12-01 11:32:13 1859-12-01 11:32:13 UTC--2024-08-19 UTC</code></pre>
 <p><code>int_length()</code> regresa el número de segundos dentro del intervalo</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb868"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb868-1"><a href="fechas-horas-y-minutas.html#cb868-1" tabindex="-1"></a>nueva_fechas <span class="sc">%&gt;%</span></span>
@@ -707,10 +707,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 4 × 4
 ##   codigo fecha               intervalo                                 segundos
 ##   &lt;chr&gt;  &lt;dttm&gt;              &lt;Interval&gt;                                   &lt;dbl&gt;
-## 1 001    2019-01-01 00:00:00 2019-01-01 00:00:00 UTC--2024-08-07 UTC  176688000
-## 2 002    2019-03-31 01:05:00 2019-03-31 01:05:00 UTC--2024-08-07 UTC  168994500
-## 3 003    2019-06-14 20:00:00 2019-06-14 20:00:00 UTC--2024-08-07 UTC  162446400
-## 4 004    1859-12-01 11:32:13 1859-12-01 11:32:13 UTC--2024-08-07 UTC 5196918467</code></pre>
+## 1 001    2019-01-01 00:00:00 2019-01-01 00:00:00 UTC--2024-08-19 UTC  177724800
+## 2 002    2019-03-31 01:05:00 2019-03-31 01:05:00 UTC--2024-08-19 UTC  170031300
+## 3 003    2019-06-14 20:00:00 2019-06-14 20:00:00 UTC--2024-08-19 UTC  163483200
+## 4 004    1859-12-01 11:32:13 1859-12-01 11:32:13 UTC--2024-08-19 UTC 5197955267</code></pre>
 </div>
 <div id="el-operador----simplifica-el-cálculo-del-intervalo" class="section level2 hasAnchor" number="14.5">
 <h2><span class="header-section-number">14.5</span> El operador <code>%--%</code> simplifica el cálculo del intervalo<a href="fechas-horas-y-minutas.html#el-operador----simplifica-el-cálculo-del-intervalo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -722,10 +722,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 4 × 3
 ##   codigo fecha               intervalo                              
 ##   &lt;chr&gt;  &lt;dttm&gt;              &lt;Interval&gt;                             
-## 1 001    2019-01-01 00:00:00 2019-01-01 00:00:00 UTC--2024-08-07 UTC
-## 2 002    2019-03-31 01:05:00 2019-03-31 01:05:00 UTC--2024-08-07 UTC
-## 3 003    2019-06-14 20:00:00 2019-06-14 20:00:00 UTC--2024-08-07 UTC
-## 4 004    1859-12-01 11:32:13 1859-12-01 11:32:13 UTC--2024-08-07 UTC</code></pre>
+## 1 001    2019-01-01 00:00:00 2019-01-01 00:00:00 UTC--2024-08-19 UTC
+## 2 002    2019-03-31 01:05:00 2019-03-31 01:05:00 UTC--2024-08-19 UTC
+## 3 003    2019-06-14 20:00:00 2019-06-14 20:00:00 UTC--2024-08-19 UTC
+## 4 004    1859-12-01 11:32:13 1859-12-01 11:32:13 UTC--2024-08-19 UTC</code></pre>
 <p>Para saber el número del días en el intervalo, divida el intervalo por la función que corresponde a días, <code>days()</code></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb872"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb872-1"><a href="fechas-horas-y-minutas.html#cb872-1" tabindex="-1"></a>nueva_fechas <span class="sc">%&gt;%</span></span>
@@ -734,10 +734,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 4 × 3
 ##   codigo fecha                 dias
 ##   &lt;chr&gt;  &lt;dttm&gt;               &lt;dbl&gt;
-## 1 001    2019-01-01 00:00:00  2045 
-## 2 002    2019-03-31 01:05:00  1956.
-## 3 003    2019-06-14 20:00:00  1880.
-## 4 004    1859-12-01 11:32:13 60150.</code></pre>
+## 1 001    2019-01-01 00:00:00  2057 
+## 2 002    2019-03-31 01:05:00  1968.
+## 3 003    2019-06-14 20:00:00  1892.
+## 4 004    1859-12-01 11:32:13 60162.</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb874"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb874-1"><a href="fechas-horas-y-minutas.html#cb874-1" tabindex="-1"></a><span class="co">#Cuantos años de diferencia en el intervalo?</span></span></code></pre></div>
 </details>
@@ -761,13 +761,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb877"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb877-1"><a href="fechas-horas-y-minutas.html#cb877-1" tabindex="-1"></a> dias <span class="ot">=</span> <span class="st">&quot;2018-08-14 00:00:00&quot;</span> <span class="sc">%--%</span> <span class="fu">today</span>() <span class="sc">/</span>  <span class="fu">days</span>()</span>
 <span id="cb877-2"><a href="fechas-horas-y-minutas.html#cb877-2" tabindex="-1"></a>dias</span></code></pre></div>
 </details>
-<pre><code>## [1] 2185</code></pre>
+<pre><code>## [1] 2197</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb879"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb879-1"><a href="fechas-horas-y-minutas.html#cb879-1" tabindex="-1"></a>millisecond <span class="ot">=</span> <span class="st">&quot;2018-08-14 00:00:00&quot;</span> <span class="sc">%--%</span> <span class="fu">today</span>() <span class="sc">/</span>  <span class="fu">milliseconds</span>()</span>
 <span id="cb879-2"><a href="fechas-horas-y-minutas.html#cb879-2" tabindex="-1"></a></span>
 <span id="cb879-3"><a href="fechas-horas-y-minutas.html#cb879-3" tabindex="-1"></a>millisecond</span></code></pre></div>
 </details>
-<pre><code>## [1] 1.88784e+11</code></pre>
+<pre><code>## [1] 189820800000</code></pre>
 <p>Los resultados se pueden visualizar usando <code>ggplot2</code></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb881"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb881-1"><a href="fechas-horas-y-minutas.html#cb881-1" tabindex="-1"></a>nueva_fechas <span class="sc">%&gt;%</span></span>
@@ -788,10 +788,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 4 × 3
 ##   codigo fecha               desde_hoy                  
 ##   &lt;chr&gt;  &lt;dttm&gt;              &lt;Duration&gt;                 
-## 1 001    2019-01-01 00:00:00 176688000s (~5.6 years)    
-## 2 002    2019-03-31 01:05:00 168994500s (~5.36 years)   
-## 3 003    2019-06-14 20:00:00 162446400s (~5.15 years)   
-## 4 004    1859-12-01 11:32:13 5196918467s (~164.68 years)</code></pre>
+## 1 001    2019-01-01 00:00:00 177724800s (~5.63 years)   
+## 2 002    2019-03-31 01:05:00 170031300s (~5.39 years)   
+## 3 003    2019-06-14 20:00:00 163483200s (~5.18 years)   
+## 4 004    1859-12-01 11:32:13 5197955267s (~164.71 years)</code></pre>
 <p>El objeto de duración de tiempo se puede filtrar fácilmente basado en una variedad de tipo de tiempos. En este caso, semanas <code>dweeks()</code> crea un objeto de duración de la largura especificada</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb884"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb884-1"><a href="fechas-horas-y-minutas.html#cb884-1" tabindex="-1"></a>nueva_fechas <span class="sc">%&gt;%</span></span>
@@ -801,9 +801,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 × 3
 ##   codigo fecha               desde_hoy               
 ##   &lt;chr&gt;  &lt;dttm&gt;              &lt;Duration&gt;              
-## 1 001    2019-01-01 00:00:00 176688000s (~5.6 years) 
-## 2 002    2019-03-31 01:05:00 168994500s (~5.36 years)
-## 3 003    2019-06-14 20:00:00 162446400s (~5.15 years)</code></pre>
+## 1 001    2019-01-01 00:00:00 177724800s (~5.63 years)
+## 2 002    2019-03-31 01:05:00 170031300s (~5.39 years)
+## 3 003    2019-06-14 20:00:00 163483200s (~5.18 years)</code></pre>
 <p>Otra opción es <code>ddays()</code>.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb886"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb886-1"><a href="fechas-horas-y-minutas.html#cb886-1" tabindex="-1"></a>nueva_fechas <span class="sc">%&gt;%</span></span>
@@ -813,9 +813,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 × 3
 ##   codigo fecha               desde_hoy               
 ##   &lt;chr&gt;  &lt;dttm&gt;              &lt;Duration&gt;              
-## 1 001    2019-01-01 00:00:00 176688000s (~5.6 years) 
-## 2 002    2019-03-31 01:05:00 168994500s (~5.36 years)
-## 3 003    2019-06-14 20:00:00 162446400s (~5.15 years)</code></pre>
+## 1 001    2019-01-01 00:00:00 177724800s (~5.63 years)
+## 2 002    2019-03-31 01:05:00 170031300s (~5.39 years)
+## 3 003    2019-06-14 20:00:00 163483200s (~5.18 years)</code></pre>
 <div id="funciones" class="section level3 hasAnchor" number="14.7.1">
 <h3><span class="header-section-number">14.7.1</span> Funciones<a href="fechas-horas-y-minutas.html#funciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
@@ -825,11 +825,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb888"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb888-1"><a href="fechas-horas-y-minutas.html#cb888-1" tabindex="-1"></a><span class="fu">today</span>()</span></code></pre></div>
 </details>
-<pre><code>## [1] &quot;2024-08-07&quot;</code></pre>
+<pre><code>## [1] &quot;2024-08-19&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb890"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb890-1"><a href="fechas-horas-y-minutas.html#cb890-1" tabindex="-1"></a><span class="fu">now</span>()</span></code></pre></div>
 </details>
-<pre><code>## [1] &quot;2024-08-07 16:43:13 AST&quot;</code></pre>
+<pre><code>## [1] &quot;2024-08-19 20:26:00 AST&quot;</code></pre>
 </div>
 <div id="fechas-con-cednas-de-caracteres" class="section level3 hasAnchor" number="14.7.2">
 <h3><span class="header-section-number">14.7.2</span> Fechas con cednas de caracteres<a href="fechas-horas-y-minutas.html#fechas-con-cednas-de-caracteres" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1155,11 +1155,11 @@ con el <strong>paquete hms</strong> que tiene funciones igual como lubridate (hm
 <span id="cb959-3"><a href="fechas-horas-y-minutas.html#cb959-3" tabindex="-1"></a>edad_h <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> <span class="fu">ymd</span>(<span class="dv">18090212</span>)</span>
 <span id="cb959-4"><a href="fechas-horas-y-minutas.html#cb959-4" tabindex="-1"></a>edad_h</span></code></pre></div>
 </details>
-<pre><code>## Time difference of 78704 days</code></pre>
+<pre><code>## Time difference of 78716 days</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb961"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb961-1"><a href="fechas-horas-y-minutas.html#cb961-1" tabindex="-1"></a><span class="fu">as.duration</span>(edad_h)</span></code></pre></div>
 </details>
-<pre><code>## [1] &quot;6800025600s (~215.48 years)&quot;</code></pre>
+<pre><code>## [1] &quot;6801062400s (~215.51 years)&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb963"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb963-1"><a href="fechas-horas-y-minutas.html#cb963-1" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">as.duration</span>(edad_h)</span></code></pre></div>
 </details>
@@ -1206,11 +1206,11 @@ con el <strong>paquete hms</strong> que tiene funciones igual como lubridate (hm
 <span id="cb980-3"><a href="fechas-horas-y-minutas.html#cb980-3" tabindex="-1"></a></span>
 <span id="cb980-4"><a href="fechas-horas-y-minutas.html#cb980-4" tabindex="-1"></a>ayer</span></code></pre></div>
 </details>
-<pre><code>## [1] &quot;2024-08-06&quot;</code></pre>
+<pre><code>## [1] &quot;2024-08-18&quot;</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb982"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb982-1"><a href="fechas-horas-y-minutas.html#cb982-1" tabindex="-1"></a>anio_pasado</span></code></pre></div>
 </details>
-<pre><code>## [1] &quot;2023-08-07 18:00:00 UTC&quot;</code></pre>
+<pre><code>## [1] &quot;2023-08-19 18:00:00 UTC&quot;</code></pre>
 </div>
 <div id="períodos" class="section level2 hasAnchor" number="14.15">
 <h2><span class="header-section-number">14.15</span> períodos<a href="fechas-horas-y-minutas.html#períodos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1383,7 +1383,7 @@ Pueden ser el mismo mes en 3 diferente años o 3 diferentes mese en el mismo añ
 <span id="cb1024-2"><a href="fechas-horas-y-minutas.html#cb1024-2" tabindex="-1"></a>Earthquake_all_month <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Datos/Earthquake_all_month.csv&quot;</span>)</span></code></pre></div>
 </details>
 <pre><code>## Rows: 10743 Columns: 22
-## ── Column specification ───────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr   (8): magType, net, id, place, type, status, locationSource, magSource
 ## dbl  (12): latitude, longitude, depth, mag, nst, gap, dmin, rms, horizontalE...
