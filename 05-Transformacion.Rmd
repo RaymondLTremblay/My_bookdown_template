@@ -1285,7 +1285,7 @@ some_data |>
 y=runif(10000, 0, 100)
 
 y=as.data.frame(y)
-y
+head(y) # los primeros 6 valores
 
 library(ggplot2)
 
