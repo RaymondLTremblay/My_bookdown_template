@@ -1,4 +1,4 @@
- # Visualización de datos
+# Visualización de datos
 
 Fecha de la ultima revisión
 ```{r echo=FALSE}

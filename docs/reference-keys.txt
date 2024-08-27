@@ -1,8 +1,8 @@
 eq:reaction
 eq:promedio
-fig:unnamed-chunk-329
-fig:ggplot
 fig:unnamed-chunk-330
+fig:ggplot
+fig:unnamed-chunk-331
 fig:pressure
 ciencia-de-datos-con-r
 horario-de-clase
@@ -42,6 +42,7 @@ el-valor-máximo-de-una-variable
 el-valor-mínimo-de-una-variable
 los-valores-discretos-de-una-variable
 ejemplos-de-gráficos
+visualización-de-datos
 temas-1
 los-paquetes
 facet_wrap

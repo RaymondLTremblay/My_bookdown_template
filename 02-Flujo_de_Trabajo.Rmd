@@ -38,7 +38,7 @@ Español:
   
 ```{r}
 #install.packages("tidyverse")
-library(tidyverse)
+library(tidyverse) # ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, forcats
 
 # install.packages("datos")
 library(datos)
@@ -63,8 +63,13 @@ ggplot(data = millas) +
 ### Las funciones **head** y **tail**
 ```{r}
 ggplot(data=millas)
+```
 
-head(millas) # las primeras 6 filas
+
+
+```{r}
+millas
+head(millas, n=3) # las primeras 6 filas
 tail(millas, n=10) # las ultimas 10 filas
 
 ```
@@ -85,7 +90,7 @@ Usa el signo de interogación **?** antes del nombre de la función o archivo
 ### Las dimensiones del archivo
 
 ```{r}
-dim(millas)
+dim(millas) # dimension of data frame
 ```
 
 
@@ -108,7 +113,7 @@ La función **shape** es para cambiar el estilo de los puntos
 
 ```{r}
 ggplot(data = millas) +
- geom_point(mapping = aes(x = cilindrada, y = autopista), shape=11, color = "#c093cc", fill="yellow")
+ geom_point(mapping = aes(x = cilindrada, y = autopista), shape=23, color = "369787", fill="yellow")
 ```
 
 
@@ -129,6 +134,10 @@ ggsave("cilindro_milla.jpg") #. png, .tiff
 ```{r}
 millas
 ```
+
+
+
+
 
 
 
@@ -157,7 +166,7 @@ head(Anolis)
 
 
 
-## Extracción de valores de un conjunto de datos
+### Extracción de valores de un conjunto de datos
 
 Aqui usamos el conjunto de datos de **diamantes** que se encuentra en el paquete **ggplot2**
 
