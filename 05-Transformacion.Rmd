@@ -145,10 +145,10 @@ por_dia_2
 
 ## Funciones
 
-Funciones
-
--   summarise
--   mean, median, Mode
+-   summarise = resumir conjuntos de datos
+-   mean, # promedio
+-   median, # mediana
+-   mode, # moda
 -   operaciones boolean
 -   
 
@@ -211,7 +211,7 @@ vuelos %>%
 
 ## Operaciones lógicas boolean:
 
--   & "ampersand" == "signo comercial"
+-   & "ampersand" == "conjunción"
 -   "\|" or= "o"
 -   !, no incluye, excluir....
 -   %in%, filtrar para múltiples valores
