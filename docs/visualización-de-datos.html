@@ -594,9 +594,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb46-2"><a href="visualización-de-datos.html#cb46-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> SVL, <span class="at">y =</span> TAIL, <span class="at">color=</span>SEX_AGE))<span class="sc">+</span></span>
 <span id="cb46-3"><a href="visualización-de-datos.html#cb46-3" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>SEX_AGE, <span class="at">ncol=</span><span class="dv">1</span>)</span></code></pre></div>
 </details>
-<pre><code>## Warning: Removed 418 rows containing
-## missing values or values
-## outside the scale range
+<pre><code>## Warning: Removed 418 rows containing missing
+## values or values outside the scale range
 ## (`geom_point()`).</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 </div>
@@ -614,8 +613,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb49-3"><a href="visualización-de-datos.html#cb49-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm,<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista))<span class="sc">+</span>  <span class="co"># y = mx+b</span></span>
 <span id="cb49-4"><a href="visualización-de-datos.html#cb49-4" tabindex="-1"></a>  <span class="fu">geom_point</span>( <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista))</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using formula
-## = &#39;y ~ x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-24-2.png" width="672" /></p>
 </div>
 <div id="regresión-loess" class="section level3 hasAnchor" number="3.1.4">
@@ -632,9 +630,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="visualización-de-datos.html#cb53-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> millas) <span class="sc">+</span></span>
 <span id="cb53-2"><a href="visualización-de-datos.html#cb53-2" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista, <span class="at">linetype =</span> clase, <span class="at">colour=</span>clase))</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using method
-## = &#39;loess&#39; and formula = &#39;y ~
-## x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39;
+## and formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 </div>
 <div id="regresión-loess-de-un-grupo" class="section level3 hasAnchor" number="3.1.5">
@@ -644,9 +641,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb55-2"><a href="visualización-de-datos.html#cb55-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> clase)) <span class="sc">+</span></span>
 <span id="cb55-3"><a href="visualización-de-datos.html#cb55-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> <span class="fu">filter</span>(millas, clase <span class="sc">==</span> <span class="st">&quot;suv&quot;</span>), <span class="at">se =</span><span class="cn">TRUE</span>)</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using method
-## = &#39;loess&#39; and formula = &#39;y ~
-## x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39;
+## and formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 </div>
 <div id="regresión-loess-dos-alternativas" class="section level3 hasAnchor" number="3.1.6">
@@ -656,18 +652,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb57-2"><a href="visualización-de-datos.html#cb57-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb57-3"><a href="visualización-de-datos.html#cb57-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using method
-## = &#39;loess&#39; and formula = &#39;y ~
-## x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39;
+## and formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="visualización-de-datos.html#cb59-1" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb59-2"><a href="visualización-de-datos.html#cb59-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> millas, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista)) <span class="sc">+</span></span>
 <span id="cb59-3"><a href="visualización-de-datos.html#cb59-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> millas, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista))</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using method
-## = &#39;loess&#39; and formula = &#39;y ~
-## x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39;
+## and formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-27-2.png" width="672" /></p>
 </div>
 <div id="regresión-lineal-ybmx" class="section level3 hasAnchor" number="3.1.7">
@@ -677,8 +671,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb61-2"><a href="visualización-de-datos.html#cb61-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> clase)) <span class="sc">+</span></span>
 <span id="cb61-3"><a href="visualización-de-datos.html#cb61-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm)</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using formula
-## = &#39;y ~ x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 </div>
 <div id="geom_bar" class="section level3 hasAnchor" number="3.1.8">

@@ -592,7 +592,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb480-3"><a href="importar-datos.html#cb480-3" tabindex="-1"></a>Newborn_Karn_Penrose <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Datos/Newborn_Karn_Penrose.csv&quot;</span>)</span></code></pre></div>
 </details>
 <pre><code>## Rows: 261 Columns: 4
-## ── Column specification ──────
+## ── Column specification ──────────────────
 ## Delimiter: &quot;,&quot;
 ## dbl (4): Mother_age, Count_Non_survivors, Count_Total_Birth, Birth_weight
 ## 
@@ -650,9 +650,8 @@ geom_smooth()</p>
 <span id="cb486-4"><a href="importar-datos.html#cb486-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb486-5"><a href="importar-datos.html#cb486-5" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using method
-## = &#39;loess&#39; and formula = &#39;y ~
-## x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39;
+## and formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-172-1.png" width="672" /></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="importar-datos.html#cb488-1" tabindex="-1"></a>Newborn_Karn_Penrose <span class="sc">%&gt;%</span> </span>
@@ -662,9 +661,8 @@ geom_smooth()</p>
 <span id="cb488-5"><a href="importar-datos.html#cb488-5" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()<span class="sc">+</span></span>
 <span id="cb488-6"><a href="importar-datos.html#cb488-6" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Mother_age)</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using method
-## = &#39;loess&#39; and formula = &#39;y ~
-## x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39;
+## and formula = &#39;y ~ x&#39;</code></pre>
 <pre><code>## Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
 ## : span too small.  fewer data values than degrees of freedom.</code></pre>
 <pre><code>## Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
@@ -702,9 +700,8 @@ geom_smooth()</p>
 <span id="cb503-4"><a href="importar-datos.html#cb503-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span><span class="fu">factor</span>(Mother_age))) <span class="sc">+</span></span>
 <span id="cb503-5"><a href="importar-datos.html#cb503-5" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">color=</span><span class="fu">factor</span>(Mother_age)))</span></code></pre></div>
 </details>
-<pre><code>## `geom_smooth()` using method
-## = &#39;loess&#39; and formula = &#39;y ~
-## x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39;
+## and formula = &#39;y ~ x&#39;</code></pre>
 <pre><code>## Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
 ## : span too small.  fewer data values than degrees of freedom.</code></pre>
 <pre><code>## Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,

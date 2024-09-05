@@ -622,10 +622,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb868"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb868-1"><a href="fechas-horas-y-minutas.html#cb868-1" tabindex="-1"></a>fechas <span class="sc">%&gt;%</span></span>
 <span id="cb868-2"><a href="fechas-horas-y-minutas.html#cb868-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fecha =</span> <span class="fu">mdy_hms</span>(fecha))</span></code></pre></div>
 </details>
-<pre><code>## Warning: There was 1 warning in
-## `mutate()`.
-## ℹ In argument: `fecha =
-##   mdy_hms(fecha)`.
+<pre><code>## Warning: There was 1 warning in `mutate()`.
+## ℹ In argument: `fecha = mdy_hms(fecha)`.
 ## Caused by warning:
 ## !  2 failed to parse.</code></pre>
 <pre><code>## # A tibble: 4 × 2
@@ -834,7 +832,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb901"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb901-1"><a href="fechas-horas-y-minutas.html#cb901-1" tabindex="-1"></a><span class="fu">now</span>()</span></code></pre></div>
 </details>
-<pre><code>## [1] &quot;2024-09-05 12:56:15 AST&quot;</code></pre>
+<pre><code>## [1] &quot;2024-09-05 14:51:12 AST&quot;</code></pre>
 </div>
 <div id="fechas-con-cednas-de-caracteres" class="section level3 hasAnchor" number="15.7.2">
 <h3><span class="header-section-number">15.7.2</span> Fechas con cednas de caracteres<a href="fechas-horas-y-minutas.html#fechas-con-cednas-de-caracteres" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1388,7 +1386,7 @@ Pueden ser el mismo mes en 3 diferente años o 3 diferentes mese en el mismo añ
 <span id="cb1035-2"><a href="fechas-horas-y-minutas.html#cb1035-2" tabindex="-1"></a>Earthquake_all_month <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Datos/Earthquake_all_month.csv&quot;</span>)</span></code></pre></div>
 </details>
 <pre><code>## Rows: 10743 Columns: 22
-## ── Column specification ──────
+## ── Column specification ──────────────────
 ## Delimiter: &quot;,&quot;
 ## chr   (8): magType, net, id, place, type, status, locationSource, magSource
 ## dbl  (12): latitude, longitude, depth, mag, nst, gap, dmin, rms, horizontalE...

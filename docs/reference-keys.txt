@@ -286,4 +286,3 @@ appendix-a
 ejercicio-de-transformación
 appendix-c
 appendix-b
-física
