@@ -122,8 +122,8 @@ filter(destino =="SJU") %>%
 ```{r}
 library(datos)
 library(tidyverse)
-por_dia <- vuelos %>% 
-  group_by(dia) %>% 
+por_dia <- vuelos %>% # pipe
+  group_by(dia) %>% # group by day
   summarise(atraso_promedio = mean(atraso_salida, na.rm = TRUE))
 por_dia
 
@@ -162,8 +162,7 @@ getmode <- function(v) {
 }
 
 
-library(DescTools)
-library(modeest)
+
 
 por_dia_3=vuelos |> 
   dplyr::select(dia, mes, atraso_salida) |> 
@@ -181,8 +180,8 @@ ADD the mean, median and mode to the same data frame
 ## The mode of the value
 library(DescTools)
 
-por_dia_4 <- 
-  group_by(vuelos, dia) %>% 
+por_dia_4 <- vuelos %>%
+  group_by(dia) %>% 
   summarise(atraso_promedio = mean(atraso_salida, na.rm = TRUE),
             atraso_median = median(atraso_salida, na.rm=TRUE),
             atraso_mode = getmode(atraso_salida))
@@ -391,7 +390,7 @@ filter(is.na(horario_salida)) |>
 ```
 
 ------------------------------------------------------------------------
-
+## Comenzar Aquí
 
 ### ¿Qué pasa con los valores faltantes y resultados de analisis sin sentido?
 
@@ -404,10 +403,11 @@ library(tidyverse)
 NA^0
 #NA==1
 NA|TRUE
+NA|FALSE
 
 FALSE & NA
+TRUE & NA
 FALSE * NA
-
 TRUE * NA
 NA * 0  
 NA * 1
@@ -442,6 +442,10 @@ filter(is.na(horario_salida))
 
 
 ```
+
+
+****
+
 ------------------------------------------------------------------------
 
 ## Datos importado de la web.
@@ -466,7 +470,9 @@ Seleccionar solamente los datos de Puerto Rico
 
 ```{r eval=FALSE, include=FALSE}
 COVID_DATA %>% 
-  filter(location=="Puerto Rico")
+  filter(location=="Puerto Rico") %>%
+  arrange(date) %>% 
+  head(n=20) 
 ```
 
 ### COVID world
@@ -483,19 +489,55 @@ url_COVID %>%
   filter(location=="United States")
 ```
 
-Datos de PR
+
+***
+Para encontrar datos de PR vea el siguiente enlace: 
+Este sitio del gobierno de Puerto Rico almacen datos muchos diferentes tipos que estan relacionado a la isla.
 
 <https://datos.estadisticas.pr/dataset?res_format=CSV>
+
+
+Nota que para leer los datos de un archivo CSV, se usa la función "fread()" del paquete "data.table".
+
+
+- Cuando entre a la pagina, selecciona uno de los archivos, por ejemplo **Facultad -Conservatorio de Musica**
+- Presione el boton "Explore" y selecciona "Preview"
+- Arriba de la pagina vera el enlace de **https://.........** para poner en un script.  Copie y pegue en el script.
+  
+  
+
+
+
+
 
 ```{r}
 
 library(data.table)
 birth=fread("https://datos.estadisticas.pr/dataset/87620d17-bf63-445c-bb71-aca1a41c9077/resource/92728670-42cb-49d4-8fd3-cffdb6e54372/download/natlterr2014.csv")
 
+head(birth)
+```
+
+------------------------------------------------------------------------
+
+Otra alternativa es bajar los datos en formato .csv o Excel y subirlo a su proyecto en RStudio.
+
+ -
+
+
+```{r}
 
 library(readr)
 nchs_births_2001 <- read_csv("nchs_births_2001.csv")
 head(nchs_births_2001)
+
+```
+
+
+## Ejercicio
+ -  Selecciona solamente los datos de los bebes que nacieron primer mes del año, pero agrupado por el día de la semana y contabilizado
+
+```{r, eval=FALSE, echo=FALSE}
 
 nchs_births_2001 %>%
   group_by(WEEKDAY) %>% 
@@ -504,11 +546,7 @@ nchs_births_2001 %>%
 
 ```
 
-```{r}
-names(birth)
-head(nchs_births_2001$BIRMON)
 
-```
 
 ```{r}
 nchs_births_2001 |> dplyr::select(BIRMON, CSEX) |> 
@@ -637,11 +675,15 @@ vuelos %>%
 
 2.  **Ejercicios**:
 
+
+
+
 Hacer los ejercicios en la sección 5.3.1 del libro en español
 
 ------------------------------------------------------------------------
 
--   Otras funciones:
+
+##  Otras funciones:
 
     -   starts_with()
 
@@ -651,13 +693,11 @@ Hacer los ejercicios en la sección 5.3.1 del libro en español
 
     -   contains()
 
-    -   matches("(.)\\1") \# paquete STRING
-
     -   everything()
 
-## starts_with(), ends_with()
+## starts_with(), ends_with(), contains()
 
-Es una función para seleccionar basado
+Es una función para seleccionar basado en una caracteristicas del nombre de la columna
 
 ```{r}
 names(vuelos)
@@ -686,7 +726,7 @@ vuelos %>%
   rename(areopuerto_distino=destino) # nombre nuevo= nombre original
 ```
 
-## Reoganizar el orden de las columnas, using select() and everything()
+## Reoganizar el orden de las columnas, usando select() y everything() en la misma función
 
 ```{r}
 head(vuelos)
@@ -694,7 +734,7 @@ vuelos %>%
     dplyr::select(distancia, aerolinea, everything())
 ```
 
-Seleccionar de un subset de variables en orden que aparece en el data.frame
+Seleccionar de un conjunto de variables en orden que aparece en el data.frame
 
 ```{r}
 vuelos |> dplyr::select(anio:horario_salida)
@@ -704,7 +744,7 @@ vuelos |> dplyr::select(anio:horario_salida)
 
 
 
-## matches("(.)\\1") Lo veremos en la lección de "STRING"
+
 
 ------------------------------------------------------------------------
 
@@ -729,29 +769,14 @@ vuelos |> dplyr::select(distancia, tiempo_vuelo, atraso_salida,  atraso_llegada)
 
     
     
+## Crear un data frame más pequeño con las variables de interes
+
 
 ```{r}
 library(tidyverse)
 library(nycflights13)
 head(flights)
 
-  flights_sml <- flights |>  dplyr::select( 
-  year:day, 
-  ends_with("delay"), 
-  distance, 
-  air_time
-  )
-  
-head(flights_sml)
-  
-flights_sml |> mutate(gain = dep_delay - arr_delay,
-                      speed = distance / air_time * 60
-                      )
-```
-
-## Hagan lo con el data set en espanol
-
-```{r}
 names(vuelos)
   vuelos_sml <- dplyr::select(vuelos, 
   anio:dia, 
@@ -760,12 +785,19 @@ names(vuelos)
   tiempo_vuelo
 )
 head(vuelos_sml)
-  
+```
+
+## Crear nuevas variables
+
+```{r}
+
 mutate(vuelos_sml,
   ganado = atraso_salida - atraso_llegada,
   velocidad = distancia / tiempo_vuelo * 60
 )
 ```
+
+
 
 ## transmute()
 
@@ -781,6 +813,8 @@ flights |> transmute(
 
 ```
 
+
+
 ## lag()
 
 Para calcular diferencias entre variables en la misma columna
@@ -788,7 +822,7 @@ Para calcular diferencias entre variables en la misma columna
 ```{r}
 set.seed(12345) # que los datos sean al azar, siempre sean los mismo, se usa el "set.seed()" para enseñanza.
 #rnorm()  DATOS CON DISTRIBUCION NORMAL
-rpois(7, 2)
+
 data=rpois(14, 10)
 df=as_tibble(data)
 df
@@ -799,6 +833,8 @@ df %>%
   mutate(lag3=lag(value, 3)) %>% 
   mutate(lag7=lag(value,5))
 
+## Calcular la diferencia usando lag
+
 df%>% 
   dplyr::select(value) %>% 
   mutate(Changes=value-lag(value, 1)) # El cambio en los valores entre celdas
@@ -808,7 +844,7 @@ df%>%
 
 ## Usa "Lag" con "IncCasosSaludNuevo" en COVID-19 PR
 
-Evalua la diferencia en números de casos entre 7 días de las semana en números de casos nuevos de COVID, "IncCasosSaludNuevo"
+Evalúa la diferencia en números de casos entre 7 días de las semana en números de casos nuevos de COVID, "IncCasosSaludNuevo"
 
 ```{r}
 library(readr)

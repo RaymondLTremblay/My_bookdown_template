@@ -1,0 +1,58 @@
+---
+title: "Subir_datos"
+author: "Raymond L. Tremblay"
+date: "2024-08-29"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+
+```{r}
+library(readr)
+Estudiantes2_2024_Ciencia_Datos <- read_csv("Estudiantes2_2024_Ciencia_Datos.csv")
+
+
+Estudiantes2_2024_Ciencia_Datos
+```
+
+
+
+
+
+```{r}
+
+mean(Estudiantes2_2024_Ciencia_Datos$Edad)
+
+min(Estudiantes2_2024_Ciencia_Datos$Edad)
+
+max(Estudiantes2_2024_Ciencia_Datos$Edad)
+```
+
+
+
+```{r}
+unique(Estudiantes2_2024_Ciencia_Datos$Pueblo_nacimiento)
+```
+
+
+
+```{r}
+library(tidyverse)
+
+Estudiantes2_2024_Ciencia_Datos %>%
+  group_by(Genero) %>%
+  summarise(mean_edad = mean(Edad), 
+            min_edad = min(Edad),
+            max_edad = max(Edad))
+
+
+  
+  
+```
+
+
