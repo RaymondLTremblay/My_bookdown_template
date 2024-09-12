@@ -285,3 +285,12 @@ appendix-a
 ejercicio-de-transformación
 appendix-c
 appendix-b
+comenzar-aquí
+qué-pasa-con-los-valores-faltantes-y-resultados-de-analisis-sin-sentido
+contabilizar-los-na
+seleccionar-solamente-los-vuelos-donde-el-horario-de-salida-es-desconocido
+pruebas-no-paraméticas
+min_rank-y-min_rankdesc
+row_number
+dense_rank
+física
