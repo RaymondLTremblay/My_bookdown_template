@@ -1,8 +1,8 @@
 eq:reaction
 eq:promedio
-fig:unnamed-chunk-331
-fig:ggplot
 fig:unnamed-chunk-332
+fig:ggplot
+fig:unnamed-chunk-333
 fig:pressure
 ciencia-de-datos-con-r
 horario-de-clase
@@ -111,7 +111,6 @@ lag
 usa-lag-con-inccasossaludnuevo-en-covid-19-pr
 lead
 cumsum
-día-6
 cummean-and-cumvar
 uso-de-varianza-cumulativa-en-investigación
 que-pasa-con-las-funciones-cummean-cumsum-y-cumvar-si-hay-na-en-el-archivo-de-datos
@@ -285,12 +284,3 @@ appendix-a
 ejercicio-de-transformación
 appendix-c
 appendix-b
-comenzar-aquí
-qué-pasa-con-los-valores-faltantes-y-resultados-de-analisis-sin-sentido
-contabilizar-los-na
-seleccionar-solamente-los-vuelos-donde-el-horario-de-salida-es-desconocido
-pruebas-no-paraméticas
-min_rank-y-min_rankdesc
-row_number
-dense_rank
-física

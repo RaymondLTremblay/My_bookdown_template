@@ -505,6 +505,12 @@ Nota que para leer los datos de un archivo CSV, se usa la función "fread()" del
 - Arriba de la pagina vera el enlace de **https://.........** para poner en un script.  Copie y pegue en el script.
   
   
+```{r}
+library(data.table)
+musica=fread("https://datos.estadisticas.pr/dataset/dcb39773-3056-4d3d-91f8-a6ad6884ef52/resource/a632a85a-0d6d-4828-8a24-cbbdee4cec8f/download/facultad_-_conservatorio_de_musica-1.csv")
+
+musica
+```
 
 
 
@@ -632,7 +638,9 @@ vuelos %>%
 Encuentra los vuelos que salieron más temprano.
 
 ```{r, echo=FALSE, eval=FALSE}
-vuelos %>% dplyr::select(horario_salida) %>% filter(horario_salida >= 600) %>% filter(horario_salida > 2400)
+vuelos %>% dplyr::select(horario_salida) %>% 
+  filter(horario_salida >= 600) %>%
+  filter(horario_salida > 2400)
 
 
 names(vuelos)
@@ -700,8 +708,9 @@ Hacer los ejercicios en la sección 5.3.1 del libro en español
 Es una función para seleccionar basado en una caracteristicas del nombre de la columna
 
 ```{r}
+library(datos)
 names(vuelos)
-
+library(tidyverse)
 vuelos %>% 
   dplyr::select(horario_salida)
 
@@ -712,7 +721,7 @@ vuelos %>%
   dplyr::select(ends_with("salida"))
 
 vuelos %>% 
-  dplyr::select(contains("hora"))
+  dplyr::select(contains("salida"))
 
 ```
 
@@ -761,10 +770,12 @@ Hacer los ejercicios en la sección 5.4.1 del libro en español
     
 ```{r}
 names(vuelos)
-
-vuelos |> dplyr::select(distancia, tiempo_vuelo, atraso_salida,  atraso_llegada) |> 
+# |> es igual %>% 
+new_df=vuelos |> dplyr::select(distancia, tiempo_vuelo, atraso_salida,  atraso_llegada) |> 
   mutate( ganancia = atraso_salida - atraso_llegada,
           velocidad = distancia / tiempo_vuelo * 60)
+
+new_df
 ```
 
     
@@ -837,6 +848,7 @@ df %>%
 
 df%>% 
   dplyr::select(value) %>% 
+  mutate(lag1=lag(value)) %>% 
   mutate(Changes=value-lag(value, 1)) # El cambio en los valores entre celdas
 
 
@@ -855,7 +867,7 @@ url_COVID_PR <- read_csv("Datos/url_COVID_PR.csv")
 #names(url_COVID_PR)
 df2=url_COVID_PR %>% 
   dplyr::select(IncCasosSaludNuevo) %>% 
-  mutate(Cambios_Casos=IncCasosSaludNuevo-lag(IncCasosSaludNuevo,5)) 
+  mutate(Cambios_Casos=IncCasosSaludNuevo-lag(IncCasosSaludNuevo,7)) 
 
 
 df2
@@ -899,10 +911,13 @@ df%>%
 
 ## cumsum
 
-Cumulative Sum: the values are sum along the vector or column
+Suma cumulativa: los valores se suman a los largo del vector o columna
 
 ```{r}
-x <- sample(1:15, 10, replace=TRUE)
+set.seed(12345) # set.seed() es para que los datos NO sean al azar y se puede replicar los resultados, tipicamente esto se usa para enseñanzar. 
+
+
+x <- sample(1:15, 10, replace=TRUE) # sample es para seleccionar valores al azar de un vector
 
 x
 df=as.tibble(x)
@@ -927,13 +942,19 @@ dplyr::select(IncCasosSaludNuevo, CasosSaludNuevo) %>%
 mutate(suma=cumsum(IncCasosSaludNuevo))
 ```
 
-## Día 6
+
+
 
 ## cummean() and cumvar()
 
-The mean of the values are calculated
+Para calcular el promedio cumulativo y la varianza
 
-Cummulative mean
+ - las funciones son
+  - cummean() # del paquete cumstats
+  - cumvar() # del paquete cumstats
+  
+  
+  Vea las otras funciones en el paquete cumstats: hay otra que podría usar en sus estudios?
 
 ```{r}
 
