@@ -1,0 +1,53 @@
+# Script
+
+Fecha de la ultima revisión
+
+```{r echo=FALSE}
+
+Sys.Date()
+```
+
+------------------------------------------------------------------------
+
+El tema proviene de los siguientes sitios.
+
+English: <https://r4ds.had.co.nz/workflow-scripts.html>
+
+Español: <https://es.r4ds.hadley.nz/06-workflow-scripts.html>
+
+------------------------------------------------------------------------
+
+
+**Temas super importante**:
+
+## Scripts:
+
+-   Ejecutando códigos
+-   Diagnostico de Rstudio
+
+1.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 6.3 del libro en español
+
+```{r}
+library(dplyr)
+library(datos)
+library(nycflights13)
+
+names(vuelos)
+no_cancelado <- vuelos %>% 
+  filter(!is.na(atraso_salida), !is.na(atraso_llegada))
+head(no_cancelado)
+
+no_cancelado %>% 
+  group_by(anio, mes, dia) %>% 
+  summarise(media = mean(atraso_salida))
+```
+
+```{r}
+x <- 10 
+```
+
+
+
+

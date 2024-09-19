@@ -1,0 +1,230 @@
+# Flujo de trabajo
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/workflow-projects.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/04-workflow-basics.html>
+
+
+***
+
+
+## Temas:
+
+  - Reduciendo Errores
+  - getwd()
+  - setwd()
+  - Su Proyecto
+  
+  - Selecionar el tab **Session** →→ **Set Working Directory** →→ **To Project Directory** 
+*** 
+  
+## Creación de un proyecto:
+
+  - crear un proyecto para cada curso.
+  - crear un proyecto para cada investigación.
+  - No se te olvida de añadir tu archivos de datos en el proyecto.
+  - Describe claramente todos tus análisis y donde conseguiste la información.
+  - Describe tu interpretación de los análisis o gráficos.
+  - Correr los "scripts" uno a la vez para asegurar que funcione.
+  - knit el archivo .rmd para asegurar que no falte nada.
+  - no mezclar proyectos de investigación en un mismo proyecto.
+  
+  
+***
+  
+```{r}
+#install.packages("tidyverse")
+library(tidyverse) # ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, forcats
+
+# install.packages("datos")
+library(datos)
+```
+
+### Un set de sobre carros en el archivo (paquete) **datos**
+
+```{r}
+millas
+
+```
+
+
+### Mi primer gráfico
+
+```{r}
+ggplot(data = millas) +
+  geom_point(mapping = aes(x = cilindrada, y = autopista))
+```
+
+
+### Las funciones **head** y **tail**
+```{r}
+ggplot(data=millas)
+```
+
+
+
+```{r}
+millas
+head(millas, n=3) # las primeras 6 filas
+tail(millas, n=10) # las ultimas 10 filas
+
+```
+
+## Información sobre el archivo
+Usa el signo de interogación **?** antes del nombre de la función o archivo
+
+```{r}
+?millas
+
+
+?head
+
+
+```
+
+
+### Las dimensiones del archivo
+
+```{r}
+dim(millas) # dimension of data frame
+```
+
+
+
+### Construcción de mi primer gráfico
+
+- el nombre del archivo es primero
+- nombre de las variables (nombre de las columnas)
+- si quiere tener un color para cada grupo
+
+```{r}
+ggplot(data = millas) +
+  geom_point(mapping = aes(x = cilindrada, y = autopista,  colour=fabricante))
+```
+
+
+### La función shape para cambiar la forma de los puntos
+
+La función **shape** es para cambiar el estilo de los puntos
+
+```{r}
+ggplot(data = millas) +
+ geom_point(mapping = aes(x = cilindrada, y = autopista), shape=23, color = "369787", fill="yellow")
+```
+
+
+### Salvar un grafico en otro formato
+
+Como salvar la figura en formato recuperable para subir en otros documentos o compartir
+
+```{r}
+ ggplot(data = millas) +
+   geom_point(mapping = aes(x = cilindrada, y = autopista), color = "blue")
+
+ggsave("cilindro_milla.jpg") #. png, .tiff
+
+```
+
+
+
+```{r}
+millas
+```
+
+
+
+
+
+
+
+Ejercicio para someter:
+
+1. baja el paquete "ggversa"
+2. activar el paquete "ggversa"
+3. mirar las variables del archivo en este paquete que se llama "Anolis"
+4. haga un gráfico que incluye lo siguiente
+   a. en el eje de x = el SVL. que es el tamaño del lagarto del hocico a la cloaca y en la variable de "TAIL" en el eje de y.
+   b. selecciona la variable "SEX_AGE" para color
+   c. selecciona la función correcta para que cada "SEX_AGE" tenga su proprio gráfico
+   d. salva el gráfico en .png o .jpg
+   e. subir el gráfico aquí
+
+
+```{r}
+
+library(ggversa)
+head(Anolis)
+```
+
+
+
+***
+
+
+
+### Extracción de valores de un conjunto de datos
+
+Aqui usamos el conjunto de datos de **diamantes** que se encuentra en el paquete **ggplot2**
+
+
+#### Los primeros datos de un archivo
+```{r}
+head(diamantes)
+```
+
+#### La cantidad de fila
+```{r}
+nrow(diamantes)
+```
+
+#### La cantidad de columnas (variables)
+```{r}
+ncol(diamantes)
+```
+
+#### La dimensiones de un archivo
+
+```{r}
+dim(diamantes)
+```
+
+#### El valor máximo de una variable
+
+```{r}
+max(diamantes$precio)
+```
+
+#### El valor mínimo de una variable
+
+```{r}
+min(diamantes$precio)
+```
+
+#### Los valores discretos de una variable
+
+```{r}
+unique(diamantes$corte)
+```
+
+
+ - diamantes$corte
+
+ - diamantes$precio
+
+## Ejemplos de Gráficos
+
+
+
+```{r}
+library(readr)
+Vuelos_SJU_2018_Ene <- read_csv("Datos/Vuelos_SJU_2018_Ene.csv")
+
+head(Vuelos_SJU_2018_Ene)
+```
+
+
+

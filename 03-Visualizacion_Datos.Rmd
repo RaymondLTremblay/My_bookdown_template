@@ -1,0 +1,381 @@
+# Visualización de datos
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+
+Sys.Date()
+```
+
+
+***
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/data-visualisation.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/03-visualize.html>
+ 
+ 
+***
+
+
+## Temas:
+
+  - Introducción
+  - paquete "tidyverse"
+  - datos de "mgp"
+  - ggplot2
+  - El concepto de la gramática de gráficos
+  
+
+***
+
+### Los paquetes
+
+```{r}
+library(tidyverse)
+library(ggversa)
+library(datos)
+```
+
+
+
+### Facet_wrap
+
+
+```{r}
+ggplot(data = Anolis) +
+  geom_point(mapping = aes(x = SVL, y = TAIL, color=SEX_AGE))+
+  facet_wrap(~SEX_AGE, ncol=1)
+```
+
+### Regresión lineal
+
+
+```{r}
+# izquierda
+ggplot(data = millas) +
+  geom_point(mapping = aes(x = cilindrada, y = autopista))
+
+# derecha   LOESS  
+ggplot(data = millas) +
+  geom_smooth(method=lm,mapping = aes(x = cilindrada, y = autopista))+  # y = mx+b
+  geom_point( mapping = aes(x = cilindrada, y = autopista))
+```
+
+
+### Regresión Loess
+
+Vea este enlace para información sobre la regresión LOESS
+
+<<https://en.wikipedia.org/wiki/Local_regression>>
+
+
+
+```{r, warning=FALSE}
+names(millas)
+
+ggplot(data = millas) +
+  geom_smooth(mapping = aes(x = cilindrada, y = autopista, linetype = clase, colour=clase))
+```
+
+### Regresión LOESS de un grupo
+
+```{r}
+ggplot(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
+  geom_point(mapping = aes(color = clase)) +
+  geom_smooth(data = filter(millas, clase == "suv"), se =TRUE)
+```
+
+### Regresión LOESS: dos alternativas
+
+```{r}
+ggplot(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
+  geom_point() +
+  geom_smooth()
+
+ggplot() +
+  geom_point(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
+  geom_smooth(data = millas, mapping = aes(x = cilindrada, y = autopista))
+```
+
+### Regresión Lineal $$y=b+mx$$
+
+
+
+```{r}
+ggplot(data = millas, mapping = aes(x = cilindrada, y = autopista)) +
+  geom_point(mapping = aes(color = clase)) +
+  geom_smooth(method=lm)
+```
+
+### geom_bar()
+
+```{r}
+ggplot(data = diamantes) +
+  geom_bar(mapping = aes(x = corte))
+```
+
+
+### Puntos con intervalo mínimo y máximo
+
+
+```{r}
+ggplot(data = diamantes) +
+  stat_summary(
+    mapping = aes(x = corte, y = profundidad),
+    fun.min = min,
+    fun.max = max,
+    fun = median
+  )
+```
+
+
+### geom_boxplot
+
+
+```{r}
+ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
+  geom_boxplot()
+
+ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
+  geom_boxplot() +
+  coord_flip()
+```
+
+
+### geom_bar y circular
+
+
+
+
+```{r}
+bar <- ggplot(data = diamantes) +
+  geom_bar(
+    mapping = aes(x = corte, fill = corte),
+    show.legend = FALSE,
+    width = 1
+  ) +
+  theme(aspect.ratio = 1) +
+  labs(x = NULL, y = NULL)
+```
+
+#### geom_bar
+
+```{r}
+bar
+```
+
+#### geom_bar & flip coordinates
+
+```{r}
+bar + coord_flip()
+```
+
+
+#### geom_bar & circular distribution
+```{r}
+bar + coord_polar()
+```
+
+
+##  Leer datos de un archivo
+  
+1.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 3.2.4 del libro en español
+
+***
+
+  - Aestética 
+  
+  ***
+
+2.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 3.3.1 del libro en español
+
+***
+
+  - Problemas comunes
+  - Separar en facetas
+  
+***
+3.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 3.5.1 del libro en español
+
+***
+
+
+  - Objetos geométricos
+***
+
+4.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 3.6.1 del libro en español
+
+***
+
+
+  - Transformación estadísticas
+
+***
+
+5.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 3.7.1 del libro en español
+
+***
+  - Ajuste de posición
+
+***
+
+6.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 3.8.1 del libro en español
+
+***
+
+  - Sistema de coordenadas
+
+
+***
+
+7.  **Ejercicios**:
+
+
+Hacer los ejercicios en la sección 3.9.1 del libro en español
+
+***
+ 
+
+Ejercicio para entregar  ( 6 puntos) 
+
+1. Activa el paquete "ggversa"
+2. Activa el paquete "tidyverse"
+3. Utiliza los datos "PartosInfantes". Leen la información sobre el archivo
+Son tres graficas que tendrán que someter
+4. Hacer un gráfico de puntos entre el número de muertes de infante y la cantidad de madres que mueren en el parto. (1 punto)
+5. Añadir al gráfico anterior un modelo lineal (linear model). Y Demostrando todos los datos con un color por region geografica, o sea añadir un color a los puntos por Grupo "region geográfica". AM=America, EU= Union Europea, AF= Africa, O=Oceania, AS=Asia, Medio Oriente, (2 puntos)
+6. Enseña el modelo de regresion lineal solamente para AFRICA y ASIA (en la misma gráfica) (3 puntos)
+
+Someter las tres gráficas en formato .jpeg o .png en el portal.  
+
+
+
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+library(ggversa)
+
+```
+
+
+```{r}
+head(PartosInfantes)
+#unique(PartosInfantes$Pais)
+```
+Hacer un grafico de puntos entre el numero de muertes por infante y la cantidad la cantidad de madres que mueren en el parto
+```{r eval=FALSE, include=FALSE}
+ggplot(PartosInfantes, aes(NMI, NMP))+
+  geom_point()
+```
+
+
+Añadir al grafico anterior un modelo lineal (linear model)
+
+
+```{r eval=FALSE, include=FALSE}
+ggplot(PartosInfantes, aes(NMI, NMP))+
+  geom_point()+
+  geom_smooth(method=lm)
+```
+
+
+Añadir un color a los puntos por grupo "region". AM=America, EU= Union Europea, AF= Africa, O=Oceania, AS=Asia, Medio Oriente, 
+
+```{r eval=FALSE, include=FALSE}
+#PartosInfantes
+unique(PartosInfantes$Grupo)
+```
+
+Demostrando todos los datos con un color por region geografica, enseña el modelo de regresion lineal solamente para AFRICA
+
+```{r eval=FALSE, include=FALSE}
+ggplot(PartosInfantes, aes(NMI, NMP, colour=Grupo))+
+  geom_point()+
+  geom_smooth(method=lm, data = filter(PartosInfantes, Grupo == "AF"), se=FALSE)+
+  geom_smooth(method=lm, data = filter(PartosInfantes, Grupo == "AS"), se=FALSE)
+
+
+```
+
+
+### Ejercicios
+
+
+Buscar el error en el código.
+
+1. ¿Qué no va bien en este código? ¿Por qué hay puntos que no son azules en el siguiente codigo?
+
+```{r, eval=FALSE, echo=TRUE}
+ggplot(data = millas) +
+   geom_point(mapping = aes(x = cilindrada, y = autopista, color = "blue"))
+```
+
+
+
+2. Por que la gráfica no se produce en el siguiente código
+
+```{r, eval=FALSE}
+ggplot(data = millas)
++ geom_point(mapping = aes(x = cilindrada, y = autopista))
+
+
+
+```
+## Vea el siguiente gráfico
+
+```{r}
+ggplot(data = millas) +
+  geom_point(mapping = aes(x = cilindrada, y = autopista)) +
+  facet_grid(traccion ~ cilindros)
+```
+
+
+3. ¿Por qué hay facetas que son vacias?
+
+
+4. Explica que hace "."? en estas funciones
+
+```{r}
+ggplot(data = millas) +
+  geom_point(mapping = aes(x = cilindrada, y = autopista)) +
+  facet_grid(traccion ~ .)
+
+ggplot(data = millas) +
+  geom_point(mapping = aes(x = cilindrada, y = autopista)) +
+  facet_grid(. ~ cilindros)
+```
+
+5. Qué hace **nrow** en este código
+
+
+```{r}
+ggplot(data = millas) +
+  geom_point(mapping = aes(x = cilindrada, y = autopista)) +
+  facet_wrap(~ clase, nrow = 2)
+```
+
+
+

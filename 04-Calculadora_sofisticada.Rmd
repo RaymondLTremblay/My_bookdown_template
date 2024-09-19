@@ -1,0 +1,209 @@
+# Calculadora sofisticada
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+
+Sys.Date()
+#getwd()
+```
+
+***
+
+Activar los siguientes packetes
+
+```{r}
+library(tidyverse)
+library(datos)
+```
+
+
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/workflow-basics.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/04-workflow-basics.html>
+ 
+ 
+***
+
+
+
+## Temas:
+
+  - Conocimiento básicos de programación
+  - La importancia de los nombres
+  - Usando funciones
+  
+### Sumar  
+  
+```{r}
+2+2
+```
+
+### Exactamente como una calculadora
+
+```{r}
+(23+3+3)^2+2
+```
+
+
+### Trigonometria
+
+```{r}
+sin(pi/3)
+```
+
+
+### Log natural y a base 10
+
+
+```{r}
+log(100)
+log10(100)
+```
+
+### Asignaciones de variables
+
+```{r}
+x<- 4
+x
+y=3
+y
+
+x/y
+```
+
+
+### Variables 
+
+
+- la función "seq" para secuencia
+
+```{r}
+edad_nd=seq(101, 110)
+edad_nd
+```
+
+- variables asignada
+
+```{r}
+edad_uprh=c(11:20)
+edad_uprh
+```
+
+### Unir variables en un data frame
+
+```{r}
+edad=data.frame(edad_nd, edad_uprh)
+edad
+```
+
+
+```{r}
+edad$diff=edad$edad_nd-edad$edad_uprh
+edad
+
+
+edad$tres=edad$edad_uprh^3
+edad
+```
+
+
+### Errores cuando a variables no tienen la misma cantidad de entradas
+
+
+```{r}
+edad_nd_1=base::seq(101, 111)
+edad_nd_1
+```
+
+- variables asignada
+
+```{r}
+edad_uprh_1=c(11:20, NA)
+edad_uprh_1
+```
+
+### Unir variables en un data frame
+
+```{r}
+edad_1=data.frame(edad_nd_1, edad_uprh_1)
+edad_1
+```
+
+
+### Cuantos valores hay en una variable
+
+```{r}
+length(edad_uprh)
+
+length(edad$tres)
+length(edad)
+```
+
+
+### Seleccionar solamente parte de los datos de un archivo
+
+- Primero visualizar los datos
+
+```{r}
+library(datos)
+millas
+```
+
+#### Seleccionar los carros que tienen cilindros igual a 8 (solamente)
+
+La función de Pipe.    %>% o |>
+
+
+
+```{r}
+library(tidyverse)
+millas
+names(millas)
+
+millas |> dplyr::select(cilindros) |> 
+  dplyr::filter(cilindros == 8)
+
+```
+
+
+
+
+
+#### Selecionar los diamantes mayor de 3 quilate
+
+```{r}
+diamantes |> dplyr::select(quilate) |> 
+  filter(quilate > 3)
+```
+
+
+#### Selecionar los diamantes con igual o mayor de 4000 precio
+
+```{r, echo=FALSE}
+#unique(diamantes$precio)
+
+dia_4000 = diamantes |> dplyr::select(precio) |> 
+  dplyr::filter(precio >= 4000)
+
+head(dia_4000)
+```
+
+
+***
+#### Contabiliza cuantos diamantes tienen un valor de $4000 o más
+
+
+```{r, contar las cantidad lineas}
+
+nrow(dia_4000) 
+
+```
+
+
+
+

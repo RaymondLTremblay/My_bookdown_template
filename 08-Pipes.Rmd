@@ -1,0 +1,269 @@
+# Pipes
+
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+
+Sys.Date()
+```
+
+***
+
+```{r, message=FALSE}
+library(tidyverse)
+library(magrittr) # El paquete de Pipe, se activa usando tidyverse
+```
+
+***
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/pipes.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/>
+ 
+ 
+***
+
+
+## Temas: El paquete "magrittr" y sus funciones
+
+Los pipes que vamos a evaluar son los siguientes:
+
+ - %>%     "Pipe"
+ - %!>%  "Eager Pipe"
+ - %$%    "Exposition pipe"
+ - %<>%   "Assigment pipe"
+
+ - %T>%   "Tee Pipe"
+ - %in%   "In Pipe"
+ 
+
+Función basica para calcular el precio básico de de diamantes por quilates 
+
+```{r}
+head(diamonds, n=3)
+
+diamonds$Precio_q = diamonds$price/diamonds$carat # crear una nueva variable
+
+head(diamonds, n=3)
+```
+
+
+
+```{r}
+diamonds2 <- diamonds %>% 
+  dplyr::mutate(price_per_carat = price / carat)
+```
+
+***
+
+Calcular el promedio de precio por la calidad de los diamantes usando pipes
+
+```{r}
+diamonds %>% 
+  group_by(cut) %>% 
+  summarize(Precio_color= mean(price))
+```
+
+
+***
+
+Calcular el promedio de precio por color de los diamantes usando pipes
+
+```{r, eval=FALSE, echo=FALSE}
+diamonds %>% 
+  group_by(color) %>% 
+  summarize(Precio_color= mean(price))
+```
+
+
+
+
+
+
+## %>% pipes
+
+
+Un ejemplo básico del pipe
+
+```{r}
+car_data <- 
+  mtcars %>%
+  subset(hp > 100) %>%
+  aggregate(. ~ cyl, data = ., FUN = . %>% mean %>% round(2)) %>%
+  transform(kpl = mpg %>% multiply_by(0.4251)) %>%
+  print
+```
+
+
+Un ejemplo sin usar el pipe para calcular la misma información
+
+```{r}
+car_data <- 
+  transform(aggregate(. ~ cyl, 
+                      data = subset(mtcars, hp > 100), 
+                      FUN = function(x) round(mean(x), 2)), 
+                      kpl = mpg*0.4251)
+
+car_data
+```
+
+
+
+
+```{r}
+car_data <- 
+  mtcars %>%
+  subset(hp > 100) %>%
+  group_by(cyl) %>% 
+  summarise(across(everything(), list(mean))) %>% 
+  transform(kpl = mpg_1 %>% multiply_by(0.4251)) %>% 
+  print
+
+
+```
+
+
+
+
+
+
+
+
+***
+
+
+## Alternativas a los pipes
+ - Pasos intermedios
+ - Sobre escribir el original
+ 
+
+
+***
+
+## %$%
+ 
+```{r}
+library(magrittr)
+
+#iris %>%
+#  subset(Sepal.Length > mean(Sepal.Length)) |> 
+#  cor(Sepal.Length, Sepal.Width)
+
+
+iris %>%
+  subset(Sepal.Length > mean(Sepal.Length)) %$%
+ cor(Sepal.Length, Sepal.Width)
+
+iris %>%
+  subset(Sepal.Length > mean(Sepal.Length)) |> 
+  summarize(corr= cor(Sepal.Length, Sepal.Width))
+
+```
+ 
+ 
+### Otro ejemplo de Pipe: %$%
+ 
+```{r}
+data.frame(z = rnorm(100)) %$% 
+  ts.plot(z)
+
+#data.frame(z = rnorm(100)) |>  
+#  ts.plot(z)
+
+#Para hacerlo la misma grafico con Tidyverse
+z1=data.frame(z = rnorm(100)) 
+library(data.table)
+z1=data.table(z1)
+z1$order= c(1:100)
+z1|> 
+  ggplot(aes(order, z))+
+  geom_line()
+
+
+```
+
+*** 
+
+## %<>%
+  
+  Pipe an object forward into a function or call expression and update the lhs object with the resulting value.
+  
+  lhs %<>% rhs
+  
+  
+ - lhs : An object which serves both as the initial value and as target.
+
+ - rhs : a function call using the magrittr semantics.
+ 
+
+ 
+ 
+```{r}
+
+# Example 1
+head(iris)
+
+head(iris$Sepal.Length %<>% sqrt)
+
+
+
+# Example 2
+x <- rnorm(100)
+head(x, n=10)
+x %<>% 
+  abs %>% 
+  sort
+
+head(x, 20)
+```
+ 
+ 
+***
+
+## %in% 
+
+ - Filter for values specific values within a variable
+ 
+ 
+```{r}
+
+# Example 1
+names(iris)
+iris |> 
+  filter(Species %in% c("setosa", "virginica")) |> 
+  head()
+
+
+
+
+
+```
+ 
+***
+
+## %T>%
+
+The tee pipe, %T>%, is useful when a series of operations have a function that does not return any value. 
+
+https://stackoverflow.com/questions/61196304/magrittr-tee-pipe-t-equivalent
+
+
+ 
+```{r}
+rnorm(200) %>%
+matrix(ncol = 2) %T>%
+plot %>%  # plot usually does not return anything. 
+colSums
+```
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
