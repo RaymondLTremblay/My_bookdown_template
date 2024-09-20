@@ -1,0 +1,130 @@
+# Transformacion 4
+
+Fecha de la ultima revisión
+
+```{r}
+library(tidyverse)
+library(datos)
+```
+
+
+## Valores faltantes 
+
+- NA: Not Available
+
+
+### ¿Qué pasa con los valores faltantes y resultados de analisis sin sentido?
+
+```{r}
+
+2^2
+1^2
+1^0
+
+NA^0
+#NA==1
+NA|TRUE
+NA|FALSE
+
+FALSE & NA
+TRUE & NA
+FALSE * NA
+TRUE * NA
+NA * 0  
+NA * 1
+12 * 3
+NA - 3
+```
+
+
+
+
+## Contabilizar los NA
+
+-   ¿Cuántos vuelos tienen datos faltantes en horario_salida?
+-   ¿Qué otras variables tienen valores faltantes?
+-   ¿Qué representan estas filas?
+
+```{r}
+vuelos %>%
+dplyr::select(horario_salida) %>%
+is.na() %>% 
+  table()
+
+
+```
+
+
+## Seleccionar solamente los vuelos donde el "horario de salida" es desconocido
+
+```{r}
+vuelos %>% 
+  dplyr::select(anio, mes, dia, horario_salida, aerolinea) |> 
+filter(is.na(horario_salida))
+
+
+
+```
+
+
+## Otras funciones: NA
+
+-   na.rm=TRUE
+-   !is.na() = is not NA, pq al frente tiene "!"
+
+```{r}
+no_cancelados <- vuelos %>% 
+  filter(!is.na(atraso_salida), !is.na(atraso_llegada))
+no_cancelados
+
+no_cancelados %>% 
+  group_by(anio, mes, dia) %>% 
+  summarise(mean = mean(atraso_salida))
+
+
+vuelos %>% 
+  group_by(anio, mes, dia) %>% 
+  summarise(mean = mean(atraso_salida, na.rm=TRUE))
+#,
+#            max=max(atraso_salida,na.rm = TRUE),
+#            n=n())
+```
+
+
+Reemplazar los NA por "0" en el archivo de datos
+
+
+```{r}
+
+
+datos_NA=c(1:8, NA, 10:20)
+
+datos_NA=as.data.frame(datos_NA)
+
+datos_NA %>%  # Cual es el problema de replace_na(datos_NA, 0) para los analisis?
+  mutate(Prom_cum=cummean(replace_na(datos_NA, 0))) %>% 
+  mutate(Var_cum=cumstats::cumvar(replace_na(datos_NA, 0)))
+
+```
+
+
+Remover las filas que tienen NA con la función drop_na()
+
+
+
+```{r}
+datos_NA %>% 
+  drop_na() |> 
+  mutate(Prom_cum=cummean(datos_NA)) %>% 
+  mutate(Var_cum=cumstats::cumvar(datos_NA))
+
+```
+
+
+
+
+
+
+------------------------------------------------------------------------
+
+****
