@@ -1,0 +1,252 @@
+# Transformacion 6
+
+
+
+------------------------------------------------------------------------
+
+
+
+## Funciones en este modulo
+
+ - min_rank() # asigna valores de rangos a los valores originales
+ - row_number() # asigna valores de rangos a los valores originales
+ - desc() # ordena los valores de mayor a menor
+ - rank() # asigna valores de rangos a los valores originales
+ - first() 
+ - dense_rank()
+ - percent_rank()
+ - cume_dist()
+ - rollmean()
+
+ 
+```{r}
+library(tidyverse)
+library(datos)
+```
+
+
+
+## Pruebas no paraméticas
+La pruebas no paramétricas no son basado en distribución normal y los indices como promedio, desviación estándar no se usan. 
+
+## min_rank() y \# min_rank(desc())
+
+Asignar valores de rangos a los valores originales o de más grande a meas pequeño o vise versa.
+
+```{r}
+set.seed(45678)
+  x <- sample(1:50, 10)
+head(x)
+df=as.tibble(x)
+df
+
+df %>% 
+  dplyr::select(value) %>% 
+  mutate(rango_minimo=min_rank(value)) %>%  
+  mutate(rango_min_desc=min_rank(desc(value)) )
+```
+
+## row_number()
+
+Qué hace la función **row_number**?
+
+```{r}
+set.seed(45678)
+y <- c(10,21,22,NA,5,4)
+head(y)
+df=as.tibble(y)
+df
+
+
+df %>% 
+  dplyr::select(value) %>% 
+  mutate(row=row_number(value)) # equivalente a rank, 
+```
+
+## dense_rank()
+
+```{r}
+set.seed(45678)
+z <- c(10,12,12,NA,51,4)
+df=as.tibble(z)
+df
+
+
+df %>% 
+  dplyr::select(value) %>% 
+  mutate(dense=dense_rank(value)) # equivalente a rank, NOTA que los NA no son asignado un valor
+
+
+```
+
+------------------------------------------------------------------------
+
+
+
+## la función **percent_rank()**
+
+```{r}
+set.seed(45678)
+w <- c(1,2,2,NA,5,4)
+w
+df=as.tibble(w)
+df
+
+
+df %>% 
+  dplyr::select(value) %>% 
+  mutate(porcentaje_rank=percent_rank(value)) # equivalente a rank, Un número entre a  0 y 1 calculado haciendo una re-escala de los valores usando min_rank to [0, 1]. NOTA que el valor más pequeño es reasignado un valor de 0 y el más grande un valor de 1.  
+```
+
+
+## la función **percent_rank()** sin **NA**
+
+```{r}
+set.seed(45678)
+x2 <- sample(1:50, 7)
+df2=as.tibble(x2)
+df2
+
+df2 %>% 
+  dplyr::select(value) %>% 
+  mutate(porc2=percent_rank(value))
+
+```
+
+## la función **cume_dist()**
+
+Es la suma cumulativa de los rangos
+
+```{r}
+set.seed(45678)
+  x <- c(1,2,3,NA,5,4, 10, 8)
+  x
+df=as.tibble(x)
+df
+
+
+df %>% 
+  dplyr::select(value) %>% 
+  mutate(rangos_cumulativo=cume_dist(value)) 
+```
+
+------------------------------------------------------------------------
+
+4.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 5.5.2 del libro en español
+
+Encuentra los 10 vuelos más retrasados utilizando una función de ordenamiento. ¿Cómo quieres manejar los empates? Lee atentamente la documentación de min_rank().
+
+```{r}
+names(vuelos)
+vuelos%>%
+  dplyr::select(atraso_salida, aerolinea)%>%
+  arrange(desc(atraso_salida))%>% 
+  mutate(mas_atrados=min_rank(desc(atraso_salida))) %>% 
+  head(n=10)
+```
+
+```{r}
+names(vuelos)
+vuelos %>% 
+  arrange(atraso_salida) %>% 
+  mutate(rango_minimo=min_rank(atraso_salida)) %>% 
+  head(n=10)
+
+```
+
+------------------------------------------------------------------------
+
+## Resúmenes con summarise() by group using group_by()
+
+```{r}
+library(datos)
+library(nycflights13)
+summarise(flights, delay = mean(dep_delay, na.rm = TRUE))
+
+
+flights %>% 
+  summarise(delay = mean(dep_delay, na.rm = TRUE))
+```
+
+```{r}
+by_day <- group_by(flights, year, month, day)
+
+summarise(by_day, delay = mean(dep_delay, na.rm = TRUE))
+```
+
+```{r}
+flights %>% 
+  group_by(year, month, day) %>% 
+summarise(delay = mean(dep_delay, na.rm = TRUE))
+```
+
+## La aerolinea peor en atraso de salidas 
+
+```{r}
+flights %>%
+group_by(carrier) %>%
+summarise(delay = mean(dep_delay, na.rm = TRUE)) %>%
+arrange(desc(delay))
+```
+
+```{r}
+by_dest <- group_by(flights, dest)
+by_dest
+delay <- summarise(by_dest,
+  count = n(),
+  dist = mean(distance, na.rm = TRUE),
+  delay = mean(arr_delay, na.rm = TRUE))
+
+
+delay
+#> `summarise()` ungrouping output (override with `.groups` argument)
+delay <- filter(delay, count > 20, dest != "HNL")
+
+# It looks like delays increase with distance up to ~750 miles 
+# and then decrease. Maybe as flights get longer there's more 
+# ability to make up delays in the air?
+ggplot(data = delay, aes(x = dist, y = delay)) +
+  geom_point(aes(size = count), alpha = 1/3) +
+  geom_smooth(se = FALSE)
+#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+
+
+```{r}
+names(delay)
+head(delay)
+ggplot(data = delay, aes(x = dist, y = delay, label=dest)) +
+  geom_point() +
+  geom_smooth(se = FALSE)+
+  geom_text(size=2,aes(label=dest), hjust=1, vjust=-1)
+  
+
+```
+
+------------------------------------------------------------------------
+
+Rolling average:
+
+<https://stackoverflow.com/questions/743812/calculating-moving-average>
+
+```{r}
+library(tidyverse)
+library(zoo)
+
+some_data = tibble(day = 1:10)
+some_data
+# cma = centered moving average
+# tma = trailing moving average
+some_data %>%
+    mutate(cma = rollmean(day, k = 3, fill = NA)) %>%
+    mutate(tma = rollmean(day, k = 3, fill = NA, align = "right")) %>% 
+   mutate(lma = rollmean(day, k = 3, fill = NA, align = "left")) %>% 
+  mutate(cmax=rollmax(day, k=30, fill=NA))
+some_data
+
+```
+
+
