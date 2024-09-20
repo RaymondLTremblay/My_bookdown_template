@@ -20,23 +20,179 @@ Español:
  
 ***
 
-## Temas: Funciones para importar datos con el paquete readr
+------------------------------------------------------------------------
 
- - read_csv() # comma seperated variable,
- - read_csv2()
- - read_tsv()
- - read_delim()
- - read_fwf()
- - read_width()
- - read_positions()
- - read_table()
+## Datos importado de la web.
 
-col1, col2, col3,
-3, 4, 6,
-5,3,NA
+### Usar datos que provienen de una base de datos del web.
 
-; /
+Aquí un website que recopila la cantidad de personas vacunadas en los EEUU.
+
+
+```{r}
+library(tidyverse)
+library(data.table)
+```
+
+
+```{r eval=FALSE, include=FALSE}
+library(tidyverse)
+library(data.table)
+COVID_DATA<-fread("https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/us_state_vaccinations.csv")
+
+
+
+head(COVID_DATA)
+```
+
+------------------------------------------------------------------------
+
+Seleccionar solamente los datos de Puerto Rico
+
+```{r eval=FALSE, include=FALSE}
+COVID_DATA %>% 
+  filter(location=="Puerto Rico") %>%
+  arrange(date) %>% 
+  head(n=20) 
+```
+
+### COVID world
+
+Otro website de datos de COVID, estos representa los datos de todos los paises del mundo
+
+```{r eval=FALSE, include=FALSE}
+url_COVID=fread("https://covid.ourworldindata.org/data/owid-covid-data.csv")
+head(url_COVID)
+
+head(unique(url_COVID$location))
+
+url_COVID %>% 
+  filter(location=="United States")
+```
+
+
+***
+Para encontrar datos de PR vea el siguiente enlace: 
+Este sitio del gobierno de Puerto Rico almacen datos muchos diferentes tipos que estan relacionado a la isla.
+
+<https://datos.estadisticas.pr/dataset?res_format=CSV>
+
+
+Nota que para leer los datos de un archivo CSV, se usa la función "fread()" del paquete "data.table".
+
+
+- Cuando entre a la pagina, selecciona uno de los archivos, por ejemplo **Facultad -Conservatorio de Musica**
+- Presione el boton "Explore" y selecciona "Preview"
+- Arriba de la pagina vera el enlace de **https://.........** para poner en un script.  Copie y pegue en el script.
+  
+  
+```{r}
+library(data.table)
+musica=fread("https://datos.estadisticas.pr/dataset/dcb39773-3056-4d3d-91f8-a6ad6884ef52/resource/a632a85a-0d6d-4828-8a24-cbbdee4cec8f/download/facultad_-_conservatorio_de_musica-1.csv")
+
+head(musica)
+```
+
+
+
+
+
+```{r}
+
+library(data.table)
+birth=fread("https://datos.estadisticas.pr/dataset/87620d17-bf63-445c-bb71-aca1a41c9077/resource/92728670-42cb-49d4-8fd3-cffdb6e54372/download/natlterr2014.csv")
+
+head(birth)
+```
+
+------------------------------------------------------------------------
+
+Otra alternativa es bajar los datos en formato .csv o Excel y subirlo a su proyecto en RStudio.
+
+ -
+
+
+```{r}
+
+library(readr)
+nchs_births_2001 <- read_csv("nchs_births_2001.csv")
+head(nchs_births_2001)
+
+```
+
+
+## Ejercicio
+ -  Selecciona solamente los datos de los bebes que nacieron primer mes del año, pero agrupado por el día de la semana y contabilizado
+
+```{r, eval=FALSE, echo=FALSE}
+
+nchs_births_2001 %>%
+  group_by(WEEKDAY) %>% 
+  filter(BIRMON=="01") %>% 
+  count()
+
+```
+
+
+
+```{r}
+nchs_births_2001 |> dplyr::select(BIRMON, CSEX) |> 
+  group_by()
+unique(nchs_births_2001$STATENAT)
+unique(nchs_births_2001$NOCCUR)
+unique(nchs_births_2001$RB)
+
+#WEEKDAY
+#DGESTAT
+```
+
+------------------------------------------------------------------------
+
+COVID_PR
+
+```{r,DatosMortandad20, echo=FALSE, eval=FALSE}
+library(data.table)
+url_COVID_PR=fread("https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv")
+
+#write_csv(url_COVID_PR, "url_COVID_PR.csv")
+
+library(readr)
+url_COVID_PR <- read_csv("Datos/url_COVID_PR.csv")
+
+url_COVID=url_COVID_PR
+
+names(url_COVID)
+dim(url_COVID)
+
+# url_COVID
+```
+
+-   Calcula la cantidad de muertes por día en PR, y el máximo de muerto en un día por COVID
+
+```{r, echo=FALSE, eval=FALSE}
+ url_COVID_PR %>% 
+  dplyr::select(IncrementoMuertes) %>% 
+  summarise(Prom_muerte_dia = mean(IncrementoMuertes, na.rm = TRUE),
+            maximo_muerte_dia = max(IncrementoMuertes, na.rm = TRUE))
+
+ 
+```
+
  ***
+ 
+## Datos importando de su computadora
+ 
+### Temas: Funciones para importar datos con el paquete readr
+
+ - read_csv() # sepeardo por coma
+ - read_csv2() # separado por punto y coma
+ - read_tsv() # separado por tab
+ - read_delim() # separado por delimitador
+ - read_fwf() 
+ - read_width() 
+ - read_positions() 
+ - read_table() 
+
  
  
 ```{r}
