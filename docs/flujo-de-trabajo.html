@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 ¿Qué es el analisis de dinamica poblacional? | Ciencia de Datos con R</title>
+  <title>Chapter 2 Flujo de trabajo | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 ¿Qué es el analisis de dinamica poblacional? | Ciencia de Datos con R" />
+  <meta property="og:title" content="Chapter 2 Flujo de trabajo | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 ¿Qué es el analisis de dinamica poblacional? | Ciencia de Datos con R" />
+  <meta name="twitter:title" content="Chapter 2 Flujo de trabajo | Ciencia de Datos con R" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="flujo-de-trabajo.html"/>
-<link rel="next" href="qué-es-un-diagrama-de-ciclo-de-vida.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="qué-es-el-analisis-de-dinamica-poblacional.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -614,204 +614,334 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="qué-es-el-analisis-de-dinamica-poblacional" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Chapter 3</span> ¿Qué es el analisis de dinamica poblacional?<a href="qué-es-el-analisis-de-dinamica-poblacional.html#qué-es-el-analisis-de-dinamica-poblacional" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Por: Por RLT, Nhora Ospina, Demetria y Anne …..</p>
-<p>El objetivo de la conservación biológica es asegurar que las especies pueden sobrevivir, reproducirse y dejar progenie viable para de una generación a otra. Por consecuencia se necesita que las variables intrinsicas y extrinsicas, bioticas y abioticas de cada especies estén considerado con todas sus interacciones. Naturalmente aunque el concepto es sencillo, tomar en cuanta TODAS las posibles interacciones biológicas y abióticas es imposible.<br />
-El primer paso a la conservación es considerar el ambiente adecuado para cada especie. Sin duda en los ultimos 50 años en muchos paises ha habido un cambio grande en el repesto y la conservaciones de bosque, pradera, desierto y todos los biomas en general. Por ejemplo el cambio de cobertura de bosque en Puerto Rico ha aumentado de circa de 2-5% en los años 1910 a más 40% en el 2000 <span class="citation">(<a href="#ref-pares2008agricultural">Parés-Ramos, Gould, and Aide 2008</a>)</span>. En general en Latino América ha habido más reforestación de deforestación <span class="citation">(<a href="#ref-aide2013deforestation">Aide et al. 2013</a>)</span> en los ultimos años, aunque varia mucho entre paises y periodo de tiempo. Para la conservación el primer paso era reconocer que los habitat necesitan ser protegido.<br />
-Muchos de estos nuevos hábitat son bosque segundarios, fragmentados y dominado por especies introducidas. Estos habitat por consecuencia son mayormente diferentes al ambiente natural antes de los cambios antropogénicos. El resultado, en muchas ocasiones, es que la especies de interes están reducida en números de individuos o fragmentados. Considerando esos remanentes de individuos en el habitat, son suficiente para mantener una población viable? ¿Como que uno decide que una población es viable?</p>
-<p>En general, el conceptos de conservación es que si uno proteje los habitat las especies estarán conservadas. Pero lo que no es obvio es que la presencia de muchos individuos no es suficiente para asegurar la supervivencia de una especies a largo tiempo. Un ejemplo bien conocida es la extincción del Dodo en la isla de Mauritius y la casi extinción de una especies de arbol en la familia Sapotaceae, <em>Calvaria major</em>. Para que la semillas sean viable necesitan pasar por el tracto digestivo de un pajaro para remover el encocarpo persitente de la semilla que causa “dormancy” en las semillas <span class="citation">(<a href="#ref-temple1977plant">Temple 1977</a>)</span>. Por consecuencia nunca se puede asumir que la presencia de una especies sin tomar en cuenta las interacciones bióticas y abióticas es suficiente para sugerir que no hay riesgo de extincción.</p>
-<div id="qué-es-el-estudio-de-la-dinamica-poblacional" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> ¿Qué es el estudio de la dinamica poblacional?<a href="qué-es-el-analisis-de-dinamica-poblacional.html#qué-es-el-estudio-de-la-dinamica-poblacional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>La dinámica poblacional tiene como meta tomar en cuenta todas las etapas/edades de una especies y evaluar cual de esas etapas/edades tiene impacto sobre la supervivencia de la especies. Esas etapas de vida debería considerar las interaciones con sus ambiente biotico y abiotico. La dinamica de población es fundamental en todas las areas de la ecología y evolución. Comprender la dinamica poblacional es la clave para entender la importancia relativa al aceso de los recursos y el efecto de competencia, herbivoria y depredaciones sobre la viablidad de especies. Tradicionalmente los estudios estaban enfocado a evaluar la tabla de vida para el manejo y conservaciones de especies particulares (ref). En años más recientes los estudios se han diversificado para evaluar la interacciones entre especies y su ambiente (ref).</p>
-</div>
-<div id="definición" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Definición<a href="qué-es-el-analisis-de-dinamica-poblacional.html#definición" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Una definición más especifica de los estudios de dinámica poblacional son definidos como los análisis de los factores que afecten el crecimiento, estabilidad y reducción en el tamaño de la población en una serie de tiempo.</p>
-<p>Por ejemplo, la dinamica poblacional de especies invasivas incluye un periodo de crecimiento muy lento al comienzo de la colonización de un nuevo sitio y frecuentamente siguido de un crecimiento logarithmico. La figura <a href="qué-es-el-analisis-de-dinamica-poblacional.html#fig:Pop-fig">3.1</a>. demuestra el cambio de número de individuos en el tiempo de una especie hipotética.</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-1" tabindex="-1"></a><span class="fu">ggplot</span>(pressure, <span class="fu">aes</span>(temperature, pressure))<span class="sc">+</span></span>
-<span id="cb44-2"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb44-3"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-3" tabindex="-1"></a>  rlt_theme<span class="sc">+</span></span>
-<span id="cb44-4"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Tiempo&quot;</span>)<span class="sc">+</span></span>
-<span id="cb44-5"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Tamaño poblacional&quot;</span>)</span></code></pre></div>
-</details>
-<div class="figure"><span style="display:block;" id="fig:Pop-fig"></span>
-<img src="Ciencia_Datos_R_files/figure-html/Pop-fig-1.png" alt="Cambio poblacional en tiempo" width="672" />
-<p class="caption">
-Figure 3.1: Cambio poblacional en tiempo
-</p>
-</div>
-</div>
-<div id="el-analisis-de-dinámica-poblacional-y-su-uso" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> El analisis de Dinámica Poblacional y su uso<a href="qué-es-el-analisis-de-dinamica-poblacional.html#el-analisis-de-dinámica-poblacional-y-su-uso" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Determinar el tamaño poblacional en el futuro tiene muchos usos. Se puede dividir sus usos en tres grupos grandes, entender las <strong>1)</strong> interacciones ecológicas, <strong>2)</strong> manejo y conservaciones o <strong>3)</strong> los procesos evolutivos. Los estudios enfocado a la conservación se engloba dentro de un acercamiento de la viablidad de poblaciones. En este libro estaremos dando una introducción a cada uno de estas vertientes, pero nuestros ejemplos son una introducción al tema y no una profundización extensa de cada uno. En la table <a href="qué-es-el-analisis-de-dinamica-poblacional.html#USO">3.3.1</a> vemos algunos de los usos especificos que se ha dado con la metodología de PPM.</p>
-<div id="USO" class="section level3 hasAnchor" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Tabla: El uso potencial de la diferentes acercamiento de PPM.<a href="qué-es-el-analisis-de-dinamica-poblacional.html#USO" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>NOTA IMPORTANTE: <em>Evaluar las referencias y añadir referencias tradicionales y recientes</em></p>
-<table>
-<colgroup>
-<col width="22%" />
-<col width="27%" />
-<col width="22%" />
-<col width="27%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Categoria de Uso</th>
-<th align="left">Uso especifico</th>
-<th align="left">Referencias</th>
-<th align="right">Referencias con Oquideas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Manejo</td>
-<td align="left">Identificar las etapas or procesos demograficos claves</td>
-<td align="left"><span class="citation">(<a href="#ref-crouse1987stage">Crouse, Crowder, and Caswell 1987</a>)</span></td>
-<td align="right">?</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Determinar cuantos individuos en una población es necesario para reducir la extinción</td>
-<td align="left">Shaffer 1981 Armbruster &amp; Lande 1993</td>
-<td align="right">?</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left">Determinar cuantos individuos se necesita introducir en una sitio para establecer una población viable</td>
-<td align="left">Bustamante 1996</td>
-<td align="right">?</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Determinar cuantos individuos se puede extraer si tener un impacto negativo sobre la viabilidad de una población</td>
-<td align="left">Nantel et al. 1996</td>
-<td align="right">?</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left">En especies invasivas determinar cuantos y cual etapas se necesita remover para controlar la población</td>
-<td align="left">?</td>
-<td align="right">?</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Determinar cuantas pobalciones se necesita para la viabilidad de una especie al nivel local o global</td>
-<td align="left">Lindenmayer &amp; Possingham 1996</td>
-<td align="right"></td>
-</tr>
-<tr class="odd">
-<td align="left">Evaluación de riesgos</td>
-<td align="left">Evaluar el riesgo de una población</td>
-<td align="left">Samson 1985</td>
-<td align="right">muchos</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Comparando el riesgo relativo de dos o más poblaciones</td>
-<td align="left">Allendrof et al. 1997</td>
-<td align="right">?</td>
-</tr>
-<tr class="odd">
-<td align="left">Interacciones ecologicas</td>
-<td align="left">Evaluar interacciones ecológicas para entender las variables importantes para la supervivencia de una población</td>
-<td align="left">?</td>
-<td align="right">Ospina et al., 2022</td>
-</tr>
-<tr class="even">
-<td align="left">Procesos y patrones evolutivos</td>
-<td align="left">Cual de los procesos y patrones evolutivos del ciclo de vida de especies impacta su crecimiento</td>
-<td align="left">?</td>
-<td align="right">?</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="uso-1-identificar-las-etapas-or-procesos-demográficos-claves" class="section level3 hasAnchor" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> USO 1: Identificar las etapas or procesos demográficos claves<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-1-identificar-las-etapas-or-procesos-demográficos-claves" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Identificar y conocer cuales son las etapas de vida más suceptibles a cambios abioticos y bioticos y su impacto sobre la persistencia de una población es necesario para el manejo. El ejemplo clásico en la literatura usando PPM son los trabajos sobre la dinámica poblacional de la tortuga “boba” o “cabezona” <em>Caretta caretta</em> <span class="citation">(<a href="#ref-crouse1987stage">Crouse, Crowder, and Caswell 1987</a>)</span>, <span class="citation">(<a href="#ref-crowder1994predicting">Crowder et al. 1994</a>)</span>. Crouse y Crowder demostrarón que aun salvando TODOS los huevos de depredación, esa estrategia de manejo antropogenico iba a tener muy poco impacto en el crecimiento de la población. Lo que econtrarón es que el impacto más grande sobre el crecimiento poblacional provendría de proteger los adultos de las redes de pesca, modificando estas para que las tortugas se pueden escapar y no ahogarse en las redes. Los trabajos de Crouse y Crowder fueron pioneros en demostrar que uno podía simular diferentes escenarios basado en la historia de vida y evaluar su impacto.</p>
-<p>Ejemplo de orquidea AQUI</p>
-</div>
-<div id="uso-2-determinar-cuantos-individuos-en-una-población-es-necesario-para-reducir-la-extinción" class="section level3 hasAnchor" number="3.3.3">
-<h3><span class="header-section-number">3.3.3</span> USO 2: Determinar cuantos individuos en una población es necesario para reducir la extinción<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-2-determinar-cuantos-individuos-en-una-población-es-necesario-para-reducir-la-extinción" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El efecto de tamaño poblacional sobre la biología y la probabilidad de extincción es amplia <span class="citation">(<a href="#ref-shaffer1985population">Shaffer and Samson 1985</a>)</span>, <span class="citation">(<a href="#ref-nunney1993assessing">Nunney and Campbell 1993</a>)</span>, <span class="citation">(<a href="#ref-harris2022abundance">Harris et al. 2022</a>)</span>. ¿Cual es la probablidad de extincción de una población considerando la cantidad de individuos en cada etapa? En general lo que se observa es que menor el tamaño poblacional, N, mayor es el riesgo de extincción. Esa probabilidad de extincción puede variar si algunas etapas del ciclo de vida tiene es muy reducido o su probabilidad de sobrevivir o crecer varia. Consideramos por ejemplo en las orquídeas donde la probabilidad de que las semillas se establece, germina y crezca a a ser un juvenil es muy pequeña. Por consecuencia una nueva población de orquidea necesita considerar la cantidad de individuos que este presente pero tambien la probabilidad de tener semillas y que estas pueden crecer a ser adultos reproducible.</p>
-</div>
-<div id="uso-3-determinar-cuantos-individuos-se-necesita-introducir-en-una-sitio-para-establecer-una-población-viable" class="section level3 hasAnchor" number="3.3.4">
-<h3><span class="header-section-number">3.3.4</span> USO 3: Determinar cuantos individuos se necesita introducir en una sitio para establecer una población viable<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-3-determinar-cuantos-individuos-se-necesita-introducir-en-una-sitio-para-establecer-una-población-viable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Naturalmente, más cantidad de individuos re-introducido en un sitio mayor sera la probabilidad que la población sea viable. Pero, como todo hay un limite de tiempo y esfuerzo disponible. Por consecuencia la pregunta debería ser orientado a determinar cual es el minimo de individuos que se deberia introductir para garantizar un x porciento de suceso en el establecimiento de una nueva población.</p>
-<p>En los ultimos años, muchas organizaciones y cientificos han comenzado a hacer re-introducción de especies en su habitat nativo y no. (ref). Algunos programa introduce especies en areas urbanas.</p>
+<div id="flujo-de-trabajo" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Flujo de trabajo<a href="flujo-de-trabajo.html#flujo-de-trabajo" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>El tema proviene de los siguientes sitios.</p>
+<p>English:
+<a href="https://r4ds.had.co.nz/workflow-projects.html" class="uri">https://r4ds.had.co.nz/workflow-projects.html</a></p>
+<p>Español:
+<a href="https://es.r4ds.hadley.nz/04-workflow-basics.html" class="uri">https://es.r4ds.hadley.nz/04-workflow-basics.html</a></p>
+<hr />
+<div id="temas" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Temas:<a href="flujo-de-trabajo.html#temas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Caladenia</li>
-<li>Korea</li>
-<li>one million orchids project</li>
-<li>????</li>
+<li><p>Reduciendo Errores</p></li>
+<li><p>getwd()</p></li>
+<li><p>setwd()</p></li>
+<li><p>Su Proyecto</p></li>
+<li><p>Selecionar el tab <strong>Session</strong> →→ <strong>Set Working Directory</strong> →→ <strong>To Project Directory</strong>
+***</p></li>
 </ul>
 </div>
-<div id="uso-4-determinar-cuantos-individuos-se-puede-extraer-sin-tener-un-impacto-negativo-sobre-la-viabilidad-de-una-población" class="section level3 hasAnchor" number="3.3.5">
-<h3><span class="header-section-number">3.3.5</span> USO 4: Determinar cuantos individuos se puede extraer sin tener un impacto negativo sobre la viabilidad de una población<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-4-determinar-cuantos-individuos-se-puede-extraer-sin-tener-un-impacto-negativo-sobre-la-viabilidad-de-una-población" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Hay tres razones principales para la extracción de individuos de su ambiente natural.</p>
+<div id="creación-de-un-proyecto" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Creación de un proyecto:<a href="flujo-de-trabajo.html#creación-de-un-proyecto" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>crear un proyecto para cada curso.</li>
+<li>crear un proyecto para cada investigación.</li>
+<li>No se te olvida de añadir tu archivos de datos en el proyecto.</li>
+<li>Describe claramente todos tus análisis y donde conseguiste la información.</li>
+<li>Describe tu interpretación de los análisis o gráficos.</li>
+<li>Correr los “scripts” uno a la vez para asegurar que funcione.</li>
+<li>knit el archivo .rmd para asegurar que no falte nada.</li>
+<li>no mezclar proyectos de investigación en un mismo proyecto.</li>
+</ul>
+<hr />
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="flujo-de-trabajo.html#cb1-1" tabindex="-1"></a><span class="co">#install.packages(&quot;tidyverse&quot;)</span></span>
+<span id="cb1-2"><a href="flujo-de-trabajo.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, forcats</span></span></code></pre></div>
+</details>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────────────────────────────────────────────────────────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.4     ✔ readr     2.1.5
+## ✔ forcats   1.0.0     ✔ stringr   1.5.1
+## ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+## ✔ purrr     1.0.2     
+## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="flujo-de-trabajo.html#cb3-1" tabindex="-1"></a><span class="co"># install.packages(&quot;datos&quot;)</span></span>
+<span id="cb3-2"><a href="flujo-de-trabajo.html#cb3-2" tabindex="-1"></a><span class="fu">library</span>(datos)</span></code></pre></div>
+</details>
+<div id="un-set-de-sobre-carros-en-el-archivo-paquete-datos" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Un set de sobre carros en el archivo (paquete) <strong>datos</strong><a href="flujo-de-trabajo.html#un-set-de-sobre-carros-en-el-archivo-paquete-datos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="flujo-de-trabajo.html#cb4-1" tabindex="-1"></a>millas</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 234 × 11
+##    fabricante modelo     cilindrada  anio cilindros transmision traccion ciudad
+##    &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt; &lt;int&gt;     &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;
+##  1 audi       a4                1.8  1999         4 auto(l5)    d            18
+##  2 audi       a4                1.8  1999         4 manual(m5)  d            21
+##  3 audi       a4                2    2008         4 manual(m6)  d            20
+##  4 audi       a4                2    2008         4 auto(av)    d            21
+##  5 audi       a4                2.8  1999         6 auto(l5)    d            16
+##  6 audi       a4                2.8  1999         6 manual(m5)  d            18
+##  7 audi       a4                3.1  2008         6 auto(av)    d            18
+##  8 audi       a4 quattro        1.8  1999         4 manual(m5)  4            18
+##  9 audi       a4 quattro        1.8  1999         4 auto(l5)    4            16
+## 10 audi       a4 quattro        2    2008         4 manual(m6)  4            20
+## # ℹ 224 more rows
+## # ℹ 3 more variables: autopista &lt;int&gt;, combustible &lt;chr&gt;, clase &lt;chr&gt;</code></pre>
+</div>
+<div id="mi-primer-gráfico" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Mi primer gráfico<a href="flujo-de-trabajo.html#mi-primer-gráfico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="flujo-de-trabajo.html#cb6-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> millas) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="flujo-de-trabajo.html#cb6-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista))</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="las-funciones-head-y-tail" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Las funciones <strong>head</strong> y <strong>tail</strong><a href="flujo-de-trabajo.html#las-funciones-head-y-tail" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="flujo-de-trabajo.html#cb7-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>millas)</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="flujo-de-trabajo.html#cb8-1" tabindex="-1"></a>millas</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 234 × 11
+##    fabricante modelo     cilindrada  anio cilindros transmision traccion ciudad
+##    &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt; &lt;int&gt;     &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;
+##  1 audi       a4                1.8  1999         4 auto(l5)    d            18
+##  2 audi       a4                1.8  1999         4 manual(m5)  d            21
+##  3 audi       a4                2    2008         4 manual(m6)  d            20
+##  4 audi       a4                2    2008         4 auto(av)    d            21
+##  5 audi       a4                2.8  1999         6 auto(l5)    d            16
+##  6 audi       a4                2.8  1999         6 manual(m5)  d            18
+##  7 audi       a4                3.1  2008         6 auto(av)    d            18
+##  8 audi       a4 quattro        1.8  1999         4 manual(m5)  4            18
+##  9 audi       a4 quattro        1.8  1999         4 auto(l5)    4            16
+## 10 audi       a4 quattro        2    2008         4 manual(m6)  4            20
+## # ℹ 224 more rows
+## # ℹ 3 more variables: autopista &lt;int&gt;, combustible &lt;chr&gt;, clase &lt;chr&gt;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="flujo-de-trabajo.html#cb10-1" tabindex="-1"></a><span class="fu">head</span>(millas, <span class="at">n=</span><span class="dv">3</span>) <span class="co"># las primeras 6 filas</span></span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 3 × 11
+##   fabricante modelo cilindrada  anio cilindros transmision traccion ciudad
+##   &lt;chr&gt;      &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;     &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;
+## 1 audi       a4            1.8  1999         4 auto(l5)    d            18
+## 2 audi       a4            1.8  1999         4 manual(m5)  d            21
+## 3 audi       a4            2    2008         4 manual(m6)  d            20
+## # ℹ 3 more variables: autopista &lt;int&gt;, combustible &lt;chr&gt;, clase &lt;chr&gt;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="flujo-de-trabajo.html#cb12-1" tabindex="-1"></a><span class="fu">tail</span>(millas, <span class="at">n=</span><span class="dv">10</span>) <span class="co"># las ultimas 10 filas</span></span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 10 × 11
+##    fabricante modelo     cilindrada  anio cilindros transmision traccion ciudad
+##    &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt; &lt;int&gt;     &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;
+##  1 volkswagen new beetle        2    1999         4 auto(l4)    d            19
+##  2 volkswagen new beetle        2.5  2008         5 manual(m5)  d            20
+##  3 volkswagen new beetle        2.5  2008         5 auto(s6)    d            20
+##  4 volkswagen passat            1.8  1999         4 manual(m5)  d            21
+##  5 volkswagen passat            1.8  1999         4 auto(l5)    d            18
+##  6 volkswagen passat            2    2008         4 auto(s6)    d            19
+##  7 volkswagen passat            2    2008         4 manual(m6)  d            21
+##  8 volkswagen passat            2.8  1999         6 auto(l5)    d            16
+##  9 volkswagen passat            2.8  1999         6 manual(m5)  d            18
+## 10 volkswagen passat            3.6  2008         6 auto(s6)    d            17
+## # ℹ 3 more variables: autopista &lt;int&gt;, combustible &lt;chr&gt;, clase &lt;chr&gt;</code></pre>
+</div>
+</div>
+<div id="información-sobre-el-archivo" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Información sobre el archivo<a href="flujo-de-trabajo.html#información-sobre-el-archivo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Usa el signo de interogación <strong>?</strong> antes del nombre de la función o archivo</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="flujo-de-trabajo.html#cb14-1" tabindex="-1"></a>?millas</span>
+<span id="cb14-2"><a href="flujo-de-trabajo.html#cb14-2" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="flujo-de-trabajo.html#cb14-3" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="flujo-de-trabajo.html#cb14-4" tabindex="-1"></a>?head</span></code></pre></div>
+</details>
+<div id="las-dimensiones-del-archivo" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Las dimensiones del archivo<a href="flujo-de-trabajo.html#las-dimensiones-del-archivo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="flujo-de-trabajo.html#cb15-1" tabindex="-1"></a><span class="fu">dim</span>(millas) <span class="co"># dimension of data frame</span></span></code></pre></div>
+</details>
+<pre><code>## [1] 234  11</code></pre>
+</div>
+<div id="construcción-de-mi-primer-gráfico" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Construcción de mi primer gráfico<a href="flujo-de-trabajo.html#construcción-de-mi-primer-gráfico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>el nombre del archivo es primero</li>
+<li>nombre de las variables (nombre de las columnas)</li>
+<li>si quiere tener un color para cada grupo</li>
+</ul>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="flujo-de-trabajo.html#cb17-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> millas) <span class="sc">+</span></span>
+<span id="cb17-2"><a href="flujo-de-trabajo.html#cb17-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista,  <span class="at">colour=</span>fabricante))</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="la-función-shape-para-cambiar-la-forma-de-los-puntos" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> La función shape para cambiar la forma de los puntos<a href="flujo-de-trabajo.html#la-función-shape-para-cambiar-la-forma-de-los-puntos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La función <strong>shape</strong> es para cambiar el estilo de los puntos</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="flujo-de-trabajo.html#cb18-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> millas) <span class="sc">+</span></span>
+<span id="cb18-2"><a href="flujo-de-trabajo.html#cb18-2" tabindex="-1"></a> <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista), <span class="at">shape=</span><span class="dv">23</span>, <span class="at">color =</span> <span class="st">&quot;369787&quot;</span>, <span class="at">fill=</span><span class="st">&quot;yellow&quot;</span>)</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+<div id="salvar-un-grafico-en-otro-formato" class="section level3 hasAnchor" number="2.3.4">
+<h3><span class="header-section-number">2.3.4</span> Salvar un grafico en otro formato<a href="flujo-de-trabajo.html#salvar-un-grafico-en-otro-formato" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Como salvar la figura en formato recuperable para subir en otros documentos o compartir</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="flujo-de-trabajo.html#cb19-1" tabindex="-1"></a> <span class="fu">ggplot</span>(<span class="at">data =</span> millas) <span class="sc">+</span></span>
+<span id="cb19-2"><a href="flujo-de-trabajo.html#cb19-2" tabindex="-1"></a>   <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista), <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="flujo-de-trabajo.html#cb20-1" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;cilindro_milla.jpg&quot;</span>) <span class="co">#. png, .tiff</span></span></code></pre></div>
+</details>
+<pre><code>## Saving 7 x 5 in image</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="flujo-de-trabajo.html#cb22-1" tabindex="-1"></a>millas</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 234 × 11
+##    fabricante modelo     cilindrada  anio cilindros transmision traccion ciudad
+##    &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt; &lt;int&gt;     &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;
+##  1 audi       a4                1.8  1999         4 auto(l5)    d            18
+##  2 audi       a4                1.8  1999         4 manual(m5)  d            21
+##  3 audi       a4                2    2008         4 manual(m6)  d            20
+##  4 audi       a4                2    2008         4 auto(av)    d            21
+##  5 audi       a4                2.8  1999         6 auto(l5)    d            16
+##  6 audi       a4                2.8  1999         6 manual(m5)  d            18
+##  7 audi       a4                3.1  2008         6 auto(av)    d            18
+##  8 audi       a4 quattro        1.8  1999         4 manual(m5)  4            18
+##  9 audi       a4 quattro        1.8  1999         4 auto(l5)    4            16
+## 10 audi       a4 quattro        2    2008         4 manual(m6)  4            20
+## # ℹ 224 more rows
+## # ℹ 3 more variables: autopista &lt;int&gt;, combustible &lt;chr&gt;, clase &lt;chr&gt;</code></pre>
+<p>Ejercicio para someter:</p>
 <ol style="list-style-type: decimal">
-<li>Obtener individuos para la conservación <em>Ex Situ</em>.</li>
-<li>Usar un grupo de individuos para su propagación.</li>
-<li>Extraccíon para la venta sin objetivo de conservación.</li>
+<li>baja el paquete “ggversa”</li>
+<li>activar el paquete “ggversa”</li>
+<li>mirar las variables del archivo en este paquete que se llama “Anolis”</li>
+<li>haga un gráfico que incluye lo siguiente
+<ol style="list-style-type: lower-alpha">
+<li>en el eje de x = el SVL. que es el tamaño del lagarto del hocico a la cloaca y en la variable de “TAIL” en el eje de y.</li>
+<li>selecciona la variable “SEX_AGE” para color</li>
+<li>selecciona la función correcta para que cada “SEX_AGE” tenga su proprio gráfico</li>
+<li>salva el gráfico en .png o .jpg</li>
+<li>subir el gráfico aquí</li>
+</ol></li>
 </ol>
-<p>El supuesto de colectores de orquidea de su habitat naturales, tanto para la conservación de <em>Ex situ</em> y el uso para la propagación es que el impacto es minimo, y no tendrá impacto a largo plazo para la supervivencia. Regresaremos sobre este punto más tarde. La historia de fanatisismo de recolección de orquideas para la venta es bien conocida ref(). Aun que uno quisiera pensar que estas extracciones son del pasado y no occuren hoy en dia, hay todavia escrupulos que extraen los plantas sin pensar al impacto que tendrá sobre la población o especie.</p>
-<p>Pero la pregunta se tiene que hacer. Cuantos individuos y de que etapas se puede extraer de la población sin tener impacto en el crecimoento poblacional?</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="flujo-de-trabajo.html#cb24-1" tabindex="-1"></a><span class="fu">library</span>(ggversa)</span>
+<span id="cb24-2"><a href="flujo-de-trabajo.html#cb24-2" tabindex="-1"></a><span class="fu">head</span>(Anolis)</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 6 × 15
+##   STUDY      Survey_Site      LOCATION TIME  DATE  SEASON SPECIES SEX_AGE HEIGHT
+##   &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;    &lt;tim&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;
+## 1 Mark/recap North Tower      El Verde 10:46 3/13… dry    Anolis… Female     0  
+## 2 Mark/recap Woods walkway t… El Verde 10:15 2/20… dry    Anolis… Juvenil    0  
+## 3 Mark/recap Woods walkway t… El Verde 11:15 2/21… dry    Anolis… Male       0  
+## 4 Mark/recap North Tower      El Verde 11:06 3/16… dry    Anolis… Juvenil    0.3
+## 5 Mark/recap North Tower      El Verde 12:31 3/11… dry    Anolis… Male       0.3
+## 6 Mark/recap North Tower      El Verde 01:00 3/9/… dry    Anolis… Female     0.4
+## # ℹ 6 more variables: DISTANCE_FROM_CENTERLINE &lt;dbl&gt;, PERCH_SUBSTRATE &lt;chr&gt;,
+## #   PERCH_DIAMETER &lt;int&gt;, WEIGHT &lt;dbl&gt;, SVL &lt;dbl&gt;, TAIL &lt;dbl&gt;</code></pre>
+<hr />
 </div>
-<div id="uso-5-en-especies-invasivas-determinar-cuantos-y-cual-etapas-se-necesita-remover-para-controlar-la-población." class="section level3 hasAnchor" number="3.3.6">
-<h3><span class="header-section-number">3.3.6</span> USO 5: En especies invasivas determinar cuantos y cual etapas se necesita remover para controlar la población.<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-5-en-especies-invasivas-determinar-cuantos-y-cual-etapas-se-necesita-remover-para-controlar-la-población." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="extracción-de-valores-de-un-conjunto-de-datos" class="section level3 hasAnchor" number="2.3.5">
+<h3><span class="header-section-number">2.3.5</span> Extracción de valores de un conjunto de datos<a href="flujo-de-trabajo.html#extracción-de-valores-de-un-conjunto-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Aqui usamos el conjunto de datos de <strong>diamantes</strong> que se encuentra en el paquete <strong>ggplot2</strong></p>
+<div id="los-primeros-datos-de-un-archivo" class="section level4 hasAnchor" number="2.3.5.1">
+<h4><span class="header-section-number">2.3.5.1</span> Los primeros datos de un archivo<a href="flujo-de-trabajo.html#los-primeros-datos-de-un-archivo" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="flujo-de-trabajo.html#cb26-1" tabindex="-1"></a><span class="fu">head</span>(diamantes)</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 6 × 10
+##   precio quilate corte     color claridad profundidad tabla     x     y     z
+##    &lt;int&gt;   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1    326    0.23 Ideal     E     SI2             61.5    55  3.95  3.98  2.43
+## 2    326    0.21 Premium   E     SI1             59.8    61  3.89  3.84  2.31
+## 3    327    0.23 Bueno     E     VS1             56.9    65  4.05  4.07  2.31
+## 4    334    0.29 Premium   I     VS2             62.4    58  4.2   4.23  2.63
+## 5    335    0.31 Bueno     J     SI2             63.3    58  4.34  4.35  2.75
+## 6    336    0.24 Muy bueno J     VVS2            62.8    57  3.94  3.96  2.48</code></pre>
 </div>
-<div id="uso-6-evaluar-el-riesgo-de-una-población" class="section level3 hasAnchor" number="3.3.7">
-<h3><span class="header-section-number">3.3.7</span> USO 6: Evaluar el riesgo de una población<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-6-evaluar-el-riesgo-de-una-población" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="la-cantidad-de-fila" class="section level4 hasAnchor" number="2.3.5.2">
+<h4><span class="header-section-number">2.3.5.2</span> La cantidad de fila<a href="flujo-de-trabajo.html#la-cantidad-de-fila" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="flujo-de-trabajo.html#cb28-1" tabindex="-1"></a><span class="fu">nrow</span>(diamantes)</span></code></pre></div>
+</details>
+<pre><code>## [1] 53940</code></pre>
 </div>
-<div id="uso-7-determinar-cuantas-poblaciones-se-necesita-para-la-viabilidad-de-una-especie-al-nivel-local-o-global" class="section level3 hasAnchor" number="3.3.8">
-<h3><span class="header-section-number">3.3.8</span> USO 7: Determinar cuantas poblaciones se necesita para la viabilidad de una especie al nivel local o global<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-7-determinar-cuantas-poblaciones-se-necesita-para-la-viabilidad-de-una-especie-al-nivel-local-o-global" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Dinamica de metapoblaciones.</p>
+<div id="la-cantidad-de-columnas-variables" class="section level4 hasAnchor" number="2.3.5.3">
+<h4><span class="header-section-number">2.3.5.3</span> La cantidad de columnas (variables)<a href="flujo-de-trabajo.html#la-cantidad-de-columnas-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="flujo-de-trabajo.html#cb30-1" tabindex="-1"></a><span class="fu">ncol</span>(diamantes)</span></code></pre></div>
+</details>
+<pre><code>## [1] 10</code></pre>
 </div>
-<div id="uso-8-comparando-el-riesgo-relativo-de-dos-o-más-poblaciones" class="section level3 hasAnchor" number="3.3.9">
-<h3><span class="header-section-number">3.3.9</span> USO 8: Comparando el riesgo relativo de dos o más poblaciones<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-8-comparando-el-riesgo-relativo-de-dos-o-más-poblaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="la-dimensiones-de-un-archivo" class="section level4 hasAnchor" number="2.3.5.4">
+<h4><span class="header-section-number">2.3.5.4</span> La dimensiones de un archivo<a href="flujo-de-trabajo.html#la-dimensiones-de-un-archivo" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="flujo-de-trabajo.html#cb32-1" tabindex="-1"></a><span class="fu">dim</span>(diamantes)</span></code></pre></div>
+</details>
+<pre><code>## [1] 53940    10</code></pre>
 </div>
-<div id="uso-9-evaluar-interacciones-ecológicas-para-entender-las-variables-importantes-para-la-supervivencia-de-una-población" class="section level3 hasAnchor" number="3.3.10">
-<h3><span class="header-section-number">3.3.10</span> USO 9: Evaluar interacciones ecológicas para entender las variables importantes para la supervivencia de una población<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-9-evaluar-interacciones-ecológicas-para-entender-las-variables-importantes-para-la-supervivencia-de-una-población" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="el-valor-máximo-de-una-variable" class="section level4 hasAnchor" number="2.3.5.5">
+<h4><span class="header-section-number">2.3.5.5</span> El valor máximo de una variable<a href="flujo-de-trabajo.html#el-valor-máximo-de-una-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="flujo-de-trabajo.html#cb34-1" tabindex="-1"></a><span class="fu">max</span>(diamantes<span class="sc">$</span>precio)</span></code></pre></div>
+</details>
+<pre><code>## [1] 18823</code></pre>
 </div>
-<div id="uso-10-cual-de-los-procesos-y-patrones-evolutivos-del-ciclo-de-vida-de-especies-impacta-su-crecimiento" class="section level3 hasAnchor" number="3.3.11">
-<h3><span class="header-section-number">3.3.11</span> USO 10: Cual de los procesos y patrones evolutivos del ciclo de vida de especies impacta su crecimiento<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-10-cual-de-los-procesos-y-patrones-evolutivos-del-ciclo-de-vida-de-especies-impacta-su-crecimiento" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="el-valor-mínimo-de-una-variable" class="section level4 hasAnchor" number="2.3.5.6">
+<h4><span class="header-section-number">2.3.5.6</span> El valor mínimo de una variable<a href="flujo-de-trabajo.html#el-valor-mínimo-de-una-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="flujo-de-trabajo.html#cb36-1" tabindex="-1"></a><span class="fu">min</span>(diamantes<span class="sc">$</span>precio)</span></code></pre></div>
+</details>
+<pre><code>## [1] 326</code></pre>
+</div>
+<div id="los-valores-discretos-de-una-variable" class="section level4 hasAnchor" number="2.3.5.7">
+<h4><span class="header-section-number">2.3.5.7</span> Los valores discretos de una variable<a href="flujo-de-trabajo.html#los-valores-discretos-de-una-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="flujo-de-trabajo.html#cb38-1" tabindex="-1"></a><span class="fu">unique</span>(diamantes<span class="sc">$</span>corte)</span></code></pre></div>
+</details>
+<pre><code>## [1] Ideal     Premium   Bueno     Muy bueno Regular  
+## Levels: Regular &lt; Bueno &lt; Muy bueno &lt; Premium &lt; Ideal</code></pre>
+<ul>
+<li><p>diamantes$corte</p></li>
+<li><p>diamantes$precio</p></li>
+</ul>
 </div>
 </div>
-<div id="historia-de-dinamica-poblacional-en-orquideas." class="section level2 hasAnchor" number="3.4">
-<h2><span class="header-section-number">3.4</span> Historia de dinamica poblacional en orquideas.<a href="qué-es-el-analisis-de-dinamica-poblacional.html#historia-de-dinamica-poblacional-en-orquideas." class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="referencias" class="section level2 hasAnchor" number="3.5">
-<h2><span class="header-section-number">3.5</span> Referencias<a href="qué-es-el-analisis-de-dinamica-poblacional.html#referencias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ejemplos-de-gráficos" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Ejemplos de Gráficos<a href="flujo-de-trabajo.html#ejemplos-de-gráficos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="flujo-de-trabajo.html#cb40-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb40-2"><a href="flujo-de-trabajo.html#cb40-2" tabindex="-1"></a>Vuelos_SJU_2018_Ene <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Datos/Vuelos_SJU_2018_Ene.csv&quot;</span>)</span></code></pre></div>
+</details>
+<pre><code>## Rows: 3831 Columns: 14
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (8): FL_DATE, OP_UNIQUE_CARRIER, ORIGIN, ORIGIN_CITY_NAME, ORIGIN_STATE_...
+## dbl (6): DEP_TIME, DEP_DELAY, CRS_ARR_TIME, ARR_TIME, ARR_DELAY, CANCELLED
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="flujo-de-trabajo.html#cb42-1" tabindex="-1"></a><span class="fu">head</span>(Vuelos_SJU_2018_Ene)</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 6 × 14
+##   FL_DATE OP_UNIQUE_CARRIER ORIGIN ORIGIN_CITY_NAME ORIGIN_STATE_ABR DEST 
+##   &lt;chr&gt;   &lt;chr&gt;             &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;
+## 1 2/1/18  NK                SJU    San Juan, PR     PR               MCO  
+## 2 2/1/18  AA                MIA    Miami, FL        FL               SJU  
+## 3 2/1/18  AA                SJU    San Juan, PR     PR               DFW  
+## 4 2/1/18  AA                SJU    San Juan, PR     PR               MIA  
+## 5 2/1/18  AA                SJU    San Juan, PR     PR               ORD  
+## 6 2/1/18  AA                MIA    Miami, FL        FL               SJU  
+## # ℹ 8 more variables: DEST_CITY_NAME &lt;chr&gt;, DEST_STATE_ABR &lt;chr&gt;,
+## #   DEP_TIME &lt;dbl&gt;, DEP_DELAY &lt;dbl&gt;, CRS_ARR_TIME &lt;dbl&gt;, ARR_TIME &lt;dbl&gt;,
+## #   ARR_DELAY &lt;dbl&gt;, CANCELLED &lt;dbl&gt;</code></pre>
 
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
-<div id="ref-aide2013deforestation" class="csl-entry">
-Aide, T Mitchell, Matthew L Clark, H Ricardo Grau, David López-Carr, Marc A Levy, Daniel Redo, Martha Bonilla-Moheno, George Riner, Marı́a J Andrade-Núñez, and Marı́a Muñiz. 2013. <span>“Deforestation and Reforestation of l Atin a Merica and the c Aribbean (2001–2010).”</span> <em>Biotropica</em> 45 (2): 262–71.
-</div>
-<div id="ref-crouse1987stage" class="csl-entry">
-Crouse, Deborah T, Larry B Crowder, and Hal Caswell. 1987. <span>“A Stage-Based Population Model for Loggerhead Sea Turtles and Implications for Conservation.”</span> <em>Ecology</em> 68 (5): 1412–23.
-</div>
-<div id="ref-crowder1994predicting" class="csl-entry">
-Crowder, Larry B, Deborah T Crouse, Selina S Heppell, and Thomas H Martin. 1994. <span>“Predicting the Impact of Turtle Excluder Devices on Loggerhead Sea Turtle Populations.”</span> <em>Ecological Applications</em> 4 (3): 437–45.
-</div>
-<div id="ref-harris2022abundance" class="csl-entry">
-Harris, Grant M, Matthew J Butler, David R Stewart, and James W Cain III. 2022. <span>“The Abundance and Persistence of Caprinae Populations.”</span> <em>Scientific Reports</em> 12 (1): 13807.
-</div>
-<div id="ref-nunney1993assessing" class="csl-entry">
-Nunney, Leonard, and Kathleen A Campbell. 1993. <span>“Assessing Minimum Viable Population Size: Demography Meets Population Genetics.”</span> <em>Trends in Ecology &amp; Evolution</em> 8 (7): 234–39.
-</div>
-<div id="ref-pares2008agricultural" class="csl-entry">
-Parés-Ramos, Isabel K, William A Gould, and T Mitchell Aide. 2008. <span>“Agricultural Abandonment, Suburban Growth, and Forest Expansion in Puerto Rico Between 1991 and 2000.”</span> <em>Ecology and Society</em> 13 (2).
-</div>
-<div id="ref-shaffer1985population" class="csl-entry">
-Shaffer, Mark L, and Fred B Samson. 1985. <span>“Population Size and Extinction: A Note on Determining Critical Population Sizes.”</span> <em>The American Naturalist</em> 125 (1): 144–52.
-</div>
-<div id="ref-temple1977plant" class="csl-entry">
-Temple, Stanley A. 1977. <span>“Plant-Animal Mutualism: Coevolution with Dodo Leads to Near Extinction of Plant.”</span> <em>Science</em> 197 (4306): 885–86.
 </div>
 </div>
             </section>
@@ -819,8 +949,8 @@ Temple, Stanley A. 1977. <span>“Plant-Animal Mutualism: Coevolution with Dodo 
           </div>
         </div>
       </div>
-<a href="flujo-de-trabajo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="qué-es-un-diagrama-de-ciclo-de-vida.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="qué-es-el-analisis-de-dinamica-poblacional.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -851,7 +981,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-Intro.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-Flujo_de_Trabajo.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -859,7 +989,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/02-Intro.Rmd",
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/02-Flujo_de_Trabajo.Rmd",
 "text": null
 },
 "download": null,

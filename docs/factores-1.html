@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 ¿Qué es el analisis de dinamica poblacional? | Ciencia de Datos con R</title>
+  <title>Chapter 16 Factores | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 ¿Qué es el analisis de dinamica poblacional? | Ciencia de Datos con R" />
+  <meta property="og:title" content="Chapter 16 Factores | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 ¿Qué es el analisis de dinamica poblacional? | Ciencia de Datos con R" />
+  <meta name="twitter:title" content="Chapter 16 Factores | Ciencia de Datos con R" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="flujo-de-trabajo.html"/>
-<link rel="next" href="qué-es-un-diagrama-de-ciclo-de-vida.html"/>
+<link rel="prev" href="cadena-de-caracteres-strings.html"/>
+<link rel="next" href="fechas-horas-y-minutas.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -614,204 +614,409 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="qué-es-el-analisis-de-dinamica-poblacional" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Chapter 3</span> ¿Qué es el analisis de dinamica poblacional?<a href="qué-es-el-analisis-de-dinamica-poblacional.html#qué-es-el-analisis-de-dinamica-poblacional" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Por: Por RLT, Nhora Ospina, Demetria y Anne …..</p>
-<p>El objetivo de la conservación biológica es asegurar que las especies pueden sobrevivir, reproducirse y dejar progenie viable para de una generación a otra. Por consecuencia se necesita que las variables intrinsicas y extrinsicas, bioticas y abioticas de cada especies estén considerado con todas sus interacciones. Naturalmente aunque el concepto es sencillo, tomar en cuanta TODAS las posibles interacciones biológicas y abióticas es imposible.<br />
-El primer paso a la conservación es considerar el ambiente adecuado para cada especie. Sin duda en los ultimos 50 años en muchos paises ha habido un cambio grande en el repesto y la conservaciones de bosque, pradera, desierto y todos los biomas en general. Por ejemplo el cambio de cobertura de bosque en Puerto Rico ha aumentado de circa de 2-5% en los años 1910 a más 40% en el 2000 <span class="citation">(<a href="#ref-pares2008agricultural">Parés-Ramos, Gould, and Aide 2008</a>)</span>. En general en Latino América ha habido más reforestación de deforestación <span class="citation">(<a href="#ref-aide2013deforestation">Aide et al. 2013</a>)</span> en los ultimos años, aunque varia mucho entre paises y periodo de tiempo. Para la conservación el primer paso era reconocer que los habitat necesitan ser protegido.<br />
-Muchos de estos nuevos hábitat son bosque segundarios, fragmentados y dominado por especies introducidas. Estos habitat por consecuencia son mayormente diferentes al ambiente natural antes de los cambios antropogénicos. El resultado, en muchas ocasiones, es que la especies de interes están reducida en números de individuos o fragmentados. Considerando esos remanentes de individuos en el habitat, son suficiente para mantener una población viable? ¿Como que uno decide que una población es viable?</p>
-<p>En general, el conceptos de conservación es que si uno proteje los habitat las especies estarán conservadas. Pero lo que no es obvio es que la presencia de muchos individuos no es suficiente para asegurar la supervivencia de una especies a largo tiempo. Un ejemplo bien conocida es la extincción del Dodo en la isla de Mauritius y la casi extinción de una especies de arbol en la familia Sapotaceae, <em>Calvaria major</em>. Para que la semillas sean viable necesitan pasar por el tracto digestivo de un pajaro para remover el encocarpo persitente de la semilla que causa “dormancy” en las semillas <span class="citation">(<a href="#ref-temple1977plant">Temple 1977</a>)</span>. Por consecuencia nunca se puede asumir que la presencia de una especies sin tomar en cuenta las interacciones bióticas y abióticas es suficiente para sugerir que no hay riesgo de extincción.</p>
-<div id="qué-es-el-estudio-de-la-dinamica-poblacional" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> ¿Qué es el estudio de la dinamica poblacional?<a href="qué-es-el-analisis-de-dinamica-poblacional.html#qué-es-el-estudio-de-la-dinamica-poblacional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>La dinámica poblacional tiene como meta tomar en cuenta todas las etapas/edades de una especies y evaluar cual de esas etapas/edades tiene impacto sobre la supervivencia de la especies. Esas etapas de vida debería considerar las interaciones con sus ambiente biotico y abiotico. La dinamica de población es fundamental en todas las areas de la ecología y evolución. Comprender la dinamica poblacional es la clave para entender la importancia relativa al aceso de los recursos y el efecto de competencia, herbivoria y depredaciones sobre la viablidad de especies. Tradicionalmente los estudios estaban enfocado a evaluar la tabla de vida para el manejo y conservaciones de especies particulares (ref). En años más recientes los estudios se han diversificado para evaluar la interacciones entre especies y su ambiente (ref).</p>
-</div>
-<div id="definición" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Definición<a href="qué-es-el-analisis-de-dinamica-poblacional.html#definición" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Una definición más especifica de los estudios de dinámica poblacional son definidos como los análisis de los factores que afecten el crecimiento, estabilidad y reducción en el tamaño de la población en una serie de tiempo.</p>
-<p>Por ejemplo, la dinamica poblacional de especies invasivas incluye un periodo de crecimiento muy lento al comienzo de la colonización de un nuevo sitio y frecuentamente siguido de un crecimiento logarithmico. La figura <a href="qué-es-el-analisis-de-dinamica-poblacional.html#fig:Pop-fig">3.1</a>. demuestra el cambio de número de individuos en el tiempo de una especie hipotética.</p>
+<div id="factores-1" class="section level1 hasAnchor" number="16">
+<h1><span class="header-section-number">Chapter 16</span> Factores<a href="factores-1.html#factores-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Fecha de la ultima revisión</p>
+<pre><code>## [1] &quot;2024-09-19&quot;</code></pre>
+<hr />
+<p>El tema proviene de los siguientes sitios. Aunque los ejemplos son distinctos</p>
+<p>English:
+<a href="https://r4ds.had.co.nz/factors.html" class="uri">https://r4ds.had.co.nz/factors.html</a></p>
+<p>Español:
+<a href="https://es.r4ds.hadley.nz/15-factors.html" class="uri">https://es.r4ds.hadley.nz/15-factors.html</a></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-1" tabindex="-1"></a><span class="fu">ggplot</span>(pressure, <span class="fu">aes</span>(temperature, pressure))<span class="sc">+</span></span>
-<span id="cb44-2"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb44-3"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-3" tabindex="-1"></a>  rlt_theme<span class="sc">+</span></span>
-<span id="cb44-4"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Tiempo&quot;</span>)<span class="sc">+</span></span>
-<span id="cb44-5"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Tamaño poblacional&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb768"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb768-1"><a href="factores-1.html#cb768-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb768-2"><a href="factores-1.html#cb768-2" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
+<span id="cb768-3"><a href="factores-1.html#cb768-3" tabindex="-1"></a><span class="fu">library</span>(forcats)</span></code></pre></div>
 </details>
-<div class="figure"><span style="display:block;" id="fig:Pop-fig"></span>
-<img src="Ciencia_Datos_R_files/figure-html/Pop-fig-1.png" alt="Cambio poblacional en tiempo" width="672" />
-<p class="caption">
-Figure 3.1: Cambio poblacional en tiempo
-</p>
-</div>
-</div>
-<div id="el-analisis-de-dinámica-poblacional-y-su-uso" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> El analisis de Dinámica Poblacional y su uso<a href="qué-es-el-analisis-de-dinamica-poblacional.html#el-analisis-de-dinámica-poblacional-y-su-uso" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Determinar el tamaño poblacional en el futuro tiene muchos usos. Se puede dividir sus usos en tres grupos grandes, entender las <strong>1)</strong> interacciones ecológicas, <strong>2)</strong> manejo y conservaciones o <strong>3)</strong> los procesos evolutivos. Los estudios enfocado a la conservación se engloba dentro de un acercamiento de la viablidad de poblaciones. En este libro estaremos dando una introducción a cada uno de estas vertientes, pero nuestros ejemplos son una introducción al tema y no una profundización extensa de cada uno. En la table <a href="qué-es-el-analisis-de-dinamica-poblacional.html#USO">3.3.1</a> vemos algunos de los usos especificos que se ha dado con la metodología de PPM.</p>
-<div id="USO" class="section level3 hasAnchor" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Tabla: El uso potencial de la diferentes acercamiento de PPM.<a href="qué-es-el-analisis-de-dinamica-poblacional.html#USO" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>NOTA IMPORTANTE: <em>Evaluar las referencias y añadir referencias tradicionales y recientes</em></p>
-<table>
-<colgroup>
-<col width="22%" />
-<col width="27%" />
-<col width="22%" />
-<col width="27%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Categoria de Uso</th>
-<th align="left">Uso especifico</th>
-<th align="left">Referencias</th>
-<th align="right">Referencias con Oquideas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Manejo</td>
-<td align="left">Identificar las etapas or procesos demograficos claves</td>
-<td align="left"><span class="citation">(<a href="#ref-crouse1987stage">Crouse, Crowder, and Caswell 1987</a>)</span></td>
-<td align="right">?</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Determinar cuantos individuos en una población es necesario para reducir la extinción</td>
-<td align="left">Shaffer 1981 Armbruster &amp; Lande 1993</td>
-<td align="right">?</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left">Determinar cuantos individuos se necesita introducir en una sitio para establecer una población viable</td>
-<td align="left">Bustamante 1996</td>
-<td align="right">?</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Determinar cuantos individuos se puede extraer si tener un impacto negativo sobre la viabilidad de una población</td>
-<td align="left">Nantel et al. 1996</td>
-<td align="right">?</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left">En especies invasivas determinar cuantos y cual etapas se necesita remover para controlar la población</td>
-<td align="left">?</td>
-<td align="right">?</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Determinar cuantas pobalciones se necesita para la viabilidad de una especie al nivel local o global</td>
-<td align="left">Lindenmayer &amp; Possingham 1996</td>
-<td align="right"></td>
-</tr>
-<tr class="odd">
-<td align="left">Evaluación de riesgos</td>
-<td align="left">Evaluar el riesgo de una población</td>
-<td align="left">Samson 1985</td>
-<td align="right">muchos</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Comparando el riesgo relativo de dos o más poblaciones</td>
-<td align="left">Allendrof et al. 1997</td>
-<td align="right">?</td>
-</tr>
-<tr class="odd">
-<td align="left">Interacciones ecologicas</td>
-<td align="left">Evaluar interacciones ecológicas para entender las variables importantes para la supervivencia de una población</td>
-<td align="left">?</td>
-<td align="right">Ospina et al., 2022</td>
-</tr>
-<tr class="even">
-<td align="left">Procesos y patrones evolutivos</td>
-<td align="left">Cual de los procesos y patrones evolutivos del ciclo de vida de especies impacta su crecimiento</td>
-<td align="left">?</td>
-<td align="right">?</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="uso-1-identificar-las-etapas-or-procesos-demográficos-claves" class="section level3 hasAnchor" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> USO 1: Identificar las etapas or procesos demográficos claves<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-1-identificar-las-etapas-or-procesos-demográficos-claves" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Identificar y conocer cuales son las etapas de vida más suceptibles a cambios abioticos y bioticos y su impacto sobre la persistencia de una población es necesario para el manejo. El ejemplo clásico en la literatura usando PPM son los trabajos sobre la dinámica poblacional de la tortuga “boba” o “cabezona” <em>Caretta caretta</em> <span class="citation">(<a href="#ref-crouse1987stage">Crouse, Crowder, and Caswell 1987</a>)</span>, <span class="citation">(<a href="#ref-crowder1994predicting">Crowder et al. 1994</a>)</span>. Crouse y Crowder demostrarón que aun salvando TODOS los huevos de depredación, esa estrategia de manejo antropogenico iba a tener muy poco impacto en el crecimiento de la población. Lo que econtrarón es que el impacto más grande sobre el crecimiento poblacional provendría de proteger los adultos de las redes de pesca, modificando estas para que las tortugas se pueden escapar y no ahogarse en las redes. Los trabajos de Crouse y Crowder fueron pioneros en demostrar que uno podía simular diferentes escenarios basado en la historia de vida y evaluar su impacto.</p>
-<p>Ejemplo de orquidea AQUI</p>
-</div>
-<div id="uso-2-determinar-cuantos-individuos-en-una-población-es-necesario-para-reducir-la-extinción" class="section level3 hasAnchor" number="3.3.3">
-<h3><span class="header-section-number">3.3.3</span> USO 2: Determinar cuantos individuos en una población es necesario para reducir la extinción<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-2-determinar-cuantos-individuos-en-una-población-es-necesario-para-reducir-la-extinción" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El efecto de tamaño poblacional sobre la biología y la probabilidad de extincción es amplia <span class="citation">(<a href="#ref-shaffer1985population">Shaffer and Samson 1985</a>)</span>, <span class="citation">(<a href="#ref-nunney1993assessing">Nunney and Campbell 1993</a>)</span>, <span class="citation">(<a href="#ref-harris2022abundance">Harris et al. 2022</a>)</span>. ¿Cual es la probablidad de extincción de una población considerando la cantidad de individuos en cada etapa? En general lo que se observa es que menor el tamaño poblacional, N, mayor es el riesgo de extincción. Esa probabilidad de extincción puede variar si algunas etapas del ciclo de vida tiene es muy reducido o su probabilidad de sobrevivir o crecer varia. Consideramos por ejemplo en las orquídeas donde la probabilidad de que las semillas se establece, germina y crezca a a ser un juvenil es muy pequeña. Por consecuencia una nueva población de orquidea necesita considerar la cantidad de individuos que este presente pero tambien la probabilidad de tener semillas y que estas pueden crecer a ser adultos reproducible.</p>
-</div>
-<div id="uso-3-determinar-cuantos-individuos-se-necesita-introducir-en-una-sitio-para-establecer-una-población-viable" class="section level3 hasAnchor" number="3.3.4">
-<h3><span class="header-section-number">3.3.4</span> USO 3: Determinar cuantos individuos se necesita introducir en una sitio para establecer una población viable<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-3-determinar-cuantos-individuos-se-necesita-introducir-en-una-sitio-para-establecer-una-población-viable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Naturalmente, más cantidad de individuos re-introducido en un sitio mayor sera la probabilidad que la población sea viable. Pero, como todo hay un limite de tiempo y esfuerzo disponible. Por consecuencia la pregunta debería ser orientado a determinar cual es el minimo de individuos que se deberia introductir para garantizar un x porciento de suceso en el establecimiento de una nueva población.</p>
-<p>En los ultimos años, muchas organizaciones y cientificos han comenzado a hacer re-introducción de especies en su habitat nativo y no. (ref). Algunos programa introduce especies en areas urbanas.</p>
+<hr />
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb769-1"><a href="factores-1.html#cb769-1" tabindex="-1"></a>month <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;December&quot;</span> ,<span class="st">&quot;January&quot;</span>, <span class="st">&quot;March&quot;</span>, <span class="st">&quot;April&quot;</span>)</span>
+<span id="cb769-2"><a href="factores-1.html#cb769-2" tabindex="-1"></a></span>
+<span id="cb769-3"><a href="factores-1.html#cb769-3" tabindex="-1"></a>month</span></code></pre></div>
+</details>
+<pre><code>## [1] &quot;December&quot; &quot;January&quot;  &quot;March&quot;    &quot;April&quot;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb771-1"><a href="factores-1.html#cb771-1" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb771-2"><a href="factores-1.html#cb771-2" tabindex="-1"></a><span class="fu">str</span>(month)</span></code></pre></div>
+</details>
+<pre><code>##  chr [1:4] &quot;December&quot; &quot;January&quot; &quot;March&quot; &quot;April&quot;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb773-1"><a href="factores-1.html#cb773-1" tabindex="-1"></a><span class="fu">str</span>(x)</span></code></pre></div>
+</details>
+<pre><code>##  int [1:4] 1 2 3 4</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb775"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb775-1"><a href="factores-1.html#cb775-1" tabindex="-1"></a>valores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">10</span>)</span></code></pre></div>
+</details>
+<p>Unir las dos listas</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb776"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb776-1"><a href="factores-1.html#cb776-1" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(month, valores, x))</span>
+<span id="cb776-2"><a href="factores-1.html#cb776-2" tabindex="-1"></a>df</span></code></pre></div>
+</details>
+<pre><code>##      month valores x
+## 1 December       7 1
+## 2  January       3 2
+## 3    March       2 3
+## 4    April      10 4</code></pre>
+<div id="qué-ocurrio-en-el-gráfico" class="section level2 hasAnchor" number="16.1">
+<h2><span class="header-section-number">16.1</span> ¿Qué ocurrio en el gráfico?<a href="factores-1.html#qué-ocurrio-en-el-gráfico" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb778"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb778-1"><a href="factores-1.html#cb778-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb778-2"><a href="factores-1.html#cb778-2" tabindex="-1"></a></span>
+<span id="cb778-3"><a href="factores-1.html#cb778-3" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(month, valores))<span class="sc">+</span></span>
+<span id="cb778-4"><a href="factores-1.html#cb778-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-258-1.png" width="288" /></p>
+<p>Order months in correct order</p>
+<p>use <strong>month.name</strong></p>
+<p>Hay variables ya descrita en R, para facilitar el uso de constantes</p>
 <ul>
-<li>Caladenia</li>
-<li>Korea</li>
-<li>one million orchids project</li>
-<li>????</li>
+<li>LETTERS: Mayuscula</li>
+<li>letters: minuscula</li>
+<li>month.abb: abreviación de meses en Ingles</li>
+<li>month.name: nombre de meses en Ingles</li>
+<li>pi = el valor de pi</li>
 </ul>
+<p>See this website for more details</p>
+<p><a href="https://datacornering.com/how-to-get-the-month-name-from-the-number-in-r/" class="uri">https://datacornering.com/how-to-get-the-month-name-from-the-number-in-r/</a></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb779"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb779-1"><a href="factores-1.html#cb779-1" tabindex="-1"></a>LETTERS</span></code></pre></div>
+</details>
+<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
+## [20] &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb781"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb781-1"><a href="factores-1.html#cb781-1" tabindex="-1"></a>letters</span></code></pre></div>
+</details>
+<pre><code>##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot;
+## [20] &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb783"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb783-1"><a href="factores-1.html#cb783-1" tabindex="-1"></a>month.abb</span></code></pre></div>
+</details>
+<pre><code>##  [1] &quot;Jan&quot; &quot;Feb&quot; &quot;Mar&quot; &quot;Apr&quot; &quot;May&quot; &quot;Jun&quot; &quot;Jul&quot; &quot;Aug&quot; &quot;Sep&quot; &quot;Oct&quot; &quot;Nov&quot; &quot;Dec&quot;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb785"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb785-1"><a href="factores-1.html#cb785-1" tabindex="-1"></a>month.name</span></code></pre></div>
+</details>
+<pre><code>##  [1] &quot;January&quot;   &quot;February&quot;  &quot;March&quot;     &quot;April&quot;     &quot;May&quot;       &quot;June&quot;     
+##  [7] &quot;July&quot;      &quot;August&quot;    &quot;September&quot; &quot;October&quot;   &quot;November&quot;  &quot;December&quot;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb787"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb787-1"><a href="factores-1.html#cb787-1" tabindex="-1"></a>pi</span></code></pre></div>
+</details>
+<pre><code>## [1] 3.141593</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb789"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb789-1"><a href="factores-1.html#cb789-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Months=</span><span class="fu">c</span>(<span class="st">&quot;January&quot;</span>, <span class="st">&quot;February&quot;</span>, <span class="st">&quot;March&quot;</span>, <span class="st">&quot;April&quot;</span>, <span class="st">&quot;May&quot;</span>, <span class="st">&quot;June&quot;</span>, <span class="st">&quot;July&quot;</span>, <span class="st">&quot;August&quot;</span>, <span class="st">&quot;September&quot;</span>, <span class="st">&quot;October&quot;</span>, <span class="st">&quot;November&quot;</span>,<span class="st">&quot;December&quot;</span>),</span>
+<span id="cb789-2"><a href="factores-1.html#cb789-2" tabindex="-1"></a>                <span class="at">Attacks=</span><span class="fu">c</span>(<span class="dv">49</span>, <span class="dv">70</span>, <span class="dv">49</span>, <span class="dv">44</span>, <span class="dv">53</span>, <span class="dv">35</span>, <span class="dv">33</span>, <span class="dv">36</span>, <span class="dv">47</span>, <span class="dv">40</span>, <span class="dv">44</span>, <span class="dv">32</span>))</span>
+<span id="cb789-3"><a href="factores-1.html#cb789-3" tabindex="-1"></a></span>
+<span id="cb789-4"><a href="factores-1.html#cb789-4" tabindex="-1"></a></span>
+<span id="cb789-5"><a href="factores-1.html#cb789-5" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(Months, Attacks))<span class="sc">+</span></span>
+<span id="cb789-6"><a href="factores-1.html#cb789-6" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-260-1.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb790"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb790-1"><a href="factores-1.html#cb790-1" tabindex="-1"></a><span class="do">### validar el supuesto que tengo información escrita correctamente para cada mes de año en el dataframe </span></span>
+<span id="cb790-2"><a href="factores-1.html#cb790-2" tabindex="-1"></a><span class="fu">all</span>(df<span class="sc">$</span>Months <span class="sc">%in%</span> month.name)</span></code></pre></div>
+</details>
+<pre><code>## [1] TRUE</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb792"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb792-1"><a href="factores-1.html#cb792-1" tabindex="-1"></a><span class="do">### convert to a factor, order defined by `month.name`.  </span></span>
+<span id="cb792-2"><a href="factores-1.html#cb792-2" tabindex="-1"></a>df<span class="sc">$</span>Months <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>Months, <span class="at">levels=</span>month.name)</span>
+<span id="cb792-3"><a href="factores-1.html#cb792-3" tabindex="-1"></a></span>
+<span id="cb792-4"><a href="factores-1.html#cb792-4" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>df, <span class="fu">aes</span>(<span class="at">x=</span>Months, <span class="at">y=</span>Attacks)) <span class="sc">+</span></span>
+<span id="cb792-5"><a href="factores-1.html#cb792-5" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-260-2.png" width="672" /></p>
+<div id="usando-la-funciones-factor-y-levels-estamos-asignando-los-factores-a-un-nivel-específico-en-el-orden-de-la-lista" class="section level3 hasAnchor" number="16.1.1">
+<h3><span class="header-section-number">16.1.1</span> Usando la funciones factor y levels, estamos asignando los factores a un nivel específico en el orden de la lista<a href="factores-1.html#usando-la-funciones-factor-y-levels-estamos-asignando-los-factores-a-un-nivel-específico-en-el-orden-de-la-lista" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="uso-4-determinar-cuantos-individuos-se-puede-extraer-sin-tener-un-impacto-negativo-sobre-la-viabilidad-de-una-población" class="section level3 hasAnchor" number="3.3.5">
-<h3><span class="header-section-number">3.3.5</span> USO 4: Determinar cuantos individuos se puede extraer sin tener un impacto negativo sobre la viabilidad de una población<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-4-determinar-cuantos-individuos-se-puede-extraer-sin-tener-un-impacto-negativo-sobre-la-viabilidad-de-una-población" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Hay tres razones principales para la extracción de individuos de su ambiente natural.</p>
+<div id="parse_factor-is-similar-a-factor-but-generates-a-warning-if-levels-have-been-specified-and-some-elements-of-x-are-not-found-in-those-levels." class="section level3 hasAnchor" number="16.1.2">
+<h3><span class="header-section-number">16.1.2</span> parse_factor() is similar a factor(), but generates a warning if levels have been specified and some elements of x are not found in those levels.<a href="factores-1.html#parse_factor-is-similar-a-factor-but-generates-a-warning-if-levels-have-been-specified-and-some-elements-of-x-are-not-found-in-those-levels." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb793"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb793-1"><a href="factores-1.html#cb793-1" tabindex="-1"></a>x1<span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Dic&quot;</span>, <span class="st">&quot;Ene&quot;</span>, <span class="st">&quot;Mar&quot;</span>, <span class="st">&quot;Dii&quot;</span>) <span class="co"># Nota que esta lista tengo un mes que se llama &quot;Dii&quot;</span></span>
+<span id="cb793-2"><a href="factores-1.html#cb793-2" tabindex="-1"></a></span>
+<span id="cb793-3"><a href="factores-1.html#cb793-3" tabindex="-1"></a>niveles_meses<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Ene&quot;</span>, <span class="st">&quot;Mar&quot;</span>, <span class="st">&quot;Dic&quot;</span>)</span>
+<span id="cb793-4"><a href="factores-1.html#cb793-4" tabindex="-1"></a></span>
+<span id="cb793-5"><a href="factores-1.html#cb793-5" tabindex="-1"></a>y1 <span class="ot">&lt;-</span><span class="fu">factor</span>(x1, <span class="at">levels =</span> niveles_meses)</span>
+<span id="cb793-6"><a href="factores-1.html#cb793-6" tabindex="-1"></a>y1</span></code></pre></div>
+</details>
+<pre><code>## [1] Dic  Ene  Mar  &lt;NA&gt;
+## Levels: Ene Mar Dic</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb795"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb795-1"><a href="factores-1.html#cb795-1" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">parse_factor</span>(x1, <span class="at">levels =</span> niveles_meses)</span></code></pre></div>
+</details>
+<pre><code>## Warning: 1 parsing failure.
+## row col           expected actual
+##   4  -- value in level set    Dii</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb797"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb797-1"><a href="factores-1.html#cb797-1" tabindex="-1"></a>y1</span></code></pre></div>
+</details>
+<pre><code>## [1] Dic  Ene  Mar  &lt;NA&gt;
+## attr(,&quot;problems&quot;)
+## # A tibble: 1 × 4
+##     row   col expected           actual
+##   &lt;int&gt; &lt;int&gt; &lt;chr&gt;              &lt;chr&gt; 
+## 1     4    NA value in level set Dii   
+## Levels: Ene Mar Dic</code></pre>
+<p>Si quiere que los valores aparezca en el orden que aparecen en la base de datos use <strong>unique(variable)</strong></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb799"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb799-1"><a href="factores-1.html#cb799-1" tabindex="-1"></a>df_est<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">Nombre_est=</span><span class="fu">c</span>(<span class="st">&quot;Monica&quot;</span>, <span class="st">&quot;Isabela&quot;</span>, <span class="st">&quot;Juan&quot;</span>, <span class="st">&quot;Robo&quot;</span>, <span class="st">&quot;Pepito&quot;</span>),</span>
+<span id="cb799-2"><a href="factores-1.html#cb799-2" tabindex="-1"></a>                  <span class="at">Nota_Final=</span><span class="fu">c</span>(<span class="dv">99</span>, <span class="dv">27</span>, <span class="dv">89</span>, <span class="dv">91</span>, <span class="dv">27</span>))</span>
+<span id="cb799-3"><a href="factores-1.html#cb799-3" tabindex="-1"></a></span>
+<span id="cb799-4"><a href="factores-1.html#cb799-4" tabindex="-1"></a>df_est</span></code></pre></div>
+</details>
+<pre><code>##   Nombre_est Nota_Final
+## 1     Monica         99
+## 2    Isabela         27
+## 3       Juan         89
+## 4       Robo         91
+## 5     Pepito         27</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb801"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb801-1"><a href="factores-1.html#cb801-1" tabindex="-1"></a><span class="fu">ggplot</span>(df_est, <span class="fu">aes</span>(Nombre_est, Nota_Final))<span class="sc">+</span></span>
+<span id="cb801-2"><a href="factores-1.html#cb801-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-262-1.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb802"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb802-1"><a href="factores-1.html#cb802-1" tabindex="-1"></a>df_est<span class="sc">$</span>fct1<span class="ot">=</span><span class="fu">factor</span>(df_est<span class="sc">$</span>Nombre_est, <span class="at">levels =</span> <span class="fu">unique</span>(df_est<span class="sc">$</span>Nombre_est))</span>
+<span id="cb802-2"><a href="factores-1.html#cb802-2" tabindex="-1"></a></span>
+<span id="cb802-3"><a href="factores-1.html#cb802-3" tabindex="-1"></a><span class="fu">ggplot</span>(df_est, <span class="fu">aes</span>(fct1, Nota_Final))<span class="sc">+</span></span>
+<span id="cb802-4"><a href="factores-1.html#cb802-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-262-2.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb803-1"><a href="factores-1.html#cb803-1" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> x1 <span class="sc">%&gt;%</span> <span class="fu">factor</span>() <span class="sc">%&gt;%</span> <span class="fu">fct_inorder</span>()</span>
+<span id="cb803-2"><a href="factores-1.html#cb803-2" tabindex="-1"></a>f2</span></code></pre></div>
+</details>
+<pre><code>## [1] Dic Ene Mar Dii
+## Levels: Dic Ene Mar Dii</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb805-1"><a href="factores-1.html#cb805-1" tabindex="-1"></a><span class="fu">levels</span>(f2)</span></code></pre></div>
+</details>
+<pre><code>## [1] &quot;Dic&quot; &quot;Ene&quot; &quot;Mar&quot; &quot;Dii&quot;</code></pre>
+</div>
+</div>
+<div id="temas-4" class="section level2 hasAnchor" number="16.2">
+<h2><span class="header-section-number">16.2</span> Temas:<a href="factores-1.html#temas-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>library(forcats)</p></li>
+<li><p>sort()</p></li>
+<li><p>factor()</p></li>
+<li><p>parse_factor()</p></li>
+<li><p>unique()</p></li>
+<li><p>fact_inorder()</p></li>
+<li><p>levels()</p></li>
+</ul>
+<div id="datos-encuesta-social-general" class="section level3 hasAnchor" number="16.2.1">
+<h3><span class="header-section-number">16.2.1</span> Datos : Encuesta Social General<a href="factores-1.html#datos-encuesta-social-general" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>count()</li>
+</ul>
 <ol style="list-style-type: decimal">
-<li>Obtener individuos para la conservación <em>Ex Situ</em>.</li>
-<li>Usar un grupo de individuos para su propagación.</li>
-<li>Extraccíon para la venta sin objetivo de conservación.</li>
+<li><strong>Ejercicios</strong>:</li>
 </ol>
-<p>El supuesto de colectores de orquidea de su habitat naturales, tanto para la conservación de <em>Ex situ</em> y el uso para la propagación es que el impacto es minimo, y no tendrá impacto a largo plazo para la supervivencia. Regresaremos sobre este punto más tarde. La historia de fanatisismo de recolección de orquideas para la venta es bien conocida ref(). Aun que uno quisiera pensar que estas extracciones son del pasado y no occuren hoy en dia, hay todavia escrupulos que extraen los plantas sin pensar al impacto que tendrá sobre la población o especie.</p>
-<p>Pero la pregunta se tiene que hacer. Cuantos individuos y de que etapas se puede extraer de la población sin tener impacto en el crecimoento poblacional?</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb807"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb807-1"><a href="factores-1.html#cb807-1" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
+<span id="cb807-2"><a href="factores-1.html#cb807-2" tabindex="-1"></a>encuesta</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 21,483 × 9
+##     anio estado_civil  edad raza  ingreso partido religion denominacion horas_tv
+##    &lt;int&gt; &lt;fct&gt;        &lt;int&gt; &lt;fct&gt; &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;    &lt;fct&gt;           &lt;int&gt;
+##  1  2000 Nunca se ha…    26 Blan… 8000 -… Ind, p… Protest… Bautistas d…       12
+##  2  2000 Divorciado      48 Blan… 8000 -… No fue… Protest… Bautista, n…       NA
+##  3  2000 Viudo           67 Blan… No apl… Indepe… Protest… No denomina…        2
+##  4  2000 Nunca se ha…    39 Blan… No apl… Ind, p… Cristia… No aplica           4
+##  5  2000 Divorciado      25 Blan… No apl… No fue… Ninguna  No aplica           1
+##  6  2000 Casado          25 Blan… 20000 … Fuerte… Protest… Bautistas d…       NA
+##  7  2000 Nunca se ha…    36 Blan… 25000 … No fue… Cristia… No aplica           3
+##  8  2000 Divorciado      44 Blan… 7000 -… Ind, p… Protest… Sínodo lute…       NA
+##  9  2000 Casado          44 Blan… 25000 … No fue… Protest… Otra                0
+## 10  2000 Casado          47 Blan… 25000 … Fuerte… Protest… Bautistas d…        3
+## # ℹ 21,473 more rows</code></pre>
+<p>Contabilizar la cantidad de persona por “estado civil”</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb809"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb809-1"><a href="factores-1.html#cb809-1" tabindex="-1"></a>df<span class="ot">=</span>encuesta <span class="sc">%&gt;%</span> </span>
+<span id="cb809-2"><a href="factores-1.html#cb809-2" tabindex="-1"></a>   <span class="fu">count</span>(estado_civil)</span>
+<span id="cb809-3"><a href="factores-1.html#cb809-3" tabindex="-1"></a>df</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 6 × 2
+##   estado_civil           n
+##   &lt;fct&gt;              &lt;int&gt;
+## 1 Sin respuesta         17
+## 2 Nunca se ha casado  5416
+## 3 Separado             743
+## 4 Divorciado          3383
+## 5 Viudo               1807
+## 6 Casado             10117</code></pre>
+<p>knitr</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb811-1"><a href="factores-1.html#cb811-1" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>estado_civil)</span></code></pre></div>
+</details>
+<pre><code>## [1] Sin respuesta      Nunca se ha casado Separado           Divorciado        
+## [5] Viudo              Casado            
+## 6 Levels: Sin respuesta Nunca se ha casado Separado Divorciado ... Casado</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb813"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb813-1"><a href="factores-1.html#cb813-1" tabindex="-1"></a>df<span class="sc">$</span>estado_est_civil <span class="ot">&lt;-</span><span class="fu">factor</span>(df<span class="sc">$</span>estado_civil, <span class="at">levels =</span> df<span class="sc">$</span>estado_civil)</span>
+<span id="cb813-2"><a href="factores-1.html#cb813-2" tabindex="-1"></a></span>
+<span id="cb813-3"><a href="factores-1.html#cb813-3" tabindex="-1"></a>df<span class="sc">$</span>niveles_est_civil <span class="ot">&lt;-</span> <span class="fu">fct_reorder</span>(df<span class="sc">$</span>estado_civil, df<span class="sc">$</span>n )</span>
+<span id="cb813-4"><a href="factores-1.html#cb813-4" tabindex="-1"></a></span>
+<span id="cb813-5"><a href="factores-1.html#cb813-5" tabindex="-1"></a>df</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 6 × 4
+##   estado_civil           n estado_est_civil   niveles_est_civil 
+##   &lt;fct&gt;              &lt;int&gt; &lt;fct&gt;              &lt;fct&gt;             
+## 1 Sin respuesta         17 Sin respuesta      Sin respuesta     
+## 2 Nunca se ha casado  5416 Nunca se ha casado Nunca se ha casado
+## 3 Separado             743 Separado           Separado          
+## 4 Divorciado          3383 Divorciado         Divorciado        
+## 5 Viudo               1807 Viudo              Viudo             
+## 6 Casado             10117 Casado             Casado</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb815"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb815-1"><a href="factores-1.html#cb815-1" tabindex="-1"></a><span class="fu">ggplot</span>(df, </span>
+<span id="cb815-2"><a href="factores-1.html#cb815-2" tabindex="-1"></a>       <span class="fu">aes</span>(estado_civil,n )) <span class="sc">+</span></span>
+<span id="cb815-3"><a href="factores-1.html#cb815-3" tabindex="-1"></a>       <span class="fu">geom_col</span>()</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-267-1.png" width="960" /></p>
 </div>
-<div id="uso-5-en-especies-invasivas-determinar-cuantos-y-cual-etapas-se-necesita-remover-para-controlar-la-población." class="section level3 hasAnchor" number="3.3.6">
-<h3><span class="header-section-number">3.3.6</span> USO 5: En especies invasivas determinar cuantos y cual etapas se necesita remover para controlar la población.<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-5-en-especies-invasivas-determinar-cuantos-y-cual-etapas-se-necesita-remover-para-controlar-la-población." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="uso-6-evaluar-el-riesgo-de-una-población" class="section level3 hasAnchor" number="3.3.7">
-<h3><span class="header-section-number">3.3.7</span> USO 6: Evaluar el riesgo de una población<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-6-evaluar-el-riesgo-de-una-población" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="a-smaller-figure-to-the-right-with-floating-text" class="section level2 hasAnchor" number="16.3">
+<h2><span class="header-section-number">16.3</span> A smaller figure to the right, with floating text<a href="factores-1.html#a-smaller-figure-to-the-right-with-floating-text" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-268-1.png" width="50%" style="float:right; padding:10px" /></p>
+<p>LOTS of text here to wrap around the figure. dfghjlkjhgdgxchvbvcxcvbnnbvvbvbbvcvxcv. fgffhgcvbcvbhbvvbvcvbnv bcbnbbnmmbnmnb vbcbnbvvnbbb vbb v b b cgjhkggbcv</p>
+<p><br></p>
 </div>
-<div id="uso-7-determinar-cuantas-poblaciones-se-necesita-para-la-viabilidad-de-una-especie-al-nivel-local-o-global" class="section level3 hasAnchor" number="3.3.8">
-<h3><span class="header-section-number">3.3.8</span> USO 7: Determinar cuantas poblaciones se necesita para la viabilidad de una especie al nivel local o global<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-7-determinar-cuantas-poblaciones-se-necesita-para-la-viabilidad-de-una-especie-al-nivel-local-o-global" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Dinamica de metapoblaciones.</p>
+<div id="haga-un-re-order-por-la-cantidad-de-personas-por-religion" class="section level2 hasAnchor" number="16.4">
+<h2><span class="header-section-number">16.4</span> Haga un re-order por la cantidad de personas por religion<a href="factores-1.html#haga-un-re-order-por-la-cantidad-de-personas-por-religion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb816"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb816-1"><a href="factores-1.html#cb816-1" tabindex="-1"></a>df2<span class="ot">=</span>encuesta <span class="sc">%&gt;%</span> </span>
+<span id="cb816-2"><a href="factores-1.html#cb816-2" tabindex="-1"></a>   <span class="fu">count</span>(religion)</span>
+<span id="cb816-3"><a href="factores-1.html#cb816-3" tabindex="-1"></a></span>
+<span id="cb816-4"><a href="factores-1.html#cb816-4" tabindex="-1"></a>df2 <span class="sc">%&gt;%</span></span>
+<span id="cb816-5"><a href="factores-1.html#cb816-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">religion =</span> <span class="fu">fct_reorder</span>(religion, n)) <span class="sc">%&gt;%</span></span>
+<span id="cb816-6"><a href="factores-1.html#cb816-6" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> religion, <span class="at">y =</span> n)) <span class="sc">+</span> </span>
+<span id="cb816-7"><a href="factores-1.html#cb816-7" tabindex="-1"></a>  <span class="fu">geom_col</span>()<span class="sc">+</span></span>
+<span id="cb816-8"><a href="factores-1.html#cb816-8" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-269-1.png" width="672" /></p>
+<p>Hacer los ejercicios en la sección 15.3.1 del libro en español</p>
+<hr />
 </div>
-<div id="uso-8-comparando-el-riesgo-relativo-de-dos-o-más-poblaciones" class="section level3 hasAnchor" number="3.3.9">
-<h3><span class="header-section-number">3.3.9</span> USO 8: Comparando el riesgo relativo de dos o más poblaciones<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-8-comparando-el-riesgo-relativo-de-dos-o-más-poblaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="uso-9-evaluar-interacciones-ecológicas-para-entender-las-variables-importantes-para-la-supervivencia-de-una-población" class="section level3 hasAnchor" number="3.3.10">
-<h3><span class="header-section-number">3.3.10</span> USO 9: Evaluar interacciones ecológicas para entender las variables importantes para la supervivencia de una población<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-9-evaluar-interacciones-ecológicas-para-entender-las-variables-importantes-para-la-supervivencia-de-una-población" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="uso-10-cual-de-los-procesos-y-patrones-evolutivos-del-ciclo-de-vida-de-especies-impacta-su-crecimiento" class="section level3 hasAnchor" number="3.3.11">
-<h3><span class="header-section-number">3.3.11</span> USO 10: Cual de los procesos y patrones evolutivos del ciclo de vida de especies impacta su crecimiento<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-10-cual-de-los-procesos-y-patrones-evolutivos-del-ciclo-de-vida-de-especies-impacta-su-crecimiento" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-</div>
-<div id="historia-de-dinamica-poblacional-en-orquideas." class="section level2 hasAnchor" number="3.4">
-<h2><span class="header-section-number">3.4</span> Historia de dinamica poblacional en orquideas.<a href="qué-es-el-analisis-de-dinamica-poblacional.html#historia-de-dinamica-poblacional-en-orquideas." class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="referencias" class="section level2 hasAnchor" number="3.5">
-<h2><span class="header-section-number">3.5</span> Referencias<a href="qué-es-el-analisis-de-dinamica-poblacional.html#referencias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="modificar-el-orden-de-los-factores" class="section level2 hasAnchor" number="16.5">
+<h2><span class="header-section-number">16.5</span> Modificar el orden de los factores<a href="factores-1.html#modificar-el-orden-de-los-factores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>fct_reorder()</li>
+<li>!is.na( ) remover los “NA”</li>
+<li>fct_infreq()</li>
+<li>fct_rev()</li>
+<li>fct_recode()</li>
+<li>fct_collapse()</li>
+<li>fct_lump()</li>
+</ul>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb817-1"><a href="factores-1.html#cb817-1" tabindex="-1"></a><span class="co">#model=lm(y~x, df)</span></span>
+<span id="cb817-2"><a href="factores-1.html#cb817-2" tabindex="-1"></a><span class="co">#summary(model)</span></span>
+<span id="cb817-3"><a href="factores-1.html#cb817-3" tabindex="-1"></a></span>
+<span id="cb817-4"><a href="factores-1.html#cb817-4" tabindex="-1"></a></span>
+<span id="cb817-5"><a href="factores-1.html#cb817-5" tabindex="-1"></a>resumen_religion <span class="ot">&lt;-</span> encuesta <span class="sc">%&gt;%</span></span>
+<span id="cb817-6"><a href="factores-1.html#cb817-6" tabindex="-1"></a>  <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
+<span id="cb817-7"><a href="factores-1.html#cb817-7" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb817-8"><a href="factores-1.html#cb817-8" tabindex="-1"></a>    <span class="at">edad =</span> <span class="fu">mean</span>(edad, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb817-9"><a href="factores-1.html#cb817-9" tabindex="-1"></a>    <span class="at">horas_tv =</span> <span class="fu">mean</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb817-10"><a href="factores-1.html#cb817-10" tabindex="-1"></a>    <span class="at">sd_edad =</span>  <span class="fu">min</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb817-11"><a href="factores-1.html#cb817-11" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb817-12"><a href="factores-1.html#cb817-12" tabindex="-1"></a>  )</span>
+<span id="cb817-13"><a href="factores-1.html#cb817-13" tabindex="-1"></a>resumen_religion</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 15 × 5
+##    religion                edad horas_tv sd_edad     n
+##    &lt;fct&gt;                  &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;
+##  1 Sin respuesta           49.5     2.72    2.72    93
+##  2 No sabe                 35.9     4.62    4.62    15
+##  3 Inter o no confesional  40.0     2.87    2.87   109
+##  4 Nativa americana        38.9     3.46    3.46    23
+##  5 Cristiana               40.1     2.79    2.79   689
+##  6 Cristiana ortodoxa      50.4     2.42    2.42    95
+##  7 Musulmana/Islam         37.6     2.44    2.44   104
+##  8 Otra religión oriental  45.9     1.67    1.67    32
+##  9 Hinduismo               37.7     1.89    1.89    71
+## 10 Budismo                 44.7     2.38    2.38   147
+## 11 Otra                    41.0     2.73    2.73   224
+## 12 Ninguna                 41.2     2.71    2.71  3523
+## 13 Judía                   52.4     2.52    2.52   388
+## 14 Católica                46.9     2.96    2.96  5124
+## 15 Protestante             49.9     3.15    3.15 10846</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb819-1"><a href="factores-1.html#cb819-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_religion, <span class="fu">aes</span>(edad, religion)) <span class="sc">+</span> </span>
+<span id="cb819-2"><a href="factores-1.html#cb819-2" tabindex="-1"></a>   <span class="fu">geom_point</span>()</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-270-1.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb820"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb820-1"><a href="factores-1.html#cb820-1" tabindex="-1"></a><span class="fu">min</span>(encuesta<span class="sc">$</span>horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+</details>
+<pre><code>## [1] 0</code></pre>
+<div id="nota-el-efecto-de-añadir-un---antes-de-edad" class="section level3 hasAnchor" number="16.5.1">
+<h3><span class="header-section-number">16.5.1</span> Nota el efecto de añadir un “-” antes de <strong>edad</strong><a href="factores-1.html#nota-el-efecto-de-añadir-un---antes-de-edad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb822"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb822-1"><a href="factores-1.html#cb822-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_religion, <span class="fu">aes</span>(edad, <span class="fu">fct_reorder</span>(religion, <span class="sc">-</span>edad))) <span class="sc">+</span></span>
+<span id="cb822-2"><a href="factores-1.html#cb822-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-271-1.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb823-1"><a href="factores-1.html#cb823-1" tabindex="-1"></a>resumen_religion <span class="sc">%&gt;%</span></span>
+<span id="cb823-2"><a href="factores-1.html#cb823-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">religion =</span> <span class="fu">fct_reorder</span>(religion, horas_tv)) <span class="sc">%&gt;%</span></span>
+<span id="cb823-3"><a href="factores-1.html#cb823-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(horas_tv, religion)) <span class="sc">+</span></span>
+<span id="cb823-4"><a href="factores-1.html#cb823-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-272-1.png" width="672" /></p>
+<p>Reorder factor levels by sorting along another variable
+Description
+fct_reorder() is useful for 1d displays where the factor is mapped to position; fct_reorder2() for 2d displays where the factor is mapped to a non-position aesthetic. last2() and first2() are helpers for fct_reorder2(); last2() finds the last value of y when sorted by x; first2() finds the first value.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb824"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb824-1"><a href="factores-1.html#cb824-1" tabindex="-1"></a>resumen_ingreso <span class="ot">&lt;-</span> encuesta <span class="sc">%&gt;%</span></span>
+<span id="cb824-2"><a href="factores-1.html#cb824-2" tabindex="-1"></a>  <span class="fu">group_by</span>(ingreso) <span class="sc">%&gt;%</span></span>
+<span id="cb824-3"><a href="factores-1.html#cb824-3" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb824-4"><a href="factores-1.html#cb824-4" tabindex="-1"></a>    <span class="at">edad =</span> <span class="fu">mean</span>(edad, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb824-5"><a href="factores-1.html#cb824-5" tabindex="-1"></a>    <span class="at">horas_tv =</span> <span class="fu">mean</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb824-6"><a href="factores-1.html#cb824-6" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb824-7"><a href="factores-1.html#cb824-7" tabindex="-1"></a>  )</span>
+<span id="cb824-8"><a href="factores-1.html#cb824-8" tabindex="-1"></a></span>
+<span id="cb824-9"><a href="factores-1.html#cb824-9" tabindex="-1"></a>resumen_ingreso</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 16 × 4
+##    ingreso               edad horas_tv     n
+##    &lt;fct&gt;                &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt;
+##  1 Sin respuesta         45.5     2.90   183
+##  2 No sabe               45.6     3.41   267
+##  3 Se niega a responder  47.6     2.48   975
+##  4 25000 o más           44.2     2.23  7363
+##  5 20000 - 24999         41.5     2.78  1283
+##  6 15000 - 19999         40.0     2.91  1048
+##  7 10000 - 14999         41.1     3.02  1168
+##  8 8000 - 9999           41.1     3.15   340
+##  9 7000 - 7999           38.2     2.65   188
+## 10 6000 - 6999           40.3     3.17   215
+## 11 5000 - 5999           37.8     3.16   227
+## 12 4000 - 4999           38.9     3.15   226
+## 13 3000 - 3999           37.8     3.31   276
+## 14 1000 - 2999           34.5     3.00   395
+## 15 Menos de 1000         40.5     3.36   286
+## 16 No aplica             56.1     3.79  7043</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb826"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb826-1"><a href="factores-1.html#cb826-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_ingreso, <span class="fu">aes</span>(horas_tv, <span class="fu">fct_reorder</span>(ingreso, horas_tv))) <span class="sc">+</span></span>
+<span id="cb826-2"><a href="factores-1.html#cb826-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-273-1.png" width="672" /></p>
+<p>Reorder factor levels by hand
+Description
+This is a generalisation of stats::relevel() that allows you to move any number of levels to any location.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb827"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb827-1"><a href="factores-1.html#cb827-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_ingreso, <span class="fu">aes</span>(edad, <span class="fu">fct_relevel</span>(ingreso, <span class="st">&quot;No aplica&quot;</span>))) <span class="sc">+</span></span>
+<span id="cb827-2"><a href="factores-1.html#cb827-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-274-1.png" width="672" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Ejercicios</strong>:</li>
+</ol>
+<p>Hacer los ejercicios en la sección 15.5.1 del libro en español</p>
+<hr />
 
 </div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
-<div id="ref-aide2013deforestation" class="csl-entry">
-Aide, T Mitchell, Matthew L Clark, H Ricardo Grau, David López-Carr, Marc A Levy, Daniel Redo, Martha Bonilla-Moheno, George Riner, Marı́a J Andrade-Núñez, and Marı́a Muñiz. 2013. <span>“Deforestation and Reforestation of l Atin a Merica and the c Aribbean (2001–2010).”</span> <em>Biotropica</em> 45 (2): 262–71.
-</div>
-<div id="ref-crouse1987stage" class="csl-entry">
-Crouse, Deborah T, Larry B Crowder, and Hal Caswell. 1987. <span>“A Stage-Based Population Model for Loggerhead Sea Turtles and Implications for Conservation.”</span> <em>Ecology</em> 68 (5): 1412–23.
-</div>
-<div id="ref-crowder1994predicting" class="csl-entry">
-Crowder, Larry B, Deborah T Crouse, Selina S Heppell, and Thomas H Martin. 1994. <span>“Predicting the Impact of Turtle Excluder Devices on Loggerhead Sea Turtle Populations.”</span> <em>Ecological Applications</em> 4 (3): 437–45.
-</div>
-<div id="ref-harris2022abundance" class="csl-entry">
-Harris, Grant M, Matthew J Butler, David R Stewart, and James W Cain III. 2022. <span>“The Abundance and Persistence of Caprinae Populations.”</span> <em>Scientific Reports</em> 12 (1): 13807.
-</div>
-<div id="ref-nunney1993assessing" class="csl-entry">
-Nunney, Leonard, and Kathleen A Campbell. 1993. <span>“Assessing Minimum Viable Population Size: Demography Meets Population Genetics.”</span> <em>Trends in Ecology &amp; Evolution</em> 8 (7): 234–39.
-</div>
-<div id="ref-pares2008agricultural" class="csl-entry">
-Parés-Ramos, Isabel K, William A Gould, and T Mitchell Aide. 2008. <span>“Agricultural Abandonment, Suburban Growth, and Forest Expansion in Puerto Rico Between 1991 and 2000.”</span> <em>Ecology and Society</em> 13 (2).
-</div>
-<div id="ref-shaffer1985population" class="csl-entry">
-Shaffer, Mark L, and Fred B Samson. 1985. <span>“Population Size and Extinction: A Note on Determining Critical Population Sizes.”</span> <em>The American Naturalist</em> 125 (1): 144–52.
-</div>
-<div id="ref-temple1977plant" class="csl-entry">
-Temple, Stanley A. 1977. <span>“Plant-Animal Mutualism: Coevolution with Dodo Leads to Near Extinction of Plant.”</span> <em>Science</em> 197 (4306): 885–86.
 </div>
 </div>
             </section>
@@ -819,8 +1024,8 @@ Temple, Stanley A. 1977. <span>“Plant-Animal Mutualism: Coevolution with Dodo 
           </div>
         </div>
       </div>
-<a href="flujo-de-trabajo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="qué-es-un-diagrama-de-ciclo-de-vida.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="cadena-de-caracteres-strings.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="fechas-horas-y-minutas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -851,7 +1056,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-Intro.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/14-Factores.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -859,7 +1064,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/02-Intro.Rmd",
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/14-Factores.Rmd",
 "text": null
 },
 "download": null,

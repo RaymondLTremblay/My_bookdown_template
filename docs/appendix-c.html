@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 ¿Qué es el analisis de dinamica poblacional? | Ciencia de Datos con R</title>
+  <title>B Appendix C | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 ¿Qué es el analisis de dinamica poblacional? | Ciencia de Datos con R" />
+  <meta property="og:title" content="B Appendix C | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 ¿Qué es el analisis de dinamica poblacional? | Ciencia de Datos con R" />
+  <meta name="twitter:title" content="B Appendix C | Ciencia de Datos con R" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="flujo-de-trabajo.html"/>
-<link rel="next" href="qué-es-un-diagrama-de-ciclo-de-vida.html"/>
+<link rel="prev" href="appendix-a.html"/>
+<link rel="next" href="appendix-b.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -614,204 +614,247 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="qué-es-el-analisis-de-dinamica-poblacional" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Chapter 3</span> ¿Qué es el analisis de dinamica poblacional?<a href="qué-es-el-analisis-de-dinamica-poblacional.html#qué-es-el-analisis-de-dinamica-poblacional" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Por: Por RLT, Nhora Ospina, Demetria y Anne …..</p>
-<p>El objetivo de la conservación biológica es asegurar que las especies pueden sobrevivir, reproducirse y dejar progenie viable para de una generación a otra. Por consecuencia se necesita que las variables intrinsicas y extrinsicas, bioticas y abioticas de cada especies estén considerado con todas sus interacciones. Naturalmente aunque el concepto es sencillo, tomar en cuanta TODAS las posibles interacciones biológicas y abióticas es imposible.<br />
-El primer paso a la conservación es considerar el ambiente adecuado para cada especie. Sin duda en los ultimos 50 años en muchos paises ha habido un cambio grande en el repesto y la conservaciones de bosque, pradera, desierto y todos los biomas en general. Por ejemplo el cambio de cobertura de bosque en Puerto Rico ha aumentado de circa de 2-5% en los años 1910 a más 40% en el 2000 <span class="citation">(<a href="#ref-pares2008agricultural">Parés-Ramos, Gould, and Aide 2008</a>)</span>. En general en Latino América ha habido más reforestación de deforestación <span class="citation">(<a href="#ref-aide2013deforestation">Aide et al. 2013</a>)</span> en los ultimos años, aunque varia mucho entre paises y periodo de tiempo. Para la conservación el primer paso era reconocer que los habitat necesitan ser protegido.<br />
-Muchos de estos nuevos hábitat son bosque segundarios, fragmentados y dominado por especies introducidas. Estos habitat por consecuencia son mayormente diferentes al ambiente natural antes de los cambios antropogénicos. El resultado, en muchas ocasiones, es que la especies de interes están reducida en números de individuos o fragmentados. Considerando esos remanentes de individuos en el habitat, son suficiente para mantener una población viable? ¿Como que uno decide que una población es viable?</p>
-<p>En general, el conceptos de conservación es que si uno proteje los habitat las especies estarán conservadas. Pero lo que no es obvio es que la presencia de muchos individuos no es suficiente para asegurar la supervivencia de una especies a largo tiempo. Un ejemplo bien conocida es la extincción del Dodo en la isla de Mauritius y la casi extinción de una especies de arbol en la familia Sapotaceae, <em>Calvaria major</em>. Para que la semillas sean viable necesitan pasar por el tracto digestivo de un pajaro para remover el encocarpo persitente de la semilla que causa “dormancy” en las semillas <span class="citation">(<a href="#ref-temple1977plant">Temple 1977</a>)</span>. Por consecuencia nunca se puede asumir que la presencia de una especies sin tomar en cuenta las interacciones bióticas y abióticas es suficiente para sugerir que no hay riesgo de extincción.</p>
-<div id="qué-es-el-estudio-de-la-dinamica-poblacional" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> ¿Qué es el estudio de la dinamica poblacional?<a href="qué-es-el-analisis-de-dinamica-poblacional.html#qué-es-el-estudio-de-la-dinamica-poblacional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>La dinámica poblacional tiene como meta tomar en cuenta todas las etapas/edades de una especies y evaluar cual de esas etapas/edades tiene impacto sobre la supervivencia de la especies. Esas etapas de vida debería considerar las interaciones con sus ambiente biotico y abiotico. La dinamica de población es fundamental en todas las areas de la ecología y evolución. Comprender la dinamica poblacional es la clave para entender la importancia relativa al aceso de los recursos y el efecto de competencia, herbivoria y depredaciones sobre la viablidad de especies. Tradicionalmente los estudios estaban enfocado a evaluar la tabla de vida para el manejo y conservaciones de especies particulares (ref). En años más recientes los estudios se han diversificado para evaluar la interacciones entre especies y su ambiente (ref).</p>
-</div>
-<div id="definición" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Definición<a href="qué-es-el-analisis-de-dinamica-poblacional.html#definición" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Una definición más especifica de los estudios de dinámica poblacional son definidos como los análisis de los factores que afecten el crecimiento, estabilidad y reducción en el tamaño de la población en una serie de tiempo.</p>
-<p>Por ejemplo, la dinamica poblacional de especies invasivas incluye un periodo de crecimiento muy lento al comienzo de la colonización de un nuevo sitio y frecuentamente siguido de un crecimiento logarithmico. La figura <a href="qué-es-el-analisis-de-dinamica-poblacional.html#fig:Pop-fig">3.1</a>. demuestra el cambio de número de individuos en el tiempo de una especie hipotética.</p>
+<div id="appendix-c" class="section level1 hasAnchor" number="26">
+<h1><span class="header-section-number">B</span> Appendix C<a href="appendix-c.html#appendix-c" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<hr />
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-1" tabindex="-1"></a><span class="fu">ggplot</span>(pressure, <span class="fu">aes</span>(temperature, pressure))<span class="sc">+</span></span>
-<span id="cb44-2"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb44-3"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-3" tabindex="-1"></a>  rlt_theme<span class="sc">+</span></span>
-<span id="cb44-4"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Tiempo&quot;</span>)<span class="sc">+</span></span>
-<span id="cb44-5"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Tamaño poblacional&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1100-1"><a href="appendix-c.html#cb1100-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1100-2"><a href="appendix-c.html#cb1100-2" tabindex="-1"></a>HIV <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;HIV.csv&quot;</span>)</span></code></pre></div>
 </details>
-<div class="figure"><span style="display:block;" id="fig:Pop-fig"></span>
-<img src="Ciencia_Datos_R_files/figure-html/Pop-fig-1.png" alt="Cambio poblacional en tiempo" width="672" />
-<p class="caption">
-Figure 3.1: Cambio poblacional en tiempo
-</p>
+<pre><code>## Rows: 824 Columns: 10
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (7): gender, dob, hiv_risk_factor_f, ins_type_f, vital_status, date_of_d...
+## dbl (3): Poverty_numeric, hh_size, lifespan
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1102-1"><a href="appendix-c.html#cb1102-1" tabindex="-1"></a>HIV</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 824 × 10
+##    gender dob      hiv_risk_factor_f Poverty_numeric hh_size ins_type_f
+##    &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;                       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     
+##  1 Hombre 8/21/34  Heterosexual                  0.5       2 Medicaid  
+##  2 Mujer  1/25/31  Heterosexual                  0.5       3 Medicaid  
+##  3 Hombre 11/18/36 Heterosexual                  0.5       1 Medicaid  
+##  4 Mujer  6/29/37  Heterosexual                  0.5       1 Medicaid  
+##  5 Hombre 12/26/42 Heterosexual                  0.5       2 Medicaid  
+##  6 Mujer  3/21/40  Heterosexual                  0.5       2 Medicaid  
+##  7 Hombre 8/17/36  Heterosexual                  0.5       1 Medicaid  
+##  8 Mujer  10/17/42 Heterosexual                  0.5       1 Medicaid  
+##  9 Mujer  10/17/42 Heterosexual                  0.5       1 Medicaid  
+## 10 Hombre 7/17/47  Heterosexual                  0.5       2 Medicaid  
+## # ℹ 814 more rows
+## # ℹ 4 more variables: vital_status &lt;chr&gt;, date_of_death &lt;chr&gt;, hiv_date &lt;chr&gt;,
+## #   lifespan &lt;dbl&gt;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1104-1"><a href="appendix-c.html#cb1104-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+</details>
+<p><a href="https://www.stat.berkeley.edu/~s133/dates.html" class="uri">https://www.stat.berkeley.edu/~s133/dates.html</a></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1105-1"><a href="appendix-c.html#cb1105-1" tabindex="-1"></a>HIV<span class="sc">$</span>dob<span class="ot">=</span><span class="fu">as.Date</span>(<span class="fu">format</span>(<span class="fu">as.Date</span>(HIV<span class="sc">$</span>dob,<span class="at">format=</span><span class="st">&quot;%m/%d/%y&quot;</span>), <span class="st">&quot;19%y%m%d&quot;</span>), <span class="st">&quot;%Y%m%d&quot;</span>)</span>
+<span id="cb1105-2"><a href="appendix-c.html#cb1105-2" tabindex="-1"></a></span>
+<span id="cb1105-3"><a href="appendix-c.html#cb1105-3" tabindex="-1"></a></span>
+<span id="cb1105-4"><a href="appendix-c.html#cb1105-4" tabindex="-1"></a>HIV</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 824 × 10
+##    gender dob        hiv_risk_factor_f Poverty_numeric hh_size ins_type_f
+##    &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt;                       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     
+##  1 Hombre 1934-08-21 Heterosexual                  0.5       2 Medicaid  
+##  2 Mujer  1931-01-25 Heterosexual                  0.5       3 Medicaid  
+##  3 Hombre 1936-11-18 Heterosexual                  0.5       1 Medicaid  
+##  4 Mujer  1937-06-29 Heterosexual                  0.5       1 Medicaid  
+##  5 Hombre 1942-12-26 Heterosexual                  0.5       2 Medicaid  
+##  6 Mujer  1940-03-21 Heterosexual                  0.5       2 Medicaid  
+##  7 Hombre 1936-08-17 Heterosexual                  0.5       1 Medicaid  
+##  8 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+##  9 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+## 10 Hombre 1947-07-17 Heterosexual                  0.5       2 Medicaid  
+## # ℹ 814 more rows
+## # ℹ 4 more variables: vital_status &lt;chr&gt;, date_of_death &lt;chr&gt;, hiv_date &lt;chr&gt;,
+## #   lifespan &lt;dbl&gt;</code></pre>
+<div id="calculate-the-age-of-individuals-when-they-were-diagnosed-with-hiv" class="section level2 unnumbered hasAnchor">
+<h2>Calculate the age of individuals when they were diagnosed with HIV<a href="appendix-c.html#calculate-the-age-of-individuals-when-they-were-diagnosed-with-hiv" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
+<div id="calculate-the-time-between-the-date-of-diagnosis-of-hiv-and-the-date-of-death." class="section level2 unnumbered hasAnchor">
+<h2>Calculate the time between the date of diagnosis of HIV and the date of death.<a href="appendix-c.html#calculate-the-time-between-the-date-of-diagnosis-of-hiv-and-the-date-of-death." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1107-1"><a href="appendix-c.html#cb1107-1" tabindex="-1"></a>HIV<span class="ot">=</span> HIV <span class="sc">|&gt;</span>  </span>
+<span id="cb1107-2"><a href="appendix-c.html#cb1107-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date_d=</span><span class="fu">mdy</span>(date_of_death),</span>
+<span id="cb1107-3"><a href="appendix-c.html#cb1107-3" tabindex="-1"></a>         <span class="at">hiv_d =</span> <span class="fu">mdy</span>(hiv_date))</span>
+<span id="cb1107-4"><a href="appendix-c.html#cb1107-4" tabindex="-1"></a></span>
+<span id="cb1107-5"><a href="appendix-c.html#cb1107-5" tabindex="-1"></a>HIV</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 824 × 12
+##    gender dob        hiv_risk_factor_f Poverty_numeric hh_size ins_type_f
+##    &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt;                       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     
+##  1 Hombre 1934-08-21 Heterosexual                  0.5       2 Medicaid  
+##  2 Mujer  1931-01-25 Heterosexual                  0.5       3 Medicaid  
+##  3 Hombre 1936-11-18 Heterosexual                  0.5       1 Medicaid  
+##  4 Mujer  1937-06-29 Heterosexual                  0.5       1 Medicaid  
+##  5 Hombre 1942-12-26 Heterosexual                  0.5       2 Medicaid  
+##  6 Mujer  1940-03-21 Heterosexual                  0.5       2 Medicaid  
+##  7 Hombre 1936-08-17 Heterosexual                  0.5       1 Medicaid  
+##  8 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+##  9 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+## 10 Hombre 1947-07-17 Heterosexual                  0.5       2 Medicaid  
+## # ℹ 814 more rows
+## # ℹ 6 more variables: vital_status &lt;chr&gt;, date_of_death &lt;chr&gt;, hiv_date &lt;chr&gt;,
+## #   lifespan &lt;dbl&gt;, date_d &lt;date&gt;, hiv_d &lt;date&gt;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1109-1"><a href="appendix-c.html#cb1109-1" tabindex="-1"></a>HIV1 <span class="ot">&lt;-</span> HIV <span class="sc">%&gt;%</span> </span>
+<span id="cb1109-2"><a href="appendix-c.html#cb1109-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hiv_date =</span> <span class="fu">mdy</span>(hiv_date))</span>
+<span id="cb1109-3"><a href="appendix-c.html#cb1109-3" tabindex="-1"></a></span>
+<span id="cb1109-4"><a href="appendix-c.html#cb1109-4" tabindex="-1"></a>HIV1</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 824 × 12
+##    gender dob        hiv_risk_factor_f Poverty_numeric hh_size ins_type_f
+##    &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt;                       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     
+##  1 Hombre 1934-08-21 Heterosexual                  0.5       2 Medicaid  
+##  2 Mujer  1931-01-25 Heterosexual                  0.5       3 Medicaid  
+##  3 Hombre 1936-11-18 Heterosexual                  0.5       1 Medicaid  
+##  4 Mujer  1937-06-29 Heterosexual                  0.5       1 Medicaid  
+##  5 Hombre 1942-12-26 Heterosexual                  0.5       2 Medicaid  
+##  6 Mujer  1940-03-21 Heterosexual                  0.5       2 Medicaid  
+##  7 Hombre 1936-08-17 Heterosexual                  0.5       1 Medicaid  
+##  8 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+##  9 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+## 10 Hombre 1947-07-17 Heterosexual                  0.5       2 Medicaid  
+## # ℹ 814 more rows
+## # ℹ 6 more variables: vital_status &lt;chr&gt;, date_of_death &lt;chr&gt;, hiv_date &lt;date&gt;,
+## #   lifespan &lt;dbl&gt;, date_d &lt;date&gt;, hiv_d &lt;date&gt;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1111-1"><a href="appendix-c.html#cb1111-1" tabindex="-1"></a>HIV2 <span class="ot">&lt;-</span> HIV1 <span class="sc">%&gt;%</span> </span>
+<span id="cb1111-2"><a href="appendix-c.html#cb1111-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">edad =</span> dob <span class="sc">%--%</span> hiv_date <span class="sc">/</span> <span class="fu">years</span>())</span>
+<span id="cb1111-3"><a href="appendix-c.html#cb1111-3" tabindex="-1"></a></span>
+<span id="cb1111-4"><a href="appendix-c.html#cb1111-4" tabindex="-1"></a>HIV2</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 824 × 13
+##    gender dob        hiv_risk_factor_f Poverty_numeric hh_size ins_type_f
+##    &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt;                       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     
+##  1 Hombre 1934-08-21 Heterosexual                  0.5       2 Medicaid  
+##  2 Mujer  1931-01-25 Heterosexual                  0.5       3 Medicaid  
+##  3 Hombre 1936-11-18 Heterosexual                  0.5       1 Medicaid  
+##  4 Mujer  1937-06-29 Heterosexual                  0.5       1 Medicaid  
+##  5 Hombre 1942-12-26 Heterosexual                  0.5       2 Medicaid  
+##  6 Mujer  1940-03-21 Heterosexual                  0.5       2 Medicaid  
+##  7 Hombre 1936-08-17 Heterosexual                  0.5       1 Medicaid  
+##  8 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+##  9 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+## 10 Hombre 1947-07-17 Heterosexual                  0.5       2 Medicaid  
+## # ℹ 814 more rows
+## # ℹ 7 more variables: vital_status &lt;chr&gt;, date_of_death &lt;chr&gt;, hiv_date &lt;date&gt;,
+## #   lifespan &lt;dbl&gt;, date_d &lt;date&gt;, hiv_d &lt;date&gt;, edad &lt;dbl&gt;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1113-1"><a href="appendix-c.html#cb1113-1" tabindex="-1"></a>HIV3 <span class="ot">&lt;-</span> HIV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb1113-2"><a href="appendix-c.html#cb1113-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date_of_death =</span> <span class="fu">mdy</span>(date_of_death))</span>
+<span id="cb1113-3"><a href="appendix-c.html#cb1113-3" tabindex="-1"></a></span>
+<span id="cb1113-4"><a href="appendix-c.html#cb1113-4" tabindex="-1"></a>HIV3</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 824 × 13
+##    gender dob        hiv_risk_factor_f Poverty_numeric hh_size ins_type_f
+##    &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt;                       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     
+##  1 Hombre 1934-08-21 Heterosexual                  0.5       2 Medicaid  
+##  2 Mujer  1931-01-25 Heterosexual                  0.5       3 Medicaid  
+##  3 Hombre 1936-11-18 Heterosexual                  0.5       1 Medicaid  
+##  4 Mujer  1937-06-29 Heterosexual                  0.5       1 Medicaid  
+##  5 Hombre 1942-12-26 Heterosexual                  0.5       2 Medicaid  
+##  6 Mujer  1940-03-21 Heterosexual                  0.5       2 Medicaid  
+##  7 Hombre 1936-08-17 Heterosexual                  0.5       1 Medicaid  
+##  8 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+##  9 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+## 10 Hombre 1947-07-17 Heterosexual                  0.5       2 Medicaid  
+## # ℹ 814 more rows
+## # ℹ 7 more variables: vital_status &lt;chr&gt;, date_of_death &lt;date&gt;,
+## #   hiv_date &lt;date&gt;, lifespan &lt;dbl&gt;, date_d &lt;date&gt;, hiv_d &lt;date&gt;, edad &lt;dbl&gt;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1115-1"><a href="appendix-c.html#cb1115-1" tabindex="-1"></a>HIV4 <span class="ot">&lt;-</span> HIV3 <span class="sc">%&gt;%</span> </span>
+<span id="cb1115-2"><a href="appendix-c.html#cb1115-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">diagnosed_death =</span> hiv_date <span class="sc">%--%</span> date_of_death <span class="sc">/</span> <span class="fu">years</span>())</span>
+<span id="cb1115-3"><a href="appendix-c.html#cb1115-3" tabindex="-1"></a></span>
+<span id="cb1115-4"><a href="appendix-c.html#cb1115-4" tabindex="-1"></a>HIV4</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 824 × 14
+##    gender dob        hiv_risk_factor_f Poverty_numeric hh_size ins_type_f
+##    &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt;                       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     
+##  1 Hombre 1934-08-21 Heterosexual                  0.5       2 Medicaid  
+##  2 Mujer  1931-01-25 Heterosexual                  0.5       3 Medicaid  
+##  3 Hombre 1936-11-18 Heterosexual                  0.5       1 Medicaid  
+##  4 Mujer  1937-06-29 Heterosexual                  0.5       1 Medicaid  
+##  5 Hombre 1942-12-26 Heterosexual                  0.5       2 Medicaid  
+##  6 Mujer  1940-03-21 Heterosexual                  0.5       2 Medicaid  
+##  7 Hombre 1936-08-17 Heterosexual                  0.5       1 Medicaid  
+##  8 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+##  9 Mujer  1942-10-17 Heterosexual                  0.5       1 Medicaid  
+## 10 Hombre 1947-07-17 Heterosexual                  0.5       2 Medicaid  
+## # ℹ 814 more rows
+## # ℹ 8 more variables: vital_status &lt;chr&gt;, date_of_death &lt;date&gt;,
+## #   hiv_date &lt;date&gt;, lifespan &lt;dbl&gt;, date_d &lt;date&gt;, hiv_d &lt;date&gt;, edad &lt;dbl&gt;,
+## #   diagnosed_death &lt;dbl&gt;</code></pre>
 </div>
-<div id="el-analisis-de-dinámica-poblacional-y-su-uso" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> El analisis de Dinámica Poblacional y su uso<a href="qué-es-el-analisis-de-dinamica-poblacional.html#el-analisis-de-dinámica-poblacional-y-su-uso" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Determinar el tamaño poblacional en el futuro tiene muchos usos. Se puede dividir sus usos en tres grupos grandes, entender las <strong>1)</strong> interacciones ecológicas, <strong>2)</strong> manejo y conservaciones o <strong>3)</strong> los procesos evolutivos. Los estudios enfocado a la conservación se engloba dentro de un acercamiento de la viablidad de poblaciones. En este libro estaremos dando una introducción a cada uno de estas vertientes, pero nuestros ejemplos son una introducción al tema y no una profundización extensa de cada uno. En la table <a href="qué-es-el-analisis-de-dinamica-poblacional.html#USO">3.3.1</a> vemos algunos de los usos especificos que se ha dado con la metodología de PPM.</p>
-<div id="USO" class="section level3 hasAnchor" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Tabla: El uso potencial de la diferentes acercamiento de PPM.<a href="qué-es-el-analisis-de-dinamica-poblacional.html#USO" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>NOTA IMPORTANTE: <em>Evaluar las referencias y añadir referencias tradicionales y recientes</em></p>
-<table>
-<colgroup>
-<col width="22%" />
-<col width="27%" />
-<col width="22%" />
-<col width="27%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Categoria de Uso</th>
-<th align="left">Uso especifico</th>
-<th align="left">Referencias</th>
-<th align="right">Referencias con Oquideas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Manejo</td>
-<td align="left">Identificar las etapas or procesos demograficos claves</td>
-<td align="left"><span class="citation">(<a href="#ref-crouse1987stage">Crouse, Crowder, and Caswell 1987</a>)</span></td>
-<td align="right">?</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Determinar cuantos individuos en una población es necesario para reducir la extinción</td>
-<td align="left">Shaffer 1981 Armbruster &amp; Lande 1993</td>
-<td align="right">?</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left">Determinar cuantos individuos se necesita introducir en una sitio para establecer una población viable</td>
-<td align="left">Bustamante 1996</td>
-<td align="right">?</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Determinar cuantos individuos se puede extraer si tener un impacto negativo sobre la viabilidad de una población</td>
-<td align="left">Nantel et al. 1996</td>
-<td align="right">?</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left">En especies invasivas determinar cuantos y cual etapas se necesita remover para controlar la población</td>
-<td align="left">?</td>
-<td align="right">?</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Determinar cuantas pobalciones se necesita para la viabilidad de una especie al nivel local o global</td>
-<td align="left">Lindenmayer &amp; Possingham 1996</td>
-<td align="right"></td>
-</tr>
-<tr class="odd">
-<td align="left">Evaluación de riesgos</td>
-<td align="left">Evaluar el riesgo de una población</td>
-<td align="left">Samson 1985</td>
-<td align="right">muchos</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Comparando el riesgo relativo de dos o más poblaciones</td>
-<td align="left">Allendrof et al. 1997</td>
-<td align="right">?</td>
-</tr>
-<tr class="odd">
-<td align="left">Interacciones ecologicas</td>
-<td align="left">Evaluar interacciones ecológicas para entender las variables importantes para la supervivencia de una población</td>
-<td align="left">?</td>
-<td align="right">Ospina et al., 2022</td>
-</tr>
-<tr class="even">
-<td align="left">Procesos y patrones evolutivos</td>
-<td align="left">Cual de los procesos y patrones evolutivos del ciclo de vida de especies impacta su crecimiento</td>
-<td align="left">?</td>
-<td align="right">?</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="uso-1-identificar-las-etapas-or-procesos-demográficos-claves" class="section level3 hasAnchor" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> USO 1: Identificar las etapas or procesos demográficos claves<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-1-identificar-las-etapas-or-procesos-demográficos-claves" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Identificar y conocer cuales son las etapas de vida más suceptibles a cambios abioticos y bioticos y su impacto sobre la persistencia de una población es necesario para el manejo. El ejemplo clásico en la literatura usando PPM son los trabajos sobre la dinámica poblacional de la tortuga “boba” o “cabezona” <em>Caretta caretta</em> <span class="citation">(<a href="#ref-crouse1987stage">Crouse, Crowder, and Caswell 1987</a>)</span>, <span class="citation">(<a href="#ref-crowder1994predicting">Crowder et al. 1994</a>)</span>. Crouse y Crowder demostrarón que aun salvando TODOS los huevos de depredación, esa estrategia de manejo antropogenico iba a tener muy poco impacto en el crecimiento de la población. Lo que econtrarón es que el impacto más grande sobre el crecimiento poblacional provendría de proteger los adultos de las redes de pesca, modificando estas para que las tortugas se pueden escapar y no ahogarse en las redes. Los trabajos de Crouse y Crowder fueron pioneros en demostrar que uno podía simular diferentes escenarios basado en la historia de vida y evaluar su impacto.</p>
-<p>Ejemplo de orquidea AQUI</p>
-</div>
-<div id="uso-2-determinar-cuantos-individuos-en-una-población-es-necesario-para-reducir-la-extinción" class="section level3 hasAnchor" number="3.3.3">
-<h3><span class="header-section-number">3.3.3</span> USO 2: Determinar cuantos individuos en una población es necesario para reducir la extinción<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-2-determinar-cuantos-individuos-en-una-población-es-necesario-para-reducir-la-extinción" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El efecto de tamaño poblacional sobre la biología y la probabilidad de extincción es amplia <span class="citation">(<a href="#ref-shaffer1985population">Shaffer and Samson 1985</a>)</span>, <span class="citation">(<a href="#ref-nunney1993assessing">Nunney and Campbell 1993</a>)</span>, <span class="citation">(<a href="#ref-harris2022abundance">Harris et al. 2022</a>)</span>. ¿Cual es la probablidad de extincción de una población considerando la cantidad de individuos en cada etapa? En general lo que se observa es que menor el tamaño poblacional, N, mayor es el riesgo de extincción. Esa probabilidad de extincción puede variar si algunas etapas del ciclo de vida tiene es muy reducido o su probabilidad de sobrevivir o crecer varia. Consideramos por ejemplo en las orquídeas donde la probabilidad de que las semillas se establece, germina y crezca a a ser un juvenil es muy pequeña. Por consecuencia una nueva población de orquidea necesita considerar la cantidad de individuos que este presente pero tambien la probabilidad de tener semillas y que estas pueden crecer a ser adultos reproducible.</p>
-</div>
-<div id="uso-3-determinar-cuantos-individuos-se-necesita-introducir-en-una-sitio-para-establecer-una-población-viable" class="section level3 hasAnchor" number="3.3.4">
-<h3><span class="header-section-number">3.3.4</span> USO 3: Determinar cuantos individuos se necesita introducir en una sitio para establecer una población viable<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-3-determinar-cuantos-individuos-se-necesita-introducir-en-una-sitio-para-establecer-una-población-viable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Naturalmente, más cantidad de individuos re-introducido en un sitio mayor sera la probabilidad que la población sea viable. Pero, como todo hay un limite de tiempo y esfuerzo disponible. Por consecuencia la pregunta debería ser orientado a determinar cual es el minimo de individuos que se deberia introductir para garantizar un x porciento de suceso en el establecimiento de una nueva población.</p>
-<p>En los ultimos años, muchas organizaciones y cientificos han comenzado a hacer re-introducción de especies en su habitat nativo y no. (ref). Algunos programa introduce especies en areas urbanas.</p>
-<ul>
-<li>Caladenia</li>
-<li>Korea</li>
-<li>one million orchids project</li>
-<li>????</li>
-</ul>
-</div>
-<div id="uso-4-determinar-cuantos-individuos-se-puede-extraer-sin-tener-un-impacto-negativo-sobre-la-viabilidad-de-una-población" class="section level3 hasAnchor" number="3.3.5">
-<h3><span class="header-section-number">3.3.5</span> USO 4: Determinar cuantos individuos se puede extraer sin tener un impacto negativo sobre la viabilidad de una población<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-4-determinar-cuantos-individuos-se-puede-extraer-sin-tener-un-impacto-negativo-sobre-la-viabilidad-de-una-población" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Hay tres razones principales para la extracción de individuos de su ambiente natural.</p>
-<ol style="list-style-type: decimal">
-<li>Obtener individuos para la conservación <em>Ex Situ</em>.</li>
-<li>Usar un grupo de individuos para su propagación.</li>
-<li>Extraccíon para la venta sin objetivo de conservación.</li>
-</ol>
-<p>El supuesto de colectores de orquidea de su habitat naturales, tanto para la conservación de <em>Ex situ</em> y el uso para la propagación es que el impacto es minimo, y no tendrá impacto a largo plazo para la supervivencia. Regresaremos sobre este punto más tarde. La historia de fanatisismo de recolección de orquideas para la venta es bien conocida ref(). Aun que uno quisiera pensar que estas extracciones son del pasado y no occuren hoy en dia, hay todavia escrupulos que extraen los plantas sin pensar al impacto que tendrá sobre la población o especie.</p>
-<p>Pero la pregunta se tiene que hacer. Cuantos individuos y de que etapas se puede extraer de la población sin tener impacto en el crecimoento poblacional?</p>
-</div>
-<div id="uso-5-en-especies-invasivas-determinar-cuantos-y-cual-etapas-se-necesita-remover-para-controlar-la-población." class="section level3 hasAnchor" number="3.3.6">
-<h3><span class="header-section-number">3.3.6</span> USO 5: En especies invasivas determinar cuantos y cual etapas se necesita remover para controlar la población.<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-5-en-especies-invasivas-determinar-cuantos-y-cual-etapas-se-necesita-remover-para-controlar-la-población." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="uso-6-evaluar-el-riesgo-de-una-población" class="section level3 hasAnchor" number="3.3.7">
-<h3><span class="header-section-number">3.3.7</span> USO 6: Evaluar el riesgo de una población<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-6-evaluar-el-riesgo-de-una-población" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="uso-7-determinar-cuantas-poblaciones-se-necesita-para-la-viabilidad-de-una-especie-al-nivel-local-o-global" class="section level3 hasAnchor" number="3.3.8">
-<h3><span class="header-section-number">3.3.8</span> USO 7: Determinar cuantas poblaciones se necesita para la viabilidad de una especie al nivel local o global<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-7-determinar-cuantas-poblaciones-se-necesita-para-la-viabilidad-de-una-especie-al-nivel-local-o-global" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Dinamica de metapoblaciones.</p>
-</div>
-<div id="uso-8-comparando-el-riesgo-relativo-de-dos-o-más-poblaciones" class="section level3 hasAnchor" number="3.3.9">
-<h3><span class="header-section-number">3.3.9</span> USO 8: Comparando el riesgo relativo de dos o más poblaciones<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-8-comparando-el-riesgo-relativo-de-dos-o-más-poblaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="uso-9-evaluar-interacciones-ecológicas-para-entender-las-variables-importantes-para-la-supervivencia-de-una-población" class="section level3 hasAnchor" number="3.3.10">
-<h3><span class="header-section-number">3.3.10</span> USO 9: Evaluar interacciones ecológicas para entender las variables importantes para la supervivencia de una población<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-9-evaluar-interacciones-ecológicas-para-entender-las-variables-importantes-para-la-supervivencia-de-una-población" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="uso-10-cual-de-los-procesos-y-patrones-evolutivos-del-ciclo-de-vida-de-especies-impacta-su-crecimiento" class="section level3 hasAnchor" number="3.3.11">
-<h3><span class="header-section-number">3.3.11</span> USO 10: Cual de los procesos y patrones evolutivos del ciclo de vida de especies impacta su crecimiento<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-10-cual-de-los-procesos-y-patrones-evolutivos-del-ciclo-de-vida-de-especies-impacta-su-crecimiento" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-</div>
-<div id="historia-de-dinamica-poblacional-en-orquideas." class="section level2 hasAnchor" number="3.4">
-<h2><span class="header-section-number">3.4</span> Historia de dinamica poblacional en orquideas.<a href="qué-es-el-analisis-de-dinamica-poblacional.html#historia-de-dinamica-poblacional-en-orquideas." class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="referencias" class="section level2 hasAnchor" number="3.5">
-<h2><span class="header-section-number">3.5</span> Referencias<a href="qué-es-el-analisis-de-dinamica-poblacional.html#referencias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="calculate-the-difference-in-life-between-the-date-of-diagnosis-and-death" class="section level2 unnumbered hasAnchor">
+<h2>Calculate the difference in life between the date of diagnosis and death<a href="appendix-c.html#calculate-the-difference-in-life-between-the-date-of-diagnosis-and-death" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1117-1"><a href="appendix-c.html#cb1117-1" tabindex="-1"></a>HIV<span class="sc">$</span>months<span class="ot">=</span> <span class="fu">floor</span>(<span class="fu">time_length</span>(<span class="fu">difftime</span>(HIV<span class="sc">$</span>date_d, HIV<span class="sc">$</span>hiv_d), <span class="st">&quot;months&quot;</span>))</span>
+<span id="cb1117-2"><a href="appendix-c.html#cb1117-2" tabindex="-1"></a>HIV<span class="sc">$</span>months</span></code></pre></div>
+</details>
+<pre><code>##   [1] 182  17   3  11 159  46 143 190 188 265 196 272  97 332 307 282 179 368
+##  [19] 363 363 228 192 195  80  55 299 299  17   1 273 216  86 201 201 154 110
+##  [37]  55  32 182 123  74 324 223 213 127  72 264 116 100  95  57   4 220 204
+##  [55] 102  10   4 339 306 294 208 205 167 102  86   1 320 320 240 181 176 115
+##  [73]  33   2 314 197 203 181 183 137  47  47  46  27 373 239 239 239 231 223
+##  [91] 201 195 200 174 160 158  81  27  17 326 332 312 312 280 226 226 211 171
+## [109] 163 129 105  80  76  58  11  10 309 275 243 234 117  56 329 302 271 266
+## [127] 196 161 124 118  72  71 313 209 198 157 158 155  44 267 273 254 188 134
+## [145] 110  77  48   6 261 218 110  90  25 252 154  65  18  14 276 227 157 161
+## [163]  29 273 243 118  79  51  42   1 262 229  87 246 158   3 256 144 143  61
+## [181]  31  19   2 141 173  23  15   5 102 102 179  67  36 177 132   0   5 197
+## [199] 121   2 225 225 164 166   2 132 132 106  66  87  67 295 236 346 211 204
+## [217] 286 334 150 166  90 215  24  69   4 132   2 230 222 169 112  27 233  65
+## [235]   2 279 271 238 232  21 228 223 191 207 164 151 162  65  65  67  17 286
+## [253]  97 212  19 324  86 110  68 208 203 183 284  62  52  30 137  10 193  22
+## [271] 101 101  97  96  90   0   0 266 298 227  97 128  10 312 323   4   0   4
+## [289] 274 241 209 168 168 316 207  84 287 100 461 237 237 235 139 214  98 355
+## [307] 323 280 283 315 298 298 231 180 212 224 221 221 221 337 174 142 423 371
+## [325] 166 282 265 165 164 391 394 348 352 352 338 242 196 162 128 291 263 235
+## [343] 235 269 204 214 201 175 160 146 154  81 339 291 277 259 219 213 207 213
+## [361] 180 132 140 119 111 102 392 283 281 229 189  38 274 168 168 170 164 157
+## [379] 150 150 135  87  79 322 322 322 274 259 216 167 138 317 289 275 237 186
+## [397] 150 144 125  80  72  49  56 315 292 233 221 219 195 195 198 177 152 144
+## [415] 103  67 384 381 379 345 332 210 170 159 143 142 132  99  90  95  95  87
+## [433]  33  33  33  26 377 340 307 301 225 179 166 115  97  93  54 416 335 249
+## [451] 222 213 201 189 141  52  42 318 300 300 300 244 238 218 186 176 136 142
+## [469] 131 131 127 124 109  76  54 264 214 185 181 151 154 154  73  70 403 336
+## [487] 281 228 216 187 190 179 144 131 100  47  43 347 289 277 259 259 259 218
+## [505] 218 211 157 141  53   4 281 257 229 224 217 218 134 134  90  95  56  34
+## [523]  35  21  22 386 284 248 235 235 207 199 146 144 122 110  66 273 197 153
+## [541] 107 100  67 254 209 173 122 122 114  56   2 247 127 106  85  76  67   3
+## [559] 193 198 199 164 108  65 127 112 103 179  34  14 212 191 150 144  80 171
+## [577] 133  66 121  95 182 166  21   6   1  31  23   6 388 388  62  20  26 158
+## [595] 332 370 274 242 228  98  15 277 222 306  52 187 186 269 295 195 172 214
+## [613] 184 123   6  55   3 142 148  93 139 316 270 271 262 179 182 240 189  73
+## [631]  32 106 134  83 281 236 137 137 144 249 304 192  34 259 197   3 155 223
+## [649] 165 152 184 329 329 253 107 135  50 134 141 227 142 124  57 223 175 171
+## [667] 241 215  71   1 269 230 292 252  25 248  63 248 261 188  91 190 175  69
+## [685]  25 192 162 211 248 261 278 199 233 456 455 229 156 111 124  22 233 323
+## [703] 344 340 114 193 118 246 267 254 195 168 229 236 219 280 332 313 244 244
+## [721] 295 187 137 138 182  86 125  17  57 361 384 128 358 212 374 310 157  99
+## [739]  99  84 126 214 125 321 129 111  58  69 190 190  52  24 226 226 321 296
+## [757] 211 118 101 276 258 222 115 182 137 251 208  32   8   2   0 206 210 186
+## [775] 112 475  57 316 231 351 143 252 159 327 336  65 143 254 254   3  15  90
+## [793] 209 183 183 271  81 235 163 283 248 190  59 119 230 288 410 216  24 120
+## [811]  54   1 290 279 268 293 260  81 269 272 309 361 336 315</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1119-1"><a href="appendix-c.html#cb1119-1" tabindex="-1"></a>HIV <span class="sc">%&gt;%</span></span>
+<span id="cb1119-2"><a href="appendix-c.html#cb1119-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Period_HIV_death =</span> <span class="fu">as.duration</span>(hiv_d <span class="sc">%--%</span> date_d)) <span class="sc">|&gt;</span> </span>
+<span id="cb1119-3"><a href="appendix-c.html#cb1119-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_time=</span><span class="fu">mean</span>(Period_HIV_death)) </span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 1 × 1
+##    mean_time
+##        &lt;dbl&gt;
+## 1 462043713.</code></pre>
+<hr />
 
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
-<div id="ref-aide2013deforestation" class="csl-entry">
-Aide, T Mitchell, Matthew L Clark, H Ricardo Grau, David López-Carr, Marc A Levy, Daniel Redo, Martha Bonilla-Moheno, George Riner, Marı́a J Andrade-Núñez, and Marı́a Muñiz. 2013. <span>“Deforestation and Reforestation of l Atin a Merica and the c Aribbean (2001–2010).”</span> <em>Biotropica</em> 45 (2): 262–71.
-</div>
-<div id="ref-crouse1987stage" class="csl-entry">
-Crouse, Deborah T, Larry B Crowder, and Hal Caswell. 1987. <span>“A Stage-Based Population Model for Loggerhead Sea Turtles and Implications for Conservation.”</span> <em>Ecology</em> 68 (5): 1412–23.
-</div>
-<div id="ref-crowder1994predicting" class="csl-entry">
-Crowder, Larry B, Deborah T Crouse, Selina S Heppell, and Thomas H Martin. 1994. <span>“Predicting the Impact of Turtle Excluder Devices on Loggerhead Sea Turtle Populations.”</span> <em>Ecological Applications</em> 4 (3): 437–45.
-</div>
-<div id="ref-harris2022abundance" class="csl-entry">
-Harris, Grant M, Matthew J Butler, David R Stewart, and James W Cain III. 2022. <span>“The Abundance and Persistence of Caprinae Populations.”</span> <em>Scientific Reports</em> 12 (1): 13807.
-</div>
-<div id="ref-nunney1993assessing" class="csl-entry">
-Nunney, Leonard, and Kathleen A Campbell. 1993. <span>“Assessing Minimum Viable Population Size: Demography Meets Population Genetics.”</span> <em>Trends in Ecology &amp; Evolution</em> 8 (7): 234–39.
-</div>
-<div id="ref-pares2008agricultural" class="csl-entry">
-Parés-Ramos, Isabel K, William A Gould, and T Mitchell Aide. 2008. <span>“Agricultural Abandonment, Suburban Growth, and Forest Expansion in Puerto Rico Between 1991 and 2000.”</span> <em>Ecology and Society</em> 13 (2).
-</div>
-<div id="ref-shaffer1985population" class="csl-entry">
-Shaffer, Mark L, and Fred B Samson. 1985. <span>“Population Size and Extinction: A Note on Determining Critical Population Sizes.”</span> <em>The American Naturalist</em> 125 (1): 144–52.
-</div>
-<div id="ref-temple1977plant" class="csl-entry">
-Temple, Stanley A. 1977. <span>“Plant-Animal Mutualism: Coevolution with Dodo Leads to Near Extinction of Plant.”</span> <em>Science</em> 197 (4306): 885–86.
 </div>
 </div>
             </section>
@@ -819,8 +862,8 @@ Temple, Stanley A. 1977. <span>“Plant-Animal Mutualism: Coevolution with Dodo 
           </div>
         </div>
       </div>
-<a href="flujo-de-trabajo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="qué-es-un-diagrama-de-ciclo-de-vida.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="appendix-a.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix-b.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -851,7 +894,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-Intro.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/B-Ejercicios_Fechas.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -859,7 +902,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/02-Intro.Rmd",
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/B-Ejercicios_Fechas.Rmd",
 "text": null
 },
 "download": null,

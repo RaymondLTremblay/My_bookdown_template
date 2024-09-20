@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 ¿Qué es el analisis de dinamica poblacional? | Ciencia de Datos con R</title>
+  <title>Chapter 22 Opciones de Knitr | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 ¿Qué es el analisis de dinamica poblacional? | Ciencia de Datos con R" />
+  <meta property="og:title" content="Chapter 22 Opciones de Knitr | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 ¿Qué es el analisis de dinamica poblacional? | Ciencia de Datos con R" />
+  <meta name="twitter:title" content="Chapter 22 Opciones de Knitr | Ciencia de Datos con R" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="flujo-de-trabajo.html"/>
-<link rel="next" href="qué-es-un-diagrama-de-ciclo-de-vida.html"/>
+<link rel="prev" href="math-sci.html"/>
+<link rel="next" href="wordcloud_en_r.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -614,204 +614,299 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="qué-es-el-analisis-de-dinamica-poblacional" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Chapter 3</span> ¿Qué es el analisis de dinamica poblacional?<a href="qué-es-el-analisis-de-dinamica-poblacional.html#qué-es-el-analisis-de-dinamica-poblacional" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Por: Por RLT, Nhora Ospina, Demetria y Anne …..</p>
-<p>El objetivo de la conservación biológica es asegurar que las especies pueden sobrevivir, reproducirse y dejar progenie viable para de una generación a otra. Por consecuencia se necesita que las variables intrinsicas y extrinsicas, bioticas y abioticas de cada especies estén considerado con todas sus interacciones. Naturalmente aunque el concepto es sencillo, tomar en cuanta TODAS las posibles interacciones biológicas y abióticas es imposible.<br />
-El primer paso a la conservación es considerar el ambiente adecuado para cada especie. Sin duda en los ultimos 50 años en muchos paises ha habido un cambio grande en el repesto y la conservaciones de bosque, pradera, desierto y todos los biomas en general. Por ejemplo el cambio de cobertura de bosque en Puerto Rico ha aumentado de circa de 2-5% en los años 1910 a más 40% en el 2000 <span class="citation">(<a href="#ref-pares2008agricultural">Parés-Ramos, Gould, and Aide 2008</a>)</span>. En general en Latino América ha habido más reforestación de deforestación <span class="citation">(<a href="#ref-aide2013deforestation">Aide et al. 2013</a>)</span> en los ultimos años, aunque varia mucho entre paises y periodo de tiempo. Para la conservación el primer paso era reconocer que los habitat necesitan ser protegido.<br />
-Muchos de estos nuevos hábitat son bosque segundarios, fragmentados y dominado por especies introducidas. Estos habitat por consecuencia son mayormente diferentes al ambiente natural antes de los cambios antropogénicos. El resultado, en muchas ocasiones, es que la especies de interes están reducida en números de individuos o fragmentados. Considerando esos remanentes de individuos en el habitat, son suficiente para mantener una población viable? ¿Como que uno decide que una población es viable?</p>
-<p>En general, el conceptos de conservación es que si uno proteje los habitat las especies estarán conservadas. Pero lo que no es obvio es que la presencia de muchos individuos no es suficiente para asegurar la supervivencia de una especies a largo tiempo. Un ejemplo bien conocida es la extincción del Dodo en la isla de Mauritius y la casi extinción de una especies de arbol en la familia Sapotaceae, <em>Calvaria major</em>. Para que la semillas sean viable necesitan pasar por el tracto digestivo de un pajaro para remover el encocarpo persitente de la semilla que causa “dormancy” en las semillas <span class="citation">(<a href="#ref-temple1977plant">Temple 1977</a>)</span>. Por consecuencia nunca se puede asumir que la presencia de una especies sin tomar en cuenta las interacciones bióticas y abióticas es suficiente para sugerir que no hay riesgo de extincción.</p>
-<div id="qué-es-el-estudio-de-la-dinamica-poblacional" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> ¿Qué es el estudio de la dinamica poblacional?<a href="qué-es-el-analisis-de-dinamica-poblacional.html#qué-es-el-estudio-de-la-dinamica-poblacional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>La dinámica poblacional tiene como meta tomar en cuenta todas las etapas/edades de una especies y evaluar cual de esas etapas/edades tiene impacto sobre la supervivencia de la especies. Esas etapas de vida debería considerar las interaciones con sus ambiente biotico y abiotico. La dinamica de población es fundamental en todas las areas de la ecología y evolución. Comprender la dinamica poblacional es la clave para entender la importancia relativa al aceso de los recursos y el efecto de competencia, herbivoria y depredaciones sobre la viablidad de especies. Tradicionalmente los estudios estaban enfocado a evaluar la tabla de vida para el manejo y conservaciones de especies particulares (ref). En años más recientes los estudios se han diversificado para evaluar la interacciones entre especies y su ambiente (ref).</p>
-</div>
-<div id="definición" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Definición<a href="qué-es-el-analisis-de-dinamica-poblacional.html#definición" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Una definición más especifica de los estudios de dinámica poblacional son definidos como los análisis de los factores que afecten el crecimiento, estabilidad y reducción en el tamaño de la población en una serie de tiempo.</p>
-<p>Por ejemplo, la dinamica poblacional de especies invasivas incluye un periodo de crecimiento muy lento al comienzo de la colonización de un nuevo sitio y frecuentamente siguido de un crecimiento logarithmico. La figura <a href="qué-es-el-analisis-de-dinamica-poblacional.html#fig:Pop-fig">3.1</a>. demuestra el cambio de número de individuos en el tiempo de una especie hipotética.</p>
+<div id="opciones-de-knitr" class="section level1 hasAnchor" number="22">
+<h1><span class="header-section-number">Chapter 22</span> Opciones de Knitr<a href="opciones-de-knitr.html#opciones-de-knitr" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>La mayoria de los ejemplos y ideas de esta seccieon proviene de <strong>yihui</strong> en el siguiente website &lt;<a href="https://yihui.org/knitr/" class="uri">https://yihui.org/knitr/</a>&gt;</p>
+<p>el paquete <strong>knitr</strong> fue desiñado para ser transparente para generar reporte de R, añadiendo componente de animación y Latex (Ecuaciones) y otras funciones.</p>
+<p>Hay muchas opciones para determinar lo que have un <strong>chunk</strong></p>
+<ul>
+<li>Code evaluation: evaluación de código</li>
+<li>Text output: Formateo de texto</li>
+<li>Code decoration: Decoración del código</li>
+<li>Cache: Cache</li>
+<li>Plots: Gráficos</li>
+<li>Animation: Animaciones</li>
+<li>Code chunk: Código del chunk</li>
+<li>Child Document: Documento asociados</li>
+<li>Language engines: Asociación de lenguaje</li>
+<li>Option Temnplate:</li>
+<li>Extracting source code:</li>
+<li>Other chunk options:</li>
+<li>Package Options:</li>
+<li>Global R Options:</li>
+</ul>
+<p>Este <strong>chunk</strong> es para que la información de los chunk and la parte de <strong>knitr</strong> se vea.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-1" tabindex="-1"></a><span class="fu">ggplot</span>(pressure, <span class="fu">aes</span>(temperature, pressure))<span class="sc">+</span></span>
-<span id="cb44-2"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb44-3"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-3" tabindex="-1"></a>  rlt_theme<span class="sc">+</span></span>
-<span id="cb44-4"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Tiempo&quot;</span>)<span class="sc">+</span></span>
-<span id="cb44-5"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Tamaño poblacional&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1033"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1033-1"><a href="opciones-de-knitr.html#cb1033-1" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1033-2"><a href="opciones-de-knitr.html#cb1033-2" tabindex="-1"></a>hook_chunk <span class="ot">=</span> knit_hooks<span class="sc">$</span><span class="fu">get</span>(<span class="st">&#39;chunk&#39;</span>)</span>
+<span id="cb1033-3"><a href="opciones-de-knitr.html#cb1033-3" tabindex="-1"></a>knit_hooks<span class="sc">$</span><span class="fu">set</span>(<span class="at">chunk =</span> <span class="cf">function</span>(x, options) {</span>
+<span id="cb1033-4"><a href="opciones-de-knitr.html#cb1033-4" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(options<span class="sc">$</span>echo_opts)) {</span>
+<span id="cb1033-5"><a href="opciones-de-knitr.html#cb1033-5" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">paste0</span>(<span class="st">&quot;```` ```{r &quot;</span>, options<span class="sc">$</span>params.src, <span class="st">&quot;} ````&quot;</span>, x, <span class="st">&quot;```` ``` ````&quot;</span>))</span>
+<span id="cb1033-6"><a href="opciones-de-knitr.html#cb1033-6" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb1033-7"><a href="opciones-de-knitr.html#cb1033-7" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">hook_chunk</span>(x, options)) <span class="co"># pass to default hook</span></span>
+<span id="cb1033-8"><a href="opciones-de-knitr.html#cb1033-8" tabindex="-1"></a>  }</span>
+<span id="cb1033-9"><a href="opciones-de-knitr.html#cb1033-9" tabindex="-1"></a>  })</span>
+<span id="cb1033-10"><a href="opciones-de-knitr.html#cb1033-10" tabindex="-1"></a></span>
+<span id="cb1033-11"><a href="opciones-de-knitr.html#cb1033-11" tabindex="-1"></a>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">eval.after =</span> <span class="st">&#39;fig.cap&#39;</span>)</span></code></pre></div>
 </details>
-<div class="figure"><span style="display:block;" id="fig:Pop-fig"></span>
-<img src="Ciencia_Datos_R_files/figure-html/Pop-fig-1.png" alt="Cambio poblacional en tiempo" width="672" />
-<p class="caption">
-Figure 3.1: Cambio poblacional en tiempo
-</p>
-</div>
-</div>
-<div id="el-analisis-de-dinámica-poblacional-y-su-uso" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> El analisis de Dinámica Poblacional y su uso<a href="qué-es-el-analisis-de-dinamica-poblacional.html#el-analisis-de-dinámica-poblacional-y-su-uso" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Determinar el tamaño poblacional en el futuro tiene muchos usos. Se puede dividir sus usos en tres grupos grandes, entender las <strong>1)</strong> interacciones ecológicas, <strong>2)</strong> manejo y conservaciones o <strong>3)</strong> los procesos evolutivos. Los estudios enfocado a la conservación se engloba dentro de un acercamiento de la viablidad de poblaciones. En este libro estaremos dando una introducción a cada uno de estas vertientes, pero nuestros ejemplos son una introducción al tema y no una profundización extensa de cada uno. En la table <a href="qué-es-el-analisis-de-dinamica-poblacional.html#USO">3.3.1</a> vemos algunos de los usos especificos que se ha dado con la metodología de PPM.</p>
-<div id="USO" class="section level3 hasAnchor" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Tabla: El uso potencial de la diferentes acercamiento de PPM.<a href="qué-es-el-analisis-de-dinamica-poblacional.html#USO" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>NOTA IMPORTANTE: <em>Evaluar las referencias y añadir referencias tradicionales y recientes</em></p>
-<table>
+<p>Los ejemplos aquí serán limitado a las alternativas para los documentos <strong>.Rmd</strong></p>
+<ul>
+<li>Las opciones están escrita de forma de <strong>tag=selección de la alternativa</strong>.</li>
+</ul>
+<p>Opciones de bloques</p>
+<p>Se personaliza los bloques con “opeciones” <strong>options</strong> de los chunks.</p>
+<p>En la rueda de a la derecha de cada <strong>chunk</strong> hay opciones para seleccionar opciones.</p>
+<div id="tablas-de-opciones-principales" class="section level2 hasAnchor" number="22.1">
+<h2><span class="header-section-number">22.1</span> Tablas de opciones principales<a href="opciones-de-knitr.html#tablas-de-opciones-principales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table style="width:100%;">
 <colgroup>
-<col width="22%" />
-<col width="27%" />
-<col width="22%" />
-<col width="27%" />
+<col width="13%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Categoria de Uso</th>
-<th align="left">Uso especifico</th>
-<th align="left">Referencias</th>
-<th align="right">Referencias con Oquideas</th>
+<th align="left">Opción</th>
+<th align="center">Ejecuta</th>
+<th align="center">Muestra</th>
+<th align="center">Output</th>
+<th align="center">Gráficos</th>
+<th align="center">Mensajes</th>
+<th align="center">Advertencias</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Manejo</td>
-<td align="left">Identificar las etapas or procesos demograficos claves</td>
-<td align="left"><span class="citation">(<a href="#ref-crouse1987stage">Crouse, Crowder, and Caswell 1987</a>)</span></td>
-<td align="right">?</td>
+<td align="left">eval=FASLE</td>
+<td align="center">-</td>
+<td align="center"></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left">Determinar cuantos individuos en una población es necesario para reducir la extinción</td>
-<td align="left">Shaffer 1981 Armbruster &amp; Lande 1993</td>
-<td align="right">?</td>
+<td align="left">include=FALSE</td>
+<td align="center"></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left">Determinar cuantos individuos se necesita introducir en una sitio para establecer una población viable</td>
-<td align="left">Bustamante 1996</td>
-<td align="right">?</td>
+<td align="left">echo=FALSE</td>
+<td align="center"></td>
+<td align="center">-</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left">Determinar cuantos individuos se puede extraer si tener un impacto negativo sobre la viabilidad de una población</td>
-<td align="left">Nantel et al. 1996</td>
-<td align="right">?</td>
+<td align="left">results=“hide”</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">-</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left">En especies invasivas determinar cuantos y cual etapas se necesita remover para controlar la población</td>
-<td align="left">?</td>
-<td align="right">?</td>
+<td align="left">fig.show =“hide”</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">-</td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left">Determinar cuantas pobalciones se necesita para la viabilidad de una especie al nivel local o global</td>
-<td align="left">Lindenmayer &amp; Possingham 1996</td>
-<td align="right"></td>
+<td align="left">message=FALSE</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">-</td>
+<td align="center"></td>
 </tr>
 <tr class="odd">
-<td align="left">Evaluación de riesgos</td>
-<td align="left">Evaluar el riesgo de una población</td>
-<td align="left">Samson 1985</td>
-<td align="right">muchos</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Comparando el riesgo relativo de dos o más poblaciones</td>
-<td align="left">Allendrof et al. 1997</td>
-<td align="right">?</td>
-</tr>
-<tr class="odd">
-<td align="left">Interacciones ecologicas</td>
-<td align="left">Evaluar interacciones ecológicas para entender las variables importantes para la supervivencia de una población</td>
-<td align="left">?</td>
-<td align="right">Ospina et al., 2022</td>
-</tr>
-<tr class="even">
-<td align="left">Procesos y patrones evolutivos</td>
-<td align="left">Cual de los procesos y patrones evolutivos del ciclo de vida de especies impacta su crecimiento</td>
-<td align="left">?</td>
-<td align="right">?</td>
+<td align="left">warning=FALSE</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">-</td>
 </tr>
 </tbody>
 </table>
-</div>
-<div id="uso-1-identificar-las-etapas-or-procesos-demográficos-claves" class="section level3 hasAnchor" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> USO 1: Identificar las etapas or procesos demográficos claves<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-1-identificar-las-etapas-or-procesos-demográficos-claves" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Identificar y conocer cuales son las etapas de vida más suceptibles a cambios abioticos y bioticos y su impacto sobre la persistencia de una población es necesario para el manejo. El ejemplo clásico en la literatura usando PPM son los trabajos sobre la dinámica poblacional de la tortuga “boba” o “cabezona” <em>Caretta caretta</em> <span class="citation">(<a href="#ref-crouse1987stage">Crouse, Crowder, and Caswell 1987</a>)</span>, <span class="citation">(<a href="#ref-crowder1994predicting">Crowder et al. 1994</a>)</span>. Crouse y Crowder demostrarón que aun salvando TODOS los huevos de depredación, esa estrategia de manejo antropogenico iba a tener muy poco impacto en el crecimiento de la población. Lo que econtrarón es que el impacto más grande sobre el crecimiento poblacional provendría de proteger los adultos de las redes de pesca, modificando estas para que las tortugas se pueden escapar y no ahogarse en las redes. Los trabajos de Crouse y Crowder fueron pioneros en demostrar que uno podía simular diferentes escenarios basado en la historia de vida y evaluar su impacto.</p>
-<p>Ejemplo de orquidea AQUI</p>
-</div>
-<div id="uso-2-determinar-cuantos-individuos-en-una-población-es-necesario-para-reducir-la-extinción" class="section level3 hasAnchor" number="3.3.3">
-<h3><span class="header-section-number">3.3.3</span> USO 2: Determinar cuantos individuos en una población es necesario para reducir la extinción<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-2-determinar-cuantos-individuos-en-una-población-es-necesario-para-reducir-la-extinción" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El efecto de tamaño poblacional sobre la biología y la probabilidad de extincción es amplia <span class="citation">(<a href="#ref-shaffer1985population">Shaffer and Samson 1985</a>)</span>, <span class="citation">(<a href="#ref-nunney1993assessing">Nunney and Campbell 1993</a>)</span>, <span class="citation">(<a href="#ref-harris2022abundance">Harris et al. 2022</a>)</span>. ¿Cual es la probablidad de extincción de una población considerando la cantidad de individuos en cada etapa? En general lo que se observa es que menor el tamaño poblacional, N, mayor es el riesgo de extincción. Esa probabilidad de extincción puede variar si algunas etapas del ciclo de vida tiene es muy reducido o su probabilidad de sobrevivir o crecer varia. Consideramos por ejemplo en las orquídeas donde la probabilidad de que las semillas se establece, germina y crezca a a ser un juvenil es muy pequeña. Por consecuencia una nueva población de orquidea necesita considerar la cantidad de individuos que este presente pero tambien la probabilidad de tener semillas y que estas pueden crecer a ser adultos reproducible.</p>
-</div>
-<div id="uso-3-determinar-cuantos-individuos-se-necesita-introducir-en-una-sitio-para-establecer-una-población-viable" class="section level3 hasAnchor" number="3.3.4">
-<h3><span class="header-section-number">3.3.4</span> USO 3: Determinar cuantos individuos se necesita introducir en una sitio para establecer una población viable<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-3-determinar-cuantos-individuos-se-necesita-introducir-en-una-sitio-para-establecer-una-población-viable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Naturalmente, más cantidad de individuos re-introducido en un sitio mayor sera la probabilidad que la población sea viable. Pero, como todo hay un limite de tiempo y esfuerzo disponible. Por consecuencia la pregunta debería ser orientado a determinar cual es el minimo de individuos que se deberia introductir para garantizar un x porciento de suceso en el establecimiento de una nueva población.</p>
-<p>En los ultimos años, muchas organizaciones y cientificos han comenzado a hacer re-introducción de especies en su habitat nativo y no. (ref). Algunos programa introduce especies en areas urbanas.</p>
 <ul>
-<li>Caladenia</li>
-<li>Korea</li>
-<li>one million orchids project</li>
-<li>????</li>
+<li>Comenzando con dandole un nombre al chunk “mi-chunk”</li>
 </ul>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1034"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1034-1"><a href="opciones-de-knitr.html#cb1034-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+</details>
+<p>algun_nombre, echo=TRUE</p>
+<hr />
+<hr />
+<p>Eso es lo que va a ver cuando hace el knit</p>
+<hr />
+<hr />
+<p>Nota aqui tengo include=FALSE, por consecuencia cuando se hace un knit, no se ve lo que hay en el chunk.<br />
+- Ahora cambialo a TRUE</p>
+<p><code>```{r include_true, include=TRUE, echo_opts=TRUE}</code></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1035"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1035-1"><a href="opciones-de-knitr.html#cb1035-1" tabindex="-1"></a><span class="fu">head</span>(cars)</span></code></pre></div>
+</details>
+<pre><code>##   speed dist
+## 1     4    2
+## 2     4   10
+## 3     7    4
+## 4     7   22
+## 5     8   16
+## 6     9   10</code></pre>
+<p><code>```</code></p>
+<hr />
+<hr />
+<p>Añade una figura</p>
+<p><code>```{r cars, echo=TRUE, echo_opts=TRUE}</code></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1037"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1037-1"><a href="opciones-de-knitr.html#cb1037-1" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/cars-1.png" width="672" /><code>```</code></p>
+<hr />
+<hr />
+<p><code>```{r position_caption, fig.cap='El nombre de mi figure.', fig.topcaption=TRUE, echo_opts=TRUE}</code></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1038"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1038-1"><a href="opciones-de-knitr.html#cb1038-1" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div>
+</details>
+<div class="figure">
+<p class="caption">
+(#fig:position_caption)El nombre de mi figure.
+</p>
+<img src="Ciencia_Datos_R_files/figure-html/position_caption-1.png" alt="El nombre de mi figure." width="672" />
 </div>
-<div id="uso-4-determinar-cuantos-individuos-se-puede-extraer-sin-tener-un-impacto-negativo-sobre-la-viabilidad-de-una-población" class="section level3 hasAnchor" number="3.3.5">
-<h3><span class="header-section-number">3.3.5</span> USO 4: Determinar cuantos individuos se puede extraer sin tener un impacto negativo sobre la viabilidad de una población<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-4-determinar-cuantos-individuos-se-puede-extraer-sin-tener-un-impacto-negativo-sobre-la-viabilidad-de-una-población" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Hay tres razones principales para la extracción de individuos de su ambiente natural.</p>
-<ol style="list-style-type: decimal">
-<li>Obtener individuos para la conservación <em>Ex Situ</em>.</li>
-<li>Usar un grupo de individuos para su propagación.</li>
-<li>Extraccíon para la venta sin objetivo de conservación.</li>
-</ol>
-<p>El supuesto de colectores de orquidea de su habitat naturales, tanto para la conservación de <em>Ex situ</em> y el uso para la propagación es que el impacto es minimo, y no tendrá impacto a largo plazo para la supervivencia. Regresaremos sobre este punto más tarde. La historia de fanatisismo de recolección de orquideas para la venta es bien conocida ref(). Aun que uno quisiera pensar que estas extracciones son del pasado y no occuren hoy en dia, hay todavia escrupulos que extraen los plantas sin pensar al impacto que tendrá sobre la población o especie.</p>
-<p>Pero la pregunta se tiene que hacer. Cuantos individuos y de que etapas se puede extraer de la población sin tener impacto en el crecimoento poblacional?</p>
+<p><code>```</code></p>
+<hr />
+<hr />
+<p><code>```{r fig.cap= "An incredible figure", echo_opts=TRUE}</code></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1039"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1039-1"><a href="opciones-de-knitr.html#cb1039-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1039-2"><a href="opciones-de-knitr.html#cb1039-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
+<span id="cb1039-3"><a href="opciones-de-knitr.html#cb1039-3" tabindex="-1"></a></span>
+<span id="cb1039-4"><a href="opciones-de-knitr.html#cb1039-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
+<span id="cb1039-5"><a href="opciones-de-knitr.html#cb1039-5" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+</details>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-336"></span>
+<img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-336-1.png" alt="An incredible figure" width="672" />
+<p class="caption">
+Figure 22.1: An incredible figure
+</p>
 </div>
-<div id="uso-5-en-especies-invasivas-determinar-cuantos-y-cual-etapas-se-necesita-remover-para-controlar-la-población." class="section level3 hasAnchor" number="3.3.6">
-<h3><span class="header-section-number">3.3.6</span> USO 5: En especies invasivas determinar cuantos y cual etapas se necesita remover para controlar la población.<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-5-en-especies-invasivas-determinar-cuantos-y-cual-etapas-se-necesita-remover-para-controlar-la-población." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>```</code></p>
+<hr />
+<hr />
+<code>```{r ggplot, fig.cap= "An incredible figure", fig.width = 3, fig.height = 3, echo_opts=TRUE, echo=FALSE}</code>
+<div class="figure"><span style="display:block;" id="fig:ggplot"></span>
+<img src="Ciencia_Datos_R_files/figure-html/ggplot-1.png" alt="An incredible figure" width="288" />
+<p class="caption">
+Figure 22.2: An incredible figure
+</p>
 </div>
-<div id="uso-6-evaluar-el-riesgo-de-una-población" class="section level3 hasAnchor" number="3.3.7">
-<h3><span class="header-section-number">3.3.7</span> USO 6: Evaluar el riesgo de una población<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-6-evaluar-el-riesgo-de-una-población" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>```</code></p>
+<hr />
+<hr />
+<p>Figure aligment: default, left, right, and center</p>
+<p>fig.align</p>
+<p><code>```{r fig.cap= "caption", fig.width = 3, fig.height = 3, fig.align='right', echo_opts=TRUE}</code></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1040"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1040-1"><a href="opciones-de-knitr.html#cb1040-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1040-2"><a href="opciones-de-knitr.html#cb1040-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
+<span id="cb1040-3"><a href="opciones-de-knitr.html#cb1040-3" tabindex="-1"></a></span>
+<span id="cb1040-4"><a href="opciones-de-knitr.html#cb1040-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
+<span id="cb1040-5"><a href="opciones-de-knitr.html#cb1040-5" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+</details>
+<div class="figure" style="text-align: right"><span style="display:block;" id="fig:unnamed-chunk-337"></span>
+<img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-337-1.png" alt="caption" width="288" />
+<p class="caption">
+Figure 22.3: caption
+</p>
 </div>
-<div id="uso-7-determinar-cuantas-poblaciones-se-necesita-para-la-viabilidad-de-una-especie-al-nivel-local-o-global" class="section level3 hasAnchor" number="3.3.8">
-<h3><span class="header-section-number">3.3.8</span> USO 7: Determinar cuantas poblaciones se necesita para la viabilidad de una especie al nivel local o global<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-7-determinar-cuantas-poblaciones-se-necesita-para-la-viabilidad-de-una-especie-al-nivel-local-o-global" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Dinamica de metapoblaciones.</p>
+<p><code>```</code></p>
+<hr />
+<hr />
+<p>Wrap text around figure</p>
+<p>Use ese código para que el texto “wraps” alrededor de ls figura (ese código es de otro idioma de computadora de se llama <strong>css</strong>)</p>
+<div style="float:right;position: relative; top: -80px;">
+<p>AQUI el CHUNK</p>
 </div>
-<div id="uso-8-comparando-el-riesgo-relativo-de-dos-o-más-poblaciones" class="section level3 hasAnchor" number="3.3.9">
-<h3><span class="header-section-number">3.3.9</span> USO 8: Comparando el riesgo relativo de dos o más poblaciones<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-8-comparando-el-riesgo-relativo-de-dos-o-más-poblaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="r-markdown-wrapping" class="section level5 hasAnchor" number="22.1.0.0.1">
+<h5><span class="header-section-number">22.1.0.0.1</span> R Markdown wrapping<a href="opciones-de-knitr.html#r-markdown-wrapping" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div style="float:right;position: relative; top: -20px;">
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1041"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1041-1"><a href="opciones-de-knitr.html#cb1041-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
+<span id="cb1041-2"><a href="opciones-de-knitr.html#cb1041-2" tabindex="-1"></a></span>
+<span id="cb1041-3"><a href="opciones-de-knitr.html#cb1041-3" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
+<span id="cb1041-4"><a href="opciones-de-knitr.html#cb1041-4" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+</details>
+<div class="figure" style="text-align: right"><span style="display:block;" id="fig:pressure"></span>
+<img src="Ciencia_Datos_R_files/figure-html/pressure-1.png" alt="caption" width="249.6" />
+<p class="caption">
+Figure 22.4: caption
+</p>
 </div>
-<div id="uso-9-evaluar-interacciones-ecológicas-para-entender-las-variables-importantes-para-la-supervivencia-de-una-población" class="section level3 hasAnchor" number="3.3.10">
-<h3><span class="header-section-number">3.3.10</span> USO 9: Evaluar interacciones ecológicas para entender las variables importantes para la supervivencia de una población<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-9-evaluar-interacciones-ecológicas-para-entender-las-variables-importantes-para-la-supervivencia-de-una-población" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="uso-10-cual-de-los-procesos-y-patrones-evolutivos-del-ciclo-de-vida-de-especies-impacta-su-crecimiento" class="section level3 hasAnchor" number="3.3.11">
-<h3><span class="header-section-number">3.3.11</span> USO 10: Cual de los procesos y patrones evolutivos del ciclo de vida de especies impacta su crecimiento<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-10-cual-de-los-procesos-y-patrones-evolutivos-del-ciclo-de-vida-de-especies-impacta-su-crecimiento" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
+<p>Note that the <code>echo = TRUE</code> parameter was added to the code chunk to have printing of the R code that generated the plot.</p>
+<hr />
+<hr />
+</div>
+<div id="otras-funciones-de-knitr" class="section level3 hasAnchor" number="22.1.1">
+<h3><span class="header-section-number">22.1.1</span> OTRAS funciones de knitr<a href="opciones-de-knitr.html#otras-funciones-de-knitr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>eval= to evaluate the code FALSE or TRUE</li>
+<li>echo = TO show the code FALSE or TRUE</li>
+<li>message = FALSE or TRUE</li>
+<li>warning = FALSE or TRUE</li>
+<li>error =FALSE or TRUE</li>
+<li>results = ‘asis’ To show text exactly as printed/written</li>
+</ul>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1043"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1043-1"><a href="opciones-de-knitr.html#cb1043-1" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
+</details>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1044"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1044-1"><a href="opciones-de-knitr.html#cb1044-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1044-2"><a href="opciones-de-knitr.html#cb1044-2" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
+</details>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1045"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1045-1"><a href="opciones-de-knitr.html#cb1045-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;I&#39;m raw **Markdown** content.</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb1045-2"><a href="opciones-de-knitr.html#cb1045-2" tabindex="-1"></a>    </span>
+<span id="cb1045-3"><a href="opciones-de-knitr.html#cb1045-3" tabindex="-1"></a>                         <span class="st">&quot;My poetry of Puerto Rico</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+</details>
+<p>I’m raw <strong>Markdown</strong> content.
+My poetry of Puerto Rico</p>
+<hr />
+<hr />
 </div>
 </div>
-<div id="historia-de-dinamica-poblacional-en-orquideas." class="section level2 hasAnchor" number="3.4">
-<h2><span class="header-section-number">3.4</span> Historia de dinamica poblacional en orquideas.<a href="qué-es-el-analisis-de-dinamica-poblacional.html#historia-de-dinamica-poblacional-en-orquideas." class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="referencias" class="section level2 hasAnchor" number="3.5">
-<h2><span class="header-section-number">3.5</span> Referencias<a href="qué-es-el-analisis-de-dinamica-poblacional.html#referencias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="emoji-or-symbols" class="section level2 hasAnchor" number="22.2">
+<h2><span class="header-section-number">22.2</span> Emoji or Symbols<a href="opciones-de-knitr.html#emoji-or-symbols" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="select-under-the-edit-emoji-symbols." class="section level3 hasAnchor" number="22.2.1">
+<h3><span class="header-section-number">22.2.1</span> Select Under the Edit ➡ Emoji &amp; Symbols.<a href="opciones-de-knitr.html#select-under-the-edit-emoji-symbols." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="remember-you-can-add-emojis-to-your-document" class="section level5 hasAnchor" number="22.2.1.0.1">
+<h5><span class="header-section-number">22.2.1.0.1</span> Remember you can add emoji’s to your document<a href="opciones-de-knitr.html#remember-you-can-add-emojis-to-your-document" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Sometimes you want to 🙈 around a bit and add some ⭐️⭐️ to your
+🎈🎈 Well we have a gift for you if you add interesting emoji’s to your document.</p>
 
 </div>
 </div>
-<h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
-<div id="ref-aide2013deforestation" class="csl-entry">
-Aide, T Mitchell, Matthew L Clark, H Ricardo Grau, David López-Carr, Marc A Levy, Daniel Redo, Martha Bonilla-Moheno, George Riner, Marı́a J Andrade-Núñez, and Marı́a Muñiz. 2013. <span>“Deforestation and Reforestation of l Atin a Merica and the c Aribbean (2001–2010).”</span> <em>Biotropica</em> 45 (2): 262–71.
-</div>
-<div id="ref-crouse1987stage" class="csl-entry">
-Crouse, Deborah T, Larry B Crowder, and Hal Caswell. 1987. <span>“A Stage-Based Population Model for Loggerhead Sea Turtles and Implications for Conservation.”</span> <em>Ecology</em> 68 (5): 1412–23.
-</div>
-<div id="ref-crowder1994predicting" class="csl-entry">
-Crowder, Larry B, Deborah T Crouse, Selina S Heppell, and Thomas H Martin. 1994. <span>“Predicting the Impact of Turtle Excluder Devices on Loggerhead Sea Turtle Populations.”</span> <em>Ecological Applications</em> 4 (3): 437–45.
-</div>
-<div id="ref-harris2022abundance" class="csl-entry">
-Harris, Grant M, Matthew J Butler, David R Stewart, and James W Cain III. 2022. <span>“The Abundance and Persistence of Caprinae Populations.”</span> <em>Scientific Reports</em> 12 (1): 13807.
-</div>
-<div id="ref-nunney1993assessing" class="csl-entry">
-Nunney, Leonard, and Kathleen A Campbell. 1993. <span>“Assessing Minimum Viable Population Size: Demography Meets Population Genetics.”</span> <em>Trends in Ecology &amp; Evolution</em> 8 (7): 234–39.
-</div>
-<div id="ref-pares2008agricultural" class="csl-entry">
-Parés-Ramos, Isabel K, William A Gould, and T Mitchell Aide. 2008. <span>“Agricultural Abandonment, Suburban Growth, and Forest Expansion in Puerto Rico Between 1991 and 2000.”</span> <em>Ecology and Society</em> 13 (2).
-</div>
-<div id="ref-shaffer1985population" class="csl-entry">
-Shaffer, Mark L, and Fred B Samson. 1985. <span>“Population Size and Extinction: A Note on Determining Critical Population Sizes.”</span> <em>The American Naturalist</em> 125 (1): 144–52.
-</div>
-<div id="ref-temple1977plant" class="csl-entry">
-Temple, Stanley A. 1977. <span>“Plant-Animal Mutualism: Coevolution with Dodo Leads to Near Extinction of Plant.”</span> <em>Science</em> 197 (4306): 885–86.
 </div>
 </div>
             </section>
@@ -819,8 +914,8 @@ Temple, Stanley A. 1977. <span>“Plant-Animal Mutualism: Coevolution with Dodo 
           </div>
         </div>
       </div>
-<a href="flujo-de-trabajo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="qué-es-un-diagrama-de-ciclo-de-vida.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="math-sci.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="wordcloud_en_r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -851,7 +946,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-Intro.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/18-Opciones_de_Knitr.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -859,7 +954,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/02-Intro.Rmd",
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/18-Opciones_de_Knitr.Rmd",
 "text": null
 },
 "download": null,

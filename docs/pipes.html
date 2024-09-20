@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 ¿Qué es el analisis de dinamica poblacional? | Ciencia de Datos con R</title>
+  <title>Chapter 10 Pipes | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 ¿Qué es el analisis de dinamica poblacional? | Ciencia de Datos con R" />
+  <meta property="og:title" content="Chapter 10 Pipes | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 ¿Qué es el analisis de dinamica poblacional? | Ciencia de Datos con R" />
+  <meta name="twitter:title" content="Chapter 10 Pipes | Ciencia de Datos con R" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="flujo-de-trabajo.html"/>
-<link rel="next" href="qué-es-un-diagrama-de-ciclo-de-vida.html"/>
+<link rel="prev" href="analisis-exploratorio.html"/>
+<link rel="next" href="tibbles.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -614,204 +614,258 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="qué-es-el-analisis-de-dinamica-poblacional" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Chapter 3</span> ¿Qué es el analisis de dinamica poblacional?<a href="qué-es-el-analisis-de-dinamica-poblacional.html#qué-es-el-analisis-de-dinamica-poblacional" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Por: Por RLT, Nhora Ospina, Demetria y Anne …..</p>
-<p>El objetivo de la conservación biológica es asegurar que las especies pueden sobrevivir, reproducirse y dejar progenie viable para de una generación a otra. Por consecuencia se necesita que las variables intrinsicas y extrinsicas, bioticas y abioticas de cada especies estén considerado con todas sus interacciones. Naturalmente aunque el concepto es sencillo, tomar en cuanta TODAS las posibles interacciones biológicas y abióticas es imposible.<br />
-El primer paso a la conservación es considerar el ambiente adecuado para cada especie. Sin duda en los ultimos 50 años en muchos paises ha habido un cambio grande en el repesto y la conservaciones de bosque, pradera, desierto y todos los biomas en general. Por ejemplo el cambio de cobertura de bosque en Puerto Rico ha aumentado de circa de 2-5% en los años 1910 a más 40% en el 2000 <span class="citation">(<a href="#ref-pares2008agricultural">Parés-Ramos, Gould, and Aide 2008</a>)</span>. En general en Latino América ha habido más reforestación de deforestación <span class="citation">(<a href="#ref-aide2013deforestation">Aide et al. 2013</a>)</span> en los ultimos años, aunque varia mucho entre paises y periodo de tiempo. Para la conservación el primer paso era reconocer que los habitat necesitan ser protegido.<br />
-Muchos de estos nuevos hábitat son bosque segundarios, fragmentados y dominado por especies introducidas. Estos habitat por consecuencia son mayormente diferentes al ambiente natural antes de los cambios antropogénicos. El resultado, en muchas ocasiones, es que la especies de interes están reducida en números de individuos o fragmentados. Considerando esos remanentes de individuos en el habitat, son suficiente para mantener una población viable? ¿Como que uno decide que una población es viable?</p>
-<p>En general, el conceptos de conservación es que si uno proteje los habitat las especies estarán conservadas. Pero lo que no es obvio es que la presencia de muchos individuos no es suficiente para asegurar la supervivencia de una especies a largo tiempo. Un ejemplo bien conocida es la extincción del Dodo en la isla de Mauritius y la casi extinción de una especies de arbol en la familia Sapotaceae, <em>Calvaria major</em>. Para que la semillas sean viable necesitan pasar por el tracto digestivo de un pajaro para remover el encocarpo persitente de la semilla que causa “dormancy” en las semillas <span class="citation">(<a href="#ref-temple1977plant">Temple 1977</a>)</span>. Por consecuencia nunca se puede asumir que la presencia de una especies sin tomar en cuenta las interacciones bióticas y abióticas es suficiente para sugerir que no hay riesgo de extincción.</p>
-<div id="qué-es-el-estudio-de-la-dinamica-poblacional" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> ¿Qué es el estudio de la dinamica poblacional?<a href="qué-es-el-analisis-de-dinamica-poblacional.html#qué-es-el-estudio-de-la-dinamica-poblacional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>La dinámica poblacional tiene como meta tomar en cuenta todas las etapas/edades de una especies y evaluar cual de esas etapas/edades tiene impacto sobre la supervivencia de la especies. Esas etapas de vida debería considerar las interaciones con sus ambiente biotico y abiotico. La dinamica de población es fundamental en todas las areas de la ecología y evolución. Comprender la dinamica poblacional es la clave para entender la importancia relativa al aceso de los recursos y el efecto de competencia, herbivoria y depredaciones sobre la viablidad de especies. Tradicionalmente los estudios estaban enfocado a evaluar la tabla de vida para el manejo y conservaciones de especies particulares (ref). En años más recientes los estudios se han diversificado para evaluar la interacciones entre especies y su ambiente (ref).</p>
-</div>
-<div id="definición" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Definición<a href="qué-es-el-analisis-de-dinamica-poblacional.html#definición" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Una definición más especifica de los estudios de dinámica poblacional son definidos como los análisis de los factores que afecten el crecimiento, estabilidad y reducción en el tamaño de la población en una serie de tiempo.</p>
-<p>Por ejemplo, la dinamica poblacional de especies invasivas incluye un periodo de crecimiento muy lento al comienzo de la colonización de un nuevo sitio y frecuentamente siguido de un crecimiento logarithmico. La figura <a href="qué-es-el-analisis-de-dinamica-poblacional.html#fig:Pop-fig">3.1</a>. demuestra el cambio de número de individuos en el tiempo de una especie hipotética.</p>
+<div id="pipes" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> Pipes<a href="pipes.html#pipes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Fecha de la ultima revisión</p>
+<pre><code>## [1] &quot;2024-09-19&quot;</code></pre>
+<hr />
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-1" tabindex="-1"></a><span class="fu">ggplot</span>(pressure, <span class="fu">aes</span>(temperature, pressure))<span class="sc">+</span></span>
-<span id="cb44-2"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb44-3"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-3" tabindex="-1"></a>  rlt_theme<span class="sc">+</span></span>
-<span id="cb44-4"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Tiempo&quot;</span>)<span class="sc">+</span></span>
-<span id="cb44-5"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Tamaño poblacional&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="pipes.html#cb384-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb384-2"><a href="pipes.html#cb384-2" tabindex="-1"></a><span class="fu">library</span>(magrittr) <span class="co"># El paquete de Pipe, se activa usando tidyverse</span></span></code></pre></div>
 </details>
-<div class="figure"><span style="display:block;" id="fig:Pop-fig"></span>
-<img src="Ciencia_Datos_R_files/figure-html/Pop-fig-1.png" alt="Cambio poblacional en tiempo" width="672" />
-<p class="caption">
-Figure 3.1: Cambio poblacional en tiempo
-</p>
-</div>
-</div>
-<div id="el-analisis-de-dinámica-poblacional-y-su-uso" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> El analisis de Dinámica Poblacional y su uso<a href="qué-es-el-analisis-de-dinamica-poblacional.html#el-analisis-de-dinámica-poblacional-y-su-uso" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Determinar el tamaño poblacional en el futuro tiene muchos usos. Se puede dividir sus usos en tres grupos grandes, entender las <strong>1)</strong> interacciones ecológicas, <strong>2)</strong> manejo y conservaciones o <strong>3)</strong> los procesos evolutivos. Los estudios enfocado a la conservación se engloba dentro de un acercamiento de la viablidad de poblaciones. En este libro estaremos dando una introducción a cada uno de estas vertientes, pero nuestros ejemplos son una introducción al tema y no una profundización extensa de cada uno. En la table <a href="qué-es-el-analisis-de-dinamica-poblacional.html#USO">3.3.1</a> vemos algunos de los usos especificos que se ha dado con la metodología de PPM.</p>
-<div id="USO" class="section level3 hasAnchor" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Tabla: El uso potencial de la diferentes acercamiento de PPM.<a href="qué-es-el-analisis-de-dinamica-poblacional.html#USO" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>NOTA IMPORTANTE: <em>Evaluar las referencias y añadir referencias tradicionales y recientes</em></p>
-<table>
-<colgroup>
-<col width="22%" />
-<col width="27%" />
-<col width="22%" />
-<col width="27%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Categoria de Uso</th>
-<th align="left">Uso especifico</th>
-<th align="left">Referencias</th>
-<th align="right">Referencias con Oquideas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Manejo</td>
-<td align="left">Identificar las etapas or procesos demograficos claves</td>
-<td align="left"><span class="citation">(<a href="#ref-crouse1987stage">Crouse, Crowder, and Caswell 1987</a>)</span></td>
-<td align="right">?</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Determinar cuantos individuos en una población es necesario para reducir la extinción</td>
-<td align="left">Shaffer 1981 Armbruster &amp; Lande 1993</td>
-<td align="right">?</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left">Determinar cuantos individuos se necesita introducir en una sitio para establecer una población viable</td>
-<td align="left">Bustamante 1996</td>
-<td align="right">?</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Determinar cuantos individuos se puede extraer si tener un impacto negativo sobre la viabilidad de una población</td>
-<td align="left">Nantel et al. 1996</td>
-<td align="right">?</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left">En especies invasivas determinar cuantos y cual etapas se necesita remover para controlar la población</td>
-<td align="left">?</td>
-<td align="right">?</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Determinar cuantas pobalciones se necesita para la viabilidad de una especie al nivel local o global</td>
-<td align="left">Lindenmayer &amp; Possingham 1996</td>
-<td align="right"></td>
-</tr>
-<tr class="odd">
-<td align="left">Evaluación de riesgos</td>
-<td align="left">Evaluar el riesgo de una población</td>
-<td align="left">Samson 1985</td>
-<td align="right">muchos</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Comparando el riesgo relativo de dos o más poblaciones</td>
-<td align="left">Allendrof et al. 1997</td>
-<td align="right">?</td>
-</tr>
-<tr class="odd">
-<td align="left">Interacciones ecologicas</td>
-<td align="left">Evaluar interacciones ecológicas para entender las variables importantes para la supervivencia de una población</td>
-<td align="left">?</td>
-<td align="right">Ospina et al., 2022</td>
-</tr>
-<tr class="even">
-<td align="left">Procesos y patrones evolutivos</td>
-<td align="left">Cual de los procesos y patrones evolutivos del ciclo de vida de especies impacta su crecimiento</td>
-<td align="left">?</td>
-<td align="right">?</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="uso-1-identificar-las-etapas-or-procesos-demográficos-claves" class="section level3 hasAnchor" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> USO 1: Identificar las etapas or procesos demográficos claves<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-1-identificar-las-etapas-or-procesos-demográficos-claves" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Identificar y conocer cuales son las etapas de vida más suceptibles a cambios abioticos y bioticos y su impacto sobre la persistencia de una población es necesario para el manejo. El ejemplo clásico en la literatura usando PPM son los trabajos sobre la dinámica poblacional de la tortuga “boba” o “cabezona” <em>Caretta caretta</em> <span class="citation">(<a href="#ref-crouse1987stage">Crouse, Crowder, and Caswell 1987</a>)</span>, <span class="citation">(<a href="#ref-crowder1994predicting">Crowder et al. 1994</a>)</span>. Crouse y Crowder demostrarón que aun salvando TODOS los huevos de depredación, esa estrategia de manejo antropogenico iba a tener muy poco impacto en el crecimiento de la población. Lo que econtrarón es que el impacto más grande sobre el crecimiento poblacional provendría de proteger los adultos de las redes de pesca, modificando estas para que las tortugas se pueden escapar y no ahogarse en las redes. Los trabajos de Crouse y Crowder fueron pioneros en demostrar que uno podía simular diferentes escenarios basado en la historia de vida y evaluar su impacto.</p>
-<p>Ejemplo de orquidea AQUI</p>
-</div>
-<div id="uso-2-determinar-cuantos-individuos-en-una-población-es-necesario-para-reducir-la-extinción" class="section level3 hasAnchor" number="3.3.3">
-<h3><span class="header-section-number">3.3.3</span> USO 2: Determinar cuantos individuos en una población es necesario para reducir la extinción<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-2-determinar-cuantos-individuos-en-una-población-es-necesario-para-reducir-la-extinción" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El efecto de tamaño poblacional sobre la biología y la probabilidad de extincción es amplia <span class="citation">(<a href="#ref-shaffer1985population">Shaffer and Samson 1985</a>)</span>, <span class="citation">(<a href="#ref-nunney1993assessing">Nunney and Campbell 1993</a>)</span>, <span class="citation">(<a href="#ref-harris2022abundance">Harris et al. 2022</a>)</span>. ¿Cual es la probablidad de extincción de una población considerando la cantidad de individuos en cada etapa? En general lo que se observa es que menor el tamaño poblacional, N, mayor es el riesgo de extincción. Esa probabilidad de extincción puede variar si algunas etapas del ciclo de vida tiene es muy reducido o su probabilidad de sobrevivir o crecer varia. Consideramos por ejemplo en las orquídeas donde la probabilidad de que las semillas se establece, germina y crezca a a ser un juvenil es muy pequeña. Por consecuencia una nueva población de orquidea necesita considerar la cantidad de individuos que este presente pero tambien la probabilidad de tener semillas y que estas pueden crecer a ser adultos reproducible.</p>
-</div>
-<div id="uso-3-determinar-cuantos-individuos-se-necesita-introducir-en-una-sitio-para-establecer-una-población-viable" class="section level3 hasAnchor" number="3.3.4">
-<h3><span class="header-section-number">3.3.4</span> USO 3: Determinar cuantos individuos se necesita introducir en una sitio para establecer una población viable<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-3-determinar-cuantos-individuos-se-necesita-introducir-en-una-sitio-para-establecer-una-población-viable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Naturalmente, más cantidad de individuos re-introducido en un sitio mayor sera la probabilidad que la población sea viable. Pero, como todo hay un limite de tiempo y esfuerzo disponible. Por consecuencia la pregunta debería ser orientado a determinar cual es el minimo de individuos que se deberia introductir para garantizar un x porciento de suceso en el establecimiento de una nueva población.</p>
-<p>En los ultimos años, muchas organizaciones y cientificos han comenzado a hacer re-introducción de especies en su habitat nativo y no. (ref). Algunos programa introduce especies en areas urbanas.</p>
+<hr />
+<p>El tema proviene de los siguientes sitios.</p>
+<p>English:
+<a href="https://r4ds.had.co.nz/pipes.html" class="uri">https://r4ds.had.co.nz/pipes.html</a></p>
+<p>Español:
+<a href="https://es.r4ds.hadley.nz/" class="uri">https://es.r4ds.hadley.nz/</a></p>
+<hr />
+<div id="temas-el-paquete-magrittr-y-sus-funciones" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Temas: El paquete “magrittr” y sus funciones<a href="pipes.html#temas-el-paquete-magrittr-y-sus-funciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Los pipes que vamos a evaluar son los siguientes:</p>
 <ul>
-<li>Caladenia</li>
-<li>Korea</li>
-<li>one million orchids project</li>
-<li>????</li>
+<li><p>%&gt;% “Pipe”</p></li>
+<li><p>%!&gt;% “Eager Pipe”</p></li>
+<li><p>%$% “Exposition pipe”</p></li>
+<li><p>%&lt;&gt;% “Assigment pipe”</p></li>
+<li><p>%T&gt;% “Tee Pipe”</p></li>
+<li><p>%in% “In Pipe”</p></li>
 </ul>
+<p>Función basica para calcular el precio básico de de diamantes por quilates</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="pipes.html#cb385-1" tabindex="-1"></a><span class="fu">head</span>(diamonds, <span class="at">n=</span><span class="dv">3</span>)</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 3 × 10
+##   carat cut     color clarity depth table price     x     y     z
+##   &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1  0.23 Ideal   E     SI2      61.5    55   326  3.95  3.98  2.43
+## 2  0.21 Premium E     SI1      59.8    61   326  3.89  3.84  2.31
+## 3  0.23 Good    E     VS1      56.9    65   327  4.05  4.07  2.31</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="pipes.html#cb387-1" tabindex="-1"></a>diamonds<span class="sc">$</span>Precio_q <span class="ot">=</span> diamonds<span class="sc">$</span>price<span class="sc">/</span>diamonds<span class="sc">$</span>carat <span class="co"># crear una nueva variable</span></span>
+<span id="cb387-2"><a href="pipes.html#cb387-2" tabindex="-1"></a></span>
+<span id="cb387-3"><a href="pipes.html#cb387-3" tabindex="-1"></a><span class="fu">head</span>(diamonds, <span class="at">n=</span><span class="dv">3</span>)</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 3 × 11
+##   carat cut     color clarity depth table price     x     y     z Precio_q
+##   &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+## 1  0.23 Ideal   E     SI2      61.5    55   326  3.95  3.98  2.43    1417.
+## 2  0.21 Premium E     SI1      59.8    61   326  3.89  3.84  2.31    1552.
+## 3  0.23 Good    E     VS1      56.9    65   327  4.05  4.07  2.31    1422.</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="pipes.html#cb389-1" tabindex="-1"></a>diamonds2 <span class="ot">&lt;-</span> diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb389-2"><a href="pipes.html#cb389-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">price_per_carat =</span> price <span class="sc">/</span> carat)</span></code></pre></div>
+</details>
+<hr />
+<p>Calcular el promedio de precio por la calidad de los diamantes usando pipes</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="pipes.html#cb390-1" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb390-2"><a href="pipes.html#cb390-2" tabindex="-1"></a>  <span class="fu">group_by</span>(cut) <span class="sc">%&gt;%</span> </span>
+<span id="cb390-3"><a href="pipes.html#cb390-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Precio_color=</span> <span class="fu">mean</span>(price))</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 5 × 2
+##   cut       Precio_color
+##   &lt;ord&gt;            &lt;dbl&gt;
+## 1 Fair             4359.
+## 2 Good             3929.
+## 3 Very Good        3982.
+## 4 Premium          4584.
+## 5 Ideal            3458.</code></pre>
+<hr />
+<p>Calcular el promedio de precio por color de los diamantes usando pipes</p>
 </div>
-<div id="uso-4-determinar-cuantos-individuos-se-puede-extraer-sin-tener-un-impacto-negativo-sobre-la-viabilidad-de-una-población" class="section level3 hasAnchor" number="3.3.5">
-<h3><span class="header-section-number">3.3.5</span> USO 4: Determinar cuantos individuos se puede extraer sin tener un impacto negativo sobre la viabilidad de una población<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-4-determinar-cuantos-individuos-se-puede-extraer-sin-tener-un-impacto-negativo-sobre-la-viabilidad-de-una-población" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Hay tres razones principales para la extracción de individuos de su ambiente natural.</p>
-<ol style="list-style-type: decimal">
-<li>Obtener individuos para la conservación <em>Ex Situ</em>.</li>
-<li>Usar un grupo de individuos para su propagación.</li>
-<li>Extraccíon para la venta sin objetivo de conservación.</li>
-</ol>
-<p>El supuesto de colectores de orquidea de su habitat naturales, tanto para la conservación de <em>Ex situ</em> y el uso para la propagación es que el impacto es minimo, y no tendrá impacto a largo plazo para la supervivencia. Regresaremos sobre este punto más tarde. La historia de fanatisismo de recolección de orquideas para la venta es bien conocida ref(). Aun que uno quisiera pensar que estas extracciones son del pasado y no occuren hoy en dia, hay todavia escrupulos que extraen los plantas sin pensar al impacto que tendrá sobre la población o especie.</p>
-<p>Pero la pregunta se tiene que hacer. Cuantos individuos y de que etapas se puede extraer de la población sin tener impacto en el crecimoento poblacional?</p>
+<div id="pipes-1" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> %&gt;% pipes<a href="pipes.html#pipes-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Un ejemplo básico del pipe</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="pipes.html#cb392-1" tabindex="-1"></a>car_data <span class="ot">&lt;-</span> </span>
+<span id="cb392-2"><a href="pipes.html#cb392-2" tabindex="-1"></a>  mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb392-3"><a href="pipes.html#cb392-3" tabindex="-1"></a>  <span class="fu">subset</span>(hp <span class="sc">&gt;</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb392-4"><a href="pipes.html#cb392-4" tabindex="-1"></a>  <span class="fu">aggregate</span>(. <span class="sc">~</span> cyl, <span class="at">data =</span> ., <span class="at">FUN =</span> . <span class="sc">%&gt;%</span> mean <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb392-5"><a href="pipes.html#cb392-5" tabindex="-1"></a>  <span class="fu">transform</span>(<span class="at">kpl =</span> mpg <span class="sc">%&gt;%</span> <span class="fu">multiply_by</span>(<span class="fl">0.4251</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb392-6"><a href="pipes.html#cb392-6" tabindex="-1"></a>  print</span></code></pre></div>
+</details>
+<pre><code>##   cyl   mpg   disp     hp drat   wt  qsec   vs   am gear carb       kpl
+## 1   4 25.90 108.05 111.00 3.94 2.15 17.75 1.00 1.00 4.50 2.00 11.010090
+## 2   6 19.74 183.31 122.29 3.59 3.12 17.98 0.57 0.43 3.86 3.43  8.391474
+## 3   8 15.10 353.10 209.21 3.23 4.00 16.77 0.00 0.14 3.29 3.50  6.419010</code></pre>
+<p>Un ejemplo sin usar el pipe para calcular la misma información</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="pipes.html#cb394-1" tabindex="-1"></a>car_data <span class="ot">&lt;-</span> </span>
+<span id="cb394-2"><a href="pipes.html#cb394-2" tabindex="-1"></a>  <span class="fu">transform</span>(<span class="fu">aggregate</span>(. <span class="sc">~</span> cyl, </span>
+<span id="cb394-3"><a href="pipes.html#cb394-3" tabindex="-1"></a>                      <span class="at">data =</span> <span class="fu">subset</span>(mtcars, hp <span class="sc">&gt;</span> <span class="dv">100</span>), </span>
+<span id="cb394-4"><a href="pipes.html#cb394-4" tabindex="-1"></a>                      <span class="at">FUN =</span> <span class="cf">function</span>(x) <span class="fu">round</span>(<span class="fu">mean</span>(x), <span class="dv">2</span>)), </span>
+<span id="cb394-5"><a href="pipes.html#cb394-5" tabindex="-1"></a>                      <span class="at">kpl =</span> mpg<span class="sc">*</span><span class="fl">0.4251</span>)</span>
+<span id="cb394-6"><a href="pipes.html#cb394-6" tabindex="-1"></a></span>
+<span id="cb394-7"><a href="pipes.html#cb394-7" tabindex="-1"></a>car_data</span></code></pre></div>
+</details>
+<pre><code>##   cyl   mpg   disp     hp drat   wt  qsec   vs   am gear carb       kpl
+## 1   4 25.90 108.05 111.00 3.94 2.15 17.75 1.00 1.00 4.50 2.00 11.010090
+## 2   6 19.74 183.31 122.29 3.59 3.12 17.98 0.57 0.43 3.86 3.43  8.391474
+## 3   8 15.10 353.10 209.21 3.23 4.00 16.77 0.00 0.14 3.29 3.50  6.419010</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="pipes.html#cb396-1" tabindex="-1"></a>car_data <span class="ot">&lt;-</span> </span>
+<span id="cb396-2"><a href="pipes.html#cb396-2" tabindex="-1"></a>  mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb396-3"><a href="pipes.html#cb396-3" tabindex="-1"></a>  <span class="fu">subset</span>(hp <span class="sc">&gt;</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb396-4"><a href="pipes.html#cb396-4" tabindex="-1"></a>  <span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span> </span>
+<span id="cb396-5"><a href="pipes.html#cb396-5" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="fu">list</span>(mean))) <span class="sc">%&gt;%</span> </span>
+<span id="cb396-6"><a href="pipes.html#cb396-6" tabindex="-1"></a>  <span class="fu">transform</span>(<span class="at">kpl =</span> mpg_1 <span class="sc">%&gt;%</span> <span class="fu">multiply_by</span>(<span class="fl">0.4251</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb396-7"><a href="pipes.html#cb396-7" tabindex="-1"></a>  print</span></code></pre></div>
+</details>
+<pre><code>##   cyl    mpg_1   disp_1     hp_1   drat_1     wt_1   qsec_1      vs_1      am_1
+## 1   4 25.90000 108.0500 111.0000 3.940000 2.146500 17.75000 1.0000000 1.0000000
+## 2   6 19.74286 183.3143 122.2857 3.585714 3.117143 17.97714 0.5714286 0.4285714
+## 3   8 15.10000 353.1000 209.2143 3.229286 3.999214 16.77214 0.0000000 0.1428571
+##     gear_1   carb_1       kpl
+## 1 4.500000 2.000000 11.010090
+## 2 3.857143 3.428571  8.392689
+## 3 3.285714 3.500000  6.419010</code></pre>
+<hr />
 </div>
-<div id="uso-5-en-especies-invasivas-determinar-cuantos-y-cual-etapas-se-necesita-remover-para-controlar-la-población." class="section level3 hasAnchor" number="3.3.6">
-<h3><span class="header-section-number">3.3.6</span> USO 5: En especies invasivas determinar cuantos y cual etapas se necesita remover para controlar la población.<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-5-en-especies-invasivas-determinar-cuantos-y-cual-etapas-se-necesita-remover-para-controlar-la-población." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="alternativas-a-los-pipes" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Alternativas a los pipes<a href="pipes.html#alternativas-a-los-pipes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Pasos intermedios</li>
+<li>Sobre escribir el original</li>
+</ul>
+<hr />
 </div>
-<div id="uso-6-evaluar-el-riesgo-de-una-población" class="section level3 hasAnchor" number="3.3.7">
-<h3><span class="header-section-number">3.3.7</span> USO 6: Evaluar el riesgo de una población<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-6-evaluar-el-riesgo-de-una-población" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="section-3" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> %$%<a href="pipes.html#section-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="pipes.html#cb398-1" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb398-2"><a href="pipes.html#cb398-2" tabindex="-1"></a></span>
+<span id="cb398-3"><a href="pipes.html#cb398-3" tabindex="-1"></a><span class="co">#iris %&gt;%</span></span>
+<span id="cb398-4"><a href="pipes.html#cb398-4" tabindex="-1"></a><span class="co">#  subset(Sepal.Length &gt; mean(Sepal.Length)) |&gt; </span></span>
+<span id="cb398-5"><a href="pipes.html#cb398-5" tabindex="-1"></a><span class="co">#  cor(Sepal.Length, Sepal.Width)</span></span>
+<span id="cb398-6"><a href="pipes.html#cb398-6" tabindex="-1"></a></span>
+<span id="cb398-7"><a href="pipes.html#cb398-7" tabindex="-1"></a></span>
+<span id="cb398-8"><a href="pipes.html#cb398-8" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb398-9"><a href="pipes.html#cb398-9" tabindex="-1"></a>  <span class="fu">subset</span>(Sepal.Length <span class="sc">&gt;</span> <span class="fu">mean</span>(Sepal.Length)) <span class="sc">%$%</span></span>
+<span id="cb398-10"><a href="pipes.html#cb398-10" tabindex="-1"></a> <span class="fu">cor</span>(Sepal.Length, Sepal.Width)</span></code></pre></div>
+</details>
+<pre><code>## [1] 0.3361992</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="pipes.html#cb400-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb400-2"><a href="pipes.html#cb400-2" tabindex="-1"></a>  <span class="fu">subset</span>(Sepal.Length <span class="sc">&gt;</span> <span class="fu">mean</span>(Sepal.Length)) <span class="sc">|&gt;</span> </span>
+<span id="cb400-3"><a href="pipes.html#cb400-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">corr=</span> <span class="fu">cor</span>(Sepal.Length, Sepal.Width))</span></code></pre></div>
+</details>
+<pre><code>##        corr
+## 1 0.3361992</code></pre>
+<div id="otro-ejemplo-de-pipe" class="section level3 hasAnchor" number="10.4.1">
+<h3><span class="header-section-number">10.4.1</span> Otro ejemplo de Pipe: %$%<a href="pipes.html#otro-ejemplo-de-pipe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="pipes.html#cb402-1" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">z =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)) <span class="sc">%$%</span> </span>
+<span id="cb402-2"><a href="pipes.html#cb402-2" tabindex="-1"></a>  <span class="fu">ts.plot</span>(z)</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-163-1.png" width="672" /></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="pipes.html#cb403-1" tabindex="-1"></a><span class="co">#data.frame(z = rnorm(100)) |&gt;  </span></span>
+<span id="cb403-2"><a href="pipes.html#cb403-2" tabindex="-1"></a><span class="co">#  ts.plot(z)</span></span>
+<span id="cb403-3"><a href="pipes.html#cb403-3" tabindex="-1"></a></span>
+<span id="cb403-4"><a href="pipes.html#cb403-4" tabindex="-1"></a><span class="co">#Para hacerlo la misma grafico con Tidyverse</span></span>
+<span id="cb403-5"><a href="pipes.html#cb403-5" tabindex="-1"></a>z1<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">z =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)) </span>
+<span id="cb403-6"><a href="pipes.html#cb403-6" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb403-7"><a href="pipes.html#cb403-7" tabindex="-1"></a>z1<span class="ot">=</span><span class="fu">data.table</span>(z1)</span>
+<span id="cb403-8"><a href="pipes.html#cb403-8" tabindex="-1"></a>z1<span class="sc">$</span>order<span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)</span>
+<span id="cb403-9"><a href="pipes.html#cb403-9" tabindex="-1"></a>z1<span class="sc">|&gt;</span> </span>
+<span id="cb403-10"><a href="pipes.html#cb403-10" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(order, z))<span class="sc">+</span></span>
+<span id="cb403-11"><a href="pipes.html#cb403-11" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-163-2.png" width="672" /></p>
+<hr />
 </div>
-<div id="uso-7-determinar-cuantas-poblaciones-se-necesita-para-la-viabilidad-de-una-especie-al-nivel-local-o-global" class="section level3 hasAnchor" number="3.3.8">
-<h3><span class="header-section-number">3.3.8</span> USO 7: Determinar cuantas poblaciones se necesita para la viabilidad de una especie al nivel local o global<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-7-determinar-cuantas-poblaciones-se-necesita-para-la-viabilidad-de-una-especie-al-nivel-local-o-global" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Dinamica de metapoblaciones.</p>
 </div>
-<div id="uso-8-comparando-el-riesgo-relativo-de-dos-o-más-poblaciones" class="section level3 hasAnchor" number="3.3.9">
-<h3><span class="header-section-number">3.3.9</span> USO 8: Comparando el riesgo relativo de dos o más poblaciones<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-8-comparando-el-riesgo-relativo-de-dos-o-más-poblaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="section-4" class="section level2 hasAnchor" number="10.5">
+<h2><span class="header-section-number">10.5</span> %&lt;&gt;%<a href="pipes.html#section-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Pipe an object forward into a function or call expression and update the lhs object with the resulting value.</p>
+<p>lhs %&lt;&gt;% rhs</p>
+<ul>
+<li><p>lhs : An object which serves both as the initial value and as target.</p></li>
+<li><p>rhs : a function call using the magrittr semantics.</p></li>
+</ul>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="pipes.html#cb404-1" tabindex="-1"></a><span class="co"># Example 1</span></span>
+<span id="cb404-2"><a href="pipes.html#cb404-2" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
+</details>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="pipes.html#cb406-1" tabindex="-1"></a><span class="fu">head</span>(iris<span class="sc">$</span>Sepal.Length <span class="sc">%&lt;&gt;%</span> sqrt)</span></code></pre></div>
+</details>
+<pre><code>## [1] 2.258318 2.213594 2.167948 2.144761 2.236068 2.323790</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="pipes.html#cb408-1" tabindex="-1"></a><span class="co"># Example 2</span></span>
+<span id="cb408-2"><a href="pipes.html#cb408-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb408-3"><a href="pipes.html#cb408-3" tabindex="-1"></a><span class="fu">head</span>(x, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
+</details>
+<pre><code>##  [1]  0.63831064  0.02058571 -0.09906960 -1.40140947 -1.22885389  0.51704077
+##  [7] -0.45872075 -0.79026468  0.34313850  0.39180836</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="pipes.html#cb410-1" tabindex="-1"></a>x <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb410-2"><a href="pipes.html#cb410-2" tabindex="-1"></a>  abs <span class="sc">%&gt;%</span> </span>
+<span id="cb410-3"><a href="pipes.html#cb410-3" tabindex="-1"></a>  sort</span>
+<span id="cb410-4"><a href="pipes.html#cb410-4" tabindex="-1"></a></span>
+<span id="cb410-5"><a href="pipes.html#cb410-5" tabindex="-1"></a><span class="fu">head</span>(x, <span class="dv">20</span>)</span></code></pre></div>
+</details>
+<pre><code>##  [1] 0.01837830 0.02058571 0.02623028 0.02796914 0.05705836 0.06845718
+##  [7] 0.07382441 0.07525013 0.07658476 0.09906960 0.11028885 0.11813463
+## [13] 0.12161264 0.13761578 0.14361692 0.15630041 0.17881177 0.24295029
+## [19] 0.29706765 0.29760047</code></pre>
+<hr />
 </div>
-<div id="uso-9-evaluar-interacciones-ecológicas-para-entender-las-variables-importantes-para-la-supervivencia-de-una-población" class="section level3 hasAnchor" number="3.3.10">
-<h3><span class="header-section-number">3.3.10</span> USO 9: Evaluar interacciones ecológicas para entender las variables importantes para la supervivencia de una población<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-9-evaluar-interacciones-ecológicas-para-entender-las-variables-importantes-para-la-supervivencia-de-una-población" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="in" class="section level2 hasAnchor" number="10.6">
+<h2><span class="header-section-number">10.6</span> %in%<a href="pipes.html#in" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Filter for values specific values within a variable</li>
+</ul>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="pipes.html#cb412-1" tabindex="-1"></a><span class="co"># Example 1</span></span>
+<span id="cb412-2"><a href="pipes.html#cb412-2" tabindex="-1"></a><span class="fu">names</span>(iris)</span></code></pre></div>
+</details>
+<pre><code>## [1] &quot;Sepal.Length&quot; &quot;Sepal.Width&quot;  &quot;Petal.Length&quot; &quot;Petal.Width&quot;  &quot;Species&quot;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="pipes.html#cb414-1" tabindex="-1"></a>iris <span class="sc">|&gt;</span> </span>
+<span id="cb414-2"><a href="pipes.html#cb414-2" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;setosa&quot;</span>, <span class="st">&quot;virginica&quot;</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb414-3"><a href="pipes.html#cb414-3" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+</details>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1     2.258318         3.5          1.4         0.2  setosa
+## 2     2.213594         3.0          1.4         0.2  setosa
+## 3     2.167948         3.2          1.3         0.2  setosa
+## 4     2.144761         3.1          1.5         0.2  setosa
+## 5     2.236068         3.6          1.4         0.2  setosa
+## 6     2.323790         3.9          1.7         0.4  setosa</code></pre>
+<hr />
 </div>
-<div id="uso-10-cual-de-los-procesos-y-patrones-evolutivos-del-ciclo-de-vida-de-especies-impacta-su-crecimiento" class="section level3 hasAnchor" number="3.3.11">
-<h3><span class="header-section-number">3.3.11</span> USO 10: Cual de los procesos y patrones evolutivos del ciclo de vida de especies impacta su crecimiento<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-10-cual-de-los-procesos-y-patrones-evolutivos-del-ciclo-de-vida-de-especies-impacta-su-crecimiento" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-</div>
-<div id="historia-de-dinamica-poblacional-en-orquideas." class="section level2 hasAnchor" number="3.4">
-<h2><span class="header-section-number">3.4</span> Historia de dinamica poblacional en orquideas.<a href="qué-es-el-analisis-de-dinamica-poblacional.html#historia-de-dinamica-poblacional-en-orquideas." class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="referencias" class="section level2 hasAnchor" number="3.5">
-<h2><span class="header-section-number">3.5</span> Referencias<a href="qué-es-el-analisis-de-dinamica-poblacional.html#referencias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="t" class="section level2 hasAnchor" number="10.7">
+<h2><span class="header-section-number">10.7</span> %T&gt;%<a href="pipes.html#t" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The tee pipe, %T&gt;%, is useful when a series of operations have a function that does not return any value.</p>
+<p><a href="https://stackoverflow.com/questions/61196304/magrittr-tee-pipe-t-equivalent" class="uri">https://stackoverflow.com/questions/61196304/magrittr-tee-pipe-t-equivalent</a></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="pipes.html#cb416-1" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">200</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb416-2"><a href="pipes.html#cb416-2" tabindex="-1"></a><span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">%T&gt;%</span></span>
+<span id="cb416-3"><a href="pipes.html#cb416-3" tabindex="-1"></a>plot <span class="sc">%&gt;%</span>  <span class="co"># plot usually does not return anything. </span></span>
+<span id="cb416-4"><a href="pipes.html#cb416-4" tabindex="-1"></a>colSums</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-166-1.png" width="672" /></p>
+<pre><code>## [1] -7.623831  6.846955</code></pre>
 
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
-<div id="ref-aide2013deforestation" class="csl-entry">
-Aide, T Mitchell, Matthew L Clark, H Ricardo Grau, David López-Carr, Marc A Levy, Daniel Redo, Martha Bonilla-Moheno, George Riner, Marı́a J Andrade-Núñez, and Marı́a Muñiz. 2013. <span>“Deforestation and Reforestation of l Atin a Merica and the c Aribbean (2001–2010).”</span> <em>Biotropica</em> 45 (2): 262–71.
-</div>
-<div id="ref-crouse1987stage" class="csl-entry">
-Crouse, Deborah T, Larry B Crowder, and Hal Caswell. 1987. <span>“A Stage-Based Population Model for Loggerhead Sea Turtles and Implications for Conservation.”</span> <em>Ecology</em> 68 (5): 1412–23.
-</div>
-<div id="ref-crowder1994predicting" class="csl-entry">
-Crowder, Larry B, Deborah T Crouse, Selina S Heppell, and Thomas H Martin. 1994. <span>“Predicting the Impact of Turtle Excluder Devices on Loggerhead Sea Turtle Populations.”</span> <em>Ecological Applications</em> 4 (3): 437–45.
-</div>
-<div id="ref-harris2022abundance" class="csl-entry">
-Harris, Grant M, Matthew J Butler, David R Stewart, and James W Cain III. 2022. <span>“The Abundance and Persistence of Caprinae Populations.”</span> <em>Scientific Reports</em> 12 (1): 13807.
-</div>
-<div id="ref-nunney1993assessing" class="csl-entry">
-Nunney, Leonard, and Kathleen A Campbell. 1993. <span>“Assessing Minimum Viable Population Size: Demography Meets Population Genetics.”</span> <em>Trends in Ecology &amp; Evolution</em> 8 (7): 234–39.
-</div>
-<div id="ref-pares2008agricultural" class="csl-entry">
-Parés-Ramos, Isabel K, William A Gould, and T Mitchell Aide. 2008. <span>“Agricultural Abandonment, Suburban Growth, and Forest Expansion in Puerto Rico Between 1991 and 2000.”</span> <em>Ecology and Society</em> 13 (2).
-</div>
-<div id="ref-shaffer1985population" class="csl-entry">
-Shaffer, Mark L, and Fred B Samson. 1985. <span>“Population Size and Extinction: A Note on Determining Critical Population Sizes.”</span> <em>The American Naturalist</em> 125 (1): 144–52.
-</div>
-<div id="ref-temple1977plant" class="csl-entry">
-Temple, Stanley A. 1977. <span>“Plant-Animal Mutualism: Coevolution with Dodo Leads to Near Extinction of Plant.”</span> <em>Science</em> 197 (4306): 885–86.
 </div>
 </div>
             </section>
@@ -819,8 +873,8 @@ Temple, Stanley A. 1977. <span>“Plant-Animal Mutualism: Coevolution with Dodo 
           </div>
         </div>
       </div>
-<a href="flujo-de-trabajo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="qué-es-un-diagrama-de-ciclo-de-vida.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="analisis-exploratorio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tibbles.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -851,7 +905,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-Intro.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/08-Pipes.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -859,7 +913,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/02-Intro.Rmd",
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/08-Pipes.Rmd",
 "text": null
 },
 "download": null,

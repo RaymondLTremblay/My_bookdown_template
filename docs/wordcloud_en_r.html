@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 ¿Qué es el analisis de dinamica poblacional? | Ciencia de Datos con R</title>
+  <title>Chapter 23 WordCloud_en_R | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 ¿Qué es el analisis de dinamica poblacional? | Ciencia de Datos con R" />
+  <meta property="og:title" content="Chapter 23 WordCloud_en_R | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 ¿Qué es el analisis de dinamica poblacional? | Ciencia de Datos con R" />
+  <meta name="twitter:title" content="Chapter 23 WordCloud_en_R | Ciencia de Datos con R" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="flujo-de-trabajo.html"/>
-<link rel="next" href="qué-es-un-diagrama-de-ciclo-de-vida.html"/>
+<link rel="prev" href="opciones-de-knitr.html"/>
+<link rel="next" href="hex-stickers.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -614,204 +614,330 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="qué-es-el-analisis-de-dinamica-poblacional" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Chapter 3</span> ¿Qué es el analisis de dinamica poblacional?<a href="qué-es-el-analisis-de-dinamica-poblacional.html#qué-es-el-analisis-de-dinamica-poblacional" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Por: Por RLT, Nhora Ospina, Demetria y Anne …..</p>
-<p>El objetivo de la conservación biológica es asegurar que las especies pueden sobrevivir, reproducirse y dejar progenie viable para de una generación a otra. Por consecuencia se necesita que las variables intrinsicas y extrinsicas, bioticas y abioticas de cada especies estén considerado con todas sus interacciones. Naturalmente aunque el concepto es sencillo, tomar en cuanta TODAS las posibles interacciones biológicas y abióticas es imposible.<br />
-El primer paso a la conservación es considerar el ambiente adecuado para cada especie. Sin duda en los ultimos 50 años en muchos paises ha habido un cambio grande en el repesto y la conservaciones de bosque, pradera, desierto y todos los biomas en general. Por ejemplo el cambio de cobertura de bosque en Puerto Rico ha aumentado de circa de 2-5% en los años 1910 a más 40% en el 2000 <span class="citation">(<a href="#ref-pares2008agricultural">Parés-Ramos, Gould, and Aide 2008</a>)</span>. En general en Latino América ha habido más reforestación de deforestación <span class="citation">(<a href="#ref-aide2013deforestation">Aide et al. 2013</a>)</span> en los ultimos años, aunque varia mucho entre paises y periodo de tiempo. Para la conservación el primer paso era reconocer que los habitat necesitan ser protegido.<br />
-Muchos de estos nuevos hábitat son bosque segundarios, fragmentados y dominado por especies introducidas. Estos habitat por consecuencia son mayormente diferentes al ambiente natural antes de los cambios antropogénicos. El resultado, en muchas ocasiones, es que la especies de interes están reducida en números de individuos o fragmentados. Considerando esos remanentes de individuos en el habitat, son suficiente para mantener una población viable? ¿Como que uno decide que una población es viable?</p>
-<p>En general, el conceptos de conservación es que si uno proteje los habitat las especies estarán conservadas. Pero lo que no es obvio es que la presencia de muchos individuos no es suficiente para asegurar la supervivencia de una especies a largo tiempo. Un ejemplo bien conocida es la extincción del Dodo en la isla de Mauritius y la casi extinción de una especies de arbol en la familia Sapotaceae, <em>Calvaria major</em>. Para que la semillas sean viable necesitan pasar por el tracto digestivo de un pajaro para remover el encocarpo persitente de la semilla que causa “dormancy” en las semillas <span class="citation">(<a href="#ref-temple1977plant">Temple 1977</a>)</span>. Por consecuencia nunca se puede asumir que la presencia de una especies sin tomar en cuenta las interacciones bióticas y abióticas es suficiente para sugerir que no hay riesgo de extincción.</p>
-<div id="qué-es-el-estudio-de-la-dinamica-poblacional" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> ¿Qué es el estudio de la dinamica poblacional?<a href="qué-es-el-analisis-de-dinamica-poblacional.html#qué-es-el-estudio-de-la-dinamica-poblacional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>La dinámica poblacional tiene como meta tomar en cuenta todas las etapas/edades de una especies y evaluar cual de esas etapas/edades tiene impacto sobre la supervivencia de la especies. Esas etapas de vida debería considerar las interaciones con sus ambiente biotico y abiotico. La dinamica de población es fundamental en todas las areas de la ecología y evolución. Comprender la dinamica poblacional es la clave para entender la importancia relativa al aceso de los recursos y el efecto de competencia, herbivoria y depredaciones sobre la viablidad de especies. Tradicionalmente los estudios estaban enfocado a evaluar la tabla de vida para el manejo y conservaciones de especies particulares (ref). En años más recientes los estudios se han diversificado para evaluar la interacciones entre especies y su ambiente (ref).</p>
-</div>
-<div id="definición" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Definición<a href="qué-es-el-analisis-de-dinamica-poblacional.html#definición" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Una definición más especifica de los estudios de dinámica poblacional son definidos como los análisis de los factores que afecten el crecimiento, estabilidad y reducción en el tamaño de la población en una serie de tiempo.</p>
-<p>Por ejemplo, la dinamica poblacional de especies invasivas incluye un periodo de crecimiento muy lento al comienzo de la colonización de un nuevo sitio y frecuentamente siguido de un crecimiento logarithmico. La figura <a href="qué-es-el-analisis-de-dinamica-poblacional.html#fig:Pop-fig">3.1</a>. demuestra el cambio de número de individuos en el tiempo de una especie hipotética.</p>
+<div id="wordcloud_en_r" class="section level1 hasAnchor" number="23">
+<h1><span class="header-section-number">Chapter 23</span> WordCloud_en_R<a href="wordcloud_en_r.html#wordcloud_en_r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="ejemplo-1" class="section level2 hasAnchor" number="23.1">
+<h2><span class="header-section-number">23.1</span> Ejemplo #1<a href="wordcloud_en_r.html#ejemplo-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para generar nubes de palabras con R. Se necesita los paquetes <strong>wordcloud</strong>, <strong>RColorBrewer</strong> y <strong>wordcloud2</strong></p>
+<p>Ese ejemplo es una copia de la siguiente pagina de web</p>
+<p><a href="http://www.sthda.com/english/wiki/word-cloud-generator-in-r-one-killer-function-to-do-everything-you-need" class="uri">http://www.sthda.com/english/wiki/word-cloud-generator-in-r-one-killer-function-to-do-everything-you-need</a></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-1" tabindex="-1"></a><span class="fu">ggplot</span>(pressure, <span class="fu">aes</span>(temperature, pressure))<span class="sc">+</span></span>
-<span id="cb44-2"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb44-3"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-3" tabindex="-1"></a>  rlt_theme<span class="sc">+</span></span>
-<span id="cb44-4"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Tiempo&quot;</span>)<span class="sc">+</span></span>
-<span id="cb44-5"><a href="qué-es-el-analisis-de-dinamica-poblacional.html#cb44-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Tamaño poblacional&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1046"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1046-1"><a href="wordcloud_en_r.html#cb1046-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;pacman&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span></code></pre></div>
 </details>
-<div class="figure"><span style="display:block;" id="fig:Pop-fig"></span>
-<img src="Ciencia_Datos_R_files/figure-html/Pop-fig-1.png" alt="Cambio poblacional en tiempo" width="672" />
-<p class="caption">
-Figure 3.1: Cambio poblacional en tiempo
-</p>
+<pre><code>## Loading required package: pacman</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1048"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1048-1"><a href="wordcloud_en_r.html#cb1048-1" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tm, SnowballC, wordcloud, RColorBrewer, wordcloud2)</span>
+<span id="cb1048-2"><a href="wordcloud_en_r.html#cb1048-2" tabindex="-1"></a></span>
+<span id="cb1048-3"><a href="wordcloud_en_r.html#cb1048-3" tabindex="-1"></a><span class="fu">library</span>(wordcloud) <span class="co"># Un paquete para hacer word clour</span></span>
+<span id="cb1048-4"><a href="wordcloud_en_r.html#cb1048-4" tabindex="-1"></a><span class="fu">library</span>(wordcloud2) <span class="co"># paquete más sencillo para hacer word cloud</span></span>
+<span id="cb1048-5"><a href="wordcloud_en_r.html#cb1048-5" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer) <span class="co"># paquete para cambiar los colores </span></span>
+<span id="cb1048-6"><a href="wordcloud_en_r.html#cb1048-6" tabindex="-1"></a><span class="fu">library</span>(tm)  <span class="co"># paquete de text mining</span></span>
+<span id="cb1048-7"><a href="wordcloud_en_r.html#cb1048-7" tabindex="-1"></a><span class="fu">library</span>(SnowballC) <span class="co"># paquete para trabajar en otro idioma aparte del ingles</span></span></code></pre></div>
+</details>
+</div>
+<div id="usando-los-datos-en-el-paquete-wordcloud2-que-se-llama-demofreq" class="section level2 hasAnchor" number="23.2">
+<h2><span class="header-section-number">23.2</span> Usando los datos en el paquete wordcloud2 que se llama <strong>demoFreq</strong><a href="wordcloud_en_r.html#usando-los-datos-en-el-paquete-wordcloud2-que-se-llama-demofreq" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1049"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1049-1"><a href="wordcloud_en_r.html#cb1049-1" tabindex="-1"></a><span class="fu">library</span>(wordcloud2)</span>
+<span id="cb1049-2"><a href="wordcloud_en_r.html#cb1049-2" tabindex="-1"></a><span class="fu">head</span>(demoFreq, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
+</details>
+<pre><code>##          word freq
+## oil       oil   85
+## said     said   73
+## prices prices   48
+## opec     opec   42
+## mln       mln   31
+## the       the   26
+## last     last   24
+## bpd       bpd   23
+## dlrs     dlrs   23
+## crude   crude   21</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1051"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1051-1"><a href="wordcloud_en_r.html#cb1051-1" tabindex="-1"></a><span class="fu">wordcloud2</span>(<span class="at">data =</span> demoFreq)</span></code></pre></div>
+</details>
+<div class="wordcloud2 html-widget html-fill-item" id="htmlwidget-670a6c040234d01706c2" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-670a6c040234d01706c2">{"x":{"word":["oil","said","prices","opec","mln","the","last","bpd","dlrs","crude","market","reuter","saudi","will","one","barrel","kuwait","new","official","pct","price","barrels","government","production","sheikh","industry","meeting","minister","world","also","billion","futures","month","output","petroleum","quota","sources","accord","analysts","but","group","gulf","january","markets","report","today","december","demand","economic","economy","energy","help","international","may","nazer","nymex","posted","present","they","traders","158","ability","agreement","ali","april","arabia","budget","emergency","exchange","hold","imports","members","recent","riyals","says","sell","years","abdulaziz","agency","arab","ceiling","company","contract","daily","emirates","expected","expenditure","exports","growth","now","opecs","plans","qatar","quoted","research","reserve","reserves","states","study","united","way","week","west","year","150","according","added","among","asked","brings","buyers","can","change","corp","cut","day","development","effective","exploration","fall","february","fell","free","higher","increase","levels","meet","must","never","per","policy","power","problem","producing","protect","pumping","reduced","revenue","revenues","rise","saying","set","since","spa","strategic","texas","this","total","transaction","weak","yesterday","13nation","1985","198586","1986","1987","198788","address","agreed","alkhalifa","alqabas","alsabah","announced","appears","arabian","arabias","around","average","back","bank","bbl","boost","called","commitment","companies","compared","countrys","current","decrease","denied","dollars","domestic","due","efp","estimate","estimates","export","fixed","foreign","four","future","grade","guard","high","hisham","however","inc","indonesia","indonesias","intermediate","kingdoms","kuwaits","local","low","lower","lowered","made","main","march","mckiernan","measures","mizrahi","moves","much","named","next","officials","plant","position","president","pressure","producer","projected","published","real","refinery","reiterated","remain","rule","say","sector","several","sharp","ship","six","slightly","smaller","spokeswoman","state","sweet","texaco","three","trading","two","weeks","york","1518","198687","20s","285000","500","725","750","948000","activity","adhering","agriculture","along","apparently","appeared","approved","architect","areas","aspen","bankers","based","benchmark","benefits","canada","canadian","cash","changed","changes","circumstance","clearly","closed","coast","come","committee","commodity","consumption","countries","country","crossroads","crucial","cubic","currently","customers","deal","decembers","decline","deficit","deposits","deputy","diamond","differentials","difficulties","direction","discounted","dlr","early","ecuador","effect","embargo","embassy","entering","even","falling","feb","first","fiscal","fiscales","forced","fully","gcc","general","given","grades","halt","hit","hope","humanistic","impact","import","increased","increasing","instead","institute","interview","investment","jersey","june","keep","late","light","limit","limits","line","lost","louisiana","lowest","major","marketing","member","mid","million","ministers","mitigate","months","nearing","net","neutral","none","nuclear","organisation","organization","outlook","overseas","pact","pay","petroliferos","planned","port","positive","postings","predicted","press","pricing","private","probably","problems","pronounced","protected","public","put","quotes","raise","rate","reduction","referring","remarks","reports","return","review","risks","riyal","selfimposed","selling","share","shortfall","spot","steady","stick","strongly","studies","support","take","taken","techniques","throughput","trade","trust","trying","uncertainty","union","value","wam","wanted","weakness","winter","yacimientos","yanbu","zero","zone","100000","108","111","115","12217","1232","1381","13member","156","1600","1635","1650","1667","168","1685","1752","180000","200000","200foot","2226","24hour","2766","300","3749598","3750003","4133","534","5472","614","658","6745","678","718","738","able","abroad","accept","across","add","addressed","adherence","advantage","advisers","after","agricultural","aground","allocated","allocations","allow","almost","already","althani","although","alvite","amidst","analysis","analyst","annual","anything","apparent","aramco","argentine","arrangement","asia","asian","assesses","assign","assigned","associates","attract","available","averaging","aware","bahrain","bahrains","balance","baseless","basic","basis","because","beginning","bijan","bin","bit","bodys","briefly","broadened","brothers","buildings","burden","buy","buyer","calendar","cambridge","capacity","capozza","carrying","center","century","cera","certain","cftc","chairman","challenge","characterized","charging","cheap","cheating","chevron","chv","cited","citing","clever","close","closer","closes","coming","commission","communications","companys","completed","complex","condition","conditions","considered","construction","contacts","continuation","continue","continued","continues","contracted","contributed","control","cooperation","coordination","copany","corps","council","counter","coupled","covered","creek","critical","cts","currency","custom","cuts","cutting","cypriot","daniel","david","days","debtburdened","debut","decided","declared","declines","deemed","defence","delaware","delivered","delivering","departments","deregulate","deregulation","determination","devalue","device","differential","difficulty","dillard","director","discuss","discussing","distribution","distributions","divided","doha","dollar","drawbacks","drop","dropped","earlier","earnings","eastern","easy","ecuadors","editor","edmontonswann","education","eight","either","elaborate","elections","electricity","end","engineers","entitlements","environment","equally","estimated","european","exceed","exceeding","excess","excesses","excessive","exerted","exist","expanded","expansion","expartners","expectations","expects","explained","exporting","exxon","face","faced","faces","facilities","facing","failed","fallen","favours","fee","fernando","figure","figures","finance","firmer","floating","followed","for","forces","foremost","fourth","frank","full","fundamentals","gas","generally","geneva","get","globalization","glut","guaranteed","halting","harvard","heads","health","hedge","hedged","helped","hemisphere","highly","hills","hitting","hoped","housing","houston","immediately","implementation","improve","improvement","include","including","independent","indications","initiate","initiative","institutions","interbank","interest","investments","issue","jamaica","jan","juaymah","jubail","jump","just","khalifa","lack","largest","later","latest","launched","lead","leading","learn","least","lending","less","lesson","level","liberalised","lift","liftings","like","lines","liquidity","little","loan","lodged","longterm","ltd","lukman","lull","maintain","make","manager","manipulate","many","marathon","marathons","marker","mcfadden","means","mercantile","metrers","metres","mid1960s","mid1986","mideast","minus","mlotok","mob","mobil","momentum","money","monopolies","monthend","moussavarrahmani","movement","nation","natural","need","needs","negative","negotiate","neither","network","news","newspaper","nigerian","nine","nonoil","northern","notes","offset","onetwelfth","oneweek","open","opens","operations","opposite","optimism","optimistic","option","order","organiaation","our","outlining","outside","overproducing","part","parties","partly","party","past","paths","paul","paulsboro","payments","pegged","performance","period","pertains","pessimistic","philadelphia","physical","placed","plastics","platinum","point","policies","political","population","positions","postponed","pressures","previous","primarily","primary","principal","procedure","produce","produced","producers","product","products","program","projection","projects","prompted","proposed","proved","providing","provision","publish","purposes","quarter","quiet","quietly","quotas","rallied","ran","ranging","ras","rates","rationalise","readdress","reaffirmed","reasonable","recommending","recovering","recurrent","reference","refineries","refining","reflect","refloat","reform","reforms","regain","regard","regarding","region","regional","reiterate","relaxation","relieve","reluctant","remainder","remained","reported","request","resistance","resisting","resources","respectively","responsibilites","restored","restraint","restrictions","result","reuters","revealed","reviews","right","rilwanu","rising","river","rocks","rosemary","rumour","rushing","sales","salomon","santos","satisfied","saw","scheduled","scheme","seapride","season","secretary","security","seeing","seek","september","series","serve","services","session","sets","seven","severely","shamrock","sharply","shoulder","show","showed","shown","signed","signs","situation","sixmonth","slackens","slide","slump","social","sold","soon","sort","sour","south","southeast","spend","spill","spoke","spokesman","spotnext","spriggs","stabilise","stabilize","stable","start","statement","steel","steering","steps","stiff","storage","strong","subsequently","substitution","succeed","suffer","suffering","suhartos","sunday","sundays","supply","supporting","suppose","surrounding","swift","talks","tanker","tanurah","tapers","teach","telephone","terminals","test","there","third","thomas","though","thought","threemonth","tide","together","told","totalled","tower","trader","trades","traditional","traditionally","transacted","transmission","transport","trends","trusts","try","turmoil","twofold","uae","uncertain","unchanged","under","unions","unitholders","universitys","unlikely","unocal","unusually","urged","use","virtual","wants","water","wealth","wednesday","weekend","welcomed","when","whether","wishes","worldwide","xon","yergin","yesterdays"],"freq":[85,73,48,42,31,26,24,23,23,21,20,20,18,18,17,15,14,14,14,14,13,11,11,11,11,10,10,10,10,9,9,9,9,9,9,9,9,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,7,7,7,7,7,7,7,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"fontFamily":"Segoe UI","fontWeight":"bold","color":"random-dark","minSize":0,"weightFactor":2.117647058823529,"backgroundColor":"white","gridSize":0,"minRotation":-0.7853981633974483,"maxRotation":0.7853981633974483,"shuffle":true,"rotateRatio":0.4,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
+</div>
+<div id="paso-1" class="section level2 hasAnchor" number="23.3">
+<h2><span class="header-section-number">23.3</span> Paso 1<a href="wordcloud_en_r.html#paso-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Importar los datos de la web</p>
+<p>Importar un texto de su computadora en formato <strong>.txt</strong> No va a funcionar el formato <strong>.doc</strong> de MSWord.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1052"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1052-1"><a href="wordcloud_en_r.html#cb1052-1" tabindex="-1"></a><span class="co">#mi_texto &lt;- readLines(file.choose())</span></span></code></pre></div>
+</details>
+</div>
+<div id="subir-el-texto-en-formato-corpus" class="section level2 hasAnchor" number="23.4">
+<h2><span class="header-section-number">23.4</span> Subir el texto en formato <strong>Corpus</strong><a href="wordcloud_en_r.html#subir-el-texto-en-formato-corpus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1053"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1053-1"><a href="wordcloud_en_r.html#cb1053-1" tabindex="-1"></a>mi_texto<span class="ot">=</span><span class="fu">iconv</span>(text,<span class="st">&quot;WINDOWS-1252&quot;</span>,<span class="st">&quot;UTF-8&quot;</span>) <span class="co"># Use this for removing accents and non - english characters</span></span>
+<span id="cb1053-2"><a href="wordcloud_en_r.html#cb1053-2" tabindex="-1"></a></span>
+<span id="cb1053-3"><a href="wordcloud_en_r.html#cb1053-3" tabindex="-1"></a><span class="co"># Load the data as a corpus</span></span>
+<span id="cb1053-4"><a href="wordcloud_en_r.html#cb1053-4" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">Corpus</span>(<span class="fu">VectorSource</span>(mi_texto))</span></code></pre></div>
+</details>
+</div>
+<div id="mirar-el-documento-para-evaluar-su-contenido" class="section level2 hasAnchor" number="23.5">
+<h2><span class="header-section-number">23.5</span> Mirar el documento, para evaluar su contenido<a href="wordcloud_en_r.html#mirar-el-documento-para-evaluar-su-contenido" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1054"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1054-1"><a href="wordcloud_en_r.html#cb1054-1" tabindex="-1"></a><span class="co"># inspect(docs) # quita el hashtag para ver el documento</span></span></code></pre></div>
+</details>
+</div>
+<div id="transformar-el-texto-para-reemplazar-algunos-caracteres-especiales" class="section level2 hasAnchor" number="23.6">
+<h2><span class="header-section-number">23.6</span> Transformar el texto para reemplazar algunos caracteres especiales<a href="wordcloud_en_r.html#transformar-el-texto-para-reemplazar-algunos-caracteres-especiales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1055"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1055-1"><a href="wordcloud_en_r.html#cb1055-1" tabindex="-1"></a>toSpace <span class="ot">&lt;-</span> <span class="fu">content_transformer</span>(<span class="cf">function</span> (x , pattern ) <span class="fu">gsub</span>(pattern, <span class="st">&quot; &quot;</span>, x))</span>
+<span id="cb1055-2"><a href="wordcloud_en_r.html#cb1055-2" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, toSpace, <span class="st">&quot;-&quot;</span>)</span></code></pre></div>
+</details>
+<pre><code>## Warning in tm_map.SimpleCorpus(docs, toSpace, &quot;-&quot;): transformation drops
+## documents</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1057"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1057-1"><a href="wordcloud_en_r.html#cb1057-1" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, toSpace, <span class="st">&quot;@&quot;</span>)</span></code></pre></div>
+</details>
+<pre><code>## Warning in tm_map.SimpleCorpus(docs, toSpace, &quot;@&quot;): transformation drops
+## documents</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1059"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1059-1"><a href="wordcloud_en_r.html#cb1059-1" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, toSpace, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">|&quot;</span>)</span></code></pre></div>
+</details>
+<pre><code>## Warning in tm_map.SimpleCorpus(docs, toSpace, &quot;\\|&quot;): transformation drops
+## documents</code></pre>
+</div>
+<div id="el-paquete-tm-es-para-text-mining" class="section level2 hasAnchor" number="23.7">
+<h2><span class="header-section-number">23.7</span> el paquete <strong>tm</strong> es para <strong>text mining</strong><a href="wordcloud_en_r.html#el-paquete-tm-es-para-text-mining" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1061"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1061-1"><a href="wordcloud_en_r.html#cb1061-1" tabindex="-1"></a><span class="co"># Convert the text to lower case</span></span>
+<span id="cb1061-2"><a href="wordcloud_en_r.html#cb1061-2" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, <span class="fu">content_transformer</span>(tolower))</span></code></pre></div>
+</details>
+<pre><code>## Warning in tm_map.SimpleCorpus(docs, content_transformer(tolower)):
+## transformation drops documents</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1063"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1063-1"><a href="wordcloud_en_r.html#cb1063-1" tabindex="-1"></a><span class="co"># Remove numbers</span></span>
+<span id="cb1063-2"><a href="wordcloud_en_r.html#cb1063-2" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeNumbers)</span></code></pre></div>
+</details>
+<pre><code>## Warning in tm_map.SimpleCorpus(docs, removeNumbers): transformation drops
+## documents</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1065"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1065-1"><a href="wordcloud_en_r.html#cb1065-1" tabindex="-1"></a><span class="co"># Remove english common stopwords</span></span>
+<span id="cb1065-2"><a href="wordcloud_en_r.html#cb1065-2" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeWords, <span class="fu">stopwords</span>(<span class="st">&quot;english&quot;</span>))</span></code></pre></div>
+</details>
+<pre><code>## Warning in tm_map.SimpleCorpus(docs, removeWords, stopwords(&quot;english&quot;)):
+## transformation drops documents</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1067"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1067-1"><a href="wordcloud_en_r.html#cb1067-1" tabindex="-1"></a><span class="co"># Remove your own stop word</span></span>
+<span id="cb1067-2"><a href="wordcloud_en_r.html#cb1067-2" tabindex="-1"></a><span class="co"># specify your stopwords as a character vector</span></span>
+<span id="cb1067-3"><a href="wordcloud_en_r.html#cb1067-3" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeWords, <span class="fu">c</span>(<span class="st">&quot;blabla1&quot;</span>, <span class="st">&quot;blabla2&quot;</span>)) </span></code></pre></div>
+</details>
+<pre><code>## Warning in tm_map.SimpleCorpus(docs, removeWords, c(&quot;blabla1&quot;, &quot;blabla2&quot;)):
+## transformation drops documents</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1069"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1069-1"><a href="wordcloud_en_r.html#cb1069-1" tabindex="-1"></a><span class="co"># Remove punctuations</span></span>
+<span id="cb1069-2"><a href="wordcloud_en_r.html#cb1069-2" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removePunctuation)</span></code></pre></div>
+</details>
+<pre><code>## Warning in tm_map.SimpleCorpus(docs, removePunctuation): transformation drops
+## documents</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1071"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1071-1"><a href="wordcloud_en_r.html#cb1071-1" tabindex="-1"></a><span class="co"># Eliminate extra white spaces</span></span>
+<span id="cb1071-2"><a href="wordcloud_en_r.html#cb1071-2" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, stripWhitespace)</span></code></pre></div>
+</details>
+<pre><code>## Warning in tm_map.SimpleCorpus(docs, stripWhitespace): transformation drops
+## documents</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1073"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1073-1"><a href="wordcloud_en_r.html#cb1073-1" tabindex="-1"></a><span class="co"># Text stemming</span></span>
+<span id="cb1073-2"><a href="wordcloud_en_r.html#cb1073-2" tabindex="-1"></a><span class="co"># docs &lt;- tm_map(docs, stemDocument)</span></span>
+<span id="cb1073-3"><a href="wordcloud_en_r.html#cb1073-3" tabindex="-1"></a></span>
+<span id="cb1073-4"><a href="wordcloud_en_r.html#cb1073-4" tabindex="-1"></a><span class="co">#stopwords() # Here are all the stopwords in the function **stopwords**</span></span></code></pre></div>
+</details>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1074"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1074-1"><a href="wordcloud_en_r.html#cb1074-1" tabindex="-1"></a>dtm <span class="ot">&lt;-</span> <span class="fu">TermDocumentMatrix</span>(docs)</span>
+<span id="cb1074-2"><a href="wordcloud_en_r.html#cb1074-2" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(dtm)</span>
+<span id="cb1074-3"><a href="wordcloud_en_r.html#cb1074-3" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">rowSums</span>(m),<span class="at">decreasing=</span><span class="cn">TRUE</span>)</span>
+<span id="cb1074-4"><a href="wordcloud_en_r.html#cb1074-4" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">word =</span> <span class="fu">names</span>(v),<span class="at">freq=</span>v)</span>
+<span id="cb1074-5"><a href="wordcloud_en_r.html#cb1074-5" tabindex="-1"></a><span class="fu">head</span>(d, <span class="at">n=</span><span class="dv">10</span>) <span class="co"># las primeras 10 palabras más comunes</span></span></code></pre></div>
+</details>
+<pre><code>##              word freq
+## will         will   17
+## freedom   freedom   13
+## ring         ring   12
+## dream       dream   11
+## day           day   11
+## let           let   11
+## every       every    9
+## one           one    8
+## able         able    8
+## together together    7</code></pre>
+<div id="check-your-words-and-remove-unwanted-words-individually" class="section level3 hasAnchor" number="23.7.1">
+<h3><span class="header-section-number">23.7.1</span> Check your words and remove unwanted words individually<a href="wordcloud_en_r.html#check-your-words-and-remove-unwanted-words-individually" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>“òó”</p>
+<p>òorchid</p>
+<p>pollinators</p>
+</div>
+<div id="how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts" class="section level3 hasAnchor" number="23.7.2">
+<h3><span class="header-section-number">23.7.2</span> How would you remove from the data frame all words that have less or equal to 3 counts<a href="wordcloud_en_r.html#how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<hr />
+<p>Del paquete <strong>wordcloud</strong></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1076"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1076-1"><a href="wordcloud_en_r.html#cb1076-1" tabindex="-1"></a><span class="fu">wordcloud</span>(<span class="at">words =</span> d<span class="sc">$</span>word, </span>
+<span id="cb1076-2"><a href="wordcloud_en_r.html#cb1076-2" tabindex="-1"></a>          <span class="at">freq =</span> d<span class="sc">$</span>freq, </span>
+<span id="cb1076-3"><a href="wordcloud_en_r.html#cb1076-3" tabindex="-1"></a>          <span class="at">min.freq =</span> <span class="dv">1</span>,</span>
+<span id="cb1076-4"><a href="wordcloud_en_r.html#cb1076-4" tabindex="-1"></a>          <span class="at">max.words=</span><span class="dv">200</span>, </span>
+<span id="cb1076-5"><a href="wordcloud_en_r.html#cb1076-5" tabindex="-1"></a>          <span class="at">random.order=</span><span class="cn">FALSE</span>, </span>
+<span id="cb1076-6"><a href="wordcloud_en_r.html#cb1076-6" tabindex="-1"></a>          <span class="at">rot.per=</span><span class="fl">0.35</span>, </span>
+<span id="cb1076-7"><a href="wordcloud_en_r.html#cb1076-7" tabindex="-1"></a>          <span class="at">colors=</span><span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>))</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-350-1.png" width="672" /></p>
+<hr />
 </div>
 </div>
-<div id="el-analisis-de-dinámica-poblacional-y-su-uso" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> El analisis de Dinámica Poblacional y su uso<a href="qué-es-el-analisis-de-dinamica-poblacional.html#el-analisis-de-dinámica-poblacional-y-su-uso" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Determinar el tamaño poblacional en el futuro tiene muchos usos. Se puede dividir sus usos en tres grupos grandes, entender las <strong>1)</strong> interacciones ecológicas, <strong>2)</strong> manejo y conservaciones o <strong>3)</strong> los procesos evolutivos. Los estudios enfocado a la conservación se engloba dentro de un acercamiento de la viablidad de poblaciones. En este libro estaremos dando una introducción a cada uno de estas vertientes, pero nuestros ejemplos son una introducción al tema y no una profundización extensa de cada uno. En la table <a href="qué-es-el-analisis-de-dinamica-poblacional.html#USO">3.3.1</a> vemos algunos de los usos especificos que se ha dado con la metodología de PPM.</p>
-<div id="USO" class="section level3 hasAnchor" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Tabla: El uso potencial de la diferentes acercamiento de PPM.<a href="qué-es-el-analisis-de-dinamica-poblacional.html#USO" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>NOTA IMPORTANTE: <em>Evaluar las referencias y añadir referencias tradicionales y recientes</em></p>
-<table>
-<colgroup>
-<col width="22%" />
-<col width="27%" />
-<col width="22%" />
-<col width="27%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Categoria de Uso</th>
-<th align="left">Uso especifico</th>
-<th align="left">Referencias</th>
-<th align="right">Referencias con Oquideas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Manejo</td>
-<td align="left">Identificar las etapas or procesos demograficos claves</td>
-<td align="left"><span class="citation">(<a href="#ref-crouse1987stage">Crouse, Crowder, and Caswell 1987</a>)</span></td>
-<td align="right">?</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Determinar cuantos individuos en una población es necesario para reducir la extinción</td>
-<td align="left">Shaffer 1981 Armbruster &amp; Lande 1993</td>
-<td align="right">?</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left">Determinar cuantos individuos se necesita introducir en una sitio para establecer una población viable</td>
-<td align="left">Bustamante 1996</td>
-<td align="right">?</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Determinar cuantos individuos se puede extraer si tener un impacto negativo sobre la viabilidad de una población</td>
-<td align="left">Nantel et al. 1996</td>
-<td align="right">?</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left">En especies invasivas determinar cuantos y cual etapas se necesita remover para controlar la población</td>
-<td align="left">?</td>
-<td align="right">?</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Determinar cuantas pobalciones se necesita para la viabilidad de una especie al nivel local o global</td>
-<td align="left">Lindenmayer &amp; Possingham 1996</td>
-<td align="right"></td>
-</tr>
-<tr class="odd">
-<td align="left">Evaluación de riesgos</td>
-<td align="left">Evaluar el riesgo de una población</td>
-<td align="left">Samson 1985</td>
-<td align="right">muchos</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Comparando el riesgo relativo de dos o más poblaciones</td>
-<td align="left">Allendrof et al. 1997</td>
-<td align="right">?</td>
-</tr>
-<tr class="odd">
-<td align="left">Interacciones ecologicas</td>
-<td align="left">Evaluar interacciones ecológicas para entender las variables importantes para la supervivencia de una población</td>
-<td align="left">?</td>
-<td align="right">Ospina et al., 2022</td>
-</tr>
-<tr class="even">
-<td align="left">Procesos y patrones evolutivos</td>
-<td align="left">Cual de los procesos y patrones evolutivos del ciclo de vida de especies impacta su crecimiento</td>
-<td align="left">?</td>
-<td align="right">?</td>
-</tr>
-</tbody>
-</table>
+<div id="ejemplo-2" class="section level2 hasAnchor" number="23.8">
+<h2><span class="header-section-number">23.8</span> Ejemplo 2<a href="wordcloud_en_r.html#ejemplo-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Del paquete <strong>wordcloud2</strong></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1077"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1077-1"><a href="wordcloud_en_r.html#cb1077-1" tabindex="-1"></a><span class="fu">wordcloud2</span>(<span class="at">data =</span> d)</span></code></pre></div>
+</details>
+<div class="wordcloud2 html-widget html-fill-item" id="htmlwidget-05aeef4ef7d66847c370" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-05aeef4ef7d66847c370">{"x":{"word":["will","freedom","ring","dream","day","let","every","one","able","together","nation","mountain","shall","faith","free","today","men","state","children","little","black","white","made","god","new","sing","land","last","even","live","meaning","true","brotherhood","former","georgia","sons","heat","mississippi","sweltering","alabama","boys","girls","hands","join","words","hill","places","hope","stone","thee","mountainside","american","deeply","difficulties","face","rooted","still","though","tomorrow","creed","rise","created","equal","evident","hold","self","truths","hills","owners","red","sit","slave","slaves","table","injustice","justice","oasis","oppression","transformed","character","color","content","four","judged","skin","brothers","dripping","governor","interposition","lips","nullification","racists","right","sisters","vicious","crooked","exalted","flesh","glory","lord","low","plain","revealed","rough","see","straight","valley","back","south","beautiful","despair","discords","hew","jail","jangling","knowing","pray","stand","struggle","symphony","transform","work","country","liberty","sweet","tis","died","fathers","pilgrim","pride","america","become","great","must","hampshire","hilltops","prodigious","mighty","mountains","york","alleghenies","heightening","pennsylvania","capped","colorado","rockies","snow","california","curvaceous","slopes","lookout","tennessee","molehill","allow","catholics","city","gentiles","hamlet","happens","jews","negro","old","protestants","speed","spiritual","village","almighty","thank"],"freq":[17,13,12,11,11,11,9,8,8,7,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"fontFamily":"Segoe UI","fontWeight":"bold","color":"random-dark","minSize":0,"weightFactor":10.58823529411765,"backgroundColor":"white","gridSize":0,"minRotation":-0.7853981633974483,"maxRotation":0.7853981633974483,"shuffle":true,"rotateRatio":0.4,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
 </div>
-<div id="uso-1-identificar-las-etapas-or-procesos-demográficos-claves" class="section level3 hasAnchor" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> USO 1: Identificar las etapas or procesos demográficos claves<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-1-identificar-las-etapas-or-procesos-demográficos-claves" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Identificar y conocer cuales son las etapas de vida más suceptibles a cambios abioticos y bioticos y su impacto sobre la persistencia de una población es necesario para el manejo. El ejemplo clásico en la literatura usando PPM son los trabajos sobre la dinámica poblacional de la tortuga “boba” o “cabezona” <em>Caretta caretta</em> <span class="citation">(<a href="#ref-crouse1987stage">Crouse, Crowder, and Caswell 1987</a>)</span>, <span class="citation">(<a href="#ref-crowder1994predicting">Crowder et al. 1994</a>)</span>. Crouse y Crowder demostrarón que aun salvando TODOS los huevos de depredación, esa estrategia de manejo antropogenico iba a tener muy poco impacto en el crecimiento de la población. Lo que econtrarón es que el impacto más grande sobre el crecimiento poblacional provendría de proteger los adultos de las redes de pesca, modificando estas para que las tortugas se pueden escapar y no ahogarse en las redes. Los trabajos de Crouse y Crowder fueron pioneros en demostrar que uno podía simular diferentes escenarios basado en la historia de vida y evaluar su impacto.</p>
-<p>Ejemplo de orquidea AQUI</p>
+<div id="como-remover-palabras-de-otra-idioma" class="section level2 hasAnchor" number="23.9">
+<h2><span class="header-section-number">23.9</span> Como remover palabras de otra idioma<a href="wordcloud_en_r.html#como-remover-palabras-de-otra-idioma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="vea-este-enlace-para-los-stopwords-de-muchos-idiomas" class="section level3 hasAnchor" number="23.9.1">
+<h3><span class="header-section-number">23.9.1</span> Vea este enlace para los “stopwords” de muchos idiomas<a href="wordcloud_en_r.html#vea-este-enlace-para-los-stopwords-de-muchos-idiomas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><a href="https://cran.r-project.org/web/packages/stopwords/readme/README.html" class="uri">https://cran.r-project.org/web/packages/stopwords/readme/README.html</a></p>
 </div>
-<div id="uso-2-determinar-cuantos-individuos-en-una-población-es-necesario-para-reducir-la-extinción" class="section level3 hasAnchor" number="3.3.3">
-<h3><span class="header-section-number">3.3.3</span> USO 2: Determinar cuantos individuos en una población es necesario para reducir la extinción<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-2-determinar-cuantos-individuos-en-una-población-es-necesario-para-reducir-la-extinción" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El efecto de tamaño poblacional sobre la biología y la probabilidad de extincción es amplia <span class="citation">(<a href="#ref-shaffer1985population">Shaffer and Samson 1985</a>)</span>, <span class="citation">(<a href="#ref-nunney1993assessing">Nunney and Campbell 1993</a>)</span>, <span class="citation">(<a href="#ref-harris2022abundance">Harris et al. 2022</a>)</span>. ¿Cual es la probablidad de extincción de una población considerando la cantidad de individuos en cada etapa? En general lo que se observa es que menor el tamaño poblacional, N, mayor es el riesgo de extincción. Esa probabilidad de extincción puede variar si algunas etapas del ciclo de vida tiene es muy reducido o su probabilidad de sobrevivir o crecer varia. Consideramos por ejemplo en las orquídeas donde la probabilidad de que las semillas se establece, germina y crezca a a ser un juvenil es muy pequeña. Por consecuencia una nueva población de orquidea necesita considerar la cantidad de individuos que este presente pero tambien la probabilidad de tener semillas y que estas pueden crecer a ser adultos reproducible.</p>
 </div>
-<div id="uso-3-determinar-cuantos-individuos-se-necesita-introducir-en-una-sitio-para-establecer-una-población-viable" class="section level3 hasAnchor" number="3.3.4">
-<h3><span class="header-section-number">3.3.4</span> USO 3: Determinar cuantos individuos se necesita introducir en una sitio para establecer una población viable<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-3-determinar-cuantos-individuos-se-necesita-introducir-en-una-sitio-para-establecer-una-población-viable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Naturalmente, más cantidad de individuos re-introducido en un sitio mayor sera la probabilidad que la población sea viable. Pero, como todo hay un limite de tiempo y esfuerzo disponible. Por consecuencia la pregunta debería ser orientado a determinar cual es el minimo de individuos que se deberia introductir para garantizar un x porciento de suceso en el establecimiento de una nueva población.</p>
-<p>En los ultimos años, muchas organizaciones y cientificos han comenzado a hacer re-introducción de especies en su habitat nativo y no. (ref). Algunos programa introduce especies en areas urbanas.</p>
+<div id="en-español" class="section level2 hasAnchor" number="23.10">
+<h2><span class="header-section-number">23.10</span> En español<a href="wordcloud_en_r.html#en-español" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1078"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1078-1"><a href="wordcloud_en_r.html#cb1078-1" tabindex="-1"></a><span class="co"># from CRAN</span></span>
+<span id="cb1078-2"><a href="wordcloud_en_r.html#cb1078-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;stopwords&quot;</span>)</span>
+<span id="cb1078-3"><a href="wordcloud_en_r.html#cb1078-3" tabindex="-1"></a></span>
+<span id="cb1078-4"><a href="wordcloud_en_r.html#cb1078-4" tabindex="-1"></a><span class="co"># Or get the development version from GitHub:</span></span>
+<span id="cb1078-5"><a href="wordcloud_en_r.html#cb1078-5" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
+<span id="cb1078-6"><a href="wordcloud_en_r.html#cb1078-6" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;quanteda/stopwords&quot;</span>)</span></code></pre></div>
+</details>
+<div id="las-30-primeras-palabras-en-la-lista-de-stopword-del-paquete-stopwords-en-español" class="section level3 hasAnchor" number="23.10.1">
+<h3><span class="header-section-number">23.10.1</span> Las 30 primeras palabras en la lista de stopword del paquete “stopwords” en español<a href="wordcloud_en_r.html#las-30-primeras-palabras-en-la-lista-de-stopword-del-paquete-stopwords-en-español" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1079"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1079-1"><a href="wordcloud_en_r.html#cb1079-1" tabindex="-1"></a><span class="fu">head</span>(stopwords<span class="sc">::</span><span class="fu">stopwords</span>(<span class="st">&quot;es&quot;</span>, <span class="at">source =</span> <span class="st">&quot;snowball&quot;</span>), <span class="dv">30</span>)</span></code></pre></div>
+</details>
+<pre><code>##  [1] &quot;de&quot;     &quot;la&quot;     &quot;que&quot;    &quot;el&quot;     &quot;en&quot;     &quot;y&quot;      &quot;a&quot;      &quot;los&quot;   
+##  [9] &quot;del&quot;    &quot;se&quot;     &quot;las&quot;    &quot;por&quot;    &quot;un&quot;     &quot;para&quot;   &quot;con&quot;    &quot;no&quot;    
+## [17] &quot;una&quot;    &quot;su&quot;     &quot;al&quot;     &quot;lo&quot;     &quot;como&quot;   &quot;más&quot;    &quot;pero&quot;   &quot;sus&quot;   
+## [25] &quot;le&quot;     &quot;ya&quot;     &quot;o&quot;      &quot;este&quot;   &quot;sí&quot;     &quot;porque&quot;</code></pre>
+<hr />
+<p>Ejemplos #3</p>
+<p>Aqui un tercer ejemplo</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1081"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1081-1"><a href="wordcloud_en_r.html#cb1081-1" tabindex="-1"></a><span class="co"># install.packages(&quot;pacman&quot;) # Si no tiene instalada la Biblioteca Pacman ejecutar esta línea de código</span></span>
+<span id="cb1081-2"><a href="wordcloud_en_r.html#cb1081-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;pacman&quot;</span>)</span>
+<span id="cb1081-3"><a href="wordcloud_en_r.html#cb1081-3" tabindex="-1"></a></span>
+<span id="cb1081-4"><a href="wordcloud_en_r.html#cb1081-4" tabindex="-1"></a></span>
+<span id="cb1081-5"><a href="wordcloud_en_r.html#cb1081-5" tabindex="-1"></a><span class="fu">p_load</span>(<span class="st">&quot;tm&quot;</span>) <span class="co"># Biblioteca para realizar el preprocesado del texto,</span></span>
+<span id="cb1081-6"><a href="wordcloud_en_r.html#cb1081-6" tabindex="-1"></a><span class="fu">p_load</span>(<span class="st">&quot;tidyverse&quot;</span>) <span class="co"># Biblioteca con funciones para manipular datos.</span></span>
+<span id="cb1081-7"><a href="wordcloud_en_r.html#cb1081-7" tabindex="-1"></a><span class="fu">p_load</span>(<span class="st">&quot;wordcloud&quot;</span>) <span class="co"># Biblioteca para graficar nuestra nube de palabras.</span></span>
+<span id="cb1081-8"><a href="wordcloud_en_r.html#cb1081-8" tabindex="-1"></a><span class="fu">p_load</span>(<span class="st">&quot;RColorBrewer&quot;</span>) <span class="co"># Biblioteca para seleccionar una paleta de colores de nuestra nube de palabras.</span></span></code></pre></div>
+</details>
+</div>
+</div>
+<div id="un-documento-para-hacer-un-word-cloud" class="section level2 hasAnchor" number="23.11">
+<h2><span class="header-section-number">23.11</span> Un documento para hacer un word cloud<a href="wordcloud_en_r.html#un-documento-para-hacer-un-word-cloud" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1082"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1082-1"><a href="wordcloud_en_r.html#cb1082-1" tabindex="-1"></a>articulo_IA <span class="ot">&lt;-</span> <span class="st">&quot;https://gist.github.com/EverVino/7bdbbe7ebdff5987970036f52f0e384f/raw/3a1997b6f9e3471555a941f8812ada0cef84977d/gistfile1.txt&quot;</span></span>
+<span id="cb1082-2"><a href="wordcloud_en_r.html#cb1082-2" tabindex="-1"></a>texto <span class="ot">&lt;-</span> <span class="fu">read_file</span>(articulo_IA)</span>
+<span id="cb1082-3"><a href="wordcloud_en_r.html#cb1082-3" tabindex="-1"></a><span class="co">#texto</span></span></code></pre></div>
+</details>
+</div>
+<div id="convertir-su-documento-en-corpus-y-identificar-que-es-en-español" class="section level2 hasAnchor" number="23.12">
+<h2><span class="header-section-number">23.12</span> Convertir su documento en <strong>Corpus</strong> y identificar que es en español<a href="wordcloud_en_r.html#convertir-su-documento-en-corpus-y-identificar-que-es-en-español" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1083"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1083-1"><a href="wordcloud_en_r.html#cb1083-1" tabindex="-1"></a>texto2 <span class="ot">&lt;-</span> <span class="fu">VCorpus</span>(<span class="fu">VectorSource</span>(texto), </span>
+<span id="cb1083-2"><a href="wordcloud_en_r.html#cb1083-2" tabindex="-1"></a>                 <span class="at">readerControl =</span> <span class="fu">list</span>(<span class="at">reader =</span> readPlain, <span class="at">language =</span> <span class="st">&quot;es&quot;</span>, <span class="at">load=</span><span class="cn">TRUE</span>))</span>
+<span id="cb1083-3"><a href="wordcloud_en_r.html#cb1083-3" tabindex="-1"></a>texto2</span></code></pre></div>
+</details>
+<pre><code>## &lt;&lt;VCorpus&gt;&gt;
+## Metadata:  corpus specific: 0, document level (indexed): 0
+## Content:  documents: 1</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1085"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1085-1"><a href="wordcloud_en_r.html#cb1085-1" tabindex="-1"></a><span class="co">#inspect(texto2)</span></span></code></pre></div>
+</details>
+</div>
+<div id="limpieza-del-documento" class="section level2 hasAnchor" number="23.13">
+<h2><span class="header-section-number">23.13</span> Limpieza del documento<a href="wordcloud_en_r.html#limpieza-del-documento" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Caladenia</li>
-<li>Korea</li>
-<li>one million orchids project</li>
-<li>????</li>
+<li>remover los números</li>
+<li>remover las puntuaciones</li>
+<li>cambiar a letras minúsculas</li>
+<li>remover las palabras comunes en español</li>
+<li>usar solamente la base de las palabres (“stem”) por ejemplo remover las conjugaciones <strong>espero</strong>, <strong>esparas</strong>, <strong>espera</strong>, <strong>esperamos</strong>… se convierte en “esper”</li>
+<li>remover espacios blancos</li>
 </ul>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1086"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1086-1"><a href="wordcloud_en_r.html#cb1086-1" tabindex="-1"></a>texto2 <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(texto2, removeNumbers)</span>
+<span id="cb1086-2"><a href="wordcloud_en_r.html#cb1086-2" tabindex="-1"></a>texto2 <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(texto2, removePunctuation)</span>
+<span id="cb1086-3"><a href="wordcloud_en_r.html#cb1086-3" tabindex="-1"></a>texto2 <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(texto2, tolower)</span>
+<span id="cb1086-4"><a href="wordcloud_en_r.html#cb1086-4" tabindex="-1"></a>texto2 <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(texto2, removeWords, stopwords<span class="sc">::</span><span class="fu">stopwords</span>(<span class="st">&quot;es&quot;</span>, <span class="at">source =</span> <span class="st">&quot;snowball&quot;</span>))</span>
+<span id="cb1086-5"><a href="wordcloud_en_r.html#cb1086-5" tabindex="-1"></a><span class="co">#texto2 &lt;- tm_map(texto2, stemDocument, language=&quot;spanish&quot;)</span></span>
+<span id="cb1086-6"><a href="wordcloud_en_r.html#cb1086-6" tabindex="-1"></a>texto2 <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(texto2, stripWhitespace)</span></code></pre></div>
+</details>
 </div>
-<div id="uso-4-determinar-cuantos-individuos-se-puede-extraer-sin-tener-un-impacto-negativo-sobre-la-viabilidad-de-una-población" class="section level3 hasAnchor" number="3.3.5">
-<h3><span class="header-section-number">3.3.5</span> USO 4: Determinar cuantos individuos se puede extraer sin tener un impacto negativo sobre la viabilidad de una población<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-4-determinar-cuantos-individuos-se-puede-extraer-sin-tener-un-impacto-negativo-sobre-la-viabilidad-de-una-población" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Hay tres razones principales para la extracción de individuos de su ambiente natural.</p>
-<ol style="list-style-type: decimal">
-<li>Obtener individuos para la conservación <em>Ex Situ</em>.</li>
-<li>Usar un grupo de individuos para su propagación.</li>
-<li>Extraccíon para la venta sin objetivo de conservación.</li>
-</ol>
-<p>El supuesto de colectores de orquidea de su habitat naturales, tanto para la conservación de <em>Ex situ</em> y el uso para la propagación es que el impacto es minimo, y no tendrá impacto a largo plazo para la supervivencia. Regresaremos sobre este punto más tarde. La historia de fanatisismo de recolección de orquideas para la venta es bien conocida ref(). Aun que uno quisiera pensar que estas extracciones son del pasado y no occuren hoy en dia, hay todavia escrupulos que extraen los plantas sin pensar al impacto que tendrá sobre la población o especie.</p>
-<p>Pero la pregunta se tiene que hacer. Cuantos individuos y de que etapas se puede extraer de la población sin tener impacto en el crecimoento poblacional?</p>
+<div id="transformar-el-texto-en-un-documento-de-texto-sencillo-plain-text" class="section level2 hasAnchor" number="23.14">
+<h2><span class="header-section-number">23.14</span> Transformar el texto en un documento de texto sencillo (Plain Text)<a href="wordcloud_en_r.html#transformar-el-texto-en-un-documento-de-texto-sencillo-plain-text" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1087"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1087-1"><a href="wordcloud_en_r.html#cb1087-1" tabindex="-1"></a>texto2 <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(texto2, PlainTextDocument)</span></code></pre></div>
+</details>
 </div>
-<div id="uso-5-en-especies-invasivas-determinar-cuantos-y-cual-etapas-se-necesita-remover-para-controlar-la-población." class="section level3 hasAnchor" number="3.3.6">
-<h3><span class="header-section-number">3.3.6</span> USO 5: En especies invasivas determinar cuantos y cual etapas se necesita remover para controlar la población.<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-5-en-especies-invasivas-determinar-cuantos-y-cual-etapas-se-necesita-remover-para-controlar-la-población." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="transformar-el-texto-para-reemplazar-algunos-caracteres-especiales-1" class="section level2 hasAnchor" number="23.15">
+<h2><span class="header-section-number">23.15</span> Transformar el texto para reemplazar algunos caracteres especiales<a href="wordcloud_en_r.html#transformar-el-texto-para-reemplazar-algunos-caracteres-especiales-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1088"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1088-1"><a href="wordcloud_en_r.html#cb1088-1" tabindex="-1"></a>toSpace <span class="ot">&lt;-</span> <span class="fu">content_transformer</span>(<span class="cf">function</span> (x , pattern ) <span class="fu">gsub</span>(pattern, <span class="st">&quot; &quot;</span>, x))</span>
+<span id="cb1088-2"><a href="wordcloud_en_r.html#cb1088-2" tabindex="-1"></a><span class="co">#texto2 &lt;- tm_map(texto2, toSpace, &quot;-&quot;)</span></span>
+<span id="cb1088-3"><a href="wordcloud_en_r.html#cb1088-3" tabindex="-1"></a>texto2 <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(texto2, toSpace, <span class="st">&quot;@&quot;</span>)</span>
+<span id="cb1088-4"><a href="wordcloud_en_r.html#cb1088-4" tabindex="-1"></a>texto2 <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(texto2, toSpace, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">|&quot;</span>)</span></code></pre></div>
+</details>
 </div>
-<div id="uso-6-evaluar-el-riesgo-de-una-población" class="section level3 hasAnchor" number="3.3.7">
-<h3><span class="header-section-number">3.3.7</span> USO 6: Evaluar el riesgo de una población<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-6-evaluar-el-riesgo-de-una-población" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="crear-una-matriz-de-las-palabras" class="section level2 hasAnchor" number="23.16">
+<h2><span class="header-section-number">23.16</span> Crear una matriz de las palabras<a href="wordcloud_en_r.html#crear-una-matriz-de-las-palabras" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1089"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1089-1"><a href="wordcloud_en_r.html#cb1089-1" tabindex="-1"></a>tabla_frecuencia <span class="ot">&lt;-</span> <span class="fu">DocumentTermMatrix</span>(texto2)</span></code></pre></div>
+</details>
 </div>
-<div id="uso-7-determinar-cuantas-poblaciones-se-necesita-para-la-viabilidad-de-una-especie-al-nivel-local-o-global" class="section level3 hasAnchor" number="3.3.8">
-<h3><span class="header-section-number">3.3.8</span> USO 7: Determinar cuantas poblaciones se necesita para la viabilidad de una especie al nivel local o global<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-7-determinar-cuantas-poblaciones-se-necesita-para-la-viabilidad-de-una-especie-al-nivel-local-o-global" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Dinamica de metapoblaciones.</p>
-</div>
-<div id="uso-8-comparando-el-riesgo-relativo-de-dos-o-más-poblaciones" class="section level3 hasAnchor" number="3.3.9">
-<h3><span class="header-section-number">3.3.9</span> USO 8: Comparando el riesgo relativo de dos o más poblaciones<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-8-comparando-el-riesgo-relativo-de-dos-o-más-poblaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="uso-9-evaluar-interacciones-ecológicas-para-entender-las-variables-importantes-para-la-supervivencia-de-una-población" class="section level3 hasAnchor" number="3.3.10">
-<h3><span class="header-section-number">3.3.10</span> USO 9: Evaluar interacciones ecológicas para entender las variables importantes para la supervivencia de una población<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-9-evaluar-interacciones-ecológicas-para-entender-las-variables-importantes-para-la-supervivencia-de-una-población" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="uso-10-cual-de-los-procesos-y-patrones-evolutivos-del-ciclo-de-vida-de-especies-impacta-su-crecimiento" class="section level3 hasAnchor" number="3.3.11">
-<h3><span class="header-section-number">3.3.11</span> USO 10: Cual de los procesos y patrones evolutivos del ciclo de vida de especies impacta su crecimiento<a href="qué-es-el-analisis-de-dinamica-poblacional.html#uso-10-cual-de-los-procesos-y-patrones-evolutivos-del-ciclo-de-vida-de-especies-impacta-su-crecimiento" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-</div>
-<div id="historia-de-dinamica-poblacional-en-orquideas." class="section level2 hasAnchor" number="3.4">
-<h2><span class="header-section-number">3.4</span> Historia de dinamica poblacional en orquideas.<a href="qué-es-el-analisis-de-dinamica-poblacional.html#historia-de-dinamica-poblacional-en-orquideas." class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="referencias" class="section level2 hasAnchor" number="3.5">
-<h2><span class="header-section-number">3.5</span> Referencias<a href="qué-es-el-analisis-de-dinamica-poblacional.html#referencias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="calcular-la-frecuencia-de-de-cada-palabra" class="section level2 hasAnchor" number="23.17">
+<h2><span class="header-section-number">23.17</span> Calcular la frecuencia de de cada palabra<a href="wordcloud_en_r.html#calcular-la-frecuencia-de-de-cada-palabra" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1090"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1090-1"><a href="wordcloud_en_r.html#cb1090-1" tabindex="-1"></a>tabla_frecuencia <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">palabras =</span> tabla_frecuencia<span class="sc">$</span>dimnames<span class="sc">$</span>Terms, </span>
+<span id="cb1090-2"><a href="wordcloud_en_r.html#cb1090-2" tabindex="-1"></a>                          <span class="at">frecuencia =</span> tabla_frecuencia<span class="sc">$</span>v)</span></code></pre></div>
+</details>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1091"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1091-1"><a href="wordcloud_en_r.html#cb1091-1" tabindex="-1"></a><span class="co"># Convertimos los valores enlazados con cbind a un objeto dataframe.</span></span>
+<span id="cb1091-2"><a href="wordcloud_en_r.html#cb1091-2" tabindex="-1"></a>tabla_frecuencia<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(tabla_frecuencia) </span>
+<span id="cb1091-3"><a href="wordcloud_en_r.html#cb1091-3" tabindex="-1"></a></span>
+<span id="cb1091-4"><a href="wordcloud_en_r.html#cb1091-4" tabindex="-1"></a><span class="co"># Forzamos a que la columna de frecuencia contenga valores numéricos.</span></span>
+<span id="cb1091-5"><a href="wordcloud_en_r.html#cb1091-5" tabindex="-1"></a>tabla_frecuencia<span class="sc">$</span>frecuencia<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(tabla_frecuencia<span class="sc">$</span>frecuencia)</span>
+<span id="cb1091-6"><a href="wordcloud_en_r.html#cb1091-6" tabindex="-1"></a></span>
+<span id="cb1091-7"><a href="wordcloud_en_r.html#cb1091-7" tabindex="-1"></a><span class="co"># Ordenamos muestra tabla de frecuencias de acuerdo a sus valores numéricos.</span></span>
+<span id="cb1091-8"><a href="wordcloud_en_r.html#cb1091-8" tabindex="-1"></a>tabla_frecuencia<span class="ot">&lt;-</span>tabla_frecuencia[<span class="fu">order</span>(tabla_frecuencia<span class="sc">$</span>frecuencia, <span class="at">decreasing=</span><span class="cn">TRUE</span>),]</span>
+<span id="cb1091-9"><a href="wordcloud_en_r.html#cb1091-9" tabindex="-1"></a></span>
+<span id="cb1091-10"><a href="wordcloud_en_r.html#cb1091-10" tabindex="-1"></a></span>
+<span id="cb1091-11"><a href="wordcloud_en_r.html#cb1091-11" tabindex="-1"></a><span class="fu">head</span>(tabla_frecuencia) <span class="co"># aqui vemos las 6 palabras más comunes en el texto</span></span></code></pre></div>
+</details>
+<pre><code>##          palabras frecuencia
+## 809  inteligencia         79
+## 126    artificial         67
+## 1378     sistemas         32
+## 1347          ser         22
+## 737        humano         19
+## 1172    problemas         18</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1093"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1093-1"><a href="wordcloud_en_r.html#cb1093-1" tabindex="-1"></a><span class="fu">wordcloud</span>(<span class="at">words =</span> tabla_frecuencia<span class="sc">$</span>palabras, </span>
+<span id="cb1093-2"><a href="wordcloud_en_r.html#cb1093-2" tabindex="-1"></a>          <span class="at">freq =</span> tabla_frecuencia<span class="sc">$</span>frecuencia,</span>
+<span id="cb1093-3"><a href="wordcloud_en_r.html#cb1093-3" tabindex="-1"></a>          <span class="at">min.freq =</span> <span class="dv">5</span>, </span>
+<span id="cb1093-4"><a href="wordcloud_en_r.html#cb1093-4" tabindex="-1"></a>          <span class="at">max.words =</span> <span class="dv">100</span>, </span>
+<span id="cb1093-5"><a href="wordcloud_en_r.html#cb1093-5" tabindex="-1"></a>          <span class="at">random.order =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb1093-6"><a href="wordcloud_en_r.html#cb1093-6" tabindex="-1"></a>          <span class="at">colors =</span> <span class="fu">brewer.pal</span>(<span class="dv">8</span>,<span class="st">&quot;Paired&quot;</span>))</span></code></pre></div>
+</details>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-363-1.png" width="672" /></p>
+<hr />
+<p>Como ver la figuras en la pestaña “Plots”</p>
+<p>De esa forma puede bajar los WordClouds como .pdf o otro formato.</p>
+<p>&lt;<a href="https://stackoverflow.com/questions/40570621/rstudio-how-to-show-plot-output-in-bottom-right-pane" class="uri">https://stackoverflow.com/questions/40570621/rstudio-how-to-show-plot-output-in-bottom-right-pane</a>&gt;</p>
 
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
-<div id="ref-aide2013deforestation" class="csl-entry">
-Aide, T Mitchell, Matthew L Clark, H Ricardo Grau, David López-Carr, Marc A Levy, Daniel Redo, Martha Bonilla-Moheno, George Riner, Marı́a J Andrade-Núñez, and Marı́a Muñiz. 2013. <span>“Deforestation and Reforestation of l Atin a Merica and the c Aribbean (2001–2010).”</span> <em>Biotropica</em> 45 (2): 262–71.
-</div>
-<div id="ref-crouse1987stage" class="csl-entry">
-Crouse, Deborah T, Larry B Crowder, and Hal Caswell. 1987. <span>“A Stage-Based Population Model for Loggerhead Sea Turtles and Implications for Conservation.”</span> <em>Ecology</em> 68 (5): 1412–23.
-</div>
-<div id="ref-crowder1994predicting" class="csl-entry">
-Crowder, Larry B, Deborah T Crouse, Selina S Heppell, and Thomas H Martin. 1994. <span>“Predicting the Impact of Turtle Excluder Devices on Loggerhead Sea Turtle Populations.”</span> <em>Ecological Applications</em> 4 (3): 437–45.
-</div>
-<div id="ref-harris2022abundance" class="csl-entry">
-Harris, Grant M, Matthew J Butler, David R Stewart, and James W Cain III. 2022. <span>“The Abundance and Persistence of Caprinae Populations.”</span> <em>Scientific Reports</em> 12 (1): 13807.
-</div>
-<div id="ref-nunney1993assessing" class="csl-entry">
-Nunney, Leonard, and Kathleen A Campbell. 1993. <span>“Assessing Minimum Viable Population Size: Demography Meets Population Genetics.”</span> <em>Trends in Ecology &amp; Evolution</em> 8 (7): 234–39.
-</div>
-<div id="ref-pares2008agricultural" class="csl-entry">
-Parés-Ramos, Isabel K, William A Gould, and T Mitchell Aide. 2008. <span>“Agricultural Abandonment, Suburban Growth, and Forest Expansion in Puerto Rico Between 1991 and 2000.”</span> <em>Ecology and Society</em> 13 (2).
-</div>
-<div id="ref-shaffer1985population" class="csl-entry">
-Shaffer, Mark L, and Fred B Samson. 1985. <span>“Population Size and Extinction: A Note on Determining Critical Population Sizes.”</span> <em>The American Naturalist</em> 125 (1): 144–52.
-</div>
-<div id="ref-temple1977plant" class="csl-entry">
-Temple, Stanley A. 1977. <span>“Plant-Animal Mutualism: Coevolution with Dodo Leads to Near Extinction of Plant.”</span> <em>Science</em> 197 (4306): 885–86.
 </div>
 </div>
             </section>
@@ -819,8 +945,8 @@ Temple, Stanley A. 1977. <span>“Plant-Animal Mutualism: Coevolution with Dodo 
           </div>
         </div>
       </div>
-<a href="flujo-de-trabajo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="qué-es-un-diagrama-de-ciclo-de-vida.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="opciones-de-knitr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hex-stickers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -851,7 +977,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-Intro.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/19_WordClouds.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -859,7 +985,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/02-Intro.Rmd",
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/19_WordClouds.Rmd",
 "text": null
 },
 "download": null,
