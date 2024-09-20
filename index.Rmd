@@ -21,6 +21,13 @@ editor_options:
     wrap: 72    
 ---
 
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+
+Sys.Date()
+```
+
 # Ciencia de Datos con R
 
 ***

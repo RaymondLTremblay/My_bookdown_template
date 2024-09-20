@@ -1,6 +1,11 @@
 # WordCloud_en_R
 
 
+```{r echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+
+Sys.Date()
+```
 
 ## Ejemplo #1
 

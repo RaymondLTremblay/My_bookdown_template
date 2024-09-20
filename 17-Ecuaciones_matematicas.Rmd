@@ -1,5 +1,12 @@
 # Ecuaciones Matemáticas {#math-sci}
 
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+
+Sys.Date()
+```
+
 <!-- Required to number equations in HTML files -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({

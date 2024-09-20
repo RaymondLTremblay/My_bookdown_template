@@ -1,8 +1,8 @@
 eq:reaction
 eq:promedio
-fig:unnamed-chunk-337
+fig:unnamed-chunk-347
 fig:ggplot
-fig:unnamed-chunk-338
+fig:unnamed-chunk-348
 fig:pressure
 ciencia-de-datos-con-r
 horario-de-clase
@@ -119,6 +119,7 @@ cummean-and-cumvar
 uso-de-varianza-cumulativa-en-investigación
 que-pasa-con-las-funciones-cummean-cumsum-y-cumvar-si-hay-na-en-el-archivo-de-datos
 replacar-los-na-con-0-usando-la-función-replace_na-con-un-valor-especifico-replace_navariable-0
+section-2
 pruebas-no-paraméticas
 min_rank-y-min_rankdesc
 row_number
@@ -145,9 +146,9 @@ pipes
 temas-el-paquete-magrittr-y-sus-funciones
 pipes-1
 alternativas-a-los-pipes
-section-2
-otro-ejemplo-de-pipe
 section-3
+otro-ejemplo-de-pipe
+section-4
 in
 t
 tibbles
@@ -160,6 +161,9 @@ importar-datos
 datos-importado-de-la-web.
 usar-datos-que-provienen-de-una-base-de-datos-del-web.
 covid-world
+ejercicio
+datos-importando-de-su-computadora
+temas-funciones-para-importar-datos-con-el-paquete-readr
 comparar-con-base-r
 segmentar-un-vector
 números
@@ -228,7 +232,7 @@ el-paquete-lubridate
 un-error-tipico
 intervalos-y-duraciones
 el-operador----simplifica-el-cálculo-del-intervalo
-ejercicio
+ejercicio-1
 as.duration
 funciones-1
 fechas-con-cednas-de-caracteres

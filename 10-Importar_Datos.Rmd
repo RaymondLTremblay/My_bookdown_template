@@ -3,6 +3,7 @@
 
 Fecha de la ultima revisión
 ```{r echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 
 Sys.Date()
 ```
@@ -21,7 +22,7 @@ Sys.Date()
 Aquí un website que recopila la cantidad de personas vacunados en los EEUU.
 
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(data.table)
 ```
@@ -105,7 +106,7 @@ Otra alternativa es bajar los datos en formato .csv o Excel y subirlo a su proye
  
 
 
-```{, echo=FALSE, eval=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 
 library(readr)
 nchs_births_2001 <- read_csv("nchs_births_2001.csv")
@@ -143,7 +144,7 @@ unique(nchs_births_2001$RB)
 
 COVID_PR
 
-```{r,DatosMortandad20, echo=FALSE, eval=FALSE}
+```{r, DatosMortandad20, echo=FALSE, eval=FALSE}
 library(data.table)
 url_COVID_PR=fread("https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv")
 
@@ -202,7 +203,12 @@ head(Newborn_Karn_Penrose)
 
 ```
  
+ 
+  
 Hacer una columna de la proporción de los niños que no sobrevivieron.
+ 
+
+
 
 Newborn_Karn_Penrose %>%
 select(Count_Non_survivors, Count_Total_Birth) %>%
@@ -218,6 +224,8 @@ Newborn_Karn_Penrose %>%
   mutate(Percent_Decease = Count_Non_survivors/Count_Total_Birth)
 
 ```
+
+
 
 
 Newborn_Karn_Penrose %>%

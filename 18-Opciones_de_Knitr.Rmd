@@ -1,5 +1,10 @@
 # Opciones de Knitr
 
+```{r echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+
+Sys.Date()
+```
 
 
 La mayoria de los ejemplos y ideas de esta seccieon proviene de **yihui** en el siguiente website <<https://yihui.org/knitr/>>

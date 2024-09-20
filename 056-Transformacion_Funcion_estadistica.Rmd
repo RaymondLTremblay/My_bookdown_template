@@ -1,6 +1,10 @@
 # Transformacion 7
 
+```{r echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 
+Sys.Date()
+```
 
 ## Funciones estadistica básicas:
 

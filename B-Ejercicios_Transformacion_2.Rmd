@@ -2,6 +2,12 @@
 
 # Appendix B
 
+```{r echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+
+Sys.Date()
+```
+
 ------------------------------------------------------------------------
 
 ## Ejercicios para las funciones de transformaciones 2 {-}

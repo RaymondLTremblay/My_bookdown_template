@@ -2,8 +2,9 @@
 
 Fecha de la ultima revisión
 ```{r echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 
-Sys.Date() # la fecha de hoy
+Sys.Date()
 ```
 
 ***
