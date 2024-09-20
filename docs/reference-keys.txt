@@ -1,8 +1,8 @@
 eq:reaction
 eq:promedio
-fig:unnamed-chunk-339
+fig:unnamed-chunk-337
 fig:ggplot
-fig:unnamed-chunk-340
+fig:unnamed-chunk-338
 fig:pressure
 ciencia-de-datos-con-r
 horario-de-clase
@@ -160,9 +160,6 @@ importar-datos
 datos-importado-de-la-web.
 usar-datos-que-provienen-de-una-base-de-datos-del-web.
 covid-world
-ejercicio
-datos-importando-de-su-computadora
-temas-funciones-para-importar-datos-con-el-paquete-readr
 comparar-con-base-r
 segmentar-un-vector
 números
@@ -231,7 +228,7 @@ el-paquete-lubridate
 un-error-tipico
 intervalos-y-duraciones
 el-operador----simplifica-el-cálculo-del-intervalo
-ejercicio-1
+ejercicio
 as.duration
 funciones-1
 fechas-con-cednas-de-caracteres

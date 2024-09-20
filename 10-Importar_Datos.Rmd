@@ -7,15 +7,7 @@ Fecha de la ultima revisión
 Sys.Date()
 ```
 
-***
 
-El tema proviene de los siguientes sitios.
-
-English:
- <https://r4ds.had.co.nz/data-import.html>
- 
-Español:
- <https://es.r4ds.hadley.nz/11-import.html>
  
  
 ***
@@ -26,7 +18,7 @@ Español:
 
 ### Usar datos que provienen de una base de datos del web.
 
-Aquí un website que recopila la cantidad de personas vacunadas en los EEUU.
+Aquí un website que recopila la cantidad de personas vacunados en los EEUU.
 
 
 ```{r}
@@ -83,10 +75,11 @@ Nota que para leer los datos de un archivo CSV, se usa la función "fread()" del
 
 - Cuando entre a la pagina, selecciona uno de los archivos, por ejemplo **Facultad -Conservatorio de Musica**
 - Presione el boton "Explore" y selecciona "Preview"
-- Arriba de la pagina vera el enlace de **https://.........** para poner en un script.  Copie y pegue en el script.
+- Arriba de la pagina vera el enlace de **https://.........** para poner en un script.  
+- Copie y pegue en el script.
   
   
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 library(data.table)
 musica=fread("https://datos.estadisticas.pr/dataset/dcb39773-3056-4d3d-91f8-a6ad6884ef52/resource/a632a85a-0d6d-4828-8a24-cbbdee4cec8f/download/facultad_-_conservatorio_de_musica-1.csv")
 
@@ -97,7 +90,7 @@ head(musica)
 
 
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 
 library(data.table)
 birth=fread("https://datos.estadisticas.pr/dataset/87620d17-bf63-445c-bb71-aca1a41c9077/resource/92728670-42cb-49d4-8fd3-cffdb6e54372/download/natlterr2014.csv")
@@ -109,10 +102,10 @@ head(birth)
 
 Otra alternativa es bajar los datos en formato .csv o Excel y subirlo a su proyecto en RStudio.
 
- -
+ 
 
 
-```{r}
+```{, echo=FALSE, eval=FALSE}
 
 library(readr)
 nchs_births_2001 <- read_csv("nchs_births_2001.csv")
@@ -135,7 +128,7 @@ nchs_births_2001 %>%
 
 
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 nchs_births_2001 |> dplyr::select(BIRMON, CSEX) |> 
   group_by()
 unique(nchs_births_2001$STATENAT)
@@ -247,7 +240,7 @@ Newborn_Karn_Penrose %>%
 
 
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 Newborn_Karn_Penrose %>% 
   mutate(Percent_Decease = Count_Non_survivors/Count_Total_Birth) %>% 
   ggplot(aes(Birth_weight, Percent_Decease)) + 
@@ -256,7 +249,7 @@ Newborn_Karn_Penrose %>%
   facet_wrap(~Mother_age)
 ```  
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 
 Newborn_Karn_Penrose %>% 
   mutate(Percent_Decease = Count_Non_survivors/Count_Total_Birth) %>% 
@@ -409,15 +402,7 @@ Hacer los ejercicios en la sección 11.3.5 del libro en español
   - readxl() lee archivo Excel en formato .xls, xlsx
   - BDI lee archivo RMySQL y otros
   
-  
-```{r}
-parse_date("01/02/15", "%m/%d/%y")
 
-parse_date("01/02/15", "%m/%d/%y")
-
-parse_date("01/1982/15 11:15:30", "%m/%Y/%d  /%H/%M/%S")
-
-```
   
   
 
