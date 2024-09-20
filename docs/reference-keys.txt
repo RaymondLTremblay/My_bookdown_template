@@ -168,7 +168,7 @@ factores
 fechas-fechas-horas-horas
 segmentar-un-archivo
 escribir-un-archivo
-otro-tipos-de-datos
+otro-tipos-de-datos-y-paquetes
 datos-ordenados
 temas-datos-ordenados
 el-paquete-tidyr

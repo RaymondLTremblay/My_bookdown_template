@@ -255,8 +255,12 @@ Newborn_Karn_Penrose %>%
   mutate(Percent_Decease = Count_Non_survivors/Count_Total_Birth) %>% 
   ggplot(aes(Birth_weight, Percent_Decease, color=Mother_age)) + 
   geom_point(aes(color=factor(Mother_age))) +
-  geom_smooth(aes(color=factor(Mother_age)))
+  geom_smooth(se=FALSE, aes(color=factor(Mother_age)))
 ```
+
+
+*****
+
 
 
 ## Comparar con base R
@@ -396,7 +400,7 @@ Hacer los ejercicios en la sección 11.3.5 del libro en español
   - write_csv()
   - write_tsv()
   
-## Otro tipos de datos
+## Otro tipos de datos y paquetes
 
   - library(haven) # SPSS, Stata y SAS
   - readxl() lee archivo Excel en formato .xls, xlsx
