@@ -4,7 +4,7 @@ title: "Ciencia de Datos con R"
 output:
   bookdown::gitbook:
     highlight: tango
-    code_folding: hide
+    # code_folding: hide
 
 author: ""
 date: "`r Sys.Date()`"

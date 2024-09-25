@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 12 Script | Ciencia de Datos con R</title>
+  <title>Capítulo12 Script | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 12 Script | Ciencia de Datos con R" />
+  <meta property="og:title" content="Capítulo12 Script | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 12 Script | Ciencia de Datos con R" />
+  <meta name="twitter:title" content="Capítulo12 Script | Ciencia de Datos con R" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
@@ -49,7 +49,6 @@
 
 
 
-<link href="libs/codefolding-lua-1.1/codefolding-lua.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
@@ -610,7 +609,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="script" class="section level1 hasAnchor" number="12">
-<h1><span class="header-section-number">Chapter 12</span> Script<a href="script.html#script" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">Capítulo12</span> Script<a href="script.html#script" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Fecha de la ultima revisión</p>
 <pre><code>## [1] &quot;2024-09-24&quot;</code></pre>
 <hr />
@@ -629,13 +628,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Ejercicios</strong>:</li>
 </ol>
 <p>Hacer los ejercicios en la sección 6.3 del libro en español</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="script.html#cb374-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb374-2"><a href="script.html#cb374-2" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
 <span id="cb374-3"><a href="script.html#cb374-3" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
 <span id="cb374-4"><a href="script.html#cb374-4" tabindex="-1"></a></span>
 <span id="cb374-5"><a href="script.html#cb374-5" tabindex="-1"></a><span class="fu">names</span>(vuelos)</span></code></pre></div>
-</details>
 <pre><code>##  [1] &quot;anio&quot;               &quot;mes&quot;                &quot;dia&quot;               
 ##  [4] &quot;horario_salida&quot;     &quot;salida_programada&quot;  &quot;atraso_salida&quot;     
 ##  [7] &quot;horario_llegada&quot;    &quot;llegada_programada&quot; &quot;atraso_llegada&quot;    
@@ -643,11 +640,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## [13] &quot;origen&quot;             &quot;destino&quot;            &quot;tiempo_vuelo&quot;      
 ## [16] &quot;distancia&quot;          &quot;hora&quot;               &quot;minuto&quot;            
 ## [19] &quot;fecha_hora&quot;</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="script.html#cb376-1" tabindex="-1"></a>no_cancelado <span class="ot">&lt;-</span> vuelos <span class="sc">%&gt;%</span> </span>
 <span id="cb376-2"><a href="script.html#cb376-2" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(atraso_salida), <span class="sc">!</span><span class="fu">is.na</span>(atraso_llegada))</span>
 <span id="cb376-3"><a href="script.html#cb376-3" tabindex="-1"></a><span class="fu">head</span>(no_cancelado)</span></code></pre></div>
-</details>
 <pre><code>## # A tibble: 6 × 19
 ##    anio   mes   dia horario_salida salida_programada atraso_salida
 ##   &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
@@ -661,11 +656,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
 ## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
 ## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="script.html#cb378-1" tabindex="-1"></a>no_cancelado <span class="sc">%&gt;%</span> </span>
 <span id="cb378-2"><a href="script.html#cb378-2" tabindex="-1"></a>  <span class="fu">group_by</span>(anio, mes, dia) <span class="sc">%&gt;%</span> </span>
 <span id="cb378-3"><a href="script.html#cb378-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(atraso_salida))</span></code></pre></div>
-</details>
 <pre><code>## # A tibble: 365 × 4
 ## # Groups:   anio, mes [12]
 ##     anio   mes   dia media
@@ -681,9 +674,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##  9  2013     1     9  2.30
 ## 10  2013     1    10  2.84
 ## # ℹ 355 more rows</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="script.html#cb380-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span> </span></code></pre></div>
-</details>
 
 </div>
 </div>

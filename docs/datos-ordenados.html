@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 19 Datos Ordenados | Ciencia de Datos con R</title>
+  <title>Capítulo19 Datos Ordenados | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 19 Datos Ordenados | Ciencia de Datos con R" />
+  <meta property="og:title" content="Capítulo19 Datos Ordenados | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 19 Datos Ordenados | Ciencia de Datos con R" />
+  <meta name="twitter:title" content="Capítulo19 Datos Ordenados | Ciencia de Datos con R" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
@@ -49,7 +49,6 @@
 
 
 
-<link href="libs/codefolding-lua-1.1/codefolding-lua.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
@@ -610,7 +609,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="datos-ordenados" class="section level1 hasAnchor" number="19">
-<h1><span class="header-section-number">Chapter 19</span> Datos Ordenados<a href="datos-ordenados.html#datos-ordenados" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">Capítulo19</span> Datos Ordenados<a href="datos-ordenados.html#datos-ordenados" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Fecha de la ultima revisión</p>
 <pre><code>## [1] &quot;2024-09-24&quot;</code></pre>
 <hr />
@@ -625,13 +624,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="el-paquete-tidyr" class="section level3 hasAnchor" number="19.1.1">
 <h3><span class="header-section-number">19.1.1</span> El paquete tidyr<a href="datos-ordenados.html#el-paquete-tidyr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ver vignettes</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb639-1"><a href="datos-ordenados.html#cb639-1" tabindex="-1"></a> <span class="fu">library</span>(tidyverse)</span>
 <span id="cb639-2"><a href="datos-ordenados.html#cb639-2" tabindex="-1"></a><span class="fu">library</span>(datos)</span></code></pre></div>
-</details>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb640-1"><a href="datos-ordenados.html#cb640-1" tabindex="-1"></a>tabla1</span></code></pre></div>
-</details>
 <pre><code>## # A tibble: 6 × 4
 ##   pais        anio  casos  poblacion
 ##   &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
@@ -641,9 +636,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 4 Brasil      2000  80488  174504898
 ## 5 China       1999 212258 1272915272
 ## 6 China       2000 213766 1280428583</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb642-1"><a href="datos-ordenados.html#cb642-1" tabindex="-1"></a>tabla2</span></code></pre></div>
-</details>
 <pre><code>## # A tibble: 12 × 4
 ##    pais        anio tipo          cuenta
 ##    &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;
@@ -659,9 +652,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 10 China       1999 población 1272915272
 ## 11 China       2000 casos         213766
 ## 12 China       2000 población 1280428583</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="datos-ordenados.html#cb644-1" tabindex="-1"></a>tabla3</span></code></pre></div>
-</details>
 <pre><code>## # A tibble: 6 × 3
 ##   pais        anio tasa             
 ##   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;            
@@ -671,18 +662,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 4 Brasil      2000 80488/174504898  
 ## 5 China       1999 212258/1272915272
 ## 6 China       2000 213766/1280428583</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="datos-ordenados.html#cb646-1" tabindex="-1"></a>tabla4a</span></code></pre></div>
-</details>
 <pre><code>## # A tibble: 3 × 3
 ##   pais       `1999` `2000`
 ##   &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;
 ## 1 Afganistán    745   2666
 ## 2 Brasil      37737  80488
 ## 3 China      212258 213766</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="datos-ordenados.html#cb648-1" tabindex="-1"></a>tabla4b</span></code></pre></div>
-</details>
 <pre><code>## # A tibble: 3 × 3
 ##   pais           `1999`     `2000`
 ##   &lt;chr&gt;           &lt;dbl&gt;      &lt;dbl&gt;

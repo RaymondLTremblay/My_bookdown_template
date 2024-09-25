@@ -49,7 +49,6 @@
 
 
 
-<link href="libs/codefolding-lua-1.1/codefolding-lua.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
@@ -620,16 +619,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2>Seleccione los siguientes datos sobre COVID en PR<a href="appendix-b.html#seleccione-los-siguientes-datos-sobre-covid-en-pr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="leen-bien-lo-que-estoy-pidiendo.-el-nombre-de-las-columnas-pueden-engañar" class="section level3 unnumbered hasAnchor">
 <h3>LEEN bien lo que estoy pidiendo. El nombre de las columnas pueden engañar!!!<a href="appendix-b.html#leen-bien-lo-que-estoy-pidiendo.-el-nombre-de-las-columnas-pueden-engañar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb1044"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1044-1"><a href="appendix-b.html#cb1044-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1044-2"><a href="appendix-b.html#cb1044-2" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
 <span id="cb1044-3"><a href="appendix-b.html#cb1044-3" tabindex="-1"></a>url_COVID_PR<span class="ot">=</span><span class="fu">fread</span>(<span class="st">&quot;https://raw.githubusercontent.com/rafalab/pr-covid/master/dashboard/data/DatosMortalidad.csv&quot;</span>)</span></code></pre></div>
-</details>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb1045"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1045-1"><a href="appendix-b.html#cb1045-1" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
 <span id="cb1045-2"><a href="appendix-b.html#cb1045-2" tabindex="-1"></a>Covid<span class="ot">=</span>url_COVID_PR</span>
 <span id="cb1045-3"><a href="appendix-b.html#cb1045-3" tabindex="-1"></a><span class="fu">gt</span>(<span class="fu">tail</span>(Covid, <span class="at">n=</span><span class="dv">2</span>))</span></code></pre></div>
-</details>
 <div id="jwulxbonkp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#jwulxbonkp table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
