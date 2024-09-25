@@ -186,9 +186,6 @@ trabajando-con-datos-de-inaturalist
 ahora-crea-un-mapa-de-los-terremotos-alrededor-de-puerto-rico
 utilizando-leaflet
 trabajando-variables-categóricas-con-leaflet
-datos-ordenados
-temas-datos-ordenados
-el-paquete-tidyr
 datos-relacionados
 temas-datos-relacionados
 los-datos-de-vuelos
@@ -202,6 +199,9 @@ definiendo-las-columnas-clave
 otras-implementaciones
 uniones-de-filtro
 problemas-con-las-uniones
+datos-ordenados
+temas-datos-ordenados
+el-paquete-tidyr
 factores-1
 qué-ocurrio-en-el-gráfico
 usando-la-funciones-factor-y-levels-estamos-asignando-los-factores-a-un-nivel-específico-en-el-orden-de-la-lista
