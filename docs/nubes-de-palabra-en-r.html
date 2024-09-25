@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 20 Factores | Ciencia de Datos con R</title>
+  <title>Chapter 26 Nubes de palabra en R | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 20 Factores | Ciencia de Datos con R" />
+  <meta property="og:title" content="Chapter 26 Nubes de palabra en R | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 20 Factores | Ciencia de Datos con R" />
+  <meta name="twitter:title" content="Chapter 26 Nubes de palabra en R | Ciencia de Datos con R" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="datos-ordenados.html"/>
-<link rel="next" href="cadena-de-caracteres-strings.html"/>
+<link rel="prev" href="opciones-de-knitr.html"/>
+<link rel="next" href="appendix-a.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -609,413 +609,311 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="factores-1" class="section level1 hasAnchor" number="20">
-<h1><span class="header-section-number">Chapter 20</span> Factores<a href="factores-1.html#factores-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Fecha de la ultima revisión</p>
+<div id="nubes-de-palabra-en-r" class="section level1 hasAnchor" number="26">
+<h1><span class="header-section-number">Chapter 26</span> Nubes de palabra en R<a href="nubes-de-palabra-en-r.html#nubes-de-palabra-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <pre><code>## [1] &quot;2024-09-24&quot;</code></pre>
+<div id="ejemplo-1" class="section level2 hasAnchor" number="26.1">
+<h2><span class="header-section-number">26.1</span> Ejemplo #1<a href="nubes-de-palabra-en-r.html#ejemplo-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para generar nubes de palabras con R. Se necesita los paquetes <strong>wordcloud</strong>, <strong>RColorBrewer</strong> y <strong>wordcloud2</strong></p>
+<p>Ese ejemplo es una copia de la siguiente pagina de web</p>
+<p><a href="http://www.sthda.com/english/wiki/word-cloud-generator-in-r-one-killer-function-to-do-everything-you-need" class="uri">http://www.sthda.com/english/wiki/word-cloud-generator-in-r-one-killer-function-to-do-everything-you-need</a></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb992"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb992-1"><a href="nubes-de-palabra-en-r.html#cb992-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;pacman&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
+<span id="cb992-2"><a href="nubes-de-palabra-en-r.html#cb992-2" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tm, SnowballC, wordcloud, RColorBrewer, wordcloud2)</span>
+<span id="cb992-3"><a href="nubes-de-palabra-en-r.html#cb992-3" tabindex="-1"></a></span>
+<span id="cb992-4"><a href="nubes-de-palabra-en-r.html#cb992-4" tabindex="-1"></a><span class="fu">library</span>(wordcloud) <span class="co"># Un paquete para hacer word clour</span></span>
+<span id="cb992-5"><a href="nubes-de-palabra-en-r.html#cb992-5" tabindex="-1"></a><span class="fu">library</span>(wordcloud2) <span class="co"># paquete más sencillo para hacer word cloud</span></span>
+<span id="cb992-6"><a href="nubes-de-palabra-en-r.html#cb992-6" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer) <span class="co"># paquete para cambiar los colores </span></span>
+<span id="cb992-7"><a href="nubes-de-palabra-en-r.html#cb992-7" tabindex="-1"></a><span class="fu">library</span>(tm)  <span class="co"># paquete de text mining</span></span>
+<span id="cb992-8"><a href="nubes-de-palabra-en-r.html#cb992-8" tabindex="-1"></a><span class="fu">library</span>(SnowballC) <span class="co"># paquete para trabajar en otro idioma aparte del ingles</span></span></code></pre></div>
+</details>
+</div>
+<div id="usando-los-datos-en-el-paquete-wordcloud2-que-se-llama-demofreq" class="section level2 hasAnchor" number="26.2">
+<h2><span class="header-section-number">26.2</span> Usando los datos en el paquete wordcloud2 que se llama <strong>demoFreq</strong><a href="nubes-de-palabra-en-r.html#usando-los-datos-en-el-paquete-wordcloud2-que-se-llama-demofreq" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb993"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb993-1"><a href="nubes-de-palabra-en-r.html#cb993-1" tabindex="-1"></a><span class="fu">library</span>(wordcloud2)</span>
+<span id="cb993-2"><a href="nubes-de-palabra-en-r.html#cb993-2" tabindex="-1"></a><span class="fu">head</span>(demoFreq, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
+</details>
+<pre><code>##          word freq
+## oil       oil   85
+## said     said   73
+## prices prices   48
+## opec     opec   42
+## mln       mln   31
+## the       the   26
+## last     last   24
+## bpd       bpd   23
+## dlrs     dlrs   23
+## crude   crude   21</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb995"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb995-1"><a href="nubes-de-palabra-en-r.html#cb995-1" tabindex="-1"></a><span class="fu">wordcloud2</span>(<span class="at">data =</span> demoFreq)</span></code></pre></div>
+</details>
+<div class="wordcloud2 html-widget html-fill-item" id="htmlwidget-5073d336d8011e12e498" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-5073d336d8011e12e498">{"x":{"word":["oil","said","prices","opec","mln","the","last","bpd","dlrs","crude","market","reuter","saudi","will","one","barrel","kuwait","new","official","pct","price","barrels","government","production","sheikh","industry","meeting","minister","world","also","billion","futures","month","output","petroleum","quota","sources","accord","analysts","but","group","gulf","january","markets","report","today","december","demand","economic","economy","energy","help","international","may","nazer","nymex","posted","present","they","traders","158","ability","agreement","ali","april","arabia","budget","emergency","exchange","hold","imports","members","recent","riyals","says","sell","years","abdulaziz","agency","arab","ceiling","company","contract","daily","emirates","expected","expenditure","exports","growth","now","opecs","plans","qatar","quoted","research","reserve","reserves","states","study","united","way","week","west","year","150","according","added","among","asked","brings","buyers","can","change","corp","cut","day","development","effective","exploration","fall","february","fell","free","higher","increase","levels","meet","must","never","per","policy","power","problem","producing","protect","pumping","reduced","revenue","revenues","rise","saying","set","since","spa","strategic","texas","this","total","transaction","weak","yesterday","13nation","1985","198586","1986","1987","198788","address","agreed","alkhalifa","alqabas","alsabah","announced","appears","arabian","arabias","around","average","back","bank","bbl","boost","called","commitment","companies","compared","countrys","current","decrease","denied","dollars","domestic","due","efp","estimate","estimates","export","fixed","foreign","four","future","grade","guard","high","hisham","however","inc","indonesia","indonesias","intermediate","kingdoms","kuwaits","local","low","lower","lowered","made","main","march","mckiernan","measures","mizrahi","moves","much","named","next","officials","plant","position","president","pressure","producer","projected","published","real","refinery","reiterated","remain","rule","say","sector","several","sharp","ship","six","slightly","smaller","spokeswoman","state","sweet","texaco","three","trading","two","weeks","york","1518","198687","20s","285000","500","725","750","948000","activity","adhering","agriculture","along","apparently","appeared","approved","architect","areas","aspen","bankers","based","benchmark","benefits","canada","canadian","cash","changed","changes","circumstance","clearly","closed","coast","come","committee","commodity","consumption","countries","country","crossroads","crucial","cubic","currently","customers","deal","decembers","decline","deficit","deposits","deputy","diamond","differentials","difficulties","direction","discounted","dlr","early","ecuador","effect","embargo","embassy","entering","even","falling","feb","first","fiscal","fiscales","forced","fully","gcc","general","given","grades","halt","hit","hope","humanistic","impact","import","increased","increasing","instead","institute","interview","investment","jersey","june","keep","late","light","limit","limits","line","lost","louisiana","lowest","major","marketing","member","mid","million","ministers","mitigate","months","nearing","net","neutral","none","nuclear","organisation","organization","outlook","overseas","pact","pay","petroliferos","planned","port","positive","postings","predicted","press","pricing","private","probably","problems","pronounced","protected","public","put","quotes","raise","rate","reduction","referring","remarks","reports","return","review","risks","riyal","selfimposed","selling","share","shortfall","spot","steady","stick","strongly","studies","support","take","taken","techniques","throughput","trade","trust","trying","uncertainty","union","value","wam","wanted","weakness","winter","yacimientos","yanbu","zero","zone","100000","108","111","115","12217","1232","1381","13member","156","1600","1635","1650","1667","168","1685","1752","180000","200000","200foot","2226","24hour","2766","300","3749598","3750003","4133","534","5472","614","658","6745","678","718","738","able","abroad","accept","across","add","addressed","adherence","advantage","advisers","after","agricultural","aground","allocated","allocations","allow","almost","already","althani","although","alvite","amidst","analysis","analyst","annual","anything","apparent","aramco","argentine","arrangement","asia","asian","assesses","assign","assigned","associates","attract","available","averaging","aware","bahrain","bahrains","balance","baseless","basic","basis","because","beginning","bijan","bin","bit","bodys","briefly","broadened","brothers","buildings","burden","buy","buyer","calendar","cambridge","capacity","capozza","carrying","center","century","cera","certain","cftc","chairman","challenge","characterized","charging","cheap","cheating","chevron","chv","cited","citing","clever","close","closer","closes","coming","commission","communications","companys","completed","complex","condition","conditions","considered","construction","contacts","continuation","continue","continued","continues","contracted","contributed","control","cooperation","coordination","copany","corps","council","counter","coupled","covered","creek","critical","cts","currency","custom","cuts","cutting","cypriot","daniel","david","days","debtburdened","debut","decided","declared","declines","deemed","defence","delaware","delivered","delivering","departments","deregulate","deregulation","determination","devalue","device","differential","difficulty","dillard","director","discuss","discussing","distribution","distributions","divided","doha","dollar","drawbacks","drop","dropped","earlier","earnings","eastern","easy","ecuadors","editor","edmontonswann","education","eight","either","elaborate","elections","electricity","end","engineers","entitlements","environment","equally","estimated","european","exceed","exceeding","excess","excesses","excessive","exerted","exist","expanded","expansion","expartners","expectations","expects","explained","exporting","exxon","face","faced","faces","facilities","facing","failed","fallen","favours","fee","fernando","figure","figures","finance","firmer","floating","followed","for","forces","foremost","fourth","frank","full","fundamentals","gas","generally","geneva","get","globalization","glut","guaranteed","halting","harvard","heads","health","hedge","hedged","helped","hemisphere","highly","hills","hitting","hoped","housing","houston","immediately","implementation","improve","improvement","include","including","independent","indications","initiate","initiative","institutions","interbank","interest","investments","issue","jamaica","jan","juaymah","jubail","jump","just","khalifa","lack","largest","later","latest","launched","lead","leading","learn","least","lending","less","lesson","level","liberalised","lift","liftings","like","lines","liquidity","little","loan","lodged","longterm","ltd","lukman","lull","maintain","make","manager","manipulate","many","marathon","marathons","marker","mcfadden","means","mercantile","metrers","metres","mid1960s","mid1986","mideast","minus","mlotok","mob","mobil","momentum","money","monopolies","monthend","moussavarrahmani","movement","nation","natural","need","needs","negative","negotiate","neither","network","news","newspaper","nigerian","nine","nonoil","northern","notes","offset","onetwelfth","oneweek","open","opens","operations","opposite","optimism","optimistic","option","order","organiaation","our","outlining","outside","overproducing","part","parties","partly","party","past","paths","paul","paulsboro","payments","pegged","performance","period","pertains","pessimistic","philadelphia","physical","placed","plastics","platinum","point","policies","political","population","positions","postponed","pressures","previous","primarily","primary","principal","procedure","produce","produced","producers","product","products","program","projection","projects","prompted","proposed","proved","providing","provision","publish","purposes","quarter","quiet","quietly","quotas","rallied","ran","ranging","ras","rates","rationalise","readdress","reaffirmed","reasonable","recommending","recovering","recurrent","reference","refineries","refining","reflect","refloat","reform","reforms","regain","regard","regarding","region","regional","reiterate","relaxation","relieve","reluctant","remainder","remained","reported","request","resistance","resisting","resources","respectively","responsibilites","restored","restraint","restrictions","result","reuters","revealed","reviews","right","rilwanu","rising","river","rocks","rosemary","rumour","rushing","sales","salomon","santos","satisfied","saw","scheduled","scheme","seapride","season","secretary","security","seeing","seek","september","series","serve","services","session","sets","seven","severely","shamrock","sharply","shoulder","show","showed","shown","signed","signs","situation","sixmonth","slackens","slide","slump","social","sold","soon","sort","sour","south","southeast","spend","spill","spoke","spokesman","spotnext","spriggs","stabilise","stabilize","stable","start","statement","steel","steering","steps","stiff","storage","strong","subsequently","substitution","succeed","suffer","suffering","suhartos","sunday","sundays","supply","supporting","suppose","surrounding","swift","talks","tanker","tanurah","tapers","teach","telephone","terminals","test","there","third","thomas","though","thought","threemonth","tide","together","told","totalled","tower","trader","trades","traditional","traditionally","transacted","transmission","transport","trends","trusts","try","turmoil","twofold","uae","uncertain","unchanged","under","unions","unitholders","universitys","unlikely","unocal","unusually","urged","use","virtual","wants","water","wealth","wednesday","weekend","welcomed","when","whether","wishes","worldwide","xon","yergin","yesterdays"],"freq":[85,73,48,42,31,26,24,23,23,21,20,20,18,18,17,15,14,14,14,14,13,11,11,11,11,10,10,10,10,9,9,9,9,9,9,9,9,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,7,7,7,7,7,7,7,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"fontFamily":"Segoe UI","fontWeight":"bold","color":"random-dark","minSize":0,"weightFactor":2.117647058823529,"backgroundColor":"white","gridSize":0,"minRotation":-0.7853981633974483,"maxRotation":0.7853981633974483,"shuffle":true,"rotateRatio":0.4,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
+</div>
+<div id="paso-1" class="section level2 hasAnchor" number="26.3">
+<h2><span class="header-section-number">26.3</span> Paso 1<a href="nubes-de-palabra-en-r.html#paso-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Importar los datos de la web</p>
+<p>Importar un texto de su computadora en formato <strong>.txt</strong> No va a funcionar el formato <strong>.doc</strong> de MSWord.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb996"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb996-1"><a href="nubes-de-palabra-en-r.html#cb996-1" tabindex="-1"></a><span class="co">#mi_texto &lt;- readLines(file.choose())</span></span></code></pre></div>
+</details>
+</div>
+<div id="subir-el-texto-en-formato-corpus" class="section level2 hasAnchor" number="26.4">
+<h2><span class="header-section-number">26.4</span> Subir el texto en formato <strong>Corpus</strong><a href="nubes-de-palabra-en-r.html#subir-el-texto-en-formato-corpus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb997"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb997-1"><a href="nubes-de-palabra-en-r.html#cb997-1" tabindex="-1"></a>mi_texto<span class="ot">=</span><span class="fu">iconv</span>(text,<span class="st">&quot;WINDOWS-1252&quot;</span>,<span class="st">&quot;UTF-8&quot;</span>) <span class="co"># Use this for removing accents and non - english characters</span></span>
+<span id="cb997-2"><a href="nubes-de-palabra-en-r.html#cb997-2" tabindex="-1"></a></span>
+<span id="cb997-3"><a href="nubes-de-palabra-en-r.html#cb997-3" tabindex="-1"></a><span class="co"># Load the data as a corpus</span></span>
+<span id="cb997-4"><a href="nubes-de-palabra-en-r.html#cb997-4" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">Corpus</span>(<span class="fu">VectorSource</span>(mi_texto))</span></code></pre></div>
+</details>
+</div>
+<div id="mirar-el-documento-para-evaluar-su-contenido" class="section level2 hasAnchor" number="26.5">
+<h2><span class="header-section-number">26.5</span> Mirar el documento, para evaluar su contenido<a href="nubes-de-palabra-en-r.html#mirar-el-documento-para-evaluar-su-contenido" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb998"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb998-1"><a href="nubes-de-palabra-en-r.html#cb998-1" tabindex="-1"></a><span class="co"># inspect(docs) # quita el hashtag para ver el documento</span></span></code></pre></div>
+</details>
+</div>
+<div id="transformar-el-texto-para-reemplazar-algunos-caracteres-especiales" class="section level2 hasAnchor" number="26.6">
+<h2><span class="header-section-number">26.6</span> Transformar el texto para reemplazar algunos caracteres especiales<a href="nubes-de-palabra-en-r.html#transformar-el-texto-para-reemplazar-algunos-caracteres-especiales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb999"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb999-1"><a href="nubes-de-palabra-en-r.html#cb999-1" tabindex="-1"></a>toSpace <span class="ot">&lt;-</span> <span class="fu">content_transformer</span>(<span class="cf">function</span> (x , pattern ) <span class="fu">gsub</span>(pattern, <span class="st">&quot; &quot;</span>, x))</span>
+<span id="cb999-2"><a href="nubes-de-palabra-en-r.html#cb999-2" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, toSpace, <span class="st">&quot;-&quot;</span>)</span>
+<span id="cb999-3"><a href="nubes-de-palabra-en-r.html#cb999-3" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, toSpace, <span class="st">&quot;@&quot;</span>)</span>
+<span id="cb999-4"><a href="nubes-de-palabra-en-r.html#cb999-4" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, toSpace, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">|&quot;</span>)</span></code></pre></div>
+</details>
+</div>
+<div id="el-paquete-tm-es-para-text-mining" class="section level2 hasAnchor" number="26.7">
+<h2><span class="header-section-number">26.7</span> el paquete <strong>tm</strong> es para <strong>text mining</strong><a href="nubes-de-palabra-en-r.html#el-paquete-tm-es-para-text-mining" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1000"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1000-1"><a href="nubes-de-palabra-en-r.html#cb1000-1" tabindex="-1"></a><span class="co"># Convert the text to lower case</span></span>
+<span id="cb1000-2"><a href="nubes-de-palabra-en-r.html#cb1000-2" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, <span class="fu">content_transformer</span>(tolower))</span>
+<span id="cb1000-3"><a href="nubes-de-palabra-en-r.html#cb1000-3" tabindex="-1"></a></span>
+<span id="cb1000-4"><a href="nubes-de-palabra-en-r.html#cb1000-4" tabindex="-1"></a><span class="co"># Remove numbers</span></span>
+<span id="cb1000-5"><a href="nubes-de-palabra-en-r.html#cb1000-5" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeNumbers)</span>
+<span id="cb1000-6"><a href="nubes-de-palabra-en-r.html#cb1000-6" tabindex="-1"></a></span>
+<span id="cb1000-7"><a href="nubes-de-palabra-en-r.html#cb1000-7" tabindex="-1"></a><span class="co"># Remove english common stopwords</span></span>
+<span id="cb1000-8"><a href="nubes-de-palabra-en-r.html#cb1000-8" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeWords, <span class="fu">stopwords</span>(<span class="st">&quot;english&quot;</span>))</span>
+<span id="cb1000-9"><a href="nubes-de-palabra-en-r.html#cb1000-9" tabindex="-1"></a></span>
+<span id="cb1000-10"><a href="nubes-de-palabra-en-r.html#cb1000-10" tabindex="-1"></a><span class="co"># Remove your own stop word</span></span>
+<span id="cb1000-11"><a href="nubes-de-palabra-en-r.html#cb1000-11" tabindex="-1"></a><span class="co"># specify your stopwords as a character vector</span></span>
+<span id="cb1000-12"><a href="nubes-de-palabra-en-r.html#cb1000-12" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeWords, <span class="fu">c</span>(<span class="st">&quot;blabla1&quot;</span>, <span class="st">&quot;blabla2&quot;</span>)) </span>
+<span id="cb1000-13"><a href="nubes-de-palabra-en-r.html#cb1000-13" tabindex="-1"></a></span>
+<span id="cb1000-14"><a href="nubes-de-palabra-en-r.html#cb1000-14" tabindex="-1"></a><span class="co"># Remove punctuations</span></span>
+<span id="cb1000-15"><a href="nubes-de-palabra-en-r.html#cb1000-15" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removePunctuation)</span>
+<span id="cb1000-16"><a href="nubes-de-palabra-en-r.html#cb1000-16" tabindex="-1"></a></span>
+<span id="cb1000-17"><a href="nubes-de-palabra-en-r.html#cb1000-17" tabindex="-1"></a><span class="co"># Eliminate extra white spaces</span></span>
+<span id="cb1000-18"><a href="nubes-de-palabra-en-r.html#cb1000-18" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, stripWhitespace)</span>
+<span id="cb1000-19"><a href="nubes-de-palabra-en-r.html#cb1000-19" tabindex="-1"></a><span class="co"># Text stemming</span></span>
+<span id="cb1000-20"><a href="nubes-de-palabra-en-r.html#cb1000-20" tabindex="-1"></a><span class="co"># docs &lt;- tm_map(docs, stemDocument)</span></span>
+<span id="cb1000-21"><a href="nubes-de-palabra-en-r.html#cb1000-21" tabindex="-1"></a></span>
+<span id="cb1000-22"><a href="nubes-de-palabra-en-r.html#cb1000-22" tabindex="-1"></a><span class="co">#stopwords() # Here are all the stopwords in the function **stopwords**</span></span></code></pre></div>
+</details>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1001"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1001-1"><a href="nubes-de-palabra-en-r.html#cb1001-1" tabindex="-1"></a>dtm <span class="ot">&lt;-</span> <span class="fu">TermDocumentMatrix</span>(docs)</span>
+<span id="cb1001-2"><a href="nubes-de-palabra-en-r.html#cb1001-2" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(dtm)</span>
+<span id="cb1001-3"><a href="nubes-de-palabra-en-r.html#cb1001-3" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">rowSums</span>(m),<span class="at">decreasing=</span><span class="cn">TRUE</span>)</span>
+<span id="cb1001-4"><a href="nubes-de-palabra-en-r.html#cb1001-4" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">word =</span> <span class="fu">names</span>(v),<span class="at">freq=</span>v)</span>
+<span id="cb1001-5"><a href="nubes-de-palabra-en-r.html#cb1001-5" tabindex="-1"></a><span class="fu">head</span>(d, <span class="at">n=</span><span class="dv">10</span>) <span class="co"># las primeras 10 palabras más comunes</span></span></code></pre></div>
+</details>
+<pre><code>##              word freq
+## will         will   17
+## freedom   freedom   13
+## ring         ring   12
+## dream       dream   11
+## day           day   11
+## let           let   11
+## every       every    9
+## one           one    8
+## able         able    8
+## together together    7</code></pre>
+<div id="check-your-words-and-remove-unwanted-words-individually" class="section level3 hasAnchor" number="26.7.1">
+<h3><span class="header-section-number">26.7.1</span> Check your words and remove unwanted words individually<a href="nubes-de-palabra-en-r.html#check-your-words-and-remove-unwanted-words-individually" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>“òó”</p>
+<p>òorchid</p>
+<p>pollinators</p>
+</div>
+<div id="how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts" class="section level3 hasAnchor" number="26.7.2">
+<h3><span class="header-section-number">26.7.2</span> How would you remove from the data frame all words that have less or equal to 3 counts<a href="nubes-de-palabra-en-r.html#how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <hr />
-<p>El tema proviene de los siguientes sitios. Aunque los ejemplos son distinctos</p>
-<p>English:
-<a href="https://r4ds.had.co.nz/factors.html" class="uri">https://r4ds.had.co.nz/factors.html</a></p>
-<p>Español:
-<a href="https://es.r4ds.hadley.nz/15-factors.html" class="uri">https://es.r4ds.hadley.nz/15-factors.html</a></p>
+<p>Del paquete <strong>wordcloud</strong></p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb651-1"><a href="factores-1.html#cb651-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb651-2"><a href="factores-1.html#cb651-2" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
-<span id="cb651-3"><a href="factores-1.html#cb651-3" tabindex="-1"></a><span class="fu">library</span>(forcats)</span></code></pre></div>
+<div class="sourceCode" id="cb1003"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1003-1"><a href="nubes-de-palabra-en-r.html#cb1003-1" tabindex="-1"></a><span class="fu">wordcloud</span>(<span class="at">words =</span> d<span class="sc">$</span>word, </span>
+<span id="cb1003-2"><a href="nubes-de-palabra-en-r.html#cb1003-2" tabindex="-1"></a>          <span class="at">freq =</span> d<span class="sc">$</span>freq, </span>
+<span id="cb1003-3"><a href="nubes-de-palabra-en-r.html#cb1003-3" tabindex="-1"></a>          <span class="at">min.freq =</span> <span class="dv">1</span>,</span>
+<span id="cb1003-4"><a href="nubes-de-palabra-en-r.html#cb1003-4" tabindex="-1"></a>          <span class="at">max.words=</span><span class="dv">200</span>, </span>
+<span id="cb1003-5"><a href="nubes-de-palabra-en-r.html#cb1003-5" tabindex="-1"></a>          <span class="at">random.order=</span><span class="cn">FALSE</span>, </span>
+<span id="cb1003-6"><a href="nubes-de-palabra-en-r.html#cb1003-6" tabindex="-1"></a>          <span class="at">rot.per=</span><span class="fl">0.35</span>, </span>
+<span id="cb1003-7"><a href="nubes-de-palabra-en-r.html#cb1003-7" tabindex="-1"></a>          <span class="at">colors=</span><span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>))</span></code></pre></div>
 </details>
-<hr />
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb652-1"><a href="factores-1.html#cb652-1" tabindex="-1"></a>month <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;December&quot;</span> ,<span class="st">&quot;January&quot;</span>, <span class="st">&quot;March&quot;</span>, <span class="st">&quot;April&quot;</span>)</span>
-<span id="cb652-2"><a href="factores-1.html#cb652-2" tabindex="-1"></a></span>
-<span id="cb652-3"><a href="factores-1.html#cb652-3" tabindex="-1"></a>month</span></code></pre></div>
-</details>
-<pre><code>## [1] &quot;December&quot; &quot;January&quot;  &quot;March&quot;    &quot;April&quot;</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb654-1"><a href="factores-1.html#cb654-1" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
-<span id="cb654-2"><a href="factores-1.html#cb654-2" tabindex="-1"></a><span class="fu">str</span>(month)</span></code></pre></div>
-</details>
-<pre><code>##  chr [1:4] &quot;December&quot; &quot;January&quot; &quot;March&quot; &quot;April&quot;</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb656-1"><a href="factores-1.html#cb656-1" tabindex="-1"></a><span class="fu">str</span>(x)</span></code></pre></div>
-</details>
-<pre><code>##  int [1:4] 1 2 3 4</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb658"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb658-1"><a href="factores-1.html#cb658-1" tabindex="-1"></a>valores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">10</span>)</span></code></pre></div>
-</details>
-<p>Unir las dos listas</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb659-1"><a href="factores-1.html#cb659-1" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(month, valores, x))</span>
-<span id="cb659-2"><a href="factores-1.html#cb659-2" tabindex="-1"></a>df</span></code></pre></div>
-</details>
-<pre><code>##      month valores x
-## 1 December       7 1
-## 2  January       3 2
-## 3    March       2 3
-## 4    April      10 4</code></pre>
-<div id="qué-ocurrio-en-el-gráfico" class="section level2 hasAnchor" number="20.1">
-<h2><span class="header-section-number">20.1</span> ¿Qué ocurrio en el gráfico?<a href="factores-1.html#qué-ocurrio-en-el-gráfico" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb661-1"><a href="factores-1.html#cb661-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb661-2"><a href="factores-1.html#cb661-2" tabindex="-1"></a></span>
-<span id="cb661-3"><a href="factores-1.html#cb661-3" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(month, valores))<span class="sc">+</span></span>
-<span id="cb661-4"><a href="factores-1.html#cb661-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-</details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-259-1.png" width="288" /></p>
-<p>Order months in correct order</p>
-<p>use <strong>month.name</strong></p>
-<p>Hay variables ya descrita en R, para facilitar el uso de constantes</p>
-<ul>
-<li>LETTERS: Mayuscula</li>
-<li>letters: minuscula</li>
-<li>month.abb: abreviación de meses en Ingles</li>
-<li>month.name: nombre de meses en Ingles</li>
-<li>pi = el valor de pi</li>
-</ul>
-<p>See this website for more details</p>
-<p><a href="https://datacornering.com/how-to-get-the-month-name-from-the-number-in-r/" class="uri">https://datacornering.com/how-to-get-the-month-name-from-the-number-in-r/</a></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb662-1"><a href="factores-1.html#cb662-1" tabindex="-1"></a>LETTERS</span></code></pre></div>
-</details>
-<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
-## [20] &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb664-1"><a href="factores-1.html#cb664-1" tabindex="-1"></a>letters</span></code></pre></div>
-</details>
-<pre><code>##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot;
-## [20] &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb666-1"><a href="factores-1.html#cb666-1" tabindex="-1"></a>month.abb</span></code></pre></div>
-</details>
-<pre><code>##  [1] &quot;Jan&quot; &quot;Feb&quot; &quot;Mar&quot; &quot;Apr&quot; &quot;May&quot; &quot;Jun&quot; &quot;Jul&quot; &quot;Aug&quot; &quot;Sep&quot; &quot;Oct&quot; &quot;Nov&quot; &quot;Dec&quot;</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="factores-1.html#cb668-1" tabindex="-1"></a>month.name</span></code></pre></div>
-</details>
-<pre><code>##  [1] &quot;January&quot;   &quot;February&quot;  &quot;March&quot;     &quot;April&quot;     &quot;May&quot;       &quot;June&quot;     
-##  [7] &quot;July&quot;      &quot;August&quot;    &quot;September&quot; &quot;October&quot;   &quot;November&quot;  &quot;December&quot;</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb670-1"><a href="factores-1.html#cb670-1" tabindex="-1"></a>pi</span></code></pre></div>
-</details>
-<pre><code>## [1] 3.141593</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb672-1"><a href="factores-1.html#cb672-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Months=</span><span class="fu">c</span>(<span class="st">&quot;January&quot;</span>, <span class="st">&quot;February&quot;</span>, <span class="st">&quot;March&quot;</span>, <span class="st">&quot;April&quot;</span>, <span class="st">&quot;May&quot;</span>, <span class="st">&quot;June&quot;</span>, <span class="st">&quot;July&quot;</span>, <span class="st">&quot;August&quot;</span>, <span class="st">&quot;September&quot;</span>, <span class="st">&quot;October&quot;</span>, <span class="st">&quot;November&quot;</span>,<span class="st">&quot;December&quot;</span>),</span>
-<span id="cb672-2"><a href="factores-1.html#cb672-2" tabindex="-1"></a>                <span class="at">Attacks=</span><span class="fu">c</span>(<span class="dv">49</span>, <span class="dv">70</span>, <span class="dv">49</span>, <span class="dv">44</span>, <span class="dv">53</span>, <span class="dv">35</span>, <span class="dv">33</span>, <span class="dv">36</span>, <span class="dv">47</span>, <span class="dv">40</span>, <span class="dv">44</span>, <span class="dv">32</span>))</span>
-<span id="cb672-3"><a href="factores-1.html#cb672-3" tabindex="-1"></a></span>
-<span id="cb672-4"><a href="factores-1.html#cb672-4" tabindex="-1"></a></span>
-<span id="cb672-5"><a href="factores-1.html#cb672-5" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(Months, Attacks))<span class="sc">+</span></span>
-<span id="cb672-6"><a href="factores-1.html#cb672-6" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-</details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-261-1.png" width="672" /></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb673-1"><a href="factores-1.html#cb673-1" tabindex="-1"></a><span class="do">### validar el supuesto que tengo información escrita correctamente para cada mes de año en el dataframe </span></span>
-<span id="cb673-2"><a href="factores-1.html#cb673-2" tabindex="-1"></a><span class="fu">all</span>(df<span class="sc">$</span>Months <span class="sc">%in%</span> month.name)</span></code></pre></div>
-</details>
-<pre><code>## [1] TRUE</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb675"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb675-1"><a href="factores-1.html#cb675-1" tabindex="-1"></a><span class="do">### convert to a factor, order defined by `month.name`.  </span></span>
-<span id="cb675-2"><a href="factores-1.html#cb675-2" tabindex="-1"></a>df<span class="sc">$</span>Months <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>Months, <span class="at">levels=</span>month.name)</span>
-<span id="cb675-3"><a href="factores-1.html#cb675-3" tabindex="-1"></a></span>
-<span id="cb675-4"><a href="factores-1.html#cb675-4" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>df, <span class="fu">aes</span>(<span class="at">x=</span>Months, <span class="at">y=</span>Attacks)) <span class="sc">+</span></span>
-<span id="cb675-5"><a href="factores-1.html#cb675-5" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-</details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-261-2.png" width="672" /></p>
-<div id="usando-la-funciones-factor-y-levels-estamos-asignando-los-factores-a-un-nivel-específico-en-el-orden-de-la-lista" class="section level3 hasAnchor" number="20.1.1">
-<h3><span class="header-section-number">20.1.1</span> Usando la funciones factor y levels, estamos asignando los factores a un nivel específico en el orden de la lista<a href="factores-1.html#usando-la-funciones-factor-y-levels-estamos-asignando-los-factores-a-un-nivel-específico-en-el-orden-de-la-lista" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="parse_factor-is-similar-a-factor-but-generates-a-warning-if-levels-have-been-specified-and-some-elements-of-x-are-not-found-in-those-levels." class="section level3 hasAnchor" number="20.1.2">
-<h3><span class="header-section-number">20.1.2</span> parse_factor() is similar a factor(), but generates a warning if levels have been specified and some elements of x are not found in those levels.<a href="factores-1.html#parse_factor-is-similar-a-factor-but-generates-a-warning-if-levels-have-been-specified-and-some-elements-of-x-are-not-found-in-those-levels." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb676-1"><a href="factores-1.html#cb676-1" tabindex="-1"></a>x1<span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Dic&quot;</span>, <span class="st">&quot;Ene&quot;</span>, <span class="st">&quot;Mar&quot;</span>, <span class="st">&quot;Dii&quot;</span>) <span class="co"># Nota que esta lista tengo un mes que se llama &quot;Dii&quot;</span></span>
-<span id="cb676-2"><a href="factores-1.html#cb676-2" tabindex="-1"></a></span>
-<span id="cb676-3"><a href="factores-1.html#cb676-3" tabindex="-1"></a>niveles_meses<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Ene&quot;</span>, <span class="st">&quot;Mar&quot;</span>, <span class="st">&quot;Dic&quot;</span>)</span>
-<span id="cb676-4"><a href="factores-1.html#cb676-4" tabindex="-1"></a></span>
-<span id="cb676-5"><a href="factores-1.html#cb676-5" tabindex="-1"></a>y1 <span class="ot">&lt;-</span><span class="fu">factor</span>(x1, <span class="at">levels =</span> niveles_meses)</span>
-<span id="cb676-6"><a href="factores-1.html#cb676-6" tabindex="-1"></a>y1</span></code></pre></div>
-</details>
-<pre><code>## [1] Dic  Ene  Mar  &lt;NA&gt;
-## Levels: Ene Mar Dic</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb678-1"><a href="factores-1.html#cb678-1" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">parse_factor</span>(x1, <span class="at">levels =</span> niveles_meses)</span>
-<span id="cb678-2"><a href="factores-1.html#cb678-2" tabindex="-1"></a>y1</span></code></pre></div>
-</details>
-<pre><code>## [1] Dic  Ene  Mar  &lt;NA&gt;
-## attr(,&quot;problems&quot;)
-## # A tibble: 1 × 4
-##     row   col expected           actual
-##   &lt;int&gt; &lt;int&gt; &lt;chr&gt;              &lt;chr&gt; 
-## 1     4    NA value in level set Dii   
-## Levels: Ene Mar Dic</code></pre>
-<p>Si quiere que los valores aparezca en el orden que aparecen en la base de datos use <strong>unique(variable)</strong></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb680-1"><a href="factores-1.html#cb680-1" tabindex="-1"></a>df_est<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">Nombre_est=</span><span class="fu">c</span>(<span class="st">&quot;Monica&quot;</span>, <span class="st">&quot;Isabela&quot;</span>, <span class="st">&quot;Juan&quot;</span>, <span class="st">&quot;Robo&quot;</span>, <span class="st">&quot;Pepito&quot;</span>),</span>
-<span id="cb680-2"><a href="factores-1.html#cb680-2" tabindex="-1"></a>                  <span class="at">Nota_Final=</span><span class="fu">c</span>(<span class="dv">99</span>, <span class="dv">27</span>, <span class="dv">89</span>, <span class="dv">91</span>, <span class="dv">27</span>))</span>
-<span id="cb680-3"><a href="factores-1.html#cb680-3" tabindex="-1"></a></span>
-<span id="cb680-4"><a href="factores-1.html#cb680-4" tabindex="-1"></a>df_est</span></code></pre></div>
-</details>
-<pre><code>##   Nombre_est Nota_Final
-## 1     Monica         99
-## 2    Isabela         27
-## 3       Juan         89
-## 4       Robo         91
-## 5     Pepito         27</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="factores-1.html#cb682-1" tabindex="-1"></a><span class="fu">ggplot</span>(df_est, <span class="fu">aes</span>(Nombre_est, Nota_Final))<span class="sc">+</span></span>
-<span id="cb682-2"><a href="factores-1.html#cb682-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-</details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-263-1.png" width="672" /></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb683-1"><a href="factores-1.html#cb683-1" tabindex="-1"></a>df_est<span class="sc">$</span>fct1<span class="ot">=</span><span class="fu">factor</span>(df_est<span class="sc">$</span>Nombre_est, <span class="at">levels =</span> <span class="fu">unique</span>(df_est<span class="sc">$</span>Nombre_est))</span>
-<span id="cb683-2"><a href="factores-1.html#cb683-2" tabindex="-1"></a></span>
-<span id="cb683-3"><a href="factores-1.html#cb683-3" tabindex="-1"></a><span class="fu">ggplot</span>(df_est, <span class="fu">aes</span>(fct1, Nota_Final))<span class="sc">+</span></span>
-<span id="cb683-4"><a href="factores-1.html#cb683-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-</details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-263-2.png" width="672" /></p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb684-1"><a href="factores-1.html#cb684-1" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> x1 <span class="sc">%&gt;%</span> <span class="fu">factor</span>() <span class="sc">%&gt;%</span> <span class="fu">fct_inorder</span>()</span>
-<span id="cb684-2"><a href="factores-1.html#cb684-2" tabindex="-1"></a>f2</span></code></pre></div>
-</details>
-<pre><code>## [1] Dic Ene Mar Dii
-## Levels: Dic Ene Mar Dii</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="factores-1.html#cb686-1" tabindex="-1"></a><span class="fu">levels</span>(f2)</span></code></pre></div>
-</details>
-<pre><code>## [1] &quot;Dic&quot; &quot;Ene&quot; &quot;Mar&quot; &quot;Dii&quot;</code></pre>
-</div>
-</div>
-<div id="temas-4" class="section level2 hasAnchor" number="20.2">
-<h2><span class="header-section-number">20.2</span> Temas:<a href="factores-1.html#temas-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p>library(forcats)</p></li>
-<li><p>sort()</p></li>
-<li><p>factor()</p></li>
-<li><p>parse_factor()</p></li>
-<li><p>unique()</p></li>
-<li><p>fact_inorder()</p></li>
-<li><p>levels()</p></li>
-</ul>
-<div id="datos-encuesta-social-general" class="section level3 hasAnchor" number="20.2.1">
-<h3><span class="header-section-number">20.2.1</span> Datos : Encuesta Social General<a href="factores-1.html#datos-encuesta-social-general" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>count()</li>
-</ul>
-<ol style="list-style-type: decimal">
-<li><strong>Ejercicios</strong>:</li>
-</ol>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="factores-1.html#cb688-1" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
-<span id="cb688-2"><a href="factores-1.html#cb688-2" tabindex="-1"></a>encuesta</span></code></pre></div>
-</details>
-<pre><code>## # A tibble: 21,483 × 9
-##     anio estado_civil  edad raza  ingreso partido religion denominacion horas_tv
-##    &lt;int&gt; &lt;fct&gt;        &lt;int&gt; &lt;fct&gt; &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;    &lt;fct&gt;           &lt;int&gt;
-##  1  2000 Nunca se ha…    26 Blan… 8000 -… Ind, p… Protest… Bautistas d…       12
-##  2  2000 Divorciado      48 Blan… 8000 -… No fue… Protest… Bautista, n…       NA
-##  3  2000 Viudo           67 Blan… No apl… Indepe… Protest… No denomina…        2
-##  4  2000 Nunca se ha…    39 Blan… No apl… Ind, p… Cristia… No aplica           4
-##  5  2000 Divorciado      25 Blan… No apl… No fue… Ninguna  No aplica           1
-##  6  2000 Casado          25 Blan… 20000 … Fuerte… Protest… Bautistas d…       NA
-##  7  2000 Nunca se ha…    36 Blan… 25000 … No fue… Cristia… No aplica           3
-##  8  2000 Divorciado      44 Blan… 7000 -… Ind, p… Protest… Sínodo lute…       NA
-##  9  2000 Casado          44 Blan… 25000 … No fue… Protest… Otra                0
-## 10  2000 Casado          47 Blan… 25000 … Fuerte… Protest… Bautistas d…        3
-## # ℹ 21,473 more rows</code></pre>
-<p>Contabilizar la cantidad de persona por “estado civil”</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="factores-1.html#cb690-1" tabindex="-1"></a>df<span class="ot">=</span>encuesta <span class="sc">%&gt;%</span> </span>
-<span id="cb690-2"><a href="factores-1.html#cb690-2" tabindex="-1"></a>   <span class="fu">count</span>(estado_civil)</span>
-<span id="cb690-3"><a href="factores-1.html#cb690-3" tabindex="-1"></a>df</span></code></pre></div>
-</details>
-<pre><code>## # A tibble: 6 × 2
-##   estado_civil           n
-##   &lt;fct&gt;              &lt;int&gt;
-## 1 Sin respuesta         17
-## 2 Nunca se ha casado  5416
-## 3 Separado             743
-## 4 Divorciado          3383
-## 5 Viudo               1807
-## 6 Casado             10117</code></pre>
-<p>knitr</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="factores-1.html#cb692-1" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>estado_civil)</span></code></pre></div>
-</details>
-<pre><code>## [1] Sin respuesta      Nunca se ha casado Separado           Divorciado        
-## [5] Viudo              Casado            
-## 6 Levels: Sin respuesta Nunca se ha casado Separado Divorciado ... Casado</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb694-1"><a href="factores-1.html#cb694-1" tabindex="-1"></a>df<span class="sc">$</span>estado_est_civil <span class="ot">&lt;-</span><span class="fu">factor</span>(df<span class="sc">$</span>estado_civil, <span class="at">levels =</span> df<span class="sc">$</span>estado_civil)</span>
-<span id="cb694-2"><a href="factores-1.html#cb694-2" tabindex="-1"></a></span>
-<span id="cb694-3"><a href="factores-1.html#cb694-3" tabindex="-1"></a>df<span class="sc">$</span>niveles_est_civil <span class="ot">&lt;-</span> <span class="fu">fct_reorder</span>(df<span class="sc">$</span>estado_civil, df<span class="sc">$</span>n )</span>
-<span id="cb694-4"><a href="factores-1.html#cb694-4" tabindex="-1"></a></span>
-<span id="cb694-5"><a href="factores-1.html#cb694-5" tabindex="-1"></a>df</span></code></pre></div>
-</details>
-<pre><code>## # A tibble: 6 × 4
-##   estado_civil           n estado_est_civil   niveles_est_civil 
-##   &lt;fct&gt;              &lt;int&gt; &lt;fct&gt;              &lt;fct&gt;             
-## 1 Sin respuesta         17 Sin respuesta      Sin respuesta     
-## 2 Nunca se ha casado  5416 Nunca se ha casado Nunca se ha casado
-## 3 Separado             743 Separado           Separado          
-## 4 Divorciado          3383 Divorciado         Divorciado        
-## 5 Viudo               1807 Viudo              Viudo             
-## 6 Casado             10117 Casado             Casado</code></pre>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb696-1"><a href="factores-1.html#cb696-1" tabindex="-1"></a><span class="fu">ggplot</span>(df, </span>
-<span id="cb696-2"><a href="factores-1.html#cb696-2" tabindex="-1"></a>       <span class="fu">aes</span>(estado_civil,n )) <span class="sc">+</span></span>
-<span id="cb696-3"><a href="factores-1.html#cb696-3" tabindex="-1"></a>       <span class="fu">geom_col</span>()</span></code></pre></div>
-</details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-268-1.png" width="960" /></p>
-</div>
-</div>
-<div id="a-smaller-figure-to-the-right-with-floating-text" class="section level2 hasAnchor" number="20.3">
-<h2><span class="header-section-number">20.3</span> A smaller figure to the right, with floating text<a href="factores-1.html#a-smaller-figure-to-the-right-with-floating-text" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-269-1.png" width="50%" style="float:right; padding:10px" /></p>
-<p>LOTS of text here to wrap around the figure. dfghjlkjhgdgxchvbvcxcvbnnbvvbvbbvcvxcv. fgffhgcvbcvbhbvvbvcvbnv bcbnbbnmmbnmnb vbcbnbvvnbbb vbb v b b cgjhkggbcv</p>
-<p><br></p>
-</div>
-<div id="haga-un-re-order-por-la-cantidad-de-personas-por-religion" class="section level2 hasAnchor" number="20.4">
-<h2><span class="header-section-number">20.4</span> Haga un re-order por la cantidad de personas por religion<a href="factores-1.html#haga-un-re-order-por-la-cantidad-de-personas-por-religion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="factores-1.html#cb697-1" tabindex="-1"></a>df2<span class="ot">=</span>encuesta <span class="sc">%&gt;%</span> </span>
-<span id="cb697-2"><a href="factores-1.html#cb697-2" tabindex="-1"></a>   <span class="fu">count</span>(religion)</span>
-<span id="cb697-3"><a href="factores-1.html#cb697-3" tabindex="-1"></a></span>
-<span id="cb697-4"><a href="factores-1.html#cb697-4" tabindex="-1"></a>df2 <span class="sc">%&gt;%</span></span>
-<span id="cb697-5"><a href="factores-1.html#cb697-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">religion =</span> <span class="fu">fct_reorder</span>(religion, n)) <span class="sc">%&gt;%</span></span>
-<span id="cb697-6"><a href="factores-1.html#cb697-6" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> religion, <span class="at">y =</span> n)) <span class="sc">+</span> </span>
-<span id="cb697-7"><a href="factores-1.html#cb697-7" tabindex="-1"></a>  <span class="fu">geom_col</span>()<span class="sc">+</span></span>
-<span id="cb697-8"><a href="factores-1.html#cb697-8" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
-</details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-270-1.png" width="672" /></p>
-<p>Hacer los ejercicios en la sección 15.3.1 del libro en español</p>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-366-1.png" width="672" /></p>
 <hr />
 </div>
-<div id="modificar-el-orden-de-los-factores" class="section level2 hasAnchor" number="20.5">
-<h2><span class="header-section-number">20.5</span> Modificar el orden de los factores<a href="factores-1.html#modificar-el-orden-de-los-factores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="ejemplo-2" class="section level2 hasAnchor" number="26.8">
+<h2><span class="header-section-number">26.8</span> Ejemplo 2<a href="nubes-de-palabra-en-r.html#ejemplo-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Del paquete <strong>wordcloud2</strong></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1004"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1004-1"><a href="nubes-de-palabra-en-r.html#cb1004-1" tabindex="-1"></a><span class="fu">wordcloud2</span>(<span class="at">data =</span> d)</span></code></pre></div>
+</details>
+<div class="wordcloud2 html-widget html-fill-item" id="htmlwidget-4553c0ad74dcbbc90e85" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-4553c0ad74dcbbc90e85">{"x":{"word":["will","freedom","ring","dream","day","let","every","one","able","together","nation","mountain","shall","faith","free","today","men","state","children","little","black","white","made","god","new","sing","land","last","even","live","meaning","true","brotherhood","former","georgia","sons","heat","mississippi","sweltering","alabama","boys","girls","hands","join","words","hill","places","hope","stone","thee","mountainside","american","deeply","difficulties","face","rooted","still","though","tomorrow","creed","rise","created","equal","evident","hold","self","truths","hills","owners","red","sit","slave","slaves","table","injustice","justice","oasis","oppression","transformed","character","color","content","four","judged","skin","brothers","dripping","governor","interposition","lips","nullification","racists","right","sisters","vicious","crooked","exalted","flesh","glory","lord","low","plain","revealed","rough","see","straight","valley","back","south","beautiful","despair","discords","hew","jail","jangling","knowing","pray","stand","struggle","symphony","transform","work","country","liberty","sweet","tis","died","fathers","pilgrim","pride","america","become","great","must","hampshire","hilltops","prodigious","mighty","mountains","york","alleghenies","heightening","pennsylvania","capped","colorado","rockies","snow","california","curvaceous","slopes","lookout","tennessee","molehill","allow","catholics","city","gentiles","hamlet","happens","jews","negro","old","protestants","speed","spiritual","village","almighty","thank"],"freq":[17,13,12,11,11,11,9,8,8,7,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"fontFamily":"Segoe UI","fontWeight":"bold","color":"random-dark","minSize":0,"weightFactor":10.58823529411765,"backgroundColor":"white","gridSize":0,"minRotation":-0.7853981633974483,"maxRotation":0.7853981633974483,"shuffle":true,"rotateRatio":0.4,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
+</div>
+<div id="como-remover-palabras-de-otra-idioma" class="section level2 hasAnchor" number="26.9">
+<h2><span class="header-section-number">26.9</span> Como remover palabras de otra idioma<a href="nubes-de-palabra-en-r.html#como-remover-palabras-de-otra-idioma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="vea-este-enlace-para-los-stopwords-de-muchos-idiomas" class="section level3 hasAnchor" number="26.9.1">
+<h3><span class="header-section-number">26.9.1</span> Vea este enlace para los “stopwords” de muchos idiomas<a href="nubes-de-palabra-en-r.html#vea-este-enlace-para-los-stopwords-de-muchos-idiomas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><a href="https://cran.r-project.org/web/packages/stopwords/readme/README.html" class="uri">https://cran.r-project.org/web/packages/stopwords/readme/README.html</a></p>
+</div>
+</div>
+<div id="en-español" class="section level2 hasAnchor" number="26.10">
+<h2><span class="header-section-number">26.10</span> En español<a href="nubes-de-palabra-en-r.html#en-español" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1005"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1005-1"><a href="nubes-de-palabra-en-r.html#cb1005-1" tabindex="-1"></a><span class="co"># from CRAN</span></span>
+<span id="cb1005-2"><a href="nubes-de-palabra-en-r.html#cb1005-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;stopwords&quot;</span>)</span>
+<span id="cb1005-3"><a href="nubes-de-palabra-en-r.html#cb1005-3" tabindex="-1"></a></span>
+<span id="cb1005-4"><a href="nubes-de-palabra-en-r.html#cb1005-4" tabindex="-1"></a><span class="co"># Or get the development version from GitHub:</span></span>
+<span id="cb1005-5"><a href="nubes-de-palabra-en-r.html#cb1005-5" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
+<span id="cb1005-6"><a href="nubes-de-palabra-en-r.html#cb1005-6" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;quanteda/stopwords&quot;</span>)</span></code></pre></div>
+</details>
+<div id="las-30-primeras-palabras-en-la-lista-de-stopword-del-paquete-stopwords-en-español" class="section level3 hasAnchor" number="26.10.1">
+<h3><span class="header-section-number">26.10.1</span> Las 30 primeras palabras en la lista de stopword del paquete “stopwords” en español<a href="nubes-de-palabra-en-r.html#las-30-primeras-palabras-en-la-lista-de-stopword-del-paquete-stopwords-en-español" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1006"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1006-1"><a href="nubes-de-palabra-en-r.html#cb1006-1" tabindex="-1"></a><span class="fu">head</span>(stopwords<span class="sc">::</span><span class="fu">stopwords</span>(<span class="st">&quot;es&quot;</span>, <span class="at">source =</span> <span class="st">&quot;snowball&quot;</span>), <span class="dv">30</span>)</span></code></pre></div>
+</details>
+<pre><code>##  [1] &quot;de&quot;     &quot;la&quot;     &quot;que&quot;    &quot;el&quot;     &quot;en&quot;     &quot;y&quot;      &quot;a&quot;      &quot;los&quot;   
+##  [9] &quot;del&quot;    &quot;se&quot;     &quot;las&quot;    &quot;por&quot;    &quot;un&quot;     &quot;para&quot;   &quot;con&quot;    &quot;no&quot;    
+## [17] &quot;una&quot;    &quot;su&quot;     &quot;al&quot;     &quot;lo&quot;     &quot;como&quot;   &quot;más&quot;    &quot;pero&quot;   &quot;sus&quot;   
+## [25] &quot;le&quot;     &quot;ya&quot;     &quot;o&quot;      &quot;este&quot;   &quot;sí&quot;     &quot;porque&quot;</code></pre>
+<hr />
+<p>Ejemplos #3</p>
+<p>Aqui un tercer ejemplo</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1008"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1008-1"><a href="nubes-de-palabra-en-r.html#cb1008-1" tabindex="-1"></a><span class="co"># install.packages(&quot;pacman&quot;) # Si no tiene instalada la Biblioteca Pacman ejecutar esta línea de código</span></span>
+<span id="cb1008-2"><a href="nubes-de-palabra-en-r.html#cb1008-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;pacman&quot;</span>)</span>
+<span id="cb1008-3"><a href="nubes-de-palabra-en-r.html#cb1008-3" tabindex="-1"></a></span>
+<span id="cb1008-4"><a href="nubes-de-palabra-en-r.html#cb1008-4" tabindex="-1"></a></span>
+<span id="cb1008-5"><a href="nubes-de-palabra-en-r.html#cb1008-5" tabindex="-1"></a><span class="fu">p_load</span>(<span class="st">&quot;tm&quot;</span>) <span class="co"># Biblioteca para realizar el preprocesado del texto,</span></span>
+<span id="cb1008-6"><a href="nubes-de-palabra-en-r.html#cb1008-6" tabindex="-1"></a><span class="fu">p_load</span>(<span class="st">&quot;tidyverse&quot;</span>) <span class="co"># Biblioteca con funciones para manipular datos.</span></span>
+<span id="cb1008-7"><a href="nubes-de-palabra-en-r.html#cb1008-7" tabindex="-1"></a><span class="fu">p_load</span>(<span class="st">&quot;wordcloud&quot;</span>) <span class="co"># Biblioteca para graficar nuestra nube de palabras.</span></span>
+<span id="cb1008-8"><a href="nubes-de-palabra-en-r.html#cb1008-8" tabindex="-1"></a><span class="fu">p_load</span>(<span class="st">&quot;RColorBrewer&quot;</span>) <span class="co"># Biblioteca para seleccionar una paleta de colores de nuestra nube de palabras.</span></span></code></pre></div>
+</details>
+</div>
+</div>
+<div id="un-documento-para-hacer-un-word-cloud" class="section level2 hasAnchor" number="26.11">
+<h2><span class="header-section-number">26.11</span> Un documento para hacer un word cloud<a href="nubes-de-palabra-en-r.html#un-documento-para-hacer-un-word-cloud" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1009"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1009-1"><a href="nubes-de-palabra-en-r.html#cb1009-1" tabindex="-1"></a>articulo_IA <span class="ot">&lt;-</span> <span class="st">&quot;https://gist.github.com/EverVino/7bdbbe7ebdff5987970036f52f0e384f/raw/3a1997b6f9e3471555a941f8812ada0cef84977d/gistfile1.txt&quot;</span></span>
+<span id="cb1009-2"><a href="nubes-de-palabra-en-r.html#cb1009-2" tabindex="-1"></a>texto <span class="ot">&lt;-</span> <span class="fu">read_file</span>(articulo_IA)</span>
+<span id="cb1009-3"><a href="nubes-de-palabra-en-r.html#cb1009-3" tabindex="-1"></a><span class="co">#texto</span></span></code></pre></div>
+</details>
+</div>
+<div id="convertir-su-documento-en-corpus-y-identificar-que-es-en-español" class="section level2 hasAnchor" number="26.12">
+<h2><span class="header-section-number">26.12</span> Convertir su documento en <strong>Corpus</strong> y identificar que es en español<a href="nubes-de-palabra-en-r.html#convertir-su-documento-en-corpus-y-identificar-que-es-en-español" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1010"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1010-1"><a href="nubes-de-palabra-en-r.html#cb1010-1" tabindex="-1"></a>texto2 <span class="ot">&lt;-</span> <span class="fu">VCorpus</span>(<span class="fu">VectorSource</span>(texto), </span>
+<span id="cb1010-2"><a href="nubes-de-palabra-en-r.html#cb1010-2" tabindex="-1"></a>                 <span class="at">readerControl =</span> <span class="fu">list</span>(<span class="at">reader =</span> readPlain, <span class="at">language =</span> <span class="st">&quot;es&quot;</span>, <span class="at">load=</span><span class="cn">TRUE</span>))</span>
+<span id="cb1010-3"><a href="nubes-de-palabra-en-r.html#cb1010-3" tabindex="-1"></a>texto2</span></code></pre></div>
+</details>
+<pre><code>## &lt;&lt;VCorpus&gt;&gt;
+## Metadata:  corpus specific: 0, document level (indexed): 0
+## Content:  documents: 1</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1012"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1012-1"><a href="nubes-de-palabra-en-r.html#cb1012-1" tabindex="-1"></a><span class="co">#inspect(texto2)</span></span></code></pre></div>
+</details>
+</div>
+<div id="limpieza-del-documento" class="section level2 hasAnchor" number="26.13">
+<h2><span class="header-section-number">26.13</span> Limpieza del documento<a href="nubes-de-palabra-en-r.html#limpieza-del-documento" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>fct_reorder()</li>
-<li>!is.na( ) remover los “NA”</li>
-<li>fct_infreq()</li>
-<li>fct_rev()</li>
-<li>fct_recode()</li>
-<li>fct_collapse()</li>
-<li>fct_lump()</li>
+<li>remover los números</li>
+<li>remover las puntuaciones</li>
+<li>cambiar a letras minúsculas</li>
+<li>remover las palabras comunes en español</li>
+<li>usar solamente la base de las palabres (“stem”) por ejemplo remover las conjugaciones <strong>espero</strong>, <strong>esparas</strong>, <strong>espera</strong>, <strong>esperamos</strong>… se convierte en “esper”</li>
+<li>remover espacios blancos</li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb698-1"><a href="factores-1.html#cb698-1" tabindex="-1"></a><span class="co">#model=lm(y~x, df)</span></span>
-<span id="cb698-2"><a href="factores-1.html#cb698-2" tabindex="-1"></a><span class="co">#summary(model)</span></span>
-<span id="cb698-3"><a href="factores-1.html#cb698-3" tabindex="-1"></a></span>
-<span id="cb698-4"><a href="factores-1.html#cb698-4" tabindex="-1"></a></span>
-<span id="cb698-5"><a href="factores-1.html#cb698-5" tabindex="-1"></a>resumen_religion <span class="ot">&lt;-</span> encuesta <span class="sc">%&gt;%</span></span>
-<span id="cb698-6"><a href="factores-1.html#cb698-6" tabindex="-1"></a>  <span class="fu">group_by</span>(religion) <span class="sc">%&gt;%</span></span>
-<span id="cb698-7"><a href="factores-1.html#cb698-7" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb698-8"><a href="factores-1.html#cb698-8" tabindex="-1"></a>    <span class="at">edad =</span> <span class="fu">mean</span>(edad, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb698-9"><a href="factores-1.html#cb698-9" tabindex="-1"></a>    <span class="at">horas_tv =</span> <span class="fu">mean</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb698-10"><a href="factores-1.html#cb698-10" tabindex="-1"></a>    <span class="at">sd_edad =</span>  <span class="fu">min</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb698-11"><a href="factores-1.html#cb698-11" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
-<span id="cb698-12"><a href="factores-1.html#cb698-12" tabindex="-1"></a>  )</span>
-<span id="cb698-13"><a href="factores-1.html#cb698-13" tabindex="-1"></a>resumen_religion</span></code></pre></div>
+<div class="sourceCode" id="cb1013"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1013-1"><a href="nubes-de-palabra-en-r.html#cb1013-1" tabindex="-1"></a>texto2 <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(texto2, removeNumbers)</span>
+<span id="cb1013-2"><a href="nubes-de-palabra-en-r.html#cb1013-2" tabindex="-1"></a>texto2 <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(texto2, removePunctuation)</span>
+<span id="cb1013-3"><a href="nubes-de-palabra-en-r.html#cb1013-3" tabindex="-1"></a>texto2 <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(texto2, tolower)</span>
+<span id="cb1013-4"><a href="nubes-de-palabra-en-r.html#cb1013-4" tabindex="-1"></a>texto2 <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(texto2, removeWords, stopwords<span class="sc">::</span><span class="fu">stopwords</span>(<span class="st">&quot;es&quot;</span>, <span class="at">source =</span> <span class="st">&quot;snowball&quot;</span>))</span>
+<span id="cb1013-5"><a href="nubes-de-palabra-en-r.html#cb1013-5" tabindex="-1"></a><span class="co">#texto2 &lt;- tm_map(texto2, stemDocument, language=&quot;spanish&quot;)</span></span>
+<span id="cb1013-6"><a href="nubes-de-palabra-en-r.html#cb1013-6" tabindex="-1"></a>texto2 <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(texto2, stripWhitespace)</span></code></pre></div>
 </details>
-<pre><code>## # A tibble: 15 × 5
-##    religion                edad horas_tv sd_edad     n
-##    &lt;fct&gt;                  &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;
-##  1 Sin respuesta           49.5     2.72    2.72    93
-##  2 No sabe                 35.9     4.62    4.62    15
-##  3 Inter o no confesional  40.0     2.87    2.87   109
-##  4 Nativa americana        38.9     3.46    3.46    23
-##  5 Cristiana               40.1     2.79    2.79   689
-##  6 Cristiana ortodoxa      50.4     2.42    2.42    95
-##  7 Musulmana/Islam         37.6     2.44    2.44   104
-##  8 Otra religión oriental  45.9     1.67    1.67    32
-##  9 Hinduismo               37.7     1.89    1.89    71
-## 10 Budismo                 44.7     2.38    2.38   147
-## 11 Otra                    41.0     2.73    2.73   224
-## 12 Ninguna                 41.2     2.71    2.71  3523
-## 13 Judía                   52.4     2.52    2.52   388
-## 14 Católica                46.9     2.96    2.96  5124
-## 15 Protestante             49.9     3.15    3.15 10846</code></pre>
+</div>
+<div id="transformar-el-texto-en-un-documento-de-texto-sencillo-plain-text" class="section level2 hasAnchor" number="26.14">
+<h2><span class="header-section-number">26.14</span> Transformar el texto en un documento de texto sencillo (Plain Text)<a href="nubes-de-palabra-en-r.html#transformar-el-texto-en-un-documento-de-texto-sencillo-plain-text" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="factores-1.html#cb700-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_religion, <span class="fu">aes</span>(edad, religion)) <span class="sc">+</span> </span>
-<span id="cb700-2"><a href="factores-1.html#cb700-2" tabindex="-1"></a>   <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1014"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1014-1"><a href="nubes-de-palabra-en-r.html#cb1014-1" tabindex="-1"></a>texto2 <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(texto2, PlainTextDocument)</span></code></pre></div>
 </details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-271-1.png" width="672" /></p>
+</div>
+<div id="transformar-el-texto-para-reemplazar-algunos-caracteres-especiales-1" class="section level2 hasAnchor" number="26.15">
+<h2><span class="header-section-number">26.15</span> Transformar el texto para reemplazar algunos caracteres especiales<a href="nubes-de-palabra-en-r.html#transformar-el-texto-para-reemplazar-algunos-caracteres-especiales-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb701-1"><a href="factores-1.html#cb701-1" tabindex="-1"></a><span class="fu">min</span>(encuesta<span class="sc">$</span>horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1015"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1015-1"><a href="nubes-de-palabra-en-r.html#cb1015-1" tabindex="-1"></a>toSpace <span class="ot">&lt;-</span> <span class="fu">content_transformer</span>(<span class="cf">function</span> (x , pattern ) <span class="fu">gsub</span>(pattern, <span class="st">&quot; &quot;</span>, x))</span>
+<span id="cb1015-2"><a href="nubes-de-palabra-en-r.html#cb1015-2" tabindex="-1"></a><span class="co">#texto2 &lt;- tm_map(texto2, toSpace, &quot;-&quot;)</span></span>
+<span id="cb1015-3"><a href="nubes-de-palabra-en-r.html#cb1015-3" tabindex="-1"></a>texto2 <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(texto2, toSpace, <span class="st">&quot;@&quot;</span>)</span>
+<span id="cb1015-4"><a href="nubes-de-palabra-en-r.html#cb1015-4" tabindex="-1"></a>texto2 <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(texto2, toSpace, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">|&quot;</span>)</span></code></pre></div>
 </details>
-<pre><code>## [1] 0</code></pre>
-<div id="nota-el-efecto-de-añadir-un---antes-de-edad" class="section level3 hasAnchor" number="20.5.1">
-<h3><span class="header-section-number">20.5.1</span> Nota el efecto de añadir un “-” antes de <strong>edad</strong><a href="factores-1.html#nota-el-efecto-de-añadir-un---antes-de-edad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="crear-una-matriz-de-las-palabras" class="section level2 hasAnchor" number="26.16">
+<h2><span class="header-section-number">26.16</span> Crear una matriz de las palabras<a href="nubes-de-palabra-en-r.html#crear-una-matriz-de-las-palabras" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="factores-1.html#cb703-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_religion, <span class="fu">aes</span>(edad, <span class="fu">fct_reorder</span>(religion, <span class="sc">-</span>edad))) <span class="sc">+</span></span>
-<span id="cb703-2"><a href="factores-1.html#cb703-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1016"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1016-1"><a href="nubes-de-palabra-en-r.html#cb1016-1" tabindex="-1"></a>tabla_frecuencia <span class="ot">&lt;-</span> <span class="fu">DocumentTermMatrix</span>(texto2)</span></code></pre></div>
 </details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-272-1.png" width="672" /></p>
+</div>
+<div id="calcular-la-frecuencia-de-de-cada-palabra" class="section level2 hasAnchor" number="26.17">
+<h2><span class="header-section-number">26.17</span> Calcular la frecuencia de de cada palabra<a href="nubes-de-palabra-en-r.html#calcular-la-frecuencia-de-de-cada-palabra" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb704-1"><a href="factores-1.html#cb704-1" tabindex="-1"></a>resumen_religion <span class="sc">%&gt;%</span></span>
-<span id="cb704-2"><a href="factores-1.html#cb704-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">religion =</span> <span class="fu">fct_reorder</span>(religion, horas_tv)) <span class="sc">%&gt;%</span></span>
-<span id="cb704-3"><a href="factores-1.html#cb704-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(horas_tv, religion)) <span class="sc">+</span></span>
-<span id="cb704-4"><a href="factores-1.html#cb704-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1017"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1017-1"><a href="nubes-de-palabra-en-r.html#cb1017-1" tabindex="-1"></a>tabla_frecuencia <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">palabras =</span> tabla_frecuencia<span class="sc">$</span>dimnames<span class="sc">$</span>Terms, </span>
+<span id="cb1017-2"><a href="nubes-de-palabra-en-r.html#cb1017-2" tabindex="-1"></a>                          <span class="at">frecuencia =</span> tabla_frecuencia<span class="sc">$</span>v)</span></code></pre></div>
 </details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-273-1.png" width="672" /></p>
-<p>Reorder factor levels by sorting along another variable
-Description
-fct_reorder() is useful for 1d displays where the factor is mapped to position; fct_reorder2() for 2d displays where the factor is mapped to a non-position aesthetic. last2() and first2() are helpers for fct_reorder2(); last2() finds the last value of y when sorted by x; first2() finds the first value.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb705-1"><a href="factores-1.html#cb705-1" tabindex="-1"></a>resumen_ingreso <span class="ot">&lt;-</span> encuesta <span class="sc">%&gt;%</span></span>
-<span id="cb705-2"><a href="factores-1.html#cb705-2" tabindex="-1"></a>  <span class="fu">group_by</span>(ingreso) <span class="sc">%&gt;%</span></span>
-<span id="cb705-3"><a href="factores-1.html#cb705-3" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb705-4"><a href="factores-1.html#cb705-4" tabindex="-1"></a>    <span class="at">edad =</span> <span class="fu">mean</span>(edad, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb705-5"><a href="factores-1.html#cb705-5" tabindex="-1"></a>    <span class="at">horas_tv =</span> <span class="fu">mean</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb705-6"><a href="factores-1.html#cb705-6" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
-<span id="cb705-7"><a href="factores-1.html#cb705-7" tabindex="-1"></a>  )</span>
-<span id="cb705-8"><a href="factores-1.html#cb705-8" tabindex="-1"></a></span>
-<span id="cb705-9"><a href="factores-1.html#cb705-9" tabindex="-1"></a>resumen_ingreso</span></code></pre></div>
+<div class="sourceCode" id="cb1018"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1018-1"><a href="nubes-de-palabra-en-r.html#cb1018-1" tabindex="-1"></a><span class="co"># Convertimos los valores enlazados con cbind a un objeto dataframe.</span></span>
+<span id="cb1018-2"><a href="nubes-de-palabra-en-r.html#cb1018-2" tabindex="-1"></a>tabla_frecuencia<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(tabla_frecuencia) </span>
+<span id="cb1018-3"><a href="nubes-de-palabra-en-r.html#cb1018-3" tabindex="-1"></a></span>
+<span id="cb1018-4"><a href="nubes-de-palabra-en-r.html#cb1018-4" tabindex="-1"></a><span class="co"># Forzamos a que la columna de frecuencia contenga valores numéricos.</span></span>
+<span id="cb1018-5"><a href="nubes-de-palabra-en-r.html#cb1018-5" tabindex="-1"></a>tabla_frecuencia<span class="sc">$</span>frecuencia<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(tabla_frecuencia<span class="sc">$</span>frecuencia)</span>
+<span id="cb1018-6"><a href="nubes-de-palabra-en-r.html#cb1018-6" tabindex="-1"></a></span>
+<span id="cb1018-7"><a href="nubes-de-palabra-en-r.html#cb1018-7" tabindex="-1"></a><span class="co"># Ordenamos muestra tabla de frecuencias de acuerdo a sus valores numéricos.</span></span>
+<span id="cb1018-8"><a href="nubes-de-palabra-en-r.html#cb1018-8" tabindex="-1"></a>tabla_frecuencia<span class="ot">&lt;-</span>tabla_frecuencia[<span class="fu">order</span>(tabla_frecuencia<span class="sc">$</span>frecuencia, <span class="at">decreasing=</span><span class="cn">TRUE</span>),]</span>
+<span id="cb1018-9"><a href="nubes-de-palabra-en-r.html#cb1018-9" tabindex="-1"></a></span>
+<span id="cb1018-10"><a href="nubes-de-palabra-en-r.html#cb1018-10" tabindex="-1"></a></span>
+<span id="cb1018-11"><a href="nubes-de-palabra-en-r.html#cb1018-11" tabindex="-1"></a><span class="fu">head</span>(tabla_frecuencia) <span class="co"># aqui vemos las 6 palabras más comunes en el texto</span></span></code></pre></div>
 </details>
-<pre><code>## # A tibble: 16 × 4
-##    ingreso               edad horas_tv     n
-##    &lt;fct&gt;                &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt;
-##  1 Sin respuesta         45.5     2.90   183
-##  2 No sabe               45.6     3.41   267
-##  3 Se niega a responder  47.6     2.48   975
-##  4 25000 o más           44.2     2.23  7363
-##  5 20000 - 24999         41.5     2.78  1283
-##  6 15000 - 19999         40.0     2.91  1048
-##  7 10000 - 14999         41.1     3.02  1168
-##  8 8000 - 9999           41.1     3.15   340
-##  9 7000 - 7999           38.2     2.65   188
-## 10 6000 - 6999           40.3     3.17   215
-## 11 5000 - 5999           37.8     3.16   227
-## 12 4000 - 4999           38.9     3.15   226
-## 13 3000 - 3999           37.8     3.31   276
-## 14 1000 - 2999           34.5     3.00   395
-## 15 Menos de 1000         40.5     3.36   286
-## 16 No aplica             56.1     3.79  7043</code></pre>
+<pre><code>##          palabras frecuencia
+## 809  inteligencia         79
+## 126    artificial         67
+## 1378     sistemas         32
+## 1347          ser         22
+## 737        humano         19
+## 1172    problemas         18</code></pre>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb707-1"><a href="factores-1.html#cb707-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_ingreso, <span class="fu">aes</span>(horas_tv, <span class="fu">fct_reorder</span>(ingreso, horas_tv))) <span class="sc">+</span></span>
-<span id="cb707-2"><a href="factores-1.html#cb707-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1020"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1020-1"><a href="nubes-de-palabra-en-r.html#cb1020-1" tabindex="-1"></a><span class="fu">wordcloud</span>(<span class="at">words =</span> tabla_frecuencia<span class="sc">$</span>palabras, </span>
+<span id="cb1020-2"><a href="nubes-de-palabra-en-r.html#cb1020-2" tabindex="-1"></a>          <span class="at">freq =</span> tabla_frecuencia<span class="sc">$</span>frecuencia,</span>
+<span id="cb1020-3"><a href="nubes-de-palabra-en-r.html#cb1020-3" tabindex="-1"></a>          <span class="at">min.freq =</span> <span class="dv">5</span>, </span>
+<span id="cb1020-4"><a href="nubes-de-palabra-en-r.html#cb1020-4" tabindex="-1"></a>          <span class="at">max.words =</span> <span class="dv">100</span>, </span>
+<span id="cb1020-5"><a href="nubes-de-palabra-en-r.html#cb1020-5" tabindex="-1"></a>          <span class="at">random.order =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb1020-6"><a href="nubes-de-palabra-en-r.html#cb1020-6" tabindex="-1"></a>          <span class="at">colors =</span> <span class="fu">brewer.pal</span>(<span class="dv">8</span>,<span class="st">&quot;Paired&quot;</span>))</span></code></pre></div>
 </details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-274-1.png" width="672" /></p>
-<p>Reorder factor levels by hand
-Description
-This is a generalisation of stats::relevel() that allows you to move any number of levels to any location.</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb708-1"><a href="factores-1.html#cb708-1" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_ingreso, <span class="fu">aes</span>(edad, <span class="fu">fct_relevel</span>(ingreso, <span class="st">&quot;No aplica&quot;</span>))) <span class="sc">+</span></span>
-<span id="cb708-2"><a href="factores-1.html#cb708-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-</details>
-<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-275-1.png" width="672" /></p>
-<ol start="2" style="list-style-type: decimal">
-<li><strong>Ejercicios</strong>:</li>
-</ol>
-<p>Hacer los ejercicios en la sección 15.5.1 del libro en español</p>
+<p><img src="Ciencia_Datos_R_files/figure-html/unnamed-chunk-379-1.png" width="672" /></p>
 <hr />
+<p>Como ver la figuras en la pestaña “Plots”</p>
+<p>De esa forma puede bajar los WordClouds como .pdf o otro formato.</p>
+<p>&lt;<a href="https://stackoverflow.com/questions/40570621/rstudio-how-to-show-plot-output-in-bottom-right-pane" class="uri">https://stackoverflow.com/questions/40570621/rstudio-how-to-show-plot-output-in-bottom-right-pane</a>&gt;</p>
 
 </div>
 </div>
-</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="datos-ordenados.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="cadena-de-caracteres-strings.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="opciones-de-knitr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix-a.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1046,7 +944,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/20-Factores.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/27-WordClouds.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -1054,7 +952,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/20-Factores.Rmd",
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/27-WordClouds.Rmd",
 "text": null
 },
 "download": null,

@@ -284,7 +284,7 @@ otras-funciones-de-knitr
 emoji-or-symbols
 select-under-the-edit-emoji-symbols.
 remember-you-can-add-emojis-to-your-document
-wordcloud_en_r
+nubes-de-palabra-en-r
 ejemplo-1
 usando-los-datos-en-el-paquete-wordcloud2-que-se-llama-demofreq
 paso-1
