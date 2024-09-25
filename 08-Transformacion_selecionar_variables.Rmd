@@ -1,0 +1,76 @@
+# Transformación: Selecionar variables
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+
+Sys.Date()
+```
+
+##  Funciones en este módulo
+
+  - starts_with() # selecciona variables que empiezan con una palabra o letra
+  - ends_with() # selecciona variables que terminan con una palabra o letra
+  - rename() # cambiar el nombre de una variable
+  - contains() # selecciona variables que contienen una palabra o letra
+  - everything() # selecciona todas las variables
+  - if_else() # reemplaza valores en una columna basado en una condición
+
+Es una función para seleccionar basado en una caracteristicas del nombre de la columna
+
+```{r}
+library(datos)
+names(vuelos)
+library(tidyverse)
+vuelos %>% 
+  dplyr::select(horario_salida)
+
+vuelos %>% 
+  dplyr::select(starts_with("horario"))
+
+vuelos %>% 
+  dplyr::select(ends_with("salida"))
+
+vuelos %>% 
+  dplyr::select(contains("salida"))
+
+```
+
+## rename()
+
+Cambiar el nombre de la columna
+
+```{r}
+vuelos %>% 
+  rename(aeropuerto_origen=origen) %>% 
+  rename(areopuerto_distino=destino) # nombre nuevo= nombre original
+```
+
+## Reoganizar el orden de las columnas, usando select() y everything() en la misma función
+
+```{r}
+head(vuelos)
+vuelos %>% 
+    dplyr::select(distancia, aerolinea, everything())
+```
+
+Seleccionar de un conjunto de variables en orden que aparece en el data.frame
+
+```{r}
+vuelos |> dplyr::select(anio:horario_salida)
+  
+```
+
+
+
+
+
+
+------------------------------------------------------------------------
+
+3.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 5.4.1 del libro en español
+
+------------------------------------------------------------------------
+

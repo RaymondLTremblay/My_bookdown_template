@@ -1,4 +1,4 @@
-16-Terremotos_fecha_mapa
+# 16-Terremotos_fecha_mapa
 
 
 ```{r echo=FALSE}
@@ -175,7 +175,7 @@ summary(as.factor(eulophia$scientific_name))
 
 Ahora que hemos obtenido los datos, podemos observar su distrubución en el mapa de Puerto Rico utilizando `leaflet`.
 
-# Utilizando Leaflet
+## Utilizando Leaflet
 
 La función base del paquete leaflet es `leaflet()`, con esta se activa un artilugio (*widget* en inglés) sobre el cuál se construye el mapa. Esta función debe estar unida a otra función como `addTiles()` que añade el mapa.
 
@@ -276,7 +276,7 @@ leaflet() %>%
 
 ```
 
-# Trabajando Variables Categóricas con Leaflet:
+## Trabajando Variables Categóricas con Leaflet:
 
 Es posible distinguir entre especies utilizando diferentes colores, pero debe utilizar la función `addCircleMarkers()` en lugar de `addAwesomeMarkers()`. Para colorear grupos en Leaflet es necesario generar una paleta de colores para las variables de interés de acuerdo al tipo de variable (*i.e.*, numérica, factorial). Para esto se utilizan las funciones `colorFactor()`, `colorNumeric()`, `colorBin()`, o `colorQuantile()`. `colorFactor()` y `colorNumeric()` generan paletas de colores para variables factoriales y numericas, respectivamente; mientras que `colorBin()` y `colorQuantile()` generan paletas de colores para valores numéricos resumidos en grupos.
 

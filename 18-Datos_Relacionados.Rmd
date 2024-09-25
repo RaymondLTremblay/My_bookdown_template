@@ -1,0 +1,414 @@
+# Datos Relacionados
+
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+
+Sys.Date()
+```
+
+***
+
+El tema proviene de los siguientes sitios.
+
+English:
+ <https://r4ds.had.co.nz/relational-data.html>
+ 
+Español:
+ <https://es.r4ds.hadley.nz/13-relational-data.html>
+ 
+ 
+***
+
+
+```{r}
+library(tidyverse)
+library(datos)
+```
+
+```{r}
+vuelos # data set #1
+names(vuelos)
+aerolineas # data set #2
+names(aerolineas)
+```
+
+```{r}
+aeropuertos
+names(aeropuertos)
+```
+
+```{r}
+aviones
+```
+
+
+```{r}
+clima
+```
+
+
+```{r}
+vuelos
+```
+
+```{r}
+aviones
+
+aviones %>%
+  count(codigo_cola) %>%
+  filter(n > 1)
+```
+
+## Temas: Datos Relacionados
+
+- mutating joins
+- filtering joins
+- operations
+
+### Los datos de vuelos
+
+ 1.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 13.2.1 del libro en español
+
+***
+
+
+## Claves
+
+ 2.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 13.3.1 del libro en español
+
+Identify the keys in the following datasets
+
+Lahman::Batting,
+babynames::babynames
+nasaweather::atmos
+fueleconomy::vehicles
+ggplot2::diamonds
+
+
+```{r}
+head(Lahman::Batting)
+head(datos::bateadores)
+
+
+Lahman::Batting %>% 
+  count(playerID) %>% 
+  filter(n>1) |> 
+  head()
+
+
+bateadores %>%
+count(id_jugador,id_anio,orden_equipos) %>%
+filter(n > 1) |> 
+  head()
+```
+
+```{r}
+Lahman::Batting %>% 
+  count(playerID, yearID, stint) %>% 
+  filter(n>1) |> 
+  head()
+```
+
+
+
+```{r}
+#babynames::babynames
+```
+
+```{r}
+babynames::babynames %>% 
+  count(year, name, sex) %>% 
+  filter(n>1)
+```
+
+Cual fue el primer año que su nombre aparece en la base de datos
+
+```{r}
+babynames::babynames %>% 
+filter(name =="Abimelys")
+
+max(babynames::babynames$year)
+```
+
+
+
+```{r}
+nasaweather::atmos
+
+```
+
+
+
+```{r}
+nasaweather::atmos %>% 
+  count(lat, long, year, month) %>% 
+  filter(n>1)
+```
+
+
+```{r}
+fueleconomy::vehicles
+```
+
+
+
+```{r}
+fueleconomy::vehicles %>% 
+    count(id) %>% 
+  filter(n>1)
+```
+
+```{r}
+ggplot2::diamonds
+```
+
+
+
+```{r}
+ggplot2::diamonds %>% 
+      count(carat, cut, color, clarity, depth, price, x, y, z) %>% 
+  filter(n>1)
+```
+
+
+Draw a diagram illustrating the connections between the Batting, People, and Salaries tables in the Lahman package. Draw another diagram that shows the relationship between People, Managers, AwardsManagers.
+
+
+Dibuja un diagrama que ilustre las conexiones entre las tablas bateadores, personas y salarios incluidas en el paquete datos. Dibuja otro diagrama que muestre la relación entre personas, dirigentes y premios_dirigentes.
+
+```{r}
+names(Lahman::Batting)
+names(Lahman::Salaries)
+names(Lahman::People)
+```
+
+
+
+
+***
+
+## Uniones de transformaciones
+
+ - mutating join
+ 
+```{r}
+vuelos2 <- vuelos %>%
+  dplyr::select(anio, dia, hora, origen, destino, codigo_cola, aerolinea)
+vuelos2
+```
+ 
+```{r}
+names(aerolineas)
+aerolineas
+
+
+vuelos2 %>%
+  dplyr::select(-origen, -destino) %>%
+  left_join(aerolineas, by = "aerolinea")
+```
+ 
+ 
+```{r}
+x <- tribble(
+  ~key, ~val_x,
+  1, "x1",
+  2, "x2",
+  3, "x3"
+)
+y <- tribble(
+  ~key, ~val_y,
+  1, "y1",
+  2, "y2",
+  4, "y3"
+)
+
+x
+y
+```
+```{r}
+x %>% 
+  inner_join(y, by="key")
+```
+ 
+ 
+ 
+```{r}
+#left_join
+
+x %>% 
+  left_join(y, by="key")
+
+
+#right_join
+
+x %>% 
+  right_join(y, by="key")
+#full_join
+
+x %>% 
+  full_join(y, by="key")
+```
+
+left_join
+
+
+```{r}
+x <- tribble(
+  ~key, ~nombre_x,
+  1, "Juan",
+  2, "Maria",
+  3, "Orlando"
+)
+y <- tribble(
+  ~key, ~edad_y,
+  1, 20,
+  2, 21,
+  4, 22
+)
+
+x
+y
+
+x %>% 
+  full_join(y, by="key")
+
+x %>% 
+  inner_join(y, by="key")
+```
+
+
+```{r}
+x %>% 
+  left_join(y, by="key")
+
+x %>% 
+  right_join(y, by="key")
+
+x %>% 
+  full_join(y, by="key")
+
+x %>% 
+  inner_join(y, by="key")
+```
+
+ 
+ START HERE!!!!
+ 
+```{r}
+
+vuelos2 %>%
+  dplyr::select(-origen, -destino) %>%
+  left_join(aerolineas, by = "aerolinea")
+
+
+names(vuelos2)
+names(clima)
+```
+
+```{r}
+
+vuelos2 %>%
+left_join(clima)
+
+#> Joining, by = c("anio", "mes", "dia", "hora", "origen")
+vuelos2 %>%
+left_join(clima, by = c("anio", "dia", "hora", "origen"))
+```
+ 
+ 
+ 
+```{r}
+
+names(vuelos2)
+names(aeropuertos)
+
+head(vuelos2, n=3)
+aeropuertos
+
+
+
+
+
+vuelos2 %>%
+ right_join(aeropuertos, c("origen" = "codigo_aeropuerto"))
+```
+ 
+```{r}
+library(maps)
+
+aeropuertos %>%
+semi_join(vuelos, c("codigo_aeropuerto" = "destino")) %>%
+ggplot(aes(longitud, latitud)) +
+borders("state") +
+geom_point() +
+coord_quickmap()
+```
+ 
+ 
+ - mutate()
+ - select()
+ - left_join()
+ - match()
+
+
+***
+
+## Entendiendo las uniones
+
+***
+
+### Unión interiores
+
+
+### Unión exteriores
+
+
+### Claves duplicadas
+
+
+***
+
+## Definiendo las columnas clave
+
+3.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 13.4.6 del libro en español
+
+***
+
+
+## Otras implementaciones
+
+ - merge()
+ 
+***
+
+## Uniones de filtro
+
+ - semi_join()
+ - anti_join()
+ 
+4.  **Ejercicios**:
+
+Hacer los ejercicios en la sección 13.5.1 del libro en español
+
+***
+
+## Problemas con las uniones
+
+
+
+
+ 
+ 
+
+
+***
+
+
