@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Ciencia de Datos con R</title>
+  <title>Chapter 17 16-Leaflet Mapas interactivos | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Ciencia de Datos con R" />
+  <meta property="og:title" content="Chapter 17 16-Leaflet Mapas interactivos | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Ciencia de Datos con R" />
+  <meta name="twitter:title" content="Chapter 17 16-Leaflet Mapas interactivos | Ciencia de Datos con R" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="importar-datos.html"/>
+<link rel="next" href="datos-ordenados.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -609,19 +609,414 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="leaflet-mapas-interactivos" class="section level1 hasAnchor" number="17">
+<h1><span class="header-section-number">Chapter 17</span> 16-Leaflet Mapas interactivos<a href="leaflet-mapas-interactivos.html#leaflet-mapas-interactivos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<pre><code>## [1] &quot;2024-09-24&quot;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="leaflet-mapas-interactivos.html#cb494-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+</details>
+<div id="bajar-los-datos-de-la-web-del-usgs" class="section level2 hasAnchor" number="17.1">
+<h2><span class="header-section-number">17.1</span> Bajar los datos de la web del USGS<a href="leaflet-mapas-interactivos.html#bajar-los-datos-de-la-web-del-usgs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Website: <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php" class="uri">https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php</a></p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="leaflet-mapas-interactivos.html#cb495-1" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb495-2"><a href="leaflet-mapas-interactivos.html#cb495-2" tabindex="-1"></a>earthquakes <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv&quot;</span>)</span>
+<span id="cb495-3"><a href="leaflet-mapas-interactivos.html#cb495-3" tabindex="-1"></a></span>
+<span id="cb495-4"><a href="leaflet-mapas-interactivos.html#cb495-4" tabindex="-1"></a><span class="fu">head</span>(earthquakes, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
+</details>
+<pre><code>##                    time latitude longitude depth   mag magType   nst   gap
+##                  &lt;POSc&gt;    &lt;num&gt;     &lt;num&gt; &lt;num&gt; &lt;num&gt;  &lt;char&gt; &lt;int&gt; &lt;num&gt;
+##  1: 2024-09-25 00:55:55 38.81883 -122.8067  3.06  1.08      md    23    48
+##  2: 2024-09-25 00:45:47 34.92050 -119.1367  1.88  1.19      ml    20   105
+##  3: 2024-09-25 00:44:00 39.25933 -123.2492  6.44  1.30      md     9    94
+##  4: 2024-09-25 00:40:00 39.38017 -122.9008  5.90  2.30      md    34    42
+##  5: 2024-09-25 00:39:59 34.10983 -117.4900 16.20  1.45      ml    49    48
+##  6: 2024-09-25 00:32:18 35.74933 -117.5657  9.52  0.58      ml    19    67
+##  7: 2024-09-25 00:32:13 34.07383 -117.4733  2.58  1.20      ml     9   140
+##  8: 2024-09-25 00:16:02 60.08500 -148.4386 34.90  1.90      ml    NA    NA
+##  9: 2024-09-25 00:15:16 60.93200 -150.5332 29.20  1.80      ml    NA    NA
+## 10: 2024-09-25 00:06:36 33.08200 -116.6165 14.54  2.69      ml    97    18
+##         dmin   rms    net           id             updated
+##        &lt;num&gt; &lt;num&gt; &lt;char&gt;       &lt;char&gt;              &lt;POSc&gt;
+##  1: 0.005278  0.02     nc   nc75066406 2024-09-25 00:57:32
+##  2: 0.102200  0.23     ci   ci40744791 2024-09-25 00:52:22
+##  3: 0.067010  0.06     nc   nc75066401 2024-09-25 00:46:47
+##  4: 0.047270  0.11     nc   nc75066396 2024-09-25 00:47:18
+##  5: 0.043320  0.18     ci   ci40744783 2024-09-25 00:46:48
+##  6: 0.142900  0.14     ci   ci40744767 2024-09-25 00:38:58
+##  7: 0.038500  0.08     ci   ci40744759 2024-09-25 00:38:42
+##  8:       NA  0.41     ak ak024ccvnshl 2024-09-25 00:18:38
+##  9:       NA  0.47     ak ak024ccvnltx 2024-09-25 00:17:16
+## 10: 0.015940  0.19     ci   ci40744735 2024-09-25 00:32:19
+##                                  place       type horizontalError depthError
+##                                 &lt;char&gt;     &lt;char&gt;           &lt;num&gt;      &lt;num&gt;
+##  1:        6 km NNW of The Geysers, CA earthquake            0.23       0.54
+##  2:   8 km N of Pine Mountain Club, CA earthquake            0.37       0.57
+##  3:       4 km W of Redwood Valley, CA earthquake            0.40       1.10
+##  4:      6 km SE of Lake Pillsbury, CA earthquake            0.20       0.50
+##  5:            3 km WNW of Fontana, CA earthquake            0.22       0.31
+##  6:      15 km W of Searles Valley, CA earthquake            0.25       0.90
+##  7:            3 km SSW of Fontana, CA earthquake            0.42       0.23
+##  8:         23 km W of Chenega, Alaska earthquake              NA       2.10
+##  9: 8 km E of Point Possession, Alaska earthquake              NA       0.30
+## 10:             1 km WNW of Julian, CA earthquake            0.12       0.26
+##     magError magNst    status locationSource magSource
+##        &lt;num&gt;  &lt;int&gt;    &lt;char&gt;         &lt;char&gt;    &lt;char&gt;
+##  1:    0.130     24 automatic             nc        nc
+##  2:    0.264     26 automatic             ci        ci
+##  3:    0.330      6 automatic             nc        nc
+##  4:    0.150     26 automatic             nc        nc
+##  5:    0.240     32 automatic             ci        ci
+##  6:    0.223      5 automatic             ci        ci
+##  7:    0.437     32 automatic             ci        ci
+##  8:       NA     NA automatic             ak        ak
+##  9:       NA     NA automatic             ak        ak
+## 10:    0.234     25  reviewed             ci        ci</code></pre>
+</div>
+<div id="si-bajo-los-datos-a-mi-computadora" class="section level2 hasAnchor" number="17.2">
+<h2><span class="header-section-number">17.2</span> Si bajo los datos a mi computadora<a href="leaflet-mapas-interactivos.html#si-bajo-los-datos-a-mi-computadora" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Use esta alternativa si bajo los datos a su computadora</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="leaflet-mapas-interactivos.html#cb497-1" tabindex="-1"></a><span class="co">#library(readr)</span></span>
+<span id="cb497-2"><a href="leaflet-mapas-interactivos.html#cb497-2" tabindex="-1"></a><span class="co">#Earthquake_all_month &lt;- read_csv(&quot;Datos/Earthquake_all_month.csv&quot;)</span></span>
+<span id="cb497-3"><a href="leaflet-mapas-interactivos.html#cb497-3" tabindex="-1"></a></span>
+<span id="cb497-4"><a href="leaflet-mapas-interactivos.html#cb497-4" tabindex="-1"></a><span class="co">#EQ=Earthquake_all_month</span></span>
+<span id="cb497-5"><a href="leaflet-mapas-interactivos.html#cb497-5" tabindex="-1"></a><span class="co">#head(EQ, n=10)</span></span></code></pre></div>
+</details>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="leaflet-mapas-interactivos.html#cb498-1" tabindex="-1"></a><span class="fu">names</span>(earthquakes)</span></code></pre></div>
+</details>
+<pre><code>##  [1] &quot;time&quot;            &quot;latitude&quot;        &quot;longitude&quot;       &quot;depth&quot;          
+##  [5] &quot;mag&quot;             &quot;magType&quot;         &quot;nst&quot;             &quot;gap&quot;            
+##  [9] &quot;dmin&quot;            &quot;rms&quot;             &quot;net&quot;             &quot;id&quot;             
+## [13] &quot;updated&quot;         &quot;place&quot;           &quot;type&quot;            &quot;horizontalError&quot;
+## [17] &quot;depthError&quot;      &quot;magError&quot;        &quot;magNst&quot;          &quot;status&quot;         
+## [21] &quot;locationSource&quot;  &quot;magSource&quot;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="leaflet-mapas-interactivos.html#cb500-1" tabindex="-1"></a><span class="fu">str</span>(earthquakes)</span></code></pre></div>
+</details>
+<pre><code>## Classes &#39;data.table&#39; and &#39;data.frame&#39;:   9797 obs. of  22 variables:
+##  $ time           : POSIXct, format: &quot;2024-09-25 00:55:55&quot; &quot;2024-09-25 00:45:47&quot; ...
+##  $ latitude       : num  38.8 34.9 39.3 39.4 34.1 ...
+##  $ longitude      : num  -123 -119 -123 -123 -117 ...
+##  $ depth          : num  3.06 1.88 6.44 5.9 16.2 ...
+##  $ mag            : num  1.08 1.19 1.3 2.3 1.45 0.58 1.2 1.9 1.8 2.69 ...
+##  $ magType        : chr  &quot;md&quot; &quot;ml&quot; &quot;md&quot; &quot;md&quot; ...
+##  $ nst            : int  23 20 9 34 49 19 9 NA NA 97 ...
+##  $ gap            : num  48 105 94 42 48 67 140 NA NA 18 ...
+##  $ dmin           : num  0.00528 0.1022 0.06701 0.04727 0.04332 ...
+##  $ rms            : num  0.02 0.23 0.06 0.11 0.18 0.14 0.08 0.41 0.47 0.19 ...
+##  $ net            : chr  &quot;nc&quot; &quot;ci&quot; &quot;nc&quot; &quot;nc&quot; ...
+##  $ id             : chr  &quot;nc75066406&quot; &quot;ci40744791&quot; &quot;nc75066401&quot; &quot;nc75066396&quot; ...
+##  $ updated        : POSIXct, format: &quot;2024-09-25 00:57:32&quot; &quot;2024-09-25 00:52:22&quot; ...
+##  $ place          : chr  &quot;6 km NNW of The Geysers, CA&quot; &quot;8 km N of Pine Mountain Club, CA&quot; &quot;4 km W of Redwood Valley, CA&quot; &quot;6 km SE of Lake Pillsbury, CA&quot; ...
+##  $ type           : chr  &quot;earthquake&quot; &quot;earthquake&quot; &quot;earthquake&quot; &quot;earthquake&quot; ...
+##  $ horizontalError: num  0.23 0.37 0.4 0.2 0.22 0.25 0.42 NA NA 0.12 ...
+##  $ depthError     : num  0.54 0.57 1.1 0.5 0.31 ...
+##  $ magError       : num  0.13 0.264 0.33 0.15 0.24 0.223 0.437 NA NA 0.234 ...
+##  $ magNst         : int  24 26 6 26 32 5 32 NA NA 25 ...
+##  $ status         : chr  &quot;automatic&quot; &quot;automatic&quot; &quot;automatic&quot; &quot;automatic&quot; ...
+##  $ locationSource : chr  &quot;nc&quot; &quot;ci&quot; &quot;nc&quot; &quot;nc&quot; ...
+##  $ magSource      : chr  &quot;nc&quot; &quot;ci&quot; &quot;nc&quot; &quot;nc&quot; ...
+##  - attr(*, &quot;.internal.selfref&quot;)=&lt;externalptr&gt;</code></pre>
+</div>
+<div id="importación-de-paquetes-y-datos" class="section level2 hasAnchor" number="17.3">
+<h2><span class="header-section-number">17.3</span> Importación de Paquetes y Datos<a href="leaflet-mapas-interactivos.html#importación-de-paquetes-y-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="leaflet-mapas-interactivos.html#cb502-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb502-2"><a href="leaflet-mapas-interactivos.html#cb502-2" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb502-3"><a href="leaflet-mapas-interactivos.html#cb502-3" tabindex="-1"></a><span class="co">#library(rinat)</span></span>
+<span id="cb502-4"><a href="leaflet-mapas-interactivos.html#cb502-4" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb502-5"><a href="leaflet-mapas-interactivos.html#cb502-5" tabindex="-1"></a><span class="fu">library</span>(flextable)</span></code></pre></div>
+</details>
+<p>Seleccionar un subgrupo de los datos, solamente lo primeros 100 datos</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="leaflet-mapas-interactivos.html#cb503-1" tabindex="-1"></a>EQ_100 <span class="ot">=</span> earthquakes <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)</span>
+<span id="cb503-2"><a href="leaflet-mapas-interactivos.html#cb503-2" tabindex="-1"></a><span class="fu">head</span>(EQ_100)</span></code></pre></div>
+</details>
+<pre><code>##                   time latitude longitude depth   mag magType   nst   gap
+##                 &lt;POSc&gt;    &lt;num&gt;     &lt;num&gt; &lt;num&gt; &lt;num&gt;  &lt;char&gt; &lt;int&gt; &lt;num&gt;
+## 1: 2024-09-25 00:55:55 38.81883 -122.8067  3.06  1.08      md    23    48
+## 2: 2024-09-25 00:45:47 34.92050 -119.1367  1.88  1.19      ml    20   105
+## 3: 2024-09-25 00:44:00 39.25933 -123.2492  6.44  1.30      md     9    94
+## 4: 2024-09-25 00:40:00 39.38017 -122.9008  5.90  2.30      md    34    42
+## 5: 2024-09-25 00:39:59 34.10983 -117.4900 16.20  1.45      ml    49    48
+## 6: 2024-09-25 00:32:18 35.74933 -117.5657  9.52  0.58      ml    19    67
+##        dmin   rms    net         id             updated
+##       &lt;num&gt; &lt;num&gt; &lt;char&gt;     &lt;char&gt;              &lt;POSc&gt;
+## 1: 0.005278  0.02     nc nc75066406 2024-09-25 00:57:32
+## 2: 0.102200  0.23     ci ci40744791 2024-09-25 00:52:22
+## 3: 0.067010  0.06     nc nc75066401 2024-09-25 00:46:47
+## 4: 0.047270  0.11     nc nc75066396 2024-09-25 00:47:18
+## 5: 0.043320  0.18     ci ci40744783 2024-09-25 00:46:48
+## 6: 0.142900  0.14     ci ci40744767 2024-09-25 00:38:58
+##                               place       type horizontalError depthError
+##                              &lt;char&gt;     &lt;char&gt;           &lt;num&gt;      &lt;num&gt;
+## 1:      6 km NNW of The Geysers, CA earthquake            0.23       0.54
+## 2: 8 km N of Pine Mountain Club, CA earthquake            0.37       0.57
+## 3:     4 km W of Redwood Valley, CA earthquake            0.40       1.10
+## 4:    6 km SE of Lake Pillsbury, CA earthquake            0.20       0.50
+## 5:          3 km WNW of Fontana, CA earthquake            0.22       0.31
+## 6:    15 km W of Searles Valley, CA earthquake            0.25       0.90
+##    magError magNst    status locationSource magSource
+##       &lt;num&gt;  &lt;int&gt;    &lt;char&gt;         &lt;char&gt;    &lt;char&gt;
+## 1:    0.130     24 automatic             nc        nc
+## 2:    0.264     26 automatic             ci        ci
+## 3:    0.330      6 automatic             nc        nc
+## 4:    0.150     26 automatic             nc        nc
+## 5:    0.240     32 automatic             ci        ci
+## 6:    0.223      5 automatic             ci        ci</code></pre>
+</div>
+<div id="mapa-básico-con-leaflet" class="section level2 hasAnchor" number="17.4">
+<h2><span class="header-section-number">17.4</span> Mapa básico con Leaflet<a href="leaflet-mapas-interactivos.html#mapa-básico-con-leaflet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="leaflet-mapas-interactivos.html#cb505-1" tabindex="-1"></a><span class="fu">leaflet</span>(EQ_100) <span class="sc">%&gt;%</span> </span>
+<span id="cb505-2"><a href="leaflet-mapas-interactivos.html#cb505-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb505-3"><a href="leaflet-mapas-interactivos.html#cb505-3" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span>longitude, </span>
+<span id="cb505-4"><a href="leaflet-mapas-interactivos.html#cb505-4" tabindex="-1"></a>             <span class="at">lat =</span> <span class="sc">~</span>latitude, </span>
+<span id="cb505-5"><a href="leaflet-mapas-interactivos.html#cb505-5" tabindex="-1"></a>            <span class="co">#color= ~(type),</span></span>
+<span id="cb505-6"><a href="leaflet-mapas-interactivos.html#cb505-6" tabindex="-1"></a>             <span class="at">popup =</span> <span class="sc">~</span>mag)</span></code></pre></div>
+</details>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-77dff8295142bfdca9a1" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-77dff8295142bfdca9a1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addCircleMarkers","args":[[38.8188323974609,34.9205,39.259334564209,39.3801651000977,34.1098333,35.7493333,34.0738333,60.085,60.932,33.082,38.8328323364258,38.821834564209,32.9841667,38.833667755127,35.033,60.5576,36.0743333,31.604,62.6752,35.6578333,41.9582,17.9296666666667,61.4779,61.8645,-37.1743,-16.8608,19.3486671447754,41.032,38.820499420166,59.5333,62.9186,31.604,35.7893333,31.669,60.4554,33.0086667,41.9466,59.5849,32.976,65.1062,35.86347198,33.7548333,51.77,51.7896666666667,-2.0476,33.8683333,34.6363333,52.0943333333333,33.4718333,38.4995002746582,38.8370018005371,17.8961666666667,60.7887,43.58616666666666,32.984,64.7415,35.07,31.645,60.5513333333333,33.01,61.691,37.9226666666667,33.956,61.8858,36.4754981994629,59.2483,62.5126,60.3205,46.601,41.5856,61.2468333333333,38.8245010375977,34.0181667,60.5761,54.1298333333333,35.0638333,51.7808333333333,45.0183333333333,46.60683333333333,34.0763333,60.3047,61.2756666666667,54.1253333333333,64.4729,61.8138,60.824,34.0758333,31.8861667,31.9055,37.5428333333333,61.6644,38.8385009765625,34.0796667,34.0761667,34.0793333,54.5305,34.0741667,33.8148333,19.1606674194336,60.0308333333333],[-122.806663513184,-119.1366667,-123.249168395996,-122.900833129883,-117.49,-117.5656667,-117.4733333,-148.4386,-150.5332,-116.6165,-122.806663513184,-122.841667175293,-116.3111667,-122.816665649414,-117.675,-152.8192,-117.8998333,-103.918,-150.5337,-117.5411667,-119.5802,-66.9613333333333,-150.0404,-150.7262,-74.4487,-176.9431,-155.064498901367,-111.655166666667,-122.808670043945,-152.3752,-149.9778,-103.927,-117.6061667,-104.421,-152.0671,-116.365,-119.5755,-152.6476,-116.2753333,-149.3866,-96.78798676,-117.1081667,-178.798666666667,-178.823833333333,-78.78149999999999,-117.5051667,-117.1141667,-176.139666666667,-116.5116667,-122.333000183105,-122.880165100098,-65.9526666666667,-150.1155,-122.8781666666667,-116.3138333,-146.3514,-119.0791667,-104.595,-152.782,-116.3595,-148.1151,-121.955333333333,-117.1975,-151.3108,-120.473335266113,-137.8221,-149.2212,-152.3665,-119.7933333333333,143.2815,-152.176166666667,-122.763832092285,-117.1016667,-152.816,-165.9465,-119.0771667,-178.8175,-111.934833333333,-119.7976666666667,-117.4505,-142.8978,-152.235,-165.936166666667,-146.9687,-149.6068,-151.5699,-117.452,-116.5715,-116.5531667,-118.8075,-146.3528,-122.77783203125,-117.4471667,-117.449,-117.444,-163.507166666667,-117.4546667,-116.9843333,-155.472671508789,-153.091666666667],10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0.5,"fill":true,"fillColor":"#03F","fillOpacity":0.2},null,null,[1.08,1.19,1.3,2.3,1.45,0.58,1.2,1.9,1.8,2.69,1.25,0.83,1.09,0.77,1.44,0.7,1.44,2.2,2,2.01,2,2.38,2,1.6,4.3,5.1,1.89,1.12,0.77,2,1.9,1.5,0.8,1.8,1.7,0.86,1.3,1.5,0.8100000000000001,1.7,1.73,1.23,0.37,0.37,3.4,1.44,1.49,0.05,0.7,1.21,0.95,2.29,1.7,1.65,1.32,1.3,1.76,2,-0.44,0.53,1.3,1.67,0.77,1.3,2.01,2.8,1.9,2.3,0.89,4.5,-0.3,1.09,0.99,1.7,-0.8100000000000001,1.42,0.28,1.39,0.58,1.13,1.8,-0.55,-0.28,1.1,1.6,1.4,0.95,1.69,1.98,0.36,1.8,0.6899999999999999,1.23,1.22,0.84,1.95,1.84,1,1.97000003,0.09],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-37.1743,65.1062],"lng":[-178.823833333333,143.2815]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="usando-la-paletas-de-color-de-viridis" class="section level2 hasAnchor" number="17.5">
+<h2><span class="header-section-number">17.5</span> Usando la paletas de color de viridis<a href="leaflet-mapas-interactivos.html#usando-la-paletas-de-color-de-viridis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p><a href="https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html" class="uri">https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html</a></p></li>
+<li><p>Evaluar las siguientes paletas de colores:</p>
+<ul>
+<li>viridis</li>
+<li>inferno</li>
+<li>plasma</li>
+<li>magma</li>
+<li>cividis</li>
+<li>rocket</li>
+<li>turbo</li>
+</ul></li>
+</ul>
+<p>Pasos</p>
+<ol style="list-style-type: decimal">
+<li>Seleccionar los datos en el áreas de PR, latitud y longitud</li>
+<li>Crear una paleta de colores/ o usar viridis</li>
+<li>Crear un mapa con los datos de los terremotos</li>
+</ol>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="leaflet-mapas-interactivos.html#cb506-1" tabindex="-1"></a><span class="fu">names</span>(EQ_100)</span>
+<span id="cb506-2"><a href="leaflet-mapas-interactivos.html#cb506-2" tabindex="-1"></a><span class="fu">unique</span>(EQ_100<span class="sc">$</span>type)</span>
+<span id="cb506-3"><a href="leaflet-mapas-interactivos.html#cb506-3" tabindex="-1"></a>pal <span class="ot">=</span> <span class="fu">colorFactor</span>(<span class="at">palette =</span> <span class="st">&quot;viridis&quot;</span>, <span class="at">domain =</span> <span class="cn">NULL</span>)</span>
+<span id="cb506-4"><a href="leaflet-mapas-interactivos.html#cb506-4" tabindex="-1"></a></span>
+<span id="cb506-5"><a href="leaflet-mapas-interactivos.html#cb506-5" tabindex="-1"></a></span>
+<span id="cb506-6"><a href="leaflet-mapas-interactivos.html#cb506-6" tabindex="-1"></a><span class="fu">leaflet</span>(EQ_100) <span class="sc">%&gt;%</span> </span>
+<span id="cb506-7"><a href="leaflet-mapas-interactivos.html#cb506-7" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb506-8"><a href="leaflet-mapas-interactivos.html#cb506-8" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span>longitude, </span>
+<span id="cb506-9"><a href="leaflet-mapas-interactivos.html#cb506-9" tabindex="-1"></a>             <span class="at">lat =</span> <span class="sc">~</span>latitude, </span>
+<span id="cb506-10"><a href="leaflet-mapas-interactivos.html#cb506-10" tabindex="-1"></a>             <span class="at">color=</span> <span class="sc">~</span><span class="fu">pal</span>(mag),</span>
+<span id="cb506-11"><a href="leaflet-mapas-interactivos.html#cb506-11" tabindex="-1"></a>             <span class="at">popup =</span> <span class="sc">~</span>mag</span>
+<span id="cb506-12"><a href="leaflet-mapas-interactivos.html#cb506-12" tabindex="-1"></a>             )</span></code></pre></div>
+</details>
+<hr />
+</div>
+<div id="trabajando-con-datos-de-inaturalist" class="section level2 hasAnchor" number="17.6">
+<h2><span class="header-section-number">17.6</span> Trabajando con datos de iNaturalist<a href="leaflet-mapas-interactivos.html#trabajando-con-datos-de-inaturalist" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ahora-crea-un-mapa-de-los-terremotos-alrededor-de-puerto-rico" class="section level3 hasAnchor" number="17.6.1">
+<h3><span class="header-section-number">17.6.1</span> AHora crea un mapa de los terremotos alrededor de Puerto Rico<a href="leaflet-mapas-interactivos.html#ahora-crea-un-mapa-de-los-terremotos-alrededor-de-puerto-rico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Obtener los datos de observaciones de una especie en iNaturalist desde R:</strong></p>
+<p>Los datos a utilizar se obtendrán desde iNaturalist, una aplicación con base en la ciencia ciudadana que mantiene un registro de ocurrencias de especies.</p>
+<p>La función <code>get_inat_obs()</code> permite acceder a los datos disponibles en iNaturalist, especificando los siguientes parámetros:</p>
+<ul>
+<li><p><code>taxon_name</code>: La especies de interés, siempre escrita entre comillas (“). Puede utilizar nombre común o científico.</p></li>
+<li><p><code>quality</code>: Siendo una aplicación basada en ciencia ciudadana, la calidad de algunos datos podría ser baja, debido a que les falta información - como nombre científico o ubicación - o que contienen información errónea - especies mal identificadas-. Colocando <code>'research'</code> en este parámetro se especifica que se desea obtener sólo aquellas observaciones con alta calidad - que tengan información completa y cuya identificación haya sido confirmada por varias personas de la comunidad -.</p></li>
+<li><p><code>geo</code>: Al igual que el parámetro <code>quality</code>, este parámetro cuyo valor es lógico (<code>TRUE</code> o <code>FALSE</code>), es para especificar que se quiere obtener sólo los datos que están georeferenciados (cuando se coloca como <code>TRUE</code>).</p></li>
+<li><p><code>maxresults</code>: A través del API (Interfaz de Programación de Aplicaciones) de iNaturalist se puede acceder a un máximo de 10,000 observaciones en una sola búsqueda. Con este parámetro, cuyo valor debe ser numérico, se especifica cuantas observaciones se desea obtener, y no se debe exceder de 10,000 por búsqueda.</p></li>
+<li><p><code>bounds</code>: Un vector que contiene los límites geográficos de la búsqueda. Se puede insertar un cuadro delimitador ya especificado en un objeto, concatenar los valores del vector, o insertar un objeto de características simples (Simple Feature, sf). El argumento <code>bounds</code> es importante porque si obtenemos datos de iNaturalist, las únicas columnas que obtenemos con información acerca de la región o área donde se hicieron las observaciones son:<br />
+</p></li>
+<li><p><em>place_guess</em>: Contiene el nombre de la región, pero su precisión y los nombres utilizados para cada región varía mucho.</p></li>
+<li><p><em>latitue</em>: Posición en el eje vertical del sistema de coordenadas.</p></li>
+<li><p><em>longitude</em>: Posición en el eje horizontal del sistema de coordenadas.<br />
+Esto crea un problema a la hora del filtrar los datos por el nombre de una región, pues es difícil encontrar un solo valor que encompase a todas las variantes del nombre utilizado para esa región. iNaturalist se encuentra a nivel mundial, y usted puede acceder a todos esos datos. Sin embargo, hoy accederemos solamente a datos de Puerto Rico. Entonces, lo primero antes de acceder a lo datos de iNaturalist, es crear un objeto que contenga los límites geográficos de interés crea. Para esto se crea un objeto que contenga un cuadro delimitador (<em>bounding box</em>):</p></li>
+</ul>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="leaflet-mapas-interactivos.html#cb507-1" tabindex="-1"></a>cajapr <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb507-2"><a href="leaflet-mapas-interactivos.html#cb507-2" tabindex="-1"></a>  <span class="fl">17.75</span>, <span class="co">#Latitud Sur</span></span>
+<span id="cb507-3"><a href="leaflet-mapas-interactivos.html#cb507-3" tabindex="-1"></a>   <span class="sc">-</span><span class="fl">67.4</span>, <span class="co">#Longitud Oeste</span></span>
+<span id="cb507-4"><a href="leaflet-mapas-interactivos.html#cb507-4" tabindex="-1"></a>  <span class="fl">18.75</span>, <span class="co">#Latitud Norte</span></span>
+<span id="cb507-5"><a href="leaflet-mapas-interactivos.html#cb507-5" tabindex="-1"></a>  <span class="sc">-</span><span class="fl">65.15</span> <span class="co">#Longitud Este</span></span>
+<span id="cb507-6"><a href="leaflet-mapas-interactivos.html#cb507-6" tabindex="-1"></a>  )</span></code></pre></div>
+</details>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="leaflet-mapas-interactivos.html#cb508-1" tabindex="-1"></a><span class="fu">library</span>(rinat)</span></code></pre></div>
+</details>
+<p>Ahora podemos acceder a datos de Puerto Rico utilizando el objeto <code>cajapr</code>. Para este ejercicio utilizaremos datos de orquídeas pertenecientes al género <em>Eulophia</em>. En Puerto Rico se han reportado 3 especies de este género <em>Eulophia alta</em>, <em>Eulophia maculata</em> y <em>Eulophia graminea</em>. De estos, sólo <em>E. alta</em> es considerada nativa de la isla. Entonces, utilizando la función <code>get_inat_obs</code> podemos acceder a los datos de <em>Eulophia</em> en Puerto Rico</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="leaflet-mapas-interactivos.html#cb509-1" tabindex="-1"></a>eulophia <span class="ot">&lt;-</span> <span class="fu">get_inat_obs</span>(<span class="at">taxon_name =</span> <span class="st">&quot;Eulophia&quot;</span>, </span>
+<span id="cb509-2"><a href="leaflet-mapas-interactivos.html#cb509-2" tabindex="-1"></a>                            <span class="at">quality =</span> <span class="st">&#39;research&#39;</span>, </span>
+<span id="cb509-3"><a href="leaflet-mapas-interactivos.html#cb509-3" tabindex="-1"></a>                            <span class="at">geo =</span> T, </span>
+<span id="cb509-4"><a href="leaflet-mapas-interactivos.html#cb509-4" tabindex="-1"></a>                            <span class="at">maxresults =</span> <span class="dv">10000</span>,</span>
+<span id="cb509-5"><a href="leaflet-mapas-interactivos.html#cb509-5" tabindex="-1"></a>                            <span class="at">bounds =</span> cajapr) </span>
+<span id="cb509-6"><a href="leaflet-mapas-interactivos.html#cb509-6" tabindex="-1"></a></span>
+<span id="cb509-7"><a href="leaflet-mapas-interactivos.html#cb509-7" tabindex="-1"></a>eulophia<span class="sc">$</span>scientific_name <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(eulophia<span class="sc">$</span>scientific_name)</span>
+<span id="cb509-8"><a href="leaflet-mapas-interactivos.html#cb509-8" tabindex="-1"></a></span>
+<span id="cb509-9"><a href="leaflet-mapas-interactivos.html#cb509-9" tabindex="-1"></a><span class="fu">flextable</span>(<span class="fu">head</span>(eulophia)) <span class="co"># Para ver las primeras 6 lineas en una tabla bonita</span></span></code></pre></div>
+</details>
+<p>Con el siguiente código podemos ver de forma rápida cuántas observaciones de cada especie hemos obtenido de iNaturalist:</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="leaflet-mapas-interactivos.html#cb510-1" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">as.factor</span>(eulophia<span class="sc">$</span>scientific_name))</span></code></pre></div>
+</details>
+<p>Ahora que hemos obtenido los datos, podemos observar su distribución en el mapa de Puerto Rico utilizando <code>leaflet</code>.</p>
+</div>
+</div>
+<div id="utilizando-leaflet" class="section level2 hasAnchor" number="17.7">
+<h2><span class="header-section-number">17.7</span> Utilizando Leaflet<a href="leaflet-mapas-interactivos.html#utilizando-leaflet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La función base del paquete leaflet es <code>leaflet()</code>, con esta se activa un artilugio (<em>widget</em> en inglés) sobre el cuál se construye el mapa. Esta función debe estar unida a otra función como <code>addTiles()</code> que añade el mapa.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="leaflet-mapas-interactivos.html#cb511-1" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb511-2"><a href="leaflet-mapas-interactivos.html#cb511-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() </span></code></pre></div>
+</details>
+<p>Una vez tenemos el artilugio y el mapa, añadimos una capa que incluye los datos que se desean visualizar con marcadores sobre el mapa con la función <code>addMarkers()</code> dentro del cual se deben especificar los parámetros <code>lng</code> (longitud) y <code>lat</code> (latitud). Note que también se especifica el data.frame que contiene los datos bajo la función <code>leaflet()</code>. Cuando se trabaja en Leaflet, al especificar las variables a utilizar, es necesario colocar una virgulilla (~) antes de la variable. Esto le deja saber a R que lo que se especifica es una variable dentro del data.frame mencionado en la primera capa bajo la función <code>leaflet()</code>.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="leaflet-mapas-interactivos.html#cb512-1" tabindex="-1"></a><span class="fu">leaflet</span>(eulophia) <span class="sc">%&gt;%</span> </span>
+<span id="cb512-2"><a href="leaflet-mapas-interactivos.html#cb512-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb512-3"><a href="leaflet-mapas-interactivos.html#cb512-3" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span>longitude, </span>
+<span id="cb512-4"><a href="leaflet-mapas-interactivos.html#cb512-4" tabindex="-1"></a>             <span class="at">lat =</span> <span class="sc">~</span>latitude)</span></code></pre></div>
+</details>
+<p>Una vez los marcadores están establecidos, es posible añadir etiquetas que contengan información acerca de las observaciones con el parámetro <code>popup</code> de la función <code>addMarkers()</code>. Por ejemplo, se pueden colocar etiquetas que contengan información del lugar de la observación especificando que la etiqueta contenga la información de la variable <em>place_guess</em>. Para ver la etiqueta debe hacer clic sobre el marcador de interés.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="leaflet-mapas-interactivos.html#cb513-1" tabindex="-1"></a><span class="fu">leaflet</span>(eulophia) <span class="sc">%&gt;%</span> </span>
+<span id="cb513-2"><a href="leaflet-mapas-interactivos.html#cb513-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb513-3"><a href="leaflet-mapas-interactivos.html#cb513-3" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span> longitude, </span>
+<span id="cb513-4"><a href="leaflet-mapas-interactivos.html#cb513-4" tabindex="-1"></a>             <span class="at">lat =</span> <span class="sc">~</span> latitude, </span>
+<span id="cb513-5"><a href="leaflet-mapas-interactivos.html#cb513-5" tabindex="-1"></a>             <span class="at">popup =</span> <span class="sc">~</span> place_guess)</span></code></pre></div>
+</details>
+<p>La función <code>paste0</code> es una función base de R que concatena todos los elementos en una línea de caracteres. Los caracteres introducidos serán interpretados como UTF-8 o codificación de caracteres. Estos caracteres pueden ser mezclados con valores de una variable de caracteres en un data.frame. En el siguiente ejemplo se crea una etiqueta que contiene la ubicación y la especie observada. Se utiliza la función <code>paste0()</code> para combinar caracteres y las variables <em>scientific_name</em> y <em>place_guess</em> del data.frame.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="leaflet-mapas-interactivos.html#cb514-1" tabindex="-1"></a><span class="fu">leaflet</span>(eulophia) <span class="sc">%&gt;%</span> </span>
+<span id="cb514-2"><a href="leaflet-mapas-interactivos.html#cb514-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb514-3"><a href="leaflet-mapas-interactivos.html#cb514-3" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span> longitude, </span>
+<span id="cb514-4"><a href="leaflet-mapas-interactivos.html#cb514-4" tabindex="-1"></a>             <span class="at">lat =</span> <span class="sc">~</span> latitude, </span>
+<span id="cb514-5"><a href="leaflet-mapas-interactivos.html#cb514-5" tabindex="-1"></a>             <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb514-6"><a href="leaflet-mapas-interactivos.html#cb514-6" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb514-7"><a href="leaflet-mapas-interactivos.html#cb514-7" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess)</span>
+<span id="cb514-8"><a href="leaflet-mapas-interactivos.html#cb514-8" tabindex="-1"></a>               )</span></code></pre></div>
+</details>
+<p>La función <code>addAwesomeMarkers()</code> puede ser utilizada en lugar de <code>addMarkers()</code> y permite utilizar marcadores con diferentes diseños que se pueden obtener de <a href="https://fontawesome.com/v5.15/icons?d=gallery&amp;p=1">fontawesome</a>. Es posible cambiar los colores de los marcadores utilizando la codificación de colores RGB en formato (#RRGGBB). La siguiente guía de colores en R creada por Melissa Clarkson (2010) explica como utilizar colores en R: <a href="https://bootstrappers.umassmed.edu/bootstrappers-courses/pastCourses/rCourse_2014-09/resources/helpfulGuides/Rcolorstyle.pdf">A guide to using color in R</a>. Adicional, esta <a href="https://derekogle.com/NCGraphing/resources/colors">guía</a> creada por Derek H. Ogle (2022) es muy útil.</p>
+<p>En <a href="https://www.schemecolor.com/github-cat-icon-colors.php">schemecolor</a> podemos encontrar las codificaciones de los colores y muchos funcionan para <code>leaflet</code>. Para hacer estos cambios utilizamos la función <code>awesomeIcons()</code> bajo el parámetro <code>icon</code> dentro de <code>addAwesomeMarkers()</code>.</p>
+<p>Dentro de la función <code>awesomeIcons()</code> podemos especificar varios parámetros como:</p>
+<ul>
+<li><p><code>icon</code>: El icono que desea utilizar para su marcador. Debe poner el nombre que aparece en la página web de iconos que esté utilizando (<em>i.e.</em>, fontawesome).</p></li>
+<li><p><code>library</code>: Cuando se especifica un icono, es necesario especificar la biblioteca de donde se saca el icono. Si es de fontawesome sería <code>'fa'</code>.</p></li>
+<li><p><code>markerColor</code>: Para cambiar el color del marcador (parte que rodea el icono), utilizando la codificación de colores de schemecolor.</p></li>
+<li><p><code>iconColor</code>: Para cambiar el color del icono del marcadora, también con la codificación de schemecolor.</p></li>
+</ul>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="leaflet-mapas-interactivos.html#cb515-1" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb515-2"><a href="leaflet-mapas-interactivos.html#cb515-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb515-3"><a href="leaflet-mapas-interactivos.html#cb515-3" tabindex="-1"></a>  <span class="fu">addAwesomeMarkers</span>(<span class="at">lng =</span> eulophia<span class="sc">$</span>longitude, <span class="at">lat =</span> eulophia<span class="sc">$</span>latitude, </span>
+<span id="cb515-4"><a href="leaflet-mapas-interactivos.html#cb515-4" tabindex="-1"></a>             <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb515-5"><a href="leaflet-mapas-interactivos.html#cb515-5" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb515-6"><a href="leaflet-mapas-interactivos.html#cb515-6" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
+<span id="cb515-7"><a href="leaflet-mapas-interactivos.html#cb515-7" tabindex="-1"></a>            <span class="at">icon =</span> <span class="fu">awesomeIcons</span>(<span class="at">icon =</span> <span class="st">&quot;leaf&quot;</span>, <span class="at">library =</span> <span class="st">&quot;fa&quot;</span>, </span>
+<span id="cb515-8"><a href="leaflet-mapas-interactivos.html#cb515-8" tabindex="-1"></a>                                <span class="at">markerColor =</span> <span class="st">&quot;darkgreen&quot;</span>,</span>
+<span id="cb515-9"><a href="leaflet-mapas-interactivos.html#cb515-9" tabindex="-1"></a>                                <span class="at">iconColor =</span>  <span class="st">&quot;#FFFFFF&quot;</span>)</span>
+<span id="cb515-10"><a href="leaflet-mapas-interactivos.html#cb515-10" tabindex="-1"></a>               ) </span></code></pre></div>
+</details>
+<p>Cuando se visualiza una gran cantidad de datos, esto puede resultar en el solapamiento de los marcadores, lo cual no es muy agradable a la vista. Es posible crear agregados que ayuden a visualizar mejor y faciliten el movimiento a través del mapa con el parámetro <code>clusterOptions</code> bajo la función <code>addAwesomeMarkers()</code>. El valor de este parámetro debe ser la función <code>markerClusterOptions()</code>.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="leaflet-mapas-interactivos.html#cb516-1" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb516-2"><a href="leaflet-mapas-interactivos.html#cb516-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb516-3"><a href="leaflet-mapas-interactivos.html#cb516-3" tabindex="-1"></a>  <span class="fu">addAwesomeMarkers</span>(<span class="at">lng =</span> eulophia<span class="sc">$</span>longitude, <span class="at">lat =</span> eulophia<span class="sc">$</span>latitude, </span>
+<span id="cb516-4"><a href="leaflet-mapas-interactivos.html#cb516-4" tabindex="-1"></a>             <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb516-5"><a href="leaflet-mapas-interactivos.html#cb516-5" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb516-6"><a href="leaflet-mapas-interactivos.html#cb516-6" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
+<span id="cb516-7"><a href="leaflet-mapas-interactivos.html#cb516-7" tabindex="-1"></a>            <span class="at">icon =</span> <span class="fu">awesomeIcons</span>(<span class="at">icon =</span> <span class="st">&quot;leaf&quot;</span>, <span class="at">library =</span> <span class="st">&quot;fa&quot;</span>, </span>
+<span id="cb516-8"><a href="leaflet-mapas-interactivos.html#cb516-8" tabindex="-1"></a>                                <span class="at">markerColor =</span> <span class="st">&quot;darkgreen&quot;</span>,</span>
+<span id="cb516-9"><a href="leaflet-mapas-interactivos.html#cb516-9" tabindex="-1"></a>                                <span class="at">iconColor =</span>  <span class="st">&quot;#FFFFFF&quot;</span>),</span>
+<span id="cb516-10"><a href="leaflet-mapas-interactivos.html#cb516-10" tabindex="-1"></a>            <span class="at">clusterOptions =</span> <span class="fu">markerClusterOptions</span>()</span>
+<span id="cb516-11"><a href="leaflet-mapas-interactivos.html#cb516-11" tabindex="-1"></a>               ) </span></code></pre></div>
+</details>
+<p>Y para culminar, es posible cambiar el diseño del mapa utilizando la función <code>addProviderTiles()</code> en lugar de <code>addTiles()</code>. Puede echar un vistazo a los diferentes diseños disponibles para Leaflet la página de <a href="http://leaflet-extras.github.io/leaflet-providers/preview/">proveedores de Leaflet</a> en GitHub. Actualmente Leaflet en R admite diseños de los siguientes proveedores: OpenStreetMap, MapQuestOpen, Stamen, Esri and OpenWeatherMap.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="leaflet-mapas-interactivos.html#cb517-1" tabindex="-1"></a>icon1 <span class="ot">&lt;-</span> <span class="fu">awesomeIcons</span>(<span class="at">icon =</span> <span class="st">&quot;smile-o&quot;</span>,</span>
+<span id="cb517-2"><a href="leaflet-mapas-interactivos.html#cb517-2" tabindex="-1"></a>                      <span class="at">iconColor =</span> <span class="st">&quot;#FFFFFF&quot;</span>,</span>
+<span id="cb517-3"><a href="leaflet-mapas-interactivos.html#cb517-3" tabindex="-1"></a>                      <span class="at">library =</span> <span class="st">&quot;fa&quot;</span>,</span>
+<span id="cb517-4"><a href="leaflet-mapas-interactivos.html#cb517-4" tabindex="-1"></a>                      <span class="at">markerColor =</span> <span class="st">&quot;darkgreen&quot;</span>)</span>
+<span id="cb517-5"><a href="leaflet-mapas-interactivos.html#cb517-5" tabindex="-1"></a></span>
+<span id="cb517-6"><a href="leaflet-mapas-interactivos.html#cb517-6" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb517-7"><a href="leaflet-mapas-interactivos.html#cb517-7" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="st">&quot;Esri.WorldImagery&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb517-8"><a href="leaflet-mapas-interactivos.html#cb517-8" tabindex="-1"></a>  <span class="fu">addAwesomeMarkers</span>(<span class="at">lng =</span> eulophia<span class="sc">$</span>longitude, <span class="at">lat =</span> eulophia<span class="sc">$</span>latitude, </span>
+<span id="cb517-9"><a href="leaflet-mapas-interactivos.html#cb517-9" tabindex="-1"></a>             <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb517-10"><a href="leaflet-mapas-interactivos.html#cb517-10" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb517-11"><a href="leaflet-mapas-interactivos.html#cb517-11" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
+<span id="cb517-12"><a href="leaflet-mapas-interactivos.html#cb517-12" tabindex="-1"></a>            <span class="at">icon =</span> icon1</span>
+<span id="cb517-13"><a href="leaflet-mapas-interactivos.html#cb517-13" tabindex="-1"></a>               )</span></code></pre></div>
+</details>
+</div>
+<div id="trabajando-variables-categóricas-con-leaflet" class="section level2 hasAnchor" number="17.8">
+<h2><span class="header-section-number">17.8</span> Trabajando Variables Categóricas con Leaflet:<a href="leaflet-mapas-interactivos.html#trabajando-variables-categóricas-con-leaflet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Es posible distinguir entre especies utilizando diferentes colores, pero debe utilizar la función <code>addCircleMarkers()</code> en lugar de <code>addAwesomeMarkers()</code>. Para colorear grupos en Leaflet es necesario generar una paleta de colores para las variables de interés de acuerdo al tipo de variable (<em>i.e.</em>, numérica, factorial). Para esto se utilizan las funciones <code>colorFactor()</code>, <code>colorNumeric()</code>, <code>colorBin()</code>, o <code>colorQuantile()</code>. <code>colorFactor()</code> y <code>colorNumeric()</code> generan paletas de colores para variables factoriales y numericas, respectivamente; mientras que <code>colorBin()</code> y <code>colorQuantile()</code> generan paletas de colores para valores numéricos resumidos en grupos.</p>
+<p>En este caso se está trabajando con una variable factorial que divide las observaciones entre 3 especies de orquídeas. Primero se crea una paleta de colores para una variable factorial con la función <code>colorFactor()</code>. Bajo esta función se especifican los parámetros <code>palette</code> y <code>levels</code>. <code>palette</code>es para especificar la paleta de colores a utilizar y <code>levels</code>especifica los niveles de la variable factorial. La paleta de colores que se utiliza (<code>"Dark2"</code>) proviene del paquete RColorBrewer. Esta paleta de colores para los niveles de la variable factorial <em>scientific_name</em> del data.frame <em>eulophia</em> se guardará en un objeto llamado <em>pal</em>.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="leaflet-mapas-interactivos.html#cb518-1" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">colorFactor</span>(<span class="at">palette =</span> <span class="st">&#39;Dark2&#39;</span>,</span>
+<span id="cb518-2"><a href="leaflet-mapas-interactivos.html#cb518-2" tabindex="-1"></a>            <span class="at">levels =</span> <span class="fu">levels</span>(eulophia<span class="sc">$</span>scientific_name))</span></code></pre></div>
+</details>
+<p>Ahora que se ha especificado los colores para los valores factoriales, es posible utilizar el objeto pal para colorear los marcadores circulares del mapa de Leaflet de acuerdo a la especie observada especificando el parámetro color</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="leaflet-mapas-interactivos.html#cb519-1" tabindex="-1"></a><span class="fu">leaflet</span>(eulophia) <span class="sc">%&gt;%</span> </span>
+<span id="cb519-2"><a href="leaflet-mapas-interactivos.html#cb519-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb519-3"><a href="leaflet-mapas-interactivos.html#cb519-3" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span> longitude, <span class="at">lat =</span> <span class="sc">~</span> latitude,</span>
+<span id="cb519-4"><a href="leaflet-mapas-interactivos.html#cb519-4" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb519-5"><a href="leaflet-mapas-interactivos.html#cb519-5" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb519-6"><a href="leaflet-mapas-interactivos.html#cb519-6" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
+<span id="cb519-7"><a href="leaflet-mapas-interactivos.html#cb519-7" tabindex="-1"></a>                   <span class="at">color =</span> <span class="sc">~</span> <span class="fu">pal</span>(scientific_name)) </span></code></pre></div>
+</details>
+<p>Para ayudar con la visualización de datos pertenecientes a diferentes grupos, en ocasiones es bueno presentar una leyenda que indique los colores que representan cada grupo. Es posible añadir una leyenda al mapa de Leaflet utilizando la función <code>addLegend()</code> y especificando los siguientes parámetros:</p>
+<ul>
+<li><p><code>position</code>: Para determinar la posición de la leyenda, en este caso se colocará en la parte superior derecha, <code>"topright"</code>, del mapa, pero podría colocarla en la parte inferior derecha (<code>"bottomright"</code>), la parte inferior izquierda (<code>"bottomleft"</code>), o la parte superior izquierda (<code>"topleft"</code>).</p></li>
+<li><p>pal: La paleta de colores a utilizar generada a través de la función <code>colorFactor()</code> o sus equivalentes (<em>i.e.</em>, <code>colorNumeric()</code>)</p></li>
+<li><p><code>values</code>: Los valores o la variable u objeto que contiene los valores utilizados.</p></li>
+<li><p><code>title</code>: El título de la leyenda especificado como una línea de caracteres.</p></li>
+</ul>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="leaflet-mapas-interactivos.html#cb520-1" tabindex="-1"></a><span class="fu">leaflet</span>(eulophia) <span class="sc">%&gt;%</span> </span>
+<span id="cb520-2"><a href="leaflet-mapas-interactivos.html#cb520-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb520-3"><a href="leaflet-mapas-interactivos.html#cb520-3" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span> longitude, <span class="at">lat =</span> <span class="sc">~</span> latitude,</span>
+<span id="cb520-4"><a href="leaflet-mapas-interactivos.html#cb520-4" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb520-5"><a href="leaflet-mapas-interactivos.html#cb520-5" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb520-6"><a href="leaflet-mapas-interactivos.html#cb520-6" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
+<span id="cb520-7"><a href="leaflet-mapas-interactivos.html#cb520-7" tabindex="-1"></a>                   <span class="at">color =</span> <span class="sc">~</span> <span class="fu">pal</span>(scientific_name)) <span class="sc">%&gt;%</span> </span>
+<span id="cb520-8"><a href="leaflet-mapas-interactivos.html#cb520-8" tabindex="-1"></a>  <span class="fu">addLegend</span>(<span class="at">position =</span> <span class="st">&quot;topright&quot;</span>, </span>
+<span id="cb520-9"><a href="leaflet-mapas-interactivos.html#cb520-9" tabindex="-1"></a>            <span class="at">pal =</span> pal, </span>
+<span id="cb520-10"><a href="leaflet-mapas-interactivos.html#cb520-10" tabindex="-1"></a>            <span class="at">values =</span> <span class="sc">~</span> scientific_name,</span>
+<span id="cb520-11"><a href="leaflet-mapas-interactivos.html#cb520-11" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;Species&quot;</span></span>
+<span id="cb520-12"><a href="leaflet-mapas-interactivos.html#cb520-12" tabindex="-1"></a>            )</span></code></pre></div>
+</details>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="leaflet-mapas-interactivos.html#cb521-1" tabindex="-1"></a>iconcolor <span class="ot">&lt;-</span> <span class="cf">function</span>(scienctific_name)</span>
+<span id="cb521-2"><a href="leaflet-mapas-interactivos.html#cb521-2" tabindex="-1"></a></span>
+<span id="cb521-3"><a href="leaflet-mapas-interactivos.html#cb521-3" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb521-4"><a href="leaflet-mapas-interactivos.html#cb521-4" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="st">&quot;Esri.WorldImagery&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb521-5"><a href="leaflet-mapas-interactivos.html#cb521-5" tabindex="-1"></a>  <span class="fu">addAwesomeMarkers</span>(<span class="at">lng =</span> eulophia<span class="sc">$</span>longitude, <span class="at">lat =</span> eulophia<span class="sc">$</span>latitude, </span>
+<span id="cb521-6"><a href="leaflet-mapas-interactivos.html#cb521-6" tabindex="-1"></a>             <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">&quot;&lt;B&gt;Especie: &lt;/B&gt;&quot;</span>, <span class="st">&quot;&lt;I&gt;&quot;</span>, eulophia<span class="sc">$</span>scientific_name, <span class="st">&quot;&lt;/I&gt;&quot;</span>,</span>
+<span id="cb521-7"><a href="leaflet-mapas-interactivos.html#cb521-7" tabindex="-1"></a>                            <span class="st">&quot;&lt;br/&gt;&quot;</span>,</span>
+<span id="cb521-8"><a href="leaflet-mapas-interactivos.html#cb521-8" tabindex="-1"></a>                            <span class="st">&quot;&lt;B&gt;Colectado por: &lt;/B&gt;&quot;</span>, eulophia<span class="sc">$</span>place_guess),</span>
+<span id="cb521-9"><a href="leaflet-mapas-interactivos.html#cb521-9" tabindex="-1"></a>            <span class="at">icon =</span> icon1</span>
+<span id="cb521-10"><a href="leaflet-mapas-interactivos.html#cb521-10" tabindex="-1"></a>               )</span></code></pre></div>
+</details>
+<p>L.circleMarker([place.lon, place.lat], {
+color: getColor(place.constructdate), // you can call the getColor function
+fillColor: getColor(place.constructdate),
+fillOpacity: 0.5
+})</p>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="importar-datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datos-ordenados.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -652,7 +1047,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/%s",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/16-Terremotos_Fechas_Mapa.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -660,7 +1055,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/%s",
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/16-Terremotos_Fechas_Mapa.Rmd",
 "text": null
 },
 "download": null,
