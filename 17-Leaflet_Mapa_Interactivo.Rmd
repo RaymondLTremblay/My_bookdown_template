@@ -313,6 +313,10 @@ leaflet() %>%
 
 ```
 
+
+### Cambiando el diseño del mapa
+
+
 Y para culminar, es posible cambiar el diseño del mapa utilizando la función `addProviderTiles()` en lugar de `addTiles()`. Puede echar un vistazo a los diferentes diseños disponibles para Leaflet la página de [proveedores de Leaflet](http://leaflet-extras.github.io/leaflet-providers/preview/) en GitHub. Actualmente Leaflet en R admite diseños de los siguientes proveedores: OpenStreetMap, MapQuestOpen, Stamen, Esri and OpenWeatherMap.
 
 ```{r, eval=FALSE}
@@ -349,6 +353,8 @@ Para ver las palettas de **RColorBrewer** ve esta pagina https://r-graph-gallery
 ```{r, eval=FALSE}
 pal <- colorFactor(palette = 'Dark2',
             levels = levels(eulophia$scientific_name))
+
+
 ```
 
 Ahora que se ha especificado los colores para los valores factoriales, es posible utilizar el objeto pal para colorear los marcadores circulares del mapa de Leaflet de acuerdo a la especie observada especificando el parámetro color
@@ -363,6 +369,11 @@ leaflet(eulophia) %>%
                    color = ~ pal(scientific_name)) 
 
 ```
+
+
+
+### Añadiendo una leyenda al mapa
+
 
 Para ayudar con la visualización de datos pertenecientes a diferentes grupos, en ocasiones es bueno presentar una leyenda que indique los colores que representan cada grupo. Es posible añadir una leyenda al mapa de Leaflet utilizando la función `addLegend()` y especificando los siguientes parámetros:
 
@@ -435,6 +446,7 @@ addMarkers(icon = ~quakeIcons[group])
 
 
 ```{r, echo=FALSE, eval=FALSE}
+
 function getColor(d) {
   return d >= 1966 ? 'green'  #// Means: if (d >= 1966) return 'green' else…
     d >= 1960 ? 'black'   # if (d >= 1960) return 'black' else etc…
@@ -444,14 +456,14 @@ function getColor(d) {
 }
 
 
+L.circleMarker([place.lon, place.lat], {
+  color: getColor(place.constructdate), // you can call the getColor function
+  fillColor: getColor(place.constructdate),
+  fillOpacity: 0.5
+})
 
 
 ```
 
 
 
-L.circleMarker([place.lon, place.lat], {
-  color: getColor(place.constructdate), // you can call the getColor function
-  fillColor: getColor(place.constructdate),
-  fillOpacity: 0.5
-})

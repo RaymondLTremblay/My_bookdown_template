@@ -378,8 +378,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="17.6.1" data-path="leaflet-mapas-interactivos.html"><a href="leaflet-mapas-interactivos.html#ahora-crea-un-mapa-de-los-terremotos-alrededor-de-puerto-rico"><i class="fa fa-check"></i><b>17.6.1</b> AHora crea un mapa de los terremotos alrededor de Puerto Rico</a></li>
 </ul></li>
-<li class="chapter" data-level="17.7" data-path="leaflet-mapas-interactivos.html"><a href="leaflet-mapas-interactivos.html#utilizando-leaflet"><i class="fa fa-check"></i><b>17.7</b> Utilizando Leaflet</a></li>
-<li class="chapter" data-level="17.8" data-path="leaflet-mapas-interactivos.html"><a href="leaflet-mapas-interactivos.html#trabajando-variables-categóricas-con-leaflet"><i class="fa fa-check"></i><b>17.8</b> Trabajando Variables Categóricas con Leaflet:</a></li>
+<li class="chapter" data-level="17.7" data-path="leaflet-mapas-interactivos.html"><a href="leaflet-mapas-interactivos.html#utilizando-leaflet"><i class="fa fa-check"></i><b>17.7</b> Utilizando Leaflet</a>
+<ul>
+<li class="chapter" data-level="17.7.1" data-path="leaflet-mapas-interactivos.html"><a href="leaflet-mapas-interactivos.html#cambiando-el-diseño-del-mapa"><i class="fa fa-check"></i><b>17.7.1</b> Cambiando el diseño del mapa</a></li>
+</ul></li>
+<li class="chapter" data-level="17.8" data-path="leaflet-mapas-interactivos.html"><a href="leaflet-mapas-interactivos.html#trabajando-variables-categóricas-con-leaflet"><i class="fa fa-check"></i><b>17.8</b> Trabajando Variables Categóricas con Leaflet:</a>
+<ul>
+<li class="chapter" data-level="17.8.1" data-path="leaflet-mapas-interactivos.html"><a href="leaflet-mapas-interactivos.html#añadiendo-una-leyenda-al-mapa"><i class="fa fa-check"></i><b>17.8.1</b> Añadiendo una leyenda al mapa</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="datos-relacionados.html"><a href="datos-relacionados.html"><i class="fa fa-check"></i><b>18</b> Datos Relacionados</a>
 <ul>
@@ -688,29 +694,29 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 100 × 5
 ##    a                   b              c      d e    
 ##    &lt;dttm&gt;              &lt;date&gt;     &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;
-##  1 2024-10-03 10:39:03 2024-10-21     1 0.559  o    
-##  2 2024-10-03 17:08:17 2024-10-03     2 0.250  o    
-##  3 2024-10-03 12:01:54 2024-10-05     3 0.0653 d    
-##  4 2024-10-04 09:48:09 2024-10-04     4 0.573  v    
-##  5 2024-10-03 17:20:24 2024-10-25     5 0.651  k    
-##  6 2024-10-04 01:32:13 2024-10-14     6 0.581  p    
-##  7 2024-10-04 06:10:18 2024-10-27     7 0.0175 x    
-##  8 2024-10-04 05:10:17 2024-10-14     8 0.0133 f    
-##  9 2024-10-03 23:25:02 2024-10-17     9 0.661  c    
-## 10 2024-10-04 05:33:14 2024-10-26    10 0.380  y    
+##  1 2024-10-03 11:02:47 2024-10-21     1 0.559  o    
+##  2 2024-10-03 17:32:01 2024-10-03     2 0.250  o    
+##  3 2024-10-03 12:25:38 2024-10-05     3 0.0653 d    
+##  4 2024-10-04 10:11:52 2024-10-04     4 0.573  v    
+##  5 2024-10-03 17:44:07 2024-10-25     5 0.651  k    
+##  6 2024-10-04 01:55:57 2024-10-14     6 0.581  p    
+##  7 2024-10-04 06:34:02 2024-10-27     7 0.0175 x    
+##  8 2024-10-04 05:34:01 2024-10-14     8 0.0133 f    
+##  9 2024-10-03 23:48:45 2024-10-17     9 0.661  c    
+## 10 2024-10-04 05:56:58 2024-10-26    10 0.380  y    
 ## # ℹ 90 more rows</code></pre>
 <div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="tibbles.html#cb424-1" tabindex="-1"></a>tb <span class="sc">%&gt;%</span></span>
 <span id="cb424-2"><a href="tibbles.html#cb424-2" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">4</span>, <span class="at">width =</span> <span class="cn">Inf</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 100 × 5
 ##   a                   b              c      d e    
 ##   &lt;dttm&gt;              &lt;date&gt;     &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;
-## 1 2024-10-03 10:39:03 2024-10-21     1 0.559  o    
-## 2 2024-10-03 17:08:17 2024-10-03     2 0.250  o    
-## 3 2024-10-03 12:01:54 2024-10-05     3 0.0653 d    
-## 4 2024-10-04 09:48:09 2024-10-04     4 0.573  v    
+## 1 2024-10-03 11:02:47 2024-10-21     1 0.559  o    
+## 2 2024-10-03 17:32:01 2024-10-03     2 0.250  o    
+## 3 2024-10-03 12:25:38 2024-10-05     3 0.0653 d    
+## 4 2024-10-04 10:11:52 2024-10-04     4 0.573  v    
 ## # ℹ 96 more rows</code></pre>
 <div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="tibbles.html#cb426-1" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">now</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;2024-10-03 09:51:21 AST&quot;</code></pre>
+<pre><code>## [1] &quot;2024-10-03 10:15:05 AST&quot;</code></pre>
 <div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="tibbles.html#cb428-1" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">today</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;2024-10-03&quot;</code></pre>
 <div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="tibbles.html#cb430-1" tabindex="-1"></a><span class="fu">head</span>(vuelos)</span></code></pre></div>
