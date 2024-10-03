@@ -129,7 +129,7 @@ $\mathrm{CuCl}$ $\bullet$ $\mathrm{7H_{2}O}$
 
  - Aquí esta mi súper formula de $\phi$ que voy a usar en el examen de matemáticas.
 
- - Flecha de Reacción: $\longrightarrow$ or  $\xrightarrow{solution}$ y se escribe como `$\longrightarrow$` or  `$\xrightarrow{solution}$`
+ - Flecha de Reacción: $\longrightarrow$ or  $\xrightarrow{fabilous}$ y se escribe como `$\longrightarrow$` or  `$\xrightarrow{solution}$`
 
  - Flecha de Resonancia: $\leftrightarrow$ y se escribe como `$\leftrightarrow$`
 

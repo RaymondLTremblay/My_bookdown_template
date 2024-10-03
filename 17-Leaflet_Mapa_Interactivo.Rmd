@@ -1,4 +1,4 @@
-# Leaflet: Mapas interactivos
+≠# Leaflet: Mapas interactivos
 
 
 ```{r echo=FALSE}
@@ -68,6 +68,8 @@ Seleccionar un subgrupo de los datos, solamente lo primeros 100 datos
 
 
 ```{r}
+nrow(earthquakes)
+
 EQ_100 = earthquakes |> slice(1:100)
 head(EQ_100)
 ```
@@ -81,16 +83,19 @@ head(EQ_100)
 
 
 ```{r}
-leaflet(EQ_100) %>% 
+leaflet(earthquakes) %>% 
   addTiles() %>% 
   addCircleMarkers(lng = ~longitude, 
              lat = ~latitude, 
-            #color= ~(type),
-             popup = ~mag)
+             popup = ~mag,
+             color= ~(type))
+
+
+#unique(earthquakes$type)
 ```
 
 
-
+#color= ~(type),
 
 ## Usando la paletas de color de viridis
 
@@ -118,7 +123,7 @@ leaflet(EQ_100) %>%
 ```{r, echo, eval=FALSE}
 names(EQ_100)
 unique(EQ_100$type)
-pal = colorFactor(palette = "viridis", domain = NULL)
+pal = colorFactor(palette = "magma≠", domain = NULL)
 
 
 leaflet(EQ_100) %>% 
@@ -175,6 +180,8 @@ cajapr <- c(
   18.75, #Latitud Norte
   -65.15 #Longitud Este
   )
+
+cajapr
 ```
 
 
@@ -190,14 +197,16 @@ Ahora podemos acceder a datos de Puerto Rico utilizando el objeto `cajapr`. Para
 eulophia <- get_inat_obs(taxon_name = "Eulophia", 
                             quality = 'research', 
                             geo = T, 
-                            maxresults = 10000,
-                            bounds = cajapr) 
+                            maxresults = 1000,
+                            bounds = cajapr)
 
 eulophia$scientific_name <- as.factor(eulophia$scientific_name)
 
 flextable(head(eulophia)) # Para ver las primeras 6 lineas en una tabla bonita
 ```
 
+
+bounds = cajapr
 Con el siguiente código podemos ver de forma rápida cuántas observaciones de cada especie hemos obtenido de iNaturalist:
 
 ```{r, eval=FALSE}
@@ -218,6 +227,7 @@ leaflet() %>%
 Una vez tenemos el artilugio y el mapa, añadimos una capa que incluye los datos que se desean visualizar con marcadores sobre el mapa con la función `addMarkers()` dentro del cual se deben especificar los parámetros `lng` (longitud) y `lat` (latitud). Note que también se especifica el data.frame que contiene los datos bajo la función `leaflet()`. Cuando se trabaja en Leaflet, al especificar las variables a utilizar, es necesario colocar una virgulilla (\~) antes de la variable. Esto le deja saber a R que lo que se especifica es una variable dentro del data.frame mencionado en la primera capa bajo la función `leaflet()`.
 
 ```{r, eval=FALSE}
+names(eulophia)
 leaflet(eulophia) %>% 
   addTiles() %>% 
   addMarkers(lng = ~longitude, 
@@ -227,11 +237,12 @@ leaflet(eulophia) %>%
 Una vez los marcadores están establecidos, es posible añadir etiquetas que contengan información acerca de las observaciones con el parámetro `popup` de la función `addMarkers()`. Por ejemplo, se pueden colocar etiquetas que contengan información del lugar de la observación especificando que la etiqueta contenga la información de la variable *place_guess*. Para ver la etiqueta debe hacer clic sobre el marcador de interés.
 
 ```{r, eval=FALSE}
+names(eulophia)
 leaflet(eulophia) %>% 
   addTiles() %>% 
   addMarkers(lng = ~ longitude, 
              lat = ~ latitude, 
-             popup = ~ place_guess)
+             popup = ~ place_guess) #  cambiar a la variable de interes
 ```
 
 La función `paste0` es una función base de R que concatena todos los elementos en una línea de caracteres. Los caracteres introducidos serán interpretados como UTF-8 o codificación de caracteres. Estos caracteres pueden ser mezclados con valores de una variable de caracteres en un data.frame. En el siguiente ejemplo se crea una etiqueta que contiene la ubicación y la especie observada. Se utiliza la función `paste0()` para combinar caracteres y las variables *scientific_name* y *place_guess* del data.frame.
@@ -243,7 +254,7 @@ leaflet(eulophia) %>%
              lat = ~ latitude, 
              popup = paste0("<B>Especie: </B>", "<I>", eulophia$scientific_name, "</I>",
                             "<br/>",
-                            "<B>Colectado por: </B>", eulophia$place_guess)
+                            "<B>Colectado donde: </B>", eulophia$place_guess)
                )
 ```
 
@@ -264,7 +275,8 @@ Dentro de la función `awesomeIcons()` podemos especificar varios parámetros co
 ```{r, eval=FALSE}
 leaflet() %>% 
   addTiles() %>% 
-  addAwesomeMarkers(lng = eulophia$longitude, lat = eulophia$latitude, 
+  addAwesomeMarkers(lng = eulophia$longitude, 
+                    lat = eulophia$latitude, 
              popup = paste0("<B>Especie: </B>", "<I>", eulophia$scientific_name, "</I>",
                             "<br/>",
                             "<B>Colectado por: </B>", eulophia$place_guess),
@@ -313,9 +325,12 @@ leaflet() %>%
 
 ## Trabajando Variables Categóricas con Leaflet:
 
-Es posible distinguir entre especies utilizando diferentes colores, pero debe utilizar la función `addCircleMarkers()` en lugar de `addAwesomeMarkers()`. Para colorear grupos en Leaflet es necesario generar una paleta de colores para las variables de interés de acuerdo al tipo de variable (*i.e.*, numérica, factorial). Para esto se utilizan las funciones `colorFactor()`, `colorNumeric()`, `colorBin()`, o `colorQuantile()`. `colorFactor()` y `colorNumeric()` generan paletas de colores para variables factoriales y numericas, respectivamente; mientras que `colorBin()` y `colorQuantile()` generan paletas de colores para valores numéricos resumidos en grupos.
+Es posible distinguir entre especies utilizando diferentes colores, pero debe utilizar la función `addCircleMarkers()` en lugar de `addAwesomeMarkers()`. Para colorear grupos en Leaflet es necesario generar una paleta de colores para las variables de interés de acuerdo al tipo de variable (*i.e.*, numérica, factorial). Para esto se utilizan las funciones `colorFactor()`, `colorNumeric()`, `colorBin()`, o `colorQuantile()`. Las funciones `colorFactor()` y `colorNumeric()` generan paletas de colores para variables factoriales y numéricas, respectivamente; mientras que `colorBin()` y `colorQuantile()` generan paletas de colores para valores numéricos resumidos en grupos.
 
-En este caso se está trabajando con una variable factorial que divide las observaciones entre 3 especies de orquídeas. Primero se crea una paleta de colores para una variable factorial con la función `colorFactor()`. Bajo esta función se especifican los parámetros `palette` y `levels`. `palette`es para especificar la paleta de colores a utilizar y `levels`especifica los niveles de la variable factorial. La paleta de colores que se utiliza (`"Dark2"`) proviene del paquete RColorBrewer. Esta paleta de colores para los niveles de la variable factorial *scientific_name* del data.frame *eulophia* se guardará en un objeto llamado *pal*.
+En este caso se está trabajando con una variable factorial que divide las observaciones entre 3 especies de orquídeas. Primero se crea una paleta de colores para una variable factorial con la función `colorFactor()`. Bajo esta función se especifican los parámetros `palette` y `levels`. `palette`es para especificar la paleta de colores a utilizar y `levels`especifica los niveles de la variable factorial. La paleta de colores que se utiliza (`"Dark2"`) proviene del paquete **RColorBrewer**. Esta paleta de colores para los niveles de la variable factorial *scientific_name* del data.frame *eulophia* se guardará en un objeto llamado *pal*.
+
+Para ver las palettas de **RColorBrewer** ve esta pagina https://r-graph-gallery.com/38-rcolorbrewers-palettes.html
+
 
 ```{r, eval=FALSE}
 pal <- colorFactor(palette = 'Dark2',

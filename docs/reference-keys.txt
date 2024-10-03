@@ -176,7 +176,6 @@ fechas-fechas-horas-horas
 segmentar-un-archivo
 escribir-un-archivo
 otro-tipos-de-datos-y-paquetes
-leaflet-mapas-interactivos
 bajar-los-datos-de-la-web-del-usgs
 si-bajo-los-datos-a-mi-computadora
 importación-de-paquetes-y-datos
