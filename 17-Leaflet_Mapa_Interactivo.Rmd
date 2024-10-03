@@ -1,4 +1,4 @@
-≠# Leaflet: Mapas interactivos
+# Leaflet: Mapas interactivos
 
 
 ```{r echo=FALSE}
