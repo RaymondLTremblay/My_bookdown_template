@@ -11,6 +11,8 @@ Sys.Date()
 library(tidyverse)
 ```
 
+****
+
 ## Bajar los datos de la web del USGS
 
 Website:  https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php
@@ -22,6 +24,9 @@ earthquakes <- fread("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/
 
 head(earthquakes, n=10)
 ```
+
+
+****
 
 ## Si bajo los datos a mi computadora
 
@@ -47,7 +52,7 @@ str(earthquakes)
 ```
 
 
-
+****
 
 
 ## Importación de Paquetes y Datos
@@ -75,7 +80,7 @@ head(EQ_100)
 ```
 
 
-
+****
 
 ## Mapa básico con Leaflet
 
@@ -95,7 +100,9 @@ leaflet(earthquakes) %>%
 ```
 
 
-#color= ~(type),
+
+
+****
 
 ## Usando la paletas de color de viridis
 
@@ -215,6 +222,8 @@ summary(as.factor(eulophia$scientific_name))
 
 Ahora que hemos obtenido los datos, podemos observar su distribución en el mapa de Puerto Rico utilizando `leaflet`.
 
+****
+
 ## Utilizando Leaflet
 
 La función base del paquete leaflet es `leaflet()`, con esta se activa un artilugio (*widget* en inglés) sobre el cuál se construye el mapa. Esta función debe estar unida a otra función como `addTiles()` que añade el mapa.
@@ -322,6 +331,11 @@ leaflet() %>%
                )
 
 ```
+
+
+
+****
+
 
 ## Trabajando Variables Categóricas con Leaflet:
 
