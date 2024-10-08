@@ -1,4 +1,4 @@
-# Leaflet: Mapas interactivos
+≠# Leaflet: Mapas interactivos
 
 
 ```{r echo=FALSE}
@@ -11,8 +11,6 @@ Sys.Date()
 library(tidyverse)
 ```
 
-****
-
 ## Bajar los datos de la web del USGS
 
 Website:  https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php
@@ -24,9 +22,6 @@ earthquakes <- fread("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/
 
 head(earthquakes, n=10)
 ```
-
-
-****
 
 ## Si bajo los datos a mi computadora
 
@@ -52,7 +47,7 @@ str(earthquakes)
 ```
 
 
-****
+
 
 
 ## Importación de Paquetes y Datos
@@ -80,7 +75,7 @@ head(EQ_100)
 ```
 
 
-****
+
 
 ## Mapa básico con Leaflet
 
@@ -100,9 +95,7 @@ leaflet(earthquakes) %>%
 ```
 
 
-
-
-****
+#color= ~(type),
 
 ## Usando la paletas de color de viridis
 
@@ -222,8 +215,6 @@ summary(as.factor(eulophia$scientific_name))
 
 Ahora que hemos obtenido los datos, podemos observar su distribución en el mapa de Puerto Rico utilizando `leaflet`.
 
-****
-
 ## Utilizando Leaflet
 
 La función base del paquete leaflet es `leaflet()`, con esta se activa un artilugio (*widget* en inglés) sobre el cuál se construye el mapa. Esta función debe estar unida a otra función como `addTiles()` que añade el mapa.
@@ -313,10 +304,6 @@ leaflet() %>%
 
 ```
 
-
-### Cambiando el diseño del mapa
-
-
 Y para culminar, es posible cambiar el diseño del mapa utilizando la función `addProviderTiles()` en lugar de `addTiles()`. Puede echar un vistazo a los diferentes diseños disponibles para Leaflet la página de [proveedores de Leaflet](http://leaflet-extras.github.io/leaflet-providers/preview/) en GitHub. Actualmente Leaflet en R admite diseños de los siguientes proveedores: OpenStreetMap, MapQuestOpen, Stamen, Esri and OpenWeatherMap.
 
 ```{r, eval=FALSE}
@@ -336,25 +323,20 @@ leaflet() %>%
 
 ```
 
-
-
-****
-
-
 ## Trabajando Variables Categóricas con Leaflet:
 
-Es posible distinguir entre especies utilizando diferentes colores, pero debe utilizar la función `addCircleMarkers()` en lugar de `addAwesomeMarkers()`. Para colorear grupos en Leaflet es necesario generar una paleta de colores para las variables de interés de acuerdo al tipo de variable (*i.e.*, numérica, factorial). Para esto se utilizan las funciones `colorFactor()`, `colorNumeric()`, `colorBin()`, o `colorQuantile()`. Las funciones `colorFactor()` y `colorNumeric()` generan paletas de colores para variables factoriales y numéricas, respectivamente; mientras que `colorBin()` y `colorQuantile()` generan paletas de colores para valores numéricos resumidos en grupos.
+Es posible distinguir entre especies utilizando diferentes colores, pero debe utilizar la función `addCircleMarkers()` en lugar de `addAwesomeMarkers()`. Para colorear grupos en Leaflet es necesario generar una paleta de colores para las variables de interés de acuerdo al tipo de variable (*i.e.*, numérica, factorial). Para esto se utilizan las funciones `colorFactor()`, `colorNumeric()`, `colorBin()`, o `colorQuantile()`. `colorFactor()` y `colorNumeric()` generan paletas de colores para variables factoriales y numericas, respectivamente; mientras que `colorBin()` y `colorQuantile()` generan paletas de colores para valores numéricos resumidos en grupos.
 
-En este caso se está trabajando con una variable factorial que divide las observaciones entre 3 especies de orquídeas. Primero se crea una paleta de colores para una variable factorial con la función `colorFactor()`. Bajo esta función se especifican los parámetros `palette` y `levels`. `palette`es para especificar la paleta de colores a utilizar y `levels`especifica los niveles de la variable factorial. La paleta de colores que se utiliza (`"Dark2"`) proviene del paquete **RColorBrewer**. Esta paleta de colores para los niveles de la variable factorial *scientific_name* del data.frame *eulophia* se guardará en un objeto llamado *pal*.
-
-Para ver las palettas de **RColorBrewer** ve esta pagina https://r-graph-gallery.com/38-rcolorbrewers-palettes.html
-
+En este caso se está trabajando con una variable factorial que divide las observaciones entre 3 especies de orquídeas. Primero se crea una paleta de colores para una variable factorial con la función `colorFactor()`. Bajo esta función se especifican los parámetros `palette` y `levels`. `palette`es para especificar la paleta de colores a utilizar y `levels`especifica los niveles de la variable factorial. La paleta de colores que se utiliza (`"Dark2"`) proviene del paquete RColorBrewer. Esta paleta de colores para los niveles de la variable factorial *scientific_name* del data.frame *eulophia* se guardará en un objeto llamado *pal*.
 
 ```{r, eval=FALSE}
-pal <- colorFactor(palette = 'Dark2',
+mypal <- colorFactor(palette = 'Set3',
             levels = levels(eulophia$scientific_name))
 
+eulophia$scientific_name=as.factor(eulophia$scientific_name)
 
+mypal <- colorFactor(palette = 'Set3',
+            levels = levels(eulophia$scientific_name))
 ```
 
 Ahora que se ha especificado los colores para los valores factoriales, es posible utilizar el objeto pal para colorear los marcadores circulares del mapa de Leaflet de acuerdo a la especie observada especificando el parámetro color
@@ -366,14 +348,9 @@ leaflet(eulophia) %>%
                    popup = paste0("<B>Especie: </B>", "<I>", eulophia$scientific_name, "</I>",
                             "<br/>",
                             "<B>Colectado por: </B>", eulophia$place_guess),
-                   color = ~ pal(scientific_name)) 
+                   color = ~ mypal(scientific_name)) 
 
 ```
-
-
-
-### Añadiendo una leyenda al mapa
-
 
 Para ayudar con la visualización de datos pertenecientes a diferentes grupos, en ocasiones es bueno presentar una leyenda que indique los colores que representan cada grupo. Es posible añadir una leyenda al mapa de Leaflet utilizando la función `addLegend()` y especificando los siguientes parámetros:
 
@@ -446,7 +423,6 @@ addMarkers(icon = ~quakeIcons[group])
 
 
 ```{r, echo=FALSE, eval=FALSE}
-
 function getColor(d) {
   return d >= 1966 ? 'green'  #// Means: if (d >= 1966) return 'green' else…
     d >= 1960 ? 'black'   # if (d >= 1960) return 'black' else etc…
@@ -456,14 +432,14 @@ function getColor(d) {
 }
 
 
-L.circleMarker([place.lon, place.lat], {
-  color: getColor(place.constructdate), // you can call the getColor function
-  fillColor: getColor(place.constructdate),
-  fillOpacity: 0.5
-})
 
 
 ```
 
 
 
+L.circleMarker([place.lon, place.lat], {
+  color: getColor(place.constructdate), // you can call the getColor function
+  fillColor: getColor(place.constructdate),
+  fillOpacity: 0.5
+})

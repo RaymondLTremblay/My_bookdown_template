@@ -40,6 +40,8 @@ https://github.com/edgararuiz/guias-rapidas/blob/master/fechas.pdf
 ```{r}
 library(tidyverse)
 library(lubridate) # paquete para convertir fechas
+
+tidyverse_packages() # lista completa de los paquetes activado con **tidyverse**
 ```
 
 ## El paquete `lubridate`
@@ -50,7 +52,7 @@ La función `today()` regresa la fecha de hoy, similar a `Sys.date()`
 today()
 ```
 
-Usames `tibble()`, del paquete `tibble`, para crear una tabla manualmente
+Use la función de `tribble()`, del paquete `tibble`, para crear una tabla manualmente
 
 ```{r}
 fechas <- tribble(
@@ -99,10 +101,10 @@ Las funciones `round_date()`, `ceiling_date()` y `floor_date()` permiten redonde
 ```{r}
 nueva_fechas %>%
   mutate(
-    redondear = round_date(fecha, unit = " month"),
-    techo = ceiling_date(fecha, unit = "day"),
-    suelo = floor_date(fecha, unit = "month"),
-    suelo_hour= floor_date(fecha, unit = "hour")
+    redondear = round_date(fecha, unit = " month"), # redondea al mes más cercano
+    techo = ceiling_date(fecha, unit = "day"), # redondea al día más cercano
+    suelo = floor_date(fecha, unit = "month"), # redondea al mes más cercano
+    suelo_hour= floor_date(fecha, unit = "hour") # redondea a la hora más cercana
   )
 ```
 
@@ -113,7 +115,7 @@ La función `interval()` crea un objeto R de intervalo de tiempo. En este caso, 
 
 ```{r}
 nueva_fechas %>%
-  mutate(intervalo = interval(fecha, today()))
+  mutate(intervalo = interval(fecha, today())) # intervalo entre la fecha y hoy
 ```
 
 
@@ -125,8 +127,8 @@ nueva_fechas %>%
 ```{r}
 nueva_fechas %>%
   mutate(
-    intervalo = interval(fecha, today()),
-    segundos = int_length(intervalo)
+    intervalo = interval(fecha, today()), #
+    segundos = int_length(intervalo) # número de segundos en el intervalo
     )
 ```
 
@@ -146,6 +148,8 @@ nueva_fechas %>%
   mutate(dias = fecha %--% today() / days())
 
 #Cuantos años de diferencia en el intervalo?
+
+
 ```
 
 
@@ -174,6 +178,10 @@ millisecond
 
 
 
+
+
+
+
 Los resultados se pueden visualizar usando `ggplot2`
 
 ```{r}
@@ -189,7 +197,7 @@ nueva_fechas %>%
 `as.duration()` crea un objecto en R que contiene la duración del intervalo de tiempo.  
 ```{r}
 nueva_fechas %>%
-  mutate(desde_hoy = as.duration(fecha %--% today()))
+  mutate(desde_hoy = as.duration(fecha %--% today())) # duración desde la fecha hasta hoy
 ```
 
 El objeto de duración de tiempo se puede filtrar fácilmente basado en una variedad de tipo de tiempos.  En este caso, semanas `dweeks()` crea un objeto de duración de la largura especificada
@@ -205,7 +213,7 @@ Otra opción es `ddays()`.
 ```{r}
 nueva_fechas %>%
   mutate(desde_hoy = as.duration(fecha %--% today())) %>%
-  filter(desde_hoy < ddays(2500))  # Note that you filter for the number of days that have acculmulated
+  filter(desde_hoy < ddays(2500))  # Nota que filtra por el numero de días que han acumulado
 ```
 
 ###  Funciones
@@ -220,7 +228,7 @@ today()
 now()
 ```
    
-### Fechas con cednas de caracteres
+### Fechas con años, meses y días
 
   - ymd()
   - ydm()
@@ -230,7 +238,7 @@ now()
   - dym()
   
   
-### Fechas con horas
+### Fechas con horas, minutos y segundos
 
  - ymd_hms()
  - ymd_hm()
@@ -251,7 +259,8 @@ yq("2012.1")
   
   
 - Cuidado
-con el **paquete hms** que tiene funciones igual como lubridate (hms, hm, y ms)  
+
+con el paquete **hms** que tiene funciones igual como **lubridate** (hms, hm, y ms)  
 
 ***
 
@@ -261,14 +270,18 @@ con el **paquete hms** que tiene funciones igual como lubridate (hms, hm, y ms)
  - make_datetime()
 
 
-Unir el año, mes, día, hora y minutos que esten en diferentes columnas en uno
+Unir el año, mes, día, hora y minutos que estén en diferentes columnas en uno
+
+- sumamente practico cuando se tiene una base de datos con las fechas en diferentes columnas
+
  
 ```{r}
 library(datos)
 head(vuelos)
 vuelos %>%
   dplyr::select(anio, mes, dia, hora, minuto) %>%
-  mutate(salida = make_datetime(anio, mes, dia, hora, minuto))
+  mutate(salida_dia=make_date(anio, mes, dia),
+         salida_dia_minutos = make_datetime(anio, mes, dia, hora, minuto))
 
 ```
 

@@ -176,7 +176,6 @@ fechas-fechas-horas-horas
 segmentar-un-archivo
 escribir-un-archivo
 otro-tipos-de-datos-y-paquetes
-leaflet-mapas-interactivos
 bajar-los-datos-de-la-web-del-usgs
 si-bajo-los-datos-a-mi-computadora
 importación-de-paquetes-y-datos
@@ -185,9 +184,7 @@ usando-la-paletas-de-color-de-viridis
 trabajando-con-datos-de-inaturalist
 ahora-crea-un-mapa-de-los-terremotos-alrededor-de-puerto-rico
 utilizando-leaflet
-cambiando-el-diseño-del-mapa
 trabajando-variables-categóricas-con-leaflet
-añadiendo-una-leyenda-al-mapa
 datos-relacionados
 temas-datos-relacionados
 los-datos-de-vuelos
@@ -261,8 +258,8 @@ el-operador----simplifica-el-cálculo-del-intervalo
 ejercicio-1
 as.duration
 funciones-1
-fechas-con-cednas-de-caracteres
-fechas-con-horas
+fechas-con-años-meses-y-días
+fechas-con-horas-minutos-y-segundos
 fechas
 crear-una-fecha-desde-columnas-individuales
 integer-division
