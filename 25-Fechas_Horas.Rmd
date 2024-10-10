@@ -60,7 +60,8 @@ fechas <- tribble(
     "001",    "01/01/2019 00:00:00",
     "002",    "31/03/2019 01:05:00",
     "003",    "14/06/2019 20:00:00",
-    "004",    "01/12/1859 11:32:13"
+    "004",    "01/12/1859 11:32:13",
+    "005",    "01/01/0501 05:04:33"
 )
 fechas
 ```
@@ -145,7 +146,8 @@ Para saber el número del días en el intervalo, divida el intervalo por la func
 
 ```{r}
 nueva_fechas %>%
-  mutate(dias = fecha %--% today() / days())
+  mutate(dias = fecha %--% today() / days(),
+         anio= fecha %--% today() / years()) # número de días en el intervalo
 
 #Cuantos años de diferencia en el intervalo?
 
@@ -192,6 +194,26 @@ nueva_fechas %>%
   coord_flip()
 ```
 
+
+
+
+
+
+## Serie de funciones para calcular la duración de un intervalo de tiempo.
+
+ - dyears() # años
+ - dmonths() # meses
+ - dweeks() # semanas
+ - ddays() # días
+ - dhours() # horas
+ - dminutes() # minutos
+ - dseconds() # segundos
+ - dmilliseconds() # milisegundos
+ - dmicroseconds() # microsegundos
+ - dnanoseconds() # nanosegundos
+ - dpicoseconds() # picosegundos
+ 
+
 ## as.duration
 
 `as.duration()` crea un objecto en R que contiene la duración del intervalo de tiempo.  
@@ -205,7 +227,7 @@ El objeto de duración de tiempo se puede filtrar fácilmente basado en una vari
 ```{r}
 nueva_fechas %>%
   mutate(desde_hoy = as.duration(fecha %--% today())) %>%
-  filter(desde_hoy < dyears(100))
+  filter(desde_hoy > dyears(100))
 ```
 
 Otra opción es `ddays()`. 
@@ -213,7 +235,7 @@ Otra opción es `ddays()`.
 ```{r}
 nueva_fechas %>%
   mutate(desde_hoy = as.duration(fecha %--% today())) %>%
-  filter(desde_hoy < ddays(2500))  # Nota que filtra por el numero de días que han acumulado
+  filter(desde_hoy < ddays(2500))  # Nota que se puede filtrar por el número de días que han acumulado
 ```
 
 ###  Funciones
@@ -248,6 +270,9 @@ now()
   - ydm_hm()
   - etc
   
+  
+  
+  
 ### Fechas 
   - yq() Year quarter (quaters are 1, 2, 3, 4, Jan-March, April-Jun, Jul-Sept, Oct-Dec)
   
@@ -258,9 +283,7 @@ yq("2012.1")
 ```
   
   
-- Cuidado
-
-con el paquete **hms** que tiene funciones igual como **lubridate** (hms, hm, y ms)  
+- **Cuidado** con el paquete **hms** que tiene funciones igual como **lubridate** (hms, hm, y ms) , pero no necesaramente hace lo mismo.
 
 ***
 
@@ -285,13 +308,39 @@ vuelos %>%
 
 ```
 
-Unir el año, mes, día, hora  que esten en diferentes columnas en uno
+Unir el año, mes, día, hora  que estén en diferentes columnas en uno
 
 
 ```{r}
 vuelos %>%
   dplyr::select(anio, mes, dia, hora, minuto) %>%
   mutate(salida2 = make_date(anio, mes, dia))
+
+
+```
+ 
+ 
+ ## Conversión de fechas que no son estándar
+ 
+```{r}
+
+Datos_raros=tribble(~Ind, ~fechas,
+                    1, "1/1/30",
+                    2, "1/30/01",
+                    3, "1/30/09",)
+
+Datos_raros 
+```
+ 
+ 
+```{r}
+Datos_raros %>%
+  mutate(fecha = mdy(fechas))
+
+
+Datos_raros$fecha2=as.Date(as.Date(format(as.Date(Datos_raros$fechas, format="%m/%d/%Y"), "19%y%m%d"), "%Y%d%d"))
+
+Datos_raros
 
 
 ```
@@ -359,7 +408,8 @@ vuelos_dt %>%
 Nota variables que no funciona
  
 ```{r}
-  ymd(c("2010-10-10", "bananas"))
+
+ymd(c("2010-10-10", "bananas"))
 
 ```
  
@@ -426,7 +476,16 @@ Hacer los ejercicios en la sección 16.2.4 del libro en español
  
 2.  **Ejercicios**:
 
-Hacer los ejercicios en la sección 16.3.4 del libro en español
+Hacer estos ejercicios en la sección 16.3.4 del libro en español.  Entregar por MSTeams.
+
+
+¿Cómo cambia la demora promedio durante el curso de un día? ¿Deberías usar horario_salida o salida_programada? ¿Por qué?
+
+¿En qué día de la semana deberías salir si quieres minimizar las posibilidades de una demora?
+
+
+
+Confirma nuestra hipótesis de que las salidas programadas en los minutos 20-30 y 50-60 están casuadas por los vuelos programados que salen más temprano. Pista: crea una variable binaria que te diga si un vuelo tuvo o no demora.
 
 ***  
 
@@ -594,7 +653,7 @@ Hacer los ejercicios en la sección 16.4.5 del libro en español
  - tz= ""
  
 
-2.  **Ejercicios**:
+3.  **Ejercicios**:
 
 Seleccionar 3 archivos de los vuelos que salen o llegan a PR, (el codigo del aeropuerto es "SJU") de la base de datos de <https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236>
   Pueden ser el mismo mes en 3 diferente años o 3 diferentes mese en el mismo año.
@@ -604,7 +663,7 @@ Seleccionar 3 archivos de los vuelos que salen o llegan a PR, (el codigo del aer
   
   - Evaluar el tiempo de retrazo de los vuelos que salen de SJU en cada periodo seleccionado, y haz *una* gráfica para visualizar el patrón
   
-  - Cual es el diá preferible para no tener retraso
+  - Cual es el día preferible para no tener retraso
   - Cual es la mejor hora de salida para no tener retraso
   - Compara por lo menos 3 diferentes lineas saliendo de SJU y el periodo de retrazo.  
   

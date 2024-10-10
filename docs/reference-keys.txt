@@ -1,8 +1,8 @@
 eq:reaction
 eq:promedio
-fig:unnamed-chunk-351
+fig:unnamed-chunk-353
 fig:ggplot
-fig:unnamed-chunk-352
+fig:unnamed-chunk-354
 fig:pressure
 ciencia-de-datos-con-r
 horario-de-clase
@@ -256,6 +256,7 @@ un-error-tipico
 intervalos-y-duraciones
 el-operador----simplifica-el-cálculo-del-intervalo
 ejercicio-1
+serie-de-funciones-para-calcular-la-duración-de-un-intervalo-de-tiempo.
 as.duration
 funciones-1
 fechas-con-años-meses-y-días
