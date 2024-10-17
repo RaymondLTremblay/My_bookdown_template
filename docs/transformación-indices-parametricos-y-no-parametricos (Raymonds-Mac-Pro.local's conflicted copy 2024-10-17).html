@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo2 Flujo de trabajo | Ciencia de Datos con R</title>
+  <title>Capítulo11 Transformación: Indices parametricos y no parametricos | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo2 Flujo de trabajo | Ciencia de Datos con R" />
+  <meta property="og:title" content="Capítulo11 Transformación: Indices parametricos y no parametricos | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo2 Flujo de trabajo | Ciencia de Datos con R" />
+  <meta name="twitter:title" content="Capítulo11 Transformación: Indices parametricos y no parametricos | Ciencia de Datos con R" />
   
   <meta name="twitter:description" content="Este libro digital es una introdución al estudio de Biometría" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="visualización-de-datos.html"/>
+<link rel="prev" href="transformación-rangos-y-más.html"/>
+<link rel="next" href="script.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -610,268 +610,42 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="flujo-de-trabajo" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">Capítulo2</span> Flujo de trabajo<a href="flujo-de-trabajo.html#flujo-de-trabajo" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>El tema proviene de los siguientes sitios.</p>
-<p>English:
-<a href="https://r4ds.had.co.nz/workflow-projects.html" class="uri">https://r4ds.had.co.nz/workflow-projects.html</a></p>
-<p>Español:
-<a href="https://es.r4ds.hadley.nz/04-workflow-basics.html" class="uri">https://es.r4ds.hadley.nz/04-workflow-basics.html</a></p>
-<hr />
-<p>Fecha de la ultima revisión</p>
+<div id="transformación-indices-parametricos-y-no-parametricos" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Capítulo11</span> Transformación: Indices parametricos y no parametricos<a href="transformación-indices-parametricos-y-no-parametricos.html#transformación-indices-parametricos-y-no-parametricos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <pre><code>## [1] &quot;2024-10-17&quot;</code></pre>
-<div id="temas" class="section level2 hasAnchor" number="2.1">
-<h2><span class="header-section-number">2.1</span> Temas:<a href="flujo-de-trabajo.html#temas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p>Reduciendo Errores</p></li>
-<li><p>getwd()</p></li>
-<li><p>setwd()</p></li>
-<li><p>Su Proyecto</p></li>
-<li><p>Selecionar el tab <strong>Session</strong> →→ <strong>Set Working Directory</strong> →→ <strong>To Project Directory</strong>
-***</p></li>
-</ul>
-</div>
-<div id="creación-de-un-proyecto" class="section level2 hasAnchor" number="2.2">
-<h2><span class="header-section-number">2.2</span> Creación de un proyecto:<a href="flujo-de-trabajo.html#creación-de-un-proyecto" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>crear un proyecto para cada curso.</li>
-<li>crear un proyecto para cada investigación.</li>
-<li>No se te olvida de añadir tu archivos de datos en el proyecto.</li>
-<li>Describe claramente todos tus análisis y donde conseguiste la información.</li>
-<li>Describe tu interpretación de los análisis o gráficos.</li>
-<li>Correr los “scripts” uno a la vez para asegurar que funcione.</li>
-<li>knit el archivo .rmd para asegurar que no falte nada.</li>
-<li>no mezclar proyectos de investigación en un mismo proyecto.</li>
-</ul>
-<hr />
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="flujo-de-trabajo.html#cb3-1" tabindex="-1"></a><span class="co">#install.packages(&quot;tidyverse&quot;)</span></span>
-<span id="cb3-2"><a href="flujo-de-trabajo.html#cb3-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, forcats</span></span>
-<span id="cb3-3"><a href="flujo-de-trabajo.html#cb3-3" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="flujo-de-trabajo.html#cb3-4" tabindex="-1"></a><span class="co"># install.packages(&quot;datos&quot;)</span></span>
-<span id="cb3-5"><a href="flujo-de-trabajo.html#cb3-5" tabindex="-1"></a><span class="fu">library</span>(datos)</span></code></pre></div>
-<div id="un-set-de-sobre-carros-en-el-archivo-paquete-datos" class="section level3 hasAnchor" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> Un set de sobre carros en el archivo (paquete) <strong>datos</strong><a href="flujo-de-trabajo.html#un-set-de-sobre-carros-en-el-archivo-paquete-datos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="flujo-de-trabajo.html#cb4-1" tabindex="-1"></a>millas</span></code></pre></div>
-<pre><code>## # A tibble: 234 × 11
-##    fabricante modelo     cilindrada  anio cilindros transmision traccion ciudad
-##    &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt; &lt;int&gt;     &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;
-##  1 audi       a4                1.8  1999         4 auto(l5)    d            18
-##  2 audi       a4                1.8  1999         4 manual(m5)  d            21
-##  3 audi       a4                2    2008         4 manual(m6)  d            20
-##  4 audi       a4                2    2008         4 auto(av)    d            21
-##  5 audi       a4                2.8  1999         6 auto(l5)    d            16
-##  6 audi       a4                2.8  1999         6 manual(m5)  d            18
-##  7 audi       a4                3.1  2008         6 auto(av)    d            18
-##  8 audi       a4 quattro        1.8  1999         4 manual(m5)  4            18
-##  9 audi       a4 quattro        1.8  1999         4 auto(l5)    4            16
-## 10 audi       a4 quattro        2    2008         4 manual(m6)  4            20
-## # ℹ 224 more rows
-## # ℹ 3 more variables: autopista &lt;int&gt;, combustible &lt;chr&gt;, clase &lt;chr&gt;</code></pre>
-</div>
-<div id="mi-primer-gráfico" class="section level3 hasAnchor" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> Mi primer gráfico<a href="flujo-de-trabajo.html#mi-primer-gráfico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="flujo-de-trabajo.html#cb6-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> millas) <span class="sc">+</span></span>
-<span id="cb6-2"><a href="flujo-de-trabajo.html#cb6-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista))</span></code></pre></div>
-<p><img src="Ciencia-Datos-con-R_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-</div>
-<div id="las-funciones-head-y-tail" class="section level3 hasAnchor" number="2.2.3">
-<h3><span class="header-section-number">2.2.3</span> Las funciones <strong>head</strong> y <strong>tail</strong><a href="flujo-de-trabajo.html#las-funciones-head-y-tail" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="flujo-de-trabajo.html#cb7-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>millas)</span></code></pre></div>
-<p><img src="Ciencia-Datos-con-R_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="flujo-de-trabajo.html#cb8-1" tabindex="-1"></a>millas</span></code></pre></div>
-<pre><code>## # A tibble: 234 × 11
-##    fabricante modelo     cilindrada  anio cilindros transmision traccion ciudad
-##    &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt; &lt;int&gt;     &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;
-##  1 audi       a4                1.8  1999         4 auto(l5)    d            18
-##  2 audi       a4                1.8  1999         4 manual(m5)  d            21
-##  3 audi       a4                2    2008         4 manual(m6)  d            20
-##  4 audi       a4                2    2008         4 auto(av)    d            21
-##  5 audi       a4                2.8  1999         6 auto(l5)    d            16
-##  6 audi       a4                2.8  1999         6 manual(m5)  d            18
-##  7 audi       a4                3.1  2008         6 auto(av)    d            18
-##  8 audi       a4 quattro        1.8  1999         4 manual(m5)  4            18
-##  9 audi       a4 quattro        1.8  1999         4 auto(l5)    4            16
-## 10 audi       a4 quattro        2    2008         4 manual(m6)  4            20
-## # ℹ 224 more rows
-## # ℹ 3 more variables: autopista &lt;int&gt;, combustible &lt;chr&gt;, clase &lt;chr&gt;</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="flujo-de-trabajo.html#cb10-1" tabindex="-1"></a><span class="fu">head</span>(millas, <span class="at">n=</span><span class="dv">3</span>) <span class="co"># las primeras 6 filas</span></span></code></pre></div>
-<pre><code>## # A tibble: 3 × 11
-##   fabricante modelo cilindrada  anio cilindros transmision traccion ciudad
-##   &lt;chr&gt;      &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;     &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;
-## 1 audi       a4            1.8  1999         4 auto(l5)    d            18
-## 2 audi       a4            1.8  1999         4 manual(m5)  d            21
-## 3 audi       a4            2    2008         4 manual(m6)  d            20
-## # ℹ 3 more variables: autopista &lt;int&gt;, combustible &lt;chr&gt;, clase &lt;chr&gt;</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="flujo-de-trabajo.html#cb12-1" tabindex="-1"></a><span class="fu">tail</span>(millas, <span class="at">n=</span><span class="dv">10</span>) <span class="co"># las ultimas 10 filas</span></span></code></pre></div>
-<pre><code>## # A tibble: 10 × 11
-##    fabricante modelo     cilindrada  anio cilindros transmision traccion ciudad
-##    &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt; &lt;int&gt;     &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;
-##  1 volkswagen new beetle        2    1999         4 auto(l4)    d            19
-##  2 volkswagen new beetle        2.5  2008         5 manual(m5)  d            20
-##  3 volkswagen new beetle        2.5  2008         5 auto(s6)    d            20
-##  4 volkswagen passat            1.8  1999         4 manual(m5)  d            21
-##  5 volkswagen passat            1.8  1999         4 auto(l5)    d            18
-##  6 volkswagen passat            2    2008         4 auto(s6)    d            19
-##  7 volkswagen passat            2    2008         4 manual(m6)  d            21
-##  8 volkswagen passat            2.8  1999         6 auto(l5)    d            16
-##  9 volkswagen passat            2.8  1999         6 manual(m5)  d            18
-## 10 volkswagen passat            3.6  2008         6 auto(s6)    d            17
-## # ℹ 3 more variables: autopista &lt;int&gt;, combustible &lt;chr&gt;, clase &lt;chr&gt;</code></pre>
-</div>
-</div>
-<div id="información-sobre-el-archivo" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Información sobre el archivo<a href="flujo-de-trabajo.html#información-sobre-el-archivo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Usa el signo de interogación <strong>?</strong> antes del nombre de la función o archivo</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="flujo-de-trabajo.html#cb14-1" tabindex="-1"></a>?millas</span>
-<span id="cb14-2"><a href="flujo-de-trabajo.html#cb14-2" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="flujo-de-trabajo.html#cb14-3" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="flujo-de-trabajo.html#cb14-4" tabindex="-1"></a>?head</span></code></pre></div>
-<div id="las-dimensiones-del-archivo" class="section level3 hasAnchor" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Las dimensiones del archivo<a href="flujo-de-trabajo.html#las-dimensiones-del-archivo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="flujo-de-trabajo.html#cb15-1" tabindex="-1"></a><span class="fu">dim</span>(millas) <span class="co"># dimension of data frame</span></span></code></pre></div>
-<pre><code>## [1] 234  11</code></pre>
-</div>
-<div id="construcción-de-mi-primer-gráfico" class="section level3 hasAnchor" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Construcción de mi primer gráfico<a href="flujo-de-trabajo.html#construcción-de-mi-primer-gráfico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>el nombre del archivo es primero</li>
-<li>nombre de las variables (nombre de las columnas)</li>
-<li>si quiere tener un color para cada grupo</li>
-</ul>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="flujo-de-trabajo.html#cb17-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> millas) <span class="sc">+</span></span>
-<span id="cb17-2"><a href="flujo-de-trabajo.html#cb17-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista,  <span class="at">colour=</span>fabricante))</span></code></pre></div>
-<p><img src="Ciencia-Datos-con-R_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-</div>
-<div id="la-función-shape-para-cambiar-la-forma-de-los-puntos" class="section level3 hasAnchor" number="2.3.3">
-<h3><span class="header-section-number">2.3.3</span> La función shape para cambiar la forma de los puntos<a href="flujo-de-trabajo.html#la-función-shape-para-cambiar-la-forma-de-los-puntos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La función <strong>shape</strong> es para cambiar el estilo de los puntos</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="flujo-de-trabajo.html#cb18-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> millas) <span class="sc">+</span></span>
-<span id="cb18-2"><a href="flujo-de-trabajo.html#cb18-2" tabindex="-1"></a> <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista), <span class="at">shape=</span><span class="dv">23</span>, <span class="at">color =</span> <span class="st">&quot;369787&quot;</span>, <span class="at">fill=</span><span class="st">&quot;yellow&quot;</span>)</span></code></pre></div>
-<p><img src="Ciencia-Datos-con-R_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
-</div>
-<div id="salvar-un-grafico-en-otro-formato" class="section level3 hasAnchor" number="2.3.4">
-<h3><span class="header-section-number">2.3.4</span> Salvar un grafico en otro formato<a href="flujo-de-trabajo.html#salvar-un-grafico-en-otro-formato" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Como salvar la figura en formato recuperable para subir en otros documentos o compartir</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="flujo-de-trabajo.html#cb19-1" tabindex="-1"></a> <span class="fu">ggplot</span>(<span class="at">data =</span> millas) <span class="sc">+</span></span>
-<span id="cb19-2"><a href="flujo-de-trabajo.html#cb19-2" tabindex="-1"></a>   <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cilindrada, <span class="at">y =</span> autopista), <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
-<p><img src="Ciencia-Datos-con-R_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="flujo-de-trabajo.html#cb20-1" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;cilindro_milla.jpg&quot;</span>) <span class="co">#. png, .tiff</span></span></code></pre></div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="flujo-de-trabajo.html#cb21-1" tabindex="-1"></a>millas</span></code></pre></div>
-<pre><code>## # A tibble: 234 × 11
-##    fabricante modelo     cilindrada  anio cilindros transmision traccion ciudad
-##    &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt; &lt;int&gt;     &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;
-##  1 audi       a4                1.8  1999         4 auto(l5)    d            18
-##  2 audi       a4                1.8  1999         4 manual(m5)  d            21
-##  3 audi       a4                2    2008         4 manual(m6)  d            20
-##  4 audi       a4                2    2008         4 auto(av)    d            21
-##  5 audi       a4                2.8  1999         6 auto(l5)    d            16
-##  6 audi       a4                2.8  1999         6 manual(m5)  d            18
-##  7 audi       a4                3.1  2008         6 auto(av)    d            18
-##  8 audi       a4 quattro        1.8  1999         4 manual(m5)  4            18
-##  9 audi       a4 quattro        1.8  1999         4 auto(l5)    4            16
-## 10 audi       a4 quattro        2    2008         4 manual(m6)  4            20
-## # ℹ 224 more rows
-## # ℹ 3 more variables: autopista &lt;int&gt;, combustible &lt;chr&gt;, clase &lt;chr&gt;</code></pre>
-<p>Ejercicio para someter:</p>
+<div id="funciones-estadistica-básicas" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Funciones estadistica básicas:<a href="transformación-indices-parametricos-y-no-parametricos.html#funciones-estadistica-básicas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Tarea de grupo.</p>
+<p>Preparar un .rmd con la explicaciones de como utilizar la función mencionado abajo. Debe incluir</p>
 <ol style="list-style-type: decimal">
-<li>baja el paquete “ggversa”</li>
-<li>activar el paquete “ggversa”</li>
-<li>mirar las variables del archivo en este paquete que se llama “Anolis”</li>
-<li>haga un gráfico que incluye lo siguiente
-<ol style="list-style-type: lower-alpha">
-<li>en el eje de x = el SVL. que es el tamaño del lagarto del hocico a la cloaca y en la variable de “TAIL” en el eje de y.</li>
-<li>selecciona la variable “SEX_AGE” para color</li>
-<li>selecciona la función correcta para que cada “SEX_AGE” tenga su proprio gráfico</li>
-<li>salva el gráfico en .png o .jpg</li>
-<li>subir el gráfico aquí</li>
-</ol></li>
+<li>La definición de la función en palabra y matemática.</li>
+<li>un script sencillo (con pocos datos) (uno o más ejemplos) para explicar la función</li>
+<li>un script con los datos de “vuelos” o de “Covid-19 de PR”.</li>
+<li>a las 2:20pm cada grupo presentará su trabajo.</li>
+<li>Después de la clase cada grupo, mejorará su .rmd con los comentarios recibidos.<br />
+</li>
+<li>Domingo se subirá el .rmd y el .html en MSTeam (cada estudiante lo subirá: tendra el nombre de cada estudiante en el trabajo)</li>
+<li>El profesor revisará los trabajos y subsiguiente se distribuirá los .rmd y html a los estudiantes.</li>
 </ol>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="flujo-de-trabajo.html#cb23-1" tabindex="-1"></a><span class="fu">library</span>(ggversa)</span>
-<span id="cb23-2"><a href="flujo-de-trabajo.html#cb23-2" tabindex="-1"></a><span class="fu">head</span>(Anolis)</span></code></pre></div>
-<pre><code>## # A tibble: 6 × 15
-##   STUDY      Survey_Site      LOCATION TIME  DATE  SEASON SPECIES SEX_AGE HEIGHT
-##   &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;    &lt;tim&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;
-## 1 Mark/recap North Tower      El Verde 10:46 3/13… dry    Anolis… Female     0  
-## 2 Mark/recap Woods walkway t… El Verde 10:15 2/20… dry    Anolis… Juvenil    0  
-## 3 Mark/recap Woods walkway t… El Verde 11:15 2/21… dry    Anolis… Male       0  
-## 4 Mark/recap North Tower      El Verde 11:06 3/16… dry    Anolis… Juvenil    0.3
-## 5 Mark/recap North Tower      El Verde 12:31 3/11… dry    Anolis… Male       0.3
-## 6 Mark/recap North Tower      El Verde 01:00 3/9/… dry    Anolis… Female     0.4
-## # ℹ 6 more variables: DISTANCE_FROM_CENTERLINE &lt;dbl&gt;, PERCH_SUBSTRATE &lt;chr&gt;,
-## #   PERCH_DIAMETER &lt;int&gt;, WEIGHT &lt;dbl&gt;, SVL &lt;dbl&gt;, TAIL &lt;dbl&gt;</code></pre>
-<hr />
-</div>
-<div id="extracción-de-valores-de-un-conjunto-de-datos" class="section level3 hasAnchor" number="2.3.5">
-<h3><span class="header-section-number">2.3.5</span> Extracción de valores de un conjunto de datos<a href="flujo-de-trabajo.html#extracción-de-valores-de-un-conjunto-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Aqui usamos el conjunto de datos de <strong>diamantes</strong> que se encuentra en el paquete <strong>ggplot2</strong></p>
-<div id="los-primeros-datos-de-un-archivo" class="section level4 hasAnchor" number="2.3.5.1">
-<h4><span class="header-section-number">2.3.5.1</span> Los primeros datos de un archivo<a href="flujo-de-trabajo.html#los-primeros-datos-de-un-archivo" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="flujo-de-trabajo.html#cb25-1" tabindex="-1"></a><span class="fu">head</span>(diamantes)</span></code></pre></div>
-<pre><code>## # A tibble: 6 × 10
-##   precio quilate corte     color claridad profundidad tabla     x     y     z
-##    &lt;int&gt;   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1    326    0.23 Ideal     E     SI2             61.5    55  3.95  3.98  2.43
-## 2    326    0.21 Premium   E     SI1             59.8    61  3.89  3.84  2.31
-## 3    327    0.23 Bueno     E     VS1             56.9    65  4.05  4.07  2.31
-## 4    334    0.29 Premium   I     VS2             62.4    58  4.2   4.23  2.63
-## 5    335    0.31 Bueno     J     SI2             63.3    58  4.34  4.35  2.75
-## 6    336    0.24 Muy bueno J     VVS2            62.8    57  3.94  3.96  2.48</code></pre>
-</div>
-<div id="la-cantidad-de-fila" class="section level4 hasAnchor" number="2.3.5.2">
-<h4><span class="header-section-number">2.3.5.2</span> La cantidad de fila<a href="flujo-de-trabajo.html#la-cantidad-de-fila" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="flujo-de-trabajo.html#cb27-1" tabindex="-1"></a><span class="fu">nrow</span>(diamantes)</span></code></pre></div>
-<pre><code>## [1] 53940</code></pre>
-</div>
-<div id="la-cantidad-de-columnas-variables" class="section level4 hasAnchor" number="2.3.5.3">
-<h4><span class="header-section-number">2.3.5.3</span> La cantidad de columnas (variables)<a href="flujo-de-trabajo.html#la-cantidad-de-columnas-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="flujo-de-trabajo.html#cb29-1" tabindex="-1"></a><span class="fu">ncol</span>(diamantes)</span></code></pre></div>
-<pre><code>## [1] 10</code></pre>
-</div>
-<div id="la-dimensiones-de-un-archivo" class="section level4 hasAnchor" number="2.3.5.4">
-<h4><span class="header-section-number">2.3.5.4</span> La dimensiones de un archivo<a href="flujo-de-trabajo.html#la-dimensiones-de-un-archivo" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="flujo-de-trabajo.html#cb31-1" tabindex="-1"></a><span class="fu">dim</span>(diamantes)</span></code></pre></div>
-<pre><code>## [1] 53940    10</code></pre>
-</div>
-<div id="el-valor-máximo-de-una-variable" class="section level4 hasAnchor" number="2.3.5.5">
-<h4><span class="header-section-number">2.3.5.5</span> El valor máximo de una variable<a href="flujo-de-trabajo.html#el-valor-máximo-de-una-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="flujo-de-trabajo.html#cb33-1" tabindex="-1"></a><span class="fu">max</span>(diamantes<span class="sc">$</span>precio)</span></code></pre></div>
-<pre><code>## [1] 18823</code></pre>
-</div>
-<div id="el-valor-mínimo-de-una-variable" class="section level4 hasAnchor" number="2.3.5.6">
-<h4><span class="header-section-number">2.3.5.6</span> El valor mínimo de una variable<a href="flujo-de-trabajo.html#el-valor-mínimo-de-una-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="flujo-de-trabajo.html#cb35-1" tabindex="-1"></a><span class="fu">min</span>(diamantes<span class="sc">$</span>precio)</span></code></pre></div>
-<pre><code>## [1] 326</code></pre>
-</div>
-<div id="los-valores-discretos-de-una-variable" class="section level4 hasAnchor" number="2.3.5.7">
-<h4><span class="header-section-number">2.3.5.7</span> Los valores discretos de una variable<a href="flujo-de-trabajo.html#los-valores-discretos-de-una-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="flujo-de-trabajo.html#cb37-1" tabindex="-1"></a><span class="fu">unique</span>(diamantes<span class="sc">$</span>corte)</span></code></pre></div>
-<pre><code>## [1] Ideal     Premium   Bueno     Muy bueno Regular  
-## Levels: Regular &lt; Bueno &lt; Muy bueno &lt; Premium &lt; Ideal</code></pre>
 <ul>
-<li><p>diamantes$corte</p></li>
-<li><p>diamantes$precio</p></li>
+<li><p>IQR() ## G1</p></li>
+<li><p>mad() ## G2</p></li>
+<li><p>first() ## G3</p></li>
+<li><p>last() ## G3</p></li>
+<li><p>quantile() ## G4</p></li>
+<li><p>signif() ## G5</p>
+<ul>
+<li>min()</li>
+</ul></li>
+<li><p>max()</p></li>
+<li><p>mean()</p></li>
+<li><p>sd() ***</p></li>
 </ul>
-</div>
-</div>
-</div>
-<div id="ejemplos-de-gráficos" class="section level2 hasAnchor" number="2.4">
-<h2><span class="header-section-number">2.4</span> Ejemplos de Gráficos<a href="flujo-de-trabajo.html#ejemplos-de-gráficos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="flujo-de-trabajo.html#cb39-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb39-2"><a href="flujo-de-trabajo.html#cb39-2" tabindex="-1"></a>Vuelos_SJU_2018_Ene <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Datos/Vuelos_SJU_2018_Ene.csv&quot;</span>)</span>
-<span id="cb39-3"><a href="flujo-de-trabajo.html#cb39-3" tabindex="-1"></a></span>
-<span id="cb39-4"><a href="flujo-de-trabajo.html#cb39-4" tabindex="-1"></a><span class="fu">head</span>(Vuelos_SJU_2018_Ene)</span></code></pre></div>
-<pre><code>## # A tibble: 6 × 14
-##   FL_DATE OP_UNIQUE_CARRIER ORIGIN ORIGIN_CITY_NAME ORIGIN_STATE_ABR DEST 
-##   &lt;chr&gt;   &lt;chr&gt;             &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;
-## 1 2/1/18  NK                SJU    San Juan, PR     PR               MCO  
-## 2 2/1/18  AA                MIA    Miami, FL        FL               SJU  
-## 3 2/1/18  AA                SJU    San Juan, PR     PR               DFW  
-## 4 2/1/18  AA                SJU    San Juan, PR     PR               MIA  
-## 5 2/1/18  AA                SJU    San Juan, PR     PR               ORD  
-## 6 2/1/18  AA                MIA    Miami, FL        FL               SJU  
-## # ℹ 8 more variables: DEST_CITY_NAME &lt;chr&gt;, DEST_STATE_ABR &lt;chr&gt;,
-## #   DEP_TIME &lt;dbl&gt;, DEP_DELAY &lt;dbl&gt;, CRS_ARR_TIME &lt;dbl&gt;, ARR_TIME &lt;dbl&gt;,
-## #   ARR_DELAY &lt;dbl&gt;, CANCELLED &lt;dbl&gt;</code></pre>
+<ol style="list-style-type: decimal">
+<li><strong>Ejercicios</strong>:</li>
+</ol>
+<p>Hacer los ejercicios en la sección 5.7.1 del libro en español</p>
+<hr />
 
 </div>
 </div>
@@ -880,8 +654,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="visualización-de-datos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="transformación-rangos-y-más.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="script.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -912,7 +686,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-Flujo_de_Trabajo.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/11-Transformacion_Funcion_estadistica.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -920,7 +694,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/02-Flujo_de_Trabajo.Rmd",
+"link": "https://github.com/RaymondLTremblay/Ciencia_Datos_R/blob/main/11-Transformacion_Funcion_estadistica.Rmd",
 "text": null
 },
 "download": null,

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo17 Datos Relacionados | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo17 Datos Relacionados | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
@@ -795,49 +795,49 @@ nasaweather::atmos
 fueleconomy::vehicles
 ggplot2::diamonds</p>
 <div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="datos-relacionados.html#cb549-1" tabindex="-1"></a><span class="fu">head</span>(Lahman<span class="sc">::</span>Batting)</span></code></pre></div>
-<pre><code>##    playerID yearID stint teamID lgID  G AB R H X2B X3B HR RBI SB CS BB SO IBB
-## 1 aardsda01   2004     1    SFN   NL 11  0 0 0   0   0  0   0  0  0  0  0   0
-## 2 aardsda01   2006     1    CHN   NL 45  2 0 0   0   0  0   0  0  0  0  0   0
-## 3 aardsda01   2007     1    CHA   AL 25  0 0 0   0   0  0   0  0  0  0  0   0
-## 4 aardsda01   2008     1    BOS   AL 47  1 0 0   0   0  0   0  0  0  0  1   0
-## 5 aardsda01   2009     1    SEA   AL 73  0 0 0   0   0  0   0  0  0  0  0   0
-## 6 aardsda01   2010     1    SEA   AL 53  0 0 0   0   0  0   0  0  0  0  0   0
-##   HBP SH SF GIDP
-## 1   0  0  0    0
-## 2   0  1  0    0
-## 3   0  0  0    0
-## 4   0  0  0    0
-## 5   0  0  0    0
-## 6   0  0  0    0</code></pre>
+<pre><code>##    playerID yearID stint teamID lgID  G  AB  R  H X2B X3B HR RBI SB CS BB SO
+## 1 abercda01   1871     1    TRO   NA  1   4  0  0   0   0  0   0  0  0  0  0
+## 2  addybo01   1871     1    RC1   NA 25 118 30 32   6   0  0  13  8  1  4  0
+## 3 allisar01   1871     1    CL1   NA 29 137 28 40   4   5  0  19  3  1  2  5
+## 4 allisdo01   1871     1    WS3   NA 27 133 28 44  10   2  2  27  1  1  0  2
+## 5 ansonca01   1871     1    RC1   NA 25 120 29 39  11   3  0  16  6  2  2  1
+## 6 armstbo01   1871     1    FW1   NA 12  49  9 11   2   1  0   5  0  1  0  1
+##   IBB HBP SH SF GIDP
+## 1  NA  NA NA NA    0
+## 2  NA  NA NA NA    0
+## 3  NA  NA NA NA    1
+## 4  NA  NA NA NA    0
+## 5  NA  NA NA NA    0
+## 6  NA  NA NA NA    0</code></pre>
 <div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="datos-relacionados.html#cb551-1" tabindex="-1"></a><span class="fu">head</span>(datos<span class="sc">::</span>bateadores)</span></code></pre></div>
 <pre><code>##   id_jugador id_anio orden_equipos id_equipo id_liga juegos al_bate carreras
-## 1  aardsda01    2004             1       SFN      NL     11       0        0
-## 2  aardsda01    2006             1       CHN      NL     45       2        0
-## 3  aardsda01    2007             1       CHA      AL     25       0        0
-## 4  aardsda01    2008             1       BOS      AL     47       1        0
-## 5  aardsda01    2009             1       SEA      AL     73       0        0
-## 6  aardsda01    2010             1       SEA      AL     53       0        0
+## 1  abercda01    1871             1       TRO      NA      1       4        0
+## 2   addybo01    1871             1       RC1      NA     25     118       30
+## 3  allisar01    1871             1       CL1      NA     29     137       28
+## 4  allisdo01    1871             1       WS3      NA     27     133       28
+## 5  ansonca01    1871             1       RC1      NA     25     120       29
+## 6  armstbo01    1871             1       FW1      NA     12      49        9
 ##   golpes dobles triples cuadrangulares carreras_empujadas bases_robadas
 ## 1      0      0       0              0                  0             0
-## 2      0      0       0              0                  0             0
-## 3      0      0       0              0                  0             0
-## 4      0      0       0              0                  0             0
-## 5      0      0       0              0                  0             0
-## 6      0      0       0              0                  0             0
+## 2     32      6       0              0                 13             8
+## 3     40      4       5              0                 19             3
+## 4     44     10       2              2                 27             1
+## 5     39     11       3              0                 16             6
+## 6     11      2       1              0                  5             0
 ##   atrapado_robando base_bolas ponches base_intencional golpeado
-## 1                0          0       0                0        0
-## 2                0          0       0                0        0
-## 3                0          0       0                0        0
-## 4                0          0       1                0        0
-## 5                0          0       0                0        0
-## 6                0          0       0                0        0
+## 1                0          0       0               NA       NA
+## 2                1          4       0               NA       NA
+## 3                1          2       5               NA       NA
+## 4                1          0       2               NA       NA
+## 5                2          2       1               NA       NA
+## 6                1          0       1               NA       NA
 ##   toque_sacrificio elavado_sacrificio doble_matanza
-## 1                0                  0             0
-## 2                1                  0             0
-## 3                0                  0             0
-## 4                0                  0             0
-## 5                0                  0             0
-## 6                0                  0             0</code></pre>
+## 1               NA                 NA             0
+## 2               NA                 NA             0
+## 3               NA                 NA             1
+## 4               NA                 NA             0
+## 5               NA                 NA             0
+## 6               NA                 NA             0</code></pre>
 <div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="datos-relacionados.html#cb553-1" tabindex="-1"></a>Lahman<span class="sc">::</span>Batting <span class="sc">%&gt;%</span> </span>
 <span id="cb553-2"><a href="datos-relacionados.html#cb553-2" tabindex="-1"></a>  <span class="fu">count</span>(playerID) <span class="sc">%&gt;%</span> </span>
 <span id="cb553-3"><a href="datos-relacionados.html#cb553-3" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
@@ -848,7 +848,7 @@ ggplot2::diamonds</p>
 ## 3 aaronto01  7
 ## 4  aasedo01 13
 ## 5  abadan01  3
-## 6  abadfe01 12</code></pre>
+## 6  abadfe01 11</code></pre>
 <div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="datos-relacionados.html#cb555-1" tabindex="-1"></a>bateadores <span class="sc">%&gt;%</span></span>
 <span id="cb555-2"><a href="datos-relacionados.html#cb555-2" tabindex="-1"></a><span class="fu">count</span>(id_jugador,id_anio,orden_equipos) <span class="sc">%&gt;%</span></span>
 <span id="cb555-3"><a href="datos-relacionados.html#cb555-3" tabindex="-1"></a><span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
@@ -957,11 +957,11 @@ ggplot2::diamonds</p>
 <div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="datos-relacionados.html#cb580-1" tabindex="-1"></a><span class="fu">names</span>(Lahman<span class="sc">::</span>Salaries)</span></code></pre></div>
 <pre><code>## [1] &quot;yearID&quot;   &quot;teamID&quot;   &quot;lgID&quot;     &quot;playerID&quot; &quot;salary&quot;</code></pre>
 <div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="datos-relacionados.html#cb582-1" tabindex="-1"></a><span class="fu">names</span>(Lahman<span class="sc">::</span>People)</span></code></pre></div>
-<pre><code>##  [1] &quot;playerID&quot;     &quot;birthYear&quot;    &quot;birthMonth&quot;   &quot;birthDay&quot;     &quot;birthCity&quot;   
-##  [6] &quot;birthCountry&quot; &quot;birthState&quot;   &quot;deathYear&quot;    &quot;deathMonth&quot;   &quot;deathDay&quot;    
+<pre><code>##  [1] &quot;playerID&quot;     &quot;birthYear&quot;    &quot;birthMonth&quot;   &quot;birthDay&quot;     &quot;birthCountry&quot;
+##  [6] &quot;birthState&quot;   &quot;birthCity&quot;    &quot;deathYear&quot;    &quot;deathMonth&quot;   &quot;deathDay&quot;    
 ## [11] &quot;deathCountry&quot; &quot;deathState&quot;   &quot;deathCity&quot;    &quot;nameFirst&quot;    &quot;nameLast&quot;    
 ## [16] &quot;nameGiven&quot;    &quot;weight&quot;       &quot;height&quot;       &quot;bats&quot;         &quot;throws&quot;      
-## [21] &quot;debut&quot;        &quot;bbrefID&quot;      &quot;finalGame&quot;    &quot;retroID&quot;      &quot;deathDate&quot;   
+## [21] &quot;debut&quot;        &quot;finalGame&quot;    &quot;retroID&quot;      &quot;bbrefID&quot;      &quot;deathDate&quot;   
 ## [26] &quot;birthDate&quot;</code></pre>
 <hr />
 </div>
