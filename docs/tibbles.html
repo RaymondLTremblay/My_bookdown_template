@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo15 Tibbles | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo15 Tibbles | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2024-10-10" />
+<meta name="date" content="2024-10-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -456,7 +456,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.18" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#otro-tipos-de-patrones"><i class="fa fa-check"></i><b>20.18</b> Otro tipos de patrones</a></li>
 <li class="chapter" data-level="20.19" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#stringi"><i class="fa fa-check"></i><b>20.19</b> stringi:</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="hex-stickers.html"><a href="hex-stickers.html"><i class="fa fa-check"></i><b>21</b> Hex Stickers</a></li>
+<li class="chapter" data-level="21" data-path="hex-stickers.html"><a href="hex-stickers.html"><i class="fa fa-check"></i><b>21</b> Hex Stickers</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="hex-stickers.html"><a href="hex-stickers.html#la-función-y-los-valores-default"><i class="fa fa-check"></i><b>21.1</b> La función y los valores “default”</a></li>
+<li class="chapter" data-level="21.2" data-path="hex-stickers.html"><a href="hex-stickers.html#ejemplo-de-crear-un-hex-con-un-gatito"><i class="fa fa-check"></i><b>21.2</b> Ejemplo de Crear un Hex con un gatito</a></li>
+</ul></li>
 <li class="chapter" data-level="22" data-path="math-sci.html"><a href="math-sci.html"><i class="fa fa-check"></i><b>22</b> Ecuaciones Matemáticas</a>
 <ul>
 <li class="chapter" data-level="22.1" data-path="math-sci.html"><a href="math-sci.html#ecuaciones-matemática"><i class="fa fa-check"></i><b>22.1</b> Ecuaciones matemática</a>
@@ -609,7 +613,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="tibbles" class="section level1 hasAnchor" number="15">
 <h1><span class="header-section-number">Capítulo15</span> Tibbles<a href="tibbles.html#tibbles" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Fecha de la ultima revisión</p>
-<pre><code>## [1] &quot;2024-10-10&quot;</code></pre>
+<pre><code>## [1] &quot;2024-10-17&quot;</code></pre>
 <hr />
 <p>El tema proviene de los siguientes sitios.</p>
 <p>English:
@@ -686,31 +690,31 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 100 × 5
 ##    a                   b              c      d e    
 ##    &lt;dttm&gt;              &lt;date&gt;     &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;
-##  1 2024-10-10 17:05:09 2024-10-28     1 0.559  o    
-##  2 2024-10-10 23:34:23 2024-10-10     2 0.250  o    
-##  3 2024-10-10 18:28:00 2024-10-12     3 0.0653 d    
-##  4 2024-10-11 16:14:14 2024-10-11     4 0.573  v    
-##  5 2024-10-10 23:46:29 2024-11-01     5 0.651  k    
-##  6 2024-10-11 07:58:19 2024-10-21     6 0.581  p    
-##  7 2024-10-11 12:36:24 2024-11-03     7 0.0175 x    
-##  8 2024-10-11 11:36:23 2024-10-21     8 0.0133 f    
-##  9 2024-10-11 05:51:07 2024-10-24     9 0.661  c    
-## 10 2024-10-11 11:59:20 2024-11-02    10 0.380  y    
+##  1 2024-10-17 14:20:10 2024-11-04     1 0.559  o    
+##  2 2024-10-17 20:49:24 2024-10-17     2 0.250  o    
+##  3 2024-10-17 15:43:01 2024-10-19     3 0.0653 d    
+##  4 2024-10-18 13:29:15 2024-10-18     4 0.573  v    
+##  5 2024-10-17 21:01:30 2024-11-08     5 0.651  k    
+##  6 2024-10-18 05:13:20 2024-10-28     6 0.581  p    
+##  7 2024-10-18 09:51:25 2024-11-10     7 0.0175 x    
+##  8 2024-10-18 08:51:24 2024-10-28     8 0.0133 f    
+##  9 2024-10-18 03:06:08 2024-10-31     9 0.661  c    
+## 10 2024-10-18 09:14:21 2024-11-09    10 0.380  y    
 ## # ℹ 90 more rows</code></pre>
 <div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="tibbles.html#cb424-1" tabindex="-1"></a>tb <span class="sc">%&gt;%</span></span>
 <span id="cb424-2"><a href="tibbles.html#cb424-2" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">4</span>, <span class="at">width =</span> <span class="cn">Inf</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 100 × 5
 ##   a                   b              c      d e    
 ##   &lt;dttm&gt;              &lt;date&gt;     &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;
-## 1 2024-10-10 17:05:09 2024-10-28     1 0.559  o    
-## 2 2024-10-10 23:34:23 2024-10-10     2 0.250  o    
-## 3 2024-10-10 18:28:00 2024-10-12     3 0.0653 d    
-## 4 2024-10-11 16:14:14 2024-10-11     4 0.573  v    
+## 1 2024-10-17 14:20:10 2024-11-04     1 0.559  o    
+## 2 2024-10-17 20:49:24 2024-10-17     2 0.250  o    
+## 3 2024-10-17 15:43:01 2024-10-19     3 0.0653 d    
+## 4 2024-10-18 13:29:15 2024-10-18     4 0.573  v    
 ## # ℹ 96 more rows</code></pre>
 <div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="tibbles.html#cb426-1" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">now</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;2024-10-10 16:17:27 AST&quot;</code></pre>
+<pre><code>## [1] &quot;2024-10-17 13:32:28 AST&quot;</code></pre>
 <div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="tibbles.html#cb428-1" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">today</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;2024-10-10&quot;</code></pre>
+<pre><code>## [1] &quot;2024-10-17&quot;</code></pre>
 <div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="tibbles.html#cb430-1" tabindex="-1"></a><span class="fu">head</span>(vuelos)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 19
 ##    anio   mes   dia horario_salida salida_programada atraso_salida

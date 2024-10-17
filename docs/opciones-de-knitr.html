@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo24 Opciones de Knitr | Ciencia de Datos con R</title>
   <meta name="description" content="Este libro digital es una introdución al estudio de Biometría" />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo24 Opciones de Knitr | Ciencia de Datos con R" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2024-10-10" />
+<meta name="date" content="2024-10-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -456,7 +456,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.18" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#otro-tipos-de-patrones"><i class="fa fa-check"></i><b>20.18</b> Otro tipos de patrones</a></li>
 <li class="chapter" data-level="20.19" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#stringi"><i class="fa fa-check"></i><b>20.19</b> stringi:</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="hex-stickers.html"><a href="hex-stickers.html"><i class="fa fa-check"></i><b>21</b> Hex Stickers</a></li>
+<li class="chapter" data-level="21" data-path="hex-stickers.html"><a href="hex-stickers.html"><i class="fa fa-check"></i><b>21</b> Hex Stickers</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="hex-stickers.html"><a href="hex-stickers.html#la-función-y-los-valores-default"><i class="fa fa-check"></i><b>21.1</b> La función y los valores “default”</a></li>
+<li class="chapter" data-level="21.2" data-path="hex-stickers.html"><a href="hex-stickers.html#ejemplo-de-crear-un-hex-con-un-gatito"><i class="fa fa-check"></i><b>21.2</b> Ejemplo de Crear un Hex con un gatito</a></li>
+</ul></li>
 <li class="chapter" data-level="22" data-path="math-sci.html"><a href="math-sci.html"><i class="fa fa-check"></i><b>22</b> Ecuaciones Matemáticas</a>
 <ul>
 <li class="chapter" data-level="22.1" data-path="math-sci.html"><a href="math-sci.html#ecuaciones-matemática"><i class="fa fa-check"></i><b>22.1</b> Ecuaciones matemática</a>
@@ -608,7 +612,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="opciones-de-knitr" class="section level1 hasAnchor" number="24">
 <h1><span class="header-section-number">Capítulo24</span> Opciones de Knitr<a href="opciones-de-knitr.html#opciones-de-knitr" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<pre><code>## [1] &quot;2024-10-10&quot;</code></pre>
+<pre><code>## [1] &quot;2024-10-17&quot;</code></pre>
 <p>La mayoria de los ejemplos y ideas de esta seccieon proviene de <strong>yihui</strong> en el siguiente website &lt;<a href="https://yihui.org/knitr/" class="uri">https://yihui.org/knitr/</a>&gt;</p>
 <p>el paquete <strong>knitr</strong> fue desiñado para ser transparente para generar reporte de R, añadiendo componente de animación y Latex (Ecuaciones) y otras funciones.</p>
 <p>Hay muchas opciones para determinar lo que have un <strong>chunk</strong></p>
@@ -629,17 +633,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>Global R Options:</li>
 </ul>
 <p>Este <strong>chunk</strong> es para que la información de los chunk and la parte de <strong>knitr</strong> se vea.</p>
-<div class="sourceCode" id="cb988"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb988-1"><a href="opciones-de-knitr.html#cb988-1" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb988-2"><a href="opciones-de-knitr.html#cb988-2" tabindex="-1"></a>hook_chunk <span class="ot">=</span> knit_hooks<span class="sc">$</span><span class="fu">get</span>(<span class="st">&#39;chunk&#39;</span>)</span>
-<span id="cb988-3"><a href="opciones-de-knitr.html#cb988-3" tabindex="-1"></a>knit_hooks<span class="sc">$</span><span class="fu">set</span>(<span class="at">chunk =</span> <span class="cf">function</span>(x, options) {</span>
-<span id="cb988-4"><a href="opciones-de-knitr.html#cb988-4" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(options<span class="sc">$</span>echo_opts)) {</span>
-<span id="cb988-5"><a href="opciones-de-knitr.html#cb988-5" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">paste0</span>(<span class="st">&quot;```` ```{r &quot;</span>, options<span class="sc">$</span>params.src, <span class="st">&quot;} ````&quot;</span>, x, <span class="st">&quot;```` ``` ````&quot;</span>))</span>
-<span id="cb988-6"><a href="opciones-de-knitr.html#cb988-6" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb988-7"><a href="opciones-de-knitr.html#cb988-7" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">hook_chunk</span>(x, options)) <span class="co"># pass to default hook</span></span>
-<span id="cb988-8"><a href="opciones-de-knitr.html#cb988-8" tabindex="-1"></a>  }</span>
-<span id="cb988-9"><a href="opciones-de-knitr.html#cb988-9" tabindex="-1"></a>  })</span>
-<span id="cb988-10"><a href="opciones-de-knitr.html#cb988-10" tabindex="-1"></a></span>
-<span id="cb988-11"><a href="opciones-de-knitr.html#cb988-11" tabindex="-1"></a>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">eval.after =</span> <span class="st">&#39;fig.cap&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb992"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb992-1"><a href="opciones-de-knitr.html#cb992-1" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb992-2"><a href="opciones-de-knitr.html#cb992-2" tabindex="-1"></a>hook_chunk <span class="ot">=</span> knit_hooks<span class="sc">$</span><span class="fu">get</span>(<span class="st">&#39;chunk&#39;</span>)</span>
+<span id="cb992-3"><a href="opciones-de-knitr.html#cb992-3" tabindex="-1"></a>knit_hooks<span class="sc">$</span><span class="fu">set</span>(<span class="at">chunk =</span> <span class="cf">function</span>(x, options) {</span>
+<span id="cb992-4"><a href="opciones-de-knitr.html#cb992-4" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(options<span class="sc">$</span>echo_opts)) {</span>
+<span id="cb992-5"><a href="opciones-de-knitr.html#cb992-5" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">paste0</span>(<span class="st">&quot;```` ```{r &quot;</span>, options<span class="sc">$</span>params.src, <span class="st">&quot;} ````&quot;</span>, x, <span class="st">&quot;```` ``` ````&quot;</span>))</span>
+<span id="cb992-6"><a href="opciones-de-knitr.html#cb992-6" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb992-7"><a href="opciones-de-knitr.html#cb992-7" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">hook_chunk</span>(x, options)) <span class="co"># pass to default hook</span></span>
+<span id="cb992-8"><a href="opciones-de-knitr.html#cb992-8" tabindex="-1"></a>  }</span>
+<span id="cb992-9"><a href="opciones-de-knitr.html#cb992-9" tabindex="-1"></a>  })</span>
+<span id="cb992-10"><a href="opciones-de-knitr.html#cb992-10" tabindex="-1"></a></span>
+<span id="cb992-11"><a href="opciones-de-knitr.html#cb992-11" tabindex="-1"></a>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">eval.after =</span> <span class="st">&#39;fig.cap&#39;</span>)</span></code></pre></div>
 <p>Los ejemplos aquí serán limitado a las alternativas para los documentos <strong>.Rmd</strong></p>
 <ul>
 <li>Las opciones están escrita de forma de <strong>tag=selección de la alternativa</strong>.</li>
@@ -739,7 +743,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Comenzando con dandole un nombre al chunk “mi-chunk”</li>
 </ul>
-<div class="sourceCode" id="cb989"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb989-1"><a href="opciones-de-knitr.html#cb989-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb993"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb993-1"><a href="opciones-de-knitr.html#cb993-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <p>algun_nombre, echo=TRUE</p>
 <hr />
 <hr />
@@ -749,7 +753,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Nota aqui tengo include=FALSE, por consecuencia cuando se hace un knit, no se ve lo que hay en el chunk.<br />
 - Ahora cambialo a TRUE</p>
 <p><code>```{r include_true, include=TRUE, echo_opts=TRUE}</code></p>
-<div class="sourceCode" id="cb990"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb990-1"><a href="opciones-de-knitr.html#cb990-1" tabindex="-1"></a><span class="fu">head</span>(cars)</span></code></pre></div>
+<div class="sourceCode" id="cb994"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb994-1"><a href="opciones-de-knitr.html#cb994-1" tabindex="-1"></a><span class="fu">head</span>(cars)</span></code></pre></div>
 <pre><code>##   speed dist
 ## 1     4    2
 ## 2     4   10
@@ -762,12 +766,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>Añade una figura</p>
 <p><code>```{r cars, echo=TRUE, echo_opts=TRUE}</code></p>
-<div class="sourceCode" id="cb992"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb992-1"><a href="opciones-de-knitr.html#cb992-1" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div>
+<div class="sourceCode" id="cb996"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb996-1"><a href="opciones-de-knitr.html#cb996-1" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div>
 <p><img src="Ciencia-Datos-con-R_files/figure-html/cars-1.png" width="672" /><code>```</code></p>
 <hr />
 <hr />
 <p><code>```{r position_caption, fig.cap='El nombre de mi figure.', fig.topcaption=TRUE, echo_opts=TRUE}</code></p>
-<div class="sourceCode" id="cb993"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb993-1"><a href="opciones-de-knitr.html#cb993-1" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div>
+<div class="sourceCode" id="cb997"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb997-1"><a href="opciones-de-knitr.html#cb997-1" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div>
 <div class="figure">
 <p class="caption">
 (#fig:position_caption)El nombre de mi figure.
@@ -778,13 +782,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <hr />
 <p><code>```{r fig.cap= "An incredible figure", echo_opts=TRUE}</code></p>
-<div class="sourceCode" id="cb994"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb994-1"><a href="opciones-de-knitr.html#cb994-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb994-2"><a href="opciones-de-knitr.html#cb994-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
-<span id="cb994-3"><a href="opciones-de-knitr.html#cb994-3" tabindex="-1"></a></span>
-<span id="cb994-4"><a href="opciones-de-knitr.html#cb994-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
-<span id="cb994-5"><a href="opciones-de-knitr.html#cb994-5" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-353"></span>
-<img src="Ciencia-Datos-con-R_files/figure-html/unnamed-chunk-353-1.png" alt="An incredible figure" width="672" />
+<div class="sourceCode" id="cb998"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb998-1"><a href="opciones-de-knitr.html#cb998-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb998-2"><a href="opciones-de-knitr.html#cb998-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
+<span id="cb998-3"><a href="opciones-de-knitr.html#cb998-3" tabindex="-1"></a></span>
+<span id="cb998-4"><a href="opciones-de-knitr.html#cb998-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
+<span id="cb998-5"><a href="opciones-de-knitr.html#cb998-5" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-356"></span>
+<img src="Ciencia-Datos-con-R_files/figure-html/unnamed-chunk-356-1.png" alt="An incredible figure" width="672" />
 <p class="caption">
 Figure 24.1: An incredible figure
 </p>
@@ -805,13 +809,13 @@ Figure 24.2: An incredible figure
 <p>Figure aligment: default, left, right, and center</p>
 <p>fig.align</p>
 <p><code>```{r fig.cap= "caption", fig.width = 3, fig.height = 3, fig.align='right', echo_opts=TRUE}</code></p>
-<div class="sourceCode" id="cb995"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb995-1"><a href="opciones-de-knitr.html#cb995-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb995-2"><a href="opciones-de-knitr.html#cb995-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
-<span id="cb995-3"><a href="opciones-de-knitr.html#cb995-3" tabindex="-1"></a></span>
-<span id="cb995-4"><a href="opciones-de-knitr.html#cb995-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
-<span id="cb995-5"><a href="opciones-de-knitr.html#cb995-5" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-<div class="figure" style="text-align: right"><span style="display:block;" id="fig:unnamed-chunk-354"></span>
-<img src="Ciencia-Datos-con-R_files/figure-html/unnamed-chunk-354-1.png" alt="caption" width="288" />
+<div class="sourceCode" id="cb999"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb999-1"><a href="opciones-de-knitr.html#cb999-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb999-2"><a href="opciones-de-knitr.html#cb999-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
+<span id="cb999-3"><a href="opciones-de-knitr.html#cb999-3" tabindex="-1"></a></span>
+<span id="cb999-4"><a href="opciones-de-knitr.html#cb999-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
+<span id="cb999-5"><a href="opciones-de-knitr.html#cb999-5" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: right"><span style="display:block;" id="fig:unnamed-chunk-357"></span>
+<img src="Ciencia-Datos-con-R_files/figure-html/unnamed-chunk-357-1.png" alt="caption" width="288" />
 <p class="caption">
 Figure 24.3: caption
 </p>
@@ -827,10 +831,10 @@ Figure 24.3: caption
 <div id="r-markdown-wrapping" class="section level5 hasAnchor" number="24.1.0.0.1">
 <h5><span class="header-section-number">24.1.0.0.1</span> R Markdown wrapping<a href="opciones-de-knitr.html#r-markdown-wrapping" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div style="float:right;position: relative; top: -20px;">
-<div class="sourceCode" id="cb996"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb996-1"><a href="opciones-de-knitr.html#cb996-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
-<span id="cb996-2"><a href="opciones-de-knitr.html#cb996-2" tabindex="-1"></a></span>
-<span id="cb996-3"><a href="opciones-de-knitr.html#cb996-3" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
-<span id="cb996-4"><a href="opciones-de-knitr.html#cb996-4" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1000"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1000-1"><a href="opciones-de-knitr.html#cb1000-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">letters =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">value =</span> <span class="dv">1</span>)</span>
+<span id="cb1000-2"><a href="opciones-de-knitr.html#cb1000-2" tabindex="-1"></a></span>
+<span id="cb1000-3"><a href="opciones-de-knitr.html#cb1000-3" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(letters, value, <span class="at">fill =</span> letters)) <span class="sc">+</span></span>
+<span id="cb1000-4"><a href="opciones-de-knitr.html#cb1000-4" tabindex="-1"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: right"><span style="display:block;" id="fig:pressure"></span>
 <img src="Ciencia-Datos-con-R_files/figure-html/pressure-1.png" alt="caption" width="249.6" />
 <p class="caption">
@@ -855,12 +859,12 @@ Figure 24.4: caption
 <li>results = ‘asis’ To show text exactly as printed/written</li>
 </ul>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode" id="cb998"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb998-1"><a href="opciones-de-knitr.html#cb998-1" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
-<div class="sourceCode" id="cb999"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb999-1"><a href="opciones-de-knitr.html#cb999-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb999-2"><a href="opciones-de-knitr.html#cb999-2" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
-<div class="sourceCode" id="cb1000"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1000-1"><a href="opciones-de-knitr.html#cb1000-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;I&#39;m raw **Markdown** content.</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb1000-2"><a href="opciones-de-knitr.html#cb1000-2" tabindex="-1"></a>    </span>
-<span id="cb1000-3"><a href="opciones-de-knitr.html#cb1000-3" tabindex="-1"></a>                         <span class="st">&quot;My poetry of Puerto Rico</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1002"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1002-1"><a href="opciones-de-knitr.html#cb1002-1" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
+<div class="sourceCode" id="cb1003"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1003-1"><a href="opciones-de-knitr.html#cb1003-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1003-2"><a href="opciones-de-knitr.html#cb1003-2" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
+<div class="sourceCode" id="cb1004"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1004-1"><a href="opciones-de-knitr.html#cb1004-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;I&#39;m raw **Markdown** content.</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb1004-2"><a href="opciones-de-knitr.html#cb1004-2" tabindex="-1"></a>    </span>
+<span id="cb1004-3"><a href="opciones-de-knitr.html#cb1004-3" tabindex="-1"></a>                         <span class="st">&quot;My poetry of Puerto Rico</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
 <p>I’m raw <strong>Markdown</strong> content.
 My poetry of Puerto Rico</p>
 <hr />

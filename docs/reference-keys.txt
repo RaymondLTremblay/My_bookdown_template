@@ -1,8 +1,8 @@
 eq:reaction
 eq:promedio
-fig:unnamed-chunk-353
+fig:unnamed-chunk-356
 fig:ggplot
-fig:unnamed-chunk-354
+fig:unnamed-chunk-357
 fig:pressure
 ciencia-de-datos-con-r
 horario-de-clase
@@ -238,6 +238,8 @@ divisiones
 otro-tipos-de-patrones
 stringi
 hex-stickers
+la-función-y-los-valores-default
+ejemplo-de-crear-un-hex-con-un-gatito
 math-sci
 ecuaciones-matemática
 matemática-y-física

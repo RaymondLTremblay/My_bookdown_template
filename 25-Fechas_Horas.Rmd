@@ -188,7 +188,7 @@ Los resultados se pueden visualizar usando `ggplot2`
 
 ```{r}
 nueva_fechas %>%
-  mutate(dias = fecha %--% today() / days()) %>%
+  mutate(dias = fecha %--% today() / years()) %>%
   ggplot() +
   geom_col(aes(codigo, dias)) +
   coord_flip()
@@ -227,7 +227,9 @@ El objeto de duración de tiempo se puede filtrar fácilmente basado en una vari
 ```{r}
 nueva_fechas %>%
   mutate(desde_hoy = as.duration(fecha %--% today())) %>%
-  filter(desde_hoy > dyears(100))
+  filter(desde_hoy < ddays(2000))
+
+5*365
 ```
 
 Otra opción es `ddays()`. 
@@ -327,7 +329,7 @@ vuelos %>%
 Datos_raros=tribble(~Ind, ~fechas,
                     1, "1/1/30",
                     2, "1/30/01",
-                    3, "1/30/09",)
+                    3, "1/30/09")
 
 Datos_raros 
 ```
@@ -335,10 +337,10 @@ Datos_raros
  
 ```{r}
 Datos_raros %>%
-  mutate(fecha = mdy(fechas))
+  mutate(nueva_fecha = mdy(fechas))
 
 
-Datos_raros$fecha2=as.Date(as.Date(format(as.Date(Datos_raros$fechas, format="%m/%d/%Y"), "19%y%m%d"), "%Y%d%d"))
+Datos_raros$fecha2=as.Date(as.Date(format(as.Date(Datos_raros$fechas, format="%m/%d/%Y"), "19%y%m%d"), "%Y%m%d"))
 
 Datos_raros
 
