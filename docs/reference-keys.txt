@@ -1,8 +1,8 @@
 eq:reaction
 eq:promedio
-fig:unnamed-chunk-358
+fig:unnamed-chunk-356
 fig:ggplot
-fig:unnamed-chunk-359
+fig:unnamed-chunk-357
 fig:pressure
 ciencia-de-datos-con-r
 horario-de-clase
@@ -201,7 +201,6 @@ problemas-con-las-uniones
 datos-ordenados
 temas-datos-ordenados
 el-paquete-tidyr
-hex-stickers
 factores-1
 qué-ocurrio-en-el-gráfico
 usando-la-funciones-factor-y-levels-estamos-asignando-los-factores-a-un-nivel-específico-en-el-orden-de-la-lista
@@ -238,7 +237,7 @@ remplazar-coincidencias
 divisiones
 otro-tipos-de-patrones
 stringi
-hex-stickers-1
+hex-stickers
 la-función-y-los-valores-default
 ejemplo-de-crear-un-hex-con-un-gatito
 math-sci
