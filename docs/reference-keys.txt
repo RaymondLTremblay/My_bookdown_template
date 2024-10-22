@@ -227,6 +227,8 @@ cambiar-a-mayuscula
 locales
 buscar-patrones
 coincidencia-básica
+detectar-las-palabras-que-comienzan-con-una-letra-específica-con
+detectar-las-palabras-que-terminan-con-una-letra-específica-con
 anclas
 clases-de-caracteres-y-alternativas
 repetición

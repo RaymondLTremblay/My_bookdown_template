@@ -526,8 +526,7 @@ Hacer los ejercicios en la sección 14.3.3.1 del libro en español
 sustantivo <- "(el|la|los|las|lo|un|una|unos|unas) ([^ ]+)"
 
 tiene_sustantivo <- oraciones %>%
-  str_subset(sustantivo) %>%
-  head(10)
+  str_subset(sustantivo)
 
 #tiene_sustantivo
 tiene_sustantivo %>% 

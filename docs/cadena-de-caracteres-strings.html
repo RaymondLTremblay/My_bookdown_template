@@ -446,7 +446,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="21.5" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#locales"><i class="fa fa-check"></i><b>21.5</b> Locales</a></li>
 <li class="chapter" data-level="21.6" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#buscar-patrones"><i class="fa fa-check"></i><b>21.6</b> Buscar patrones</a></li>
-<li class="chapter" data-level="21.7" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#coincidencia-básica"><i class="fa fa-check"></i><b>21.7</b> Coincidencia básica</a></li>
+<li class="chapter" data-level="21.7" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#coincidencia-básica"><i class="fa fa-check"></i><b>21.7</b> Coincidencia básica</a>
+<ul>
+<li class="chapter" data-level="21.7.1" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#detectar-las-palabras-que-comienzan-con-una-letra-específica-con"><i class="fa fa-check"></i><b>21.7.1</b> Detectar las palabras que comienzan con una letra específica con “^”</a></li>
+<li class="chapter" data-level="21.7.2" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#detectar-las-palabras-que-terminan-con-una-letra-específica-con"><i class="fa fa-check"></i><b>21.7.2</b> Detectar las palabras que terminan con una letra específica con “$”</a></li>
+</ul></li>
 <li class="chapter" data-level="21.8" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#anclas"><i class="fa fa-check"></i><b>21.8</b> Anclas</a></li>
 <li class="chapter" data-level="21.9" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#clases-de-caracteres-y-alternativas"><i class="fa fa-check"></i><b>21.9</b> Clases de caracteres y alternativas</a></li>
 <li class="chapter" data-level="21.10" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#repetición"><i class="fa fa-check"></i><b>21.10</b> Repetición</a></li>
@@ -801,7 +805,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1]  TRUE FALSE FALSE FALSE  TRUE</code></pre>
 <div class="sourceCode" id="cb785"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb785-1"><a href="cadena-de-caracteres-strings.html#cb785-1" tabindex="-1"></a><span class="fu">str_detect</span>(x, <span class="st">&quot;ñ&quot;</span>)</span></code></pre></div>
 <pre><code>## [1]  TRUE FALSE FALSE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb787"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb787-1"><a href="cadena-de-caracteres-strings.html#cb787-1" tabindex="-1"></a><span class="co"># ¿Cuántas palabras comunes empiezan con m?</span></span>
+<div id="detectar-las-palabras-que-comienzan-con-una-letra-específica-con" class="section level3 hasAnchor" number="21.7.1">
+<h3><span class="header-section-number">21.7.1</span> Detectar las palabras que comienzan con una letra específica con “^”<a href="cadena-de-caracteres-strings.html#detectar-las-palabras-que-comienzan-con-una-letra-específica-con" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb787"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb787-1"><a href="cadena-de-caracteres-strings.html#cb787-1" tabindex="-1"></a><span class="co"># ¿Cuántas palabras comunes empiezan con m o M?</span></span>
 <span id="cb787-2"><a href="cadena-de-caracteres-strings.html#cb787-2" tabindex="-1"></a><span class="co"># str_detect(x, &quot;^M&quot;)</span></span>
 <span id="cb787-3"><a href="cadena-de-caracteres-strings.html#cb787-3" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] &quot;Piña&quot;    &quot;Manzana&quot; &quot;Toronja&quot; &quot;Jugo&quot;    &quot;Monique&quot;</code></pre>
@@ -809,6 +815,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] 0</code></pre>
 <div class="sourceCode" id="cb791"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb791-1"><a href="cadena-de-caracteres-strings.html#cb791-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">str_detect</span>(x, <span class="st">&quot;^M&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
+</div>
+<div id="detectar-las-palabras-que-terminan-con-una-letra-específica-con" class="section level3 hasAnchor" number="21.7.2">
+<h3><span class="header-section-number">21.7.2</span> Detectar las palabras que terminan con una letra específica con “$”<a href="cadena-de-caracteres-strings.html#detectar-las-palabras-que-terminan-con-una-letra-específica-con" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb793"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb793-1"><a href="cadena-de-caracteres-strings.html#cb793-1" tabindex="-1"></a><span class="co"># ¿Qué proporción de palabras comunes terminan con una vocal?</span></span>
 <span id="cb793-2"><a href="cadena-de-caracteres-strings.html#cb793-2" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">str_detect</span>(x, <span class="st">&quot;[aáeéiéoéuú]$&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
@@ -820,7 +829,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Cuentas palabras tiene ese archivo?</p></li>
 </ul>
 <div class="sourceCode" id="cb797"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb797-1"><a href="cadena-de-caracteres-strings.html#cb797-1" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb797-2"><a href="cadena-de-caracteres-strings.html#cb797-2" tabindex="-1"></a>palabras</span></code></pre></div>
+<span id="cb797-2"><a href="cadena-de-caracteres-strings.html#cb797-2" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
+<span id="cb797-3"><a href="cadena-de-caracteres-strings.html#cb797-3" tabindex="-1"></a>palabras</span></code></pre></div>
 <pre><code>##    [1] &quot;a&quot;               &quot;abril&quot;           &quot;acción&quot;          &quot;acciones&quot;       
 ##    [5] &quot;acerca&quot;          &quot;actitud&quot;         &quot;actividad&quot;       &quot;actividades&quot;    
 ##    [9] &quot;acto&quot;            &quot;actual&quot;          &quot;acuerdo&quot;         &quot;adelante&quot;       
@@ -1075,28 +1085,112 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb799-2"><a href="cadena-de-caracteres-strings.html#cb799-2" tabindex="-1"></a>sin_vocales_1 <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">str_detect</span>(palabras, <span class="st">&quot;[aáeéiíoóuúúü]&quot;</span>)</span>
 <span id="cb799-3"><a href="cadena-de-caracteres-strings.html#cb799-3" tabindex="-1"></a></span>
 <span id="cb799-4"><a href="cadena-de-caracteres-strings.html#cb799-4" tabindex="-1"></a></span>
-<span id="cb799-5"><a href="cadena-de-caracteres-strings.html#cb799-5" tabindex="-1"></a></span>
-<span id="cb799-6"><a href="cadena-de-caracteres-strings.html#cb799-6" tabindex="-1"></a></span>
-<span id="cb799-7"><a href="cadena-de-caracteres-strings.html#cb799-7" tabindex="-1"></a><span class="co"># Encuentra todas las palabras consistentes solo en consonantes (no vocales)</span></span>
-<span id="cb799-8"><a href="cadena-de-caracteres-strings.html#cb799-8" tabindex="-1"></a>sin_vocales_2 <span class="ot">&lt;-</span> <span class="fu">str_detect</span>(palabras, <span class="st">&quot;^[^aáeéiíoóuúúü]+$&quot;</span>)</span>
-<span id="cb799-9"><a href="cadena-de-caracteres-strings.html#cb799-9" tabindex="-1"></a></span>
-<span id="cb799-10"><a href="cadena-de-caracteres-strings.html#cb799-10" tabindex="-1"></a><span class="fu">identical</span>(sin_vocales_1, sin_vocales_2)</span></code></pre></div>
+<span id="cb799-5"><a href="cadena-de-caracteres-strings.html#cb799-5" tabindex="-1"></a>sin_vocales_1</span></code></pre></div>
+<pre><code>##    [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##   [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##   [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##   [37] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##   [49] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##   [61] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##   [73] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##   [85] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
+##   [97] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [109] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [121] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [133] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [145] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [157] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [169] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [181] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [193] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [205] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [217] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [229] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [241] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [253] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [265] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [277] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [289] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [301] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [313] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [325] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [337] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [349] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [361] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [373] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [385] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [397] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [409] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [421] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [433] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [445] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [457] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [469] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [481] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [493] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [505] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [517] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [529] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [541] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [553] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [565] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [577] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [589] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [601] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [613] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [625] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [637] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+##  [649] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [661] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [673] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [685] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [697] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [709] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+##  [721] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [733] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [745] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [757] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [769] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [781] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [793] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [805] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+##  [817] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [829] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [841] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [853] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [865] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [877] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [889] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [901] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [913] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [925] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [937] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [949] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [961] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [973] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [985] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
+##  [997] FALSE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb801"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb801-1"><a href="cadena-de-caracteres-strings.html#cb801-1" tabindex="-1"></a><span class="co"># Encuentra todas las palabras consistentes solo en consonantes (no vocales)</span></span>
+<span id="cb801-2"><a href="cadena-de-caracteres-strings.html#cb801-2" tabindex="-1"></a>sin_vocales_2 <span class="ot">&lt;-</span> <span class="fu">str_detect</span>(palabras, <span class="st">&quot;^[^aáeéiíoóuúúü]+$&quot;</span>)</span>
+<span id="cb801-3"><a href="cadena-de-caracteres-strings.html#cb801-3" tabindex="-1"></a></span>
+<span id="cb801-4"><a href="cadena-de-caracteres-strings.html#cb801-4" tabindex="-1"></a><span class="fu">identical</span>(sin_vocales_1, sin_vocales_2)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Suma la cantidad de palabras que no tienen vocales?</p>
-<div class="sourceCode" id="cb801"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb801-1"><a href="cadena-de-caracteres-strings.html#cb801-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb801-2"><a href="cadena-de-caracteres-strings.html#cb801-2" tabindex="-1"></a>  <span class="at">palabra =</span> palabras, </span>
-<span id="cb801-3"><a href="cadena-de-caracteres-strings.html#cb801-3" tabindex="-1"></a>  <span class="at">i =</span> <span class="fu">seq_along</span>(palabra)</span>
-<span id="cb801-4"><a href="cadena-de-caracteres-strings.html#cb801-4" tabindex="-1"></a>) <span class="do">## poner los datos en un dataframe </span></span>
-<span id="cb801-5"><a href="cadena-de-caracteres-strings.html#cb801-5" tabindex="-1"></a></span>
-<span id="cb801-6"><a href="cadena-de-caracteres-strings.html#cb801-6" tabindex="-1"></a></span>
-<span id="cb801-7"><a href="cadena-de-caracteres-strings.html#cb801-7" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb801-8"><a href="cadena-de-caracteres-strings.html#cb801-8" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(palabras, <span class="st">&quot;x$&quot;</span>)) <span class="co"># filtrar todas la palabras para solamente las terminan en **x**</span></span></code></pre></div>
+<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb803-1"><a href="cadena-de-caracteres-strings.html#cb803-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb803-2"><a href="cadena-de-caracteres-strings.html#cb803-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb803-3"><a href="cadena-de-caracteres-strings.html#cb803-3" tabindex="-1"></a>  <span class="at">palabra =</span> palabras, </span>
+<span id="cb803-4"><a href="cadena-de-caracteres-strings.html#cb803-4" tabindex="-1"></a>  <span class="at">i =</span> <span class="fu">seq_along</span>(palabra)</span>
+<span id="cb803-5"><a href="cadena-de-caracteres-strings.html#cb803-5" tabindex="-1"></a>) <span class="do">## poner los datos en un dataframe </span></span>
+<span id="cb803-6"><a href="cadena-de-caracteres-strings.html#cb803-6" tabindex="-1"></a></span>
+<span id="cb803-7"><a href="cadena-de-caracteres-strings.html#cb803-7" tabindex="-1"></a></span>
+<span id="cb803-8"><a href="cadena-de-caracteres-strings.html#cb803-8" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb803-9"><a href="cadena-de-caracteres-strings.html#cb803-9" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(palabras, <span class="st">&quot;x$&quot;</span>)) <span class="co"># filtrar todas la palabras para solamente las terminan en **x**</span></span></code></pre></div>
 <pre><code>## # A tibble: 1 × 2
 ##   palabra     i
 ##   &lt;chr&gt;   &lt;int&gt;
 ## 1 ex        338</code></pre>
-<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb803-1"><a href="cadena-de-caracteres-strings.html#cb803-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb803-2"><a href="cadena-de-caracteres-strings.html#cb803-2" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(palabras, <span class="st">&quot;z$&quot;</span>)) <span class="co"># filtrar todas la palabras para solamente las terminan en **z**</span></span></code></pre></div>
+<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb805-1"><a href="cadena-de-caracteres-strings.html#cb805-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb805-2"><a href="cadena-de-caracteres-strings.html#cb805-2" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(palabras, <span class="st">&quot;z$&quot;</span>)) <span class="co"># filtrar todas la palabras para solamente las terminan en **z**</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 2
 ##    palabra       i
 ##    &lt;chr&gt;     &lt;int&gt;
@@ -1110,20 +1204,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##  8 rodríguez   812
 ##  9 vez         975
 ## 10 voz         993</code></pre>
-<p>Contar cuantas palabras tienen “a”</p>
-<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb805-1"><a href="cadena-de-caracteres-strings.html#cb805-1" tabindex="-1"></a>x<span class="ot">=</span> <span class="fu">c</span>( <span class="st">&quot;Piña&quot;</span>, <span class="st">&quot;Manzana&quot;</span>, <span class="st">&quot;Toronja&quot;</span>, <span class="st">&quot;Jugo&quot;</span>)</span>
-<span id="cb805-2"><a href="cadena-de-caracteres-strings.html#cb805-2" tabindex="-1"></a><span class="fu">str_count</span>(x, <span class="st">&quot;a&quot;</span>)</span></code></pre></div>
+<p>Contar cuantas “a” hay en cada palabra</p>
+<div class="sourceCode" id="cb807"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb807-1"><a href="cadena-de-caracteres-strings.html#cb807-1" tabindex="-1"></a>x<span class="ot">=</span> <span class="fu">c</span>( <span class="st">&quot;Piña&quot;</span>, <span class="st">&quot;Manzana&quot;</span>, <span class="st">&quot;Toronja&quot;</span>, <span class="st">&quot;Jugo&quot;</span>)</span>
+<span id="cb807-2"><a href="cadena-de-caracteres-strings.html#cb807-2" tabindex="-1"></a><span class="fu">str_count</span>(x, <span class="st">&quot;a&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 1 3 1 0</code></pre>
-<div class="sourceCode" id="cb807"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb807-1"><a href="cadena-de-caracteres-strings.html#cb807-1" tabindex="-1"></a><span class="co"># En promedio, ¿cuántas vocales hay por palabra?</span></span>
-<span id="cb807-2"><a href="cadena-de-caracteres-strings.html#cb807-2" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">str_count</span>(palabras, <span class="st">&quot;[aáeéiíoóuúü]&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb809"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb809-1"><a href="cadena-de-caracteres-strings.html#cb809-1" tabindex="-1"></a><span class="co"># En promedio, ¿cuántas vocales hay por palabra?</span></span>
+<span id="cb809-2"><a href="cadena-de-caracteres-strings.html#cb809-2" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">str_count</span>(palabras, <span class="st">&quot;[aáeéiíoóuúü]&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] 2.72</code></pre>
-<div class="sourceCode" id="cb809"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb809-1"><a href="cadena-de-caracteres-strings.html#cb809-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">str_count</span>(palabras, <span class="st">&quot;[x]&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb811-1"><a href="cadena-de-caracteres-strings.html#cb811-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">str_count</span>(palabras, <span class="st">&quot;[x]&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] 0.013</code></pre>
-<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb811-1"><a href="cadena-de-caracteres-strings.html#cb811-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb811-2"><a href="cadena-de-caracteres-strings.html#cb811-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb811-3"><a href="cadena-de-caracteres-strings.html#cb811-3" tabindex="-1"></a>    <span class="at">vocales =</span> <span class="fu">str_count</span>(palabra, <span class="st">&quot;[aáeéiíoóuúü]&quot;</span>), <span class="co"># Cuenta cuantas vocales </span></span>
-<span id="cb811-4"><a href="cadena-de-caracteres-strings.html#cb811-4" tabindex="-1"></a>    <span class="at">consonantes =</span> <span class="fu">str_count</span>(palabra, <span class="st">&quot;[^aáeéiíoóuúü]&quot;</span>) <span class="co"># cuenta cuantos consonantes</span></span>
-<span id="cb811-5"><a href="cadena-de-caracteres-strings.html#cb811-5" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb813"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb813-1"><a href="cadena-de-caracteres-strings.html#cb813-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb813-2"><a href="cadena-de-caracteres-strings.html#cb813-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb813-3"><a href="cadena-de-caracteres-strings.html#cb813-3" tabindex="-1"></a>    <span class="at">vocales =</span> <span class="fu">str_count</span>(palabra, <span class="st">&quot;[aáeéiíoóuúü]&quot;</span>), <span class="co"># Cuenta cuantas vocales </span></span>
+<span id="cb813-4"><a href="cadena-de-caracteres-strings.html#cb813-4" tabindex="-1"></a>    <span class="at">consonantes =</span> <span class="fu">str_count</span>(palabra, <span class="st">&quot;[^aáeéiíoóuúü]&quot;</span>) <span class="co"># cuenta cuantos consonantes</span></span>
+<span id="cb813-5"><a href="cadena-de-caracteres-strings.html#cb813-5" tabindex="-1"></a>  )</span></code></pre></div>
 <pre><code>## # A tibble: 1,000 × 4
 ##    palabra         i vocales consonantes
 ##    &lt;chr&gt;       &lt;int&gt;   &lt;int&gt;       &lt;int&gt;
@@ -1147,6 +1241,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Hacer los ejercicios en la sección 14.2.7.1 del libro en español</p>
 <hr />
 </div>
+</div>
 <div id="anclas" class="section level2 hasAnchor" number="21.8">
 <h2><span class="header-section-number">21.8</span> Anclas<a href="cadena-de-caracteres-strings.html#anclas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
@@ -1168,7 +1263,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><p>[^abc]</p></li>
 <li><p>$ . | ? * + ( ) [ {</p></li>
 </ul>
-<div class="sourceCode" id="cb813"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb813-1"><a href="cadena-de-caracteres-strings.html#cb813-1" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">&quot;cómo&quot;</span>, <span class="st">&quot;como&quot;</span>, <span class="st">&quot;Raymond&quot;</span>), <span class="st">&quot;c(ó|o)mo&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb815"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb815-1"><a href="cadena-de-caracteres-strings.html#cb815-1" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">&quot;cómo&quot;</span>, <span class="st">&quot;como&quot;</span>, <span class="st">&quot;Raymond&quot;</span>), <span class="st">&quot;c(ó|o)mo&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] │ &lt;cómo&gt;
 ## [2] │ &lt;como&gt;</code></pre>
 <ol start="4" style="list-style-type: decimal">
@@ -1222,20 +1317,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>str_detect(x, “e”)</li>
 </ul>
-<div class="sourceCode" id="cb815"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb815-1"><a href="cadena-de-caracteres-strings.html#cb815-1" tabindex="-1"></a><span class="fu">library</span>(datos) </span>
-<span id="cb815-2"><a href="cadena-de-caracteres-strings.html#cb815-2" tabindex="-1"></a><span class="co">#fruit</span></span>
-<span id="cb815-3"><a href="cadena-de-caracteres-strings.html#cb815-3" tabindex="-1"></a><span class="fu">head</span>(palabras)</span></code></pre></div>
+<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb817-1"><a href="cadena-de-caracteres-strings.html#cb817-1" tabindex="-1"></a><span class="fu">library</span>(datos) </span>
+<span id="cb817-2"><a href="cadena-de-caracteres-strings.html#cb817-2" tabindex="-1"></a><span class="co">#fruit</span></span>
+<span id="cb817-3"><a href="cadena-de-caracteres-strings.html#cb817-3" tabindex="-1"></a><span class="fu">head</span>(palabras)</span></code></pre></div>
 <pre><code>## [1] &quot;a&quot;        &quot;abril&quot;    &quot;acción&quot;   &quot;acciones&quot; &quot;acerca&quot;   &quot;actitud&quot;</code></pre>
-<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb817-1"><a href="cadena-de-caracteres-strings.html#cb817-1" tabindex="-1"></a><span class="co"># Encuentra todas las palabras que contengan al menos una vocal, y luego niégalo</span></span>
-<span id="cb817-2"><a href="cadena-de-caracteres-strings.html#cb817-2" tabindex="-1"></a>sin_vocales_1 <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">str_detect</span>(palabras, <span class="st">&quot;[aáeéiíoóuúúü]&quot;</span>)</span>
-<span id="cb817-3"><a href="cadena-de-caracteres-strings.html#cb817-3" tabindex="-1"></a></span>
-<span id="cb817-4"><a href="cadena-de-caracteres-strings.html#cb817-4" tabindex="-1"></a><span class="co">#sin_vocales_1</span></span>
-<span id="cb817-5"><a href="cadena-de-caracteres-strings.html#cb817-5" tabindex="-1"></a><span class="co"># Encuentra todas las palabras consistentes solo en consonantes (no vocales)</span></span>
-<span id="cb817-6"><a href="cadena-de-caracteres-strings.html#cb817-6" tabindex="-1"></a>sin_vocales_2 <span class="ot">&lt;-</span> <span class="fu">str_detect</span>(palabras, <span class="st">&quot;^[^aáeéiíoóuúúü]+$&quot;</span>)</span>
-<span id="cb817-7"><a href="cadena-de-caracteres-strings.html#cb817-7" tabindex="-1"></a><span class="co">#sin_vocales_1</span></span>
-<span id="cb817-8"><a href="cadena-de-caracteres-strings.html#cb817-8" tabindex="-1"></a><span class="fu">identical</span>(sin_vocales_1, sin_vocales_2)</span></code></pre></div>
+<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb819-1"><a href="cadena-de-caracteres-strings.html#cb819-1" tabindex="-1"></a><span class="co"># Encuentra todas las palabras que contengan al menos una vocal, y luego niégalo</span></span>
+<span id="cb819-2"><a href="cadena-de-caracteres-strings.html#cb819-2" tabindex="-1"></a>sin_vocales_1 <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">str_detect</span>(palabras, <span class="st">&quot;[aáeéiíoóuúúü]&quot;</span>)</span>
+<span id="cb819-3"><a href="cadena-de-caracteres-strings.html#cb819-3" tabindex="-1"></a></span>
+<span id="cb819-4"><a href="cadena-de-caracteres-strings.html#cb819-4" tabindex="-1"></a><span class="co">#sin_vocales_1</span></span>
+<span id="cb819-5"><a href="cadena-de-caracteres-strings.html#cb819-5" tabindex="-1"></a><span class="co"># Encuentra todas las palabras consistentes solo en consonantes (no vocales)</span></span>
+<span id="cb819-6"><a href="cadena-de-caracteres-strings.html#cb819-6" tabindex="-1"></a>sin_vocales_2 <span class="ot">&lt;-</span> <span class="fu">str_detect</span>(palabras, <span class="st">&quot;^[^aáeéiíoóuúúü]+$&quot;</span>)</span>
+<span id="cb819-7"><a href="cadena-de-caracteres-strings.html#cb819-7" tabindex="-1"></a><span class="co">#sin_vocales_1</span></span>
+<span id="cb819-8"><a href="cadena-de-caracteres-strings.html#cb819-8" tabindex="-1"></a><span class="fu">identical</span>(sin_vocales_1, sin_vocales_2)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb819-1"><a href="cadena-de-caracteres-strings.html#cb819-1" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb821-1"><a href="cadena-de-caracteres-strings.html#cb821-1" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <ul>
 <li>str_subset()</li>
 <li>seq_along()</li>
@@ -1265,19 +1360,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>str_match*</li>
 </ul>
-<div class="sourceCode" id="cb820"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb820-1"><a href="cadena-de-caracteres-strings.html#cb820-1" tabindex="-1"></a>sustantivo <span class="ot">&lt;-</span> <span class="st">&quot;(el|la|los|las|lo|un|una|unos|unas) ([^ ]+)&quot;</span></span>
-<span id="cb820-2"><a href="cadena-de-caracteres-strings.html#cb820-2" tabindex="-1"></a></span>
-<span id="cb820-3"><a href="cadena-de-caracteres-strings.html#cb820-3" tabindex="-1"></a>tiene_sustantivo <span class="ot">&lt;-</span> oraciones <span class="sc">%&gt;%</span></span>
-<span id="cb820-4"><a href="cadena-de-caracteres-strings.html#cb820-4" tabindex="-1"></a>  <span class="fu">str_subset</span>(sustantivo) <span class="sc">%&gt;%</span></span>
-<span id="cb820-5"><a href="cadena-de-caracteres-strings.html#cb820-5" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
-<span id="cb820-6"><a href="cadena-de-caracteres-strings.html#cb820-6" tabindex="-1"></a></span>
-<span id="cb820-7"><a href="cadena-de-caracteres-strings.html#cb820-7" tabindex="-1"></a><span class="co">#tiene_sustantivo</span></span>
-<span id="cb820-8"><a href="cadena-de-caracteres-strings.html#cb820-8" tabindex="-1"></a>tiene_sustantivo <span class="sc">%&gt;%</span> </span>
-<span id="cb820-9"><a href="cadena-de-caracteres-strings.html#cb820-9" tabindex="-1"></a>  <span class="fu">str_extract</span>(sustantivo)</span></code></pre></div>
-<pre><code>##  [1] &quot;los de&quot;      &quot;el camión&quot;   &quot;la mejor&quot;    &quot;la cuenta&quot;   &quot;las ruinas.&quot;
-##  [6] &quot;la hoja&quot;     &quot;la cocina.&quot;  &quot;la taza&quot;     &quot;el tanque.&quot;  &quot;el calor&quot;</code></pre>
-<div class="sourceCode" id="cb822"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb822-1"><a href="cadena-de-caracteres-strings.html#cb822-1" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;los de&quot;      &quot;el camión&quot;   &quot;la mejor&quot;    &quot;la cuenta&quot;   &quot;las ruinas.&quot;</span></span>
-<span id="cb822-2"><a href="cadena-de-caracteres-strings.html#cb822-2" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;la hoja&quot;     &quot;la cocina.&quot;  &quot;la taza&quot;     &quot;el tanque.&quot;  &quot;el calor&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb822"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb822-1"><a href="cadena-de-caracteres-strings.html#cb822-1" tabindex="-1"></a>sustantivo <span class="ot">&lt;-</span> <span class="st">&quot;(el|la|los|las|lo|un|una|unos|unas) ([^ ]+)&quot;</span></span>
+<span id="cb822-2"><a href="cadena-de-caracteres-strings.html#cb822-2" tabindex="-1"></a></span>
+<span id="cb822-3"><a href="cadena-de-caracteres-strings.html#cb822-3" tabindex="-1"></a>tiene_sustantivo <span class="ot">&lt;-</span> oraciones <span class="sc">%&gt;%</span></span>
+<span id="cb822-4"><a href="cadena-de-caracteres-strings.html#cb822-4" tabindex="-1"></a>  <span class="fu">str_subset</span>(sustantivo)</span>
+<span id="cb822-5"><a href="cadena-de-caracteres-strings.html#cb822-5" tabindex="-1"></a></span>
+<span id="cb822-6"><a href="cadena-de-caracteres-strings.html#cb822-6" tabindex="-1"></a><span class="co">#tiene_sustantivo</span></span>
+<span id="cb822-7"><a href="cadena-de-caracteres-strings.html#cb822-7" tabindex="-1"></a>tiene_sustantivo <span class="sc">%&gt;%</span> </span>
+<span id="cb822-8"><a href="cadena-de-caracteres-strings.html#cb822-8" tabindex="-1"></a>  <span class="fu">str_extract</span>(sustantivo)</span></code></pre></div>
+<pre><code>##  [1] &quot;los de&quot;       &quot;el camión&quot;    &quot;la mejor&quot;     &quot;la cuenta&quot;    &quot;las ruinas.&quot; 
+##  [6] &quot;la hoja&quot;      &quot;la cocina.&quot;   &quot;la taza&quot;      &quot;el tanque.&quot;   &quot;el calor&quot;    
+## [11] &quot;el aire&quot;      &quot;lo en&quot;        &quot;el papel&quot;     &quot;la parte&quot;     &quot;el sofá&quot;     
+## [16] &quot;lo de&quot;        &quot;lo curó&quot;      &quot;los actores.&quot; &quot;la azul&quot;      &quot;el banco&quot;    
+## [21] &quot;una llama&quot;    &quot;la cabeza.&quot;   &quot;la ventana.&quot;  &quot;la hierba&quot;    &quot;el sol&quot;      
+## [26] &quot;el lugar&quot;     &quot;el sofá&quot;      &quot;un suéter&quot;    &quot;el gráfico&quot;   &quot;los encajes&quot; 
+## [31] &quot;el verde&quot;     &quot;la caja&quot;      &quot;la pistola&quot;   &quot;los niños&quot;    &quot;una delgada&quot; 
+## [36] &quot;lo en&quot;        &quot;la hierba&quot;    &quot;la primavera&quot; &quot;la es&quot;</code></pre>
+<div class="sourceCode" id="cb824"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb824-1"><a href="cadena-de-caracteres-strings.html#cb824-1" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;los de&quot;      &quot;el camión&quot;   &quot;la mejor&quot;    &quot;la cuenta&quot;   &quot;las ruinas.&quot;</span></span>
+<span id="cb824-2"><a href="cadena-de-caracteres-strings.html#cb824-2" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;la hoja&quot;     &quot;la cocina.&quot;  &quot;la taza&quot;     &quot;el tanque.&quot;  &quot;el calor&quot;</span></span></code></pre></div>
 <ol start="8" style="list-style-type: decimal">
 <li><strong>Ejercicios</strong>:</li>
 </ol>

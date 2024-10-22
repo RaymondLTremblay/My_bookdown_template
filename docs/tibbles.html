@@ -446,7 +446,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="21.5" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#locales"><i class="fa fa-check"></i><b>21.5</b> Locales</a></li>
 <li class="chapter" data-level="21.6" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#buscar-patrones"><i class="fa fa-check"></i><b>21.6</b> Buscar patrones</a></li>
-<li class="chapter" data-level="21.7" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#coincidencia-básica"><i class="fa fa-check"></i><b>21.7</b> Coincidencia básica</a></li>
+<li class="chapter" data-level="21.7" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#coincidencia-básica"><i class="fa fa-check"></i><b>21.7</b> Coincidencia básica</a>
+<ul>
+<li class="chapter" data-level="21.7.1" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#detectar-las-palabras-que-comienzan-con-una-letra-específica-con"><i class="fa fa-check"></i><b>21.7.1</b> Detectar las palabras que comienzan con una letra específica con “^”</a></li>
+<li class="chapter" data-level="21.7.2" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#detectar-las-palabras-que-terminan-con-una-letra-específica-con"><i class="fa fa-check"></i><b>21.7.2</b> Detectar las palabras que terminan con una letra específica con “$”</a></li>
+</ul></li>
 <li class="chapter" data-level="21.8" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#anclas"><i class="fa fa-check"></i><b>21.8</b> Anclas</a></li>
 <li class="chapter" data-level="21.9" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#clases-de-caracteres-y-alternativas"><i class="fa fa-check"></i><b>21.9</b> Clases de caracteres y alternativas</a></li>
 <li class="chapter" data-level="21.10" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#repetición"><i class="fa fa-check"></i><b>21.10</b> Repetición</a></li>
@@ -696,29 +700,29 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 100 × 5
 ##    a                   b              c      d e    
 ##    &lt;dttm&gt;              &lt;date&gt;     &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;
-##  1 2024-10-22 11:45:19 2024-11-09     1 0.559  o    
-##  2 2024-10-22 18:14:33 2024-10-22     2 0.250  o    
-##  3 2024-10-22 13:08:10 2024-10-24     3 0.0653 d    
-##  4 2024-10-23 10:54:24 2024-10-23     4 0.573  v    
-##  5 2024-10-22 18:26:39 2024-11-13     5 0.651  k    
-##  6 2024-10-23 02:38:29 2024-11-02     6 0.581  p    
-##  7 2024-10-23 07:16:34 2024-11-15     7 0.0175 x    
-##  8 2024-10-23 06:16:33 2024-11-02     8 0.0133 f    
-##  9 2024-10-23 00:31:17 2024-11-05     9 0.661  c    
-## 10 2024-10-23 06:39:29 2024-11-14    10 0.380  y    
+##  1 2024-10-22 11:59:20 2024-11-09     1 0.559  o    
+##  2 2024-10-22 18:28:34 2024-10-22     2 0.250  o    
+##  3 2024-10-22 13:22:11 2024-10-24     3 0.0653 d    
+##  4 2024-10-23 11:08:25 2024-10-23     4 0.573  v    
+##  5 2024-10-22 18:40:40 2024-11-13     5 0.651  k    
+##  6 2024-10-23 02:52:30 2024-11-02     6 0.581  p    
+##  7 2024-10-23 07:30:35 2024-11-15     7 0.0175 x    
+##  8 2024-10-23 06:30:34 2024-11-02     8 0.0133 f    
+##  9 2024-10-23 00:45:18 2024-11-05     9 0.661  c    
+## 10 2024-10-23 06:53:31 2024-11-14    10 0.380  y    
 ## # ℹ 90 more rows</code></pre>
 <div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="tibbles.html#cb424-1" tabindex="-1"></a>tb <span class="sc">%&gt;%</span></span>
 <span id="cb424-2"><a href="tibbles.html#cb424-2" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">4</span>, <span class="at">width =</span> <span class="cn">Inf</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 100 × 5
 ##   a                   b              c      d e    
 ##   &lt;dttm&gt;              &lt;date&gt;     &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;
-## 1 2024-10-22 11:45:19 2024-11-09     1 0.559  o    
-## 2 2024-10-22 18:14:33 2024-10-22     2 0.250  o    
-## 3 2024-10-22 13:08:10 2024-10-24     3 0.0653 d    
-## 4 2024-10-23 10:54:24 2024-10-23     4 0.573  v    
+## 1 2024-10-22 11:59:20 2024-11-09     1 0.559  o    
+## 2 2024-10-22 18:28:34 2024-10-22     2 0.250  o    
+## 3 2024-10-22 13:22:11 2024-10-24     3 0.0653 d    
+## 4 2024-10-23 11:08:25 2024-10-23     4 0.573  v    
 ## # ℹ 96 more rows</code></pre>
 <div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="tibbles.html#cb426-1" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">now</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;2024-10-22 10:57:37 AST&quot;</code></pre>
+<pre><code>## [1] &quot;2024-10-22 11:11:38 AST&quot;</code></pre>
 <div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="tibbles.html#cb428-1" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">today</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;2024-10-22&quot;</code></pre>
 <div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="tibbles.html#cb430-1" tabindex="-1"></a><span class="fu">head</span>(vuelos)</span></code></pre></div>

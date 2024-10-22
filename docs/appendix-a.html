@@ -446,7 +446,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="21.5" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#locales"><i class="fa fa-check"></i><b>21.5</b> Locales</a></li>
 <li class="chapter" data-level="21.6" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#buscar-patrones"><i class="fa fa-check"></i><b>21.6</b> Buscar patrones</a></li>
-<li class="chapter" data-level="21.7" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#coincidencia-básica"><i class="fa fa-check"></i><b>21.7</b> Coincidencia básica</a></li>
+<li class="chapter" data-level="21.7" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#coincidencia-básica"><i class="fa fa-check"></i><b>21.7</b> Coincidencia básica</a>
+<ul>
+<li class="chapter" data-level="21.7.1" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#detectar-las-palabras-que-comienzan-con-una-letra-específica-con"><i class="fa fa-check"></i><b>21.7.1</b> Detectar las palabras que comienzan con una letra específica con “^”</a></li>
+<li class="chapter" data-level="21.7.2" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#detectar-las-palabras-que-terminan-con-una-letra-específica-con"><i class="fa fa-check"></i><b>21.7.2</b> Detectar las palabras que terminan con una letra específica con “$”</a></li>
+</ul></li>
 <li class="chapter" data-level="21.8" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#anclas"><i class="fa fa-check"></i><b>21.8</b> Anclas</a></li>
 <li class="chapter" data-level="21.9" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#clases-de-caracteres-y-alternativas"><i class="fa fa-check"></i><b>21.9</b> Clases de caracteres y alternativas</a></li>
 <li class="chapter" data-level="21.10" data-path="cadena-de-caracteres-strings.html"><a href="cadena-de-caracteres-strings.html#repetición"><i class="fa fa-check"></i><b>21.10</b> Repetición</a></li>
@@ -629,12 +633,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2>Ejercicios con destrezar de aplicar algunas funciones de transformaciones de datos<a href="appendix-a.html#ejercicios-con-destrezar-de-aplicar-algunas-funciones-de-transformaciones-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="para-tener-los-puntos-tiene-que-enseñar-todos-los-scripts-los-resultados-y-explicar-en-palabra-los-que-encontró-dentro-de-un-documento-bien-organizado." class="section level3 unnumbered hasAnchor">
 <h3>Para tener los puntos tiene que enseñar TODOS los scripts, los resultados y explicar en palabra los que encontró dentro de un documento bien organizado.<a href="appendix-a.html#para-tener-los-puntos-tiene-que-enseñar-todos-los-scripts-los-resultados-y-explicar-en-palabra-los-que-encontró-dentro-de-un-documento-bien-organizado." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1049"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1049-1"><a href="appendix-a.html#cb1049-1" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
-<span id="cb1049-2"><a href="appendix-a.html#cb1049-2" tabindex="-1"></a><span class="fu">attach</span>(bateadores)</span>
-<span id="cb1049-3"><a href="appendix-a.html#cb1049-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1049-4"><a href="appendix-a.html#cb1049-4" tabindex="-1"></a><span class="fu">library</span>(gt)</span></code></pre></div>
+<div class="sourceCode" id="cb1051"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1051-1"><a href="appendix-a.html#cb1051-1" tabindex="-1"></a><span class="fu">library</span>(datos)</span>
+<span id="cb1051-2"><a href="appendix-a.html#cb1051-2" tabindex="-1"></a><span class="fu">attach</span>(bateadores)</span>
+<span id="cb1051-3"><a href="appendix-a.html#cb1051-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1051-4"><a href="appendix-a.html#cb1051-4" tabindex="-1"></a><span class="fu">library</span>(gt)</span></code></pre></div>
 <p>Use el data frame de “bateadores” en el paquete “datos”.</p>
-<div class="sourceCode" id="cb1050"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1050-1"><a href="appendix-a.html#cb1050-1" tabindex="-1"></a><span class="fu">gt</span>(<span class="fu">head</span>(bateadores, <span class="at">n=</span><span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1052"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1052-1"><a href="appendix-a.html#cb1052-1" tabindex="-1"></a><span class="fu">gt</span>(<span class="fu">head</span>(bateadores, <span class="at">n=</span><span class="dv">3</span>))</span></code></pre></div>
 <div id="wulxbonkpv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#wulxbonkpv table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
