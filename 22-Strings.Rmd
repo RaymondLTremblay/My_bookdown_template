@@ -30,7 +30,7 @@ library(datos)
 ```{r}
 string1 <- "El Pequeño Principe; Saint Exupery"
 string2 <- "El segundo sexo: Simone de Beauvoir"
-string3 <- "El segundo sexo '\\' Simone de Beauvoir"
+string3 <- "El segundo sexo \\ Simone de Beauvoir"
 
 
 string1
@@ -40,8 +40,8 @@ string3
 
 
 ```{r}
-comilla_doble <- '\"' # o '"'
-comilla_simple <- '\'' # o "'"
+comilla_doble <- '\"' # ó '"'
+comilla_simple <- '\'' # ó "'"
 
 comilla_doble
 comilla_simple
@@ -66,12 +66,29 @@ writeLines(x)
 ```
 
 
+
+
+
 ## Para ver las opciones de caracteres y como trabajar cadenas de caracteres use **?"'"** para ver 
 
 ```{r}
 ?"'"
 ```
 
+
+‘⁠\n⁠’	newline (aka ‘line feed’)
+‘⁠\r⁠’	carriage return
+‘⁠\t⁠’	tab
+‘⁠\b⁠’	backspace
+‘⁠\a⁠’	alert (bell)
+‘⁠\f⁠’	form feed
+‘⁠\v⁠’	vertical tab
+‘⁠\\⁠’	backslash ‘⁠\⁠’
+‘⁠\'⁠’	ASCII apostrophe ‘⁠'⁠’
+‘⁠\"⁠’	ASCII quotation mark ‘⁠"⁠’
+‘⁠\`⁠’	ASCII grave accent (backtick) ‘⁠`⁠’
+
+⁠
 ## Lista de caracteres especiales (unicodes)
 
 
@@ -82,24 +99,24 @@ Vea el siguiente enlace para los unicodes
 
 
 ```{r}
-x <- "\u00b5"
+x <- "\u00b5" # mu
 x
 
-y <- "\u00b6"
+y <- "\u00b6" # pilcrow
 y
 
-z <- "\u00A1"
+z <- "\u00A1" # ¡
 z
 
-w <- "\u01FC\u00b6"
+w <- "\u01FC\u00b6" # Ǽ¶
 w
 ```
 
 
 
-Escribir si nombre en el alfabeto cyrilico
+Escribir si nombre en el alfabeto Cyrilico
 
- -  Vea este enlace pra conocer el alfebeto cyrilico
+ -  Vea este enlace para conocer el alfabeto cyrilico
 
 
 
@@ -129,7 +146,10 @@ str_length("Yo quiero un Lamborghini")
 
 
 
+
 ### Combinar cadenas con **str_c**
+
+Nota aqui que une la primera oración con la segunda oración
 
 
 ```{r}
@@ -159,6 +179,7 @@ str_c("Es una oración con muchas letras y palabras", "Mi pelicula favorita es C
 
 ```{r} 
 x <- c("Mi pelicula favorita es Cinema Paraiso", NA)
+x
 str_c("|-", x, "-|")
 ```
   
@@ -170,12 +191,12 @@ str_c("|-", x, "-|")
   
 ```{r}
 x= c( "Piña", "Manzana", "Toronja")
-str_sub(x, 1,3)
+str_sub(x, 1,4)
 
 
 ```
   
-### Seleccionar los caracteres del ultimo caracter
+### Seleccionar los caracteres al último de la palabra
 
 ```{r}
 x= c( "Piña", "Manzana", "Toronja")
@@ -213,9 +234,9 @@ str_to_upper(x)
 
 ```{r}
 x
-str_order(x)
+str_order(x) # regresa el orden de las palabras
 
-str_sort(x)
+str_sort(x) # reorganiza las palabras en orden alfabético
 ```
 
 
@@ -255,14 +276,19 @@ str_detect(x, "ñ")
 ``` 
 
 
+### Detectar las palabras que comienzan con una letra específica con "^"
+
+
 ```{r}
-# ¿Cuántas palabras comunes empiezan con m?
+# ¿Cuántas palabras comunes empiezan con m o M?
 # str_detect(x, "^M")
 x
 sum(str_detect(x, "^m"))
 sum(str_detect(x, "^M"))
 ```
 
+
+### Detectar las palabras que terminan con una letra específica con "$"
 
 
 ```{r}
@@ -280,6 +306,7 @@ mean(str_detect(x, "[o]$"))
 
 ```{r}
 library(stringr)
+library(datos)
 palabras
 ```
 
@@ -290,7 +317,7 @@ palabras
 sin_vocales_1 <- !str_detect(palabras, "[aáeéiíoóuúúü]")
 
 
-
+sin_vocales_1
 
 # Encuentra todas las palabras consistentes solo en consonantes (no vocales)
 sin_vocales_2 <- str_detect(palabras, "^[^aáeéiíoóuúúü]+$")
@@ -308,6 +335,7 @@ Suma la cantidad de palabras que no tienen vocales?
 
 
 ```{r}
+library(tidyverse)
 df <- tibble(
   palabra = palabras, 
   i = seq_along(palabra)
@@ -324,7 +352,7 @@ df %>%
 
 
 
-Contar cuantas palabras tienen "a"
+Contar cuantas "a" hay en cada palabra
 
 ```{r}
 x= c( "Piña", "Manzana", "Toronja", "Jugo")
