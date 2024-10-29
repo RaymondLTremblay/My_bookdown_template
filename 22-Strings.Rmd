@@ -1,4 +1,4 @@
-# Cadena de Caracteres = STRINGS
+# Cadena de Carácteres = STRINGS
 
 Fecha de la ultima revisión
 ```{r echo=FALSE}
@@ -22,6 +22,8 @@ Español:
 ```{r}
 library(tidyverse)
 library(datos)
+library(stringr)
+
 ```
 
 
@@ -43,12 +45,14 @@ string3
 comilla_doble <- '\"' # ó '"'
 comilla_simple <- '\'' # ó "'"
 
+comilla_ampersand <- "&"
+
 comilla_doble
 comilla_simple
-
+comilla_ampersand
 
 ```
-
+& 
 
 ```{r}
 x <- c("\"", "\\")
@@ -64,6 +68,7 @@ writeLines(x)
 "\n"
 "\t"
 ```
+
 
 
 
@@ -155,7 +160,8 @@ Nota aqui que une la primera oración con la segunda oración
 ```{r}
 
 
-str_c("Es una oración con muchas letras y palabras", "Mi pelicula favorita es Cinema Paraiso")
+str_c("Es una oración con muchas letras y palabras", 
+      "Mi pelicula favorita es Cinema Paraiso")
 
 
 ```
@@ -167,7 +173,8 @@ Usa el argumento **sep = "xxx  "** para controlar cómo separar las oraciones
 ```{r}
 
 
-str_c("Es una oración con muchas letras y palabras", "Mi pelicula favorita es Cinema Paraiso", sep = ", ")
+str_c("Es una oración con muchas letras y palabras", 
+      "Mi pelicula favorita es Cinema Paraiso", sep = ", ")
 
 
 ```
@@ -191,8 +198,7 @@ str_c("|-", x, "-|")
   
 ```{r}
 x= c( "Piña", "Manzana", "Toronja")
-str_sub(x, 1,4)
-
+str_sub(x, 1,1)
 
 ```
   
@@ -200,7 +206,7 @@ str_sub(x, 1,4)
 
 ```{r}
 x= c( "Piña", "Manzana", "Toronja")
-str_sub(x, -2,-2)
+str_sub(x, -2,-1)
 
 
 ```
@@ -269,7 +275,7 @@ Ejemplo de como uno puede utiliza esas funciones
 
  
 ```{r}
-x= c( "Piña", "Manzana", "Toronja", "Jugo", "Monique")
+x= c( "Piña", "Manzana", "Toronja", "Jugo", "Monique", "Raymond")
 str_detect(x, "a") # detectar la a
 str_detect(x, "i") # detectar la i
 str_detect(x, "ñ")
@@ -293,7 +299,7 @@ sum(str_detect(x, "^M"))
 
 ```{r}
 # ¿Qué proporción de palabras comunes terminan con una vocal?
-mean(str_detect(x, "[aáeéiéoéuú]$"))
+mean(str_detect(palabras, "[aáeéiíoóuú]$"))
 
 # ¿Qué proporción de palabras comunes terminan con una vocal especifica?
 mean(str_detect(x, "[o]$"))

@@ -214,7 +214,7 @@ a-smaller-figure-to-the-right-with-floating-text
 haga-un-re-order-por-la-cantidad-de-personas-por-religion
 modificar-el-orden-de-los-factores
 nota-el-efecto-de-añadir-un---antes-de-edad
-cadena-de-caracteres-strings
+cadena-de-carácteres-strings
 caracteres-especiales
 para-ver-las-opciones-de-caracteres-y-como-trabajar-cadenas-de-caracteres-use-para-ver
 temas-cadenas-de-caracteres
@@ -296,8 +296,9 @@ usando-los-datos-en-el-paquete-wordcloud2-que-se-llama-demofreq
 paso-1
 subir-el-texto-en-formato-corpus
 mirar-el-documento-para-evaluar-su-contenido
-transformar-el-texto-para-reemplazar-algunos-caracteres-especiales
+transformar-el-texto-para-reemplazar-algunos-caracteres-especiales-y-remplazarlos-por-espacio-en-blanco
 el-paquete-tm-es-para-text-mining
+crear-una-matriz-de-las-palabras-de-mi-documento
 check-your-words-and-remove-unwanted-words-individually
 how-would-you-remove-from-the-data-frame-all-words-that-have-less-or-equal-to-3-counts
 ejemplo-2
@@ -309,7 +310,7 @@ un-documento-para-hacer-un-word-cloud
 convertir-su-documento-en-corpus-y-identificar-que-es-en-español
 limpieza-del-documento
 transformar-el-texto-en-un-documento-de-texto-sencillo-plain-text
-transformar-el-texto-para-reemplazar-algunos-caracteres-especiales-1
+transformar-el-texto-para-reemplazar-algunos-caracteres-especiales
 crear-una-matriz-de-las-palabras
 calcular-la-frecuencia-de-de-cada-palabra
 appendix-a

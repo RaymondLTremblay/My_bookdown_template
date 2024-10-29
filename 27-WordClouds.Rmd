@@ -24,11 +24,11 @@ Ese ejemplo es una copia de la siguiente pagina de web
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tm, SnowballC, wordcloud, RColorBrewer, wordcloud2)
 
-library(wordcloud) # Un paquete para hacer word clour
+library(wordcloud) # Un paquete para hacer word cloud
 library(wordcloud2) # paquete más sencillo para hacer word cloud
 library(RColorBrewer) # paquete para cambiar los colores 
 library(tm)  # paquete de text mining
-library(SnowballC) # paquete para trabajar en otro idioma aparte del ingles
+library(SnowballC) # paquete para trabajar en otro idioma aparte de ingles
 
 ```
 
@@ -98,7 +98,7 @@ docs <- Corpus(VectorSource(mi_texto))
 
 
 
-## Transformar el texto para reemplazar algunos caracteres especiales
+## Transformar el texto para reemplazar algunos caracteres especiales, y remplazarlos por espacio en blanco
 
 ```{r, echo=TRUE}
 toSpace <- content_transformer(function (x , pattern ) gsub(pattern, " ", x))
@@ -118,6 +118,7 @@ docs <- tm_map(docs, content_transformer(tolower))
 docs <- tm_map(docs, removeNumbers)
 
 # Remove english common stopwords
+#stopwords("english") # list of common english stopwords that are often removed
 docs <- tm_map(docs, removeWords, stopwords("english"))
 
 # Remove your own stop word
@@ -135,12 +136,13 @@ docs <- tm_map(docs, stripWhitespace)
 #stopwords() # Here are all the stopwords in the function **stopwords**
 ```
 
+## Crear una matriz de las palabras de mi documento
 
 ```{r}
-dtm <- TermDocumentMatrix(docs)
-m <- as.matrix(dtm)
-v <- sort(rowSums(m),decreasing=TRUE)
-d <- data.frame(word = names(v),freq=v)
+dtm <- TermDocumentMatrix(docs) # convirte el texto en una lista de palabras
+m <- as.matrix(dtm) # convertir en una matriz
+v <- sort(rowSums(m),decreasing=TRUE) # ordenar las palabras por frecuencia
+d <- data.frame(word = names(v),freq=v) # crea un nuevo data frame de las palabras y su frecuencia
 head(d, n=10) # las primeras 10 palabras más comunes
 ```
 
@@ -165,13 +167,13 @@ pollinators
 Del paquete **wordcloud**
 
 ```{r, echo=TRUE,  warning=FALSE}
-wordcloud(words = d$word, 
-          freq = d$freq, 
-          min.freq = 1,
-          max.words=200, 
-          random.order=FALSE, 
-          rot.per=0.35, 
-          colors=brewer.pal(8, "Dark2"))
+wordcloud(words = d$word, # las palabras
+          freq = d$freq, # la frecuencia
+          min.freq = 1, # la frecuencia mínima
+          max.words=200, # el número máximo de palabras
+          random.order=FALSE, # orden aleatorio
+          rot.per=0.35, # rotación de las palabras
+          colors=brewer.pal(8, "Dark2")) # colores
 ```
 
 
@@ -209,7 +211,7 @@ install.packages("stopwords")
 
 # Or get the development version from GitHub:
 # install.packages("devtools")
-devtools::install_github("quanteda/stopwords")
+# devtools::install_github("quanteda/stopwords")
 ```
 
 
