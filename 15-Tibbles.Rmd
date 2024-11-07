@@ -97,31 +97,79 @@ lubridate::today()
 ```
 
 
-```{r}
-head(vuelos)
 
-vuelos %>%
-  print(n = 4, width = 2)
+- To convert a data frame to a tibble use **as.tibble**
+
+- To convert a tibble to a data frame use **as.data.frame**
+
+
+***
+
+
+## Diferencias entre un tibble y un data frame.
+
+
+
+- Tibbles tiene un buen método de impresión que muestra solo las primeras 10 filas y todas las columnas que caben en la pantalla.
+- Tibbles no admite nombres de filas. Se eliminan al convertir a tibble o al crear subconjuntos:
+
+Operaciones aritmeticas en tibbles
+
+A diferencia de los data frame, los tibbles NO admiten operaciones aritméticas en todas las columnas. El resultado \ fuerza silenciosamente a un data frame. 
+
+
+
+
+```{r}
+
+tbl <- tibble(a = 1:3, b = 4:6)
+result=tbl * 2
+
+is_tibble(result)
 ```
 
 
 
 ```{r}
-class(as.data.frame(tb))
+
+result2=tbl |> mutate(c=b*2)
+
+is.tibble(result2)
+
 ```
 
 
-## Seleccion de subconjuntos de datos
+- Los tibbles también son más estrictos con $. Tibbles nunca realiza coincidencias parciales y generará una advertencia y devolverá NULL si la columna no existe:
+
 
 ```{r}
+df <- data.frame(abc = 1)
+df$a
+#> [1] 1
+
+df2 <- tibble(abc = 1)
+df2$a # nota el error
+```
+
+- Para extraer una columna de un tibble, use [[. Esto es más seguro que $ porque nunca realiza coincidencias parciales:
+
+## Selección de subconjuntos de datos
+
+```{r}
+
+
 head(vuelos$salida_programada, n=20) 
 vuelos[["salida_programada"]] |> head(n=20)
 
-#Usar esta función dentro de pipe
+#Alternativas usar esta función dentro de pipe
 
 vuelos %>% .$salida_programada |> head(n=20)
 
 vuelos %>% .[["salida_programada"]] |> head(n=20)
+
+vuelos %>% .[["atraso_salida"]] |> 
+  head(n=20)
+
 ```
 
 

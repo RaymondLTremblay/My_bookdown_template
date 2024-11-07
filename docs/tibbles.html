@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2024-10-29" />
+<meta name="date" content="2024-11-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -343,7 +343,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.2" data-path="tibbles.html"><a href="tibbles.html#crear-un-tibble"><i class="fa fa-check"></i><b>15.2</b> Crear un tibble</a></li>
 <li class="chapter" data-level="15.3" data-path="tibbles.html"><a href="tibbles.html#crear-un-tribble"><i class="fa fa-check"></i><b>15.3</b> Crear un tribble</a></li>
 <li class="chapter" data-level="15.4" data-path="tibbles.html"><a href="tibbles.html#tibble-vs.-data.frame"><i class="fa fa-check"></i><b>15.4</b> tibble vs. data.frame</a></li>
-<li class="chapter" data-level="15.5" data-path="tibbles.html"><a href="tibbles.html#seleccion-de-subconjuntos-de-datos"><i class="fa fa-check"></i><b>15.5</b> Seleccion de subconjuntos de datos</a></li>
+<li class="chapter" data-level="15.5" data-path="tibbles.html"><a href="tibbles.html#diferencias-entre-un-tibble-y-un-data-frame."><i class="fa fa-check"></i><b>15.5</b> Diferencias entre un tibble y un data frame.</a></li>
+<li class="chapter" data-level="15.6" data-path="tibbles.html"><a href="tibbles.html#selección-de-subconjuntos-de-datos"><i class="fa fa-check"></i><b>15.6</b> Selección de subconjuntos de datos</a></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="importar-datos.html"><a href="importar-datos.html"><i class="fa fa-check"></i><b>16</b> Importar datos</a>
 <ul>
@@ -559,7 +560,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="26.11.1" data-path="nubes-de-palabra-en-r.html"><a href="nubes-de-palabra-en-r.html#las-30-primeras-palabras-en-la-lista-de-stopword-del-paquete-stopwords-en-español"><i class="fa fa-check"></i><b>26.11.1</b> Las 30 primeras palabras en la lista de stopword del paquete “stopwords” en español</a></li>
 </ul></li>
-<li class="chapter" data-level="26.12" data-path="nubes-de-palabra-en-r.html"><a href="nubes-de-palabra-en-r.html#un-documento-para-hacer-un-word-cloud"><i class="fa fa-check"></i><b>26.12</b> Un documento para hacer un word cloud</a></li>
+<li class="chapter" data-level="26.12" data-path="nubes-de-palabra-en-r.html"><a href="nubes-de-palabra-en-r.html#un-documento-para-hacer-un-word-cloud-la-intelegencia-artifical"><i class="fa fa-check"></i><b>26.12</b> Un documento para hacer un word cloud “La intelegencia artifical”</a></li>
 <li class="chapter" data-level="26.13" data-path="nubes-de-palabra-en-r.html"><a href="nubes-de-palabra-en-r.html#convertir-su-documento-en-corpus-y-identificar-que-es-en-español"><i class="fa fa-check"></i><b>26.13</b> Convertir su documento en <strong>Corpus</strong> y identificar que es en español</a></li>
 <li class="chapter" data-level="26.14" data-path="nubes-de-palabra-en-r.html"><a href="nubes-de-palabra-en-r.html#limpieza-del-documento"><i class="fa fa-check"></i><b>26.14</b> Limpieza del documento</a></li>
 <li class="chapter" data-level="26.15" data-path="nubes-de-palabra-en-r.html"><a href="nubes-de-palabra-en-r.html#transformar-el-texto-en-un-documento-de-texto-sencillo-plain-text"><i class="fa fa-check"></i><b>26.15</b> Transformar el texto en un documento de texto sencillo (Plain Text)</a></li>
@@ -624,7 +625,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="tibbles" class="section level1 hasAnchor" number="15">
 <h1><span class="header-section-number">Capítulo15</span> Tibbles<a href="tibbles.html#tibbles" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Fecha de la ultima revisión</p>
-<pre><code>## [1] &quot;2024-10-29&quot;</code></pre>
+<pre><code>## [1] &quot;2024-11-07&quot;</code></pre>
 <hr />
 <p>El tema proviene de los siguientes sitios.</p>
 <p>English:
@@ -701,73 +702,88 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 100 × 5
 ##    a                   b              c      d e    
 ##    &lt;dttm&gt;              &lt;date&gt;     &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;
-##  1 2024-10-29 14:40:58 2024-11-16     1 0.559  o    
-##  2 2024-10-29 21:10:12 2024-10-29     2 0.250  o    
-##  3 2024-10-29 16:03:49 2024-10-31     3 0.0653 d    
-##  4 2024-10-30 13:50:03 2024-10-30     4 0.573  v    
-##  5 2024-10-29 21:22:18 2024-11-20     5 0.651  k    
-##  6 2024-10-30 05:34:08 2024-11-09     6 0.581  p    
-##  7 2024-10-30 10:12:13 2024-11-22     7 0.0175 x    
-##  8 2024-10-30 09:12:12 2024-11-09     8 0.0133 f    
-##  9 2024-10-30 03:26:56 2024-11-12     9 0.661  c    
-## 10 2024-10-30 09:35:09 2024-11-21    10 0.380  y    
+##  1 2024-11-07 14:26:53 2024-11-25     1 0.559  o    
+##  2 2024-11-07 20:56:07 2024-11-07     2 0.250  o    
+##  3 2024-11-07 15:49:44 2024-11-09     3 0.0653 d    
+##  4 2024-11-08 13:35:58 2024-11-08     4 0.573  v    
+##  5 2024-11-07 21:08:13 2024-11-29     5 0.651  k    
+##  6 2024-11-08 05:20:03 2024-11-18     6 0.581  p    
+##  7 2024-11-08 09:58:08 2024-12-01     7 0.0175 x    
+##  8 2024-11-08 08:58:07 2024-11-18     8 0.0133 f    
+##  9 2024-11-08 03:12:51 2024-11-21     9 0.661  c    
+## 10 2024-11-08 09:21:04 2024-11-30    10 0.380  y    
 ## # ℹ 90 more rows</code></pre>
 <div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="tibbles.html#cb424-1" tabindex="-1"></a>tb <span class="sc">%&gt;%</span></span>
 <span id="cb424-2"><a href="tibbles.html#cb424-2" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">4</span>, <span class="at">width =</span> <span class="cn">Inf</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 100 × 5
 ##   a                   b              c      d e    
 ##   &lt;dttm&gt;              &lt;date&gt;     &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;
-## 1 2024-10-29 14:40:58 2024-11-16     1 0.559  o    
-## 2 2024-10-29 21:10:12 2024-10-29     2 0.250  o    
-## 3 2024-10-29 16:03:49 2024-10-31     3 0.0653 d    
-## 4 2024-10-30 13:50:03 2024-10-30     4 0.573  v    
+## 1 2024-11-07 14:26:53 2024-11-25     1 0.559  o    
+## 2 2024-11-07 20:56:07 2024-11-07     2 0.250  o    
+## 3 2024-11-07 15:49:44 2024-11-09     3 0.0653 d    
+## 4 2024-11-08 13:35:58 2024-11-08     4 0.573  v    
 ## # ℹ 96 more rows</code></pre>
 <div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="tibbles.html#cb426-1" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">now</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;2024-10-29 13:53:16 AST&quot;</code></pre>
+<pre><code>## [1] &quot;2024-11-07 13:39:11 AST&quot;</code></pre>
 <div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="tibbles.html#cb428-1" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">today</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;2024-10-29&quot;</code></pre>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="tibbles.html#cb430-1" tabindex="-1"></a><span class="fu">head</span>(vuelos)</span></code></pre></div>
-<pre><code>## # A tibble: 6 × 19
-##    anio   mes   dia horario_salida salida_programada atraso_salida
-##   &lt;int&gt; &lt;int&gt; &lt;int&gt;          &lt;int&gt;             &lt;int&gt;         &lt;dbl&gt;
-## 1  2013     1     1            517               515             2
-## 2  2013     1     1            533               529             4
-## 3  2013     1     1            542               540             2
-## 4  2013     1     1            544               545            -1
-## 5  2013     1     1            554               600            -6
-## 6  2013     1     1            554               558            -4
-## # ℹ 13 more variables: horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;,
-## #   atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;,
-## #   origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;,
-## #   hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="tibbles.html#cb432-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span></span>
-<span id="cb432-2"><a href="tibbles.html#cb432-2" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">4</span>, <span class="at">width =</span> <span class="dv">2</span>)</span></code></pre></div>
-<pre><code>## # A
-## #   tibble:
-## #   336,776
-## #   ×
-## #   19
-## # ℹ 336,772 more rows
-## # ℹ 19 more variables: anio &lt;int&gt;, mes &lt;int&gt;, dia &lt;int&gt;, horario_salida &lt;int&gt;, salida_programada &lt;int&gt;, atraso_salida &lt;dbl&gt;, horario_llegada &lt;int&gt;, llegada_programada &lt;int&gt;, atraso_llegada &lt;dbl&gt;, aerolinea &lt;chr&gt;, vuelo &lt;int&gt;, codigo_cola &lt;chr&gt;, origen &lt;chr&gt;, destino &lt;chr&gt;, tiempo_vuelo &lt;dbl&gt;, distancia &lt;dbl&gt;, hora &lt;dbl&gt;, minuto &lt;dbl&gt;, fecha_hora &lt;dttm&gt;</code></pre>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="tibbles.html#cb434-1" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">as.data.frame</span>(tb))</span></code></pre></div>
-<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<pre><code>## [1] &quot;2024-11-07&quot;</code></pre>
+<ul>
+<li><p>To convert a data frame to a tibble use <strong>as.tibble</strong></p></li>
+<li><p>To convert a tibble to a data frame use <strong>as.data.frame</strong></p></li>
+</ul>
+<hr />
 </div>
-<div id="seleccion-de-subconjuntos-de-datos" class="section level2 hasAnchor" number="15.5">
-<h2><span class="header-section-number">15.5</span> Seleccion de subconjuntos de datos<a href="tibbles.html#seleccion-de-subconjuntos-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="tibbles.html#cb436-1" tabindex="-1"></a><span class="fu">head</span>(vuelos<span class="sc">$</span>salida_programada, <span class="at">n=</span><span class="dv">20</span>) </span></code></pre></div>
+<div id="diferencias-entre-un-tibble-y-un-data-frame." class="section level2 hasAnchor" number="15.5">
+<h2><span class="header-section-number">15.5</span> Diferencias entre un tibble y un data frame.<a href="tibbles.html#diferencias-entre-un-tibble-y-un-data-frame." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Tibbles tiene un buen método de impresión que muestra solo las primeras 10 filas y todas las columnas que caben en la pantalla.</li>
+<li>Tibbles no admite nombres de filas. Se eliminan al convertir a tibble o al crear subconjuntos:</li>
+</ul>
+<p>Operaciones aritmeticas en tibbles</p>
+<p>A diferencia de los data frame, los tibbles NO admiten operaciones aritméticas en todas las columnas. El resultado  fuerza silenciosamente a un data frame.</p>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="tibbles.html#cb430-1" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">b =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb430-2"><a href="tibbles.html#cb430-2" tabindex="-1"></a>result<span class="ot">=</span>tbl <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb430-3"><a href="tibbles.html#cb430-3" tabindex="-1"></a></span>
+<span id="cb430-4"><a href="tibbles.html#cb430-4" tabindex="-1"></a><span class="fu">is_tibble</span>(result)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="tibbles.html#cb432-1" tabindex="-1"></a>result2<span class="ot">=</span>tbl <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">c=</span>b<span class="sc">*</span><span class="dv">2</span>)</span>
+<span id="cb432-2"><a href="tibbles.html#cb432-2" tabindex="-1"></a></span>
+<span id="cb432-3"><a href="tibbles.html#cb432-3" tabindex="-1"></a><span class="fu">is.tibble</span>(result2)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<ul>
+<li>Los tibbles también son más estrictos con $. Tibbles nunca realiza coincidencias parciales y generará una advertencia y devolverá NULL si la columna no existe:</li>
+</ul>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="tibbles.html#cb434-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">abc =</span> <span class="dv">1</span>)</span>
+<span id="cb434-2"><a href="tibbles.html#cb434-2" tabindex="-1"></a>df<span class="sc">$</span>a</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="tibbles.html#cb436-1" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
+<span id="cb436-2"><a href="tibbles.html#cb436-2" tabindex="-1"></a></span>
+<span id="cb436-3"><a href="tibbles.html#cb436-3" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">abc =</span> <span class="dv">1</span>)</span>
+<span id="cb436-4"><a href="tibbles.html#cb436-4" tabindex="-1"></a>df2<span class="sc">$</span>a <span class="co"># nota el error</span></span></code></pre></div>
+<pre><code>## NULL</code></pre>
+<ul>
+<li>Para extraer una columna de un tibble, use [[. Esto es más seguro que $ porque nunca realiza coincidencias parciales:</li>
+</ul>
+</div>
+<div id="selección-de-subconjuntos-de-datos" class="section level2 hasAnchor" number="15.6">
+<h2><span class="header-section-number">15.6</span> Selección de subconjuntos de datos<a href="tibbles.html#selección-de-subconjuntos-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="tibbles.html#cb438-1" tabindex="-1"></a><span class="fu">head</span>(vuelos<span class="sc">$</span>salida_programada, <span class="at">n=</span><span class="dv">20</span>) </span></code></pre></div>
 <pre><code>##  [1] 515 529 540 545 600 558 600 600 600 600 600 600 600 600 600 559 600 600 600
 ## [20] 600</code></pre>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="tibbles.html#cb438-1" tabindex="-1"></a>vuelos[[<span class="st">&quot;salida_programada&quot;</span>]] <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="tibbles.html#cb440-1" tabindex="-1"></a>vuelos[[<span class="st">&quot;salida_programada&quot;</span>]] <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">20</span>)</span></code></pre></div>
 <pre><code>##  [1] 515 529 540 545 600 558 600 600 600 600 600 600 600 600 600 559 600 600 600
 ## [20] 600</code></pre>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="tibbles.html#cb440-1" tabindex="-1"></a><span class="co">#Usar esta función dentro de pipe</span></span>
-<span id="cb440-2"><a href="tibbles.html#cb440-2" tabindex="-1"></a></span>
-<span id="cb440-3"><a href="tibbles.html#cb440-3" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> .<span class="sc">$</span>salida_programada <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="tibbles.html#cb442-1" tabindex="-1"></a><span class="co">#Alternativas usar esta función dentro de pipe</span></span>
+<span id="cb442-2"><a href="tibbles.html#cb442-2" tabindex="-1"></a></span>
+<span id="cb442-3"><a href="tibbles.html#cb442-3" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> .<span class="sc">$</span>salida_programada <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">20</span>)</span></code></pre></div>
 <pre><code>##  [1] 515 529 540 545 600 558 600 600 600 600 600 600 600 600 600 559 600 600 600
 ## [20] 600</code></pre>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="tibbles.html#cb442-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> .[[<span class="st">&quot;salida_programada&quot;</span>]] <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="tibbles.html#cb444-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> .[[<span class="st">&quot;salida_programada&quot;</span>]] <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">20</span>)</span></code></pre></div>
 <pre><code>##  [1] 515 529 540 545 600 558 600 600 600 600 600 600 600 600 600 559 600 600 600
 ## [20] 600</code></pre>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="tibbles.html#cb446-1" tabindex="-1"></a>vuelos <span class="sc">%&gt;%</span> .[[<span class="st">&quot;atraso_salida&quot;</span>]] <span class="sc">|&gt;</span> </span>
+<span id="cb446-2"><a href="tibbles.html#cb446-2" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n=</span><span class="dv">20</span>)</span></code></pre></div>
+<pre><code>##  [1]  2  4  2 -1 -6 -4 -5 -3 -3 -2 -2 -2 -2 -2 -1  0 -1  0  0  1</code></pre>
 <ol style="list-style-type: decimal">
 <li><strong>Ejercicios</strong>:</li>
 </ol>

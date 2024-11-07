@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2024-10-29" />
+<meta name="date" content="2024-11-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -343,7 +343,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.2" data-path="tibbles.html"><a href="tibbles.html#crear-un-tibble"><i class="fa fa-check"></i><b>15.2</b> Crear un tibble</a></li>
 <li class="chapter" data-level="15.3" data-path="tibbles.html"><a href="tibbles.html#crear-un-tribble"><i class="fa fa-check"></i><b>15.3</b> Crear un tribble</a></li>
 <li class="chapter" data-level="15.4" data-path="tibbles.html"><a href="tibbles.html#tibble-vs.-data.frame"><i class="fa fa-check"></i><b>15.4</b> tibble vs. data.frame</a></li>
-<li class="chapter" data-level="15.5" data-path="tibbles.html"><a href="tibbles.html#seleccion-de-subconjuntos-de-datos"><i class="fa fa-check"></i><b>15.5</b> Seleccion de subconjuntos de datos</a></li>
+<li class="chapter" data-level="15.5" data-path="tibbles.html"><a href="tibbles.html#diferencias-entre-un-tibble-y-un-data-frame."><i class="fa fa-check"></i><b>15.5</b> Diferencias entre un tibble y un data frame.</a></li>
+<li class="chapter" data-level="15.6" data-path="tibbles.html"><a href="tibbles.html#selección-de-subconjuntos-de-datos"><i class="fa fa-check"></i><b>15.6</b> Selección de subconjuntos de datos</a></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="importar-datos.html"><a href="importar-datos.html"><i class="fa fa-check"></i><b>16</b> Importar datos</a>
 <ul>
@@ -559,7 +560,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="26.11.1" data-path="nubes-de-palabra-en-r.html"><a href="nubes-de-palabra-en-r.html#las-30-primeras-palabras-en-la-lista-de-stopword-del-paquete-stopwords-en-español"><i class="fa fa-check"></i><b>26.11.1</b> Las 30 primeras palabras en la lista de stopword del paquete “stopwords” en español</a></li>
 </ul></li>
-<li class="chapter" data-level="26.12" data-path="nubes-de-palabra-en-r.html"><a href="nubes-de-palabra-en-r.html#un-documento-para-hacer-un-word-cloud"><i class="fa fa-check"></i><b>26.12</b> Un documento para hacer un word cloud</a></li>
+<li class="chapter" data-level="26.12" data-path="nubes-de-palabra-en-r.html"><a href="nubes-de-palabra-en-r.html#un-documento-para-hacer-un-word-cloud-la-intelegencia-artifical"><i class="fa fa-check"></i><b>26.12</b> Un documento para hacer un word cloud “La intelegencia artifical”</a></li>
 <li class="chapter" data-level="26.13" data-path="nubes-de-palabra-en-r.html"><a href="nubes-de-palabra-en-r.html#convertir-su-documento-en-corpus-y-identificar-que-es-en-español"><i class="fa fa-check"></i><b>26.13</b> Convertir su documento en <strong>Corpus</strong> y identificar que es en español</a></li>
 <li class="chapter" data-level="26.14" data-path="nubes-de-palabra-en-r.html"><a href="nubes-de-palabra-en-r.html#limpieza-del-documento"><i class="fa fa-check"></i><b>26.14</b> Limpieza del documento</a></li>
 <li class="chapter" data-level="26.15" data-path="nubes-de-palabra-en-r.html"><a href="nubes-de-palabra-en-r.html#transformar-el-texto-en-un-documento-de-texto-sencillo-plain-text"><i class="fa fa-check"></i><b>26.15</b> Transformar el texto en un documento de texto sencillo (Plain Text)</a></li>
@@ -624,7 +625,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="datos-ordenados-1" class="section level1 hasAnchor" number="19">
 <h1><span class="header-section-number">Capítulo19</span> Datos Ordenados<a href="datos-ordenados-1.html#datos-ordenados-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Fecha de la ultima revisión</p>
-<pre><code>## [1] &quot;2024-10-29&quot;</code></pre>
+<pre><code>## [1] &quot;2024-11-07&quot;</code></pre>
 <hr />
 <p>El tema proviene de los siguientes sitios.</p>
 <p>English:
@@ -637,9 +638,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="el-paquete-tidyr-1" class="section level3 hasAnchor" number="19.1.1">
 <h3><span class="header-section-number">19.1.1</span> El paquete tidyr<a href="datos-ordenados-1.html#el-paquete-tidyr-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ver vignettes</p>
-<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb654-1"><a href="datos-ordenados-1.html#cb654-1" tabindex="-1"></a> <span class="fu">library</span>(tidyverse)</span>
-<span id="cb654-2"><a href="datos-ordenados-1.html#cb654-2" tabindex="-1"></a><span class="fu">library</span>(datos)</span></code></pre></div>
-<div class="sourceCode" id="cb655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb655-1"><a href="datos-ordenados-1.html#cb655-1" tabindex="-1"></a>tabla1</span></code></pre></div>
+<div class="sourceCode" id="cb658"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb658-1"><a href="datos-ordenados-1.html#cb658-1" tabindex="-1"></a> <span class="fu">library</span>(tidyverse)</span>
+<span id="cb658-2"><a href="datos-ordenados-1.html#cb658-2" tabindex="-1"></a><span class="fu">library</span>(datos)</span></code></pre></div>
+<div class="sourceCode" id="cb659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb659-1"><a href="datos-ordenados-1.html#cb659-1" tabindex="-1"></a>tabla1</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 4
 ##   pais        anio  casos  poblacion
 ##   &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
@@ -649,7 +650,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 4 Brasil      2000  80488  174504898
 ## 5 China       1999 212258 1272915272
 ## 6 China       2000 213766 1280428583</code></pre>
-<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb657-1"><a href="datos-ordenados-1.html#cb657-1" tabindex="-1"></a>tabla2</span></code></pre></div>
+<div class="sourceCode" id="cb661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb661-1"><a href="datos-ordenados-1.html#cb661-1" tabindex="-1"></a>tabla2</span></code></pre></div>
 <pre><code>## # A tibble: 12 × 4
 ##    pais        anio tipo          cuenta
 ##    &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;
@@ -665,7 +666,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 10 China       1999 población 1272915272
 ## 11 China       2000 casos         213766
 ## 12 China       2000 población 1280428583</code></pre>
-<div class="sourceCode" id="cb659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb659-1"><a href="datos-ordenados-1.html#cb659-1" tabindex="-1"></a>tabla3</span></code></pre></div>
+<div class="sourceCode" id="cb663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb663-1"><a href="datos-ordenados-1.html#cb663-1" tabindex="-1"></a>tabla3</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
 ##   pais        anio tasa             
 ##   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;            
@@ -675,14 +676,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 4 Brasil      2000 80488/174504898  
 ## 5 China       1999 212258/1272915272
 ## 6 China       2000 213766/1280428583</code></pre>
-<div class="sourceCode" id="cb661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb661-1"><a href="datos-ordenados-1.html#cb661-1" tabindex="-1"></a>tabla4a</span></code></pre></div>
+<div class="sourceCode" id="cb665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb665-1"><a href="datos-ordenados-1.html#cb665-1" tabindex="-1"></a>tabla4a</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   pais       `1999` `2000`
 ##   &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;
 ## 1 Afganistán    745   2666
 ## 2 Brasil      37737  80488
 ## 3 China      212258 213766</code></pre>
-<div class="sourceCode" id="cb663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb663-1"><a href="datos-ordenados-1.html#cb663-1" tabindex="-1"></a>tabla4b</span></code></pre></div>
+<div class="sourceCode" id="cb667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb667-1"><a href="datos-ordenados-1.html#cb667-1" tabindex="-1"></a>tabla4b</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   pais           `1999`     `2000`
 ##   &lt;chr&gt;           &lt;dbl&gt;      &lt;dbl&gt;

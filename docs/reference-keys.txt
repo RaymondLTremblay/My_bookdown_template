@@ -1,8 +1,8 @@
 eq:reaction
 eq:promedio
-fig:unnamed-chunk-359
-fig:ggplot
 fig:unnamed-chunk-360
+fig:ggplot
+fig:unnamed-chunk-361
 fig:pressure
 ciencia-de-datos-con-r
 horario-de-clase
@@ -159,7 +159,8 @@ temas-el-paquete-tibble
 crear-un-tibble
 crear-un-tribble
 tibble-vs.-data.frame
-seleccion-de-subconjuntos-de-datos
+diferencias-entre-un-tibble-y-un-data-frame.
+selección-de-subconjuntos-de-datos
 importar-datos
 datos-importado-de-la-web.
 usar-datos-que-provienen-de-una-base-de-datos-del-web.
@@ -306,7 +307,7 @@ como-remover-palabras-de-otra-idioma
 vea-este-enlace-para-los-stopwords-de-muchos-idiomas
 en-español
 las-30-primeras-palabras-en-la-lista-de-stopword-del-paquete-stopwords-en-español
-un-documento-para-hacer-un-word-cloud
+un-documento-para-hacer-un-word-cloud-la-intelegencia-artifical
 convertir-su-documento-en-corpus-y-identificar-que-es-en-español
 limpieza-del-documento
 transformar-el-texto-en-un-documento-de-texto-sencillo-plain-text
